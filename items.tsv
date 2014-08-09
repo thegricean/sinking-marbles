@@ -1,9 +1,39 @@
-object_low	object_mid	object_high	cause	effect
-pencils	crayons	ice cubes	left __ in hot sun	melted
-balls	cakes	gum	threw __ against wall	stuck to wall
-logs	books	matches	threw __ into a fire	burnt
-backpacks	hats	paper	left __ on a table on a windy day	blew away
-		notebooks	left __ out in the rain	got wet
-		helium balloons	let go of __	floated away
-shoes	shirts	books	used __ as dog toys	ripped
-bike locks	laptops	sunglasses	ran __ over with car	broke
+object_low,object_mid,object_high,cause,effect
+pencils,crayons,ice cubes,left __ in hot sun,melted
+balls,cakes,gum,threw __ against wall,stuck to wall
+logs,books,matches,threw __ into a fire,burnt
+backpacks,hats,paper,left __ on a table on a windy day,blew away
+cd-players,computers,flashlights,pressed the “on” button on __,lit up
+houses,old cars,new cars,left the lights on in __,beeped
+shoes,shirts,books,used __ as dog toys,ripped
+laptops,sunglasses,eggs,ran __ over with car,broke
+soda cans,pinecones,banana peels,put __ in compost pile for a month,decomposed
+candle,balloon,fireworks,ignited __,exploded
+carrots,oreos,sugar cubes,put __ in a cup of water,dissolved
+beads,sequins,stickers,glued __ to a piece of paper,stuck
+bicyclists,bus drivers,taxi drivers,cut off __,honked
+lawyers,comedians,kids,told a joke to __,laughed
+cats,birds,dogs,left food out for __,ate the food
+phones,bike lights,laptops,left __ on (and unplugged) all day,ran out of batteries
+birthday cards,love notes,novels,wrote __,had the letter E on them
+notebooks,pancakes,coins,tossed __,landed flat
+quarters,bowling balls,anchors,threw __ into a pool,sank
+clovers,peas,jalapeno peppers,saw __,were green
+white tablecloths,white shirts,white carpets,spilled red nail polish on __,got stained
+pots,coffee mugs,measuring cups,poured a gallon of water into __,overflowed
+shelves,block towers,card towers,punched __,fell down
+phone screens,diamonds,mirrors,placed __ in the sun,reflected the sunlight
+poems,songs,limericks,wrote __,rhymed
+bicycle,motorcycle,car,pressed the breaks on __,stopped
+toy car,shopping cart,wheelchair,pushed __,rolled
+bottles of hand soap,chocolate bars,berries,put __ in the freezer,froze
+webcams,phones,cameras,took a picture with __,flashed
+eggs,balloons,bubbles,poked __ with a pin,popped
+CD,balls of tin foil,eggs,heated up __ in a microwave,exploded
+,,pots of water,heated up __,boiled
+,,seeds,planted __,grew
+,,phones,called __,rang
+,,dog toy,squeezed __,squeeked
+,,balloons,blew up __,expanded
+,,notebooks,left __ out in the rain,got wet
+,,helium balloons,let go of __,floated away
