@@ -311,7 +311,7 @@ function init() {
       "effect":"popped"
     },
     {
-      "object_low":"CD",
+      "object_low":"CDs",
       "object_mid":"balls of tin foil",
       "object_high":"eggs",
       "cause":"heated up __ in a microwave",
