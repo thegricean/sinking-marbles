@@ -117,7 +117,7 @@ function init() {
     {
       "object_low":"baseballs",
       "object_mid":"cakes",
-      "object_high":"gum",
+      "object_high":"pieces of gum",
       "cause":"threw __ against a wall",
       "effect":"stuck to the wall"
     },
@@ -224,7 +224,7 @@ function init() {
       "object_mid":"love notes",
       "object_high":"novels",
       "cause":"wrote __",
-      "effect":"had the letter E in them"
+      "effect":"had the letter Z in them"
     },
     {
       "object_low":"notebooks",
@@ -781,6 +781,7 @@ function init() {
 
   exp.nQs = utils.get_exp_length(); //this does not work if there are stacks of stims (but does work for an experiment with this structure)
                     //relies on structure and slides being defined
+  $(".nQs").html(exp.nQs);
 
   $('.slide').hide(); //hide everything
 
