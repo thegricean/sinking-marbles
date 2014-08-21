@@ -22,6 +22,7 @@ function make_slides(f) {
       $(".err").hide();
     },
     present_handle : function(stim) {
+    	this.trial_start = Date.now();
       this.init_sliders();
       exp.sliderPost = null;
       $("#number_guess").html("?");
@@ -63,7 +64,8 @@ function make_slides(f) {
         "gender" : this.stim.gender,
         "sentence" : this.stim.sentence,
         "question" : this.stim.question,
-        "response" : exp.sliderPost
+        "response" : exp.sliderPost,
+        "rt" : Date.now() - this.trial_start
       });
     }
   });
@@ -94,7 +96,7 @@ function make_slides(f) {
           "system" : exp.system,
           "condition" : exp.condition,
           "subject_information" : exp.subj_data,
-          "time" : (Date.now() - exp.startT)/1000
+          "time_in_minutes" : (Date.now() - exp.startT)/60000
       };
       setTimeout(function() {turk.submit(exp.data);}, 1000);
     }
