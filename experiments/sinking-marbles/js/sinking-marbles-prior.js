@@ -40,10 +40,10 @@ function make_slides(f) {
                       " " + stim.effect + '."';
       $(".other_name").html(stim.other_name);
       var N = stim.N;
-      $("#none").html("0"  + " " + stim.object);
-      $(".N").html(N.toString() + " " + stim.object);
-      $("#lower_half").html("1 to " + Math.floor(N/2).toString() + " " + stim.object);
-      $("#upper_half").html(Math.ceil((N+1)/2).toString() + " to " + N.toString() + " " + stim.object);
+      $("#none").html("0"  + " " + stim.object + " " + stim.effect);
+      $(".N").html(N.toString() + " " + stim.object + " " + stim.effect);
+      $("#lower_half").html("1 to " + Math.floor(N/2).toString() + " " + stim.object + " " + stim.effect);
+      $("#upper_half").html(Math.ceil((N+1)/2).toString() + " to " + (N - 1).toString() + " " + stim.object + " " + stim.effect);
       $("#cause").html(cause);
       $("#effect_question").html(effect_question);
       $("#utterance").html(utterance);
