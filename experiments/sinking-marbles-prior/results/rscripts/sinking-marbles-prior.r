@@ -1,6 +1,7 @@
 library(ggplot2)
-source("summarySE.r")
-r = read.table("mturk/sinking-marbles-prior.tsv", sep="\t", header=T)
+setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/sinking-marbles-prior/results/")
+source("rscripts/summarySE.r")
+r = read.table("data/sinking-marbles-prior.tsv", sep="\t", header=T)
 r = r[,c("workerid", "rt", "effect", "cause", "object_level", "response", "object")]
 
 r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "object_low"))
@@ -17,7 +18,7 @@ ggplot(s, aes(x=effect, y=response)) +
     ,plot.background = element_blank()
     ,panel.grid.minor = element_blank()
   )
-ggsave(file=paste(c(graph_title, ".png"), collapse=""), width=15, height=6, title=graph_title)
+ggsave(file=paste(c("graphs/",graph_title, ".png"), collapse=""), width=15, height=6, title=graph_title)
 
 graph_title = "sinking-marbles-prior-with-labels"
 ggplot(s, aes(x=effect, y=response)) +
@@ -32,8 +33,32 @@ ggplot(s, aes(x=effect, y=response)) +
     ,plot.background = element_blank()
     ,panel.grid.minor = element_blank()
   )
-ggsave(file=paste(c(graph_title, ".png"), collapse=""), width=15, height=6, title=graph_title)
+ggsave(file=paste(c("graphs/",graph_title, ".png"), collapse=""), width=15, height=6, title=graph_title)
 
+s$y = 0
+s$yobject = as.numeric(ifelse(s$object_level == "object_high",0.25,ifelse(s$object_level =="object_mid",0,-0.25)))
+ggplot(s, aes(x=response, y=yobject)) +
+  geom_point(aes(colour=factor(object_level)))  +
+  geom_text(aes(label=effect,y=yobject-0.05),angle=45) +
+  theme_bw(18) +
+  theme(
+    axis.text.x = element_text(size=10, angle=-45, hjust=0)
+    ,plot.background = element_blank()
+    ,panel.grid.minor = element_blank()
+  )
+graph_title = "sinking-marbles-prior-distribution"
+ggsave(file=paste(c("graphs/",graph_title, ".png"), collapse=""), width=15, height=6, title=graph_title)
+
+ggplot(s, aes(x=response, fill=factor(object_level))) +
+  geom_histogram(position="dodge")  +
+  theme_bw(18) +
+  theme(
+    axis.text.x = element_text(size=10, angle=-45, hjust=0)
+    ,plot.background = element_blank()
+    ,panel.grid.minor = element_blank()
+  )
+graph_title = "sinking-marbles-prior-histogram"
+ggsave(file=paste(c("graphs/",graph_title, ".png"), collapse=""), width=15, height=6, title=graph_title)
 
 # ggplot(s, aes(x=sentence, y=response)) +
 #   geom_bar(aes(fill=factor(sentence)), position=position_dodge(0.9), stat="identity") +
