@@ -33,10 +33,10 @@ function make_slides(f) {
       } else {
         var cause = stim.name + " " + stim.beginning_cause + " <span class='highlight_numbers'>" + stim.N.toString() + "</span> " + stim.object + ".";
       }
-      var effect_question = "How likely do you think it is that each of the amounts below is how many " + stim.object + " " + stim.effect + "?";
+      var effect_question = "How many " + stim.object + " do you think " + stim.effect + "?";
       var utterance = '"' + stim.quantifier + " of the " + stim.object +
                       //can comment out following line to make it less wordy
-                      (" that " + stim.name + " " + stim.beginning_cause + (stim.end_cause ? " " + stim.end_cause : "")).replace(/ a /g, " the ").replace(/ an /g, " the ") + 
+                      //(" that " + stim.name + " " + stim.beginning_cause + (stim.end_cause ? " " + stim.end_cause : "")).replace(/ a /g, " the ").replace(/ an /g, " the ") + 
                       " " + stim.effect + '."';
       $(".other_name").html(stim.other_name);
       var N = stim.N;
@@ -49,7 +49,7 @@ function make_slides(f) {
       $("#utterance").html(utterance);
       this.stim.actual_cause = cause;
       this.stim.actual_effect_question = effect_question;
-      this.stim.actual_utterance = utterance;
+      this.stim.actual_utterance = utterance;      
     },
     button : function() {
       var ok_to_go_on = true;
@@ -90,13 +90,15 @@ function make_slides(f) {
           "object": this.stim.object,
           "object_level": this.stim.object_level,
           "cause": this.stim.cause,
+          "num_objects": this.stim.N,
           "effect": this.stim.effect,
           "name": this.stim.name,
           "gender" : this.stim.gender,
           "other_gender" : this.stim.other_gender,
           "actual_cause": this.stim.actual_cause,
           "actual_effect_question": this.stim.actual_effect_question,
-          "actual_sentence" : this.stim.actual_sentence,
+          "actual_utterance": this.stim.actual_utterance,          
+          "quantifier" : this.stim.quantifier,
           "response" : exp.sliderPost[slider_id],
           "slider_id" : slider_id,
           "rt" : Date.now() - this.trial_start
@@ -760,10 +762,10 @@ function init() {
   ])
 
   var quantifiers = [
-    "None", "None", "None", "None",
+    "None",
     "Some", "Some",
-    "Most", "Most",
-    "All", "All"
+    "Most",
+    "All",
   ];
   var Ns = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
