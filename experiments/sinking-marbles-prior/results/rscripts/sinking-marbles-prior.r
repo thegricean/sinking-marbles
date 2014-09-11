@@ -6,6 +6,8 @@ r = r[,c("workerid", "rt", "effect", "cause", "object_level", "response", "objec
 
 r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "object_low"))
 s = summarySE(r, measurevar="response", groupvars=c("effect", "object_level", "object"))
+priors = s
+save(priors, file="data/priors.RData")
 graph_title = "sinking-marbles-prior"
 ggplot(s, aes(x=effect, y=response)) +
   geom_point(aes(colour=factor(object_level)), stat="identity") +
