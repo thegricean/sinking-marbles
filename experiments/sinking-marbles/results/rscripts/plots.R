@@ -17,9 +17,9 @@ ggplot(r, aes(x=Prior, y=response, color=quantifier)) +
 ggsave(file="graphs/raw_responses.pdf",width=12,height=8)
 
 # normalized responses
-agrr = aggregate(normresponse ~ Prior + Proportion + quantifier,data=r,FUN=mean)
-agrr$CILow = aggregate(normresponse ~ Prior + Proportion + quantifier,data=r, FUN=ci.low)$normresponse
-agrr$CIHigh = aggregate(normresponse ~ Prior + Proportion + quantifier,data=r,FUN=ci.high)$normresponse
+agrr = aggregate(normresponse ~ Prior + Proportion + quantifier + Combination,data=r,FUN=mean)
+agrr$CILow = aggregate(normresponse ~ Prior + Proportion + quantifier + Combination,data=r, FUN=ci.low)$normresponse
+agrr$CIHigh = aggregate(normresponse ~ Prior + Proportion + quantifier + Combination,data=r,FUN=ci.high)$normresponse
 agrr$YMin = agrr$normresponse - agrr$CILow
 agrr$YMax = agrr$normresponse + agrr$CIHigh
 
@@ -46,6 +46,9 @@ ggplot(agrr, aes(x=Prior, y=normresponse, color=quantifier)) +
   facet_grid(quantifier~Proportion) +
   ylab("Mean normalized response")   
 ggsave(file="graphs/norm_means_byquantifier_smoothed.pdf",width=12,height=8)
+
+highprior = agrr[agrr$quantifier == "Some" & agrr$Proportion == "100" & agrr$Prior > 90,]
+highprior[order(highprior[,c("normresponse")]),]
 
 # normalized responses, by quarter
 agrr = aggregate(normresponse ~ Prior + Proportion + quantifier + Quarter,data=r,FUN=mean)
