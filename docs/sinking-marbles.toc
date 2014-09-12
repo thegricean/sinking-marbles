@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Motivation}{1}{section.1}
+\contentsline {section}{\numberline {2}Experiment 1 - preliminary pilot}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Method}{3}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Participants}{3}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Procedure and materials}{3}{subsubsection.2.1.2}
+\contentsline {subsection}{\numberline {2.2}Results}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Discussion}{7}{subsection.2.3}
+\contentsline {section}{\numberline {3}Experiment 2 - prior elicitation}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Method}{7}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Participants}{7}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Procedure and materials}{7}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Results}{8}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Discussion}{8}{subsection.3.3}
+\contentsline {section}{\numberline {4}Experiment 3 - sinking marbles, version 1}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Method}{8}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Participants}{8}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Procedure and materials}{8}{subsubsection.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Results}{9}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Discussion}{9}{subsection.4.3}
+\contentsline {section}{\numberline {5}To do}{9}{section.5}
