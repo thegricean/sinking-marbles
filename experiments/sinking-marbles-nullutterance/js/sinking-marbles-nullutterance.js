@@ -33,16 +33,11 @@ function make_slides(f) {
       } else {
         var cause = stim.name + " " + stim.beginning_cause + " <span class='highlight_numbers'>" + stim.N.toString() + "</span> " + stim.object + ".";
       }
-      var effect_question = "How many " + stim.object + " do you think " + stim.effect + "?";
+      var effect_question = "How many " + stim.object + " " + stim.effect + "?";
       var utterance = '';
-      if (stim.quantifier == "short_filler") {
-      	utterance = this.shortfillers[this.shortfillercounter];
-      	this.shortfillercounter++;
-      } else {
-      	if (stim.quantifier == "long_filler") {
-      		utterance = stim.extrautt;
-      	} else {
-      		utterance =  '"' + stim.quantifier + " of the " + stim.object +
+      if (this.stim.quantifier != "short_filler") {
+      	if (this.stim.quantifier != "long_filler") {
+      		this.stim.actual_utterance =  '"' + stim.quantifier + " of the " + stim.object +
                       //can comment out following line to make it less wordy
                       //(" that " + stim.name + " " + stim.beginning_cause + (stim.end_cause ? " " + stim.end_cause : "")).replace(/ a /g, " the ").replace(/ an /g, " the ") + 
                       " " + stim.effect + '."';
@@ -56,10 +51,10 @@ function make_slides(f) {
       $("#upper_half").html(Math.ceil((N+1)/2).toString() + " to " + (N - 1).toString() + " " + stim.object + " " + stim.effect);
       $("#cause").html(cause);
       $("#effect_question").html(effect_question);
-      $("#utterance").html(utterance);
+      $("#utterance").html(this.stim.actual_utterance);
       this.stim.actual_cause = cause;
       this.stim.actual_effect_question = effect_question;
-      this.stim.actual_utterance = utterance;      
+//      this.stim.actual_utterance = utterance;      
     },
     button : function() {
       var ok_to_go_on = true;
@@ -162,7 +157,7 @@ function init() {
       "object_high":"ice cubes",
       "cause":"left __ in the hot sun",
       "effect":"melted",
-      "extrautt":"It's a beautiful day!"
+      "extrautt":"It's a beautiful day."
     },
     {
       "object_low":"baseballs",
@@ -170,7 +165,7 @@ function init() {
       "object_high":"pieces of gum",
       "cause":"threw __ against a wall",
       "effect":"stuck to the wall",
-      "extrautt":"What a strange thing to do!"      
+      "extrautt":"What a strange thing to do."      
     },
     {
       "object_low":"rocks",
@@ -178,7 +173,7 @@ function init() {
       "object_high":"matches",
       "cause":"threw __ into a fire",
       "effect":"burnt",
-      "extrautt":"I love watching fires!"
+      "extrautt":"I love watching fires."
     },
     {
       "object_low":"backpacks",
@@ -186,7 +181,7 @@ function init() {
       "object_high":"napkins",
       "cause":"left __ on a table on a windy day",
       "effect":"blew away",
-      "extrautt":"I just with the weather was better!"      
+      "extrautt":"I just wish the weather was better."      
     },
     {
       "object_low":"cd-players",
@@ -202,7 +197,7 @@ function init() {
       "object_high":"new cars",
       "cause":"left the lights on in __",
       "effect":"beeped",
-      "extrautt":"That's not very good for the environment!"      
+      "extrautt":"That's not very good for the environment."      
     },
     {
       "object_low":"shoes",
@@ -226,7 +221,7 @@ function init() {
       "object_high":"banana peels",
       "cause":"put __ in a compost pile for a month",
       "effect":"decomposed",
-      "extrautt":"What a great way to reduce trash!"      
+      "extrautt":"What a great way to reduce trash."      
     },
     {
       "object_low":"candles",
@@ -242,7 +237,7 @@ function init() {
       "object_high":"sugar cubes",
       "cause":"put __ in a bucket of water",
       "effect":"dissolved",
-      "extrautt":"There are people starving in the world!"      
+      "extrautt":"There are people starving in the world."      
     },
     {
       "object_low":"beads",
@@ -250,7 +245,7 @@ function init() {
       "object_high":"stickers",
       "cause":"glued __ to a piece of paper",
       "effect":"stuck",
-      "extrautt":"It looks like a zebra!"      
+      "extrautt":"It looks like a zebra."      
     },
     {
       "object_low":"bicyclists",
@@ -274,7 +269,7 @@ function init() {
       "object_high":"birds",
       "cause":"left seeds out for __",
       "effect":"ate the seeds",
-      "extrautt":"I wish someone would leave seeds out for me!"      
+      "extrautt":"I wish someone would leave seeds out for me."      
     },
     {
       "object_low":"phones",
@@ -338,7 +333,7 @@ function init() {
       "object_high":"mirrors",
       "cause":"placed __ in the sun",
       "effect":"reflected the sunlight",
-      "extrautt":"Why not just take it inside?"      
+      "extrautt":"Why not just take them inside?"      
     },
     {
       "object_low":"poems",
@@ -346,7 +341,7 @@ function init() {
       "object_high":"limericks",
       "cause":"wrote __",
       "effect":"rhymed",
-      "extrautt":"It's so pretty!"      
+      "extrautt":"It's so pretty."      
     },
     {
       "object_low":"bicycles",
@@ -362,7 +357,7 @@ function init() {
       "object_high":"wheelchairs",
       "cause":"pushed __",
       "effect":"rolled",
-      "extrautt":"Pushing stuff is so much fun!" 
+      "extrautt":"Pushing stuff is so much fun." 
     },
     {
       "object_low":"bottles of hand soap",
@@ -378,7 +373,7 @@ function init() {
       "object_high":"cameras",
       "cause":"took a picture with __",
       "effect":"flashed",
-      "extrautt":"Everyone with the selfie craze these days!"      
+      "extrautt":"Everyone with the selfie craze these days."      
     },
     {
       "object_low":"eggs",
@@ -386,7 +381,7 @@ function init() {
       "object_high":"bubbles",
       "cause":"poked __ with a pin",
       "effect":"popped",
-      "extrautt":"That requires a lot of concentration!"      
+      "extrautt":"That requires a lot of concentration."      
     },
     {
       "object_low":"CDs",
@@ -394,9 +389,9 @@ function init() {
       "object_high":"eggs",
       "cause":"heated up __ in a microwave",
       "effect":"exploded",
-      "extrautt":"That's one way of spending your free time..."      
+      "extrautt":"That's one way of spending your free time."      
     }
-  ])
+  ]);
 
   var names = _.shuffle([
     {
@@ -799,7 +794,7 @@ function init() {
       "name":"Emma",
       "gender":"F"
     }
-  ])
+  ]);
 
   var quantifiers = _.shuffle([
     "None", "None", "None", "None", "None",
@@ -809,11 +804,11 @@ function init() {
     "long_filler", "long_filler", "long_filler", "long_filler", "long_filler"
   ]);
   var shortfillers = _.shuffle([
-  	"Typical",
-  	"Nothing out of the ordinary",
-  	"As usual",
-  	"Pretty normal",
-  	"Nothing surprising there"
+  	"Typical.",
+  	"Nothing out of the ordinary.",
+  	"As usual.",
+  	"Pretty normal.",
+  	"Nothing surprising there."
   ]);
   
   var shortfillercounter = 0;
@@ -846,6 +841,15 @@ function init() {
     var cause_elements = cause.split("__");
     var beginning_cause = cause_elements[0];
     var end_cause = cause_elements.length > 1 ? cause_elements[1] : "";
+    var actualutterance = "";
+    if (quantifiers[i] == "short_filler") {
+    	actualutterance = shortfillers[shortfillercounter];
+    	shortfillercounter++;
+    } else {
+    	if (quantifiers[i] == "long_filler") {
+    		actualutterance = item.extrautt;
+    	}
+    }
     return {
       "name": name,
       "quantifier": quantifiers[i],//_.shuffle(quantifiers)[0],
@@ -859,7 +863,8 @@ function init() {
       "effect": effect,
       "object": object,
       "beginning_cause": beginning_cause,
-      "end_cause": end_cause
+      "end_cause": end_cause,
+      "actual_utterance": actualutterance
     }
   }
   exp.all_stims = [];
