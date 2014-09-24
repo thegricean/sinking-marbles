@@ -23,7 +23,8 @@ function make_slides(f) {
     },
     present_handle : function(stim) {
     	this.trial_start = Date.now();
-      this.init_sliders();
+      var N = stim.N;    	
+      this.init_sliders(N);
       exp.sliderPost = {};
       $("#number_guess").html("?");
       this.stim = stim;
@@ -48,51 +49,33 @@ function make_slides(f) {
       	}
       }
       $(".other_name").html(stim.other_name);
-      var N = stim.N;
       $("#none").html("0"  + " " + stim.object + " " + stim.effect);
       $(".N").html(N.toString() + " " + stim.object + " " + stim.effect);
       $("#lower_half").html("1 to " + Math.floor(N/2).toString() + " " + stim.object + " " + stim.effect);
       $("#upper_half").html(Math.ceil((N+1)/2).toString() + " to " + (N - 1).toString() + " " + stim.object + " " + stim.effect);
       $("#cause").html(cause);
       $("#effect_question").html(effect_question);
+      $("#numObjects").html("<h3>"+N+"</h3>");
       $("#utterance").html(this.stim.actual_utterance);
       this.stim.actual_cause = cause;
       this.stim.actual_effect_question = effect_question;
 //      this.stim.actual_utterance = utterance;      
     },
     button : function() {
-      var ok_to_go_on = true;
-      var slider_ids = ["none", "lower_half", "upper_half", "all"];
-      for (var i=0; i<slider_ids.length; i++) {
-        var slider_id = slider_ids[i];
-        if (exp.sliderPost[slider_id] == undefined) {
-          ok_to_go_on = false;
-        }
-      }
-      if (ok_to_go_on) {
+      if (exp.sliderPost != null) {
         this.log_responses();
         _stream.apply(this); //use exp.go() if and only if there is no "present" data.
       } else {
         $(".err").show();
       }
     },
-    init_sliders : function() {
-      var slider_ids = ["none", "lower_half", "upper_half", "all"];
-      for (var i=0; i<slider_ids.length; i++) {
-        var slider_id = slider_ids[i];
-        utils.make_slider("#slider_" + slider_id,
-          function(which_slider_id_is_this) {
-            return function(event, ui) {
-              exp.sliderPost[which_slider_id_is_this] = ui.value;
-            };
-          }(slider_id) //wraps up index variable slider_id
-        )
-      }
+    init_sliders : function(N) {
+      utils.make_slider("#single_slider", function(event, ui) {
+        exp.sliderPost = Math.round(ui.value*N);
+        $("#number_guess").html(Math.round(ui.value*N));
+      });
     },
     log_responses : function() {
-      var slider_ids = ["none", "lower_half", "upper_half", "all"];
-      for (var i=0; i<slider_ids.length; i++) {
-        var slider_id = slider_ids[i];
         exp.data_trials.push({
           "trial_type" : "cause_effect_prior",
           "slide_number_in_experiment" : exp.phase,
@@ -108,11 +91,9 @@ function make_slides(f) {
           "actual_effect_question": this.stim.actual_effect_question,
           "actual_utterance": this.stim.actual_utterance,          
           "quantifier" : this.stim.quantifier,
-          "response" : exp.sliderPost[slider_id],
-          "slider_id" : slider_id,
+	      "response" : exp.sliderPost,
           "rt" : Date.now() - this.trial_start,
         });
-      }
     }
   });
 
@@ -351,7 +332,7 @@ function init() {
       "object_low":"bicycles",
       "object_mid":"motorcycles",
       "object_high":"cars",
-      "cause":"pressed the breaks on __",
+      "cause":"pressed the brakes on __",
       "effect":"stopped",
       "extrautt":"So many parts need to work for us to not die." 
     },
