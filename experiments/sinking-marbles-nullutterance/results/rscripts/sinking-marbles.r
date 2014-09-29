@@ -4,9 +4,14 @@ setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/exper
 source("rscripts/summarySE.r")
 source("rscripts/helpers.r")
 load("data/priors.RData")
-r = read.table("data/sinking_marbles_nullutterance.tsv", sep="\t", header=T)
+r1 = read.table("data/sinking_marbles_nullutterance1.tsv", sep="\t", header=T)
+nrow(r1)
+r2 = read.table("data/sinking_marbles_nullutterance2.tsv", sep="\t", header=T)
+nrow(r2)
+r = rbind(r1,r2)
+nrow(r)
 r$trial = r$slide_number_in_experiment - 2
-r = r[,c("workerid", "rt", "effect", "cause","language","gender.1","age","gender","other_gender","quantifier", "object_level", "response", "object","slider_id","num_objects","trial","enjoyment","asses","comments")]
+r = r[,c("assignmentid","workerid", "rt", "effect", "cause","language","gender.1","age","gender","other_gender","quantifier", "object_level", "response", "object","slider_id","num_objects","trial","enjoyment","asses","comments","Answer.time_in_minutes")]
 row.names(priors) = paste(priors$effect, priors$object)
 r$Prior = priors[paste(r$effect, r$object),]$response
 r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "object_low"))
@@ -18,13 +23,14 @@ r$Combination = as.factor(paste(r$cause,r$object,r$effect))
 table(r$Combination)
 
 # compute normalized probabilities
-nr = ddply(r, .(workerid,trial), summarize, normresponse=response/(sum(response)),workerid=workerid,Proportion=Proportion)
-row.names(nr) = paste(nr$workerid,nr$trial,nr$Proportion)
-r$normresponse = nr[paste(r$workerid,r$trial,r$Proportion),]$normresponse
+nr = ddply(r, .(assignmentid,trial), summarize, normresponse=response/(sum(response)),assignmentid=assignmentid,Proportion=Proportion)
+row.names(nr) = paste(nr$assignmentid,nr$trial,nr$Proportion)
+r$normresponse = nr[paste(r$assignmentid,r$trial,r$Proportion),]$normresponse
 # test: sums should add to 1
-sums = ddply(r, .(workerid,trial), summarize, sum(normresponse))
-colnames(sums) = c("workerid","trial","sum")
-sums
+sums = ddply(r, .(assignmentid,trial), summarize, sum(normresponse))
+colnames(sums) = c("assignmentid","trial","sum")
+summary(sums)
+sums[is.na(sums$sum),]
 
 save(r, file="data/r.RData")
 
@@ -34,9 +40,13 @@ ggplot(aes(x=gender.1), data=r) +
   geom_histogram()
 
 ggplot(aes(x=rt), data=r) +
-  geom_histogram()
+  geom_histogram() +
+  scale_x_continuous(limits=c(0,50000))
 
 ggplot(aes(x=age), data=r) +
+  geom_histogram()
+
+ggplot(aes(x=age,fill=gender.1), data=r) +
   geom_histogram()
 
 ggplot(aes(x=enjoyment), data=r) +
@@ -50,5 +60,9 @@ ggplot(aes(x=quantifier), data=r) +
 
 ggplot(aes(x=Answer.time_in_minutes), data=r) +
   geom_histogram()
+
+ggplot(aes(x=age,y=Answer.time_in_minutes,color=gender.1), data=unique(r[,c("assignmentid","age","Answer.time_in_minutes","gender.1")])) +
+  geom_point() +
+  geom_smooth()
 
 unique(r$comments)

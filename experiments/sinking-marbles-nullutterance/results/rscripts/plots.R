@@ -3,6 +3,7 @@ setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/exper
 source("rscripts/summarySE.r")
 source("rscripts/helpers.r")
 load("data/r.RData") # the dataset
+summary(r)
 
 # histogram of trial types
 ggplot(r,aes(x=Combination,fill=quantifier)) +
@@ -23,6 +24,7 @@ ggplot(r, aes(x=Prior, y=normresponse, color=quantifier)) +
   facet_wrap(~Proportion)
 ggsave(file="graphs/norm_responses.pdf",width=12,height=8)
 
+load("data/agrr.RData")
 agrr = aggregate(normresponse ~ Prior + Proportion + quantifier + Combination,data=r,FUN=mean)
 agrr$CILow = aggregate(normresponse ~ Prior + Proportion + quantifier + Combination,data=r, FUN=ci.low)$normresponse
 agrr$CIHigh = aggregate(normresponse ~ Prior + Proportion + quantifier + Combination,data=r,FUN=ci.high)$normresponse
@@ -56,6 +58,22 @@ ggsave(file="graphs/norm_means_byquantifier_smoothed.pdf",width=12,height=8)
 
 highprior = agrr[agrr$quantifier == "Some" & agrr$Proportion == "100" & agrr$Prior > 90,]
 highprior[order(highprior[,c("normresponse")]),]
+
+# normalized responses additionally by total number of marbles
+load("data/agrrnum.RData")
+r$redNumObjects = ifelse(r$num_objects == 4, "4", ifelse(r$num_objects == 5,"5",ifelse(r$num_objects < 9,"< 9",ifelse(r$num_objects < 13, "< 13","> 12"))))
+r$FourObjects = ifelse(r$num_objects == 4, "4","> 4")
+agrrnum = aggregate(normresponse ~ Prior + Proportion + quantifier + Combination + num_objects,data=r,FUN=mean)
+agrrnum = aggregate(normresponse ~ Prior + Proportion + quantifier + Combination + redNumObjects,data=r,FUN=mean)
+agrrnum = aggregate(normresponse ~ Prior + Proportion + quantifier + Combination + FourObjects,data=r,FUN=mean)
+
+ggplot(agrrnum, aes(x=Prior, y=normresponse, color=FourObjects, group=FourObjects)) + #color=redNumObjects, group=redNumObjects)) +
+  geom_point() +
+  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth() +
+  facet_grid(quantifier~Proportion,scales="free_y") +
+  ylab("Mean normalized response")   
+ggsave(file="graphs/norm_means_byquantifier_numobjects_smoothed.pdf",width=30,height=20)
 
 # normalized responses, by quarter
 agrrq = aggregate(normresponse ~ Prior + Proportion + quantifier + Quarter,data=r,FUN=mean)

@@ -1,0 +1,177 @@
+(define (rep n val) (repeat n (lambda () val)))
+
+(define (power dist a) (list (first dist)
+                           (map (lambda (x) (pow x a)) (second dist))))
+
+(define (meaning utterance marbles total-marbles fv)
+  (case utterance
+        (('null) true)
+        (('none) (= marbles 0))
+        (('all) (= marbles total-marbles))
+        (('some) (> marbles 0))
+;        (('some) (and (> marbles 0) (if fv (< marbles total-marbles) true))) ; lexical uncertainty about the meaning of "some"
+;        (('most) (> marbles (/ total-marbles 2)))
+;        (('several) (or (= marbles 3) (= marbles 4)))
+        (('one) (= marbles 1))
+        (('two) (= marbles 2))
+        (('three) (= marbles 3))
+        (('four) (= marbles 4))
+        (('five) (= marbles 5))
+        (('six) (= marbles 6))
+        (('seven) (= marbles 7))
+        (('eight) (= marbles 8))
+        (('nine) (= marbles 9))
+        (('ten) (= marbles 10))
+        (('eleven) (= marbles 11))
+        (('twelve) (= marbles 12))
+        (('thirteen) (= marbles 13))
+        (('fourteen) (= marbles 14))
+        (('fifteen) (= marbles 15))                ))
+
+(define (quantifier quantifier-alternatives)
+  (apply multinomial alt-dist))
+
+(define (remass allprior total-marbles)
+	(/ (- 1 allprior) total-marbles)
+)
+
+(define (marble-state total-marbles allprior) ; prior: argument for all-state, remaining mass spread evenly over remaining states
+
+    (case total-marbles
+		  (('4) (multinomial '(0 1 2 3 4) (append (rep 4 (remass allprior total-marbles)) (list allprior))))
+		  (('5) (multinomial '(0 1 2 3 4 5) (append (rep 5 (remass allprior total-marbles)) (list allprior))))
+		  (('6) (multinomial '(0 1 2 3 4 5 6) (append (rep 6 (remass allprior total-marbles)) (list allprior))))
+		  (('8) (multinomial '(0 1 2 3 4 5 6 7 8) (append (rep 8 (remass allprior total-marbles)) (list allprior))))
+          (('15) (multinomial '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15) (append (rep 15 (remass allprior total-marbles)) (list allprior))))
+	)
+)
+
+(define literal-listener
+  (mem (lambda (utterance total-marbles alt-dist fv allprior)
+         (enumeration-query
+          (define marbles (marble-state total-marbles allprior))
+
+		  marbles
+
+          (meaning utterance marbles total-marbles fv)))))
+
+(define pragmatic-speaker
+  (mem (lambda (marbles total-marbles quantifier-alternatives fv allprior speaker-opt)
+         (enumeration-query
+          (define utterance (quantifier alt-dist))
+
+          utterance
+
+          (equal? marbles
+                  (apply multinomial
+                          (power (literal-listener utterance total-marbles alt-dist fv allprior)
+                               speaker-opt)))))))
+
+(define (pragmatic-listener utterance total-marbles alt-dist allprior speaker-opt)
+	(enumeration-query
+	(define marbles (marble-state total-marbles allprior))
+    (define fv (flip))
+;    (define fv #f)
+
+	marbles
+
+	(equal? utterance
+            (apply multinomial
+                   (pragmatic-speaker marbles total-marbles alt-dist fv allprior speaker-opt)))))
+
+; null utterance cost
+(define null-cost 20)
+(define alt-dist (list '(null none some all) ; alternatives include null utterance
+                        (list null-cost 1 1 1)))
+
+(define (pl all-prior speaker-opt total-marbles)
+			(last (second
+                  (pragmatic-listener 'some total-marbles alt-dist all-prior speaker-opt))))
+
+(define theprior (list .1 .2 .3 .4 .5 .6 .7 .8 .85 .9 .95 .99))
+
+(write-csv
+	(list
+	'(null-cost)
+	(list null-cost)
+	'(.1 .2 .3 .4 .5 .6 .7 .8 .85 .9 .95 .99)
+	'(speaker-opt 1)
+	'(total-marbles 4)
+	(map pl theprior (rep 12 1) (rep 12 4))
+	'(speaker-opt 2)
+	'(total-marbles 4)
+	(map pl theprior (rep 12 2) (rep 12 4))
+	'(speaker-opt 3)
+	'(total-marbles 4)
+	(map pl theprior (rep 12 3) (rep 12 4))
+	'(speaker-opt 4)
+	'(total-marbles 4)
+	(map pl theprior (rep 12 4) (rep 12 4))
+	'(speaker-opt 5)
+	'(total-marbles 4)
+	(map pl theprior (rep 12 5) (rep 12 4))
+	'(speaker-opt 1)
+	'(total-marbles 5)
+	(map pl theprior (rep 12 1) (rep 12 5))
+	'(speaker-opt 2)
+	'(total-marbles 5)
+	(map pl theprior (rep 12 2) (rep 12 5))
+	'(speaker-opt 3)
+	'(total-marbles 5)
+	(map pl theprior (rep 12 3) (rep 12 5))
+	'(speaker-opt 4)
+	'(total-marbles 5)
+	(map pl theprior (rep 12 4) (rep 12 5))
+	'(speaker-opt 5)
+	'(total-marbles 5)
+	(map pl theprior (rep 12 5) (rep 12 5))
+	'(speaker-opt 1)
+	'(total-marbles 6)
+	(map pl theprior (rep 12 1) (rep 12 6))
+	'(speaker-opt 2)
+	'(total-marbles 6)
+	(map pl theprior (rep 12 2) (rep 12 6))
+	'(speaker-opt 3)
+	'(total-marbles 6)
+	(map pl theprior (rep 12 3) (rep 12 6))
+	'(speaker-opt 4)
+	'(total-marbles 6)
+	(map pl theprior (rep 12 4) (rep 12 6))
+	'(speaker-opt 5)
+	'(total-marbles 6)
+	(map pl theprior (rep 12 5) (rep 12 6))
+	'(speaker-opt 1)
+	'(total-marbles 8)
+	(map pl theprior (rep 12 1) (rep 12 8))
+	'(speaker-opt 2)
+	'(total-marbles 8)
+	(map pl theprior (rep 12 2) (rep 12 8))
+	'(speaker-opt 3)
+	'(total-marbles 8)
+	(map pl theprior (rep 12 3) (rep 12 8))
+	'(speaker-opt 4)
+	'(total-marbles 8)
+	(map pl theprior (rep 12 4) (rep 12 8))
+	'(speaker-opt 5)
+	'(total-marbles 8)
+	(map pl theprior (rep 12 5) (rep 12 8))
+	'(speaker-opt 1)
+	'(total-marbles 15)
+	(map pl theprior (rep 12 1) (rep 12 15))
+	'(speaker-opt 2)
+	'(total-marbles 15)
+	(map pl theprior (rep 12 2) (rep 12 15))
+	'(speaker-opt 3)
+	'(total-marbles 15)
+	(map pl theprior (rep 12 3) (rep 12 15))
+	'(speaker-opt 4)
+	'(total-marbles 15)
+	(map pl theprior (rep 12 4) (rep 12 15))
+	'(speaker-opt 5)
+	'(total-marbles 15)
+	(map pl theprior (rep 12 5) (rep 12 15))
+
+	)
+	"/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/models/results/results_simulation/raw_results_no_uncertainty.txt"
+	","
+)
