@@ -44,3 +44,4 @@ ggplot(dlowhigh, aes(x=PriorAllProbability,y=PosteriorAllProbability, color=as.f
   geom_line() +
   facet_grid(NullUtteranceCost~SpeakerOptimality)
 ggsave(file="graphs/modelpredictions-lowhigh_nouncertainty.pdf",width=20,height=7)
+

@@ -2,5 +2,6 @@
 *.question
 *.input
 *.properties
+*.tsv
 .RData
 .Rhistory

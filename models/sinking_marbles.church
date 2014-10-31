@@ -10,8 +10,8 @@
         (('all) (= marbles total-marbles))
 ;        (('some) (> marbles 0))
         (('some) (and (> marbles 0) (if fv (< marbles total-marbles) true))) ; lexical uncertainty about the meaning of "some"
-;        (('most) (> marbles (/ total-marbles 2)))
-;        (('several) (or (= marbles 3) (= marbles 4)))
+        (('most) (> marbles (/ total-marbles 2)))
+        (('several) (or (= marbles 3) (= marbles 4)))
         (('one) (= marbles 1))        
         (('two) (= marbles 2))          
         (('three) (= marbles 3))
