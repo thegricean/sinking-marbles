@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+pushd /Users/titlis/aws-mturk-clt-1.3.1/bin
+./loadHITs.sh $1 $2 $3 $4 $5 $6 $7 $8 $9 -label /Users/titlis/webprojects/63_sinking-marbles-nullutterance-priordv//sinking_marbles_nullutterance-priordv -input /Users/titlis/webprojects/63_sinking-marbles-nullutterance-priordv//sinking_marbles_nullutterance-priordv.input -question /Users/titlis/webprojects/63_sinking-marbles-nullutterance-priordv//sinking_marbles_nullutterance-priordv.question -properties /Users/titlis/webprojects/63_sinking-marbles-nullutterance-priordv//sinking_marbles_nullutterance-priordv.properties -maxhits 1
+popd
