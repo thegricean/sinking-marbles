@@ -61,9 +61,10 @@ function make_slides(f) {
       this.stim.actual_effect_question = effect_question;
 //      this.stim.actual_utterance = utterance;      
     },
-    button : function() {
-      if (exp.sliderPost != null) {
-        this.log_responses();
+      button : function() {
+	  if (exp.sliderPost > -1 && exp.sliderPost < 101) {
+              this.log_responses();
+      $(".err").hide();	      
         _stream.apply(this); //use exp.go() if and only if there is no "present" data.
       } else {
         $(".err").show();
