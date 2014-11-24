@@ -1,6 +1,7 @@
 library(ggplot2)
 theme_set(theme_bw(18))
-setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/7_sinking-marbles-freeproduction/results/")
+#setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/7_sinking-marbles-freeproduction/results/")
+setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/7_sinking-marbles-freeproduction/results/")
 source("rscripts/helpers.r")
 load("data/priors.RData")
 load("data/r.RData")
@@ -143,3 +144,16 @@ ggplot(aes(x=age,y=Answer.time_in_minutes,color=gender.1), data=unique(r[,c("ass
   geom_smooth()
 
 unique(r$comments)
+
+####################
+
+many = r[grep("many", as.character(r$actual_utterance)),]
+many
+few = r[grep("few", as.character(r$actual_utterance)),]
+paste(few$Proportion,few$Prior,few$actual_utterance)
+ggplot(few, aes(x=Prior)) +
+#  geom_histogram()
+  geom_density()
+ggplot(r, aes(x=Prior)) +
+#  geom_histogram() 
+  geom_density()

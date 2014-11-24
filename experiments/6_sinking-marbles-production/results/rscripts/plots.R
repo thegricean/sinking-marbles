@@ -1,8 +1,13 @@
 theme_set(theme_bw(18))
 setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/6_sinking-marbles-production/results/")
+setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/6_sinking-marbles-production/results/")
 source("rscripts/helpers.r")
 load("data/r.RData") # the dataset
 summary(r)
+
+ggplot(r, aes(x=response)) +
+  geom_histogram(binwidth=.02) +
+  scale_y_continuous(limits=c(0,1500))
 
 # histogram of trial types
 ggplot(r,aes(x=Combination)) +
@@ -26,6 +31,34 @@ ggplot(agrr, aes(x=Prior, y=response, color=Quantifier)) +
   ylab("Mean response")   
 ggsave(file="graphs/norm_means.pdf",width=12,height=8)
 
+ub = aggregate(normresponse ~ Prior + Quantifier, data=subset(r, Proportion == 1),FUN=mean)
+ub = droplevels(ub)
+ggplot(ub, aes(x=Prior, y=normresponse, color=Quantifier)) +
+  geom_point() +
+  #  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth()
+ggsave(file="graphs/norm_means_ub.pdf")
+
+# by total set size
+ub = aggregate(normresponse ~ Prior + Quantifier + num_objects, data=subset(r, Proportion == 1),FUN=mean)
+ub = droplevels(ub)
+ggplot(ub, aes(x=Prior, y=normresponse, color=Quantifier)) +
+  geom_point() +
+  #  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth() +
+  facet_wrap(~num_objects)
+ggsave(file="graphs/norm_means_ub_bynumobjects.pdf",height=9,width=12)
+
+# by total set size, raw
+ub = aggregate(response ~ Prior + Quantifier + num_objects, data=subset(r, Proportion == 1),FUN=mean)
+ub = droplevels(ub)
+ggplot(ub, aes(x=Prior, y=response, color=Quantifier)) +
+  geom_point() +
+  #  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth() +
+  facet_wrap(~num_objects)
+ggsave(file="graphs/raw_means_ub_bynumobjects.pdf",height=9,width=12)
+
 
 # normalized responses
 ggplot(r, aes(x=Prior, y=normresponse, color=Quantifier)) +
@@ -42,9 +75,9 @@ agrr$YMin = agrr$normresponse - agrr$CILow
 agrr$YMax = agrr$normresponse + agrr$CIHigh
 save(agrr, file="data/agrr.RData")
 
-ggplot(agrr, aes(x=Prior, y=normresponse, color=quantifier)) +
+ggplot(agrr, aes(x=Prior, y=normresponse, color=Quantifier)) +
   geom_point() +
-  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+#  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
   geom_line() +
   facet_wrap(~Proportion)+
   ylab("Mean normalized response")   

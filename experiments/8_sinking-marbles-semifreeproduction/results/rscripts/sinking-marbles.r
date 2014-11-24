@@ -1,8 +1,10 @@
 library(ggplot2)
 theme_set(theme_bw(18))
 setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/8_sinking-marbles-semifreeproduction/results/")
+setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/8_sinking-marbles-semifreeproduction/results/")
 source("rscripts/helpers.r")
 load("data/priors.RData")
+load("data/r.RData")
 r = read.table("data/sinking_marbles_freeproduction.tsv", sep="\t", header=T,quote="")
 nrow(r)
 names(r)
@@ -112,3 +114,6 @@ ggplot(aes(x=age,y=Answer.time_in_minutes,color=gender.1), data=unique(r[,c("ass
   geom_smooth()
 
 unique(r$comments)
+
+t = as.data.frame(table(r$redQuantifier))
+head(t[order(t[,c("Freq")],decreasing=T),],30)

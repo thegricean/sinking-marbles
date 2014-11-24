@@ -1,6 +1,7 @@
 library(ggplot2)
 theme_set(theme_bw(18))
-setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/sinking-marbles-nullutterance-priordv/results/")
+#setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/sinking-marbles-nullutterance-priordv/results/")
+setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/5_sinking-marbles-nullutterance-priordv/results/")
 source("rscripts/summarySE.r")
 source("rscripts/helpers.r")
 load("data/priors.RData")
@@ -9,6 +10,11 @@ r = read.table("data/sinking_marbles_nullutterance-priordv.tsv", sep="\t", heade
 r$trial = r$slide_number_in_experiment - 2
 r = r[,c("workerid", "rt", "effect", "cause","language","gender.1","age","gender","other_gender","quantifier", "object_level", "response", "object","num_objects","trial","enjoyment","asses","comments")]
 row.names(priors) = paste(priors$effect, priors$object)
+expectations = read.table("data/expectations.txt", quote="",sep="\t",header=T)
+row.names(expectations) = paste(expectations$effect, expectations$object)
+expectations5 = read.table("data/expectations5.txt", quote="",sep="\t",header=T)
+row.names(expectations5) = paste(expectations5$effect, expectations5$object)
+
 r$Prior = priors[paste(r$effect, r$object),]$response
 r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "object_low"))
 r$Half = as.factor(ifelse(r$trial < 16, 1, 2))
@@ -20,6 +26,8 @@ r$numresponse = as.numeric(as.character(r$response))
 r = subset(r, !is.na(r$numresponse))
 r$ProportionResponse = r$numresponse/r$num_objects
 r$PriorBin = cut(r$Prior,breaks=c(0,quantile(r$Prior)))
+r$Expectation = expectations[paste(r$effect, r$object),]$expectation
+r$Expectation5 = expectations5[paste(r$effect, r$object),]$expectation
 save(r, file="data/r.RData")
 
 ##################

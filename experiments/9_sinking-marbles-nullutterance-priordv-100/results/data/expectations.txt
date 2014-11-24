@@ -1,0 +1,91 @@
+effect	object	expectation
+ate the seeds	birds	56.9294836137517
+ate the seeds	butterflies	41.4626177759576
+ate the seeds	dogs	38.2365573050401
+beeped	houses	19.0725543278759
+beeped	new cars	42.4667173116136
+beeped	old cars	21.0985503734133
+blew away	backpacks	8.9098070264552
+blew away	hats	64.6574645536811
+blew away	napkins	71.0272664451465
+broke	boxes	62.2856195673998
+broke	logs	34.5869351862683
+broke	sunglasses	63.9944095958387
+burnt	books	63.6882217520978
+burnt	matches	82.1444276366364
+burnt	rocks	24.3193619491252
+decomposed	banana peels	65.3690475600867
+decomposed	pinecones	48.0523053975519
+decomposed	soda cans	20.2350998822172
+dissolved	carrots	14.1000241870236
+dissolved	oreos	52.6436262258986
+dissolved	sugar cubes	50.7861802584379
+exploded	balls of tin foil	56.1044483130138
+exploded	candles	7.72708272365668
+exploded	CDs	42.6063652487694
+exploded	eggs	43.0596541417236
+exploded	fireworks	51.8882092830581
+exploded	gas tanks	67.3694653290204
+fell down	block towers	53.3152878840619
+fell down	card towers	56.7757569855581
+fell down	shelves	40.4527099831079
+flashed	cameras	54.1019906630523
+flashed	phones	50.9478982476214
+flashed	webcams	31.3653350054459
+froze	berries	52.9319275868016
+froze	bottles of hand soap	46.7026556145677
+froze	chocolate bars	347.866368071374
+got stained	white carpets	59.7154583847327
+got stained	white shirts	61.8108872816763
+got stained	white tablecloths	60.4580943631433
+had the letter Z in them	birthday cards	15.0309196906165
+had the letter Z in them	love notes	24.8465117941426
+had the letter Z in them	novels	48.7420215074639
+honked	bicyclists	42.9377295955289
+honked	bus drivers	52.3964981743328
+honked	taxi drivers	64.3188595398719
+landed flat	coins	79.6764945857682
+landed flat	notebooks	55.0390705247
+landed flat	pancakes	62.479618131191
+laughed	comedians	54.830896833027
+laughed	kids	63.298985359763
+laughed	lawyers	47.4848749767815
+lit up	cd-players	64.6402184796344
+lit up	computers	69.7987465680205
+lit up	flashlights	55.5764199932472
+melted	crayons	47.9909828630336
+melted	ice cubes	62.7665493728087
+melted	pencils	13.3611230989728
+popped	balloons	65.6638860736725
+popped	bubbles	97.0374126024228
+popped	eggs	43.3764758326114
+ran out of batteries	bike lights	45.9278672373107
+ran out of batteries	laptops	47.0127695913236
+ran out of batteries	phones	50.1135447144362
+reflected the sunlight	diamonds	105.018948478823
+reflected the sunlight	mirrors	62.3718894198512
+reflected the sunlight	phone screens	59.6822188426117
+rhymed	limericks	57.3394346439501
+rhymed	poems	57.3975436194024
+rhymed	songs	50.0692721159346
+ripped	books	56.6847297931084
+ripped	shirts	57.0915906235945
+ripped	shoes	59.2998038150147
+rolled	shopping carts	76.049673434351
+rolled	toy cars	58.0090177029659
+rolled	wheelchairs	78.4020616608499
+sank	balloons	8.26313321097407
+sank	cups	41.2965677803453
+sank	marbles	49.1522502545746
+stopped	bicycles	64.7050856930581
+stopped	cars	65.2304568952211
+stopped	motorcycles	59.4227705678427
+stuck	beads	53.9140370457719
+stuck	sequins	69.2434447348988
+stuck	stickers	67.5118628621661
+stuck to the wall	baseballs	15.1654089571521
+stuck to the wall	cakes	24.732928464748
+stuck to the wall	pieces of gum	31.8517392956283
+were green	bananas	33.1627511633215
+were green	clovers	65.4925194194131
+were green	strawberries	27.6779435479227
