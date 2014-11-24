@@ -1,10 +1,15 @@
 library(ggplot2)
 theme_set(theme_bw(18))
+<<<<<<< HEAD
 setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/9_sinking-marbles-nullutterance-priordv-100/results/")
+=======
+setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/sinking-marbles-nullutterance-priordv/results/")
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578
 source("rscripts/summarySE.r")
 source("rscripts/helpers.r")
 load("data/priors.RData")
 load("data/r.RData")
+<<<<<<< HEAD
 r = read.table("data/sinking-marbles-priordv-100.tsv", quote="", sep="\t", header=T)
 r = read.table("data/sinking-marbles-priordv-100.txt", quote="", sep="\t", header=T)
 nrow(r)
@@ -13,6 +18,9 @@ row.names(expectations) = paste(expectations$effect, expectations$object)
 expectations5 = read.table("data/expectations5.txt", quote="",sep="\t",header=T)
 row.names(expectations5) = paste(expectations5$effect, expectations5$object)
 
+=======
+r = read.table("data/sinking_marbles_nullutterance-priordv.tsv", sep="\t", header=T)
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578
 r$trial = r$slide_number_in_experiment - 2
 r = r[,c("workerid", "rt", "effect", "cause","language","gender.1","age","gender","other_gender","quantifier", "object_level", "response", "object","num_objects","trial","enjoyment","asses","comments")]
 row.names(priors) = paste(priors$effect, priors$object)
@@ -25,11 +33,16 @@ r$Combination = as.factor(paste(r$cause,r$object,r$effect))
 table(r$Combination)
 r$numresponse = as.numeric(as.character(r$response))
 r = subset(r, !is.na(r$numresponse))
+<<<<<<< HEAD
 nrow(r)
 r$ProportionResponse = r$numresponse/r$num_objects
 r$PriorBin = cut(r$Prior,breaks=c(0,quantile(r$Prior)))
 r$Expectation = expectations[paste(r$effect, r$object),]$expectation
 r$Expectation5 = expectations5[paste(r$effect, r$object),]$expectation
+=======
+r$ProportionResponse = r$numresponse/r$num_objects
+r$PriorBin = cut(r$Prior,breaks=c(0,quantile(r$Prior)))
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578
 save(r, file="data/r.RData")
 
 ##################
@@ -55,4 +68,7 @@ ggplot(aes(x=quantifier), data=r) +
 
 head(r$comments)
 unique(r$comments)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578

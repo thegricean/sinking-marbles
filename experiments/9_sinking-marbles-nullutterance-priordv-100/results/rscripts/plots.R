@@ -1,6 +1,11 @@
 theme_set(theme_bw(18))
+<<<<<<< HEAD
 #setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/sinking-marbles-nullutterance-priordv/results/")
 setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/9_sinking-marbles-nullutterance-priordv-100/results/")
+=======
+setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/sinking-marbles-nullutterance-priordv/results/")
+setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/5_sinking-marbles-nullutterance-priordv/results/")
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578
 source("rscripts/summarySE.r")
 source("rscripts/helpers.r")
 load("data/r.RData") # the dataset
@@ -9,6 +14,7 @@ load("data/r.RData") # the dataset
 ggplot(r, aes(x=response)) +
   geom_histogram() +
   facet_grid(quantifier~workerid)
+<<<<<<< HEAD
 ggsave("graphs/by-subject-variation.pdf",width=40,height=10)
 
 ggplot(subset(r, quantifier == "Some"), aes(x=response)) +
@@ -16,6 +22,9 @@ ggplot(subset(r, quantifier == "Some"), aes(x=response)) +
 #  geom_text(aes(label=Prior),y=2) +  
   facet_wrap(~workerid)
 ggsave("graphs/by-subject-variation-some.pdf",width=30,height=30)
+=======
+ggsave("graphs/by-subject-variation.pdf",width=100,height=10)
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578
 
 # histogram of trial types
 ggplot(r,aes(x=Combination,fill=quantifier)) +
@@ -45,12 +54,23 @@ ggplot(agr, aes(x=Prior, y=ProportionResponse, color=quantifier)) +
   scale_y_continuous(breaks=seq(0,1,0.1))
 ggsave(file="graphs/mean_responses.pdf",width=12,height=8)
 
+<<<<<<< HEAD
 ggplot(agr, aes(x=Prior, y=ProportionResponse, color=quantifier)) +
   geom_point() +
   geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
   #geom_smooth() +
   scale_y_continuous(breaks=seq(0,1.2,0.1))
 ggsave(file="graphs/mean_responses_errbars.pdf",width=12,height=8)
+=======
+agr = aggregate(ProportionResponse ~ Prior + quantifier + num_objects + Combination,data=r,FUN=mean)
+ggplot(agr, aes(x=Prior, y=ProportionResponse, color=quantifier)) +
+  geom_point() +
+  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth() +
+  scale_y_continuous(breaks=seq(0,1,0.1),limits=c(0,1)) +
+  facet_wrap(~num_objects)
+ggsave(file="graphs/mean_responses_bynumobjects.pdf",width=12,height=8)
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578
 
 # code participants for whether they are literal "all" and "none" responders -> maybe the ones who aren't responding literally are also not using the scale properly?
 all = aggregate(ProportionResponse~workerid, data=r[r$quantifier == "All",], FUN=mean)
@@ -67,7 +87,10 @@ row.names(none) = none$workerid
 
 r$LiteralAll = (all[as.character(r$workerid),]$ProportionResponse > .85)
 r$LiteralNone = (none[as.character(r$workerid),]$ProportionResponse < .15)
+<<<<<<< HEAD
 r$Literal = r$LiteralAll & r$LiteralNone
+=======
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578
 
 agr = aggregate(ProportionResponse ~ Prior + quantifier + Combination + LiteralAll,data=r,FUN=mean)
 agr$CILow = aggregate(ProportionResponse ~ Prior + quantifier + Combination + LiteralAll,data=r, FUN=ci.low)$ProportionResponse
@@ -99,6 +122,7 @@ ggplot(agr, aes(x=Prior, y=ProportionResponse, color=quantifier)) +
   facet_wrap(~LiteralNone)
 ggsave(file="graphs/mean_responses_litnone.pdf",width=12,height=8)
 
+<<<<<<< HEAD
 
 agr = aggregate(ProportionResponse ~ Prior + quantifier + Combination + Literal,data=r,FUN=mean)
 agr$CILow = aggregate(ProportionResponse ~ Prior + quantifier + Combination + Literal,data=r, FUN=ci.low)$ProportionResponse
@@ -140,6 +164,8 @@ ggplot(subset(agr, Literal == T), aes(x=Prior, y=ProportionResponse, color=quant
 ggsave(file="graphs/mean_responses_litornot_errbars_facet_labeled.pdf",width=40,height=30)
 
 
+=======
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578
 # response histograms by prior bin --> are there two populations?
 ggplot(r, aes(x=ProportionResponse)) + #,fill=quantifier)) +
   geom_histogram() +
@@ -156,6 +182,7 @@ ggplot(r, aes(x=ProportionResponse)) + #,fill=quantifier)) +
   scale_y_continuous(breaks=seq(0,1,0.1)) +
   facet_grid(quantifier~PriorBin,scales="free_y")
 ggsave(file="graphs/priorslice_densities.pdf",width=20,height=12)
+<<<<<<< HEAD
 
 r$Combo = as.factor(paste(r$effect,r$object))
 r$PExpectation = r$Expectation/100
@@ -221,3 +248,5 @@ ggplot(agr, aes(x=Prior, y=ProportionResponse, color=quantifier)) +
   scale_y_continuous(breaks=seq(0,1,0.1)) +
   facet_grid(quantifier~Strategist)
 ggsave(file="graphs/mean_responses_bystrategy_errbar.pdf",width=12,height=20)
+=======
+>>>>>>> 9607c7af133d2d9c79c1c3f488761f75e0075578
