@@ -1,6 +1,0 @@
-# created by jdegen on 09/26/2014
-
-Run sinking marbles church model by running 
-church sinking_marbles.church
-
-This will write the results directly to a file sinking_marbles.txt in models/results
