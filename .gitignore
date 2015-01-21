@@ -3,5 +3,13 @@
 *.input
 *.properties
 *.tsv
+*.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz
+*.tmp.results
 .RData
 .Rhistory
+.DS_Store
+
