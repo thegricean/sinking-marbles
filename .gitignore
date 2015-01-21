@@ -9,6 +9,7 @@
 *.log
 *.synctex.gz
 *.tmp.results
+*.results.tsv
 .RData
 .Rhistory
 .DS_Store
