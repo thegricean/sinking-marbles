@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[hmargin={1in},vmargin={1in,1in},foot={.6in}]{geometry}   
+\geometry{letterpaper} 
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}    
+%\geometry{landscape}          
+%\usepackage[parfill]{parskip}
+\usepackage{color,graphicx}
+%\usepackage{covington}
+%\usepackage{xyling}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{graphicx,color}
+%\usepackage{theorem}
+%\usepackage{tabularx}
+%\usepackage{subfig}
+%\usepackage{vowel}
+%\usepackage{mathrsfs}
+%\usepackage{varioref}
+%\usepackage{textcomp}
+%\usepackage{avm}
+%\usepackage{textcomp}
+%\usepackage{mflogo}
+%\usepackage{wasysym}
+%\usepackage{pstricks, pst-plot, pst-node, pst-tree, colortab}
+%\usepackage{qtree}
+ %\usepackage{tree-dvips}
+% \usepackage{linguex}
+\usepackage{gb4e}
+ \usepackage{multirow}
+% \usepackage[stable]{footmisc}
+% \usepackage{pifont}
+%\usepackage{todonotes}
+%\usepackage{natbib}
+\usepackage{apacite}
+%\usepackage[normalem]{ulem}
+
+ %\setlength{\parskip}{.55ex plus 0.1ex}
+
+
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{plain} % options: empty , plain , fancy
+\lhead{}\chead{}\rhead{}
+\renewcommand{\headrulewidth}{.3pt}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+%\renewcommand{\footrulewidth}{.3pt}
+\newcommand{\txtp}{\textipa}
+\renewcommand{\rm}{\textrm}
+\newcommand{\sem}[1]{\mbox{$[\![$#1$]\!]$}}
+\newcommand{\lam}{$\lambda$}
+\newcommand{\lan}{$\langle$}
+\newcommand{\ran}{$\rangle$}
+\newcommand{\type}[1]{\ensuremath{\left \langle #1 \right \rangle }}
+\newcommand{\defeq}{$\mathrel{\mathop:}=$ }
+\renewcommand{\and}{$\wedge$ }
+
+
+%\renewcommand{\Extopsep}{2pt}
+
+
+\newcommand{\bex}{\begin{examples}}
+\newcommand{\eex}{\end{examples}}
+
+%bullet points
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+
+%numbering, non sequential
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+
+\renewcommand{\abstractname}{The goal:}
+
+
+\definecolor{Red}{RGB}{255,0,0}
+\newcommand{\red}[1]{\textcolor{Red}{#1}}
+
+
+\begin{document}
+
+\begin{center}\textbf{Non-sinking marbles are wonky: world knowledge in  scalar implicature computation}\\*[5pt]
+\end{center}
+
+\vspace{-11pt}
+
+World knowledge enters into the interpretation of utterances in complex ways. %For example, the plausibility of an NP as the subject of a sentence influences whether listeners are garden-pathed in cases like \textit{The horse raced past the barn fell} vs.~\textit{The landline buried in the sand exploded} \cite{bla}.
+While effects of world knowledge on syntactic processing are well-established, there is to date a surprising lack of systematic investigations into the effect of world knowledge in pragmatics% -- this is especially surprising given that it has long been noted in the linguistics literature that pragmatics requires the integration of many different sources of linguistic and non-linguistic information. 
+Here, we provide a quantitative model of the effect of world knowledge  on  scalar implicatures, which are inferences that arise in cases of utterances like \textit{Some of the marbles sank}, %like (\ref{marbles}), where an utterance of (\ref{somemarbles}) 
+which typically gives rise to the inference that not all of the marbles sank.% in (\ref{simarbles}).
+
+%\begin{exe}
+%	\ex\label{marbles} 
+%	\begin{xlist}
+%		\ex\label{somemarbles} Some of the marbles sank.
+%		\ex\label{simarbles} Not all of the marbles sank.
+%	\end{xlist}
+%\end{exe}
+
+Recent Bayesian Rational Speech Act (RSA)  models of scalar implicature \cite{frank2012} make clear predictions about how world knowledge in the form of prior beliefs about states $s$ of the world should be integrated with listeners' expectations about utterances $u$ a speaker is likely to produce to communicate $s$. The listener's task can be characterized as having to infer $p(s|u)$. By Bayes' rule: $p(s|u)\propto p(u|s)\cdot p(s)$. We refer to the state in which all marbles sink as $s_{\forall}$ and the utterance with ``some'' as $u_{\textrm{some}}$. Without further modification, RSA predicts that $p(s_{\forall}|u_{\textrm{some}})$ increases with increasing $p(s_{\forall})$, such that for $p(s_{\forall})$ close to 1, $p(s_{\forall}|u_{\textrm{some}})$ approaches 1, that is, implicatures are very weak. However, for events with very high prior probability of occurrence (e.g.~sinking marbles), the implicature that not all of the marbles sank is intuitively very strong, that is, $p(s_{\forall}|u_{\textrm{some}})$ is intuitively close to 0 \cite{geurts2010}. 
+
+Our contribution is two-fold: first, we collect empirical estimates of $p(s)$ and $p(s|u)$ to investigate the empirical effect of participants' prior beliefs on implicature strength. Second, we extend the RSA model to incorporate a free variable $\theta_{\textrm{wonky}}$ that captures the extent to which the listener believes the described event is abnormal and she should thus discount her prior beliefs when interpreting $u$. We refer to this model as \textit{wonky RSA} (wRSA) in contrast to \textit{regular RSA} (rRSA). 
+
+\textbf{Model}. In wRSA, the listener infers the value of $\theta_{\textrm{wonky}}$ jointly with $s$. $\theta_{\textrm{wonky}}$ captures for each utterance and item, how likely the objects involved in the event (e.g., marbles) are in fact ``wonky'' (in which case the computation draws on a uniform prior, i.e.~disregards prior beliefs) or not (in which case the model draws on the smoothed empirical prior distribution for that item, obtained in Exp.~1). The resulting $p(s|u)$ is a mixture of computations based on the uniform and empirical prior, with mixture parameter $\theta_{\textrm{wonky}}$. The inferred value of $\theta_{\textrm{wonky}}$ itself depends on $p(u|s)$: the more surprising a particular utterance is given prior beliefs, the higher the probability of $\theta_{\textrm{wonky}}$.
+
+\textbf{Exp.~1 (n=60)} measured $p(s)$ %---participants' prior beliefs about the probability of different states of the world---
+for 90 items (of which each participant saw one third). On each trial, participants read a description of an event like \textit{John threw 100 marbles into a pool.} They were then asked to provide a judgment of an effect, e.g.~\textit{How many of the marbles do you think sank?}, on a sliding scale from 0 to 100.
+
+\textbf{Exp.~2 (n=120)} collected participants' posterior estimates of $p(s|u)$. Participants read the same descriptions as in Exp.~1 and additionally saw an utterance produced by a knowledgeable speaker about the event, e.g.~\textit{John, who observed what happened, said: ``Some of the marbles sank''}, and were asked to rate on sliding scales with endpoints labeled ``very unlikely'' and ``very likely'', how likely they thought 0\%, 1-50\%, 51-99\%, or 100\% of the marbles sank. Each participant saw 10 ``some'' trials and 20 fillers, of which 10 contained the quantifiers ``all'' or ``none'', and the were utterances that did not address the number of objects that displayed the effect, e.g.~\textit{What a stupid thing to do.} $p(s_{\forall}|u_{\textrm{some}})$ increased with increasing $p(s_{\forall}$) ($\beta$=.1, $SE$=.01, $t$=6.9, $p$$<$.0001); however, mean $p(s_{\forall}|u_{\textrm{some}})$ was never higher than .26, suggesting that a) participants drew strong implicatures in this paradigm and b) the effect of $p(s)$ is much smaller than predicted by rRSA.
+
+Comparing the fit of rRSA and wRSA model predictions to the posterior state estimates from Exp.~2 yields a much better fit for wRSA. The better fit of wRSA suggests that listeners  use speakers' utterances as cues to how strongly to incorporate world knowledge. wRSA also provided a better fit than a model which used only a uniform prior, confirming that listeners do make use of world knowledge in a systematic way in the computation of scalar implicature.
+
+
+
+
+\bibliographystyle{apacite}
+\bibliography{bibs.bib}
+
+
+
+
+\end{document}
