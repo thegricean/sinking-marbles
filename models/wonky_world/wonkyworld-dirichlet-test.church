@@ -1,0 +1,113 @@
+
+
+(define (rep n val) (repeat n (lambda () val)))
+
+(define (power dist a) (list (first dist) 
+                           (map (lambda (x) (pow x a)) (second dist))))
+
+(define (meaning utterance marbles total-marbles)
+  (case utterance
+        (('all) (= marbles total-marbles))
+        (('none) (= marbles 0))        
+        (('some) (> marbles 0))
+        (('most) (> marbles (/ total-marbles 2)))
+        (('many) (> marbles (/ total-marbles 2)))     
+	    (('morethanhalf) (> marbles (/ total-marbles 2)))             
+        (('one) (= marbles 1))        
+        (('two) (= marbles 2))          
+        (('three) (= marbles 3))
+        (('four) (= marbles 4))        
+        (('five) (= marbles 5))
+        (('six) (= marbles 6))        
+        (('seven) (= marbles 7))        
+        (('eight) (= marbles 8))
+        (('nine) (= marbles 9))
+        (('ten) (= marbles 10))
+        (('eleven) (= marbles 11))
+        (('twelve) (= marbles 12))
+        (('thirteen) (= marbles 13))
+        (('fourteen) (= marbles 14))
+        (('fifteen) (= marbles 15))        
+        (('almostall) (and (> marbles (* .75 total-marbles)) (< marbles total-marbles)))
+        (('half) (= marbles (/ total-marbles 2)))        
+        (('acouple) (= marbles 2))        
+        (('notone) (= marbles 0))        
+        (('onlyone) (= marbles 1))        
+        (('everyone) (= marbles total-marbles))        
+        (('notmany) (< marbles (/ total-marbles 2)))        
+        (('justone) (= marbles 1))        
+        (('almostnone) (and (> marbles 0) (< marbles (* .25 total-marbles))))
+        (('allbutone) (= marbles (- total-marbles 1)))
+        (('lessthanhalf) (< marbles (/ total-marbles 2)))          
+        (('overhalf) (> marbles (/ total-marbles 2)))  
+        (('several) (> marbles 2))
+        (('afew) (and (< marbles (* total-marbles .7)) (> marbles 1)))               
+        (('veryfew) (< marbles (/ total-marbles 2)))                         
+        (('alot) (> marbles (/ total-marbles 2)))
+        ))
+
+(define (QUD-cell QUD marbles total-marbles)
+  (case QUD
+        (('is-all) (= marbles total-marbles))
+        (('is-any) (> marbles 0))
+        (('how-many) marbles)))
+
+(define (quantifier quantifier-alternatives) (uniform-draw quantifier-alternatives))
+
+(define (marble-state s)
+	(multinomial '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15) s))
+
+(define literal-listener 
+  (mem (lambda (utterance QUD total-marbles quantifier-alternatives wonky-world?)
+         (enumeration-query
+          (define marbles (marble-state (theprior wonky-world?)))
+          
+          (QUD-cell QUD marbles total-marbles)
+          
+          (meaning utterance marbles total-marbles)))))
+
+(define pragmatic-speaker 
+  (mem (lambda (marbles QUD total-marbles quantifier-alternatives wonky-world?)
+         (enumeration-query
+          (define utterance (quantifier quantifier-alternatives))
+          utterance
+          (and
+           (equal? (QUD-cell QUD marbles total-marbles)
+                   (apply multinomial
+                          (literal-listener utterance QUD total-marbles quantifier-alternatives wonky-world?)))
+           (meaning utterance marbles total-marbles))))))
+
+(define (pragmatic-listener utterance QUD total-marbles quantifier-alternatives speaker-opt)
+	(enumeration-query
+		(define wonky-world? (flip))
+		(define marbles (marble-state (theprior wonky-world?)))
+		
+		;wonky-world?
+		;marbles
+		(list wonky-world? marbles)
+
+		(equal? utterance (apply multinomial 
+                                 (power (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives wonky-world?)
+                                        speaker-opt)))))                                         
+
+(define alternatives '(some all none))
+
+;(define varprior (list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1))
+(define varprior (list 0.7705057	0.0383334	0.0019072	0.0000953	0.0000104	0.0001121	0.0022462	0.0451475	0.0491949	0.0878474	0.0043706	0.0002175	0.0000109	0.0000006	0.0000001	0.0000001))
+
+;(define varprior (list 0.0241488531888335	0.0225873690898781	0.0159865528027849	0.0100706023208948	0.00672623259856985	0.00502970302113547	0.00445435855115286	0.00472624665038207	0.00502526997675212	0.00476900753754023	0.00399610335876439	0.0028824896067074	0.00181256464210145	0.00135163864067304	0.00154616566594148	0.00172978800589928))
+;0.00202120330803658	0.00332160024628054	0.00418496584023376	0.00432576100492317	0.00408458365955489	0.00396702550294177	0.00422387939839606	0.0049628937235622	0.00640885325539729	0.00872086148640994	0.011536203131516	0.0141184554354994	0.0160160913764232	0.0169937758547743	0.0163109588821032	0.0132100415498617))
+;1.38966559879877e-05	1.38966559880239e-05	1.38966571977988e-05	1.3901817221606e-05	1.78042123674685e-05	0.000529898468553767	0.0123198667617531	0.0588317212229494	0.0986452837434597	0.124733685470148	0.111275154544014	0.117111372542345	0.111475831221118	0.12383030760774	0.12064033986769	0.120533142551466))
+
+
+(define naive-dirichlet-samples (repeat 1000 (lambda ()	(dirichlet (make-list 16 1)))))	
+
+(define theprior (lambda (wonky-world?)
+	(if wonky-world?
+		(uniform-draw naive-dirichlet-samples)
+		;(list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1)
+		varprior)))
+
+;(literal-test-listener 'some 'how-many 15 alternatives 2)
+(pragmatic-listener 'all 'how-many 15 alternatives 2)
+
