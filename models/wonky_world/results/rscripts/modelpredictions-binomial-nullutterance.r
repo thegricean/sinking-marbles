@@ -6,7 +6,7 @@
 
 library(ggplot2)
 theme_set(theme_bw(18))
-setwd("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/models/wonky_world/results/")
+setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/")
 source("rscripts/helpers.r")
 
 #' get model predictions
@@ -115,7 +115,7 @@ ggplot(some, aes(x=PosteriorExpectation_predicted, y=PosteriorExpectation_empiri
   facet_grid(NullUtteranceCost~WonkyWorldPrior)
 ggsave("graphs/model-empirical-binomial_nullutterance-expectations.pdf",width=30,height=10)
 
-ggplot(some, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted,color=as.factor(SpeakerOptimality)))+#, shape=as.factor(WonkyWorldPrior))) +
+ggplot(some, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted,color=as.factor(WonkyWorldPrior)))+#, shape=as.factor(WonkyWorldPrior))) +
   geom_point() +
   geom_smooth(method="lm") +
   #geom_abline(intercept=0,slope=1,color="gray50") +
@@ -124,7 +124,7 @@ ggplot(some, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted,c
   #  geom_text(data=cors, aes(label=r)) +
   #scale_size_discrete(range=c(1,2)) +
   #scale_color_manual(values=c("red","blue","black")) +
-  facet_grid(NullUtteranceCost~WonkyWorldPrior)
+  facet_grid(NullUtteranceCost~SpeakerOptimality)
 ggsave("graphs/model-binomial_nullutterance-expectations.pdf",width=15,height=10)
 
   
