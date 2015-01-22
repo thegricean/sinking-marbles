@@ -1,0 +1,22 @@
+rewriteProperties::yes
+liveHIT::no
+title::Language study
+description::A 10-minute experiment where you answer some questions about events
+nameofexperimentfiles::sinking_marbles_nullutterance
+experimentURL::https://www.stanford.edu/~jdegen/15_sinking-marbles-sliders/sinking-marbles-nullutterance.html
+hitfolderpath::/Users/titlis/webprojects/77_sinking-marbles-sliders15/
+locationofCLT::/Users/titlis/aws-mturk-clt-1.3.1
+keywords::language experiment study communication stanford fun cognitive science
+USonly?::yes
+minPercentPreviousHITsApproved::95
+frameheight::650
+reward::0.70
+numberofassignments::120
+assignmentduration::2400  
+hitlifetime::259200
+autoapprovaldelay::259200
+conditions::condition
+
+
+
+
