@@ -1,25 +1,25 @@
 
 (define (rep n val) (repeat n (lambda () val)))
 
-(define (power dist a) (list (first dist)
+(define (power dist a) (list (first dist) 
                            (map (lambda (x) (pow x a)) (second dist))))
 
 (define (meaning utterance marbles total-marbles)
   (case utterance
   		(('nullutterance) true)
         (('all) (= marbles total-marbles))
-        (('none) (= marbles 0))
+        (('none) (= marbles 0))        
         (('some) (> marbles 0))
         (('most) (> marbles (/ total-marbles 2)))
-        (('many) (> marbles (/ total-marbles 2)))
-    	(('morethanhalf) (> marbles (/ total-marbles 2)))
-        (('one) (= marbles 1))
-        (('two) (= marbles 2))
+        (('many) (> marbles (/ total-marbles 2)))     
+    	(('morethanhalf) (> marbles (/ total-marbles 2)))             
+        (('one) (= marbles 1))        
+        (('two) (= marbles 2))          
         (('three) (= marbles 3))
-        (('four) (= marbles 4))
+        (('four) (= marbles 4))        
         (('five) (= marbles 5))
-        (('six) (= marbles 6))
-        (('seven) (= marbles 7))
+        (('six) (= marbles 6))        
+        (('seven) (= marbles 7))        
         (('eight) (= marbles 8))
         (('nine) (= marbles 9))
         (('ten) (= marbles 10))
@@ -27,22 +27,22 @@
         (('twelve) (= marbles 12))
         (('thirteen) (= marbles 13))
         (('fourteen) (= marbles 14))
-        (('fifteen) (= marbles 15))
+        (('fifteen) (= marbles 15))        
         (('almostall) (and (> marbles (* .75 total-marbles)) (< marbles total-marbles)))
-        (('half) (= marbles (/ total-marbles 2)))
-        (('acouple) (= marbles 2))
-        (('notone) (= marbles 0))
-        (('onlyone) (= marbles 1))
-        (('everyone) (= marbles total-marbles))
-        (('notmany) (< marbles (/ total-marbles 2)))
-        (('justone) (= marbles 1))
+        (('half) (= marbles (/ total-marbles 2)))        
+        (('acouple) (= marbles 2))        
+        (('notone) (= marbles 0))        
+        (('onlyone) (= marbles 1))        
+        (('everyone) (= marbles total-marbles))        
+        (('notmany) (< marbles (/ total-marbles 2)))        
+        (('justone) (= marbles 1))        
         (('almostnone) (and (> marbles 0) (< marbles (* .25 total-marbles))))
         (('allbutone) (= marbles (- total-marbles 1)))
-        (('lessthanhalf) (< marbles (/ total-marbles 2)))
-        (('overhalf) (> marbles (/ total-marbles 2)))
+        (('lessthanhalf) (< marbles (/ total-marbles 2)))          
+        (('overhalf) (> marbles (/ total-marbles 2)))  
         (('several) (> marbles 2))
-        (('afew) (and (< marbles (* total-marbles .7)) (> marbles 1)))
-        (('veryfew) (< marbles (/ total-marbles 2)))
+        (('afew) (and (< marbles (* total-marbles .7)) (> marbles 1)))               
+        (('veryfew) (< marbles (/ total-marbles 2)))                         
         (('alot) (> marbles (/ total-marbles 2)))
         ))
 
@@ -58,16 +58,16 @@
 (define (marble-state theprior)
 	(multinomial '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15) theprior))
 
-(define literal-listener
+(define literal-listener 
   (mem (lambda (utterance QUD total-marbles quantifier-alternatives allprior)
          (enumeration-query
           (define marbles (marble-state allprior))
-
+          
           (QUD-cell QUD marbles total-marbles)
-
+          
           (meaning utterance marbles total-marbles)))))
 
-(define pragmatic-speaker
+(define pragmatic-speaker 
   (mem (lambda (marbles QUD total-marbles quantifier-alternatives allprior)
          (enumeration-query
           (define utterance (quantifier quantifier-alternatives))
@@ -82,9 +82,9 @@
 	(enumeration-query
 		(define marbles (marble-state allprior))
 		marbles
-		(equal? utterance (apply multinomial
+		(equal? utterance (apply multinomial 
                                  (power (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives allprior)
-                                        speaker-opt)))))
+                                        speaker-opt))))) 
 
 
 (define (run-speaker marbles QUD total-marbles quantifier-alternatives allprior title)
@@ -93,10 +93,10 @@
 (define (run-listener utterance QUD total-marbles quantifier-alternatives allprior title)
   (hist (repeat 1000 (lambda () (apply multinomial (pragmatic-listener utterance QUD total-marbles quantifier-alternatives allprior)))) title ))
 
-(define (sample-listener utterance QUD total-marbles quantifier-alternatives allprior)
+(define (sample-listener utterance QUD total-marbles quantifier-alternatives allprior) 
   (pragmatic-listener utterance QUD total-marbles quantifier-alternatives allprior))
 
-(define (sample-speaker marbles QUD total-marbles quantifier-alternatives allprior)
+(define (sample-speaker marbles QUD total-marbles quantifier-alternatives allprior) 
   (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives allprior))
 
 (define alternatives '(nullutterance some all none))
@@ -106,37 +106,37 @@
 ;(define (pl allprior total-marbles QUD speaker-opt)
 ;(pragmatic-listener 'some QUD total-marbles alternatives theprior speaker-opt))
 
-(define theprior (list 0.1983746	0.1151039	0.0549496	0.0752798	0.0603960	0.0612359	0.0790296	0.1398398	0.1145206	0.0387253	0.0196508	0.0293585	0.0093293	0.0029647	0.0009422	0.0002995))
+(define theprior (list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1))
 
-;(pragmatic-listener 'some 'how-many 3 alternatives theprior 3)
+(pragmatic-listener 'some 'how-many 15 alternatives theprior 2) 
 
-(write-csv
-	(list
-	'(alternatives)
-	(list alternatives)
-	(list theprior)
-	'(qud how-many)
-	'(speaker-opt 1)
-	(pragmatic-listener 'some 'how-many 15 alternatives theprior 1)
-	'(speaker-opt 2)
-	(pragmatic-listener 'some 'how-many 15 alternatives theprior 2)
-	'(speaker-opt 3)
-	(pragmatic-listener 'some 'how-many 15 alternatives theprior 3)
+;(write-csv
+;	(list 	
+;	'(alternatives)
+;	(list alternatives)
+;	(list theprior)
+;	'(qud how-many)	
+;	'(speaker-opt 1)
+;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 1)
+;	'(speaker-opt 2)
+;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 2)
+;	'(speaker-opt 3)
+;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 3)	
 ;	'(qud is-all)
 ;	'(speaker-opt 1)
-;	(pragmatic-listener 'some 'is-all 15 alternatives theprior 1)
+;	(pragmatic-listener 'some 'is-all 15 alternatives theprior 1)	
 ;	'(speaker-opt 2)
-;	(pragmatic-listener 'some 'is-all 15 alternatives theprior 2)
+;	(pragmatic-listener 'some 'is-all 15 alternatives theprior 2)	
 ;	'(speaker-opt 3)
 ;	(pragmatic-listener 'some 'is-all 15 alternatives theprior 3)
 ;	'(qud is-any)
 ;	'(speaker-opt 1)
-;	(pragmatic-listener 'some 'is-any 15 alternatives theprior 1)
+;	(pragmatic-listener 'some 'is-any 15 alternatives theprior 1)	
 ;	'(speaker-opt 2)
-;	(pragmatic-listener 'some 'is-any 15 alternatives theprior 2)
+;	(pragmatic-listener 'some 'is-any 15 alternatives theprior 2)	
 ;	'(speaker-opt 3)
-;	(pragmatic-listener 'some 'is-any 15 alternatives theprior 3)
-	)
-	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/complex_prior/smoothed_unbinned15/results/raw_nullutterance_results.txt"
-	","
-)
+;	(pragmatic-listener 'some 'is-any 15 alternatives theprior 3)		
+;	)
+;	"/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/models/complex_prior/smoothed_unbinned15/results/raw_results.txt"	
+;	","
+;)
