@@ -25,13 +25,13 @@ wr[wr$Item == "ate the seeds birds" & wr$QUD=="how-many" & wr$Alternatives=="0_b
 
 
 # get prior expectations
-priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
+priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
 row.names(priorexpectations) = paste(priorexpectations$effect,priorexpectations$object)
 mp$PriorExpectation = priorexpectations[as.character(mp$Item),]$expectation
 wr$PriorExpectation = priorexpectations[as.character(wr$Item),]$expectation
 
 # get smoothed prior probabilities
-priorprobs = read.table(file="~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
 head(priorprobs)
 row.names(priorprobs) = paste(priorprobs$effect,priorprobs$object)
 mpriorprobs = melt(priorprobs, id.vars=c("effect", "object"))
@@ -42,7 +42,7 @@ mp$AllPriorProbability = priorprobs[paste(as.character(mp$Item)),]$X15
 head(mp)
 
 # get empirical state posteriors:
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/3_sinking-marbles-nullutterance/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/3_sinking-marbles-nullutterance/results/data/r.RData")
 head(r)
 r$Item = as.factor(paste(r$effect,r$object))
 # because posteriors come in 4 bins, make Bin variable for model prediction dataset:
@@ -81,7 +81,7 @@ ggplot(toplot, aes(x=Prop, y=value,color=ptype, group=ptype, size=Probability)) 
 ggsave("graphs/model-empirical-binomial_nullutterance-howmany-2-basic-cost5.pdf",width=35,height=30)
 
 #plot empirical against predicted expectations for "some"
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
 summary(r)
 r$Item = as.factor(paste(r$effect, r$object))
 agr = aggregate(ProportionResponse ~ Item + quantifier, data=r, FUN=mean)
@@ -162,7 +162,7 @@ ggplot(allstate, aes(x=PriorProbability, y=PosteriorProbability,color=as.factor(
 ggsave("graphs/model-binomial_nullutterance-allstateprobs.pdf",width=15,height=10)
 
 # get empirical wonkiness posteriors
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
 head(r)
 nrow(r)
 r$Item = as.factor(paste(r$effect,r$object))

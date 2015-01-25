@@ -88,8 +88,8 @@
 
 		;wonky-world?
 		;marbles
-		(list wonky-world? marbles)
-        ;label
+		;(list wonky-world? marbles)
+        label
 
 		(equal? utterance (apply multinomial
                                  (power (pragmatic-speaker marbles QUD total-marbles
@@ -176,15 +176,15 @@
 ;	(pragmatic-listener 'some 'is-any 15 alternatives 2)
 ;	'(speaker-opt 3)
 ;	(pragmatic-listener 'some 'is-any 15 alternatives 3)
-	'(quantifier none)
-	'(qud how-many)
-	'(speaker-opt 1)
-	(pragmatic-listener 'none 'how-many 15 alternatives 1)
-	'(speaker-opt 2)
-	(pragmatic-listener 'none 'how-many 15 alternatives 2)
-	'(speaker-opt 3)
-	(pragmatic-listener 'none 'how-many 15 alternatives 3)
-;	'(qud is-all)
+;	'(quantifier none)
+;	'(qud how-many)
+;	'(speaker-opt 1)
+;	(pragmatic-listener 'none 'how-many 15 alternatives 1)
+;	'(speaker-opt 2)
+;	(pragmatic-listener 'none 'how-many 15 alternatives 2)
+;	'(speaker-opt 3)
+;	(pragmatic-listener 'none 'how-many 15 alternatives 3)
+;;	'(qud is-all)
 ;	'(speaker-opt 1)
 ;	(pragmatic-listener 'none 'is-all 15 alternatives 1)
 ;	'(speaker-opt 2)
@@ -198,14 +198,14 @@
 ;	(pragmatic-listener 'none 'is-any 15 alternatives 2)
 ;	'(speaker-opt 3)
 ;	(pragmatic-listener 'none 'is-any 15 alternatives 3)
-	'(quantifier all)
-	'(qud how-many)
-	'(speaker-opt 1)
-	(pragmatic-listener 'all 'how-many 15 alternatives 1)
-	'(speaker-opt 2)
-	(pragmatic-listener 'all 'how-many 15 alternatives 2)
-	'(speaker-opt 3)
-	(pragmatic-listener 'all 'how-many 15 alternatives 3)
+;	'(quantifier all)
+;	'(qud how-many)
+;	'(speaker-opt 1)
+;	(pragmatic-listener 'all 'how-many 15 alternatives 1)
+;	'(speaker-opt 2)
+;	(pragmatic-listener 'all 'how-many 15 alternatives 2)
+;	'(speaker-opt 3)
+;	(pragmatic-listener 'all 'how-many 15 alternatives 3)
 ;	'(qud is-all)
 ;	'(speaker-opt 1)
 ;	(pragmatic-listener 'all 'is-all 15 alternatives 1)
@@ -221,6 +221,6 @@
 ;	'(speaker-opt 3)
 ;	(pragmatic-listener 'all 'is-any 15 alternatives 3)
 	)
-	"/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/models/wonky_world/results/model_results/raw_binomial_nullutterance_results.txt"
+	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/model_results/raw_binomial_nullutterance_results.txt"
 	","
 )
