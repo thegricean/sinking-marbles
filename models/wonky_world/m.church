@@ -88,8 +88,8 @@
 
 		;wonky-world?
 		;marbles
-		;(list wonky-world? marbles)
-        label
+		(list wonky-world? marbles)
+        ;label
 
 		(equal? utterance (apply multinomial
                                  (power (pragmatic-speaker marbles QUD total-marbles
@@ -124,8 +124,9 @@
 ; make a prior
 (define wonky-world-prior (lambda (coin-weight) (normalize (weights coin-weight))))
 
-; modify for different empirical priors
-(define coin-weights '(0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9))
+; switch back and forth between these
+(define coin-weights '(0.1 0.5 0.9))
+;(define coin-weights '(0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9))
 
 (define empiricalprior (list 0.1942258	0.1096275	0.0500618	0.0718820	0.0573715	0.0595354	0.0818916	0.1607848	0.1180929	0.0376009	0.0182371	0.0285214	0.0085780	0.0025800	0.0007760	0.0002335))
 (define naivepriors (map (lambda (cw) (list cw (wonky-world-prior cw))) coin-weights))
@@ -221,6 +222,6 @@
 ;	'(speaker-opt 3)
 ;	(pragmatic-listener 'all 'is-any 15 alternatives 3)
 	)
-	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/model_results/raw_binomial_nullutterance_results.txt"
+	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/model_results/raw_binomial_nullutterance_results.txt.tmp.results"
 	","
 )

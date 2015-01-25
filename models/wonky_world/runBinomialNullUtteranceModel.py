@@ -19,7 +19,7 @@ pfile.close()
 wpriors = [.1, .3, .5]
 costs = [.5, 1, 5]
 
-rfile = open("results/model_results/results_binomial_nullutterance.txt","w")	
+rfile = open("results/model_results/results_binomial_nullutterance_3coinweights.txt.tmp.results","w")	
 #results = []
 
 w = ch_model.index("(define alternatives '(nullutterance some all none))")
@@ -60,7 +60,7 @@ for i,a in enumerate(alternatives):
 				ofile.close()
 				subresults = subprocess.Popen(['church',ofile.name], stdout=subprocess.PIPE)
 				subresults.communicate()[0]
-				rfile.write("".join(open("results/model_results/raw_binomial_nullutterance_results.txt").readlines()))
+				rfile.write("".join(open("results/model_results/raw_binomial_nullutterance_results.txt.tmp.results").readlines()))
   
 
 rfile.close()
