@@ -22,6 +22,7 @@ function make_slides(f) {
       $(".err").hide();
     },
     present_handle : function(stim) {
+      $(".err").hide();    	
     	this.trial_start = Date.now();
       this.init_sliders();
       exp.sliderPost = {};
