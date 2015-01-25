@@ -8,7 +8,7 @@ import sys
 #usage 
 # python parseResults.py 
 
-fname = '../results/model_results/results_binomial_nullutterance_3coinweights.txt.tmp.results'
+fname = '../results/model_results/results_binomial_nullutterance_infer3coinweights.txt.tmp.results'
 file_names = [fname]
 
 itemfile = open("items.txt")
@@ -51,7 +51,7 @@ def getReducedAlternatives(alts):
 	return "".join([basic,lownum,extra,highnum,twowords,threewords])
 
 
-headers = ["Item","QUD","Wonky","State","NullUtteranceCost","Alternatives","WonkyWorldPrior","Quantifier","SpeakerOptimality","PosteriorProbability"]        
+headers = ["Item","QUD","CoinWeight","NullUtteranceCost","Alternatives","WonkyWorldPrior","Quantifier","SpeakerOptimality","PosteriorProbability"]        
 k = 0
 wwcnt = 0
 condcnt = 0
@@ -106,17 +106,18 @@ while k < len(lines):
 		k = k + 1      
 		spopt = lines[k].split(",")[1]
 		k = k + 1
-		combs = lines[k].split(",,,")
-		pairs = combs[0].split(",,")
+		combs = lines[k].split(",,")
+		print combs
+		pairs = combs[0].split(",")
+		print pairs
 		probs = combs[1].split(",")
+		print probs
 #		print pairs
 #		print k
 		for j,pa in enumerate(pairs):
-			pasplit = pa.split(",")
-			wonky = pasplit[0]
-			ssize = pasplit[1]
+			ssize = pairs[j]
 			prob = probs[j]
-			results.append([items[priorcnt],qud, wonky, ssize, nullcost, alts, wonkyworldprior,  quantifier, spopt, prob])
+			results.append([items[priorcnt],qud, ssize, nullcost, alts, wonkyworldprior,  quantifier, spopt, prob])
 		k = k + 1
 	elif lines[k].startswith("quantifier"):
 		quantifier = lines[k].split(",")[1]
@@ -125,50 +126,43 @@ while k < len(lines):
 		k = k + 1		
 		spopt = lines[k].split(",")[1]
 		k = k + 1
-		combs = lines[k].split(",,,")
-		pairs = combs[0].split(",,")
-#		print combs
+		combs = lines[k].split(",,")
+		pairs = combs[0].split(",")
 		probs = combs[1].split(",")
 #		print pairs
 #		print k
 		for j,pa in enumerate(pairs):
-			pasplit = pa.split(",")
-			wonky = pasplit[0]
-			ssize = pasplit[1]
+			ssize = pairs[j]
 			prob = probs[j]
-			results.append([items[priorcnt],qud, wonky, ssize, nullcost, alts, wonkyworldprior, quantifier, spopt, prob])
+			results.append([items[priorcnt],qud, ssize, nullcost, alts, wonkyworldprior, quantifier, spopt, prob])
 		k = k + 1
 	elif lines[k].startswith("speaker-opt"):
 		spopt = lines[k].split(",")[1]
 		k = k + 1
-		combs = lines[k].split(",,,")
-		pairs = combs[0].split(",,")
+		combs = lines[k].split(",,")
+		pairs = combs[0].split(",")
 		probs = combs[1].split(",")
 #		print pairs
 #		print k
 		for j,pa in enumerate(pairs):
-			pasplit = pa.split(",")
-			wonky = pasplit[0]
-			ssize = pasplit[1]
+			ssize = pairs[j]
 			prob = probs[j]
-			results.append([items[priorcnt],qud, wonky, ssize, nullcost, alts, wonkyworldprior, quantifier, spopt, prob])
+			results.append([items[priorcnt],qud, ssize, nullcost, alts, wonkyworldprior, quantifier, spopt, prob])
 		k = k + 1
 	elif lines[k].startswith("qud"):
 		qud = lines[k].split(",")[1]
 		k = k + 1
 		spopt = lines[k].split(",")[1]
 		k = k + 1
-		combs = lines[k].split(",,,")
-		pairs = combs[0].split(",,")
+		combs = lines[k].split(",,")
+		pairs = combs[0].split(",")
 		probs = combs[1].split(",")
 #		print pairs
 #		print k
 		for j,pa in enumerate(pairs):
-			pasplit = pa.split(",")
-			wonky = pasplit[0]
-			ssize = pasplit[1]
+			ssize = pairs[j]
 			prob = probs[j]
-			results.append([items[priorcnt],qud, wonky, ssize, nullcost, alts, wonkyworldprior, quantifier, spopt, prob])
+			results.append([items[priorcnt],qud,  ssize, nullcost, alts, wonkyworldprior, quantifier, spopt, prob])
 		k = k + 1
 	else:
 		#print lines[k]
