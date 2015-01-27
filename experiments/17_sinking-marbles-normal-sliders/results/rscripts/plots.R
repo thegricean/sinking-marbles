@@ -55,12 +55,13 @@ ggsave(file="graphs/wonky_probability_bypriorexp_errbars.pdf",width=20,height=15
 ans = droplevels(subset(agr, quantifier %in% c("All","Some","None")))
 ggplot(ans, aes(x=PriorExpectationProportion,y=response,group=quantifier,color=quantifier)) +
   geom_point() +
+#  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
   scale_color_manual(values=c("#F8766D", "#00BF7D", "#00B0F6")) +
-  geom_smooth(method="lm",formula = y~x + I(x^2)) +
+  geom_smooth()+#method="lm",formula = y~x + I(x^2)) +
   scale_x_continuous(breaks=seq(0,1,.2), name="Prior mean proportion of objects") +
   scale_y_continuous(breaks=seq(0,1,.2), name="Mean wonkiness probability")  
-ggsave(file="~/cogsci/conferences_talks/_2015/2_cogsci_pasadena/wonky_marbles/paper/pics/probwonky-empirical.pdf",width=6.5,height=5.2)
-ggsave(file="graphs/probwonky-empirical.pdf",width=6.5,height=5.2)
+ggsave(file="../../../writing/_2015/cogsci_2015/paper/pics/probwonky-empirical.pdf",width=5,height=3.7)
+ggsave(file="graphs/probwonky-empirical.pdf",width=5,height=3.7)
 
 ggplot(ans, aes(x=PriorExpectationProportion,y=response,group=quantifier,color=quantifier)) +
   geom_point() +

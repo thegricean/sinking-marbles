@@ -220,9 +220,9 @@ smoothed_dist15$SmoothedProportion = format(round(smoothed_dist15$SmoothedPropor
 casted = dcast(smoothed_dist15, Item ~ State, value.var="SmoothedProportion")
 write.table(casted,file="data/smoothed_15marbles_priors_withnames_laplace.txt",row.names=F,quote=F,sep="\t")
 write.table(casted,file="../../../models/wonky_world/smoothed_15marbles_priors_withnames_laplace.txt",row.names=F,quote=F,sep="\t")
-write.table(casted[,3:length(colnames(casted))],file="data/smoothed_15marbles_priors_laplace.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,2:length(colnames(casted))],file="data/smoothed_15marbles_priors_laplace.txt",row.names=F,quote=F,sep="\t")
 #write.table(casted[,1:2],file="data/items.txt",row.names=F,quote=F,sep="\t")
-write.table(casted[,3:length(colnames(casted))],file="../../../models/wonky_world/smoothed_15marbles_priors_withnames_laplace.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,2:length(colnames(casted))],file="../../../models/wonky_world/smoothed_15marbles_priors_laplace.txt",row.names=F,quote=F,sep="\t")
 
 ## plot individual items
 row.names(expectations) = expectations$Item
