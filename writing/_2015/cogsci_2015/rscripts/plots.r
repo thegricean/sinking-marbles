@@ -10,19 +10,21 @@ setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marble
 source("rscripts/helpers.r")
 
 # get prior expectations, laplace smoothed
-priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations_laplace.txt",sep="\t", header=T, quote="")
-row.names(priorexpectations) = priorexpectations$Item
+#priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations_laplace.txt",sep="\t", header=T, quote="")
+priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
+row.names(priorexpectations) = paste(priorexpectations$effect, priorexpectations$object)
 
 # histogram of expectations
-ggplot(priorexpectations, aes(x=expectation/15)) +
+ggplot(priorexpectations, aes(x=expectation_corr/15)) +
   geom_histogram() +
   scale_x_continuous(name="Expected value of prior distribution") +
   scale_y_continuous(name="Number of cases")
-ggsave("priorexpectations-histogram-laplace.pdf")
+ggsave("priorexpectations-histogram.pdf")
 
 
 # plot model predictions
-load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-uniform.RData")
+#load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-uniform.RData")
+load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-binomial.RData")
 
 # plot expectations for best basic model: 
 toplot = droplevels(subset(mp, QUD == "how-many" & Alternatives == "0_basic" & Quantifier == "some" & WonkyWorldPrior == .5))
@@ -32,7 +34,7 @@ pexpectations = ddply(toplot, .(Item, SpeakerOptimality,PriorExpectation_smoothe
 head(pexpectations)
 some = pexpectations#droplevels(subset(pexpectations, Quantifier == "some"))
 
-toplot = droplevels(subset(some, SpeakerOptimality == 1))
+toplot = droplevels(subset(some, SpeakerOptimality == 2))
 nrow(toplot)
 head(toplot)
 
@@ -43,13 +45,15 @@ ggplot(toplot, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted
   scale_x_continuous(limits=c(0,1), name="Prior expectation") +
   scale_y_continuous(limits=c(0,1), name="Model predicted posterior expectation")
 #  geom_text(data=cors, aes(label=r)) +
+
 #scale_size_discrete(range=c(1,2)) +
 #scale_color_manual(values=c("red","blue","black")) 
-ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
+ggsave("model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
 ggsave("~/cogsci/conferences_talks/_2015/2_cogsci_pasadena/wonky_marbles/paper/pics/model-expectations-uniform.pdf",width=5.5,height=4.5)
-save(toplot, file="data/toplot-expectations.RData")
+save(toplot, file="../data/toplot-expectations.RData")
 
 toplot_w = toplot
+# get rRSA predictions for qud=how-many, alts=0_basic, spopt=2
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/complex_prior/smoothed_unbinned15/results/data/toplot-expectations.RData")
 toplot_r = toplot
 head(toplot_w)
@@ -72,6 +76,7 @@ ggplot(toplot, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted
 #scale_color_manual(values=c("red","blue","black")) 
 #ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
 ggsave("~/cogsci/conferences_talks/_2015/2_cogsci_pasadena/wonky_marbles/paper/pics/model-expectations-uniform-regular.pdf",width=6.5,height=4.5)
+ggsave("model-expectations-uniform-regular.pdf",width=6.5,height=4.5)
 
 
 ### NOAH'S MODEL PREDICTIONS
