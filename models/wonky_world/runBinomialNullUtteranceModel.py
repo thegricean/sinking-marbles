@@ -1,6 +1,7 @@
 import os
 import math
 import subprocess
+import sys
 
 ########################################
 	
@@ -8,7 +9,10 @@ f = open("wonkyworld-binomial-nullutterance.church")
 ch_model = [l.rstrip() for l in f.readlines()]
 f.close()
 
-pfile = open("smoothed_15marbles_priors.txt") # get smoothed priors (kernel density estimates)
+if sys.argv[1] == "laplace":
+	pfile = open("smoothed_15marbles_priors_laplace.txt") # get smoothed priors (kernel density 
+else:	
+	pfile = open("smoothed_15marbles_priors.txt") # get smoothed priors (kernel density estimates)
 priors_15 = [l.rstrip() for l in pfile.readlines()[1:]]
 pfile.close()
 #print priors
@@ -19,7 +23,11 @@ pfile.close()
 wpriors = [.1, .3, .5]
 costs = [.5, 1, 5]
 
-rfile = open("results/model_results/results_binomial_nullutterance_3coinweights.txt.tmp.results","w")	
+if sys.argv[1] == "laplace":
+	rfile = open("results/model_results/results_binomial_nullutterance_laplace_3coinweights.txt.tmp.results","w")	
+else:
+	rfile = open("results/model_results/results_binomial_nullutterance_3coinweights.txt.tmp.results","w")		
+#rfile = open("results/model_results/results_binomial_nullutterance_3coinweights.txt.tmp.results","w")	
 #results = []
 
 w = ch_model.index("(define alternatives '(nullutterance some all none))")
