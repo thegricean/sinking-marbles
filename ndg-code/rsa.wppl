@@ -1,0 +1,97 @@
+/*
+A quick wppl implementation of the wonky world model, for building intuition.
+ 
+ run with something like: ~/webppl/webppl wonkyworld.wppl --require-js ./wonkyutils.js
+*/
+
+var numObjs = 15
+
+var worldPrior = function() {
+  var num_nice_people = randomInteger(4) //3 people.. 0-3 can be nice.
+  return num_nice_people
+}
+
+var utterancePrior = function() {
+  var utterances = ["some",
+                    "all",
+                    "none"]
+  return uniformDraw(utterances)
+}
+
+var meaning = function(utt,world) {
+  return utt=="some"? world>0 :
+  utt=="all"? world==numObjs :
+  utt=="none"? world==0 :
+  true
+}
+
+var literalListener = cache(function(utterance, prior) {
+                            Enumerate(function(){
+                                      var world = binomial(prior, numObjs+1)
+                                      var m = meaning(utterance, world)
+                                      factor(m?0:-Infinity)
+                                      return world
+                                      })
+                            })
+
+var speaker = cache(function(world, prior) {
+                    Enumerate(function(){
+                              var utterance = utterancePrior()
+                              var L = literalListener(utterance, prior)
+                              factor(L.score([],world))
+                              return utterance
+                              })
+                    })
+
+
+//default prior is a delta, backoff prior is approx beta:
+var a = 1
+var b = 1
+var delta = 100
+var grid = wonkyutils.makeGrid(100)
+var betaProbs = map(function(v){return Math.exp(betaERP.score([a,b],v))}, grid)
+var prior = function(defVal, weight){
+//  var defProbs = wonkyutils.makeDelta(defVal,grid)
+  var defProbs = map(function(v){return Math.exp(betaERP.score([delta*defVal,delta*(1-defVal)],v))}, grid)
+  var probs = map2(function(x,y){return x+weight*y}, betaProbs, defProbs)
+  return grid[discrete(probs)]
+}
+
+var listener = function(utterance,defVal) {
+  Enumerate(function(){
+            var prior = defVal//prior(defVal,2)
+            var world = binomial(prior, numObjs+1)
+            var S = speaker(world, prior)
+            factor(S.score([],utterance))
+            return world
+            })
+}
+
+
+//literalListener("some", 0.5)
+//speaker(1,0.5)
+//listener("some")
+
+var allstate = function(defVal){return expectation(listener("some",defVal), function(w){return w==numObjs})}
+
+var expected = function(defVal){return expectation(listener("some",defVal), function(w){return w})}
+
+var priorExpected = function(prior){return expectation(Enumerate(function(){return binomial(prior, numObjs+1)}),
+                                                       function(w){return w})}
+
+//var allprobs = map(allstate,grid)
+
+//map2(function(x,y){return x-y}, map(expected, grid), map(priorExpected, grid))
+//map(function(x){return x/numObjs}, map2(function(x,y){return x-y}, map(expected, grid), map(priorExpected, grid)))
+
+//map(function(x){return x/numObjs}, map(expected, grid))
+
+
+//make csv for allstate prob vs binomial param prob:
+wonkyutils.writeCSV(zip(grid, map(allstate, grid)), 'RSA-allstate.csv')
+
+//make csv for prior vs posterior expectation:
+wonkyutils.writeCSV(zip(map(priorExpected,grid), map(expected, grid)), 'RSA-expectation.csv');
+
+
+
