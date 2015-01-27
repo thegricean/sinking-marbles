@@ -90,6 +90,9 @@ var priorExpected = function(prior){return expectation(Enumerate(function(){retu
 //make csv for allstate prob vs binomial param prob:
 wonkyutils.writeCSV(zip(grid, map(allstate, grid)), 'RSA-allstate.csv')
 
+//make csv for allstate prob vs binomial param prob:
+wonkyutils.writeCSV(zip(map(priorExpected,grid), map(allstate, grid)), 'RSA-expectedVsallstate.csv')
+
 //make csv for prior vs posterior expectation:
 wonkyutils.writeCSV(zip(map(priorExpected,grid), map(expected, grid)), 'RSA-expectation.csv');
 
