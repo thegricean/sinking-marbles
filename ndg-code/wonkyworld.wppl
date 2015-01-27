@@ -45,9 +45,9 @@ var speaker = cache(function(world, prior) {
 
 
 //default prior is a delta, backoff prior is approx beta:
-var a = 0.1
+var a = 1
 var b = 1
-var delta = 0.1
+var delta = 100
 var grid = wonkyutils.makeGrid(100)
 var betaProbs = map(function(v){return Math.exp(betaERP.score([a,b],v))}, grid)
 var prior = function(defVal, weight){
@@ -76,8 +76,8 @@ var allstate = function(defVal){return expectation(listener("some",defVal), func
 
 var allprobs = map(allstate,grid)
 
-grid[wonkyutils.argmax(allprobs)]
+//grid[wonkyutils.argmax(allprobs)]
 
-//wonkyutils.dif(wonkyutils.dif(allprobs))
+wonkyutils.dif(wonkyutils.dif(allprobs))
 
 
