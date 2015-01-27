@@ -41,10 +41,27 @@ function argmax(ar) {
   return a
 }
 
+///// simpleCSV.js
+
+var fs = require('fs');
+var babyparse = require('babyparse');
+
+function readCSV(filename){
+  return babyparse.parse(fs.readFileSync(filename, 'utf8'));
+};
+
+function writeCSV(jsonCSV, filename){
+  fs.writeFileSync(filename, babyparse.unparse(jsonCSV) + "\n");
+}
+
+////
+
 
 module.exports = {
   makeDelta : makeDelta,
   makeGrid : makeGrid,
 dif:dif,
-argmax:argmax
+argmax:argmax,
+readCSV: readCSV,
+writeCSV: writeCSV
 };
