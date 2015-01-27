@@ -8,7 +8,11 @@ import sys
 #usage 
 # python parseResults.py 
 
-fname = '../results/model_results/results_binomial.txt'
+if sys.argv[1] == "laplace":
+	fname = '../results/model_results/results_binomial_laplace.txt'
+else:	
+	fname = '../results/model_results/results_binomial.txt'
+	
 file_names = [fname]
 
 itemfile = open("items.txt")
@@ -59,13 +63,13 @@ priorcnt = 0
 while k < len(lines):
 	if lines[k] == "alternatives":
 		if priorcnt < 89:
-			if wwcnt < 4:
+			if wwcnt < 2:
 				wwcnt = wwcnt + 1							
 			else:
 				priorcnt = priorcnt+1		
 				wwcnt = 0
 		else:
-			if wwcnt < 4:
+			if wwcnt < 2:
 				wwcnt = wwcnt + 1							
 			else:		
 				priorcnt = 0
@@ -159,7 +163,10 @@ for r in results:
 	inner_dict = dict(zip(headers,r))
 	wresults.append(inner_dict)
 
-oname = '../results/data/parsed_binomial_results.tsv'
+if sys.argv[1] == "laplace":
+	oname = '../results/data/parsed_binomial_results_laplace.tsv'
+else:	
+	oname = '../results/data/parsed_binomial_results.tsv'	
 w = csv.DictWriter(open(oname, 'wb'),fieldnames=headers,restval="NA",delimiter="\t")
 
 w.writeheader()

@@ -8,7 +8,11 @@ import sys
 #usage 
 # python parseResults.py 
 
-fname = '../results/model_results/results_binomial_nullutterance_3coinweights.txt.tmp.results'
+if sys.argv[1] == "laplace":
+	fname = '../results/model_results/results_binomial_nullutterance_laplace_3coinweights.txt.tmp.results'
+else:
+	fname = '../results/model_results/results_binomial_nullutterance_3coinweights.txt.tmp.results'
+	
 file_names = [fname]
 
 itemfile = open("items.txt")
@@ -179,7 +183,11 @@ for r in results:
 	inner_dict = dict(zip(headers,r))
 	wresults.append(inner_dict)
 
-oname = '../results/data/parsed_binomial_nullutterance_3coinweights_results.tsv'
+if sys.argv[1] == "laplace":
+	oname = '../results/data/parsed_binomial_nullutterance_3coinweights_laplace_results.tsv'
+else:
+	oname = '../results/data/parsed_binomial_nullutterance_3coinweights_results.tsv'	
+	
 w = csv.DictWriter(open(oname, 'wb'),fieldnames=headers,restval="NA",delimiter="\t")
 
 w.writeheader()

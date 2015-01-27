@@ -6,12 +6,19 @@
 
 library(ggplot2)
 theme_set(theme_bw(18))
-setwd("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/models/wonky_world/results/")
+setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/")
 source("rscripts/helpers.r")
 
 #' get model predictions
-load("data/mp-binomial.RData")
-d = read.table("data/parsed_binomial_results.tsv", quote="", sep="\t", header=T)
+#load("data/mp-binomial.RData")
+#load("data/wr-binomial.RData")
+
+load("data/mp-binomial-laplace.RData")
+load("data/wr-binomial-laplace.RData")
+
+# toggle depending on whether you want to get the laplace smoothed or npudens smoothed results
+#d = read.table("data/parsed_binomial_results.tsv", quote="", sep="\t", header=T)
+d = read.table("data/parsed_binomial_results_laplace.tsv", quote="", sep="\t", header=T)
 table(d$Item)
 summary(d)
 nrow(d)
@@ -25,25 +32,37 @@ wr = ddply(d, .(Item, QUD, Wonky, Alternatives, Quantifier, SpeakerOptimality, W
 wr[wr$Item == "ate the seeds birds" & wr$QUD=="how-many" & wr$Alternatives=="0_basic" & wr$SpeakerOptimality == 1,]
 
 
-# get prior expectations
-priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
+# get prior expectations -- toggle depending on whether you want laplace smoothing or npudens smoothing
+priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
 row.names(priorexpectations) = paste(priorexpectations$effect,priorexpectations$object)
+#priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations_laplace.txt",sep="\t", header=T, quote="")
+#row.names(priorexpectations) = paste(priorexpectations$Item)
 mp$PriorExpectation = priorexpectations[as.character(mp$Item),]$expectation
 wr$PriorExpectation = priorexpectations[as.character(wr$Item),]$expectation
 
-# get smoothed prior probabilities
-priorprobs = read.table(file="~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+
+# get smoothed prior probabilities -- toggle depending on whether you want laplace smoothing or npudens smoothing
+ priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
 head(priorprobs)
 row.names(priorprobs) = paste(priorprobs$effect,priorprobs$object)
 mpriorprobs = melt(priorprobs, id.vars=c("effect", "object"))
 head(mpriorprobs)
 row.names(mpriorprobs) = paste(mpriorprobs$effect,mpriorprobs$object,mpriorprobs$variable)
+
+#priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames_laplace.txt",sep="\t", header=T, quote="")
+#head(priorprobs)
+#row.names(priorprobs) = paste(priorprobs$Item)
+#mpriorprobs = melt(priorprobs, id.vars=c("Item"))
+#head(mpriorprobs)
+#row.names(mpriorprobs) = paste(mpriorprobs$Item,mpriorprobs$variable)
 mp$PriorProbability = mpriorprobs[paste(as.character(mp$Item)," X",mp$State,sep=""),]$value
 mp$AllPriorProbability = priorprobs[paste(as.character(mp$Item)),]$X15
 head(mp)
 
+
+
 # get empirical state posteriors:
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/3_sinking-marbles-nullutterance/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/3_sinking-marbles-nullutterance/results/data/r.RData")
 head(r)
 r$Item = as.factor(paste(r$effect,r$object))
 # because posteriors come in 4 bins, make Bin variable for model prediction dataset:
@@ -80,9 +99,10 @@ ggplot(toplot, aes(x=Prop, y=value,color=ptype, group=ptype, size=Probability)) 
   scale_color_manual(values=c("red","blue","black")) +
   facet_wrap(WonkyWorldPrior~Item)
 ggsave("graphs/model-empirical-binomial-howmany-2-basic.pdf",width=35,height=30)
+#ggsave("graphs/model-empirical-binomial-howmany-2-basic-laplace.pdf",width=35,height=30)
 
 #plot empirical against predicted expectations for "some"
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
 summary(r)
 r$Item = as.factor(paste(r$effect, r$object))
 agr = aggregate(ProportionResponse ~ Item + quantifier, data=r, FUN=mean)
@@ -102,55 +122,77 @@ some = droplevels(subset(pexpectations, Quantifier == "some"))
 cors = ddply(some, .(Alternatives, QUD, SpeakerOptimality, WonkyWorldPrior), summarise, r=cor(PosteriorExpectation_predicted, PosteriorExpectation_empirical))
 cors = cors[order(cors[,c("r")],decreasing=T),]
 head(cors)
-
-ggplot(some, aes(x=PosteriorExpectation_predicted, y=PosteriorExpectation_empirical,color=as.factor(SpeakerOptimality), shape=as.factor(WonkyWorldPrior))) +
+# lowest wonkiness and speaker optimality does best: .68
+# laplace: .6
+ggplot(some, aes(x=PosteriorExpectation_predicted, y=PosteriorExpectation_empirical)) +
   geom_point() +
   geom_smooth(method="lm") +
   geom_abline(intercept=0,slope=1,color="gray50") +
+  scale_x_continuous(limits=c(0.25,.75)) +
+  scale_y_continuous(limits=c(0.25,.75)) +  
+  #  geom_text(data=cors, aes(label=r)) +
+  #scale_size_discrete(range=c(1,2)) +
+  #scale_color_manual(values=c("red","blue","black")) +
+  facet_grid(SpeakerOptimality~WonkyWorldPrior)
+#toggle
+#ggsave("graphs/model-empirical-binomial-expectations.pdf",width=16,height=15)
+ggsave("graphs/model-empirical-binomial-expectations-laplace.pdf",width=16,height=15)
+
+ggplot(some, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+#  geom_abline(intercept=0,slope=1,color="gray50") +
   scale_x_continuous(limits=c(0,1)) +
   scale_y_continuous(limits=c(0,1)) +  
   #  geom_text(data=cors, aes(label=r)) +
   #scale_size_discrete(range=c(1,2)) +
   #scale_color_manual(values=c("red","blue","black")) +
-  facet_grid(QUD~Alternatives)
-ggsave("graphs/model-empirical-binomial-expectations.pdf",width=30,height=10)
+  facet_grid(SpeakerOptimality~WonkyWorldPrior)
+#toggle
+ggsave("graphs/model-binomial-expectations.pdf",width=20,height=15)
+#ggsave("graphs/model-binomial-expectations-laplace.pdf",width=16,height=15)
+
 
 #plot empirical against predicted allstate-prbabilities for "some"
 allstate = droplevels(subset(mp, State == 15 & Quantifier == "some"))
 cors = ddply(allstate, .(Alternatives, QUD, SpeakerOptimality, WonkyWorldPrior), summarise, r=cor(PosteriorProbability, PosteriorProbability_empirical))
 cors = cors[order(cors[,c("r")],decreasing=T),]
 head(cors)
-# only .49 correlation 
+# only .49 correlation, best parameters: high wonky prior, low speaker optimality
 
-ggplot(allstate, aes(x=PosteriorProbability, y=PosteriorProbability_empirical,color=as.factor(WonkyWorldPrior), shape=as.factor(SpeakerOptimality))) +
+ggplot(allstate, aes(x=PosteriorProbability, y=PosteriorProbability_empirical)) +
   geom_point() +
   geom_smooth() +
   geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,1)) +
-  scale_y_continuous(limits=c(0,1)) +  
+  scale_x_continuous(limits=c(0,0.45)) +
+  scale_y_continuous(limits=c(0,0.45)) +  
   #  geom_text(data=cors, aes(label=r)) +
   #scale_size_discrete(range=c(1,2)) +
   #scale_color_manual(values=c("red","blue","black")) +
-  facet_grid(QUD~Alternatives)
-ggsave("graphs/model-empirical-binomial-allstateprobs.pdf",width=30,height=10)
+  facet_grid(SpeakerOptimality~WonkyWorldPrior)
+#toggle
+ggsave("graphs/model-empirical-binomial-allstateprobs.pdf",width=16,height=15)
+#ggsave("graphs/model-empirical-binomial-allstateprobs-laplace.pdf",width=16,height=15)
 
 #maybe COGSCI plot basis? plot  predicted allstate-prbabilities for "some" as a function of prior allstate-probabilities
 
-ggplot(allstate, aes(x=PriorProbability, y=PosteriorProbability,color=as.factor(WonkyWorldPrior), shape=as.factor(SpeakerOptimality))) +
+ggplot(allstate, aes(x=PriorProbability, y=PosteriorProbability)) +
   geom_point() +
   geom_smooth() +
-  geom_abline(intercept=0,slope=1,color="gray50") +
+#  geom_abline(intercept=0,slope=1,color="gray50") +
   scale_x_continuous(limits=c(0,1)) +
   scale_y_continuous(limits=c(0,1)) +  
   #  geom_text(data=cors, aes(label=r)) +
   #scale_size_discrete(range=c(1,2)) +
   #scale_color_manual(values=c("red","blue","black")) +
-  facet_grid(QUD~Alternatives)
-ggsave("graphs/model-binomial-allstateprobs.pdf",width=30,height=10)
+  facet_grid(SpeakerOptimality~WonkyWorldPrior)
+#toggle
+ggsave("graphs/model-binomial-allstateprobs.pdf",width=16,height=15)
+#ggsave("graphs/model-binomial-allstateprobs-laplace.pdf",width=16,height=15)
 
 
 # get empirical wonkiness posteriors
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
 head(r)
 nrow(r)
 r$Item = as.factor(paste(r$effect,r$object))
@@ -172,14 +214,17 @@ cors = ddply(wonky, .(Alternatives, QUD, SpeakerOptimality, Quantifier, WonkyWor
 cors = cors[order(cors[,c("r")],decreasing=T),]
 head(cors,15)
 
-ggplot(wonky, aes(x=PosteriorProbability, y=PosteriorProbability_empirical, color=as.factor(WonkyWorldPrior), shape=as.factor(SpeakerOptimality))) +
+
+ggplot(wonky, aes(x=PosteriorProbability, y=PosteriorProbability_empirical, color=as.factor(WonkyWorldPrior))) +
   geom_point() +
   geom_smooth(method="lm") +
   geom_abline(intercept=0,slope=1,color="gray50") +
   scale_x_continuous(limits=c(0,1)) +
   scale_y_continuous(limits=c(0,1)) +  
-  facet_grid(Quantifier~Alternatives)
-ggsave("graphs/model-empirical-binomial-wonkiness.pdf", width=30,height=10)
+  facet_grid(Quantifier~SpeakerOptimality)
+# toggle
+ggsave("graphs/model-empirical-binomial-wonkiness.pdf", width=16,height=15)
+#ggsave("graphs/model-empirical-binomial-wonkiness-laplace.pdf", width=16,height=15)
 
 
 
@@ -188,10 +233,15 @@ ggplot(wonky, aes(x=PriorExpectation, y=PosteriorProbability, color=as.factor(Wo
   geom_smooth() +
   scale_y_continuous(limits=c(0,1)) +  
   facet_grid(Quantifier~Alternatives)  
-ggsave("graphs/model-binomial-wonkiness.pdf", width=7,height=10)
+#toggle
+ggsave("graphs/model-binomial-wonkiness.pdf", width=6,height=9)
+#ggsave("graphs/model-binomial-wonkiness-laplace.pdf", width=6,height=9)
 
 save(mp, file="data/mp-binomial.RData")
 save(wr, file="data/wr-binomial.RData")
+
+#save(mp, file="data/mp-binomial-laplace.RData")
+#save(wr, file="data/wr-binomial-laplace.RData")
 
 
 
@@ -249,7 +299,7 @@ ggsave("graphs/modelpredictions_allstate.pdf")
 
 
 # get empirical posteriors:
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/3_sinking-marbles-nullutterance/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/3_sinking-marbles-nullutterance/results/data/r.RData")
 head(r)
 some = subset(r, quantifier == "Some" & Proportion == 100)
 some$Item = as.factor(paste(some$effect, some$object))
@@ -283,7 +333,7 @@ cor(mp_some_allstate$PosteriorProbability,mp_some_allstate$EmpiricalPosterior) #
 
 head(subexp)
 # get empirical expectations:
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
 head(r)
 some = subset(r, quantifier == "Some")
 some$Item = as.factor(paste(some$effect, some$object))

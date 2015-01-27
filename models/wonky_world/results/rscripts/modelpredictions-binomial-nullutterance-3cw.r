@@ -11,32 +11,41 @@ source("rscripts/helpers.r")
 
 #' get model predictions
 load("data/mp-binomial_nullutterance_3cw.RData")
-d = read.table("data/parsed_binomial_nullutterance_3coinweights_results.tsv", quote="", sep="\t", header=T)
+
+d = read.table("data/parsed_binomial_nullutterance_3coinweights_laplace_results.tsv", quote="", sep="\t", header=T)
 table(d$Item)
 nrow(d)
 head(d)
 d[d$Item == "ate the seeds birds" & d$QUD=="how-many" & d$Alternatives=="0_basic" & d$SpeakerOptimality == 1,]
 d[d$Item == "stuck to the wall baseballs" & d$QUD=="how-many" & d$Alternatives=="0_basic" & d$SpeakerOptimality == 2 & d$Wonky == "true",]
-mp = ddply(d, .(Item, State, SpeakerOptimality, WonkyWorldPrior,NullUtteranceCost), summarise, PosteriorProbability=sum(PosteriorProbability))
+mp = ddply(d, .(Quantifier,Item, State, SpeakerOptimality, WonkyWorldPrior,NullUtteranceCost), summarise, PosteriorProbability=sum(PosteriorProbability))
 head(mp)
 #mp[mp$Item == "ate the seeds birds" & mp$QUD=="how-many" & mp$Alternatives=="0_basic" & mp$SpeakerOptimality == 1,]
-wr = ddply(d, .(Item, Wonky, SpeakerOptimality, WonkyWorldPrior,NullUtteranceCost), summarise, PosteriorProbability=sum(PosteriorProbability))
+wr = ddply(d, .(Quantifier,Item, Wonky, SpeakerOptimality, WonkyWorldPrior,NullUtteranceCost), summarise, PosteriorProbability=sum(PosteriorProbability))
 wr[wr$Item == "ate the seeds birds" & wr$QUD=="how-many" & wr$Alternatives=="0_basic" & wr$SpeakerOptimality == 1,]
 
 
 # get prior expectations
-priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
-row.names(priorexpectations) = paste(priorexpectations$effect,priorexpectations$object)
+#toggle
+#priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
+#row.names(priorexpectations) = paste(priorexpectations$effect,priorexpectations$object)
+priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations_laplace.txt",sep="\t", header=T, quote="")
+row.names(priorexpectations) = priorexpectations$Item
 mp$PriorExpectation = priorexpectations[as.character(mp$Item),]$expectation
 wr$PriorExpectation = priorexpectations[as.character(wr$Item),]$expectation
 
 # get smoothed prior probabilities
-priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+#toggle
+#priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+#row.names(priorprobs) = paste(priorprobs$effect,priorprobs$object)
+#mpriorprobs = melt(priorprobs, id.vars=c("effect", "object"))
+#row.names(mpriorprobs) = paste(mpriorprobs$effect,mpriorprobs$object,mpriorprobs
+priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames_laplace.txt",sep="\t", header=T, quote="")
 head(priorprobs)
-row.names(priorprobs) = paste(priorprobs$effect,priorprobs$object)
-mpriorprobs = melt(priorprobs, id.vars=c("effect", "object"))
+row.names(priorprobs) = priorprobs$Item
+mpriorprobs = melt(priorprobs, id.vars=c("Item"))
 head(mpriorprobs)
-row.names(mpriorprobs) = paste(mpriorprobs$effect,mpriorprobs$object,mpriorprobs$variable)
+row.names(mpriorprobs) = paste(mpriorprobs$Item,mpriorprobs$variable)
 mp$PriorProbability = mpriorprobs[paste(as.character(mp$Item)," X",mp$State,sep=""),]$value
 mp$AllPriorProbability = priorprobs[paste(as.character(mp$Item)),]$X15
 head(mp)
@@ -55,11 +64,11 @@ agr = aggregate(normresponse ~ Item + quantifier + Proportion,data=r,FUN=mean)
 #agr$YMax = agr$normresponse + agr$CIHigh
 agr$Quantifier = as.factor(tolower(agr$quantifier))
 row.names(agr) = paste(agr$Item, agr$Proportion, agr$Quantifier)
-mp$PosteriorProbability_empirical = agr[paste(mp$Item,mp$Proportion,"some"),]$normresponse
+mp$PosteriorProbability_empirical = agr[paste(mp$Item,mp$Proportion,mp$Quantifier),]$normresponse
 
 #plot empirical against predicted distributions for "some"
 #msome = droplevels(subset(mp, Quantifier == "some"))
-some =  ddply(mp, .(Item, SpeakerOptimality, PriorExpectation, Proportion, WonkyWorldPrior, NullUtteranceCost, PosteriorProbability_empirical), summarise, PosteriorProbability_predicted=sum(PosteriorProbability), PriorProbability_smoothed=sum(PriorProbability))
+some =  ddply(mp[mp$Quantifier == "some",], .(Quantifier,Item, SpeakerOptimality, PriorExpectation, Proportion, WonkyWorldPrior, NullUtteranceCost, PosteriorProbability_empirical), summarise, PosteriorProbability_predicted=sum(PosteriorProbability), PriorProbability_smoothed=sum(PriorProbability))
 nrow(some)
 head(some)
 msome = melt(some, measure.vars=c("PosteriorProbability_empirical","PosteriorProbability_predicted","PriorProbability_smoothed"))
@@ -78,7 +87,9 @@ ggplot(toplot, aes(x=Prop, y=value,color=ptype, group=ptype, size=Probability)) 
   scale_size_discrete(range=c(1,2)) +
   scale_color_manual(values=c("red","blue","black")) +
   facet_wrap(WonkyWorldPrior~Item)
-ggsave("graphs/model-empirical-binomial_nullutterance-howmany-2-basic-cost5-3cw.pdf",width=35,height=30)
+# toggle
+#ggsave("graphs/model-empirical-binomial_nullutterance-howmany-2-basic-cost5-3cw.pdf",width=35,height=30)
+ggsave("graphs/model-empirical-binomial_nullutterance-howmany-2-basic-cost5-3cw-laplace.pdf",width=35,height=30)
 
 #plot empirical against predicted expectations for "some"
 load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
@@ -91,19 +102,21 @@ agr = aggregate(ProportionResponse ~ Item + quantifier, data=r, FUN=mean)
 #agr$YMax = agr$ProportionResponse + agr$CIHigh
 agr$Quantifier = as.factor(tolower(agr$quantifier))
 row.names(agr) = paste(agr$Item, agr$Quantifier)
-mp$PosteriorExpectation_empirical = agr[paste(mp$Item,"some"),]$ProportionResponse
+mp$PosteriorExpectation_empirical = agr[paste(mp$Item,mp$Quantifier),]$ProportionResponse
 mp$PriorExpectation_smoothed = mp$PriorExpectation/15
 head(mp)
 
-pexpectations = ddply(mp, .(Item, SpeakerOptimality,PriorExpectation_smoothed, WonkyWorldPrior, NullUtteranceCost, PosteriorExpectation_empirical), summarise, PosteriorExpectation_predicted=sum(State*PosteriorProbability)/15)
+pexpectations = ddply(mp, .(Quantifier,Item, SpeakerOptimality,PriorExpectation_smoothed, WonkyWorldPrior, NullUtteranceCost, PosteriorExpectation_empirical), summarise, PosteriorExpectation_predicted=sum(State*PosteriorProbability)/15)
 head(pexpectations)
-some = pexpectations
-#some = droplevels(subset(pexpectations, Quantifier == "some"))
+#some = pexpectations
+some = droplevels(subset(pexpectations, Quantifier == "some"))
 
 cors = ddply(some, .(SpeakerOptimality, WonkyWorldPrior, NullUtteranceCost), summarise, r=cor(PosteriorExpectation_predicted, PosteriorExpectation_empirical))
 cors = cors[order(cors[,c("r")],decreasing=T),]
 head(cors)
+#.63
 
+#CONTINUE HERE WITH NULLUTTERANCE STUFF
 ggplot(some, aes(x=PosteriorExpectation_predicted, y=PosteriorExpectation_empirical,color=as.factor(WonkyWorldPrior)))+#, shape=as.factor(WonkyWorldPrior))) +
   geom_point() +
   geom_smooth(method="lm") +
@@ -114,7 +127,9 @@ ggplot(some, aes(x=PosteriorExpectation_predicted, y=PosteriorExpectation_empiri
   #scale_size_discrete(range=c(1,2)) +
   #scale_color_manual(values=c("red","blue","black")) +
   facet_grid(NullUtteranceCost~SpeakerOptimality)
-ggsave("graphs/model-empirical-binomial_nullutterance-expectations-3cw.pdf",width=30,height=10)
+# toggle
+#ggsave("graphs/model-empirical-binomial_nullutterance-expectations-3cw.pdf",width=30,height=10)
+ggsave("graphs/model-empirical-binomial_nullutterance-expectations-3cw-laplace.pdf")
 
 ggplot(some, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted,color=as.factor(WonkyWorldPrior)))+#, shape=as.factor(WonkyWorldPrior))) +
   geom_point() +
@@ -126,27 +141,29 @@ ggplot(some, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted,c
   #scale_size_discrete(range=c(1,2)) +
   #scale_color_manual(values=c("red","blue","black")) +
   facet_grid(NullUtteranceCost~SpeakerOptimality)
-ggsave("graphs/model-binomial_nullutterance-expectations-3cw.pdf",width=15,height=10)
+#ggsave("graphs/model-binomial_nullutterance-expectations-3cw.pdf",width=15,height=10)
+ggsave("graphs/model-binomial_nullutterance-expectations-3cw-laplace.pdf",width=15,height=10)
 
   
 #plot empirical against predicted allstate-prbabilities for "some"
-allstate = droplevels(subset(mp, State == 15))# & Quantifier == "some"))
-cors = ddply(allstate, .(SpeakerOptimality, WonkyWorldPrior), summarise, r=cor(PosteriorProbability, PosteriorProbability_empirical))
+allstate = droplevels(subset(mp, State == 15 & Quantifier == "some"))
+cors = ddply(allstate, .(SpeakerOptimality, WonkyWorldPrior, NullUtteranceCost), summarise, r=cor(PosteriorProbability, PosteriorProbability_empirical))
 cors = cors[order(cors[,c("r")],decreasing=T),]
 head(cors)
-# .53 correlation
+# .57 correlation with cheap nullutterance and high wonky world prior and high speaker optimality
 
 ggplot(allstate, aes(x=PosteriorProbability, y=PosteriorProbability_empirical,color=as.factor(WonkyWorldPrior))) +
   geom_point() +
   geom_smooth() +
   geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,1)) +
-  scale_y_continuous(limits=c(0,1)) +  
+  scale_x_continuous(limits=c(0,.6)) +
+  scale_y_continuous(limits=c(0,.6)) +  
   #  geom_text(data=cors, aes(label=r)) +
   #scale_size_discrete(range=c(1,2)) +
   #scale_color_manual(values=c("red","blue","black")) +
   facet_grid(NullUtteranceCost~SpeakerOptimality)
-ggsave("graphs/model-empirical-binomial_nullutterance-allstateprobs-3cw.pdf",width=20,height=20)
+#ggsave("graphs/model-empirical-binomial_nullutterance-allstateprobs-3cw.pdf",width=20,height=20)
+ggsave("graphs/model-empirical-binomial_nullutterance-allstateprobs-3cw-laplace.pdf",width=20,height=20)
 
 #maybe COGSCI plot basis? plot  predicted allstate-prbabilities for "some" as a function of prior allstate-probabilities
 
@@ -160,24 +177,19 @@ ggplot(allstate, aes(x=PriorProbability, y=PosteriorProbability,color=as.factor(
   #scale_size_discrete(range=c(1,2)) +
   #scale_color_manual(values=c("red","blue","black")) +
   facet_grid(NullUtteranceCost~SpeakerOptimality)
-ggsave("graphs/model-binomial_nullutterance-allstateprobs-3cw.pdf",width=15,height=10)
+#ggsave("graphs/model-binomial_nullutterance-allstateprobs-3cw.pdf",width=15,height=10)
+ggsave("graphs/model-binomial_nullutterance-allstateprobs-3cw-laplace.pdf",width=15,height=10)
 
 # get empirical wonkiness posteriors
-load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
 head(r)
 nrow(r)
-r$Item = as.factor(paste(r$effect,r$object))
 
-t = as.data.frame(prop.table(table(r$Item, r$quantifier, r$response), mar=c(1,2)))
-head(t)
-colnames(t) = c("Item","Quantifier","NormalMarbles","Proportion")
-t[t$Var1=="ate the seeds birds",]
-t$Quantifier = tolower(t$Quantifier)
-tail(t)
-t$Wonky = as.factor(ifelse(t$NormalMarbles == "yes","false","true"))
-row.names(t) = paste(t$Item, t$Quantifier, t$Wonky)
+agr = aggregate(response ~ Item + quantifier, FUN="mean", data=r)
+agr$Wonky = 1-agr$response
+row.names(agr) = paste(agr$Item, tolower(agr$quantifier))
 
-wr$PosteriorProbability_empirical = t[paste(wr$Item, "some", wr$Wonky),]$Proportion
+wr$PosteriorProbability_empirical = agr[paste(wr$Item, wr$Quantifier),]$Wonky
 head(wr)
 wonky = droplevels(subset(wr, Wonky == "true"))
 
@@ -187,26 +199,32 @@ toplot = droplevels(subset(wonky,  SpeakerOptimality == 2))
 ggplot(toplot, aes(x=PriorExpectation, y=PosteriorProbability, color=as.factor(WonkyWorldPrior))) +
   geom_point() +
   geom_smooth() +
-  facet_grid(~NullUtteranceCost)
-ggsave(file="graphs/wonkinessplot-3cw.pdf",width=6)
+#  facet_grid(~NullUtteranceCost)
+  facet_grid(Quantifier~NullUtteranceCost)
+#ggsave(file="graphs/wonkinessplot-binomial_nullutterance_3cw.pdf",width=7,height=2.5)
+ggsave(file="graphs/wonkinessplot-binomial_nullutterance_3cw-laplace.pdf",width=7)
 
-cors = ddply(wonky, .(SpeakerOptimality, WonkyWorldPrior,NullUtteranceCost), summarise, r=cor(PosteriorProbability, PosteriorProbability_empirical))
+cors = ddply(wonky[wonky$Quantifier == "some",], .(SpeakerOptimality, WonkyWorldPrior,NullUtteranceCost), summarise, r=cor(PosteriorProbability, PosteriorProbability_empirical))
 cors = cors[order(cors[,c("r")],decreasing=T),]
 head(cors,15)
+# .69
 
-
-ggplot(wonky, aes(x=PosteriorProbability, y=PosteriorProbability_empirical, color=as.factor(WonkyWorldPrior))) +
+ggplot(wonky[wonky$Quantifier == "some",], aes(x=PosteriorProbability, y=PosteriorProbability_empirical, color=as.factor(WonkyWorldPrior))) +
   geom_point() +
   geom_smooth(method="lm") +
   geom_abline(intercept=0,slope=1,color="gray50") +
   scale_x_continuous(limits=c(0,1)) +
   scale_y_continuous(limits=c(0,1)) +  
   facet_grid(NullUtteranceCost~SpeakerOptimality)
-ggsave("graphs/model-empirical-binomial_nullutterance-3cw-wonkiness.pdf", width=15,height=10)
+#ggsave("graphs/model-empirical-binomial_nullutterance-3cw-wonkiness.pdf", width=15,height=10)
+ggsave("graphs/model-empirical-binomial_nullutterance-3cw-wonkiness-laplace.pdf", width=15,height=10)
 
 
-save(mp, file="data/mp-binomial_nullutterance_3cw.RData")
-save(wr, file="data/wr-binomial_nullutterance_3cw.RData")
+#save(mp, file="data/mp-binomial_nullutterance_3cw.RData")
+#save(wr, file="data/wr-binomial_nullutterance_3cw.RData")
+
+save(mp, file="data/mp-binomial_nullutterance_3cw_laplace.RData")
+save(wr, file="data/wr-binomial_nullutterance_3cw_laplace.RData")
 
 
 ########
