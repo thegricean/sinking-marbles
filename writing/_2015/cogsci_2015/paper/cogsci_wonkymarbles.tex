@@ -110,38 +110,58 @@ We show that this extension resolves the puzzle of the prior's muted effects, an
 %	\end{xlist}
 %\end{exe}
 
-\section{Models of utterance interpretation}
 
-\red{NDG: not to self -- difference between revising own beliefs and revising common ground....}
+\section{Effect of the world prior in RSA}
 
-Recent Bayesian Rational Speech Act (RSA)  \cite{frank2012} and game-theoretic \cite{franke2011} models that treat communication as a signaling game \cite{lewis} between a speaker and a listener have successfully captured listeners' quantitative  behavior on a number of pragmatic inference tasks, including ad hoc Quantity implicature \red{ref}, M-implicature \red{ref}, scalar implicature \red{ref}, and embedded scalar implicatures \red{ref}. In these models, the listener reasons about likely utterances a speaker will produce who is trying to be informative with respect to a na\"ive listener. These models make clear predictions about how prior beliefs about states of the world should be integrated with listeners' expectations about utterances a speaker is likely to produce to communicate a particular state of the world. 
+The basic Rational Speech Acts model defines a pragmatic listener $P_{\textrm{listener}}(s|u)$, who reasons about a speaker $P_{\textrm{speaker}}(u|s)$, who in turn reasons about a literal listener $P_{\textrm{literal}}(s|u)$. Each listener does Bayesian inference about the world state, given either the literal truth of utterance $u$ or the speaker's choice of $u$; the speaker is a softmax-optimal decision maker, with the goal of being informative about the state $s$.
+RSA is defined by:
+\begin{eqnarray}
+&&P_{\textrm{literal}}(s|u)\propto F_u(s) \cdot P(s)\\
+&&P_{\textrm{speaker}}(u|s) \propto \mathrm{exp}({\lambda \ln P_{\textrm{literal}}(s|u))}\\
+&&P_{\textrm{listener}}(s|u)\propto P_{\textrm{speaker}}(u|s)\cdot P(s)
+\end{eqnarray}
+Here $F_u: s \mapsto \{0,1\}$ is a truth-function specifying the meaning of each utterance.
 
-\red{i think we should hold the math for the model section. it doesn't really add much here... without it, this section can be folded nicely into the introduction.}
+For concreteness, assume that the set of states of the world is $S = \{s_0, s_1, s_2, \dots, s_{15}\}$, where the subscript indicates the number of objects (e.g., marbles) that exhibit a certain effect (e.g., sinking). 
+Assume also that the set of utterances \emph{All/None/Some of the marbles sank} is denoted $U = \{u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}\}$ and each has it's usual literal meaning: 
+$F_{u_{\textrm{none}}}(s) {=} \delta_{s=0}$,  
+$F_{u_{\textrm{some}}}(s) {=} \delta_{s>0}$, 
+$F_{u_{\textrm{all}}}(s) {=} \delta_{s=15}$.
+Let us imagine that the prior is binomial with single event probability $\theta$: $P(s)=\text{Binomial}(s|\theta)$.
 
-For concreteness, assume that $S = \{s_0, s_1, s_2, \dots, s_{15}\}$ is the set of states of the world, where the subscript indicates the number of objects (e.g., marbles) that exhibit a certain effect (e.g., sinking). Assume further that $U = \{u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}\}$, the set of utterances \emph{All/None/Some of the marbles sank}. The speaker chooses an utterance to convey $s$ proportional to the soft-max expected utility of producing $u$ to communicate $s$, where utility is determined by how uncertain a listener remains: \red{what's the expectation doing?}
+In Figure \ref{rss-basic} we show the predictions of RSA as $\theta$ varies. \red{put in figure showing the basic RSA predictions for allstate $P(s_{15}|u_{some})$ and expectation.} We see that the prior has a strong effect, which can be summarized by the two predictions described above. We next turn to an empirical test of these predictions, or rather, of the intuition that they may be incorrect.
 
-\begin{equation}
-P_{\textrm{speaker}}(u|s) \propto \mathrm{exp}({\lambda \mathbb{E} (\ln P_{\textrm{lex}}(s|u))})
-\end{equation}
-
-where $P_{\textrm{lex}}(s|u)$ is the literal interpretation probability resulting from each utterance's truth-functional meaning: $F_u: s \mapsto \{0,1\}$. \red{need to spell out lit listener since the prior enters there too} The listener's task is to infer a distribution over $S$, given an utterance $u$ produced by the above defined informative speaker. %$p(s|u)$, that is, the probability of the state of the world the speaker intended to communicate (e.g., how many friends came to a party), given that the speaker produced $u$ (e.g., \emph{some of my friends came to the party}). 
-By Bayes' rule: 
-\begin{equation}
-P_{\textrm{listener}}(s|u)\propto P_{\textrm{speaker}}(u|s)\cdot P(s)
-\end{equation}
-That is, the inferred listener probabilities are proportional to the product of both the speaker's utterance probabilities and the listener's prior beliefs in different numbers of marbles sinking. Using a uniform prior over the state space, this model has been very successful at capturing \emph{scalar implicatures} \cite{grice1975}. These are inferences that arise in cases of utterances like \textit{Some of the marbles sank}, which typically give rise to the inference that not all of the marbles sank. Scalar implicatures fall out of the fact that the speaker probability of producing $u_{\textrm{some}}$ in $s_{15}$ is low (because there is an alternative utterance $u_{\textrm{all}}$ which has a higher probability of being used for $s_{15}$ because it is more informative about that state). However, the role of prior beliefs in RSA models remains under-explored, both with respect to scalar implicature computation as well as with respect to utterance interpretation more generally.
-
-
-%One important consequence of the standard RSA model is that the listener's prior beliefs will not affect the interpretation of $u$ very strongly, if at all,  where the semantics of $u$ is highly constraining, that is, where  $P_{\textrm{lex}}(s|u)$ is very peaked. For example, an utterance of \emph{All of the marbles sank} is highly constraining because all of the probability mass ends up on $s_{15}$ by virtue of the semantics of $u_{\textrm{all}}$ alone, regardless of how likely the listener believes marbles sink a priori.\footnote{We ignore hyperbolic interpretations of universal quantifiers here.} 
-
-One important consequence of the standard RSA model is that where the semantics of $u$ is weak---that is, where $F_u$ accepts many states---prior beliefs are predicted to have a large effect on the resulting listener belief distribution. For example, an utterance of \emph{Some of the marbles sank}, produced in a situation in which any of 0 - 15 of 15 contextually established marbles could have sunk, semantically only restricts the state space by one state (that in which 0 marbles sank). In this case, listeners' prior beliefs about sinking marbles will have a large effect on their posterior belief distribution. If the listener believes that marbles rarely sink, the utterance will be interpreted as conveying that fewer marbles sank than if the listener believes marbles almost always sink. The predictions this model makes for the interpretation of $u_{\textrm{some}}$ -- both for $P_{\textrm{listener}}(s_{15}|u_{\textrm{some}})$ and for the expected value of $P_{\textrm{listener}}(s|u_{\textrm{some}})$ as a function of $P(s_{15})$ and the expected value of $P(s)$, respectively  -- are shown in \figref{fig:rrsaexppredictions}. RSA predicts that the probability of the state in which all objects exhibit a certain effect increases with increasing $P(s_{15})$, such that for $P(s_{15})$ close to 1, $P_{\textrm{listener}}(s_{15}|u_{\textrm{some}})$ approaches 1. Relatedly, with increasing expected value of the prior belief distribution $P(s)$, so is the expected value of the posterior belief distribution predicted to increase, approaching 1). \red{hmm... i think we either need to focus on the allstate probs for this motivation, or already point to the data from expt 1.}
-
-However, intuition is at odds with this prediction: for example,  \citeA{geurts2010} has observed that for events with very high prior probability of occurrence (e.g.~marbles sinking), observing an utterance of \emph{Some of the marbles sank} leads to very strong implicatures, that is, the subjective probability  that not all of the marbles sank is intuitively close to 0. Given the previous success of RSA models, this constitutes a striking puzzle, and one we set out to solve here. In doing so, we pursue the intuition raised at the very beginning of this paper: that sometimes, the speaker's utterance will lead the listener to infer that the world under discussion is wonky and she should therefore down-weight her prior beliefs in the computation of speaker meaning.
-
-
-Our contribution is two-fold: first, we collect empirical estimates of $P(s)$ and $P_{\textrm{listener}}(s|u)$ to investigate the empirical effect of listeners' prior beliefs on interpretation. Second, we extend the RSA model to incorporate a free variable $\theta_{\textrm{wonky}}$ that captures the extent to which the listener believes the described event is wonky  and she should thus discount her prior beliefs when interpreting $u$. We refer to this model as \emph{wonky RSA (wRSA)} in contrast to \emph{regular RSA (rRSA)}. Wonkiness inferences in wRSA are triggered by the surprisal of a produced utterance $u$, given listeners' prior beliefs, capturing that listeners expect speakers' utterances to be both truthful and informative with respect to prior beliefs. To the extent that they are not, listeners will have to either infer that the speaker is being uncooperative, or else assume that they may need to revise their beliefs about the world. Here we pursue the latter possibility.
-
-This paper is structured as follows. We first report the results of three experiments (1, 2a, 2b) that show that while there is an effect of the prior on listeners' interpretations of sentences like \emph{Some of the marbles sank}, this effect is much smaller than predicted by rRSA. Exp.~3 provides evidence that listeners' beliefs about object or event wonkiness are indeed influenced by the surprisal of the utterance. Finally, we present wRSA as an extension of rRSA that incorporates the idea of backing off to alternate prior beliefs if the observed utterance suggests a wonky world. This model provides a much better fit to the empirical data from Exps.~2a and 2b than rRSA, and also provides a good fit to the wonkiness ratings obtained in Exp.~3.
+%\section{Models of utterance interpretation}
+%
+%
+%Recent Bayesian Rational Speech Act (RSA)  \cite{frank2012} and game-theoretic \cite{franke2011} models that treat communication as a signaling game \cite{lewis} between a speaker and a listener have successfully captured listeners' quantitative  behavior on a number of pragmatic inference tasks, including ad hoc Quantity implicature \red{ref}, M-implicature \red{ref}, scalar implicature \red{ref}, and embedded scalar implicatures \red{ref}. In these models, the listener reasons about likely utterances a speaker will produce who is trying to be informative with respect to a na\"ive listener. These models make clear predictions about how prior beliefs about states of the world should be integrated with listeners' expectations about utterances a speaker is likely to produce to communicate a particular state of the world. 
+%
+%\red{i think we should hold the math for the model section. it doesn't really add much here... without it, this section can be folded nicely into the introduction.}
+%
+%For concreteness, assume that $S = \{s_0, s_1, s_2, \dots, s_{15}\}$ is the set of states of the world, where the subscript indicates the number of objects (e.g., marbles) that exhibit a certain effect (e.g., sinking). Assume further that $U = \{u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}\}$, the set of utterances \emph{All/None/Some of the marbles sank}. The speaker chooses an utterance to convey $s$ proportional to the soft-max expected utility of producing $u$ to communicate $s$, where utility is determined by how uncertain a listener remains: \red{what's the expectation doing?}
+%
+%\begin{equation}
+%P_{\textrm{speaker}}(u|s) \propto \mathrm{exp}({\lambda \mathbb{E} (\ln P_{\textrm{lex}}(s|u))})
+%\end{equation}
+%
+%where $P_{\textrm{lex}}(s|u)$ is the literal interpretation probability resulting from each utterance's truth-functional meaning: $F_u: s \mapsto \{0,1\}$. \red{need to spell out lit listener since the prior enters there too} The listener's task is to infer a distribution over $S$, given an utterance $u$ produced by the above defined informative speaker. %$p(s|u)$, that is, the probability of the state of the world the speaker intended to communicate (e.g., how many friends came to a party), given that the speaker produced $u$ (e.g., \emph{some of my friends came to the party}). 
+%By Bayes' rule: 
+%\begin{equation}
+%P_{\textrm{listener}}(s|u)\propto P_{\textrm{speaker}}(u|s)\cdot P(s)
+%\end{equation}
+%That is, the inferred listener probabilities are proportional to the product of both the speaker's utterance probabilities and the listener's prior beliefs in different numbers of marbles sinking. Using a uniform prior over the state space, this model has been very successful at capturing \emph{scalar implicatures} \cite{grice1975}. These are inferences that arise in cases of utterances like \textit{Some of the marbles sank}, which typically give rise to the inference that not all of the marbles sank. Scalar implicatures fall out of the fact that the speaker probability of producing $u_{\textrm{some}}$ in $s_{15}$ is low (because there is an alternative utterance $u_{\textrm{all}}$ which has a higher probability of being used for $s_{15}$ because it is more informative about that state). However, the role of prior beliefs in RSA models remains under-explored, both with respect to scalar implicature computation as well as with respect to utterance interpretation more generally.
+%
+%
+%%One important consequence of the standard RSA model is that the listener's prior beliefs will not affect the interpretation of $u$ very strongly, if at all,  where the semantics of $u$ is highly constraining, that is, where  $P_{\textrm{lex}}(s|u)$ is very peaked. For example, an utterance of \emph{All of the marbles sank} is highly constraining because all of the probability mass ends up on $s_{15}$ by virtue of the semantics of $u_{\textrm{all}}$ alone, regardless of how likely the listener believes marbles sink a priori.\footnote{We ignore hyperbolic interpretations of universal quantifiers here.} 
+%
+%One important consequence of the standard RSA model is that where the semantics of $u$ is weak---that is, where $F_u$ accepts many states---prior beliefs are predicted to have a large effect on the resulting listener belief distribution. For example, an utterance of \emph{Some of the marbles sank}, produced in a situation in which any of 0 - 15 of 15 contextually established marbles could have sunk, semantically only restricts the state space by one state (that in which 0 marbles sank). In this case, listeners' prior beliefs about sinking marbles will have a large effect on their posterior belief distribution. If the listener believes that marbles rarely sink, the utterance will be interpreted as conveying that fewer marbles sank than if the listener believes marbles almost always sink. The predictions this model makes for the interpretation of $u_{\textrm{some}}$ -- both for $P_{\textrm{listener}}(s_{15}|u_{\textrm{some}})$ and for the expected value of $P_{\textrm{listener}}(s|u_{\textrm{some}})$ as a function of $P(s_{15})$ and the expected value of $P(s)$, respectively  -- are shown in \figref{fig:rrsaexppredictions}. RSA predicts that the probability of the state in which all objects exhibit a certain effect increases with increasing $P(s_{15})$, such that for $P(s_{15})$ close to 1, $P_{\textrm{listener}}(s_{15}|u_{\textrm{some}})$ approaches 1. Relatedly, with increasing expected value of the prior belief distribution $P(s)$, so is the expected value of the posterior belief distribution predicted to increase, approaching 1). \red{hmm... i think we either need to focus on the allstate probs for this motivation, or already point to the data from expt 1.}
+%
+%However, intuition is at odds with this prediction: for example,  \citeA{geurts2010} has observed that for events with very high prior probability of occurrence (e.g.~marbles sinking), observing an utterance of \emph{Some of the marbles sank} leads to very strong implicatures, that is, the subjective probability  that not all of the marbles sank is intuitively close to 0. Given the previous success of RSA models, this constitutes a striking puzzle, and one we set out to solve here. In doing so, we pursue the intuition raised at the very beginning of this paper: that sometimes, the speaker's utterance will lead the listener to infer that the world under discussion is wonky and she should therefore down-weight her prior beliefs in the computation of speaker meaning.
+%
+%
+%Our contribution is two-fold: first, we collect empirical estimates of $P(s)$ and $P_{\textrm{listener}}(s|u)$ to investigate the empirical effect of listeners' prior beliefs on interpretation. Second, we extend the RSA model to incorporate a free variable $\theta_{\textrm{wonky}}$ that captures the extent to which the listener believes the described event is wonky  and she should thus discount her prior beliefs when interpreting $u$. We refer to this model as \emph{wonky RSA (wRSA)} in contrast to \emph{regular RSA (rRSA)}. Wonkiness inferences in wRSA are triggered by the surprisal of a produced utterance $u$, given listeners' prior beliefs, capturing that listeners expect speakers' utterances to be both truthful and informative with respect to prior beliefs. To the extent that they are not, listeners will have to either infer that the speaker is being uncooperative, or else assume that they may need to revise their beliefs about the world. Here we pursue the latter possibility.
+%
+%This paper is structured as follows. We first report the results of three experiments (1, 2a, 2b) that show that while there is an effect of the prior on listeners' interpretations of sentences like \emph{Some of the marbles sank}, this effect is much smaller than predicted by rRSA. Exp.~3 provides evidence that listeners' beliefs about object or event wonkiness are indeed influenced by the surprisal of the utterance. Finally, we present wRSA as an extension of rRSA that incorporates the idea of backing off to alternate prior beliefs if the observed utterance suggests a wonky world. This model provides a much better fit to the empirical data from Exps.~2a and 2b than rRSA, and also provides a good fit to the wonkiness ratings obtained in Exp.~3.
 
 \begin{figure}
 	\includegraphics[width=.5\textwidth]{pics/model-expectations-uniform-regular}
@@ -150,6 +170,9 @@ This paper is structured as follows. We first report the results of three experi
 \end{figure}
 
 \red{Include also plot of all-state probability: posterior empirical and predicted probability (rRSA, wRSA) as a function of prior all-state probability, for the SI people}
+
+
+
 
 \section{Experiment 1} 
 
@@ -253,6 +276,9 @@ The wonky RSA model we propose for capturing the defeasibility of listeners' wor
 
 
 %This `lifted variable' that can be conceived of as analogous to the lifted variable over lexica that is at the core of recent lexical uncertainty models of word learning \red{ref}, M-implicature, and embedded scalar implicature \cite{bergen2014}. The difference is that, rather than having uncertainty about the lexicon the listener believes the speaker to be employing, the listener has uncertainty about the speaker's prior beliefs. In particular, the speaker uses either the empirical prior (obtained in Exp.~1) or an alternative prior \red{DESCRIBE}. The pragmatic listener 
+
+
+\red{NDG: note to self -- difference between revising own beliefs and revising common ground....}
 
 
 \section{Model evaluation}
