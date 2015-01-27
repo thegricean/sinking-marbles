@@ -1,6 +1,7 @@
 library(ggplot2)
-setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/12_sinking-marbles-prior15/results/")
-#setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/1_sinking-marbles-prior/results/")
+library(np)
+setwd("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/")
+#setwd("~/Dropbox/thegricean_sinking-marbles/experiments/1_sinking-marbles-prior/results/")
 source("rscripts/summarySE.r")
 r = read.table("data/sinking_marbles.tsv", sep="\t", header=T)
 r = r[,c("workerid", "rt", "effect", "cause", "object_level", "response", "object")]
@@ -158,5 +159,80 @@ ggplot(r, aes(x=response)) +
   geom_vline(aes(xintercept=Expectation),color="red",size=1) +
   facet_wrap(~Item)
 ggsave(file="graphs/item_variability.pdf",width=20,height=15)
+
+
+##### SMOOTH PRIORS WITH LAPLACE (ie add-1)
+resps = seq(0,15)
+rred = r[,c("response","Item")]
+head(rred)
+rred = rbind(rred,data.frame(response = rep(resps,90), Item = rep(levels(rred$Item),each=16)))
+nrow(rred)
+nrow(r[,c("response","Item")])
+
+t = as.data.frame(table(rred$Item, rred$response))
+head(t)
+colnames(t) = c("Item","State","Frequency")
+nrow(t)
+
+smoothed_dist15 = ddply(t, .(Item), summarise, State=State, SmoothedProportion=Frequency/sum(Frequency))
+head(smoothed_dist15,17)
+
+# compute expectations; still need to normalize in the end because sum of density typically isn't 1
+expectations = ddply(smoothed_dist15, .(Item), summarise, expectation=sum(as.numeric(as.character(State))*SmoothedProportion))
+head(expectations)
+
+mean(expectations$expectation)
+median(expectations$expectation)
+
+
+ggplot(expectations, aes(x=expectation)) +
+  geom_histogram() +
+  scale_x_continuous()
+
+head(expectations)
+nrow(expectations)
+write.table(expectations[,c("Item","expectation")],row.names=F,sep="\t",quote=F,file="data/expectations_laplace.txt")
+
+# add smoothed values to data.frame with empirical values
+
+# get empirical unsmoothed priors
+priors = as.data.frame(prop.table(table(r$Item,r$response),mar=c(1)))
+head(priors)
+priors[priors$Var1 == "ate the seeds butterflies",]$Freq
+colnames(priors) = c("Item","State","EmpiricalProportion")
+row.names(smoothed_dist15) = paste(smoothed_dist15$State,smoothed_dist15$Item)
+priors$SmoothedProportion = smoothed_dist15[paste(priors$State, priors$Item),]$SmoothedProportion
+head(priors)
+
+save(priors, file="data/priors_laplace.RData")
+
+meltedpriors = melt(priors, measure.var=c("EmpiricalProportion","SmoothedProportion"),variable="ProportionType")
+head(meltedpriors)
+
+ggplot(meltedpriors, aes(x=State, y=value, color=ProportionType, group=ProportionType)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~Item)
+ggsave(file="graphs/empirical-vs-smoothed-priors-laplace.pdf",width=20,height=15)
+
+library(reshape2)
+smoothed_dist15$SmoothedProportion = format(round(smoothed_dist15$SmoothedProportion,7), scientific=F)
+casted = dcast(smoothed_dist15, Item ~ State, value.var="SmoothedProportion")
+write.table(casted,file="data/smoothed_15marbles_priors_withnames_laplace.txt",row.names=F,quote=F,sep="\t")
+write.table(casted,file="../../../models/wonky_world/smoothed_15marbles_priors_withnames_laplace.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,3:length(colnames(casted))],file="data/smoothed_15marbles_priors_laplace.txt",row.names=F,quote=F,sep="\t")
+#write.table(casted[,1:2],file="data/items.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,3:length(colnames(casted))],file="../../../models/wonky_world/smoothed_15marbles_priors_withnames_laplace.txt",row.names=F,quote=F,sep="\t")
+
+## plot individual items
+row.names(expectations) = expectations$Item
+r$ExpectationLaplace = expectations[as.character(r$Item),]$expectation
+ggplot(r, aes(x=response)) +
+  geom_histogram() +
+  geom_vline(aes(xintercept=ExpectationLaplace),color="red",size=1) +
+  facet_wrap(~Item)
+ggsave(file="graphs/item_variability_laplace.pdf",width=20,height=15)
+
+
 
 
