@@ -1,17 +1,86 @@
 #' ---
 #' title: "Prior probabilities in the interpretation of 'some': analysis of uniform prior wonky world model predictions"
 #' author: "Judith Degen"
-#' date: "January 12, 2014"
+#' date: "January 26, 2014"
 #' ---
 
 library(ggplot2)
 theme_set(theme_bw(18))
-setwd("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/models/wonky_world/results/")
+setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/writing/_2015/cogsci_2015/paper/pics/")
 source("rscripts/helpers.r")
+
+# get prior expectations, laplace smoothed
+priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations_laplace.txt",sep="\t", header=T, quote="")
+row.names(priorexpectations) = priorexpectations$Item
+
+# histogram of expectations
+ggplot(priorexpectations, aes(x=expectation/15)) +
+  geom_histogram() +
+  scale_x_continuous(name="Expected value of prior distribution") +
+  scale_y_continuous(name="Number of cases")
+ggsave("priorexpectations-histogram-laplace.pdf")
+
+
+# plot model predictions
+load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-uniform.RData")
+
+# plot expectations for best basic model: 
+toplot = droplevels(subset(mp, QUD == "how-many" & Alternatives == "0_basic" & Quantifier == "some" & WonkyWorldPrior == .5))
+nrow(toplot)
+
+pexpectations = ddply(toplot, .(Item, SpeakerOptimality,PriorExpectation_smoothed, PosteriorExpectation_empirical), summarise, PosteriorExpectation_predicted=sum(State*PosteriorProbability)/15)
+head(pexpectations)
+some = pexpectations#droplevels(subset(pexpectations, Quantifier == "some"))
+
+toplot = droplevels(subset(some, SpeakerOptimality == 1))
+nrow(toplot)
+head(toplot)
+
+ggplot(toplot, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted)) +
+  geom_point(color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
+  geom_smooth(color="#00B0F6") +
+  #  geom_abline(intercept=0,slope=1,color="gray50") +
+  scale_x_continuous(limits=c(0,1), name="Prior expectation") +
+  scale_y_continuous(limits=c(0,1), name="Model predicted posterior expectation")
+#  geom_text(data=cors, aes(label=r)) +
+#scale_size_discrete(range=c(1,2)) +
+#scale_color_manual(values=c("red","blue","black")) 
+ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
+ggsave("~/cogsci/conferences_talks/_2015/2_cogsci_pasadena/wonky_marbles/paper/pics/model-expectations-uniform.pdf",width=5.5,height=4.5)
+save(toplot, file="data/toplot-expectations.RData")
+
+toplot_w = toplot
+load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/complex_prior/smoothed_unbinned15/results/data/toplot-expectations.RData")
+toplot_r = toplot
+head(toplot_w)
+summary(toplot_r)
+toplot_r$RSA = "regular"
+toplot_w$RSA = "wonky"
+
+# plot both rRSA and uniform wRSA expectation predictions in same plot
+toplot = merge(toplot_r,toplot_w, all=T)
+head(toplot)
+nrow(toplot)
+ggplot(toplot, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted, shape=RSA)) +
+  geom_point(color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
+  geom_smooth(color="#00B0F6") +
+  #  geom_abline(intercept=0,slope=1,color="gray50") +
+  scale_x_continuous(limits=c(0,1), name="Prior expectation") +
+  scale_y_continuous(limits=c(0,1), name="Model predicted posterior expectation")
+#  geom_text(data=cors, aes(label=r)) +
+#scale_size_discrete(range=c(1,2)) +
+#scale_color_manual(values=c("red","blue","black")) 
+#ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
+ggsave("~/cogsci/conferences_talks/_2015/2_cogsci_pasadena/wonky_marbles/paper/pics/model-expectations-uniform-regular.pdf",width=6.5,height=4.5)
+
+
+######### CLEAN UP REST OF THIS ##########
+
+
 
 #' get model predictions
 load("data/mp-uniform.RData")
-d = read.table("data/parsed_uniform_results.tsv", quote="", sep="\t", header=T)
+#d = read.table("data/parsed_uniform_results.tsv", quote="", sep="\t", header=T)
 table(d$Item)
 nrow(d)
 head(d)
@@ -24,14 +93,9 @@ wr = ddply(d, .(Item, QUD, Wonky, Alternatives, Quantifier, SpeakerOptimality, W
 wr[wr$Item == "ate the seeds birds" & wr$QUD=="how-many" & wr$Alternatives=="0_basic" & wr$SpeakerOptimality == 1,]
 
 
-# get prior expectations
-priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
-row.names(priorexpectations) = paste(priorexpectations$effect,priorexpectations$object)
-mp$PriorExpectation = priorexpectations[as.character(mp$Item),]$expectation
-wr$PriorExpectation = priorexpectations[as.character(wr$Item),]$expectation
 
 # get smoothed prior probabilities
-priorprobs = read.table(file="~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
 head(priorprobs)
 row.names(priorprobs) = paste(priorprobs$effect,priorprobs$object)
 mpriorprobs = melt(priorprobs, id.vars=c("effect", "object"))
@@ -42,7 +106,7 @@ mp$AllPriorProbability = priorprobs[paste(as.character(mp$Item)),]$X15
 head(mp)
 
 # get empirical state posteriors:
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/3_sinking-marbles-nullutterance/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/3_sinking-marbles-nullutterance/results/data/r.RData")
 head(r)
 r$Item = as.factor(paste(r$effect,r$object))
 # because posteriors come in 4 bins, make Bin variable for model prediction dataset:
@@ -81,7 +145,7 @@ ggplot(toplot, aes(x=Prop, y=value,color=ptype, group=ptype, size=Probability)) 
 ggsave("graphs/model-empirical-uniform-howmany-2-basic.pdf",width=35,height=30)
 
 #plot empirical against predicted expectations for "some"
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
 summary(r)
 r$Item = as.factor(paste(r$effect, r$object))
 agr = aggregate(ProportionResponse ~ Item + quantifier, data=r, FUN=mean)
@@ -149,7 +213,7 @@ ggplot(allstate, aes(x=PriorProbability, y=PosteriorProbability,color=as.factor(
 ggsave("graphs/model-uniform-allstateprobs.pdf",width=30,height=10)
 
 # get empirical wonkiness posteriors
-load("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
 head(r)
 nrow(r)
 r$Item = as.factor(paste(r$effect,r$object))
@@ -245,55 +309,3 @@ nrow(mp_some_allstate)
 
 
 
-# plot expectations for best basic model: 
-toplot = droplevels(subset(mp, QUD == "how-many" & Alternatives == "0_basic" & Quantifier == "some" & WonkyWorldPrior == .5))
-nrow(toplot)
-
-pexpectations = ddply(toplot, .(Item, SpeakerOptimality,PriorExpectation_smoothed, PosteriorExpectation_empirical), summarise, PosteriorExpectation_predicted=sum(State*PosteriorProbability)/15)
-head(pexpectations)
-some = pexpectations#droplevels(subset(pexpectations, Quantifier == "some"))
-
-cors = ddply(some, .(SpeakerOptimality), summarise, r=cor(PosteriorExpectation_predicted, PosteriorExpectation_empirical))
-cors = cors[order(cors[,c("r")],decreasing=T),]
-head(cors)
-
-toplot = droplevels(subset(some, SpeakerOptimality == 1))
-nrow(toplot)
-head(toplot)
-
-ggplot(toplot, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted)) +
-  geom_point(color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth(color="#00B0F6") +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,1), name="Prior expectation") +
-  scale_y_continuous(limits=c(0,1), name="Model predicted posterior expectation")
-#  geom_text(data=cors, aes(label=r)) +
-#scale_size_discrete(range=c(1,2)) +
-#scale_color_manual(values=c("red","blue","black")) 
-ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
-ggsave("~/cogsci/conferences_talks/_2015/2_cogsci_pasadena/wonky_marbles/paper/pics/model-expectations-uniform.pdf",width=5.5,height=4.5)
-save(toplot, file="data/toplot-expectations.RData")
-
-toplot_w = toplot
-load("../../complex_prior/smoothed_unbinned15/results/data/toplot-expectations.RData")
-toplot_r = toplot
-head(toplot_w)
-summary(toplot_r)
-toplot_r$RSA = "regular"
-toplot_w$RSA = "wonky"
-  
-# plot both rRSA and uniform wRSA expectation predictions in same plot
-toplot = merge(toplot_r,toplot_w, all=T)
-head(toplot)
-nrow(toplot)
-ggplot(toplot, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted, shape=RSA)) +
-  geom_point(color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth(color="#00B0F6") +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,1), name="Prior expectation") +
-  scale_y_continuous(limits=c(0,1), name="Model predicted posterior expectation")
-#  geom_text(data=cors, aes(label=r)) +
-#scale_size_discrete(range=c(1,2)) +
-#scale_color_manual(values=c("red","blue","black")) 
-#ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
-ggsave("~/cogsci/conferences_talks/_2015/2_cogsci_pasadena/wonky_marbles/paper/pics/model-expectations-uniform-regular.pdf",width=6.5,height=4.5)
