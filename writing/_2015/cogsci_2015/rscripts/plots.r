@@ -74,6 +74,36 @@ ggplot(toplot, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted
 ggsave("~/cogsci/conferences_talks/_2015/2_cogsci_pasadena/wonky_marbles/paper/pics/model-expectations-uniform-regular.pdf",width=6.5,height=4.5)
 
 
+### NOAH'S MODEL PREDICTIONS
+rsa_allstate = read.csv(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/ndg-code/RSA-allstate.csv",header=F)
+head(rsa_allstate)
+colnames(rsa_allstate) = c("BinomialCW","PosteriorAllProbability")
+ggplot(rsa_allstate, aes(x=BinomialCW,y=PosteriorAllProbability)) +
+  geom_point(color="#00B0F6") +
+  scale_x_continuous(limits=c(0,1), name="Binomial coin weight") +
+  scale_y_continuous(limits=c(0,1), name="Predicted posterior probability of all-state")  
+ggsave("noahs-allstate-predictions.pdf",width=4.5,height=3.5)  
+
+rsa_expectation = read.csv(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/ndg-code/RSA-expectation.csv",header=F)
+head(rsa_expectation)
+colnames(rsa_expectation) = c("PriorExpectation","PosteriorExpectation")
+ggplot(rsa_expectation, aes(x=PriorExpectation/15,y=PosteriorExpectation/15)) +
+  geom_point(color="#00B0F6") +
+  scale_x_continuous(limits=c(0,1), name="Prior expectation") +
+  scale_y_continuous(limits=c(0,1), name="Predicted posterior expectation")  
+ggsave("noahs-expectation-predictions.pdf",width=4.5,height=3.5)  
+
+rsa_expall = read.csv(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/ndg-code/RSA-expectedVsallstate.csv",header=F)
+head(rsa_expall)
+colnames(rsa_expall) = c("PriorExpectation","PosteriorExpectation")
+ggplot(rsa_expall, aes(x=PriorExpectation/15,y=PosteriorExpectation)) +
+  geom_point(color="#00B0F6") +
+  scale_x_continuous(limits=c(0,1), name="Prior expectation") +
+  scale_y_continuous(limits=c(0,1), name="Predicted posterior probability of all-state")  
+ggsave("noahs-allstate-predictions-bypriorexp.pdf",width=4.5,height=3.5)  
+
+
+
 ######### CLEAN UP REST OF THIS ##########
 
 

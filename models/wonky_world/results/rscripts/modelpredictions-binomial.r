@@ -149,8 +149,8 @@ ggplot(some, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted))
   #scale_color_manual(values=c("red","blue","black")) +
   facet_grid(SpeakerOptimality~WonkyWorldPrior)
 #toggle
-ggsave("graphs/model-binomial-expectations.pdf",width=20,height=15)
-#ggsave("graphs/model-binomial-expectations-laplace.pdf",width=16,height=15)
+#ggsave("graphs/model-binomial-expectations.pdf",width=20,height=15)
+ggsave("graphs/model-binomial-expectations-laplace.pdf",width=16,height=15)
 
 
 #plot empirical against predicted allstate-prbabilities for "some"
