@@ -148,13 +148,14 @@ RSA is defined by:
 Here $F_u: s \mapsto \{0,1\}$ is a truth-function specifying the meaning of each utterance.
 
 For concreteness, assume that the set of states of the world is $S = \{s_0, s_1, s_2, \dots, s_{15}\}$, where the subscript indicates the number of objects (e.g., marbles) that exhibit a certain effect (e.g., sinking). 
-Assume also that the set of utterances \emph{All/None/Some of the marbles sank} is denoted $U = \{u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}\}$ and each has it's usual literal meaning: 
+Assume also that the set of utterances \emph{All/None/Some of the marbles sank} is denoted $U = \{u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}\}$ and each has its usual literal meaning: 
 $F_{u_{\textrm{none}}}(s) {=} \delta_{s=0}$,  
-$F_{u_{\textrm{some}}}(s) {=} \delta_{s>0}$, 
+$F_{u_{\textrm{some}}}(s) {=} \delta_{s>0}$, \red{should this really be a delta?}
 $F_{u_{\textrm{all}}}(s) {=} \delta_{s=15}$.
-Let us imagine that the prior is binomial with single event probability $\theta$: $P(s)=\text{Binomial}(s|\theta)$.
+%Let us imagine that the prior is binomial with single event probability $\theta$: $P(s)=\text{Binomial}(s|\theta)$.
 
-In Figure \ref{rss-basic} we show the predictions of RSA as $\theta$ varies. \red{put in figure showing the basic RSA predictions for allstate $P(s_{15}|u_{some})$ and expectation. this figure could also have wRSA predictions for later reference.} We see that the prior has a strong effect, which can be summarized by the two predictions described above. We next turn to an empirical test of these predictions, or rather, of the intuition that they may be incorrect.
+In Figure \ref{rss-basic} we show the predictions of RSA for the items from Exp.~1 in two different ways: the left panel shows the the expected value (as the expected proportion of affected objects, rather than as the expected number of objects) of the posterior distribution as a function of the expected value of the prior distribution; the right panel shows the posterior probability of the state in which all objects are affected, as a function of the prior probability of that state.   %as $\theta$ varies. \red{put in figure showing the basic RSA predictions for allstate $P(s_{15}|u_{some})$ and expectation. this figure could also have wRSA predictions for later reference.} 
+We see that the prior has a strong effect, which can be summarized by the two predictions described in the Introduction.\footnote{\red{comment on the noise?}} We next turn to an empirical test of these predictions, or rather, of the intuition that they may be incorrect.
 
 %\section{Models of utterance interpretation}
 %
@@ -190,7 +191,7 @@ In Figure \ref{rss-basic} we show the predictions of RSA as $\theta$ varies. \re
 
 \begin{figure}
 	\includegraphics[width=.5\textwidth]{pics/model-expectations-uniform-regular}
-	\caption{For each item, rRSA and wRSA model predicted mean empirical proportion of affected objects after observing \emph{Some of the X Yed}, as a function of prior mean proportion of affected objects.}
+	\caption{For each item, rRSA and wRSA model predicted $\mathbb{E}[P(s|u_{\textrm{some}})]$ as a function of $\mathbb{E}[P(s)$].}
 	\label{fig:rrsaexppredictions}	
 \end{figure}
 
