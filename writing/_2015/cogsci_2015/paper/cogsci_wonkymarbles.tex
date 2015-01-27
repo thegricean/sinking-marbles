@@ -40,8 +40,9 @@
 \newcommand{\appref}[1]{Appendix \ref{#1}}
 \newcommand{\sectionref}[1]{Section \ref{#1}}
 
-\title{Non-sinking marbles are wonky: defeasible world knowledge in language interpretation}
-%Listeners reconsider common ground when utterances are odd.
+\title{Wonky worlds: Listeners reconsider common ground when utterances are odd}
+%Non-sinking marbles are wonky: defeasible world knowledge in language interpretation}
+
  
 \author{{\large \bf Judith Degen, Michael H.~Tessler, Noah D.~Goodman} \\
   \{jdegen,mtessler,ngoodman\}@stanford.edu\\
@@ -64,24 +65,27 @@ scalar implicature; world knowledge; prior beliefs; experimental pragmatics; com
 
 How often do you think marbles would sink in water? Probably extremely often, if not always. Now imagine reading \emph{Max threw fifteen of his favorite marbles in the water. Some of them sank.} Have you begun to reconsider your assumptions? Perhaps you now suspect that these marbles are in fact made of plastic or the water is covered with thick algae? That is, that they are not just normal marbles in normal water. Here we explore how prior world knowledge enters into pragmatic utterance interpretation, and how this world knowledge is defeasible: some utterances lead listeners to conclude that the world under discussion is abnormal and has appropriately different prior probabilities. We refer to such an abnormal world  as a \emph{wonky} world.
 
-Recent Bayesian Rational Speech Act (RSA)  \cite{frank2012,goodman2013} and game-theoretic \cite{franke2011} models that treat communication as a signaling game \cite{lewis} between a speaker and a listener have successfully captured listeners' quantitative  behavior on a number of pragmatic inference tasks, including ad hoc Quantity implicature \red{ref}, M-implicature \red{ref}, scalar implicature \red{ref}, and embedded scalar implicatures \red{ref}. In these models, the listener reasons by Bayesian inference about what the world is like given that a speaker who produced the utterance is trying to be informative (with respect to a na\"ive listener). 
-A defining feature of Bayesian reasoning is that prior beliefs affect inferences that will be drawn. Bayesian models of language interpretation, accordingly, predict that prior beliefs about the world state should affect the listener's interpretation of an utterance. 
+The Rational Speech Acts framework (RSA)  \cite{frank2012,goodman2013}, and related game-theoretic models \cite{franke2011}, treat communication as a signaling game \cite{lewis} between a speaker and a listener.
+The listener reasons by Bayesian inference about what the world is like given that a speaker who produced the utterance is trying to be informative (with respect to a na\"ive listener). 
+Variants of these models have successfully captured listeners' quantitative  behavior on a number of pragmatic inference tasks, including ad hoc Quantity implicature \red{ref}, M-implicature \red{ref}, scalar implicature \red{ref},  embedded scalar implicatures \red{ref}, and non-literal language \cite{kao2014}. 
+A defining feature of Bayesian reasoning is that prior beliefs affect inferences that will be drawn. Bayesian models of language interpretation, accordingly, predict that prior beliefs about the world should affect the listener's interpretation of an utterance. 
 %These models make clear predictions about how prior beliefs about states of the world should be integrated with listeners' expectations about utterances a speaker is likely to produce to communicate a particular state of the world. 
-While this impact of prior knowledge has been noted, and included in models, it's impact hasn't been systematically studied.
+While this impact of prior knowledge has been noted, and included in models, it hasn't been systematically studied.
 
-For instance, take the case of ``some of the X-s Y-ed'' (for category X and event Y) when the prior probability, $\theta_{X,Y}$, of an X Y-ing varies. 
-When $\theta_{X,Y}$ is not extreme, RSA leads to the standard scalar implicature: the posterior probability after hearing the utterance that all $15$ of the Xs sank is much lower than its prior probability. This is because a rational speaker would have been expected to say the more informative ``all of the X-s Y-ed'' if it had been true.
-As we will show in the next section, RSA makes two strong predictions: (1) As $\theta_{X,Y}$ approaches $1$ the probability that all X-s Y-ed approaches $1$, that is the scalar implicature disappears. (2) The posterior expectation of the number of X-s that Y-ed should be approximately the same as the prior expectation. 
-The first prediction follows because the 
-extreme prior overwhelms the effect of the utterance.
-The second prediction follows from the weak semantics of ``some'' and the isolated effect of the alternative ``all'': because ``some of the X-s Y-ed'' only restricts the interpretation to be greater than zero and the scalar implicature resulting from alternative ``all of the X-s Y-ed'' can at the most rule out the all state, the prior will dominate the inference of exactly how many X-s Y-ed. 
+Generalizing our opening example, take the case of ``some of the X-s Y-ed'' (for category X and event Y). When the prior probability, $\theta_{X,Y}$, of an X Y-ing is not extreme, RSA leads to the standard scalar implicature: the posterior probability that all $15$ of the Xs Yed, after hearing the utterance, is much lower than its prior probability. This is because a rational speaker would have been expected to say the more informative ``all of the X-s Y-ed'' if it had been true.
+As we will show in the next section, RSA makes two strong predictions about the effect of the prior: (1) As $\theta_{X,Y}$ approaches $1$ the interpretation probability that all X-s Y-ed approaches $1$, that is the scalar implicature disappears. 
+This prediction follows because the extreme prior overwhelms the effect of the utterance.
+(2) The posterior expectation of the number of X-s that Y-ed should be approximately the same as the prior expectation, when the number of tries is large (e.g.~15). 
+This prediction follows from the weak semantics of ``some'' and the isolated effect of the alternative ``all'': because ``some of the X-s Y-ed'' only restricts the interpretation to be greater than zero and the scalar implicature resulting from alternative ``all of the X-s Y-ed'' can at the most rule out the all state, the prior will dominate the inference of exactly how many X-s Y-ed. 
 
 However, intuition is at odds with these predictions: for example,  \citeA{geurts2010} has observed that for events with very high prior probability of occurrence (e.g.~marbles sinking), observing an utterance of \emph{Some of the marbles sank} leads to very strong implicatures, that is, the subjective probability that all of the marbles sank is intuitively close to 0. 
-In Experiment 1 we collect prior probabilities for a variety of events of the form ``how likely will an X Y'' (for category C and event Y). In experiment 2a and 2b we collect posterior interpretations after hearing utterances such as ``some of the Xs Yed''. 
-These experimental results confirm the intuition---hence prediction (1) of RSA is incorrect---and show that the prior has a muted effect on posterior expectation---hence prediction (2) of RSA is incorrect.
-Given the previous success of RSA models, this constitutes a striking puzzle, and one we set out to solve here. 
-In doing so, we pursue the intuition raised at the very beginning of this paper: that sometimes, the speaker's utterance will lead the listener to infer that the world under discussion is wonky and she should therefore down-weight her prior beliefs in the computation of speaker meaning.
-
+In Experiment 1 we collect prior probabilities for a variety of events and categories. In experiment 2a and 2b we collect posterior interpretations after hearing utterances such as ``some of the Xs Yed''. 
+These experimental results confirm the intuition of relatively strong implicature---hence prediction (1) of RSA is incorrect---and show that the prior has a muted effect on posterior expectation---hence prediction (2) of RSA is incorrect.
+Given the previous success of RSA models, this constitutes a striking puzzle. 
+To address this puzzle we pursue the intuition raised at the very beginning of this paper: that sometimes, the speaker's utterance will lead the listener to infer that the world under discussion is wonky and she should therefore down-weight her prior beliefs in the computation of speaker meaning.
+In Experiment 3 we explore participants' intuitions about whether the world is normal in the scenarios of Experiment 2.
+We then introduce a variant of RSA, wRSA, in which the listener can revise her beliefs about the domain that the speaker intended. 
+We show that this extension resolves the puzzle of the prior's muted effects, and predicts people's normalcy judgements.
 
 % -illustrate why ``some'' is weird for high prior.
 %-tie in to common ground (or wait for discussion?)
