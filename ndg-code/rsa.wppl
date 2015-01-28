@@ -44,22 +44,24 @@ var speaker = cache(function(world, prior) {
                     })
 
 
-//default prior is a delta, backoff prior is approx beta:
-var a = 1
-var b = 1
-var delta = 100
 var grid = wonkyutils.makeGrid(100)
-var betaProbs = map(function(v){return Math.exp(betaERP.score([a,b],v))}, grid)
-var prior = function(defVal, weight){
-//  var defProbs = wonkyutils.makeDelta(defVal,grid)
-  var defProbs = map(function(v){return Math.exp(betaERP.score([delta*defVal,delta*(1-defVal)],v))}, grid)
-  var probs = map2(function(x,y){return x+weight*y}, betaProbs, defProbs)
-  return grid[discrete(probs)]
-}
 
-var listener = function(utterance,defVal) {
+
+////default prior is a delta, backoff prior is approx beta:
+//var a = 1
+//var b = 1
+//var delta = 100
+//var betaProbs = map(function(v){return Math.exp(betaERP.score([a,b],v))}, grid)
+//var prior = function(defVal, weight){
+////  var defProbs = wonkyutils.makeDelta(defVal,grid)
+//  var defProbs = map(function(v){return Math.exp(betaERP.score([delta*defVal,delta*(1-defVal)],v))}, grid)
+//  var probs = map2(function(x,y){return x+weight*y}, betaProbs, defProbs)
+//  return grid[discrete(probs)]
+//}
+
+var listener = function(utterance,prior) {
   Enumerate(function(){
-            var prior = defVal//prior(defVal,2)
+            var prior = prior//prior(defVal,2)
             var world = binomial(prior, numObjs+1)
             var S = speaker(world, prior)
             factor(S.score([],utterance))
@@ -96,5 +98,5 @@ wonkyutils.writeCSV(zip(map(priorExpected,grid), map(allstate, grid)), 'RSA-expe
 //make csv for prior vs posterior expectation:
 wonkyutils.writeCSV(zip(map(priorExpected,grid), map(expected, grid)), 'RSA-expectation.csv');
 
-
+zip(map(priorExpected,grid), map(allstate, grid))
 
