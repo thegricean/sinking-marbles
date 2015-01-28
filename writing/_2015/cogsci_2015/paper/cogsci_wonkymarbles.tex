@@ -26,8 +26,8 @@
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{color}
-%\usepackage{hyperref}
-\newcommand{\url}[1]{$#1$}
+\usepackage{url}
+%\newcommand{\url}[1]{$#1$}
 
 
 \definecolor{Red}{RGB}{255,0,0}
@@ -237,14 +237,27 @@ In the next section, we present an extension to rRSA that formalizes the intuiti
 
 \section{Effect of the world prior in `wonky RSA'}
 
+To capture the idea that the pragmatic listener is unsure what background knowledge the speaker is bringing to the conversation, we extend the basic RSA model by using a ``lifted variable'' \cite{goodmanlassiter,lassitergoodman,bergen,kao} corresponding to the choice of state prior. That is, we posit that the prior, now $P(s|w)$, depends on a ``wonkiness'' variable $w$, which determines if it is the ``usual'' prior for this domain or a more generic back-off prior that we take to be uniform. The same prior is used in the literal and pragmatic listener, indicating that it is taken to be common ground. However, the $w$ variable is reasoned about only by the pragmatic listener, which captures the idea that it is an inference the pragmatic listener makes about which communication system is relevant. Using the notation of the earlier modeling section:
+\begin{eqnarray}
+&&P(s|w) = \begin{cases}
+   P_{\text{usual}}(s) & \text{if not } w \\
+   \text{Uniform}(0,1)       & \text{if } w
+  \end{cases}\\
+&&P_{\textrm{literal}}(s|u,w)\propto F_u(s) \cdot P(s;w)\\
+&&P_{\textrm{speaker}}(u|s,w) \propto \mathrm{exp}({\lambda \ln P_{\textrm{literal}}(s|u,w))}\\
+&&P_{\textrm{listener}}(s,w|u)\propto P_{\textrm{speaker}}(u|s,w)\cdot P(s|w) \cdot P(w)
+\end{eqnarray}
+We refer to this model as wRSA. Notice that the choice of $w$ will depend on $p(u|s,w)$: if a given utterance can't be explain by the usual prior, because it is unlikely under any plausible world state $s$, then the pragmatic listener will back off to the uniform prior---inferring that the world is wonky.
 
-\red{WONKY RSA MODEL; BRIDGE TO EXPERIMENT: SO WE SEE THAT WRSA DOES BETTER AT CAPTURING THE COMPREHENSION DATA, BUT IS THIS REALLY BECAUSE LISTENERS ARE INFERRING WONKINESS? TEST IN EXP. 3}
+To make predictions for Exp.~2 from wRSA we use the soothed empirical priors from Exp.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality $\lambda$ are fit to optimize \red{correlation?} with Exp.~2 data. 
+\red{point to figure, describe fit to exp 2 data.}
 
-\red{from previous start to model section: 
-The wonky RSA model we propose for capturing the defeasibility of listeners' world knowledge is an extension of regular RSA: in wRSA, the listener infers the value of $\theta_{\textrm{wonky}}$ jointly with $s$. $\theta_{\textrm{wonky}}$ captures for each utterance and item, how likely the objects involved in the event (e.g., marbles) are in fact ``wonky'' (in which case the computation draws on a uniform prior, i.e.~disregards prior beliefs) or not (in which case the model draws on the smoothed empirical prior distribution for that item, obtained in Exp.~1). The resulting $p(s|u)$ is a mixture of computations based on the uniform and empirical prior, with mixture parameter $\theta_{\textrm{wonky}}$. The inferred value of $\theta_{\textrm{wonky}}$ itself depends on $p(u|s)$: the more surprising a particular utterance is given prior beliefs, the higher the probability of $\theta_{\textrm{wonky}}$.}
+These results are encouraging: wRSA is able to account for the qualitative and quantitative departures of participants' behavior from RSA, with respect to the effect of the prior.
+One could imagine various approaches to engineer this departure\footnote{Though the authors tried several, which all failed by maintaining one or the other of the qualitative predictions of RSA identified in the introduction.}, is this actually because listeners are inferring from an utterance like ``some of the marbles sank'' that the world is unusual?
+The wRSA model makes predictions about the probability that a given world is wonky, after hearing an utterance ($P_{\textrm{listener}}(w|u)$); see \figref{fig:wonkymodel} for predicted wonkiness probabilities for \emph{all}, \emph{none}, and \emph{some}.
+We can test these predictions directly by simply asking subjects whether the situation is normal.
 
 
-See \figref{fig:wonkymodel} for predicted wonkiness probabilities for \emph{all}, \emph{none}, and \emph{some}. \red{this is still the uniform model prediction}
 
 \begin{figure}
 
@@ -276,7 +289,7 @@ The extreme ends of the sliders were coded as 1 (\emph{definitely not normal}, i
 
 \red{yay!! XXX}
 
-\section{Model evaluation}
+%\section{Model evaluation}
 
 
 
