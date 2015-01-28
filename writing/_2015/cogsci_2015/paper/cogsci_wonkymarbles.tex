@@ -247,13 +247,12 @@ To capture the idea that the pragmatic listener is unsure what background knowle
 \end{eqnarray}
 We refer to this model as wRSA. Notice that the choice of $w$ will depend on $p(u|s,w)$: if a given utterance can't be explained by the usual prior, because it is unlikely under any plausible world state $s$, then the pragmatic listener will back off to the uniform prior---inferring that the world is wonky.
 
-To make predictions for Exp.~2 from wRSA we use the soothed empirical priors from Exp.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality $\lambda$ are fit to optimize \red{correlation?} with Exp.~2 data. 
-\red{point to figure, describe fit to exp 2 data.}
+To make predictions for Exp.~2 from wRSA we use the smoothed empirical priors from Exp.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality $\lambda$ are fit to optimize \red{mean squared error} with Exp.~2 data. 
+\red{point to figure, describe fit to exp 2 data. comparison to rRSA}
 
 These results are encouraging: wRSA is able to account for the qualitative and quantitative departures of participants' behavior from RSA, with respect to the effect of the prior.
-One could imagine various approaches to engineer this departure\footnote{Though the authors tried several, which all failed by maintaining one or the other of the qualitative predictions of RSA identified in the introduction.}, is this actually because listeners are inferring from an utterance like ``some of the marbles sank'' that the world is unusual?
-The wRSA model makes predictions about the probability that a given world is wonky, after hearing an utterance ($P_{\textrm{listener}}(w|u)$); see \figref{fig:wonkymodel} for predicted wonkiness probabilities for \emph{all}, \emph{none}, and \emph{some}.
-We can test these predictions directly by simply asking subjects whether the situation is normal.
+One could imagine various approaches to engineer this departure\footnote{Though the authors tried several, which all failed by maintaining one or the other of the qualitative predictions of RSA identified in the introduction.\red{we should give examples}}, is this actually because listeners are inferring from an utterance like ``some of the marbles sank'' that the world is unusual?
+The wRSA model makes predictions about the probability that a given world is wonky, after hearing an utterance ($P_{\textrm{listener}}(w|u)$); see \figref{fig:wonkymodel} for predicted wonkiness probabilities for \emph{all}, \emph{none}, and \emph{some}, using the  optimal $P(w)$ and $\lambda$ parameters from fitting wRSA to the Exp.~2 data. We can test these predictions directly by simply asking subjects whether the situation is normal.
 
 
 
@@ -277,13 +276,15 @@ The procedure and materials were identical to those of Exps.~2a and 2b, with the
 
 \subsubsection{Results}
 
-The extreme ends of the sliders were coded as 1 (\emph{definitely not normal}, i.e., wonky) and 0 (\emph{definitely normal}, i.e., not wonky). We interpret the slider values as probability of world wonkiness. Mean wonkiness probability ratings are shown in \figref{fig:wonkyratings}. For \emph{all} and \emph{none}, increasing prior expectation of objects exhibiting the effect resulted in a fairly linear decrease and increase in the probability of wonkiness, respectively. For \emph{some}, the pattern is somewhat more intricate: probability of wonkiness initially decreases sharply, but rises again in the upper range of the prior expected value. 
+The extreme ends of the sliders were coded as 1 (\emph{definitely not normal}, i.e., wonky) and 0 (\emph{definitely normal}, i.e., not wonky). We interpret the slider values as probability of world wonkiness. Mean wonkiness probability ratings are shown in \figref{fig:wonkyratings} and closely mimic wRSA's predictions (see \figref{fig:wonkymodel}). For \emph{all} and \emph{none}, increasing prior expectation of objects exhibiting the effect resulted in a fairly linear decrease and increase in the probability of wonkiness, respectively. For \emph{some}, the pattern is somewhat more intricate: probability of wonkiness initially decreases sharply, but rises again in the upper range of the prior expected value. 
 
 \begin{figure}
 	\includegraphics[width=.5\textwidth]{pics/empirical-wonkiness}
 	\caption{For each item, mean empirical wonkiness probability after observing an utterance (\emph{all, none, some}), as a function of expected prior number of affected objects.}
 	\label{fig:wonkyratings}	
 \end{figure}
+
+Qualitatively, the model captures both the linear increase and decrease in wonkiness probability for \emph{all} and \emph{none}, respectively. Importantly, it also captures the asymmetric U-shaped wonkiness probability curve displayed by \emph{some}. \red{brief explanation why}. For comparison to the comprehension data fit, the correlation between model predictions and empirical wonkiness probabilities was $r = $\red{XXX}, with normalized root-mean-squared-error of \red{XXX}. \red{one sentence summarizing difference to comprehension data or move to the discussion?}
 
 \red{yay!! XXX}
 
@@ -307,6 +308,7 @@ The extreme ends of the sliders were coded as 1 (\emph{definitely not normal}, i
 
 
 \red{NDG: note to self -- difference between revising own beliefs and revising common ground....}
+
 
 \section{Discussion and conclusion}
 
