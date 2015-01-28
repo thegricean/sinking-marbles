@@ -261,8 +261,8 @@ dev.off()
 # plot subejct variability for exclusion
 ggplot(r[r$Proportion == "0",], aes(x=normresponse,fill=quantifier)) +
   geom_histogram() +
-  facet_grid(workerid~quantifier)
-ggsave("subject-variability.pdf",width=8,height=35)
+  facet_grid(workerid~quantifier)  
+ggsave("subject-variability.pdf",width=5.5,height=4)
 
 
 
@@ -281,11 +281,15 @@ ggsave("subject-variability-wonkiness.pdf",width=7,height=25)
 
 toplot = aggregate(response ~ quantifier + Item + PriorExpectation, FUN="mean", data=r)
 toplot = droplevels(subset(toplot, quantifier %in% c("All","Some","None")))
+toplot$Quantifier = factor(tolower(toplot$quantifier), levels=c("all", "none","some"))
 
-ggplot(toplot, aes(x=PriorExpectation, y=response, color=quantifier)) +
+ggplot(toplot, aes(x=PriorExpectation, y=response, color=Quantifier)) +
   geom_point() +
-  geom_smooth() 
-ggsave(file="graphs/empirical-wonkiness.pdf",width=6)
+  geom_smooth() +
+  scale_color_manual(values=c("#F8766D","#00BF7D","#00B0F6")) +
+  scale_x_continuous(breaks=seq(1,15,by=2),name="Prior expected number of objects") +
+  scale_y_continuous(breaks=seq(0,1,by=.25),name="Mean empirical wonkiness probability")  
+ggsave(file="empirical-wonkiness.pdf",width=5.5,height=4)
 
 
 ######################
