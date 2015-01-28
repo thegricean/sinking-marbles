@@ -165,6 +165,12 @@ pdf("rsa-predictions.pdf",width=10,height=4)
 grid.arrange(p_exps_nolegend, p_probs_nolegend, legend,nrow=1,widths=unit.c(unit(.45, "npc"), unit(.45, "npc"), unit(.1, "npc")))
 dev.off()
 
+s = subset(r, quantifier=="Some" & Proportion == "100")
+nrow(s)
+
+library(lmerTest)
+m=lmer(normresponse ~ AllPriorProbability + (1+AllPriorProbability|workerid) + (1|Item), data=s)
+summary(m)
 
 ###############
 ## EMPIRICAL PLOTS
