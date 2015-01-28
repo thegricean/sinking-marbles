@@ -265,6 +265,30 @@ ggplot(r[r$Proportion == "0",], aes(x=normresponse,fill=quantifier)) +
 ggsave("subject-variability.pdf",width=8,height=35)
 
 
+
+
+############
+# empirical wonkiness posteriors
+############
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
+head(r)
+nrow(r)
+
+ggplot(r, aes(x=response, fill=quantifier)) +
+  geom_histogram() +
+  facet_grid(workerid~quantifier)
+ggsave("subject-variability-wonkiness.pdf",width=7,height=25)
+
+toplot = aggregate(response ~ quantifier + Item + PriorExpectation, FUN="mean", data=r)
+toplot = droplevels(subset(toplot, quantifier %in% c("All","Some","None")))
+
+ggplot(toplot, aes(x=PriorExpectation, y=response, color=quantifier)) +
+  geom_point() +
+  geom_smooth() 
+ggsave(file="graphs/empirical-wonkiness.pdf",width=6)
+
+
+######################
 ### NOAH'S MODEL PREDICTIONS
 rsa_allstate = read.csv(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/ndg-code/RSA-allstate.csv",header=F)
 head(rsa_allstate)
@@ -292,55 +316,5 @@ ggplot(rsa_expall, aes(x=PriorExpectation/15,y=PosteriorExpectation)) +
   scale_x_continuous(limits=c(0,1), name="Prior expectation") +
   scale_y_continuous(limits=c(0,1), name="Predicted posterior probability of all-state")  
 ggsave("noahs-allstate-predictions-bypriorexp.pdf",width=4.5,height=3.5)  
-
-
-
-############
-# empirical wonkiness posteriors
-############
-load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
-head(r)
-nrow(r)
-r$Item = as.factor(paste(r$effect,r$object))
-
-t = as.data.frame(prop.table(table(r$Item, r$quantifier, r$response), mar=c(1,2)))
-head(t)
-colnames(t) = c("Item","Quantifier","NormalMarbles","Proportion")
-t[t$Var1=="ate the seeds birds",]
-t$Quantifier = tolower(t$Quantifier)
-tail(t)
-t$Wonky = as.factor(ifelse(t$NormalMarbles == "yes","false","true"))
-row.names(t) = paste(t$Item, t$Quantifier, t$Wonky)
-
-wr$PosteriorProbability_empirical = t[paste(wr$Item, wr$Quantifier, wr$Wonky),]$Proportion
-head(wr)
-wonky = droplevels(subset(wr, Wonky == "true"))
-
-head(wonky)
-toplot = droplevels(subset(wonky, Alternatives == "0_basic" & WonkyWorldPrior == .4 & SpeakerOptimality == 2))
-
-ggplot(toplot, aes(x=PriorExpectation, y=PosteriorProbability, color=Quantifier)) +
-  geom_point() +
-  geom_smooth() 
-ggsave(file="graphs/wonkinessplot.pdf",width=6)
-
-cors = ddply(wonky, .(Alternatives, QUD, SpeakerOptimality, Quantifier, WonkyWorldPrior), summarise, r=cor(PosteriorProbability, PosteriorProbability_empirical))
-cors = cors[order(cors[,c("r")],decreasing=T),]
-head(cors,15)
-
-wonky_all = subset(wonky, Quantifier == "all")
-wonky_none = subset(wonky, Quantifier == "none")
-wonky_some = subset(wonky, Quantifier == "some")
-
-ggplot(wonky_all, aes(x=PosteriorProbability, y=PosteriorProbability_empirical, color=as.factor(WonkyWorldPrior), shape=as.factor(SpeakerOptimality))) +
-  geom_point() +
-  geom_smooth(method="lm") +
-  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,1)) +
-  scale_y_continuous(limits=c(0,1)) +  
-  facet_grid(QUD~Alternatives)
-ggsave("graphs/model-empirical-uniform-wonkiness_all.pdf", width=30,height=10)
-
-
 
 
