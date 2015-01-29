@@ -14,11 +14,11 @@ priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegric
 row.names(priorexpectations) = paste(priorexpectations$effect, priorexpectations$object)
 
 # histogram of expectations
-ggplot(priorexpectations, aes(x=expectation_corr/15)) +
+ggplot(priorexpectations, aes(x=expectation_corr)) +
   geom_histogram() +
-  scale_x_continuous(name="Expected value of prior distribution") +
-  scale_y_continuous(name="Number of cases")
-ggsave("priorexpectations-histogram.pdf")
+  scale_x_continuous(name="Expected value of prior distribution",breaks=seq(1,15, by=2)) +
+  scale_y_continuous(name="Number of cases",breaks=seq(0,8, by=2))
+ggsave("priorexpectations-histogram.pdf",width=5,height=3.7)
 
 
 # get prior allstate-probs
@@ -26,7 +26,7 @@ priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sin
 row.names(priorprobs) = paste(priorprobs$effect, priorprobs$object)
 head(priorprobs)
 
-# histogram of expectations
+# histogram of allstate-probs
 ggplot(priorprobs, aes(x=X15)) +
   geom_histogram() +
   scale_x_continuous(name="Prior all-state probability") +

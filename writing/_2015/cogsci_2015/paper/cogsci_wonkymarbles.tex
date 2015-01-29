@@ -63,29 +63,30 @@ World knowledge enters pragmatic utterance interpretation in complex ways. Somet
 scalar implicature; world knowledge; prior beliefs; experimental pragmatics; computational pragmatics
 \end{abstract}
 
-How often do you think marbles would sink in water? Probably extremely often, if not always. Now imagine reading \emph{Max threw fifteen of his favorite marbles in the water. Some of them sank.} Have you begun to reconsider your assumptions? Perhaps you now suspect that these marbles are in fact made of plastic or the water is covered with thick algae? That is, that they are not just normal marbles in normal water. Here we explore how prior world knowledge enters into pragmatic utterance interpretation, and how this world knowledge is defeasible: some utterances lead listeners to conclude that the world under discussion is abnormal and has appropriately different prior probabilities. We refer to such an abnormal world  as a \emph{wonky} world.
+How often do you think marbles would sink in water? Probably extremely often, if not always. Now imagine reading \emph{Max threw fifteen marbles in the water. Some of the marbles sank.} Have you begun to reconsider your assumptions? Perhaps you now suspect that these marbles are in fact made of plastic or the water is covered with thick algae? That is, that they are not just normal marbles in normal water. Here we explore how prior world knowledge enters into pragmatic utterance interpretation, and how this world knowledge is defeasible: some utterances lead listeners to conclude that the world under discussion is abnormal and has appropriately different prior probabilities. We refer to such an abnormal world  as a \emph{wonky} world.
 
-The Rational Speech Acts framework (RSA)  \cite{frank2012,goodman2013}, and related game-theoretic models \cite{franke2011}, treat communication as a signaling game \cite{lewis} between a speaker and a listener.
+The Rational Speech Acts framework (RSA)  \cite{frank2012,goodmanstuhlmueller2013}, and related game-theoretic models \cite{franke2011}, treat communication as a signaling game \cite{lewis1969} between a speaker and a listener.
 The listener reasons by Bayesian inference about what the world is like given that a speaker who produced the utterance is trying to be informative (with respect to a na\"ive listener). 
-Variants of these models have successfully captured listeners' quantitative  behavior on a number of pragmatic inference tasks, including ad hoc Quantity implicature \red{ref}, M-implicature \red{ref}, scalar implicature \red{ref},  embedded scalar implicatures \red{ref}, and non-literal language \cite{kao2014}. 
+Variants of these models have successfully captured listeners' quantitative  behavior on a number of pragmatic inference tasks, including ad hoc Quantity implicature \cite{degenfrankejaeger2013}, M-implicature \cite{bergengoodman2012}, scalar implicature \cite{goodmanstuhlmueller2013}, and non-literal language \cite{kao2014}. 
 A defining feature of Bayesian reasoning is that prior beliefs affect inferences that will be drawn. Bayesian models of language interpretation, accordingly, predict that prior beliefs about the world should affect the listener's interpretation of an utterance. 
 %These models make clear predictions about how prior beliefs about states of the world should be integrated with listeners' expectations about utterances a speaker is likely to produce to communicate a particular state of the world. 
 While this impact of prior knowledge has been noted, and included in models, it hasn't been systematically studied.
 
-Generalizing our opening example, take the case of \emph{Some of the X-s Y-ed} (for category \emph{X} and event \emph{Y}). When the prior probability, $\theta_{X,Y}$, of an X Y-ing is not extreme, RSA leads to the standard scalar implicature: the posterior probability that all $15$ of the Xs Yed, after hearing the utterance, is much lower than its prior probability. This is because a rational speaker would have been expected to say the more informative \emph{all of the X-s Y-ed} if it had been true.
+Generalizing our opening example, take the case of \emph{Some of the X-s Y-ed} (for category \emph{X} and event \emph{Y}). When the prior probability, $\theta_{X,Y}$, of an X Y-ing is not extreme (e.g., of a balloon sinking), RSA leads to the standard scalar implicature: the posterior probability that all $15$ of the Xs Yed, after hearing the utterance, is much lower than its prior probability. This is because a rational speaker would have been expected to say the more informative \emph{all of the X-s Y-ed} if it had been true.
 As we will show below, RSA makes two strong predictions about the effect of the prior: (1) As $\theta_{X,Y}$ approaches $1$, the interpretation probability that all X-s Y-ed approaches $1$, that is, the scalar implicature disappears. 
 This prediction follows because the extreme prior overwhelms the effect of the utterance.
 (2) The posterior expectation of the number of X-s that Y-ed \red{should be approximately the same as the prior expectation, when the number of tries is large (e.g.~15)--UPDATE.} . 
 This prediction follows from the weak semantics of \emph{some} and the isolated effect of the alternative \emph{all}: because \emph{Some of the X-s Y-ed} only restricts the interpretation to be greater than zero and the scalar implicature resulting from alternative \emph{All of the X-s Y-ed} can at the most rule out the state in which all X-s Y-ed, the prior will dominate the inference of exactly how many X-s Y-ed. 
 
-However, intuition is at odds with these predictions: for example,  \citeA{geurts2010} has observed that for events with very high prior probability of occurrence (e.g.~marbles sinking), observing an utterance of \emph{Some of the marbles sank} leads to very strong implicatures, that is, the subjective probability that all of the marbles sank is intuitively close to 0. 
+However, intuition is at odds with these predictions: for example,  \citeA{geurts2010} has observed that for events with very high prior probability of occurrence (e.g.~marbles sinking), observing an utterance of \emph{Some of the marbles sank} leads to very strong implicatures, that is, the subjective probability that all of the marbles sank is intuitively close to 0. The reason for this is presumably that listeners realize that the speaker went to the trouble of producing an utterance that is weaker than what the prior would lead one to believe.
+
 In Exp.~1 we collect prior probabilities for a variety of events and categories. In experiment 2a and 2b we collect posterior interpretations after hearing utterances such as \emph{Some of the X-s Y-ed}. These experimental results confirm the intuition of relatively strong implicature---hence prediction (1) of RSA is incorrect---and show that the prior has a muted effect on posterior expectation---hence prediction (2) of RSA is incorrect.
 Given the previous success of RSA models, this constitutes a striking puzzle. 
 To address this puzzle we pursue the intuition raised at the very beginning of this paper: that sometimes, the speaker's utterance will lead the listener to infer that the world under discussion is wonky and she should therefore down-weight her prior beliefs in the computation of speaker meaning. We introduce a variant of RSA, wRSA, in which the listener can revise her beliefs about the domain that the speaker intended. We show that this extension resolves the puzzle of the prior's muted effects.
-In Experiment 3 we explore participants' intuitions about whether the world is normal in the scenarios of Experiment 2 and find that wRSA predicts listeners' wonkiness judgements. \red{make sure this follows the new organization}
+In Experiment 3 we explore participants' intuitions about whether the world is normal in the scenarios of Experiment 2 and find that wRSA predicts listeners' wonkiness judgements.
 
 
-\section{Experiment 1} 
+\section{Experiment 1: prior elicitation} 
 
 Exp.~1 measured listeners' prior beliefs about how many objects exhibit a certain effect (e.g., how many marbles sink).%, $P(s)$.
 
@@ -101,8 +102,13 @@ On each trial,\footnote{This experiment can be viewed at \url{https://www.stanfo
 
 \subsection{Results}
 
-Data from one participant, who gave only one response throughout the experiment, were excluded. Each item received between 12 and 29 ratings. Distributions of ratings for each item were smoothed using \red{Laplace smoothing}.  %nonparametric density estimation for ordinal categorical variables \cite{liracine2003} using the \verb|np| package in R \cite{hayfield2013} \red{see hayfield 2013 np package specification for li and racine ref --- or laplace if that's what we use.}. 
-As intended, items covered a wide range of probabilities. \red{include measure or plot of this once you decide which smoothing to use ultimately.}
+Data from one participant, who gave only one response throughout the experiment, were excluded. Each item received between 12 and 29 ratings. Distributions of ratings for each item were smoothed using nonparametric density estimation for ordinal categorical variables \cite{liracine2003} with the \verb|np| package in R \cite{hayfield2008}. As intended, items covered a wide range of probabilities. See \figref{fig:probhist} for a histogram of expected values of each prior distribution.
+
+\begin{figure}
+	\includegraphics[width=.5\textwidth]{pics/priorexpectations-histogram}	
+	\caption{Histogram of expected values of each empirically elicited prior distribution.}
+	\label{fig:probhist}	
+\end{figure}
 
 In the next section, we use these empirically obtained prior beliefs to derive RSA predictions for the interpretation of utterances like \emph{Some of the marbles sank}, before empirically measuring participants' interpretations.
 
@@ -153,7 +159,7 @@ $F_{u_{\textrm{all}}}(s) {=} \delta_{s=15}$.
 %Let us imagine that the prior is binomial with single event probability $\theta$: $P(s)=\text{Binomial}(s|\theta)$.
 
 In Figure \ref{fig:rrsaexppredictions} we show the predictions of RSA for the items from Exp.~1 in two different ways: the left panel shows the the expected number of affected objects of the posterior distribution as a function of the expected value of the prior distribution; the right panel shows the posterior probability of the state in which all objects are affected, as a function of the prior probability of that state.   %as $\theta$ varies. \red{put in figure showing the basic RSA predictions for allstate $P(s_{15}|u_{some})$ and expectation. this figure could also have wRSA predictions for later reference.} 
-We see that the prior has a strong effect, which can be summarized by the two predictions described in the Introduction.\footnote{\red{comment on the noise?}} We next turn to an empirical test of these predictions, or rather, of the intuition that they may be incorrect.
+We see that the prior has a strong effect,\footnote{That the individual model predictions look somewhat noisy is due to the different shapes of the prior distributions, such that for the same expected value of the distribution, the distribution itself can take different shapes, which will be treated slightly differently by the model.} which can be summarized by the two predictions described in the Introduction. We next turn to an empirical test of these predictions, or rather, of the intuition that they may be incorrect.
 
 %\section{Models of utterance interpretation}
 %
@@ -200,7 +206,7 @@ We see that the prior has a strong effect, which can be summarized by the two pr
 	\label{fig:empiricalresults}	
 \end{figure*}
 
-\section{Experiment 2a and 2b}  
+\section{Experiment 2a and 2b: comprehension}  
 %\red{if we end up tight on space, the expt 2a and 2b sections can be combined.}
 
 %\red{i think the current 2b should go first, since it uses the same DM as expt 1....}
@@ -216,26 +222,26 @@ For each experiment we recruited 120 participants over Amazon’s crowd-sourcing p
 
 Participants read the same descriptions as in Exp.~1. They additionally saw an utterance produced by a knowledgeable speaker about the event, e.g.~\textit{John, who observed what happened, said: ``Some of the marbles sank''}. In Exp.~2a (just as in Exp.~1), they then provided a judgment of an effect, e.g.~\textit{How many of the marbles do you think sank?}, on a sliding scale from 0 to 15. In Exp.~2b they instead rated on sliding scales with endpoints labeled ``definitely not'' and ``definitely'', how likely they thought 0\%, 1-50\%, 51-99\%, or 100\% of the objects exhibited the effect.
 
-Each participant saw 10 \emph{some} trials and 20 filler trials, of which 10 contained the quantifiers \emph{all} or \emph{none}, and the rest were utterances that did not address the number of objects that displayed the effect. Of these, half were generic short fillers that were intended to communicate the prior, e.g., \emph{Typical}. The rest addressed a different aspect of the described scenario, e.g.~\emph{What a stupid thing to do}. The utterances were randomly paired with 30 random items for each participant.
+Each participant saw 10 \emph{some} trials and 20 filler trials, of which 10 contained the quantifiers \emph{all} or \emph{none}, and the rest were utterances that did not address the number of objects that displayed the effect. Of these, half were generic short fillers that were intended to communicate the prior, e.g., \emph{Typical}. The rest were longer sentences that addressed a different aspect of the described scenario, e.g.~\emph{What a stupid thing to do}. The utterances were randomly paired with 30 random items for each participant.
 
  
  \subsection{Results and discussion}
 
 Data from eight participants in Exp.~2b were excluded from the analysis because these participants assigned less than .8 probability to the interpretation corresponding to the correct literal interpretation on literal \emph{all} and \emph{none} trials. 
 
-The main question of interest was whether participants' judgments of how many objects exhibited the effect after hearing an utterance with \emph{some} followed the predictions of the basic RSA model laid out in the previous section. Mean $\mathbb{E}[P(s|u)]$ and $P(s_{15}|u)$ are shown in \figref{fig:empiricalresults}. For utterances of \emph{Some of the X-s Y-ed}, the mean number of objects judged to exhibit the effect increased with increasing expectation of the prior distribution ($\beta$=.18, $SE$=.02, $t$=7.4, $p$$<$.0001). Similarly, the probability of all of the X-s Y-ing increased with increasing prior probability of all of the X-s Y-ing ($\beta$=.06, $SE$=.01, $t$=5.0, $p$$<$.0001). However, the size of this effect is astronomically smaller than that predicted by rRSA (for comparison, see \figref{fig:rrsaexppredictions})% that is, \citeA{geurts2010}'s observation that implicatures are very strong even for very likely events is confirmed empirically.
+The main question of interest was whether participants' judgments of how many objects exhibited the effect after hearing an utterance with \emph{some} followed the predictions of the basic RSA model laid out in the previous section. Mean $\mathbb{E}[P(s|u)]$ and $P(s_{15}|u)$ are shown in \figref{fig:empiricalresults}. For utterances of \emph{Some of the X-s Y-ed}, the mean number of objects judged to exhibit the effect increased with increasing expectation of the prior distribution ($\beta$=.18, $SE$=.02, $t$=7.4, $p$$<$.0001). Similarly, the probability of all of the X-s Y-ing increased with increasing prior probability of all of the X-s Y-ing ($\beta$=.06, $SE$=.01, $t$=5.0, $p$$<$.0001). However, the size of this effect is astronomically smaller than that predicted by rRSA (for comparison, see red lines in \figref{fig:rrsaexppredictions})% that is, \citeA{geurts2010}'s observation that implicatures are very strong even for very likely events is confirmed empirically.
 
 One possible explanation for this highly attenuated effect of the prior is that participants simply do not bring this information to bear on the interpretation of utterances. However, this possibility is ruled out by examining participants' performance in the filler conditions: in both Exps.~2a and 2b, the filer conditions closely tracked the prior (see \figref{fig:empiricalresults}). 
 
 
 
-Exps.~2a and 2b demonstrate that there is an effect of listeners' prior beliefs on the interpretation of utterances with \emph{some}. However, this effect is quantitatively much smaller than predicted by rRSA, and qualitatively does not show the critical limit effect (converging to the upper-right corner as seen in Fig.~\ref{fig:rrsaexppredictions}). 
+Exps.~2a and 2b demonstrate that there is an effect of listeners' prior beliefs on the interpretation of utterances with \emph{some}. However, this effect is quantitatively much smaller than predicted by rRSA, and qualitatively does not show the critical limit effect (converging to the upper-right corner as seen in Fig.~\ref{fig:rrsaexppredictions}, red lines). 
 
-In the next section, we present an extension to rRSA that formalizes the intuition that listeners may infer that what they believed was in common ground may in fact not be; that is, that the prior beliefs they bring to bear on the utterance situation may not be the same as the speaker's. 
+In the next section, we present an extension to rRSA that formalizes the intuition that listeners may infer that the prior beliefs they bring to bear on the utterance situation may not be the same as the speaker's. 
 
 \section{Effect of the world prior in `wonky RSA'}
 
-To capture the idea that the pragmatic listener is unsure what background knowledge the speaker is bringing to the conversation, we extend the basic RSA model by using a ``lifted variable'' \cite{goodmanlassiter,lassitergoodman,bergen,kao} corresponding to the choice of state prior. That is, we posit that the prior, now $P(s|w)$, depends on a ``wonkiness'' variable $w$, which determines if it is the ``usual'' prior for this domain or a more generic back-off prior that we take to be uniform. The same prior is used in the literal and pragmatic listener, indicating that it is taken to be common ground. However, the $w$ variable is reasoned about only by the pragmatic listener, which captures the idea that it is an inference the pragmatic listener makes about which communication system is relevant. Using the notation of the earlier modeling section:
+To capture the idea that the pragmatic listener is unsure what background knowledge the speaker is bringing to the conversation, we extend the basic RSA model by using a ``lifted variable'' \cite{goodmanlassiter,lassiter2013,bergengoodman2012,kao2014} corresponding to the choice of state prior. That is, we posit that the prior, now $P(s|w)$, depends on a ``wonkiness'' variable $w$, which determines if it is the ``usual'' prior for this domain or a more generic back-off prior that we take to be uniform. The same prior is used in the literal and pragmatic listener, indicating that it is taken to be common ground. However, the $w$ variable is reasoned about only by the pragmatic listener, which captures the idea that it is an inference the pragmatic listener makes about which communication system is relevant. Using the notation of the earlier modeling section:
 \begin{eqnarray}
 &&P(s|w) = \begin{cases}
    P_{\text{usual}}(s) & \text{if not } w \\
@@ -247,8 +253,8 @@ To capture the idea that the pragmatic listener is unsure what background knowle
 \end{eqnarray}
 We refer to this model as wRSA. Notice that the choice of $w$ will depend on $p(u|s,w)$: if a given utterance can't be explained by the usual prior, because it is unlikely under any plausible world state $s$, then the pragmatic listener will back off to the uniform prior---inferring that the world is wonky.
 
-To make predictions for Exp.~2 from wRSA we use the smoothed empirical priors from Exp.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality $\lambda$ are fit to optimize \red{mean squared error} with Exp.~2 data. 
-\red{point to figure, describe fit to exp 2 data. comparison to rRSA}
+To make predictions for Exp.~2 from wRSA we use the smoothed empirical priors from Exp.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality $\lambda$ are fit to optimize mean squared error (MSE) with Exp.~2 data. The optimal parameters resulted in an MSE of 2.15 (compared to 14.53 for rRSA) for the expected number of objects, and 0.01 (compared to 0.07 for rRSA) for the all-state probability. The better fit of wRSA compared to rRSA can be seen in the comparison of \figref{fig:rrsaexppredictions} and \figref{fig:empiricalresults}: in both cases, wRSA (green lines) predicts a much attenuated effect of the prior compared to rRSA (red lines), in line with the empirical data.
+
 
 These results are encouraging: wRSA is able to account for the qualitative and quantitative departures of participants' behavior from RSA, with respect to the effect of the prior.
 One could imagine various approaches to engineer this departure\footnote{Though the authors tried several, which all failed by maintaining one or the other of the qualitative predictions of RSA identified in the introduction.\red{we should give examples}}, is this actually because listeners are inferring from an utterance like ``some of the marbles sank'' that the world is unusual?
@@ -263,7 +269,7 @@ The wRSA model makes predictions about the probability that a given world is won
 	\label{fig:wonkymodel}	
 \end{figure}
 
-\section{Experiment 3}
+\section{Experiment 3: wonkiness}
 
 Exp.~3\footnote{This experiment can be viewed at \url{https://web.stanford.edu/~jdegen/17_sinking-marbles-normal-sliders/sinking-marbles-normal.html}} measured participants' beliefs in world wonkiness after observing the scenarios and utterances from Exps.~2a and 2b.
 
@@ -284,11 +290,7 @@ The extreme ends of the sliders were coded as 1 (\emph{definitely not normal}, i
 	\label{fig:wonkyratings}	
 \end{figure}
 
-Qualitatively, the model captures both the linear increase and decrease in wonkiness probability for \emph{all} and \emph{none}, respectively. Importantly, it also captures the asymmetric U-shaped wonkiness probability curve displayed by \emph{some}. \red{brief explanation why}. For comparison to the comprehension data fit, the correlation between model predictions and empirical wonkiness probabilities was $r = $\red{XXX}, with normalized root-mean-squared-error of \red{XXX}. \red{one sentence summarizing difference to comprehension data or move to the discussion?}
-
-\red{yay!! XXX}
-
-%\section{Model evaluation}
+Qualitatively, the model captures both the linear increase and decrease in wonkiness probability for \emph{all} and \emph{none}, respectively. Importantly, it also captures the asymmetric U-shaped wonkiness probability curve displayed by \emph{some}. Intuitively, this shape can be explained as follows: for very low probability events, it is surprising in any case to learn that such an event took place (which is what is communicated by \emph{some}), so wonkiness is high. For medium probability events, learning that this event took place is not very surprising, so wonkiness is relatively low. For high probability events, \red{arrgh what's the right way to say this}  \red{brief explanation why}. For comparison to the comprehension data fit, the model's MSE for empirical wonkiness probability predictions, using the best parameters from fitting the model to the comprehension data, was 0.07. 
 
 
 
@@ -296,34 +298,33 @@ Qualitatively, the model captures both the linear increase and decrease in wonki
 %This `lifted variable' that can be conceived of as analogous to the lifted variable over lexica that is at the core of recent lexical uncertainty models of word learning \red{ref}, M-implicature, and embedded scalar implicature \cite{bergen2014}. The difference is that, rather than having uncertainty about the lexicon the listener believes the speaker to be employing, the listener has uncertainty about the speaker's prior beliefs. In particular, the speaker uses either the empirical prior (obtained in Exp.~1) or an alternative prior \red{DESCRIBE}. The pragmatic listener 
 
 
+%\red{it's possible we'd get less noise form some more stable estimator of prior. consider trying the plots with prior mode and median as x-axis.... or inferred binomial prob fit to each prior, if the fits are at all decent.}
 
 
 
-
-\red{From the abstract: Comparing the fit of rRSA and wRSA model predictions to the posterior state estimates from Exp.~2 yields a much better fit for wRSA. The better fit of wRSA suggests that listeners  use speakers' utterances as cues to how strongly to incorporate world knowledge. wRSA also provided a better fit than a model which used only a uniform prior, confirming that listeners do make use of world knowledge in a systematic way in the computation of scalar implicature.}
-
-
-\red{it's possible we'd get less noise form some more stable estimator of prior. consider trying the plots with prior mode and median as x-axis.... or inferred binomial prob fit to each prior, if the fits are at all decent.}
-
-
-
-\red{NDG: note to self -- difference between revising own beliefs and revising common ground....}
+%\red{NDG: note to self -- difference between revising own beliefs and revising common ground....}
 
 
 \section{Discussion and conclusion}
 
-Interlocutors bring a wealth of world knowledge to bear on any language interpretation task. While effects of world knowledge in different areas of language processing are well-established (\red{psycholinguistics refs}), there has to date been a surprising lack of quantitative investigation into the role of world knowledge--and its defeasibility--in pragmatic inference. Here we have shown that listeners' world knowledge in the form of prior beliefs enters into the computation of speaker meaning in a systematic way, yet the effect of the prior on interpretation was much smaller than predicted by a regular Bayesian RSA model of quantifier interpretation, suggesting that in certain situations, listeners update their prior beliefs in the computation of speaker meaning. We have provided empirical evidence that these types of situations are cases of wonky worlds, that is, situations in which the speaker's utterance is too unlikely under the listener's prior beliefs. Extending rRSA with a lifted wonkiness variable that captures precisely whether listeners think the world is wonky and allowing them to back off to a uniform prior (i.e., ignore entirely their previously held beliefs about the world), provided a good fit to both the empirical wonkiness posteriors and dramatically improved the fit to participants' comprehension data, compared  to rRSA. This model constitutes the first attempt to explicitly model the quantitative effect of world knowledge and its defeasibility on language interpretation and raises many interesting questions.
+%Interlocutors bring a wealth of world knowledge to bear on any language interpretation task. While effects of world knowledge in different areas of language processing are well-established (\red{psycholinguistics refs}), there has to date been a surprising lack of quantitative investigation into the role of world knowledge--and its defeasibility--in pragmatic inference. 
+Here we have shown that listeners' world knowledge in the form of prior beliefs enters into the computation of speaker meaning in a systematic way, yet the effect of the prior on interpretation was much smaller than predicted by a standard Bayesian RSA model of quantifier interpretation, suggesting that in certain situations, listeners update their prior beliefs in the computation of speaker meaning. We have provided empirical evidence that the types of situations that lead to belief revision are cases of wonky worlds, that is, situations in which the speaker's utterance is too unlikely under the listener's prior beliefs and the available utterance alternatives. Extending rRSA with a lifted wonkiness variable that captures precisely whether listeners think the world is wonky and allows them to back off to a uniform prior (i.e., ignore entirely their previously held beliefs about the world), provided a good fit to both the empirical wonkiness posteriors and dramatically improved the fit to participants' comprehension data, compared  to rRSA. This model constitutes the first attempt to explicitly model the quantitative effect of world knowledge and its defeasibility on language interpretation and raises many interesting questions.
+
+For instance, we have been attributing wonkiness to the \emph{world}, yet empirically we elicited wonkiness judgments about the \emph{objects} involved in the described events. This raises the question, what exactly listeners are revising their prior beliefs about: objects, events, the speaker's beliefs, or the way the speaker uses language? Relatedly, in the current implementation of wRSA, prior belief revision has a global effect: that is, the prior that the listener infers is simultaneously the prior the listener attributes to the speaker; that is, the prior is treated as being in common ground, and the revision of the prior thus leads to a revision of common ground. But it is in fact an empirical question whether listeners revise their own privileged beliefs about the world, their beliefs about the common ground, or their beliefs about the speaker's beliefs. Addressing this question in future research will reveal whether a more complex mechanism for prior belief revision needs to incorporated that explicitly models prior vs.~privileged ground.
 
 
+This work also has methodological implications: researchers working in the field of experimental pragmatics would be well served to take into account how strongly their items are likely to be affected by participants' prior beliefs about the world states that those items describe, e.g.~by empirically eliciting priors. Not doing so may inflate or compress potential effects of an experimental manipulation.
+
+Concluding, this work exemplifies the importance and utility of formally modeling and thereby accounting for the varying influence of world knowledge and its defeasibility by considering listeners' perceived oddness of utterances under their prior beliefs, the available utterance alternatives, and their desire to uphold the principle of speaker cooperativity.
 
 \begin{itemize}
 
-	\item what is wonky? -- objects, event, speaker? -- connection to adaptation?
+%	\item what is wonky? -- objects, event, speaker? -- connection to adaptation?
 %	\item other ways of asking about wonkiness
-	\item what's the right prior to back off to?
-	\item revising private beliefs vs revising common ground.
-	\item connection to presupposition (cf stalnaker), and other phenomena
-	\item implication for experiments on language understanding
+	\item \red{what's the right prior to back off to?}
+%	\item revising private beliefs vs revising common ground.
+	\item \red{connection to presupposition (cf stalnaker), and other phenomena}
+%	\item implication for experiments on language understanding
 
 \end{itemize}
 
