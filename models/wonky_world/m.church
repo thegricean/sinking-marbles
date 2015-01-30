@@ -1,4 +1,3 @@
-(define normalize (lambda (tonormalize) (map (lambda (x) (/ x (sum tonormalize)))  tonormalize)))
 
 (define (rep n val) (repeat n (lambda () val)))
 
@@ -7,7 +6,6 @@
 
 (define (meaning utterance marbles total-marbles)
   (case utterance
-  		(('nullutterance) true)
         (('all) (= marbles total-marbles))
         (('none) (= marbles 0))
         (('some) (> marbles 0))
@@ -53,7 +51,7 @@
         (('is-any) (> marbles 0))
         (('how-many) marbles)))
 
-(define (quantifier quantifier-alternatives) (multinomial quantifier-alternatives costs))
+(define (quantifier quantifier-alternatives) (uniform-draw quantifier-alternatives))
 
 (define (marble-state s)
 	(multinomial '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15) s))
@@ -75,75 +73,40 @@
           (and
            (equal? (QUD-cell QUD marbles total-marbles)
                    (apply multinomial
-                          (literal-listener utterance QUD total-marbles quantifier-alternatives
-                                            supposed-prior)))
+                          (literal-listener utterance QUD total-marbles quantifier-alternatives supposed-prior)))
            (meaning utterance marbles total-marbles))))))
 
+; make this such that the prior gets passed all the way down -- shouldn't make a difference because it's uniform, but still, conceptually cleaner
 (define (pragmatic-listener utterance QUD total-marbles quantifier-alternatives speaker-opt)
 	(enumeration-query
 		(define wonky-world? (flip wonkyworld-prior))
-        (define prior-w-label (theprior wonky-world?))
-		(define marbles (marble-state (second prior-w-label)))
-        (define label (first prior-w-label))
+        (define actualprior (theprior wonky-world?))
+		(define marbles (marble-state actualprior))
 
 		;wonky-world?
 		;marbles
 		(list wonky-world? marbles)
-        ;label
 
 		(equal? utterance (apply multinomial
-                                 (power (pragmatic-speaker marbles QUD total-marbles
-                                                           quantifier-alternatives (second prior-w-label))
+                                 (power (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives actualprior)
                                         speaker-opt)))))
 
-;(define alternatives '(some all none))
-(define alternatives '(nullutterance some all none))
+(define alternatives '(some all none))
 
-(define costs (list 5 1 1 1))
+(define wonkyworld-prior 0.9)
 
-;;(define naive-weight (beta 1 1))
+(define empiricalprior (list 0.1942258	0.1096275	0.0500618	0.0718820	0.0573715	0.0595354	0.0818916	0.1607848	0.1180929	0.0376009	0.0182371	0.0285214	0.0085780	0.0025800	0.0007760	0.0002335))
 
-; modify for different baseline belief in wonkiness
-(define wonkyworld-prior 0.5)
-
-; coin weight for beta-binomial
-;(define (coin-weight) (beta 1 1))
-
-(define (flip-coins p no-flips)
-  (if (= no-flips 0)
-      1
-      (* p (flip-coins p (- no-flips 1) ))))
-
-(define states (list 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15))
-
-(define weights (lambda (coin-weight)
-                  (map (lambda (x) (* (flip-coins coin-weight x)
-                    (flip-coins (- 1 coin-weight) (- (length states) x)))) states)))
-
-
-; make a prior
-(define wonky-world-prior (lambda (coin-weight) (normalize (weights coin-weight))))
-
-; switch back and forth between these
-(define coin-weights '(0.1 0.5 0.9))
-;(define coin-weights '(0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9))
-
-(define empiricalprior (list 0.2105263	0.0789474	0.0263158	0.0789474	0.0526316	0.0526316	0.0526316	0.1315789	0.1052632	0.0263158	0.0263158	0.0526316	0.0263158	0.0263158	0.0263158	0.0263158))
-(define naivepriors (map (lambda (cw) (list cw (wonky-world-prior cw))) coin-weights))
-; actual prior used: mixture
 (define theprior (lambda (wonky-world?)
 	(if wonky-world?
-		;(uniform-draw naive-dirichlet-samples)
-        (uniform-draw naivepriors)
-		;(list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1)
-		(list 'empirical empiricalprior))))
-;(define betabinomial-samples (repeat 100 wonky-world-prior))
+		(list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1)
+		empiricalprior)))
 
-;(barplot (pragmatic-listener 'all 'how-many 15 alternatives 2))
-;(pragmatic-listener 'none 'how-many 15 alternatives 2)
-;(pragmatic-listener 'some 'how-many 15 alternatives 2)
-;(first (map (lambda (cw) (list cw (wonky-world-prior cw))) coin-weights))
 
+;(pragmatic-listener 'some 'how-many 15 alternatives 4)
+
+;(define (pl total-marbles QUD speaker-opt)
+;(pragmatic-listener 'some QUD total-marbles alternatives speaker-opt))
 
 (write-csv
 	(list
@@ -153,8 +116,6 @@
 	(list empiricalprior)
 	'(wonkyworldprior)
 	(list wonkyworld-prior)
-	'(nullutterance-cost)
-	(list (first costs))
 	'(quantifier some)
 	'(qud how-many)
 	'(speaker-opt 1)
@@ -185,7 +146,7 @@
 	(pragmatic-listener 'none 'how-many 15 alternatives 2)
 	'(speaker-opt 3)
 	(pragmatic-listener 'none 'how-many 15 alternatives 3)
-;;	'(qud is-all)
+;	'(qud is-all)
 ;	'(speaker-opt 1)
 ;	(pragmatic-listener 'none 'is-all 15 alternatives 1)
 ;	'(speaker-opt 2)
@@ -222,6 +183,6 @@
 ;	'(speaker-opt 3)
 ;	(pragmatic-listener 'all 'is-any 15 alternatives 3)
 	)
-	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/model_results/raw_binomial_nullutterance_results.txt.tmp.results"
+	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/model_results/raw_uniform_results.txt.tmp.results"
 	","
 )
