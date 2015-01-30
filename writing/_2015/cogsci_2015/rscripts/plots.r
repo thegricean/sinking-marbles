@@ -70,14 +70,14 @@ load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/comp
 toplot_r = toplot
 head(toplot_w)
 summary(toplot_r)
-toplot_r$RSA = "regular"
-toplot_w$RSA = "wonky"
+toplot_r$Model = "RSA"
+toplot_w$Model = "wRSA"
 
 # plot both rRSA and uniform wRSA expectation predictions in same plot
 toplot = merge(toplot_r,toplot_w, all=T)
 head(toplot)
 nrow(toplot)
-p_exps = ggplot(toplot, aes(x=PriorExpectation_smoothed*15, y=PosteriorExpectation_predicted*15, color=RSA)) +
+p_exps = ggplot(toplot, aes(x=PriorExpectation_smoothed*15, y=PosteriorExpectation_predicted*15, color=Model)) +
   geom_point() + #color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
   geom_smooth() + #color="#00B0F6") +
   scale_color_manual(values=c("#007fb1", "#4ecdff")) +
@@ -134,14 +134,14 @@ head(toplot)
 toplot_r = toplot
 head(toplot_w)
 summary(toplot_r)
-toplot_r$RSA = "regular"
-toplot_w$RSA = "wonky"
+toplot_r$Model = "RSA"
+toplot_w$Model = "wRSA"
 
 # plot both rRSA and uniform wRSA expectation predictions in same plot
 toplot = merge(toplot_r,toplot_w, all=T)
 head(toplot)
 nrow(toplot)
-p_probs = ggplot(toplot, aes(x=PriorProbability, y=PosteriorProbability, color=RSA)) +
+p_probs = ggplot(toplot, aes(x=PriorProbability, y=PosteriorProbability, color=Model)) +
   geom_point() + #color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
   geom_smooth() + #color="#00B0F6") +
   scale_color_manual(values=c("#007fb1", "#4ecdff")) +
