@@ -1,11 +1,3 @@
-%MH notes: 
-% Stylistic notes
-
-% - Figure 3: try making the short filler and long filler into grey and black respectively. this way, they're semantically segregated by color, and i think the plot will be easier to parse
-
-% - we may want to also change the colors of Figure 2, to be not standard R&B. The reason is that when we ask the reader to compare Figure 3 with Figure 2, we are interested in the comparing the BLUE line of figure 3 with the red line of Figure 2 (both figures having the other color line as well... i suggest turning Figure 2 into Purple and Orange, or somethings not RBG.
-
-
 
 % 
 % Annual Cognitive Science Conference
@@ -52,7 +44,8 @@
 \newcommand{\appref}[1]{Appendix \ref{#1}}
 \newcommand{\sectionref}[1]{Section \ref{#1}}
 
-\title{Wonky worlds: Listeners reconsider world knowledge when utterances are odd}
+\title{Wonky worlds: Listeners revise world knowledge when utterances are odd}
+%\title{Wonky worlds: Listeners reconsider world knowledge when utterances are odd}
 %Non-sinking marbles are wonky: defeasible world knowledge in language interpretation}
 
  
@@ -63,14 +56,18 @@
 
 % ggplot colors: "#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6"
 
+% variations on blue: "#007fb1", "#4ecdff"
+
 \begin{document}
 
 \maketitle
 
 
 \begin{abstract}
-\red{edit}
-World knowledge enters pragmatic utterance interpretation in complex ways. Sometimes, a speaker's utterance suggests that listeners should disregard their world knowledge, yet current models of pragmatic interpretation either disregard the role of world knowledge or overestimate its role in interpretation. Here we provide an extension to the Rational Speech Act model of scalar implicature that captures whether listeners believe they are in an abnormal--or `wonky'--world after observing a speaker's utterance, in which case they downweight their prior beliefs in the computation of speaker meaning. We show in four experiments that a) listeners have varying prior beliefs about the probability of various objects exhibiting an effect (e.g., marbles sinking), b) these beliefs influence listeners' expectations about how many objects will show the effect after observing an utterance (like \emph{Some of the marbles sank}), c) these beliefs influence scalar implicature strength, and d) listeners' world wonkiness judgments are affected by the surprisal of the observed utterance under their prior beliefs. The extended model is the first quantitative model that accounts for how rational listeners should integrate world knowledge in pragmatic utterance interpretation, and provides a close match to the empirically obtained data.
+World knowledge enters into pragmatic utterance interpretation in complex ways, and in particular, may be defeasible in light of speakers' utterances.  Yet there is to date a surprising lack of systematic investigation into the role of world knowledge in pragmatic inference. In this paper, we show that a state-of-the-art model of pragmatic interpretation (and the only model to our knowledge that currently makes any predictions at all about the quantitative effect of world knowledge on pragmatic inference) greatly overestimates the influence of world knowledge on the interpretation of utterances like \emph{Some of the marbles sank}. Extending the model to capture the idea that that the listener is uncertain about the background knowledge the speaker is bringing to the conversation improves model predictions for listeners' interpretation and also makes good qualitative predictions about listeners' judgments of how likely their prior beliefs are to match the speaker's. Theoretical and methodological implications are discussed.
+
+%\red{edit}
+%World knowledge enters into pragmatic utterance interpretation in complex ways. Sometimes, a speaker's utterance suggests that listeners should disregard their world knowledge, yet current models of pragmatic interpretation either disregard the role of world knowledge or overestimate its role in interpretation. Here we provide an extension to the Rational Speech Act model of scalar implicature that captures whether listeners believe they are in an abnormal--or `wonky'--world after observing a speaker's utterance, in which case they downweight their prior beliefs in the computation of speaker meaning. We show in four experiments that a) listeners have varying prior beliefs about the probability of various objects exhibiting an effect (e.g., marbles sinking), b) these beliefs influence listeners' expectations about how many objects will show the effect after observing an utterance (like \emph{Some of the marbles sank}), c) these beliefs influence scalar implicature strength, and d) listeners' world wonkiness judgments are affected by the surprisal of the observed utterance under their prior beliefs. The extended model is the first quantitative model that accounts for how rational listeners should integrate world knowledge in pragmatic utterance interpretation, and provides a close match to the empirically obtained data.
 
 \textbf{Keywords:} 
 scalar implicature; world knowledge; prior beliefs; experimental pragmatics; computational pragmatics
@@ -175,8 +172,8 @@ $\denote{u_{\textrm{all}}}: s=15$.
 %Let us imagine that the prior is binomial with single event probability $\theta$: $P(s)=\text{Binomial}(s|\theta)$.
 
 \begin{figure*}
-%	\includegraphics[width=\textwidth]{pics/rsa-predictions}
-	\includegraphics[width=\textwidth]{pics/rsa-predictions-uniform}	
+	\includegraphics[width=\textwidth]{pics/rsa-predictions}
+%	\includegraphics[width=\textwidth]{pics/rsa-predictions-uniform}	
 	\caption{For each item, RSA and wRSA model predicted $\mathbb{E}[P(s|u_{\textrm{some}})]$ as a function of $\mathbb{E}[P(s)]$ (left) and $P(s_{15}|u_{\textrm{some}})$ as a function of $P(s_{15})$.}
 	\label{fig:rrsaexppredictions}	
 \end{figure*}
@@ -184,7 +181,7 @@ $\denote{u_{\textrm{all}}}: s=15$.
 In Figure \ref{fig:rrsaexppredictions} we show the predictions of RSA for the items from Exp.~1 in two different ways: the left panel shows the the posterior expected number of affected objects as a function of the prior expectation; the right panel shows the posterior probability of the state in which all objects are affected, as a function of the prior probability of that state.\footnote{That the individual model predictions look somewhat noisy is due to the different shapes of the prior distributions, such that for the same expected value of the distribution, the distribution itself can take different shapes, which will be treated slightly differently by the model.}   %as $\theta$ varies. \red{put in figure showing the basic RSA predictions for allstate $P(s_{15}|u_{some})$ and expectation. this figure could also have wRSA predictions for later reference.} 
 We see that the prior has a strong effect, which can be summarized by the two predictions described in the Introduction: 
 (1) $P(s_{15}|u_{\textrm{some}}) \rightarrow 1$ as $P(s_{15})\rightarrow 1$. 
-(2) $\mathbb{E}[P(s|u_{\textrm{some}})] \simeq \mathbb{E}[P(s)]$ over the upper half of it's range. 
+(2) $\mathbb{E}[P(s|u_{\textrm{some}})] \simeq \mathbb{E}[P(s)]$ over the upper half of its range. 
 We next turn to an empirical test of these predictions, or rather, of the intuition that they may be incorrect.
 
 %\section{Models of utterance interpretation}
@@ -221,11 +218,6 @@ We next turn to an empirical test of these predictions, or rather, of the intuit
 
 
 
-\begin{figure*}
-	\includegraphics[width=\textwidth]{pics/empirical-results}	
-	\caption{For each item and quantifier, (left) empirical $\mathbb{E}[P(s|u_{\textrm{some}})]$ vs. $\mathbb{E}[P(s)]$, that is Exp.~2a vs.~Exp.~1,  and (right) empirical $P(s_{15}|u_{\textrm{some}})$ vs.~$P(s_{15})$, that is Exp.~2b vs.~Exp.~1.}
-	\label{fig:empiricalresults}	
-\end{figure*}
 
 \section{Experiment 2a and 2b: comprehension}  
 %\red{if we end up tight on space, the expt 2a and 2b sections can be combined.}
@@ -246,11 +238,18 @@ Participants read the same descriptions as in Exp.~1. They additionally saw an u
 Each participant saw 10 \emph{some} trials and 20 filler trials, of which 10 contained the quantifiers \emph{all} or \emph{none}, and the rest were utterances that did not address the number of objects that displayed the effect. Of these, half were generic short fillers that were intended to communicate the prior, e.g., \emph{Typical}. The rest were longer sentences that addressed a different aspect of the described scenario, e.g.~\emph{What a stupid thing to do}. The utterances were randomly paired with 30 random items for each participant.
 
  
+\begin{figure*}
+	\includegraphics[width=\textwidth]{pics/empirical-results}	
+	\caption{For each item and quantifier, (left) empirical $\mathbb{E}[P(s|u_{\textrm{some}})]$ vs. $\mathbb{E}[P(s)]$, that is Exp.~2a vs.~Exp.~1,  and (right) empirical $P(s_{15}|u_{\textrm{some}})$ vs.~$P(s_{15})$, that is Exp.~2b vs.~Exp.~1.}
+	\label{fig:empiricalresults}	
+\end{figure*}
+
+ 
  \subsection{Results and discussion}
 
 Data from eight participants in Exp.~2b were excluded from the analysis because these participants assigned less than .8 probability to the interpretation corresponding to the correct literal interpretation on literal \emph{all} and \emph{none} trials. 
 
-The main question of interest was whether participants' judgments of how many objects exhibited the effect after hearing an utterance with \emph{some} followed the predictions of the basic RSA model laid out in the previous section. Mean $\mathbb{E}[P(s|u)]$ and $P(s_{15}|u)$ are shown in \figref{fig:empiricalresults} for each item. There was a small effect of the prior. For utterances of \emph{Some of the X Y-ed}, the mean number of objects judged to exhibit the effect increased with increasing expectation of the prior distribution ($\beta$=.18, $SE$=.02, $t$=7.4, $p$$<$.0001). Similarly, the probability of all 15 objects exhibiting the effect increased with increasing prior probability of doing so ($\beta$=.06, $SE$=.01, $t$=5.0, $p$$<$.0001). However, the size of these effects is astronomically smaller than that predicted by RSA (for comparison, see red lines in \figref{fig:rrsaexppredictions}).% that is, \citeA{geurts2010}'s observation that implicatures are very strong even for very likely events is confirmed empirically.
+The main question of interest was whether participants' judgments of how many objects exhibited the effect after hearing an utterance with \emph{some} followed the predictions of the basic RSA model laid out in the previous section. Mean $\mathbb{E}[P(s|u)]$ and $P(s_{15}|u)$ are shown in \figref{fig:empiricalresults} for each item. There was a small effect of the prior. For utterances of \emph{Some of the X Y-ed}, the mean number of objects judged to exhibit the effect increased with increasing expectation of the prior distribution ($\beta$=.18, $SE$=.02, $t$=7.4, $p$$<$.0001). Similarly, the probability of all 15 objects exhibiting the effect increased with increasing prior probability of doing so ($\beta$=.06, $SE$=.01, $t$=5.0, $p$$<$.0001). However, the size of these effects is astronomically smaller than that predicted by RSA (for comparison, see dark lines in \figref{fig:rrsaexppredictions}).% that is, \citeA{geurts2010}'s observation that implicatures are very strong even for very likely events is confirmed empirically.
 
 One possible explanation for this highly attenuated effect of the prior is that participants simply do not bring world knowledge to bear on the interpretation of utterances. However, this possibility is ruled out by examining participants' performance in the filler conditions: in both Exps.~2a and 2b, the filer conditions closely tracked the prior (see \figref{fig:empiricalresults}). 
 
@@ -277,7 +276,7 @@ This inferred prior is used in both the literal and pragmatic listeners, indicat
 We refer to this model as wRSA. Notice that the choice of $w$ the listener makes will depend on $P_{\textrm{speaker}}(u|s,w)$: if a given utterance can't be explained by the usual prior, because it is unlikely under any plausible world state $s$, then the pragmatic listener will infer that the world is wonky, and back off to the uniform prior.
 That is, if the utterance is odd, the listener will revise her opinion about what world knowledge it is appropriate to use.
 
-To make predictions for Exp.~2 from wRSA we use the smoothed empirical priors from Exp.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality $\lambda$ are fit to optimize mean squared error (MSE) with Exp.~2 data. The optimal parameters resulted in an MSE of 2.15 (compared to 14.53 for RSA) for the expected number of objects, and 0.01 (compared to 0.07 for RSA) for the all-state probability. The better fit of wRSA compared to RSA can be seen in the comparison of \figref{fig:rrsaexppredictions} and \figref{fig:empiricalresults}: in both cases, wRSA (blue lines) predicts a much attenuated effect of the prior compared to regular RSA (red lines), in line with the empirical data. Furthermore, wRSA does not make either of the problematic predictions identified earlier for regular RSA.
+To make predictions for Exp.~2 from wRSA we use the smoothed empirical priors from Exp.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality $\lambda$ are fit to optimize mean squared error (MSE) with Exp.~2 data. The optimal parameters resulted in an MSE of 2.15 (compared to 14.53 for RSA) for the expected number of objects, and 0.01 (compared to 0.07 for RSA) for the all-state probability. The better fit of wRSA compared to RSA can be seen in the comparison of \figref{fig:rrsaexppredictions} and \figref{fig:empiricalresults}: in both cases, wRSA (light blue lines) predicts a much attenuated effect of the prior compared to regular RSA (dark blue lines), in line with the empirical data. Furthermore, wRSA does not make either of the problematic predictions identified earlier for regular RSA.
 
 
 These results are encouraging: wRSA is able to account for the qualitative and quantitative departures of participants' behavior from RSA, with respect to the effect of the prior.
@@ -342,13 +341,13 @@ Qualitatively, the model captures both the linear increase and decrease in wonki
 %Interlocutors bring a wealth of world knowledge to bear on any language interpretation task. While effects of world knowledge in different areas of language processing are well-established (\red{psycholinguistics refs}), there has to date been a surprising lack of quantitative investigation into the role of world knowledge--and its defeasibility--in pragmatic inference. 
 We have shown that listeners' world knowledge in the form of prior beliefs enters into the computation of speaker meaning in a systematic but subtle way. The effect of the prior on interpretation was much smaller, and qualitatively different, than predicted by a standard Bayesian model of quantifier interpretation (RSA). 
 This suggests that in certain situations, listeners revise their assumptions about relevant priors as part of the computation of speaker meaning. 
-Indeed, in the cases where the largest deviations from RSA attained, participants also judged the world to be unusual.
+Indeed, in the cases where the largest deviations from RSA obtained, participants also judged the world to be unusual.
 %We have provided empirical evidence that the types of situations that lead to such revision , that is, situations in which the speaker's utterance is too unlikely given the listener's default prior beliefs and the available utterance alternatives. are cases of `wonky' worlds
 Extending RSA with a lifted wonkiness variable that captures precisely whether listeners think the world is unusual, and allows them to back off to a uniform prior (i.e., ignore entirely their previously held beliefs about the world), provided a good fit to the empirical wonkiness judgements and dramatically improved the fit to participants' comprehension data. This model constitutes the first attempt to explicitly model the quantitative effect of world knowledge and its defeasibility on language interpretation and raises many interesting questions.
 
-In one sense the revision of beliefs in the wRSA listener is standard Bayesian belief updating with respect to a complex prior; however it is not the simple belief update of a flat or hierarchical prior, because the different aspects of prior belief (i.e.~$p(w)$ and $p(s|w)$) interact in complex ways with the listener's assumptions about the speaker.
-As a result, an odd utterance can lead the listener to update their own view of $w$; this in turn impacts both their own prior over states what prior they believe the speaker believes they are using---an odd utterance leads the listener to re-evaluate common ground. 
-This is reminiscent of linguistic theories of presupposition accommodation \cite{stalnaker}.
+In one sense the revision of beliefs in the wRSA listener is standard Bayesian belief updating with respect to a complex prior; however it is not the simple belief update of a flat or hierarchical prior, because the different aspects of prior belief (i.e.~$P(w)$ and $P(s|w)$) interact in complex ways with the listener's assumptions about the speaker.
+As a result, an odd utterance can lead the listener to update their own view of $w$; this in turn impacts both their own prior over states and what prior they believe the speaker believes they are using---an odd utterance leads the listener to re-evaluate common ground. 
+This is reminiscent of linguistic theories of presupposition accommodation \cite{lewis1979,stalnaker1973,stalnaker1998}.
 It will be interesting to further explore the relation of the wRSA approach to presupposition.
 
 Throughout this paper we discussed wonkiness as an attribute of the \emph{world}, yet empirically we elicited wonkiness judgments about the \emph{objects} involved in the events. 
@@ -358,8 +357,7 @@ Relatedly, we have used a uniform prior distribution as the alternative to consi
 %Do metaphorical interpretations draw listeners out of the wonky world? 
 Future research should investigate the options listeners have available when their world knowledge must be revised to accommodate an utterance.
 
-This work also has methodological implications: researchers working in the field of experimental semantics and pragmatics would be well served to take into account the effect of ``odd'' items, prior beliefs, and interactions between the two. In particular, if the attempt to design uniform stimuli across conditions yields odd utterances as items in some conditions, we predict that participants will respond by revising their prior beliefs in ways that can be unpredictable. That is, we expect unpredictable interaction effects between stimuli and conditions.
-This is likely to inflate or compress potential effects of an experimental manipulation.
+This work also has methodological implications: researchers working in the field of experimental semantics and pragmatics would be well served to take into account the effect of ``odd'' items, prior beliefs, and interactions between the two. \footnote{For an in depth discussion of this issue in syntactic processing, see, e.g., \citeA{jaeger2010, fine2013a}.} In particular, if the attempt to design uniform stimuli across conditions yields odd utterances in some conditions, we predict that participants will respond by revising their prior beliefs in ways that can be unpredictable. That is, we expect unpredictable interaction effects between stimuli and conditions. This is likely to inflate or compress potential effects of an experimental manipulation. 
 
 Concluding, this work exemplifies the importance and utility of exploring the detailed quantitative predictions of formal models of language understanding.
 Exploring the prior knowledge effects predicted by RSA led us to understand better the influence of world knowledge and its defeasibility on pragmatic interpretation.

@@ -7,7 +7,7 @@
 library(ggplot2)
 theme_set(theme_bw(18))
 setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/writing/_2015/cogsci_2015/paper/pics/")
-source("rscripts/helpers.r")
+source("../../rscripts/helpers.r")
 
 # get prior expectations
 priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
@@ -80,6 +80,7 @@ nrow(toplot)
 p_exps = ggplot(toplot, aes(x=PriorExpectation_smoothed*15, y=PosteriorExpectation_predicted*15, color=RSA)) +
   geom_point() + #color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
   geom_smooth() + #color="#00B0F6") +
+  scale_color_manual(values=c("#007fb1", "#4ecdff")) +
   #  geom_abline(intercept=0,slope=1,color="gray50") +
   scale_x_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Prior expected number of objects") +
   scale_y_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Posterior predicted number of objects")
@@ -143,6 +144,7 @@ nrow(toplot)
 p_probs = ggplot(toplot, aes(x=PriorProbability, y=PosteriorProbability, color=RSA)) +
   geom_point() + #color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
   geom_smooth() + #color="#00B0F6") +
+  scale_color_manual(values=c("#007fb1", "#4ecdff")) +
   #  geom_abline(intercept=0,slope=1,color="gray50") +
   scale_x_continuous(limits=c(0,1), name="Prior probability of all-state") +
   scale_y_continuous(limits=c(0,1), name="Model predicted posterior probability of all-state")
@@ -219,7 +221,7 @@ p_eexps = ggplot(agr, aes(x=PriorExpectationProportion*15, y=ProportionResponse*
   geom_point() +
   #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
   geom_smooth(method="lm") +
-  scale_color_manual(values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
+  scale_color_manual(values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
   scale_y_continuous(breaks=seq(1,15,by=2),name="Posterior mean number of objects") +
   #  geom_abline(intercept=0,slope=1,color="gray70") +
   scale_x_continuous(breaks=seq(1,15,by=2),name="Prior mean number of objects")  
@@ -239,7 +241,7 @@ ub = droplevels(ub)
 p_eprobs = ggplot(ub, aes(x=AllPriorProbability, y = normresponse, color=quantifier)) +
   geom_point() +
   geom_smooth(method="lm") +
-  scale_color_manual(values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
+  scale_color_manual(values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
   scale_y_continuous(limits=c(0,1),name="Posterior probability of all-state ") +
   #  geom_abline(intercept=0,slope=1,color="gray70") +
   scale_x_continuous(limits=c(0,1),name="Prior probability of all-state")  
