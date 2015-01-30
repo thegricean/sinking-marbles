@@ -12,10 +12,10 @@ pfile = open("smoothed_15marbles_priors.txt") # get smoothed priors (kernel dens
 priors_15 = [l.rstrip() for l in pfile.readlines()[1:]]
 pfile.close()
 
-wpriors = [.1, .2, .3, .4, .5]
+wpriors = [.3, .5, .6, .7, .8, .9]
 
 
-rfile = open("results/model_results/results_uniform.txt","w")	
+rfile = open("results/model_results/results_uniform.txt.tmp.results","w")	
 #results = []
 
 w = ch_model.index("(define alternatives '(some all none))")
@@ -23,18 +23,18 @@ pline = ch_model.index("(define empiricalprior (list .1 .1 .1 .1 .1 .1 .1 .1 .1 
 wline = ch_model.index("	'(prior)")
 wwline = ch_model.index("(define wonkyworld-prior .1)")
 
-alternatives = [["some","all","none"],
-	["some","all","none","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"],
-["some","all","none","one","two","three","four","five","six","seven","eight","nine","ten"],	
-                ["some","all","none","most","many","few", "afew"],
-                ["some","all","none","most","many","few", "afew","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"],
-                ["some","all","none","most","many","few", "afew","one","two","three","four","five","six","seven","eight","nine","ten"],                 
-				["some","all","none","most","many","few", "half","several","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","acouple","afew","almostnone","veryfew","almostall","overhalf","alot","notone","onlyone","everyone","notmany","justone"],
-				["some","all","none","most","many","few", "half","several","one","two","three","four","five","six","seven","eight","nine","ten","acouple","afew","almostnone","veryfew","almostall","overhalf","alot","notone","onlyone","everyone","notmany","justone"],			
-                ["some","all","none","most","many","few", "half","several","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","acouple","afew","almostnone","veryfew","almostall","overhalf","alot","notone","onlyone","everyone","notmany","justone","morethanhalf","allbutone","lessthanhalf"],     
-                ["some","all","none","most","many","few", "half","several","one","two","three","four","five","six","seven","eight","nine","ten","acouple","afew","almostnone","veryfew","almostall","overhalf","alot","notone","onlyone","everyone","notmany","justone","morethanhalf","allbutone","lessthanhalf"]                
-
-                ]
+alternatives = [["some","all","none"]]#,
+#	["some","all","none","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"],
+#["some","all","none","one","two","three","four","five","six","seven","eight","nine","ten"],	
+#                ["some","all","none","most","many","few", "afew"],
+#                ["some","all","none","most","many","few", "afew","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"],
+#                ["some","all","none","most","many","few", "afew","one","two","three","four","five","six","seven","eight","nine","ten"],                 
+#				["some","all","none","most","many","few", "half","several","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","acouple","afew","almostnone","veryfew","almostall","overhalf","alot","notone","onlyone","everyone","notmany","justone"],
+#				["some","all","none","most","many","few", "half","several","one","two","three","four","five","six","seven","eight","nine","ten","acouple","afew","almostnone","veryfew","almostall","overhalf","alot","notone","onlyone","everyone","notmany","justone"],			
+#                ["some","all","none","most","many","few", "half","several","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","acouple","afew","almostnone","veryfew","almostall","overhalf","alot","notone","onlyone","everyone","notmany","justone","morethanhalf","allbutone","lessthanhalf"],     
+#                ["some","all","none","most","many","few", "half","several","one","two","three","four","five","six","seven","eight","nine","ten","acouple","afew","almostnone","veryfew","almostall","overhalf","alot","notone","onlyone","everyone","notmany","justone","morethanhalf","allbutone","lessthanhalf"]                
+#
+#                ]
 
 for i,a in enumerate(alternatives):
     print a
@@ -51,6 +51,6 @@ for i,a in enumerate(alternatives):
 			ofile.close()
 			subresults = subprocess.Popen(['church',ofile.name], stdout=subprocess.PIPE)
 			subresults.communicate()[0]
-			rfile.write("".join(open("results/model_results/raw_uniform_results.txt").readlines()))
+			rfile.write("".join(open("results/model_results/raw_uniform_results.txt.tmp.results").readlines()))
   
 rfile.close()

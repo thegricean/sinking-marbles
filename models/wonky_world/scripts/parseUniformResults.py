@@ -8,7 +8,7 @@ import sys
 #usage 
 # python parseResults.py 
 
-fname = '../results/model_results/results_uniform.txt'
+fname = '../results/model_results/results_uniform.txt.tmp.results'
 file_names = [fname]
 
 itemfile = open("items.txt")
@@ -56,16 +56,17 @@ k = 0
 wwcnt = -1
 condcnt = 0
 priorcnt = 0
+numww = 5
 while k < len(lines):
 	if lines[k] == "alternatives":
 		if priorcnt < 89:
-			if wwcnt < 4:
+			if wwcnt < numww:
 				wwcnt = wwcnt + 1							
 			else:
 				priorcnt = priorcnt+1		
 				wwcnt = 0
 		else:
-			if wwcnt < 4:
+			if wwcnt < numww:
 				wwcnt = wwcnt + 1							
 			else:		
 				priorcnt = 0
