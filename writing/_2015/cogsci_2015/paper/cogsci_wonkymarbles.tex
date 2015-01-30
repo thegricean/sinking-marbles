@@ -1,14 +1,11 @@
 %MH notes: 
-%% discussion and conclusions
-% - "This suggests that in certain situations, listeners update their prior beliefs in the computation of speaker meaning." --> "listeners revise their prior beliefs...".... updating priors seems like Bayesness as usual.. technically, we're updating our prior on priors, no?
-
 % Stylistic notes
 
 % - Figure 3: try making the short filler and long filler into grey and black respectively. this way, they're semantically segregated by color, and i think the plot will be easier to parse
 
 % - we may want to also change the colors of Figure 2, to be not standard R&B. The reason is that when we ask the reader to compare Figure 3 with Figure 2, we are interested in the comparing the BLUE line of figure 3 with the red line of Figure 2 (both figures having the other color line as well... i suggest turning Figure 2 into Purple and Orange, or somethings not RBG.
 
-% - make figures 2  & 3 span two columns and sit atop text?
+
 
 % 
 % Annual Cognitive Science Conference
@@ -319,7 +316,7 @@ The extreme ends of the sliders were coded as 1 (\emph{definitely not normal}, i
 	\label{fig:wonkyratings}	
 \end{figure}
 
-Qualitatively, the model captures both the linear increase and decrease in wonkiness probability for \emph{all} and \emph{none}, respectively. Importantly, it also captures the asymmetric U-shaped wonkiness probability curve displayed by \emph{some}. Intuitively, this shape can be explained as follows: for very low probability events, it is surprising to learn that such an event took place (which is what is communicated by \emph{some}), so wonkiness is high. For medium probability events, learning that this event took place is not very surprising, so wonkiness is relatively low. For high probability events, \emph{some} is technically a true thing to say, but because of the possibility of a implying a \emph{not-all} state, the utterance is anomalous and signals wonkiness. \red{arrgh what's the right way to say this... mh tried something} . For comparison to the comprehension data fit, the model's MSE for empirical wonkiness probability predictions, using the best parameters from fitting the model to the comprehension data, was 0.07. 
+Qualitatively, the model captures both the linear increase and decrease in wonkiness probability for \emph{all} and \emph{none}, respectively. Importantly, it also captures the asymmetric U-shaped wonkiness probability curve displayed by \emph{some}. Intuitively, this shape can be explained as follows: for very low probability events, it is surprising to learn that such an event took place (which is what is communicated by \emph{some}), so wonkiness is high. For medium probability events, learning that this event took place is not very surprising, so wonkiness is relatively low. For high probability events, \emph{some} may be true, but it would not be useful in the sense of providing the listener new information. For comparison to the comprehension data fit, the model's MSE for empirical wonkiness probability predictions, using the best parameters from fitting the model to the comprehension data, was 0.07. 
 
 
 
@@ -336,27 +333,49 @@ Qualitatively, the model captures both the linear increase and decrease in wonki
 
 \section{Discussion and conclusion}
 
+
+%% discussion and conclusions
+% - "This suggests that in certain situations, listeners update their prior beliefs in the computation of speaker meaning." --> "listeners revise their prior beliefs...".... updating priors seems like Bayesness as usual.. technically, we're updating our prior on priors, no?
+
+
+
 %Interlocutors bring a wealth of world knowledge to bear on any language interpretation task. While effects of world knowledge in different areas of language processing are well-established (\red{psycholinguistics refs}), there has to date been a surprising lack of quantitative investigation into the role of world knowledge--and its defeasibility--in pragmatic inference. 
-We have shown that listeners' world knowledge in the form of prior beliefs enters into the computation of speaker meaning in a systematic way, yet the effect of the prior on interpretation was much smaller than predicted by a standard Bayesian RSA model of quantifier interpretation. This suggests that in certain situations, listeners update their prior beliefs in the computation of speaker meaning. We have provided empirical evidence that the types of situations that lead to belief revision are cases of wonky worlds, that is, situations in which the speaker's utterance is too unlikely under the listener's prior beliefs and the available utterance alternatives. Extending RSA with a lifted wonkiness variable that captures precisely whether listeners think the world is wonky and allows them to back off to a uniform prior (i.e., ignore entirely their previously held beliefs about the world), provided a good fit to both the empirical wonkiness posteriors and dramatically improved the fit to participants' comprehension data, compared  to regular RSA. This model constitutes the first attempt to explicitly model the quantitative effect of world knowledge and its defeasibility on language interpretation and raises many interesting questions.
+We have shown that listeners' world knowledge in the form of prior beliefs enters into the computation of speaker meaning in a systematic but subtle way. The effect of the prior on interpretation was much smaller, and qualitatively different, than predicted by a standard Bayesian model of quantifier interpretation (RSA). 
+This suggests that in certain situations, listeners revise their assumptions about relevant priors as part of the computation of speaker meaning. 
+Indeed, in the cases where the largest deviations from RSA attained, participants also judged the world to be unusual.
+%We have provided empirical evidence that the types of situations that lead to such revision , that is, situations in which the speaker's utterance is too unlikely given the listener's default prior beliefs and the available utterance alternatives. are cases of `wonky' worlds
+Extending RSA with a lifted wonkiness variable that captures precisely whether listeners think the world is unusual, and allows them to back off to a uniform prior (i.e., ignore entirely their previously held beliefs about the world), provided a good fit to the empirical wonkiness judgements and dramatically improved the fit to participants' comprehension data. This model constitutes the first attempt to explicitly model the quantitative effect of world knowledge and its defeasibility on language interpretation and raises many interesting questions.
 
-For instance, we have been attributing wonkiness to the \emph{world}, yet empirically we elicited wonkiness judgments about the \emph{objects} involved in the described events. This raises the question, what exactly are listeners revising about their prior beliefs: objects, events, the speaker's beliefs, or the way the speaker uses language? Relatedly, in the current implementation of wRSA, prior belief revision has a global effect: that is, the prior that the listener infers is simultaneously the prior the listener attributes to the speaker; that is, the prior is treated as being in common ground, and the revision of the prior thus leads to a revision of common ground. But it is in fact an empirical question whether listeners revise their own privileged beliefs about the world, their beliefs about the common ground, or their beliefs about the speaker's beliefs. \red{WONKY SENTENCE: Addressing this question in future research will reveal whether a more complex mechanism for prior belief revision needs to incorporated that explicitly models prior vs.~privileged ground.}
+In one sense the revision of beliefs in the wRSA listener is standard Bayesian belief updating with respect to a complex prior; however it is not the simple belief update of a flat or hierarchical prior, because the different aspects of prior belief (i.e.~$p(w)$ and $p(s|w)$) interact in complex ways with the listener's assumptions about the speaker.
+As a result, an odd utterance can lead the listener to update their own view of $w$; this in turn impacts both their own prior over states what prior they believe the speaker believes they are using---an odd utterance leads the listener to re-evaluate common ground. 
+This is reminiscent of linguistic theories of presupposition accommodation \cite{stalnaker}.
+It will be interesting to further explore the relation of the wRSA approach to presupposition.
 
-We have used a uniform prior distribution as the alternative to consider when the listener believes the world is wonky.  One could imagine various approaches to engineer this departure\footnote{Though the authors tried several, which all failed by maintaining one or the other of the qualitative predictions of RSA identified in the introduction.\red{we should give examples}}. For instance, do listeners make minimal adjustments to their prior knowledge in order to accommodate the speaker? Do metaphorical interpretations draw listeners out of the wonky world? Future research should investigate the ways in which prior beliefs can be revised to compute meaning.
+Throughout this paper we discussed wonkiness as an attribute of the \emph{world}, yet empirically we elicited wonkiness judgments about the \emph{objects} involved in the events. 
+This raises the question, what exactly are listeners revising about their prior beliefs: objects, events, the speaker's beliefs, or the way the speaker uses language? 
+%Relatedly, in the current implementation of wRSA, prior belief revision has a global effect: that is, the prior that the listener infers is simultaneously the prior the listener attributes to the speaker; that is, the prior is treated as being in common ground, and the revision of the prior thus leads to a revision of common ground. But it is in fact an empirical question whether listeners revise their own privileged beliefs about the world, their beliefs about the common ground, or their beliefs about the speaker's beliefs. \red{WONKY SENTENCE: Addressing this question in future research will reveal whether a more complex mechanism for prior belief revision needs to incorporated that explicitly models prior vs.~privileged ground.}
+Relatedly, we have used a uniform prior distribution as the alternative to consider when the listener believes the world is wonky.  One could imagine various more flexible alternatives. For instance, listeners may make minimal adjustments to their prior knowledge, or alternatively, may prefer extreme priors that rationalize the utterance once they have discounted the usual priors.
+%Do metaphorical interpretations draw listeners out of the wonky world? 
+Future research should investigate the options listeners have available when their world knowledge must be revised to accommodate an utterance.
 
-This work also has methodological implications: researchers working in the field of experimental pragmatics would be well served to take into account how strongly their items are likely to be affected by participants' prior beliefs about the world states that those items describe, e.g.~by empirically eliciting priors. Not doing so may inflate or compress potential effects of an experimental manipulation.
+This work also has methodological implications: researchers working in the field of experimental semantics and pragmatics would be well served to take into account the effect of ``odd'' items, prior beliefs, and interactions between the two. In particular, if the attempt to design uniform stimuli across conditions yields odd utterances as items in some conditions, we predict that participants will respond by revising their prior beliefs in ways that can be unpredictable. That is, we expect unpredictable interaction effects between stimuli and conditions.
+This is likely to inflate or compress potential effects of an experimental manipulation.
 
-Concluding, this work exemplifies the importance and utility of formally modeling the varying influence of world knowledge and its defeasibility by considering listeners' perceived oddness of utterances under their prior beliefs, the available utterance alternatives, and their desire to uphold the principle of speaker cooperativity.
+Concluding, this work exemplifies the importance and utility of exploring the detailed quantitative predictions of formal models of language understanding.
+Exploring the prior knowledge effects predicted by RSA led us to understand better the influence of world knowledge and its defeasibility on pragmatic interpretation.
+Listeners have many resources open to them when confronted with an odd utterance, and re-construing the situation appears to be a favorite.
 
-\begin{itemize}
 
-%	\item what is wonky? -- objects, event, speaker? -- connection to adaptation?
-%	\item other ways of asking about wonkiness
-	\item \red{what's the right prior to back off to?}
-%	\item revising private beliefs vs revising common ground.
-	\item \red{connection to presupposition (cf stalnaker), and other phenomena}
-%	\item implication for experiments on language understanding
-
-\end{itemize}
+%\begin{itemize}
+%
+%%	\item what is wonky? -- objects, event, speaker? -- connection to adaptation?
+%%	\item other ways of asking about wonkiness
+%%	\item \red{what's the right prior to back off to?}
+%%	\item revising private beliefs vs revising common ground.
+%%	\item \red{connection to presupposition (cf stalnaker), and other phenomena}
+%%	\item implication for experiments on language understanding
+%
+%\end{itemize}
 
 
 
