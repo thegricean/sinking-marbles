@@ -1,0 +1,21 @@
+(load '/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_data_analysis/binomial-score.js)
+
+; generalize to list of lists where each sublist corresponds to one item
+(define data 
+  (list 0 0 0 0 0 0 0 0 0 1 1 1 1 2 2 3 6 10))
+
+(define (binomScore theta)
+	(factor (map (lambda (x) (binomialScore theta x)) data)))
+
+(define inferBinomialParams 
+  (mh-query 100 10
+          (define gamma (uniform 0 1))
+          (define delta (uniform 0 20))
+          (define theta (beta gamma delta))
+          (define dummy (binomScore theta))
+
+          (list gamma delta)
+          
+          true))	
+
+inferBinomialParams
