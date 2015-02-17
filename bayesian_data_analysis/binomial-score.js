@@ -19,8 +19,9 @@ function lnfact(x) {
 }
 
 function binomialScore(params, val){
-  var p = params[0];
-  var n = params[1];
+  var p = params[0]; // coin weight
+  var n = params[1]; // number of coin tosses
+  // val = observed heads
   if (n > 20 && n*p > 5 && n*(1-p) > 5) {
     // large n, reasonable p approximation
     var s = val;

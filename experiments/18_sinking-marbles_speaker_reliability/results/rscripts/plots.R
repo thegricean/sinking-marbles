@@ -105,12 +105,12 @@ ggsave(file="graphs/norm_means_byquarter_smoothed.pdf",width=12,height=8)
 
 ub = subset(agrr, Proportion == "100")
 ub = droplevels(ub)
-ggplot(ub, aes(x=Prior, y = normresponse, color=quantifier)) +
+ggplot(ub, aes(x=AllPriorProbability, y = normresponse, color=quantifier)) +
   geom_point() +
   geom_smooth()
 ggsave(file="graphs/norm_means_ub.pdf")
 
-ggplot(ub, aes(x=AllPriorProbability, y = normresponse, color=quantifier)) +
+ggplot(ub, aes(x=PriorExpectationProportion, y = normresponse, color=quantifier)) +
   geom_point() +
   geom_smooth()
 ggsave(file="graphs/norm_means_ub_cprior.pdf")
@@ -216,3 +216,43 @@ summary(some)
 m = lmer(normresponse ~ AllPriorProbability + (1|workerid) + (1|Item),data=some)
 summary(m)
 library(lmerTest)
+
+some$Experiment = "speakerreliability"
+
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
+somer = subset(r, Proportion == "100" & quantifier == "Some")
+nrow(somer)
+somer$Experiment = "regular"
+
+comb = merge(some, somer, all=T)
+nrow(comb)
+comb$Experiment = as.factor(as.character(comb$Experiment))
+summary(comb)
+m = lmer(normresponse ~ AllPriorProbability*Experiment + (1|workerid) + (1|Item),data=comb)
+summary(m)
+library(lmerTest)
+
+centered = cbind(comb, myCenter(comb[,c("AllPriorProbability","Experiment")]))
+m = lmer(normresponse ~ cAllPriorProbability*cExperiment + (1|workerid) + (1|Item),data=centered)
+summary(m)
+library(lmerTest)
+m = lmer(normresponse ~ cAllPriorProbability*cExperiment + (1|workerid) + (1|Item),data=centered)
+summary(m)
+
+agr=aggregate(normresponse~Item+AllPriorProbability+Experiment, data=comb, FUN=mean)
+agr$CILow = aggregate(normresponse~Item+AllPriorProbability+Experiment, data=comb, FUN=ci.low)$normresponse
+agr$CIHigh = aggregate(normresponse~Item+AllPriorProbability+Experiment, data=comb, FUN=ci.high)$normresponse
+agr$YMin = agr$normresponse - agr$CILow
+agr$YMax = agr$normresponse + agr$CIHigh
+  
+ggplot(agr, aes(x=AllPriorProbability, y=normresponse, color=Experiment)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth(method="lm")
+ggsave("graphs/reliable_vs_unreliable_some_means.pdf")
+table(somer$Item)
+
+ggplot(comb, aes(x=AllPriorProbability, y=normresponse, color=Experiment)) +
+  geom_point() +
+  geom_smooth(method="lm")
+ggsave("graphs/reliable_vs_unreliable_some.pdf")

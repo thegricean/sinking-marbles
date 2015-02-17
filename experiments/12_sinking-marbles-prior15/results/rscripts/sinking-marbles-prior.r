@@ -13,6 +13,11 @@ r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "o
 load("data/priors.RData")
 load("data/r.RData")
 
+# write data for bayesian data analysis (fitting binomials to data in church)
+tmp = ddply(r, .(Item), summarise, Responses=paste("(list ",paste(response,collapse=" "),")",sep=""))
+head(tmp)
+write.table(r[,c("Item","")])
+
 ## plot subject variability
 ggplot(r, aes(x=response)) +
   geom_histogram() +
@@ -108,7 +113,10 @@ head(cexpectations)
 nrow(priors)
 nrow(cexpectations)
 write.table(cexpectations[,c("effect","object","expectation_corr")],row.names=F,sep="\t",quote=F,file="data/expectations.txt")
-
+ordered = cexpectations[order(cexpectations[,c("expectation_corr")]),c("effect","object","expectation_corr")]
+write.table(ordered[,c("effect","object","expectation_corr")],row.names=F,sep="\t",quote=F,file="data/ordered_expectations.txt")
+t = table(r$Item)
+t
 
 # get smoothed priors for model
 smoothed_dist15 = ddply(r, .(effect,object), summarise, State = c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15),SmoothedProportion = (npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001)/sum(npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001))
@@ -149,6 +157,9 @@ write.table(casted,file="../../../models/wonky_world/smoothed_15marbles_priors_w
 write.table(casted[,3:length(colnames(casted))],file="data/smoothed_15marbles_priors.txt",row.names=F,quote=F,sep="\t")
 write.table(casted[,1:2],file="data/items.txt",row.names=F,quote=F,sep="\t")
 write.table(casted[,3:length(colnames(casted))],file="../../../models/wonky_world/smoothed_15marbles_priors_withnames.txt",row.names=F,quote=F,sep="\t")
+
+ordered = casted[order(casted[,c("15")]),c("effect","object","15")]
+write.table(ordered,file="data/ordered_allstateprobs.txt",row.names=F,quote=F,sep="\t")
 
 ## plot individual items
 r$Item = as.factor(paste(r$effect,r$object))
