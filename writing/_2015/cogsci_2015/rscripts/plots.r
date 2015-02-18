@@ -73,6 +73,19 @@ summary(toplot_r)
 toplot_r$Model = "RSA"
 toplot_w$Model = "wRSA"
 
+# plot regular rsa predictions
+ggplot(toplot_r, aes(x=PriorExpectation_smoothed*15, y=PosteriorExpectation_predicted*15)) +
+  geom_point(color="#007fb1") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
+  geom_smooth(color="#007fb1") +
+  #  geom_abline(intercept=0,slope=1,color="gray50") +
+  scale_x_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Prior expected number of objects") +
+  scale_y_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Posterior predicted number of objects")
+#  geom_text(data=cors, aes(label=r)) +
+
+#scale_size_discrete(range=c(1,2)) +
+#scale_color_manual(values=c("red","blue","black")) 
+ggsave("model-expectations-rrsa.pdf",width=6.5,height=4.5)#,width=30,height=10)
+
 # plot both rRSA and uniform wRSA expectation predictions in same plot
 toplot = merge(toplot_r,toplot_w, all=T)
 head(toplot)
@@ -132,6 +145,21 @@ nrow(toplot)
 head(toplot)
 
 toplot_r = toplot
+
+# plot only rrsa
+ggplot(toplot_r, aes(x=PriorProbability, y=PosteriorProbability)) +
+  geom_point(color="#007fb1") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
+  geom_smooth(color="#007fb1") + #color="#00B0F6") +
+  #scale_color_manual(values=c("#007fb1")) +
+  #  geom_abline(intercept=0,slope=1,color="gray50") +
+  scale_x_continuous(limits=c(0,1), name="Prior probability of all-state") +
+  scale_y_continuous(limits=c(0,1), name="Model predicted posterior probability of all-state")
+#  geom_text(data=cors, aes(label=r)) +
+#scale_size_discrete(range=c(1,2)) +
+#scale_color_manual(values=c("red","blue","black")) 
+#ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
+ggsave("model-allprobs-rrsa.pdf",width=6.5,height=4.5)
+
 head(toplot_w)
 summary(toplot_r)
 toplot_r$Model = "RSA"
@@ -241,7 +269,7 @@ ub = droplevels(ub)
 p_eprobs = ggplot(ub, aes(x=AllPriorProbability, y = normresponse, color=quantifier)) +
   geom_point() +
   geom_smooth(method="lm") +
-  scale_color_manual(values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
+  scale_color_manual(values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agrr$quantifier),labels=c("all","long filler","none","short filler","some")) +
   scale_y_continuous(limits=c(0,1),name="Posterior probability of all-state ") +
   #  geom_abline(intercept=0,slope=1,color="gray70") +
   scale_x_continuous(limits=c(0,1),name="Prior probability of all-state")  
