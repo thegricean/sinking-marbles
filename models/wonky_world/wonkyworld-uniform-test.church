@@ -57,51 +57,54 @@
 	(multinomial '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15) s))
 
 (define literal-listener 
-  (mem (lambda (utterance QUD total-marbles quantifier-alternatives wonky-world?)
+  (mem (lambda (utterance QUD total-marbles quantifier-alternatives supposed-prior)
          (enumeration-query
-          (define marbles (marble-state (theprior wonky-world?)))
+          (define marbles (marble-state supposed-prior))
           
           (QUD-cell QUD marbles total-marbles)
           
           (meaning utterance marbles total-marbles)))))
 
 (define pragmatic-speaker 
-  (mem (lambda (marbles QUD total-marbles quantifier-alternatives wonky-world?)
+  (mem (lambda (marbles QUD total-marbles quantifier-alternatives supposed-prior)
          (enumeration-query
           (define utterance (quantifier quantifier-alternatives))
           utterance
           (and
            (equal? (QUD-cell QUD marbles total-marbles)
                    (apply multinomial
-                          (literal-listener utterance QUD total-marbles quantifier-alternatives wonky-world?)))
+                          (literal-listener utterance QUD total-marbles quantifier-alternatives supposed-prior)))
            (meaning utterance marbles total-marbles))))))
+
 
 (define (pragmatic-listener utterance QUD total-marbles quantifier-alternatives speaker-opt)
 	(enumeration-query
-;		(define wonky-world? (flip))
-		(define wonky-world? false)
-		(define marbles (marble-state (theprior wonky-world?)))
+		(define wonky-world? (flip wonkyworld-prior))
+        (define actualprior (theprior wonky-world?))		
+		(define marbles (marble-state actualprior))
 		
 		;wonky-world?
-		;marbles
-		(list wonky-world? marbles)
+		marbles
+		;(list wonky-world? marbles)
 
 		(equal? utterance (apply multinomial 
-                                 (power (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives wonky-world?)
+                                 (power (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives actualprior)
                                         speaker-opt))))) 
 
 (define alternatives '(some all none))
 
-(define empiricalprior (list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 5))
-;(define empiricalprior (list 0.7705057	0.0383334	0.0019072	0.0000953	0.0000104	0.0001121	0.0022462	0.0451475	0.0491949	0.0878474	0.0043706	0.0002175	0.0000109	0.0000006	0.0000001	0.0000001))
+(define wonkyworld-prior .1)
+
+(define empiricalprior (list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1))
 
 (define theprior (lambda (wonky-world?)
 	(if wonky-world?
 		(list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1)
 		empiricalprior)))
 
+(pragmatic-speaker 15 'how-many 15 alternatives empiricalprior)
 
 ;(pragmatic-listener 'some 'how-many 15 alternatives 4) 
 
 ;(define (pl total-marbles QUD speaker-opt)
-(pragmatic-listener 'some 'how-many 15 alternatives 2)
+;(pragmatic-listener 'some 'how-many 15 alternatives 2)
