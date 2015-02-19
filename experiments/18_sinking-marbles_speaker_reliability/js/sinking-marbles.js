@@ -347,14 +347,14 @@ function init() {
       "effect":"broke",
       "extrautt":"Why does Lucy always leave her stuff in the driveway?"      
     },
-    {
-      "object_low":"soda cans",
-      "object_mid":"pinecones",
-      "object_high":"banana peels",
-      "cause":"put __ in a compost pile for a month",
-      "effect":"decomposed",
-      "extrautt":"What a great way to reduce trash."      
-    },
+//    {
+//      "object_low":"soda cans",
+//      "object_mid":"pinecones",
+//      "object_high":"banana peels",
+//      "cause":"put __ in a compost pile for a month",
+//      "effect":"decomposed",
+//      "extrautt":"What a great way to reduce trash."      
+//    },
     {
       "object_low":"candles",
       "object_mid":"fireworks",
@@ -371,14 +371,14 @@ function init() {
       "effect":"dissolved",
       "extrautt":"There are people starving in the world."      
     },
-//    {
-//      "object_low":"beads",
-//      "object_mid":"sequins",
-//      "object_high":"stickers",
-//      "cause":"glued __ to a piece of paper",
-//      "effect":"stuck",
-//      "extrautt":"It looks like a zebra."      
-//    },
+    {
+      "object_low":"beads",
+      "object_mid":"sequins",
+      "object_high":"stickers",
+      "cause":"glued __ to a piece of paper",
+      "effect":"stuck",
+      "extrautt":"It looks like a zebra."      
+    },
 //    {
 //      "object_low":"bicyclists",
 //      "object_mid":"bus drivers",

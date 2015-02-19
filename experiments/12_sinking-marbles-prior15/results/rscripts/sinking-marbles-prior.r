@@ -16,7 +16,7 @@ load("data/r.RData")
 # write data for bayesian data analysis (fitting binomials to data in church)
 tmp = ddply(r, .(Item), summarise, Responses=paste("(list ",paste(response,collapse=" "),")",sep=""))
 head(tmp)
-write.table(r[,c("Item","")])
+write.table(tmp[,c("Responses")],file="data/data_as_listoflists.txt",row.names=F,col.names=F,quote=F)
 
 ## plot subject variability
 ggplot(r, aes(x=response)) +
@@ -87,6 +87,12 @@ sum(df$x*df$y)
 expectations = ddply(r, .(effect,object), summarise, expectation=sum(density(response,n=16,from=0,to=15)$x*density(response,n=16,from=0,to=15)$y),densitysum=sum(density(response,n=16,from=0,to=15)$y))
 expectations$expectation_corr = expectations$expectation/expectations$densitysum
 
+# compute modes
+modes = ddply(r, .(Item), summarise, Mode=getMode(response))
+nrow(modes)
+head(modes)
+write.table(modes[,c("Item","Mode")],row.names=F,sep="\t",quote=F,file="data/modes.txt")
+
 # compute expectations; still need to normalize in the end because sum of density typically isn't 1
 cexpectations = ddply(r, .(effect,object), summarise, expectation=sum(npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens*seq(0,15)),densitysum=sum(npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens))
 
@@ -127,6 +133,10 @@ sum(smoothed_dist15[smoothed_dist15$object == "birds",]$SmoothedProportion)
 
 plot(seq(0,15,by=1),smoothed_dist15[smoothed_dist15$object == "birds",]$SmoothedProportion)
 
+allprobs = smoothed_dist15[smoothed_dist15$State == 15,]
+ggplot(allprobs, aes(x=SmoothedProportion)) +
+  geom_histogram()
+
 # add smoothed values to data.frame with empirical values
 
 # get empirical unsmoothed priors
@@ -137,6 +147,7 @@ colnames(priors) = c("Item","State","EmpiricalProportion")
 row.names(smoothed_dist15) = paste(smoothed_dist15$State,smoothed_dist15$effect,smoothed_dist15$object)
 priors$SmoothedProportion = smoothed_dist15[paste(priors$State, priors$Item),]$SmoothedProportion
 head(priors)
+plot(priors$SmoothedProportion,priors$EmpiricalProportion)
 
 save(priors, file="data/priors.RData")
 
