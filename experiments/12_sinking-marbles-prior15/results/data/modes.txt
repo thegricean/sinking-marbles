@@ -1,0 +1,91 @@
+Item	Mode
+ate the seeds birds	15
+ate the seeds butterflies	15
+ate the seeds dogs	0
+beeped houses	0
+beeped new cars	15
+beeped old cars	0
+blew away backpacks	0
+blew away hats	15
+blew away napkins	15
+broke boxes	15
+broke logs	8
+broke sunglasses	15
+burnt books	15
+burnt matches	15
+burnt rocks	0
+decomposed banana peels	15
+decomposed pinecones	0
+decomposed soda cans	0
+dissolved carrots	0
+dissolved oreos	15
+dissolved sugar cubes	15
+exploded balls of tin foil	15
+exploded candles	0
+exploded CDs	0
+exploded eggs	15
+exploded fireworks	15
+exploded gas tanks	15
+fell down block towers	15
+fell down card towers	15
+fell down shelves	9
+flashed cameras	8
+flashed phones	8
+flashed webcams	0
+froze berries	15
+froze bottles of hand soap	15
+froze chocolate bars	15
+got stained white carpets	15
+got stained white shirts	15
+got stained white tablecloths	15
+had the letter Z in them birthday cards	2
+had the letter Z in them love notes	2
+had the letter Z in them novels	15
+honked bicyclists	0
+honked bus drivers	10
+honked taxi drivers	13
+landed flat coins	15
+landed flat notebooks	15
+landed flat pancakes	15
+laughed comedians	8
+laughed kids	10
+laughed lawyers	8
+lit up cd-players	15
+lit up computers	15
+lit up flashlights	15
+melted crayons	15
+melted ice cubes	15
+melted pencils	0
+popped balloons	15
+popped bubbles	15
+popped eggs	15
+ran out of batteries bike lights	15
+ran out of batteries laptops	15
+ran out of batteries phones	15
+reflected the sunlight diamonds	15
+reflected the sunlight mirrors	15
+reflected the sunlight phone screens	15
+rhymed limericks	15
+rhymed poems	15
+rhymed songs	8
+ripped books	15
+ripped shirts	15
+ripped shoes	15
+rolled shopping carts	15
+rolled toy cars	15
+rolled wheelchairs	15
+sank balloons	0
+sank cups	15
+sank marbles	15
+stopped bicycles	15
+stopped cars	15
+stopped motorcycles	15
+stuck beads	15
+stuck sequins	15
+stuck stickers	15
+stuck to the wall baseballs	0
+stuck to the wall cakes	1
+stuck to the wall pieces of gum	5
+were green bananas	6
+were green clovers	15
+were green strawberries	0

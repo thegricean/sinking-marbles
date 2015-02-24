@@ -1,0 +1,91 @@
+effect	object	15
+beeped	houses	0.0000001
+stuck to the wall	baseballs	0.0000001
+exploded	candles	0.0000053
+sank	balloons	0.0000963
+were green	strawberries	0.0002995
+beeped	old cars	0.0003163
+had the letter Z in them	birthday cards	0.0008869
+dissolved	carrots	0.0010992
+blew away	backpacks	0.0011793
+were green	bananas	0.0013984
+laughed	kids	0.0024015
+laughed	lawyers	0.0082805
+had the letter Z in them	love notes	0.0087520
+fell down	shelves	0.0111653
+flashed	webcams	0.0172149
+stuck to the wall	cakes	0.0284895
+broke	logs	0.0306814
+honked	bicyclists	0.0317162
+decomposed	soda cans	0.0348335
+flashed	cameras	0.0352623
+melted	pencils	0.0392981
+rhymed	songs	0.0396808
+stuck to the wall	pieces of gum	0.0409941
+laughed	comedians	0.0507252
+honked	bus drivers	0.0704580
+ate the seeds	dogs	0.0729582
+honked	taxi drivers	0.1183943
+rhymed	poems	0.1193639
+stuck	beads	0.1231243
+ripped	shoes	0.1313356
+flashed	phones	0.1333236
+decomposed	pinecones	0.1337586
+ran out of batteries	phones	0.1473381
+exploded	eggs	0.1904717
+beeped	new cars	0.1964490
+sank	cups	0.2027321
+exploded	CDs	0.2051361
+exploded	fireworks	0.2116693
+blew away	hats	0.2128663
+ate the seeds	butterflies	0.2183378
+ripped	books	0.2199488
+ripped	shirts	0.2291159
+ate the seeds	birds	0.2306106
+burnt	rocks	0.2437705
+ran out of batteries	bike lights	0.2605520
+popped	eggs	0.2925268
+lit up	cd-players	0.3308328
+dissolved	oreos	0.3491986
+landed flat	pancakes	0.3519381
+fell down	block towers	0.3723091
+lit up	flashlights	0.3737559
+exploded	balls of tin foil	0.3796629
+ran out of batteries	laptops	0.3891877
+rhymed	limericks	0.3902661
+decomposed	banana peels	0.3948063
+landed flat	notebooks	0.4097060
+froze	bottles of hand soap	0.4131505
+stuck	sequins	0.4305644
+reflected the sunlight	phone screens	0.4715724
+stopped	motorcycles	0.4920583
+exploded	gas tanks	0.5148204
+lit up	computers	0.5205359
+reflected the sunlight	mirrors	0.5285869
+had the letter Z in them	novels	0.5422418
+rolled	toy cars	0.5442654
+melted	crayons	0.5571309
+rolled	shopping carts	0.5675383
+froze	chocolate bars	0.6008703
+broke	boxes	0.6132284
+popped	balloons	0.6168231
+sank	marbles	0.6476659
+were green	clovers	0.6489740
+blew away	napkins	0.6565305
+stopped	cars	0.6609542
+stopped	bicycles	0.6842095
+landed flat	coins	0.6944961
+stuck	stickers	0.7070435
+burnt	matches	0.7570684
+got stained	white carpets	0.7627255
+reflected the sunlight	diamonds	0.7866964
+fell down	card towers	0.7940805
+popped	bubbles	0.8072276
+rolled	wheelchairs	0.8172477
+burnt	books	0.8478001
+got stained	white tablecloths	0.8749981
+broke	sunglasses	0.8823512
+melted	ice cubes	0.9003657
+dissolved	sugar cubes	0.9999975
+froze	berries	0.9999975
+got stained	white shirts	0.9999975
