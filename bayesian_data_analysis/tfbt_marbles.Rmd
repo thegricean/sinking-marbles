@@ -1,0 +1,67 @@
+---
+title: "tfbt on marbles"
+author: "mht"
+date: "February 24, 2015"
+output: html_document
+---
+
+
+```{r}
+library(tidyr)
+library(dplyr)
+
+d <- read.csv('inferBinomialParams.csv',header=F)
+
+d.tidy <- d %>% 
+  rename(item = V1,
+         exp.val = V2,
+         gamma = V3,
+         delta = V4,
+         phi = V5,
+         pp_theta = V6) %>%
+  gather(parameter, value, -item)
+
+# take a random subset of 10 items
+d.tidy.randomsample<- d.tidy[d.tidy$item%in%sample(levels(d.tidy$item),10),]
+
+ggplot(data=d.tidy.randomsample, aes(x = value))+
+  facet_grid(item~parameter,scales='free')+
+  geom_histogram()
+```
+
+Get some pointwise stats.
+
+```{r, echo=FALSE}
+
+d.stats <- d.tidy %>%
+  group_by(item, parameter) %>%
+  summarise(mn = mean(value))
+
+ggplot(data=d.stats, aes(x=exp.val))+
+  facet_wrap(~parameter,scales='free')+
+  geom_histogram()
+
+```
+
+Compare expected value (mean of responses) to posterior predictive over theta, over gamma (very similar to theta), and phi
+
+```{r}
+
+d.spr <- d.stats %>%
+  spread(parameter,mn)
+
+ggplot(data=d.spr, aes(x=exp.val, y = pp_theta))+
+  geom_point()
+
+ggplot(data=d.spr, aes(x=exp.val, y = gamma))+
+  geom_point()
+
+# j's prediction: N-shaped
+ggplot(data=d.spr, aes(x=exp.val, y = phi))+
+  geom_point()
+
+# should be less correlated, because it is already taking into account guessing
+ggplot(data=d.spr, aes(x=pp_theta, y = phi))+
+  geom_point()
+
+```
