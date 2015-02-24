@@ -5,20 +5,33 @@ date: "February 24, 2015"
 output: html_document
 ---
 
-
 ```{r}
 library(tidyr)
 library(dplyr)
 
+# level 2 model
 d <- read.csv('inferBinomialParams.csv',header=F)
+# level 1 model
+d <- read.csv('inferBinomialParams_level1model.csv',header=F)
 
+# level 1 model
+d.tidy <- d %>% 
+  select(V1,V2,V5,V6) %>%
+  rename(item = V1,
+         exp.val = V2,
+         phi = V5,
+         theta = V6) %>%
+  gather(parameter, value, -item)
+
+# level 2 model
+# note: this theta is actually a posterior predictive
 d.tidy <- d %>% 
   rename(item = V1,
          exp.val = V2,
          gamma = V3,
          delta = V4,
          phi = V5,
-         pp_theta = V6) %>%
+         theta = V6) %>%
   gather(parameter, value, -item)
 
 # take a random subset of 10 items
@@ -37,7 +50,7 @@ d.stats <- d.tidy %>%
   group_by(item, parameter) %>%
   summarise(mn = mean(value))
 
-ggplot(data=d.stats, aes(x=exp.val))+
+ggplot(data=d.stats, aes(x=mn))+
   facet_wrap(~parameter,scales='free')+
   geom_histogram()
 
@@ -50,7 +63,7 @@ Compare expected value (mean of responses) to posterior predictive over theta, o
 d.spr <- d.stats %>%
   spread(parameter,mn)
 
-ggplot(data=d.spr, aes(x=exp.val, y = pp_theta))+
+ggplot(data=d.spr, aes(x=exp.val, y = theta))+
   geom_point()
 
 ggplot(data=d.spr, aes(x=exp.val, y = gamma))+
@@ -61,7 +74,7 @@ ggplot(data=d.spr, aes(x=exp.val, y = phi))+
   geom_point()
 
 # should be less correlated, because it is already taking into account guessing
-ggplot(data=d.spr, aes(x=pp_theta, y = phi))+
+ggplot(data=d.spr, aes(x=theta, y = phi))+
   geom_point()
 
 ```
