@@ -247,9 +247,21 @@ agr$YMax = agr$normresponse + agr$CIHigh
   
 ggplot(agr, aes(x=AllPriorProbability, y=normresponse, color=Experiment)) +
   geom_point() +
-  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
-  geom_smooth(method="lm")
+#  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth(method="lm") +
+  scale_x_continuous(name="Prior probability of all-state") +
+  scale_y_continuous(name="Posterior probability of all-state")   
 ggsave("graphs/reliable_vs_unreliable_some_means.pdf")
+table(somer$Item)
+
+ggplot(agr, aes(x=AllPriorProbability, y=normresponse, color=Experiment)) +
+  geom_point() +
+  #  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth(method="lm") +
+  geom_text(aes(label=Item)) +
+  scale_x_continuous(name="Prior probability of all-state") +
+  scale_y_continuous(name="Posterior probability of all-state")   
+ggsave("graphs/reliable_vs_unreliable_annotated.pdf",width=10,height=6)
 table(somer$Item)
 
 ggplot(comb, aes(x=AllPriorProbability, y=normresponse, color=Experiment)) +
