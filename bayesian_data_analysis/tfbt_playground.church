@@ -1,7 +1,8 @@
-(load '/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_data_analysis/binomial-score.js)
+(load 'binomial-score.js)
 
 ; generalize to list of lists where each sublist corresponds to one item
-(define data 
+(define all-data 
+	(list
 	(list 15 15 15 1 5 8 13 14 14 15 15 12 10 15 15 9 15 11 15 7 15)
 	(list 7 0 15 12 15 10 8 0 15 0 8 7 9 15 9 5 15 15)
 	(list 8 12 0 5 0 15 3 3 10 2 2 3 13 6 15 15 0 2)
@@ -92,18 +93,19 @@
 	(list 6 2 3 4 10 2 8 5 0 5 8 6 7 7 5 6 2 6)
 	(list 15 15 15 15 14 15 15 15 15 13 15 15 15 9 15 15 15 15)
 	(list 4 7 3 0 11 8 1 8 0 8 5 7 1 6 0 7 0 3 0 0 0 7)
-)
+))
 
-(define (binomScore theta)
-	(map (lambda (x) (binomialScore (list theta 15) x)) data))
+; (define (binomScore theta)
+; 	(map (lambda (x) (binomialScore (list theta 15) x)) data))
 
 (define inferBinomialParams 
-  (mh-query 1000 10
+	(lambda (data)
+	  (mh-query 100 10
 
           
           (define phi (uniform 0 1))
           
-          (define get-data (lambda (item) ...))
+          ;(define get-data (lambda (item) ...))
 
 
 			;; level 2 model
@@ -117,15 +119,12 @@
 		;(define theta (beta 1 1))
           
 		 (define binomScoreWphi
-		  (map 
-		  	(lambda (data)
 				(map 
 				 (lambda (x) (log 
 				              (+ (* phi (/ 1 16))
 				 			   	 (* (- 1 phi) 
-				 				   (exp (binomialScore (list theta 15) x)))))) 
-				 data)
-		  all-data) 
+				 				   (exp (binomialScore (list theta 15) x))))))
+				 				   data)) 
           
           (define dummy (factor (sum binomScoreWphi)))
           
@@ -135,20 +134,21 @@
           (list gamma delta phi posterior-predictive-theta)
           ;(list theta phi)
           
-          true))	
+          true)))
   
- (list    
- (mean (map first inferBinomialParams))
- (mean (map second inferBinomialParams))
- (mean (map third inferBinomialParams))
- (sqrt (var (map third inferBinomialParams))) 
- (mean (map fourth inferBinomialParams))
- (sqrt (var (map fourth inferBinomialParams)))
- )
+ ; (list    
+ ; (mean (map first inferBinomialParams))
+ ; (mean (map second inferBinomialParams))
+ ; (mean (map third inferBinomialParams))
+ ; (sqrt (var (map third inferBinomialParams))) 
+ ; (mean (map fourth inferBinomialParams))
+ ; (sqrt (var (map fourth inferBinomialParams)))
+ ; )
 
-          
-;(map (lambda (x) (exp (binomialScore (list 0.1 15) x))) data)
-;(write-csv inferBinomialParams 'inferBinomialParams.csv)
+
+;(length data)
+(define samples (map inferBinomialParams all-data))
+(write-csv (transpose samples) 'inferBinomialParams.csv)
 ;(list
 ;(mean (map first inferBinomialParams))
 ;(mean (map second inferBinomialParams))
