@@ -147,7 +147,7 @@ ggplot(agrr, aes(x=PriorExpectation, y=response, color=trial_type)) +
   #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
   geom_smooth() +
   facet_grid(quantifier~block,scales="free_y") +
-  ylab("Mean normalized response")   
+  ylab("Mean raw response")   
 ggsave(file="graphs/raw_means_ub_byquantifier_smoothed_exp_bytrialtype_byblock.pdf",width=10,height=8)
 
 
