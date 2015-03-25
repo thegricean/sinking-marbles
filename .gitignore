@@ -9,7 +9,14 @@
 *.log
 *.synctex.gz
 *.tmp.results
-*.results.tsv
+*.results.csv
+*-subject_information.csv
+*-mturk.csv
+*-system.csv
+*-trials.csv
+*.success
+*-catch_trials.csv
+*_invoice.csv
 .RData
 .Rhistory
 .DS_Store

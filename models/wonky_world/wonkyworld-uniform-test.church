@@ -84,27 +84,27 @@
 		(define marbles (marble-state actualprior))
 		
 		;wonky-world?
-		marbles
-		;(list wonky-world? marbles)
+		;marbles
+		(list wonky-world? marbles)
 
 		(equal? utterance (apply multinomial 
                                  (power (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives actualprior)
                                         speaker-opt))))) 
 
+; set of alternatives used in the computation
 (define alternatives '(some all none))
 
-(define wonkyworld-prior .1)
+; prior wonkiness probability
+(define wonkyworld-prior .5)
 
-(define empiricalprior (list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1))
+; 'empirical' prior distributions
+(define empiricalprior (list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 2 5))
 
 (define theprior (lambda (wonky-world?)
 	(if wonky-world?
 		(list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1)
 		empiricalprior)))
 
-(pragmatic-speaker 15 'how-many 15 alternatives empiricalprior)
+; run pragmatic listener with an utterance, a QUD, a total number of marbles (this version requires it to be 15), the set of alternatives defined above, and a speaker optimality parameter
+(pragmatic-listener 'some 'how-many 15 alternatives 2) 
 
-;(pragmatic-listener 'some 'how-many 15 alternatives 4) 
-
-;(define (pl total-marbles QUD speaker-opt)
-;(pragmatic-listener 'some 'how-many 15 alternatives 2)

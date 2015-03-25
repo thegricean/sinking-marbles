@@ -288,7 +288,7 @@ p_wmodel_nolegend = p_wmodel + theme(legend.position="none")
 p_wempirical_nolegend = p_wempirical + theme(legend.position="none")
 
 #pdf("rsa-predictions-uniform.pdf",width=10,height=4)
-pdf("wonkiness-fullplot",width=10,height=4)
+pdf("wonkiness-fullplot.pdf",width=12,height=5)
 grid.arrange(p_wmodel_nolegend, p_wempirical_nolegend, legend,nrow=1,widths=unit.c(unit(.45, "npc"), unit(.45, "npc"), unit(.1, "npc")))
 dev.off()
 
