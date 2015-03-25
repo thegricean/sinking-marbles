@@ -1,0 +1,30 @@
+// full bayesian prior elicitaiton
+
+// to run: webppl priors.wppl --require-js ./utils
+
+// model "give a number" task
+
+// define states 0-15
+var states = utils.sequence(0,15,1)
+
+
+var logistic=function(x) {
+    return 1/(1+Math.exp(-x))
+}
+
+var logit = function(x) {
+	return Math.log(x/(1-x))
+}
+
+// each state has a uniform(0,1) prior
+var priorInTheSky = _.object(map(function(s){
+	return [s, sample(uniformERP,[0,1])]
+}, states))
+
+// var numberTask = function(state) {
+// 	 Enumerate(function(){
+// 	 	var stateProb = priorInTheSky[state]
+
+// 	}
+// }
+
