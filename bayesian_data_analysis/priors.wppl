@@ -1,29 +1,54 @@
 // fully bayesian prior elicitaiton
-
 // to run: webppl priors.wppl --require-js ./utils
+
+
+// helpers
+var mapObject = function(fn, obj){  
+  return _.object(
+    map(
+      function(kv){
+        return [kv[0], fn(kv[0], kv[1])]
+      }, 
+      _.pairs(obj))
+  );
+}
 
 // define states 0-15
 var states = utils.sequence(0,15,1)
+// define items 1 - 90
+var items = utils.sequence(1,4,1)
 
+// for each item.
 // each state has a uniform(0,1) prior
-var unnormedPriorInTheSky = repeat(16, function(){return sample(uniformERP,[0,1])})
+var generatePriorInTheSky = function(){
+	var unnormed = repeat(16, function(){return sample(uniformERP,[0,1])})
+	return utils.normalize(unnormed)
+}
 
+
+// form is: {"item1":{"state0":prob, 
+//						..., 
+//						"state15":prob},
+//			...,
+//			"item90":{"state0":prob, 
+//						..., 
+//						"state15":prob}}
 var priorInTheSky = _.object(
-	_.zip(states, utils.normalize(unnormedPriorInTheSky))
+	_.zip(items, repeat(items.length, 
+						function(){
+							return _.object(
+								_.zip(states, generatePriorInTheSky())
+				)})
 	)
+)
+
 
 // read in data
 var ntData = utils.readinNumberTask()
 var nSubj_nt = ntData.length-1
 
-// each subject has some "softmax" parameter
-// uniformly distributed between 0 and +Infinity (or 100)
 
-var subjectAlphas = _.object(map(function(subj){
-	return ['s'+subj, sample(uniformERP,[0,100])]
-}, utils.sequence(0,nSubj_nt,1)))
-
-
+// linking functions
 var numberTask = function(alpha){
 	Enumerate(function(){
 	 	var distoredDistribution = utils.raiseToPower(_.values(priorInTheSky),alpha)
@@ -39,8 +64,25 @@ var binnedHistTask = function(offset, scale){
 	})
 }
 
-// var inferPriorInTheSky = function(){
+var inferPrITS = function(){
+	// for the "number task":
+	// each subject has some "softmax" parameter
+	// uniformly distributed between 0 and +Infinity (or 100)
 
+	var subjectAlphas = _.object(map(function(subj){
+		return ['s'+subj, sample(uniformERP,[0,100])]
+	}, utils.sequence(0,nSubj_nt,1)))
 
-// }
+	console.log(subjectAlphas)
 
+	return mapObject(
+		function(subjID,subjAlpha){
+			
+			var subjectPredictions = numberTask(subjAlpha)
+			subjectPredictions.score()
+
+		}, 
+		subjectAlphas)
+}
+
+// inferPrITS()
