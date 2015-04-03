@@ -18,7 +18,13 @@ function sequence(lowEnd,highEnd, interval){
 	return list
 }
 
+function raiseToPower(dist, pow){
+	return _.map(dist,function(x){return Math.pow(x,pow)})
+}
+
 module.exports = {
   readCSV: readCSV,
   writeCSV: writeCSV,
-  sequence: sequence};
+  sequence: sequence,
+  raiseToPower: raiseToPower
+};
