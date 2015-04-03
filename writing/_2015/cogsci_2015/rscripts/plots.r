@@ -43,110 +43,17 @@ dev.off()
 
 #####################################
 # plot model predictions: expectations
-load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-uniform.RData")
-load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-binomial.RData")
-
-# plot expectations for best basic model: 
-toplot = droplevels(subset(mp, QUD == "how-many" & Alternatives == "0_basic" & Quantifier == "some" & WonkyWorldPrior == .5))
-nrow(toplot)
-
-pexpectations = ddply(toplot, .(Item, SpeakerOptimality,PriorExpectation_smoothed, PosteriorExpectation_empirical), summarise, PosteriorExpectation_predicted=sum(State*PosteriorProbability)/15)
-head(pexpectations)
-some = pexpectations#droplevels(subset(pexpectations, Quantifier == "some"))
-
-toplot = droplevels(subset(some, SpeakerOptimality == 2))
-nrow(toplot)
-head(toplot)
-toplot$Mode = priormodes[as.character(toplot$Item),]$Mode
-
-ggplot(toplot, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted)) +
-  geom_point(color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth(color="#00B0F6") +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,1), name="Prior expectation") +
-  scale_y_continuous(limits=c(0,1), name="Model predicted posterior expectation")
-#  geom_text(data=cors, aes(label=r)) +
-
-#scale_size_discrete(range=c(1,2)) +
-#scale_color_manual(values=c("red","blue","black")) 
-ggsave("model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
-save(toplot, file="../data/toplot-expectations.RData")
-
-# plot by prior mode instead
-ggplot(toplot, aes(x=Mode, y=PosteriorExpectation_predicted)) +
-  geom_point(color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth(color="#00B0F6") +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,15), name="Prior mode") +
-  scale_y_continuous(limits=c(0,1), name="Model predicted posterior expectation")
-
-toplot_w = toplot
-# get rRSA predictions for qud=how-many, alts=0_basic, spopt=2
-load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/complex_prior/smoothed_unbinned15/results/data/toplot-expectations.RData")
-toplot_r = toplot
-head(toplot_w)
-summary(toplot_r)
-toplot_r$Model = "RSA"
-toplot_w$Model = "wRSA"
-
-# plot regular rsa predictions
-ggplot(toplot_r, aes(x=PriorExpectation_smoothed*15, y=PosteriorExpectation_predicted*15)) +
-  geom_point(color="#007fb1") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth(color="#007fb1") +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Prior expected number of objects") +
-  scale_y_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Posterior predicted number of objects")
-#  geom_text(data=cors, aes(label=r)) +
-
-#scale_size_discrete(range=c(1,2)) +
-#scale_color_manual(values=c("red","blue","black")) 
-ggsave("model-expectations-rrsa.pdf",width=6.5,height=4.5)#,width=30,height=10)
-
-# plot both rRSA and uniform wRSA expectation predictions in same plot
-toplot = merge(toplot_r,toplot_w, all=T)
-head(toplot)
-nrow(toplot)
-p_exps = ggplot(toplot, aes(x=PriorExpectation_smoothed*15, y=PosteriorExpectation_predicted*15, color=Model)) +
-  geom_point() + #color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth() + #color="#00B0F6") +
-  scale_color_manual(values=c("#007fb1", "#4ecdff")) +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Prior expected number of objects") +
-  scale_y_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Posterior predicted number of objects")
-#  geom_text(data=cors, aes(label=r)) +
-#scale_size_discrete(range=c(1,2)) +
-#scale_color_manual(values=c("red","blue","black")) 
-#ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
-ggsave("model-expectations-binomial-regular.pdf",width=6.5,height=4.5)
-ggsave("model-expectations-uniform-regular.pdf",width=6.5,height=4.5)
-
-
 # plot model predictions: allstate-probs
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-uniform.RData")
-load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-binomial.RData")
 
 # plot expectations for best basic model: 
-toplot = droplevels(subset(mp, QUD == "how-many" & Alternatives == "0_basic" & Quantifier == "some" & WonkyWorldPrior == .5 & State == 15))
+toplot = droplevels(subset(mp, Quantifier == "some" & WonkyWorldPrior == .5 & State == 15))
 nrow(toplot)
 
 # adjust speaker optimality at will
 toplot = droplevels(subset(toplot, SpeakerOptimality == 2))
 nrow(toplot)
 head(toplot)
-
-ggplot(toplot, aes(x=PriorProbability, y=PosteriorProbability)) +
-  geom_point(color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth(color="#00B0F6") +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,1), name="Prior probability of all-state") +
-  scale_y_continuous(limits=c(0,1), name="Model predicted posterior probability of all-state")
-#  geom_text(data=cors, aes(label=r)) +
-
-#scale_size_discrete(range=c(1,2)) +
-#scale_color_manual(values=c("red","blue","black")) 
-ggsave("model-allprobs.pdf",width=5.5,height=4.5)#,width=30,height=10)
-ggsave("model-uniform-allprobs.pdf",width=5.5,height=4.5)#,width=30,height=10)
-save(toplot, file="../data/toplot-allprobs.RData")
 
 toplot_w = toplot
 # get rRSA predictions for qud=how-many, alts=0_basic, spopt=2
@@ -161,23 +68,6 @@ nrow(toplot)
 head(toplot)
 
 toplot_r = toplot
-
-# plot only rrsa
-ggplot(toplot_r, aes(x=PriorProbability, y=PosteriorProbability)) +
-  geom_point(color="#007fb1") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth(color="#007fb1") + #color="#00B0F6") +
-  #scale_color_manual(values=c("#007fb1")) +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,1), name="Prior probability of all-state") +
-  scale_y_continuous(limits=c(0,1), name="Model predicted posterior probability of all-state")
-#  geom_text(data=cors, aes(label=r)) +
-#scale_size_discrete(range=c(1,2)) +
-#scale_color_manual(values=c("red","blue","black")) 
-#ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
-ggsave("model-allprobs-rrsa.pdf",width=6.5,height=4.5)
-
-head(toplot_w)
-summary(toplot_r)
 toplot_r$Model = "RSA"
 toplot_w$Model = "wRSA"
 
@@ -188,16 +78,51 @@ nrow(toplot)
 p_probs = ggplot(toplot, aes(x=PriorProbability, y=PosteriorProbability, color=Model)) +
   geom_point() + #color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
   geom_smooth() + #color="#00B0F6") +
-  scale_color_manual(values=c("#007fb1", "#4ecdff")) +
+  scale_color_manual(values=c("darkred",wes_palette("Darjeeling")[1])) +
   #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_x_continuous(limits=c(0,1), name="Prior probability of all-state") +
-  scale_y_continuous(limits=c(0,1), name="Model predicted posterior probability of all-state")
-#  geom_text(data=cors, aes(label=r)) +
-#scale_size_discrete(range=c(1,2)) +
-#scale_color_manual(values=c("red","blue","black")) 
-#ggsave("graphs/model-expectations.pdf",width=5.5,height=4.5)#,width=30,height=10)
-ggsave("model-allprobs-binomial-regular.pdf",width=6.5,height=4.5)
-ggsave("model-allprobs-uniform-regular.pdf",width=6.5,height=4.5)
+  scale_x_continuous(limits=c(0,1), name="Prior mean all-state probability") +
+  scale_y_continuous(limits=c(0,1), name="Predicted posterior all-state probability")  
+p_probs
+
+# plot model predictions: expectations
+load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-uniform.RData")
+
+
+# plot expectations for best basic model: 
+toplot = droplevels(subset(mp, Quantifier == "some" & WonkyWorldPrior == .5))
+nrow(toplot)
+
+pexpectations = ddply(toplot, .(Item, SpeakerOptimality,PriorExpectation), summarise, PosteriorExpectation_predicted=sum(State*PosteriorProbability)/15)
+head(pexpectations)
+some = pexpectations#droplevels(subset(pexpectations, Quantifier == "some"))
+
+toplot = droplevels(subset(some, SpeakerOptimality == 2))
+nrow(toplot)
+head(toplot)
+toplot_w = toplot
+
+# get rRSA predictions for qud=how-many, alts=0_basic, spopt=2
+load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/complex_prior/smoothed_unbinned15/results/data/toplot-expectations.RData")
+toplot_r = toplot
+head(toplot_w)
+summary(toplot_r)
+toplot_r$Model = "RSA"
+toplot_r$PriorExpectation = toplot_r$PriorExpectation_smoothed*15
+toplot_w$Model = "wRSA"
+
+# plot both rRSA and uniform wRSA expectation predictions in same plot
+toplot = merge(toplot_r,toplot_w, all=T)
+head(toplot)
+nrow(toplot)
+
+p_exps = ggplot(toplot, aes(x=PriorExpectation, y=PosteriorExpectation_predicted*15, color=Model)) +
+  geom_point() + #color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
+  geom_smooth() + #color="#00B0F6") +
+  scale_color_manual(values=c("darkred",wes_palette("Darjeeling")[1])) +#values=c("#007fb1", "#4ecdff")) +
+  #  geom_abline(intercept=0,slope=1,color="gray50") +
+  scale_x_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Prior mean number of objects") +
+  scale_y_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Predicted posterior number of objects") 
+p_exps
 
 library(gridExtra)
 #  share a legend between multiple plots
@@ -206,13 +131,10 @@ legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
 p_exps_nolegend = p_exps + theme(legend.position="none")
 p_probs_nolegend = p_probs + theme(legend.position="none")
 
-#pdf("rsa-predictions-uniform.pdf",width=10,height=4)
-pdf("rsa-predictions.pdf",width=10,height=4)
+pdf("rsa-predictions.pdf",width=12,height=4.9)
 grid.arrange(p_exps_nolegend, p_probs_nolegend, legend,nrow=1,widths=unit.c(unit(.45, "npc"), unit(.45, "npc"), unit(.1, "npc")))
 dev.off()
 
-s = subset(r, quantifier=="Some" & Proportion == "100")
-nrow(s)
 
 library(lmerTest)
 m=lmer(normresponse ~ AllPriorProbability + (1+AllPriorProbability|workerid) + (1|Item), data=s)
@@ -223,36 +145,28 @@ summary(m)
 #####################################
 # plot model predictions: wonkiness
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/wr-uniform.RData")
-load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/wr-binomial.RData")
 
 # plot expectations for best basic model: 
-toplot = droplevels(subset(wr, QUD == "how-many" & Alternatives == "0_basic" & WonkyWorldPrior == .5 & Wonky == "true"))
+toplot = droplevels(subset(wr, WonkyWorldPrior == .5 & Wonky == "true"))
 nrow(toplot)
 toplot$Mode = priormodes[as.character(toplot$Item),]$Mode
 
 toplot = droplevels(subset(toplot, SpeakerOptimality == 2))
 nrow(toplot)
 head(toplot)
+toplot$quantifier = capitalize(as.character(toplot$Quantifier))
+toplot$Quantifier = factor(toplot$quantifier, levels=c("Some","All","None"))
 
-p_wmodel = ggplot(toplot, aes(x=PriorExpectation, y=PosteriorProbability,color=Quantifier)) +
-  geom_point() + #color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth() + #color="#00B0F6") +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_color_manual(values=c("#F8766D","#00BF7D","#00B0F6")) +
-  scale_x_continuous(breaks=seq(1,15,by=2),name="Prior expected number of objects") +
-  scale_y_continuous(breaks=seq(0,1,by=.25),name="Model predicted wonkiness probability")
-
-ggsave("model-wonkiness-uniform.pdf",width=5.5,height=4)#,width=30,height=10)
-ggsave("model-wonkiness-binomial.pdf",width=5.5,height=4)#,width=30,height=10)
-
-# plot by mode
-ggplot(toplot, aes(x=Mode, y=PosteriorProbability,color=Quantifier)) +
-  geom_point() + #color="#00B0F6") + #values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")
-  geom_smooth() + #color="#00B0F6") +
-  #  geom_abline(intercept=0,slope=1,color="gray50") +
-  scale_color_manual(values=c("#F8766D","#00BF7D","#00B0F6")) +
-  scale_x_continuous(breaks=seq(1,15,by=2),name="Prior expected number of objects") +
-  scale_y_continuous(breaks=seq(0,1,by=.25),name="Model predicted wonkiness probability")
+p_wmodel = ggplot(toplot, aes(x=PriorExpectation, y=PosteriorProbability,color=Quantifier,shape=Quantifier)) +
+  geom_point() + 
+  geom_smooth() + 
+  scale_color_manual(values=c(wes_palette("Darjeeling")[1:3],"black","gray40")) +   
+  #scale_color_manual(values=c("#F8766D","#00BF7D","#00B0F6")) +
+  scale_x_continuous(breaks=seq(1,15,by=2),name="Prior mean number of objects") +
+  scale_y_continuous(breaks=seq(0,1,by=.25),name="Predicted posterior wonkiness probability") +
+  theme(plot.margin=unit(c(0,0,0,0),units="cm")) 
+p_wmodel
+ggsave("model-wonkiness-uniform.pdf",width=6.8,height=5)#,width=30,height=10)
 
 ############
 # empirical wonkiness posteriors
@@ -261,23 +175,22 @@ load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles
 head(r)
 nrow(r)
 
-ggplot(r, aes(x=response, fill=quantifier)) +
-  geom_histogram() +
-  facet_grid(workerid~quantifier)
-ggsave("subject-variability-wonkiness.pdf",width=7,height=25)
-
 toplot = aggregate(response ~ quantifier + Item + PriorExpectation, FUN="mean", data=r)
 toplot = droplevels(subset(toplot, quantifier %in% c("All","Some","None")))
 toplot$Quantifier = factor(tolower(toplot$quantifier), levels=c("all", "none","some"))
 toplot$Mode = priormodes[as.character(toplot$Item),]$Mode
+toplot$quantifier = capitalize(as.character(toplot$Quantifier))
+toplot$Quantifier = factor(toplot$quantifier, levels=c("Some","All","None"))
 
-p_wempirical = ggplot(toplot, aes(x=PriorExpectation, y=response, color=Quantifier)) +
+p_wempirical = ggplot(toplot, aes(x=PriorExpectation, y=response, color=Quantifier,shape=Quantifier)) +
   geom_point() +
   geom_smooth() +
-  scale_color_manual(values=c("#F8766D","#00BF7D","#00B0F6")) +
-  scale_x_continuous(breaks=seq(1,15,by=2),name="Prior expected number of objects") +
-  scale_y_continuous(breaks=seq(0,1,by=.25),name="Mean empirical wonkiness probability")  
-ggsave(file="empirical-wonkiness.pdf",width=5.5,height=4)
+  scale_color_manual(values=c(wes_palette("Darjeeling")[1:3],"black","gray40")) +   
+  scale_x_continuous(breaks=seq(1,15,by=2),name="Prior mean number of objects") +
+  scale_y_continuous(breaks=seq(0,1,by=.25),name="Mean empirical wonkiness probability")  +
+  theme(plot.margin=unit(c(0,0,0,0),units="cm")) 
+p_wempirical
+ggsave(file="empirical-wonkiness.pdf",width=6.8,height=5)
 
 
 library(gridExtra)
@@ -320,12 +233,13 @@ agr = aggregate(ProportionResponse ~ PriorExpectationProportion + quantifier + I
 
 min(agr[agr$quantifier == "Some",]$ProportionResponse)
 max(agr[agr$quantifier == "Some",]$ProportionResponse)
+agr$Quantifier = factor(x=agr$quantifier, levels=c("Some","All","None","long_filler","short_filler"))
 
-p_eexps = ggplot(agr, aes(x=PriorExpectationProportion*15, y=ProportionResponse*15, color=quantifier)) +
+p_eexps = ggplot(agr, aes(x=PriorExpectationProportion*15, y=ProportionResponse*15, color=Quantifier, shape=Quantifier)) +
   geom_point() +
   #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
   geom_smooth(method="lm") +
-  scale_color_manual(values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
+  scale_color_manual(values=c(wes_palette("Darjeeling")[1:3],"black","gray40")) +#values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
   scale_y_continuous(breaks=seq(1,15,by=2),name="Posterior mean number of objects") +
   #  geom_abline(intercept=0,slope=1,color="gray70") +
   scale_x_continuous(breaks=seq(1,15,by=2),name="Prior mean number of objects")  
@@ -341,11 +255,12 @@ agrr = aggregate(normresponse ~ AllPriorProbability + Proportion + quantifier + 
 agrr = aggregate(normresponse ~ AllPriorProbability + Proportion + quantifier + Item,data=r,FUN=mean)
 ub = subset(agrr, Proportion == "100")
 ub = droplevels(ub)
+ub$Quantifier = factor(x=ub$quantifier, levels=c("Some","All","None","long_filler","short_filler"))
 
-p_eprobs = ggplot(ub, aes(x=AllPriorProbability, y = normresponse, color=quantifier)) +
+p_eprobs = ggplot(ub, aes(x=AllPriorProbability, y = normresponse, color=Quantifier, shape=Quantifier)) +
   geom_point() +
   geom_smooth(method="lm") +
-  scale_color_manual(values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agrr$quantifier),labels=c("all","long filler","none","short filler","some")) +
+  scale_color_manual(values=c(wes_palette("Darjeeling")[1:3],"black","gray40")) +#values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
   scale_y_continuous(limits=c(0,1),name="Posterior probability of all-state ") +
   #  geom_abline(intercept=0,slope=1,color="gray70") +
   scale_x_continuous(limits=c(0,1),name="Prior probability of all-state")  
@@ -359,7 +274,7 @@ legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
 p_eexps_nolegend = p_eexps + theme(legend.position="none")
 p_eprobs_nolegend = p_eprobs + theme(legend.position="none")
 
-pdf("empirical-results.pdf",width=10,height=4)
+pdf("empirical-results.pdf",width=12,height=4.9)
 grid.arrange(p_eexps_nolegend, p_eprobs_nolegend, legend,nrow=1,widths=unit.c(unit(.45, "npc"), unit(.45, "npc"), unit(.1, "npc")))
 dev.off()
 
@@ -369,40 +284,5 @@ ggplot(r[r$Proportion == "0",], aes(x=normresponse,fill=quantifier)) +
   geom_histogram() +
   facet_grid(workerid~quantifier)  
 ggsave("subject-variability.pdf",width=5.5,height=4)
-
-
-
-
-
-
-
-######################
-### NOAH'S MODEL PREDICTIONS
-rsa_allstate = read.csv(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/ndg-code/RSA-allstate.csv",header=F)
-head(rsa_allstate)
-colnames(rsa_allstate) = c("BinomialCW","PosteriorAllProbability")
-ggplot(rsa_allstate, aes(x=BinomialCW,y=PosteriorAllProbability)) +
-  geom_point(color="#00B0F6") +
-  scale_x_continuous(limits=c(0,1), name="Binomial coin weight") +
-  scale_y_continuous(limits=c(0,1), name="Predicted posterior probability of all-state")  
-ggsave("noahs-allstate-predictions.pdf",width=4.5,height=3.5)  
-
-rsa_expectation = read.csv(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/ndg-code/RSA-expectation.csv",header=F)
-head(rsa_expectation)
-colnames(rsa_expectation) = c("PriorExpectation","PosteriorExpectation")
-ggplot(rsa_expectation, aes(x=PriorExpectation/15,y=PosteriorExpectation/15)) +
-  geom_point(color="#00B0F6") +
-  scale_x_continuous(limits=c(0,1), name="Prior expectation") +
-  scale_y_continuous(limits=c(0,1), name="Predicted posterior expectation")  
-ggsave("noahs-expectation-predictions.pdf",width=4.5,height=3.5)  
-
-rsa_expall = read.csv(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/ndg-code/RSA-expectedVsallstate.csv",header=F)
-head(rsa_expall)
-colnames(rsa_expall) = c("PriorExpectation","PosteriorExpectation")
-ggplot(rsa_expall, aes(x=PriorExpectation/15,y=PosteriorExpectation)) +
-  geom_point(color="#00B0F6") +
-  scale_x_continuous(limits=c(0,1), name="Prior expectation") +
-  scale_y_continuous(limits=c(0,1), name="Predicted posterior probability of all-state")  
-ggsave("noahs-allstate-predictions-bypriorexp.pdf",width=4.5,height=3.5)  
 
 
