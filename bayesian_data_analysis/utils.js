@@ -1,5 +1,6 @@
+// I/O helpers
+
 var fs = require('fs');
-// var csvtojson = require('csvtojson');
 var babyparse = require('babyparse');
 
 function readCSV(filename){
@@ -10,6 +11,28 @@ function writeCSV(jsonCSV, filename){
   fs.writeFileSync(filename, babyparse.unparse(jsonCSV) + "\n");
 }
 
+function readinNumberTask(){
+	var ntData = readCSV('fake_numerTaskdata.csv')
+//	var ntData = readCSV('inferpriorinsky_number.txt')
+
+	var dataBySubjByItem = _.object(
+		_.map(ntData.data.slice(1),
+				function(lst){
+					return ['s'+lst[0], 
+								_.object(_.zip(
+									_.map(sequence(1,lst.slice(1).length,1),
+										function(n){return 'i'+n})
+									,_.map(lst.slice(1), parseFloat))
+									)]
+				}
+		))
+	return dataBySubjByItem
+}
+
+
+
+// general helpers
+
 function sequence(lowEnd,highEnd, interval){
 	var list = [];
 	for (var i = 0; i <= ((highEnd-lowEnd)/interval); i++) {
@@ -18,6 +41,19 @@ function sequence(lowEnd,highEnd, interval){
 	return list
 }
 
+var mapObject = function(fn, obj){  
+  return _.object(
+    _.map(
+    	_.pairs(obj),
+      function(kv){
+        return [kv[0], fn(kv[0], kv[1])]
+      })
+  );
+}
+//
+// var mapObject = function(fn, obj){
+// 	return _.mapObject(obj, fn)
+// }
 
 // mathematical transformations for distributions (arrays)
 
@@ -42,12 +78,22 @@ function logisticDistribution(dist, offset, scale){
 	return _.map(dist, function(x){return logistic(x, offset, scale)})
 }
 
+function sum(lst){
+	return lst.reduce(function(a,b){return a+b})
+}
+
+function normalize(dist){
+	return _.map(dist, function(x){return x/sum(dist)})
+}
+
 
 module.exports = {
-  readCSV: readCSV,
+  readinNumberTask: readinNumberTask,
   writeCSV: writeCSV,
   sequence: sequence,
+  mapObject: mapObject,
   raiseToPower: raiseToPower,
   logitDistribution: logitDistribution,
-  logisticDistribution: logisticDistribution
+  logisticDistribution: logisticDistribution,
+  normalize: normalize
 };
