@@ -1,0 +1,149 @@
+// fully bayesian prior elicitaiton
+// to run: webppl priors.wppl --require-js ./utils
+
+
+// helpers
+var mapObject = function(fn, obj){  
+  return _.object(
+    map(
+      function(kv){
+        return [kv[0], fn(kv[0], kv[1])]
+      }, 
+      _.pairs(obj))
+  );
+}
+
+var printERP = function(myERP){
+  return map(
+          function(value){
+            value.concat(Math.exp(myERP.score([], value)))
+          },
+          myERP.support([]))
+}
+
+// define states 0-15
+var states = utils.sequence(0,15,1)
+// define items 1 - 90
+var items = utils.sequence(1,4,1)
+
+// for each item.
+// each state has a uniform(0,1) prior
+var generatePriorInTheSky = function(){
+	var unnormed = repeat(16, function(){return sample(uniformERP,[0,1])})
+	return utils.normalize(unnormed)
+}
+
+
+
+
+// read in data
+var ntData = utils.readinNumberTask()
+var nSubj_nt = _.keys(ntData).length-1
+
+// linking functions
+var numberTask = function(itemPrior,alpha){
+	Enumerate(function(){
+	 	var distoredDistribution = utils.raiseToPower(_.values(itemPrior),alpha)
+	 	return discrete(distoredDistribution)
+	})
+}
+
+var binnedHistTask = function(itemPrior,offset, scale){
+	Enumerate(function(){
+		var logitP = utils.logitDistribution(_.values(itemPrior))
+		var distortedP = utils.logisticDistribution(logitP, offset, scale)
+		return distortedP
+	})
+}
+
+var inferPrITS = function(){
+
+	// form is: {"item1":{"state0":prob, 
+	//						..., 
+	//						"state15":prob},
+	//			...,
+	//			"item90":{"state0":prob, 
+	//						..., 
+	//						"state15":prob}}
+	var priorInTheSky = _.object(
+		_.zip(map(function(i){return 'i'+i}, items), 
+			  repeat(items.length, 
+							function(){
+								return _.object(
+									_.zip(states, generatePriorInTheSky())
+					)})
+		)
+	)
+
+	// for the "number task":
+	// each subject has some "softmax" parameter
+	// uniformly distributed between 0 and +Infinity (or 100)
+
+	var subjectAlphas = _.object(map(function(subj){
+		return ['s'+subj, sample(uniformERP,[0,100])]
+	}, utils.sequence(0,nSubj_nt,1)))
+
+	mapObject(
+		function(subjID,subjAlpha){
+
+			mapObject(function(itemID,response_number){
+			 	
+			 	var subjectPredictions = response_number=='-1' ? null:
+					numberTask(priorInTheSky[itemID], subjAlpha)
+
+//				console.log(response_number)
+				//console.log(subjectPredictions.score([], response_number))
+				response_number=='-1' ? null: 
+				 	factor(subjectPredictions.score([], response_number))
+			 }, 
+			 ntData[subjID])
+			//var subjectPredictions = numberTask(subjAlpha)
+//			subjectPredictions.score()
+
+		}, 
+		subjectAlphas)
+
+	return priorInTheSky
+
+}
+
+var results = MH(inferPrITS,100)
+
+// var jsonResults = JSON.stringify(results)
+
+
+// var tidyState = function(supportEl) {
+// 	return mapObject(function(itemID,stateDist){
+// 		return mapObject(function(stateID,prob){
+// 			return 
+// 		}, stateDist)
+// 	}, supportEl)
+// }
+
+var posterior = map(
+  function(value){
+    var postprob = Math.exp(results.score([], value))
+    return _.extend({"prob":postprob},value)
+  },
+  results.support([]))
+
+var jsonResults = JSON.stringify(posterior)
+
+jsonResults
+//posterior
+
+// var posterior = map(
+//   function(value){
+  	
+  	
+// //    return value.concat(Math.exp(results.score([], value)))
+//   },
+//   results.support())
+
+// posterior
+
+// results.support().length
+//value.concat(Math.exp(results.score([], results.support()[1])))
+//printERP(results)
+//priorInTheSky
+//ntData[subjID]
