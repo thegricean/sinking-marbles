@@ -18,13 +18,36 @@ function sequence(lowEnd,highEnd, interval){
 	return list
 }
 
-function raiseToPower(dist, pow){
-	return _.map(dist,function(x){return Math.pow(x,pow)})
+
+// mathematical transformations for distributions (arrays)
+
+var logit = function(x) {
+	return Math.log(x/(1-x))
 }
+
+var logistic=function(x, offset, scale) {
+    return 1/(1+Math.exp(-scale*(x-offset)))
+}
+
+
+function raiseToPower(dist, power){
+	return _.map(dist,function(x){return Math.pow(x,power)})
+}
+
+function logitDistribution(dist){
+	return _.map(dist, logit)
+}
+
+function logisticDistribution(dist, offset, scale){
+	return _.map(dist, function(x){return logistic(x, offset, scale)})
+}
+
 
 module.exports = {
   readCSV: readCSV,
   writeCSV: writeCSV,
   sequence: sequence,
-  raiseToPower: raiseToPower
+  raiseToPower: raiseToPower,
+  logitDistribution: logitDistribution,
+  logisticDistribution: logisticDistribution
 };
