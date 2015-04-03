@@ -8,13 +8,6 @@
 var states = utils.sequence(0,15,1)
 
 
-var logistic=function(x, offset, scale) {
-    return 1/(1+Math.exp(-scale*(x-offset)))
-}
-
-var logit = function(x) {
-	return Math.log(x/(1-x))
-}
 
 // each state has a uniform(0,1) prior
 var priorInTheSky = _.object(map(function(s){
@@ -30,8 +23,19 @@ var numberTask = function(alpha){
 	})
 }
 
-numberTask(10)
+var binnedHistTask = function(offset, scale){
+	Enumerate(function(){
+		var logitP = utils.logitDistribution(_.values(priorInTheSky))
+		var distortedP = utils.logisticDistribution(logitP, offset, scale)
+		return distortedP
+	})
+}
+
+binnedHistTask(0,1)
+
+//utils.logistic(-2,0,1)
 
 
-
-
+// map(function(x){return utils.logistic(x,0,1)},
+// [-0.3414013117914448,-0.2376359624099281,0.020856022553032906,0.30023975012566867,-0.579909913854111,4.299738978971225,0.17135693297732404,1.224037193336389,1.9712230157670805,-0.9739556163750763,-0.15218875234345816,1.2437823886183133,0.664515191711306,-0.9191264539291414,0.19538119392095468,-1.5226691017027714]
+// )
