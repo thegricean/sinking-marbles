@@ -8,8 +8,8 @@
 var states = utils.sequence(0,15,1)
 
 
-var logistic=function(x) {
-    return 1/(1+Math.exp(-x))
+var logistic=function(x, offset, scale) {
+    return 1/(1+Math.exp(-scale*(x-offset)))
 }
 
 var logit = function(x) {
@@ -21,10 +21,17 @@ var priorInTheSky = _.object(map(function(s){
 	return [s, sample(uniformERP,[0,1])]
 }, states))
 
-// var numberTask = function(state) {
-// 	 Enumerate(function(){
-// 	 	var stateProb = priorInTheSky[state]
+var alpha = sample(uniformERP,[0,Infinity])
 
-// 	}
-// }
+var numberTask = function(alpha){
+	Enumerate(function(){
+	 	var distoredDistribution = utils.raiseToPower(_.values(priorInTheSky),alpha)
+	 	return discrete(distoredDistribution)
+	})
+}
+
+numberTask(10)
+
+
+
 
