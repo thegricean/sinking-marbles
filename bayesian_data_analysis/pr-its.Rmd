@@ -1,0 +1,59 @@
+---
+title: "Prior in the sky (prits)"
+author: "mht"
+date: "April 4, 2015"
+output: html_document
+---
+
+
+```{r, message=FALSE}
+library(jsonlite)
+setwd("~/Documents/research/sinking-marbles/bayesian_data_analysis/")
+```
+
+# Read in all the JSON strings
+
+```{r comment=NA}
+read.file <- function(filename) {
+  con <- file(filename, "r", blocking = TRUE)
+  lines <- paste(readLines(con, warn = FALSE), collapse = "\n")
+  close(con)
+  lines
+}
+
+#json.dir <- "./modeling-results/""
+
+json.filename <- 'dummyresults.json'
+#json.strings <- Map(read.file, json.filenames)
+json.strings<- read.file(json.filename)
+```
+
+# Convert JSON to a R data frame
+
+Merge all the json strings together, as if they are in a big array, and convert it to an R data frame:
+
+```{r comment=NA}
+json.superstring <- paste("[",paste(json.strings, collapse = ","),"]")
+
+
+#View(gsub('Processing priors.wppl','',json.superstring))
+#View(json.superstring)
+
+d <- fromJSON( json.superstring )[[1]]
+
+
+
+d0 <- cbind(data.frame(prob=d$prob,
+                        i1 = d$i1,
+                        i2 = d$i2, 
+                        i3 = d$i3,
+                        i4 = d$i4))
+
+```
+
+# Tidy data
+
+```{r}
+d %>% 
+
+```
