@@ -13,6 +13,14 @@ var mapObject = function(fn, obj){
   );
 }
 
+var flatmapObject = function(fn, obj){  
+  return map(
+      function(kv){
+        return fn(kv[0], kv[1])
+      }, 
+      _.pairs(obj))
+}
+
 var printERP = function(myERP){
   return map(
           function(value){
@@ -24,7 +32,7 @@ var printERP = function(myERP){
 // define states 0-15
 var states = utils.sequence(0,15,1)
 // define items 1 - 90
-var items = utils.sequence(1,4,1)
+var items = utils.sequence(1,90,1)
 
 // for each item.
 // each state has a uniform(0,1) prior
@@ -41,12 +49,12 @@ var ntData = utils.readinNumberTask()
 var nSubj_nt = _.keys(ntData).length-1
 
 // linking functions
-var numberTask = function(itemPrior,alpha){
+var numberTask = cache(function(itemPrior,alpha){
 	Enumerate(function(){
 	 	var distoredDistribution = utils.raiseToPower(_.values(itemPrior),alpha)
 	 	return discrete(distoredDistribution)
 	})
-}
+})
 
 var binnedHistTask = function(itemPrior,offset, scale){
 	Enumerate(function(){
@@ -103,33 +111,65 @@ var inferPrITS = function(){
 		}, 
 		subjectAlphas)
 
-	return priorInTheSky
+	return _.extend(priorInTheSky, subjectAlphas)
+//	return _.flatten([priorInTheSky, subjectAlphas])
 
 }
 
-var results = MH(inferPrITS,100)
-
+var results = MH(inferPrITS,10000)
 // var jsonResults = JSON.stringify(results)
 
+var tidyState = function(supportEl) {
+	return flatmapObject(function(itemID,stateDist){
+		return 	flatmapObject(function(stateID,prob){
+						return [itemID, stateID, prob, Math.exp(results.score([], supportEl))]
+						}, stateDist)
+	}, supportEl)
+}
 
-// var tidyState = function(supportEl) {
-// 	return mapObject(function(itemID,stateDist){
-// 		return mapObject(function(stateID,prob){
-// 			return 
-// 		}, stateDist)
-// 	}, supportEl)
-// }
+var tidyAlpha = function(supportEl){
+	return flatmapObject(function(alphaID,alphaVal){
+		return _.isObject(alphaVal) ? 
+						null : 
+						['alpha', alphaID, alphaVal, Math.exp(results.score([], supportEl))]
+	}, supportEl)
+}
 
-var posterior = map(
-  function(value){
-    var postprob = Math.exp(results.score([], value))
-    return _.extend({"prob":postprob},value)
-  },
-  results.support([]))
+var posterior =
+	_.flatten(
+		_.flatten(
+		map(
+			tidyState,
+			results.support()
+			)
+		,true),
+		true)
 
-var jsonResults = JSON.stringify(posterior)
+var alphaPosterior = 
+	_.flatten(
+		map(
+			tidyAlpha,
+			results.support()
+			),
+		true)
 
-jsonResults
+
+var filename = 'modeling-results/number_pritsAlpha_mh10000b.csv'
+utils.writeCSV(posterior.concat(_.compact(alphaPosterior)), filename)
+
+
+//results.support()[1]
+// var posterior = map(
+//   function(value){
+//     var postprob = Math.exp(results.score([], value))
+//     return _.extend({"prob":postprob},value)
+//   },
+//   results.support([]))
+
+// var jsonResults = JSON.stringify(posterior)
+
+// jsonResults
+
 //posterior
 
 // var posterior = map(
