@@ -8,52 +8,60 @@ output: html_document
 
 ```{r, message=FALSE}
 library(jsonlite)
-setwd("~/Documents/research/sinking-marbles/bayesian_data_analysis/")
-```
-
-# Read in all the JSON strings
-
-```{r comment=NA}
-read.file <- function(filename) {
-  con <- file(filename, "r", blocking = TRUE)
-  lines <- paste(readLines(con, warn = FALSE), collapse = "\n")
-  close(con)
-  lines
-}
-
-#json.dir <- "./modeling-results/""
-
-json.filename <- 'dummyresults.json'
-#json.strings <- Map(read.file, json.filenames)
-json.strings<- read.file(json.filename)
-```
-
-# Convert JSON to a R data frame
-
-Merge all the json strings together, as if they are in a big array, and convert it to an R data frame:
-
-```{r comment=NA}
-json.superstring <- paste("[",paste(json.strings, collapse = ","),"]")
-
-
-#View(gsub('Processing priors.wppl','',json.superstring))
-#View(json.superstring)
-
-d <- fromJSON( json.superstring )[[1]]
-
-
-
-d0 <- cbind(data.frame(prob=d$prob,
-                        i1 = d$i1,
-                        i2 = d$i2, 
-                        i3 = d$i3,
-                        i4 = d$i4))
-
+setwd("~/Documents/research/sinking-marbles/bayesian_data_analysis/modeling-results/")
 ```
 
 # Tidy data
 
 ```{r}
-d %>% 
+d<-read.csv('number_pritsAlpha_mh1000.csv',header=F)
+
+
+alpha.tidy<- d %>% 
+  rename(parameter = V1, state=V2, value = V3, prob = V4) %>%
+  filter(parameter=='alpha')
+
+ggplot(alpha.tidy, aes(x=value))+
+  geom_histogram()+
+  facet_wrap(~state)
+  
+pr.tidy<- d %>% 
+  rename(parameter = V1, state=V2, value = V3, prob = V4) %>%
+  filter(parameter!='alpha')
+
+  
+ a<- ggplot(pr.tidy, aes(x=value, fill=state))+
+    geom_histogram()+
+  #  geom_bar(stat='identity', position = position_dodge(0.5))+
+    facet_grid(parameter~state, scales='fixed')+
+  scale_x_continuous(breaks=c(0,0.5,1), limits=c(0,1))
+
+ggsave(a,file='itemXstate.png',height=45,width=15)
+```
+
+# Expected value 
+
+```{r}
+d.ev <- d.tidy %>%
+  group_by(item, state) %>%
+  summarise(exp.val = sum(val*marginal))
+
+
+ggplot(d.ev, aes(x=state, y = exp.val, fill=state))+
+  geom_bar(stat='identity', position=position_dodge())+
+  facet_wrap(~item)
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
