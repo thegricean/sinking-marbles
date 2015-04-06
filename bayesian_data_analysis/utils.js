@@ -12,23 +12,86 @@ function writeCSV(jsonCSV, filename){
 }
 
 function readinNumberTask(){
-	var ntData = readCSV('fake_numerTaskdata.csv')
-//	var ntData = readCSV('inferpriorinsky_number.txt')
+//	var ntData = readCSV('fake_numerTaskdata.csv')
+	var ntData = readCSV('inferpriorinsky_number.txt').data
+
+	// var dataBySubjByItem = _.object(
+	// 	_.map(ntData.data.slice(1),
+	// 			function(lst){
+	// 				return ['s'+lst[0], 
+	// 					_.object(_.zip(
+	// 						_.map(sequence(1,lst.slice(1).length,1),
+	// 							function(n){return 'i'+n})
+	// 						,_.map(lst.slice(1), parseFloat))
+	// 						)]
+	// 			}
+	// 	))
+	var itemLst = ntData[0].slice(1)
 
 	var dataBySubjByItem = _.object(
-		_.map(ntData.data.slice(1),
+		_.map(ntData.slice(1),
 				function(lst){
 					return ['s'+lst[0], 
-								_.object(_.zip(
-									_.map(sequence(1,lst.slice(1).length,1),
-										function(n){return 'i'+n})
-									,_.map(lst.slice(1), parseFloat))
-									)]
+						_.object(_.zip(
+							itemLst
+							,_.map(lst.slice(1), parseFloat))
+							)]
 				}
 		))
-	return dataBySubjByItem
+
+	return [itemLst ,dataBySubjByItem]
+	//return dataBySubjByItem
 }
 
+function readinBinnedHist(){
+	var bhData = readCSV('inferpriorinsky_binnedhistogram.txt').data;
+		// _.map(bhData.slice(1),
+		// 	function(lst){
+		// 		return ['s'+lst[0], ]
+		// 	})
+
+	var stateLst = bhData[0].slice(2)
+	var itemLst = _.sortBy(
+		_.uniq(
+			_.map(bhData.slice(1), function(lst){return lst[1]})), 
+		function(name){return name})
+
+	var subjLst = _.sortBy(
+		_.uniq(
+			_.map(bhData.slice(1), function(lst){return lst[0]})), 
+		function(name){return name})
+
+
+
+	return _.object(
+		_.map(subjLst,
+		function(subj){
+			var subjData = _.filter(bhData.slice(1),
+							function(lst){return lst[0] == subj})
+
+			return [subj, 
+			_.object(_.map(subjData,
+				function(lst){
+
+					return [lst[1],
+								_.object(_.zip(stateLst, lst.slice(2)))
+								]})
+			)
+			]
+									// _.object(_.zip(stateLst, lst.slice(2)))
+									// ])})]
+
+			// return [subj, _.object(_.zip(stateLst, subjData[0].slice(2))) ]
+		}
+		))
+
+	// bhData[1]
+	//  _.object(['b'+lst[0], 
+	//  		_.object([lst[1], ])]
+
+	//return 
+
+}
 
 
 // general helpers
@@ -89,6 +152,7 @@ function normalize(dist){
 
 module.exports = {
   readinNumberTask: readinNumberTask,
+  readinBinnedHist: readinBinnedHist,
   writeCSV: writeCSV,
   sequence: sequence,
   mapObject: mapObject,
