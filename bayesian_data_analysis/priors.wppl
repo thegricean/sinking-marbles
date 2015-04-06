@@ -31,8 +31,11 @@ var printERP = function(myERP){
 
 // define states 0-15
 var states = utils.sequence(0,15,1)
+// get items from file
+var items = utils.readinNumberTask()[0]
+
 // define items 1 - 90
-var items = utils.sequence(1,90,1)
+//var items = utils.sequence(1,90,1)
 
 // for each item.
 // each state has a uniform(0,1) prior
@@ -45,7 +48,8 @@ var generatePriorInTheSky = function(){
 
 
 // read in data
-var ntData = utils.readinNumberTask()
+var ntData = utils.readinNumberTask()[1]
+
 var nSubj_nt = _.keys(ntData).length-1
 
 // linking functions
@@ -74,7 +78,7 @@ var inferPrITS = function(){
 	//						..., 
 	//						"state15":prob}}
 	var priorInTheSky = _.object(
-		_.zip(map(function(i){return 'i'+i}, items), 
+		_.zip(items, 
 			  repeat(items.length, 
 							function(){
 								return _.object(
@@ -87,9 +91,17 @@ var inferPrITS = function(){
 	// each subject has some "softmax" parameter
 	// uniformly distributed between 0 and +Infinity (or 100)
 
+	// var subjectAlphas = _.object(map(function(subj){
+	// 	return ['s'+subj, sample(uniformERP,[0,5])]
+	// }, utils.sequence(0,nSubj_nt,1)))
+
+
+	// or, more crudely, there is just 1 alpha
+	var alpha = sample(uniformERP,[0,5])
 	var subjectAlphas = _.object(map(function(subj){
-		return ['s'+subj, sample(uniformERP,[0,100])]
+		return ['s'+subj, alpha]
 	}, utils.sequence(0,nSubj_nt,1)))
+
 
 	mapObject(
 		function(subjID,subjAlpha){
@@ -99,8 +111,6 @@ var inferPrITS = function(){
 			 	var subjectPredictions = response_number=='-1' ? null:
 					numberTask(priorInTheSky[itemID], subjAlpha)
 
-//				console.log(response_number)
-				//console.log(subjectPredictions.score([], response_number))
 				response_number=='-1' ? null: 
 				 	factor(subjectPredictions.score([], response_number))
 			 }, 
@@ -115,47 +125,55 @@ var inferPrITS = function(){
 //	return _.flatten([priorInTheSky, subjectAlphas])
 
 }
+//utils.readinNumberTask()[1]['s0']
 
-var results = MH(inferPrITS,10000)
-// var jsonResults = JSON.stringify(results)
+utils.readinBinnedHist()['1']
+// var mhsamples = 1000
 
-var tidyState = function(supportEl) {
-	return flatmapObject(function(itemID,stateDist){
-		return 	flatmapObject(function(stateID,prob){
-						return [itemID, stateID, prob, Math.exp(results.score([], supportEl))]
-						}, stateDist)
-	}, supportEl)
-}
+// var results = MH(inferPrITS,mhsamples)
+// // var jsonResults = JSON.stringify(results)
 
-var tidyAlpha = function(supportEl){
-	return flatmapObject(function(alphaID,alphaVal){
-		return _.isObject(alphaVal) ? 
-						null : 
-						['alpha', alphaID, alphaVal, Math.exp(results.score([], supportEl))]
-	}, supportEl)
-}
+// var tidyState = function(supportEl) {
+// 	return flatmapObject(function(itemID,stateDist){
+// 		return 	flatmapObject(function(stateID,prob){
+// 						return [itemID, stateID, prob, Math.exp(results.score([], supportEl))]
+// 						}, stateDist)
+// 	}, supportEl)
+// }
 
-var posterior =
-	_.flatten(
-		_.flatten(
-		map(
-			tidyState,
-			results.support()
-			)
-		,true),
-		true)
+// var tidyAlpha = function(supportEl){
+// 	return flatmapObject(function(alphaID,alphaVal){
+// 		return _.isObject(alphaVal) ? 
+// 						null : 
+// 						['alpha', alphaID, alphaVal, Math.exp(results.score([], supportEl))]
+// 	}, supportEl)
+// }
 
-var alphaPosterior = 
-	_.flatten(
-		map(
-			tidyAlpha,
-			results.support()
-			),
-		true)
+// var posterior =
+// 	_.flatten(
+// 		_.flatten(
+// 		map(
+// 			tidyState,
+// 			results.support()
+// 			)
+// 		,true),
+// 		true)
+
+// var alphaPosterior = 
+// 	_.flatten(
+// 		map(
+// 			tidyAlpha,
+// 			results.support()
+// 			),
+// 		true)
 
 
-var filename = 'modeling-results/number_pritsAlpha_mh10000b.csv'
-utils.writeCSV(posterior.concat(_.compact(alphaPosterior)), filename)
+// var filename = 'modeling-results/number_pritsAlpha_mh' + mhsamples + 'a.csv'
+// utils.writeCSV(posterior.concat(_.compact(alphaPosterior)), filename)
+
+
+
+
 
 
 //results.support()[1]
