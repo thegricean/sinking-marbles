@@ -1,24 +1,27 @@
 # TODO FOR WONKY MARBLES (manuscript)
 
-p. 4 cite marcus/love for people who hate on Bayesians for being lax in their treatment of priors.
-p. 5 brief phrase summarizing bayesian prior inference
-p. 5 footnote 2 insert link to prior slider experiment
-p. 6 figure 1: update graphs to reflect mh's numbers
-p. 6 insert procedure on prior inference; discuss the results from the two different dependent measures and how we expect one to over-sample extremes and one to be too flat?
-p. 8 insert participant payment amount
-p. 10 fix barr et al reference
-p. 10 rerun and rereport all analyses with mh's numbers
-p. 11 describe concept of a lifted variable
-p. 11 footnote describing other possible priors
-p. 12 we need to explain where oddness comes from – maybe there’s an easy graphical way of showing how for items with different priors, a ‘some’ utterance is more or less wonky, by showing the marginal probabilities of observing each utterance for these different items?
-p. 12 rerun and rereport all analyses with mh's numbers
-p. 13 insert payment amount
-p. 14 put in here somewhere the relation between wonkiness and the comprehension data: for all and none, while there are huge changes in wonkiness by prior, we don’t expect this to show up in the comprehension data because the semantics of the utterances restricts the interpretation to just one state, regardless of the prior. but for ”some”, which has a weak semantics, wonkiness shifts the overall interpretation in a way that compresses the effect of the prior
-p. 15 To see this, XXX discuss effect of setting lambda to 0: random choice between between true utterances) put actual model predictions in a plot
 
-p. 19 rerun and rereport all analyses with mh's numbers
-p. 20 add some discussion of speaker reliability results
-p. 20 GD overhaul
+- p. 5 brief phrase summarizing bayesian prior inference
+
+- p. 6 figure 1: update graphs to reflect mh's numbers
+
+- p. 6 insert procedure on prior inference; discuss the results from the two different dependent measures and how we expect one to over-sample extremes and one to be too flat?
+
+- p. 10 rerun and rereport all analyses with mh's numbers
+
+- p. 11 footnote describing other possible priors
+
+- p. 12 we need to explain where oddness comes from – maybe there’s an easy graphical way of showing how for items with different priors, a ‘some’ utterance is more or less wonky, by showing the marginal probabilities of observing each utterance for these different items?
+
+- p. 12 rerun and rereport all analyses with mh's numbers
+
+- p. 14 put in here somewhere the relation between wonkiness and the comprehension data: for all and none, while there are huge changes in wonkiness by prior, we don’t expect this to show up in the comprehension data because the semantics of the utterances restricts the interpretation to just one state, regardless of the prior. but for ”some”, which has a weak semantics, wonkiness shifts the overall interpretation in a way that compresses the effect of the prior
+
+- p. 15 To see this, XXX discuss effect of setting lambda to 0: random choice between between true utterances) put actual model predictions in a plot
+
+- p. 19 rerun and rereport all analyses with mh's numbers
+
+- p. 20 GD overhaul
 
 
 
