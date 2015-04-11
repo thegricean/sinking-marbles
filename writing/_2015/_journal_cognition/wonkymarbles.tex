@@ -320,12 +320,18 @@ That the wonkiness probability predictions are borne out in the empirical data p
 
 Some readers may still not be convinced that what is driving the attenuated effect of the prior is that listeners revise their beliefs about the world (or about the event, or the objects involved in the event---we return to this issue in the general discussion). A prima facie alternative possibility to why prior beliefs have a much smaller effect than expected on utterance interpretation is that listeners believe that the speaker is an unreliable or uncooperative speaker, one who talks about the world in surprising and unexpected ways. For example, maybe participants in the studies reported thus far believed that the speaker was a) lying, b) not trying to be informative, c) or not actually knowledgeable about the precise state of the world, i.e., about how many X Yed.
 
-There are multiple reasons why this is not a plausible explanation for our results. First, participants were happy to interpret the speaker's utterances literally in the \emph{all} and \emph{none} conditions, suggesting they didn't believe the speaker was lying, ruling out a). Second, the wonkiness judgments obtained in Exp.~3 closely match the wRSA model's predictions, which relies on speaker reliability and cooperativity---knowing the actual state of the world and reporting it truthfully and informatively---, ruling out b) and c). However, there is an even clearer reason for ruling out speaker reliability explanations for the observed attenuated effect of the prior: if the speaker was actually unreliable, intuition and the (RSA and wRSA \red{make sure this is actually true for both and see if there are note-worthy differences}) model predict that listeners should use their prior world knowledge much more strongly than if the speaker was reliable. For example, if my very successful but understated friend says that he did ``OK'' on a job interview, I'll be more likely to disregard his pronouncement of mediocre performance and expect him to have done very well. That is, speaker unreliability predicts a much greater effect of the prior on interpretation than we observe empirically. 
+There are multiple reasons why this is not a plausible explanation for our results. First, participants were happy to interpret the speaker's utterances literally in the \emph{all} and \emph{none} conditions, suggesting they didn't believe the speaker was lying, ruling out a). Second, the wonkiness judgments obtained in Exp.~3 closely match the wRSA model's predictions, which relies on speaker reliability and cooperativity---knowing the actual state of the world and reporting it truthfully and informatively---, ruling out b) and c). However, there is an even clearer reason for ruling out speaker reliability explanations for the observed attenuated effect of the prior: if the speaker was actually unreliable, intuition and the (RSA and wRSA) model predict that listeners should use their prior world knowledge much more strongly than if the speaker was reliable. For example, if my very successful but understated friend says that he did ``OK'' on a job interview, I'll be more likely to disregard his pronouncement of mediocre performance and expect him to have done very well. That is, speaker unreliability (however well intentioned) intuitively leads interlocutors to much more strongly rely on their prior beliefs and discount the speaker's utterance.
 
-\red{To see this from the model's perspective, XXX discuss effect of setting lambda to 0: random choice between between true utterances) put actual model predictions in a plot}
+From the model's perspective, we can think about speaker unreliability in terms of different ways of lesioning the model. \red{Recall that the speaker chooses utterances in proportion to the informativeness of that utterance to a literal listener. One way to lesion the model is thus to let the speaker produce a random true utterance (as opposed to an informative true utterance). The other way is to let the speaker produce an utterance at random from the set of alternatives, regardless of whether it is true. This results in differences in the pragmatic listener's interpretation probabilities. In particular, the truthful but uninformative speaker somewhat elevates the effect of the prior on the posterior all-state probability in wRSA, and the neither truthful nor informative speaker further increases that effect, just as intuition suggests. These model predictions are shown for the items used in Exps.~1-3  in \figref{fig:speakerreliability-model}, using the best parameters ($\lambda$ = 2, $P(w)$ = .5) from the model fitting reported in \sectionref{sec:wrsa}.}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\textwidth]{pics/modelpredictions-unreliablespeaker}
+	\caption{For each item, predicted mean posterior all-state probability against  prior all-state probability, for uninformative, untruthful, and cooperative speakers. (Note that the cooperative speaker predictions are repeated from \figref{fig:rrsaexppredictions}).}
+	\label{fig:speakerreliability-model}	
+\end{figure}
 
-These considerations make the following prediction: if speaker reliability is explicitly manipulated, listeners' interpretations of \emph{Some of the X Yed} should be much more strongly governed by their prior beliefs when the speaker is unreliable/uncooperative than when the speaker is reliable/cooperative. That is, we expect a replication of Exp.~2b for reliable, but not unreliable speakers. If, instead, there is something more fundamentally wrong with RSA models and the attenuated effect of the prior on comprehension is driven by listeners' perception of the speaker as unreliable, further decreasing speaker reliability should have no effect on how strongly the prior influences listeners' interpretations. If anything, explicitly unreliable speakers should further diminish the effect of the prior. We test the prediction about speaker reliability in Exp.~4.
+These considerations make the following prediction: if speaker reliability is explicitly manipulated, listeners' interpretations of \emph{Some of the X Yed} should be much more strongly governed by their prior beliefs when the speaker is unreliable (either untruthful or uninformative) than when the speaker is reliable/cooperative. That is, we expect a replication of Exp.~2b for reliable, but not unreliable speakers. If, instead, there is something more fundamentally wrong with RSA models and the attenuated effect of the prior on comprehension is driven by listeners' perception of the speaker as unreliable, further decreasing speaker reliability should have no effect on how strongly the prior influences listeners' interpretations. If anything, explicitly unreliable speakers should further diminish the effect of the prior. We test the prediction about speaker reliability in Exp.~4.
 
 \section{Exp.~4: speaker reliability}
 \label{sec:speakerreliability}
@@ -389,7 +395,7 @@ Question & \multicolumn{3}{c}{How many marbles sank?}\\
 
 On each trial, participants performed the same task as in Exp.~2b: they saw a sentence introducing an event (e.g., \emph{At the party, Diane threw 15 marbles into the pool}), followed by a sentence about the speaker (e.g., \emph{James, who interestedly observed what happened, says,}), followed by the speaker's utterance (e.g., \emph{``Some of the marbles sank''}). They were then asked to rate on four sliding scales with endpoints labeled ``definitely not'' and ``definitely'', how likely they thought 0\%, 1-50\%, 51-99\%, or 100\% of the objects (e.g., marbles) exhibited the effect (e.g., sank). The different speaker scenarios made it impossible to maintain an identical trial structure across blocks, but we attempted to minimize the differences in trial structure across blocks, while including material that reminded participants about the speaker's situation. See \tableref{tab:trialstructure} for an overview of trial structure in each block.
 
-In Exp.~4, only half of the items from Exps.~1-3 were used; those 45 that described events that could plausibly have occurred at a day-long party, while nevertheless spanning the entire range of prior probabilities. See \appref{sec:items} for the full list of items. Each block contained the same distribution of utterances: two \emph{all} trials, two \emph{none} trials, two short filler trials, two long filler trials, and seven \emph{some} trials. Items were distributed over utterances so that each participant saw each item once, i.e., no participant saw for example the \emph{sinking marbles} item with both the \emph{some} and the \emph{all} utterance.
+In Exp.~4, only half of the items from Exps.~1-3 were used; those 45 that described events that could plausibly have occurred at a day-long party, while nevertheless spanning the entire range of prior probabilities. See \appref{sec:items} for the full list of items; the first half of items were used in Exp.~4. Each block contained the same distribution of utterances: two \emph{all} trials, two \emph{none} trials, two short filler trials, two long filler trials, and seven \emph{some} trials. Items were distributed over utterances so that each participant saw each item once, i.e., no participant saw for example the \emph{sinking marbles} item with both the \emph{some} and the \emph{all} utterance.
 
 \subsection{Results and discussion}
 
@@ -400,7 +406,7 @@ In Exp.~4, only half of the items from Exps.~1-3 were used; those 45 that descri
 	\label{fig:speakerreliability}	
 \end{figure}
 
-Mean posterior $P(s_{15}|u_{\textrm{some}})$ ratings for the different speaker reliability conditions are shown in \figref{fig:speakerreliability}. While the reliable (\emph{sober}) speaker condition tracks the results from Exp.~2b very closely, the unreliable speaker conditions (\emph{court, drunk}) display a much greater effect of prior beliefs on the posterior probability of the all-state. This is borne out in a linear mixed effects regression model predicting the posterior all-state probability from fixed effects of prior all-state probability, speaker reliability, trial number (to account for adaptation over the course of the experiment), and their interactions. Speaker reliability was coded as a binary variable (reliable vs.~unreliable) and centered. The all-state probability and trial number predictors were likewise centered before entering the analysis. The model included by-participant and by-item random intercepts and slopes for all fixed effects. 
+Mean posterior $P(s_{15}|u_{\textrm{some}})$ ratings for the different speaker reliability conditions are shown in \figref{fig:speakerreliability}. While the reliable (\emph{sober}) speaker condition tracks the results from Exp.~2b very closely, the unreliable speaker conditions (\emph{court, drunk}) display a much greater effect of prior beliefs on the posterior probability of the all-state. This is borne out in a linear mixed effects regression model predicting the posterior all-state probability from fixed effects of prior all-state probability, speaker reliability, trial number (to account for adaptation over the course of the experiment), and their interactions. Speaker reliability was coded as a binary variable (reliable vs.~unreliable) and centered. \red{I coded it this way because so far I hadn't really been thinking about trying to tease apart the uninformative vs.~untruthful speaker. Don't know if it's worth pursuing the difference between the two. We could also just leave out Figure 5 and describe the pattern.} The all-state probability and trial number predictors were likewise centered before entering the analysis. The model included by-participant and by-item random intercepts and slopes for all fixed effects. 
 
 There was a main effect of prior all-state probability such that the posterior all-state probability increased with increasing prior all-state probability ($\beta$=.26, $SE$=.03, $t$=8.5, $p$$<$.0001). There was also a main effect of speaker reliability, such that posterior all-state probability was judged higher when the speaker was unreliable ($\beta$=.11, $SE$=.02, $t$=7.4, $p$$<$.0001). In addition, there was an interaction between prior all-state probability and speaker reliability such that the slope of the prior all-state probability effect was shallower for the reliable speaker than for the unreliable speakers ($\beta$=.14, $SE$=.04, $t$=4, $p$$<$.0001). Finally, we also observed adaptation effects: all-state probability was rated as greater as the experiment progressed ($\beta$=.003, $SE$=.0003, $t$=8.8, $p$$<$.0001). We also observed an interaction of prior all-state probability and trial number, such that the prior had a greater effect on interpretation later in the experiment ($\beta$=.004, $SE$=.001, $t$=3.8, $p$$<$.0001). This is visualized in \figref{fig:speakerreliability-byblock}: while there is no change in how utterances of unreliable speakers are treated, reliable speakers are treated as more and more unreliable as the experiment progresses.
 
@@ -440,17 +446,18 @@ Extending RSA with a lifted wonkiness variable that captures precisely whether l
 
 In one sense the revision of beliefs in the wRSA listener is standard Bayesian belief updating with respect to a complex prior; however it is not the simple belief update of a flat or hierarchical prior, because the different aspects of prior belief (i.e.~$P(w)$ and $P(s|w)$) interact in complex ways with the listener's assumptions about the speaker.
 As a result, an odd utterance can lead the listener to update their own view of $w$; this in turn impacts both their own prior over states and what prior they believe the speaker believes they are using---an odd utterance leads the listener to re-evaluate common ground. 
-This is reminiscent of linguistic theories of presupposition accommodation \cite{lewis1979,stalnaker1973,stalnaker1998}.
+This is reminiscent of linguistic theories of presupposition accommodation \cite{lewis1979,stalnaker1973,stalnaker1998}. \red{spell out}
 It will be interesting to further explore the relation of the wRSA approach to presupposition.
 
 Throughout this paper we discussed wonkiness as an attribute of the \emph{world}, yet empirically we elicited wonkiness judgments about the \emph{objects} involved in the events. 
-This raises the question of what exactly listeners are revising their prior beliefs about: objects, events, the speaker's beliefs, or the way the speaker uses language?  For example % CONTINUE HERE
+This raises the question of what exactly listeners are revising their prior beliefs about: objects, events, the speaker's beliefs, or the way the speaker uses language?  \red{spell out}% CONTINUE HERE
 %Relatedly, in the current implementation of wRSA, prior belief revision has a global effect: that is, the prior that the listener infers is simultaneously the prior the listener attributes to the speaker; that is, the prior is treated as being in common ground, and the revision of the prior thus leads to a revision of common ground. But it is in fact an empirical question whether listeners revise their own privileged beliefs about the world, their beliefs about the common ground, or their beliefs about the speaker's beliefs. \red{WONKY SENTENCE: Addressing this question in future research will reveal whether a more complex mechanism for prior belief revision needs to incorporated that explicitly models prior vs.~privileged ground.}
-Relatedly, we have used a uniform prior distribution as the alternative to consider when the listener believes the world is wonky.  One could imagine various more flexible alternatives. For instance, listeners may make minimal adjustments to their prior knowledge, or alternatively, may prefer extreme priors that rationalize the utterance once they have discounted the usual priors.
+
+Relatedly, we have used a uniform prior distribution as the alternative to consider when the listener believes the world is wonky.  One could imagine various more flexible alternatives. For instance, listeners may make minimal adjustments to their prior knowledge, or alternatively, may prefer extreme priors that rationalize the utterance once they have discounted the usual priors.\red{spell out}
 %Do metaphorical interpretations draw listeners out of the wonky world? 
 Future research should investigate the options listeners have available when their world knowledge must be revised to accommodate an utterance.
 
-This work also has methodological implications: researchers working in the field of experimental semantics and pragmatics would be well served to take into account the effect of `odd' items, prior beliefs, and interactions between the two.\footnote{For an in depth discussion of this issue in syntactic processing, see, e.g., \citeA{jaeger2010, fine2013a}.} In particular, if the attempt to design uniform stimuli across conditions yields odd utterances in some conditions, we predict that participants will respond by revising their prior beliefs in ways that can be unpredictable. That is, we expect unpredictable interaction effects between stimuli and conditions. This is likely to inflate or compress potential effects of an experimental manipulation. 
+This work also has methodological implications: researchers working in the field of experimental semantics and pragmatics would be well served to take into account the effect of `odd' items, prior beliefs, and interactions between the two.\footnote{For an in depth discussion of this issue in syntactic processing, see, e.g., \citeA{jaeger2010, fine2013a}.} \red{instead of a footnote, discuss this in more detail, and as a theoretical point about how people should update their beliefs. give it a kleinschmidt spin, i.e.~what does this mean for \emph{learning}? short term (local) vs long term (global) belief update. do i infer sth about marbles in general or just the ones in this situation?} In particular, if the attempt to design uniform stimuli across conditions yields odd utterances in some conditions, we predict that participants will respond by revising their prior beliefs in ways that can be unpredictable. That is, we expect unpredictable interaction effects between stimuli and conditions. This is likely to inflate or compress potential effects of an experimental manipulation. 
 
 Concluding, this work exemplifies the importance and utility of exploring the detailed quantitative predictions of formal models of language understanding.
 Exploring the prior knowledge effects predicted by RSA led us to understand better the influence of world knowledge and its defeasibility on pragmatic interpretation.
@@ -474,7 +481,70 @@ appears to be a favorite.
 \section{Items}
 \label{sec:items}
 
-\red{XXX}
+Items in Exps.~1 - 3 began with a \emph{context sentence} of the form \emph{CHARACTER did Z to X.} In Exps.~2 - 3, the context sentence was followed by a speaker utterance sentence of the form \emph{SPEAKER, who observed what happened, says: UTTERANCE}. On target trials, UTTERANCE was of the form \emph{QUANTIFIER of the X Yed}, where QUANTIFIER was one of \emph{some}, \emph{none}, or \emph{all}. On short filler trials, UTTERANCE was one of \emph{Typical}, \emph{Nothing out of the ordinary}, \emph{As usual}, \emph{Pretty normal}, or \emph{Nothing surprising there}. On long filler trials, UTTERANCE was customized to the particular item in such a way that the utterance addressed an aspect of the situation that was not the number of X that Yed. In the following, we list Z, X, and Y for each of the 90 items as well as its customized filler. We organize items by verb Y, since each verb shared three X and one long filler. CHARACTER and SPEAKER were randomly sampled from a list of 110 names (half male, half female) on each trial. The first 15 items were also used in Exp.~4.
+
+\begin{enumerate}
+	\item \emph{Y}: melted, \emph{X}$_1$: pencils, \emph{X}$_2$: crayons, \emph{X}$_3$: ice cubes, \emph{Z}: left in the hot sun\\
+	\emph{Filler}: It's a beautiful day.
+	\item \emph{Y}: stuck to the wall, \emph{X}$_1$: baseballs, \emph{X}$_2$: cakes, \emph{X}$_3$: pieces of gum, \emph{Z}: threw against a wall\\
+	\emph{Filler}: What a strange thing to do.
+	\item \emph{Y}: burned, \emph{X}$_1$: rocks, \emph{X}$_2$: books, \emph{X}$_3$: matches, \emph{Z}: threw into a fire\\
+	\emph{Filler}: I love watching fires.
+	\item \emph{Y}: blew away, \emph{X}$_1$: backpacks, \emph{X}$_2$: hats, \emph{X}$_3$: napkins, \emph{Z}: left on a table on a windy day\\
+	\emph{Filler}: I just wish the weather was better.
+	\item \emph{Y}: ripped, \emph{X}$_1$: shoes, \emph{X}$_2$: shirts, \emph{X}$_3$: books, \emph{Z}: used as dog toys\\
+	\emph{Filler}: Doesn't the dog have its own toys?
+	\item \emph{Y}: broke, \emph{X}$_1$: logs, \emph{X}$_2$: boxes, \emph{X}$_3$: sunglasses, \emph{Z}: ran over with a car\\
+	\emph{Filler}: Why does Lucy always leave her stuff in the driveway?
+	\item \emph{Y}: exploded, \emph{X}$_1$: candles, \emph{X}$_2$: fireworks, \emph{X}$_3$: gas tanks, \emph{Z}: lit \\
+	\emph{Filler}: Who came up with that idea?
+	\item \emph{Y}: dissolved, \emph{X}$_1$: carrots, \emph{X}$_2$: oreos, \emph{X}$_3$: sugar cubes, \emph{Z}: put in a bucket of water\\
+	\emph{Filler}: There are people starving in the world.
+	\item \emph{Y}: stuck, \emph{X}$_1$: beads, \emph{X}$_2$: sequins, \emph{X}$_3$: stickers, \emph{Z}: glued to a piece of paper\\
+	\emph{Filler}: It looks like a zebra.
+	\item \emph{Y}: ate the seeds, \emph{X}$_1$: dogs, \emph{X}$_2$: butterflies, \emph{X}$_3$: birds, \emph{Z}: left seeds out for\\
+	\emph{Filler}: I wish someone would leave seeds out for me.
+	\item \emph{Y}: landed flat, \emph{X}$_1$: notebooks, \emph{X}$_2$: pancakes, \emph{X}$_3$: coins, \emph{Z}: tossed\\
+	\emph{Filler}: I love throwing stuff, too.
+	\item \emph{Y}: sank, \emph{X}$_1$: balloons, \emph{X}$_2$: cups, \emph{X}$_3$: marbles, \emph{Z}: threw into a pool\\
+	\emph{Filler}: It's just fun to throw stuff in the water.
+	\item \emph{Y}: fell down, \emph{X}$_1$: shelves, \emph{X}$_2$: block towers, \emph{X}$_3$: card towers, \emph{Z}: punched\\
+	\emph{Filler}: Some people just love destruction.
+	\item \emph{Y}: rolled, \emph{X}$_1$: toy cars, \emph{X}$_2$: shopping carts, \emph{X}$_3$: wheelchairs, \emph{Z}: pushed\\
+	\emph{Filler}: Pushing stuff is so much fun.
+	\item \emph{Y}: froze, \emph{X}$_1$: bottles of hand soap, \emph{X}$_2$: chocolate bars, \emph{X}$_3$: berries, \emph{Z}: put in the freezer\\
+	\emph{Filler}: That reminds me I need to visit my grandma.
+	\item \emph{Y}: flashed, \emph{X}$_1$: webcams, \emph{X}$_2$: phones, \emph{X}$_3$: cameras, \emph{Z}: took a picture with\\
+	\emph{Filler}: Everyone with the selfie craze these days.
+	\item \emph{Y}: popped, \emph{X}$_1$: eggs, \emph{X}$_2$: balloons, \emph{X}$_3$: bubbles, \emph{Z}: poked with a pin\\
+	\emph{Filler}: That requires a lot of concentration.
+	\item \emph{Y}: exploded, \emph{X}$_1$: CDs, \emph{X}$_2$: balls of tin foil, \emph{X}$_3$: eggs, \emph{Z}: heated up in a microwave\\
+	\emph{Filler}: That's one way of spending your free time.
+	\item \emph{Y}: lit up, \emph{X}$_1$: cd-players, \emph{X}$_2$: computers, \emph{X}$_3$: flashlights, \emph{Z}: pressed the `on' button on\\
+	\emph{Filler}: I wish we could just say `on'.
+	\item \emph{Y}: beeped, \emph{X}$_1$: houses, \emph{X}$_2$: old cars, \emph{X}$_3$: new cars, \emph{Z}: left the lights on in\\
+	\emph{Filler}: That's not very good for the environment.
+	\item \emph{Y}: decomposed, \emph{X}$_1$: soda cans, \emph{X}$_2$: pinecones, \emph{X}$_3$: banana peels, \emph{Z}: put in a compost pile for a month\\
+	\emph{Filler}: What a great way to reduce trash.						\item \emph{Y}: honked, \emph{X}$_1$: bicyclists, \emph{X}$_2$: bus drivers, \emph{X}$_3$: taxi drivers, \emph{Z}: cut off\\
+	\emph{Filler}: That looks kind of dangerous.
+	\item \emph{Y}: laughed, \emph{X}$_1$: lawyers, \emph{X}$_2$: comedians, \emph{X}$_3$: kids, \emph{Z}: told a joke to\\
+	\emph{Filler}: I guess once a jokester, always a jokester.
+	\item \emph{Y}: ran out of batteries, \emph{X}$_1$: phones, \emph{X}$_2$: bike lights, \emph{X}$_3$: laptops, \emph{Z}: left on (and unplugged) all day\\
+	\emph{Filler}: That would be a pretty useful gadget.
+	\item \emph{Y}: had the letter Z in them, \emph{X}$_1$: birthday cards, \emph{X}$_2$: love notes, \emph{X}$_3$: novels, \emph{Z}: wrote\\
+	\emph{Filler}: I just don't have the patience to write one of those.
+	\item \emph{Y}: were green, \emph{X}$_1$: strawberries, \emph{X}$_2$: bananas, \emph{X}$_3$: clovers, \emph{Z}: saw\\
+	\emph{Filler}: I should start growing those myself.
+	\item \emph{Y}: got stained, \emph{X}$_1$: white tablecloths, \emph{X}$_2$: white shirts, \emph{X}$_3$: white carpets, \emph{Z}: spilled red nail polish on\\
+	\emph{Filler}: Why always the red?
+	\item \emph{Y}: reflected the sunlight, \emph{X}$_1$: phone screens, \emph{X}$_2$: diamonds, \emph{X}$_3$: mirrors, \emph{Z}: placed in the sun\\
+	\emph{Filler}: Why not just take them inside?
+	\item \emph{Y}: rhymed, \emph{X}$_1$: poems, \emph{X}$_2$: songs, \emph{X}$_3$: limericks, \emph{Z}: wrote\\
+	\emph{Filler}: It's so pretty.
+	\item \emph{Y}: stopped, \emph{X}$_1$: bicycles, \emph{X}$_2$: motorcycles, \emph{X}$_3$: cars, \emph{Z}: pressed the brakes on\\
+	\emph{Filler}: So many parts need to work for us to not die.
+					 
+\end{enumerate}
 
 \bibliographystyle{apacite}
 
