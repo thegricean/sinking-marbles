@@ -8,6 +8,7 @@ output: html_document
 ```{r}
 library(tidyr)
 library(dplyr)
+setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_data_analysis/")
 
 # level 2 model
 d <- read.csv('inferBinomialParams.csv',header=F)

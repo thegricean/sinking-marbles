@@ -13,6 +13,12 @@ r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "o
 load("data/priors.RData")
 load("data/r.RData")
 
+# write data from mh's attempt to find the prior in the sky
+# subjID, response_item1, response_item2, …, response_itemN
+d = r[,c("workerid","Item","response")]
+spreaded = d %>% spread(Item,response,fill=-1)
+write.table(spreaded,file="data/inferpriorinsky_number.txt",row.names=F,quote=F,sep="\t")
+
 # write data for bayesian data analysis (fitting binomials to data in church)
 tmp = ddply(r, .(Item), summarise, Responses=paste("(list ",paste(response,collapse=" "),")",sep=""))
 head(tmp)
@@ -125,13 +131,12 @@ t = table(r$Item)
 t
 
 # get smoothed priors for model
-smoothed_dist15 = ddply(r, .(effect,object), summarise, State = c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15),SmoothedProportion = (npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001)/sum(npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001))
+smoothed_dist15 = ddply(r, .(Item), summarise, State = c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15),SmoothedProportion = (npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001)/sum(npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001))
 
 head(smoothed_dist15)
 summary(smoothed_dist15)
-sum(smoothed_dist15[smoothed_dist15$object == "birds",]$SmoothedProportion)
+sum(smoothed_dist15[smoothed_dist15$Item == "ate the seeds birds",]$SmoothedProportion)
 
-plot(seq(0,15,by=1),smoothed_dist15[smoothed_dist15$object == "birds",]$SmoothedProportion)
 
 allprobs = smoothed_dist15[smoothed_dist15$State == 15,]
 ggplot(allprobs, aes(x=SmoothedProportion)) +
@@ -162,7 +167,7 @@ ggsave(file="graphs/empirical-vs-smoothed-priors.pdf",width=20,height=15)
 
 library(reshape2)
 smoothed_dist15$SmoothedProportion = format(round(smoothed_dist15$SmoothedProportion,7), scientific=F)
-casted = dcast(smoothed_dist15, effect + object ~ State, value.var="SmoothedProportion")
+casted = dcast(smoothed_dist15, Item ~ State, value.var="SmoothedProportion")
 write.table(casted,file="data/smoothed_15marbles_priors_withnames.txt",row.names=F,quote=F,sep="\t")
 write.table(casted,file="../../../models/wonky_world/smoothed_15marbles_priors_withnames.txt",row.names=F,quote=F,sep="\t")
 write.table(casted[,3:length(colnames(casted))],file="data/smoothed_15marbles_priors.txt",row.names=F,quote=F,sep="\t")

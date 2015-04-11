@@ -73,6 +73,8 @@ ggplot(agr, aes(x=Proportion,y=normresponse)) +
   facet_grid(workerid~quantifier)
 ggsave(file="graphs/subject_variability.pdf",height=40,width=5)
 
+r$Confused = as.factor(ifelse(r$asses == "Confused", 1, 0))
+summary(r)
 save(r, file="data/r.RData")
 
 ##################
@@ -121,3 +123,4 @@ unique(r[r$workerid %in% c("1","15","39","45","52","61","63","72","90","93","97"
 unique(r[(r$Answer.time_in_minutes < 8 | r$Answer.time_in_minutes > 23),c("workerid","Answer.time_in_minutes","enjoyment","asses","age","comments")])
 
 excludeduniform = droplevels(subset(r, ! workerid %in% c("1","15","39","45","52","61","63","72","90","93","97","104","117")))
+

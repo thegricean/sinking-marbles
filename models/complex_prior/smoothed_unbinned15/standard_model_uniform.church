@@ -85,39 +85,44 @@
                                         speaker-opt))))) 
 
 
-(define (run-speaker marbles QUD total-marbles quantifier-alternatives allprior title)
-  (hist (repeat 1000 (lambda () (apply multinomial (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives allprior)))) title ))
-
-(define (run-listener utterance QUD total-marbles quantifier-alternatives allprior title)
-  (hist (repeat 1000 (lambda () (apply multinomial (pragmatic-listener utterance QUD total-marbles quantifier-alternatives allprior)))) title ))
-
-(define (sample-listener utterance QUD total-marbles quantifier-alternatives allprior) 
-  (pragmatic-listener utterance QUD total-marbles quantifier-alternatives allprior))
-
-(define (sample-speaker marbles QUD total-marbles quantifier-alternatives allprior) 
-  (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives allprior))
+;(define (run-speaker marbles QUD total-marbles quantifier-alternatives allprior title)
+;  (hist (repeat 1000 (lambda () (apply multinomial (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives allprior)))) title ))
+;
+;(define (run-listener utterance QUD total-marbles quantifier-alternatives allprior title)
+;  (hist (repeat 1000 (lambda () (apply multinomial (pragmatic-listener utterance QUD total-marbles quantifier-alternatives allprior)))) title ))
+;
+;(define (sample-listener utterance QUD total-marbles quantifier-alternatives allprior) 
+;  (pragmatic-listener utterance QUD total-marbles quantifier-alternatives allprior))
+;
+;(define (sample-speaker marbles QUD total-marbles quantifier-alternatives allprior) 
+;  (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives allprior))
 
 (define alternatives '(some all none))
+(define item 'blabla)
 
 ;(define (pl allprior total-marbles QUD speaker-opt)
 ;(pragmatic-listener 'some QUD total-marbles alternatives theprior speaker-opt))
 
 (define theprior (list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1))
 
-(pragmatic-listener 'some 'how-many 15 alternatives theprior 2) 
+;(pragmatic-listener 'some 'how-many 15 alternatives theprior 2) 
 
-;(write-csv
-;	(list 	
-;	'(alternatives)
-;	(list alternatives)
-;	(list theprior)
-;	'(qud how-many)	
-;	'(speaker-opt 1)
-;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 1)
-;	'(speaker-opt 2)
-;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 2)
-;	'(speaker-opt 3)
-;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 3)	
+(write-csv
+	(list 	
+	'(alternatives)
+	(list alternatives)
+	'(item)
+	(list item)
+	(list theprior)
+	'(qud how-many)	
+	'(speaker-opt 0)
+	(pragmatic-listener 'some 'how-many 15 alternatives theprior 0)
+	'(speaker-opt 1)
+	(pragmatic-listener 'some 'how-many 15 alternatives theprior 1)
+	'(speaker-opt 2)
+	(pragmatic-listener 'some 'how-many 15 alternatives theprior 2)
+	'(speaker-opt 3)
+	(pragmatic-listener 'some 'how-many 15 alternatives theprior 3)	
 ;	'(qud is-all)
 ;	'(speaker-opt 1)
 ;	(pragmatic-listener 'some 'is-all 15 alternatives theprior 1)	
@@ -132,7 +137,7 @@
 ;	(pragmatic-listener 'some 'is-any 15 alternatives theprior 2)	
 ;	'(speaker-opt 3)
 ;	(pragmatic-listener 'some 'is-any 15 alternatives theprior 3)		
-;	)
-;	"/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/models/complex_prior/smoothed_unbinned15/results/raw_results.txt"	
-;	","
-;)
+	)
+	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/complex_prior/smoothed_unbinned15/results/raw_results.txt"	
+	","
+)
