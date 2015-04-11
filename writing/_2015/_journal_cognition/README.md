@@ -17,8 +17,6 @@
 
 - p. 14 put in here somewhere the relation between wonkiness and the comprehension data: for all and none, while there are huge changes in wonkiness by prior, we don’t expect this to show up in the comprehension data because the semantics of the utterances restricts the interpretation to just one state, regardless of the prior. but for ”some”, which has a weak semantics, wonkiness shifts the overall interpretation in a way that compresses the effect of the prior
 
-- p. 15 To see this, XXX discuss effect of setting lambda to 0: random choice between between true utterances) put actual model predictions in a plot
-
 - p. 19 rerun and rereport all analyses with mh's numbers
 
 - p. 20 GD overhaul
