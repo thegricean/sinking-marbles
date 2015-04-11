@@ -1,7 +1,5 @@
 (load 'binomial-score.js)
 
-; generalize to list of lists where each sublist corresponds to one item
-
 (define alldata 
 	(list 
 	(list 15 15 15 1 5 8 13 14 14 15 15 12 10 15 15 9 15 11 15 7 15)

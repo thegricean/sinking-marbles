@@ -4,12 +4,13 @@ import subprocess
 
 ########################################
 	
-f = open("standard_model.church")
+#f = open("standard_model.church")
+f = open("standard_model_unreliablespeaker.church")
 ch_model = [l.rstrip() for l in f.readlines()]
 f.close()
 
 #pfile = open("binned_priors.txt")
-pfile = open("/Users/titlis/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors.txt") # get smoothed priors (kernel density estimates)
+pfile = open("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors.txt") # get smoothed priors (kernel density estimates)
 priors = [l.rstrip() for l in pfile.readlines()[1:]]
 pfile.close()
 print priors
