@@ -5,59 +5,67 @@ date: "April 4, 2015"
 output: html_document
 ---
 
-
-```{r, message=FALSE}
-library(jsonlite)
-setwd("~/Documents/research/sinking-marbles/bayesian_data_analysis/modeling-results/")
-```
-
-# Tidy data
-
 ```{r}
-d<-read.csv('number_pritsAlpha_mh1000.csv',header=F)
+library(rstan)
+setwd("~/Documents/research/sinking-marbles/bayesian_data_analysis/")
+dir()
 
 
-alpha.tidy<- d %>% 
-  rename(parameter = V1, state=V2, value = V3, prob = V4) %>%
-  filter(parameter=='alpha')
+model <- "
+// Give a number task
+data { 
+  int<lower=1> subjects;
+  int<lower=1> states;
+  int<lower=1> items;
+  matrix[items,subjects] ntdata;
+}
+parameters {
+  matrix<lower=0,upper=1>[items,state] prits; 
+  vector<lower=0>[subjects] alpha;
+}
+transformed parameters {
+  array[subjects, items, states] exp_prits;
+// make this into array of arrays somehow
 
-ggplot(alpha.tidy, aes(x=value))+
-  geom_histogram()+
-  facet_wrap(~state)
+  for (i in 1:subjects)
+    for (j in 1:items)
+      for (k in 1:states)
+        exp_prits[j,k] <- pow(prits[j,k],alpha[i])
+}
+model {
+
+  // Priors
+  for (i in 1:items)
+    for (j in 1:states)
+      prits[i,j] ~ beta(1,1)
+
+  for (k in 1:subjects)
+      alpha[k] ~ exponential(1)
+
+  for (i in 1:subjects)
+    for (j in 1:items)
+      ntdata[i,j] ~ multinomial(exp_prits[j,1:states])
   
-pr.tidy<- d %>% 
-  rename(parameter = V1, state=V2, value = V3, prob = V4) %>%
-  filter(parameter!='alpha')
+}"
 
+
+
+allpriors<-read.csv(file="inferpriorinsky_number.txt", sep='\t')
+d<-matrix(select(allpriors,-workerid))
+
+
+k <- c(21, 17, 21, 18, 22, 31, 31, 34, 34, 35, 35, 36, 39, 36, 35)
+subjects <- length(k)  # number of subjects
+items <- 90  # number of items
+states <- 16 # number of states
+
+data <- list(p=p, k=k, n=n) # to be passed on to Stan
+
+myinits <- list(
+  list(phi=.75))
   
- a<- ggplot(pr.tidy, aes(x=value, fill=state))+
-    geom_histogram()+
-  #  geom_bar(stat='identity', position = position_dodge(0.5))+
-    facet_grid(parameter~state, scales='fixed')+
-  scale_x_continuous(breaks=c(0,0.5,1), limits=c(0,1))
-
-ggsave(a,file='itemXstate.png',height=45,width=15)
+parameters <- c("phi", "z")  # parameters to be monitored
 ```
-
-# Expected value 
-
-```{r}
-d.ev <- d.tidy %>%
-  group_by(item, state) %>%
-  summarise(exp.val = sum(val*marginal))
-
-
-ggplot(d.ev, aes(x=state, y = exp.val, fill=state))+
-  geom_bar(stat='identity', position=position_dodge())+
-  facet_wrap(~item)
-
-```
-
-
-
-
-
-
 
 
 
