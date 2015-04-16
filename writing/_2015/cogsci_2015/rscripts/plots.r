@@ -22,7 +22,8 @@ exps = ggplot(priorexpectations, aes(x=expectation_corr)) +
   geom_histogram() +
   scale_x_continuous(name="Expected value of prior distribution",breaks=seq(1,15, by=2)) +
   scale_y_continuous(name="Number of cases",breaks=seq(0,8, by=2))
-ggsave("priorexpectations-histogram.pdf",width=5,height=3.7)
+exps
+ggsave("priorexpectations-histogram.pdf",width=8,height=4.4)
 
 
 # get prior allstate-probs
@@ -286,3 +287,8 @@ ggplot(r[r$Proportion == "0",], aes(x=normresponse,fill=quantifier)) +
 ggsave("subject-variability.pdf",width=5.5,height=4)
 
 
+s = droplevels(subset(r, quantifier=="Some"))
+nrow(s)
+centered = cbind(s,myCenter(s[,c("PriorExpectation","numresponse","trial")]))
+m = lmer(numresponse ~ cPriorExpectation*ctrial + (1+cPriorExpectation+ctrial|workerid) + (1+cPriorExpectation+ctrial|Item), data=centered)
+summary(m)
