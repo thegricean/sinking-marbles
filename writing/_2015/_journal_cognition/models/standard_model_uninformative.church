@@ -1,0 +1,105 @@
+
+(define (rep n val) (repeat n (lambda () val)))
+
+(define (power dist a) (list (first dist) 
+                           (map (lambda (x) (pow x a)) (second dist))))
+
+(define (meaning utterance marbles total-marbles)
+  (case utterance
+        (('all) (= marbles total-marbles))
+        (('none) (= marbles 0))        
+        (('some) (> marbles 0))
+        (('most) (> marbles (/ total-marbles 2)))
+        (('many) (> marbles (/ total-marbles 2)))     
+    	(('morethanhalf) (> marbles (/ total-marbles 2)))             
+        (('one) (= marbles 1))        
+        (('two) (= marbles 2))          
+        (('three) (= marbles 3))
+        (('four) (= marbles 4))        
+        (('five) (= marbles 5))
+        (('six) (= marbles 6))        
+        (('seven) (= marbles 7))        
+        (('eight) (= marbles 8))
+        (('nine) (= marbles 9))
+        (('ten) (= marbles 10))
+        (('eleven) (= marbles 11))
+        (('twelve) (= marbles 12))
+        (('thirteen) (= marbles 13))
+        (('fourteen) (= marbles 14))
+        (('fifteen) (= marbles 15))        
+        (('almostall) (and (> marbles (* .75 total-marbles)) (< marbles total-marbles)))
+        (('half) (= marbles (/ total-marbles 2)))        
+        (('acouple) (= marbles 2))        
+        (('notone) (= marbles 0))        
+        (('onlyone) (= marbles 1))        
+        (('everyone) (= marbles total-marbles))        
+        (('notmany) (< marbles (/ total-marbles 2)))        
+        (('justone) (= marbles 1))        
+        (('almostnone) (and (> marbles 0) (< marbles (* .25 total-marbles))))
+        (('allbutone) (= marbles (- total-marbles 1)))
+        (('lessthanhalf) (< marbles (/ total-marbles 2)))          
+        (('overhalf) (> marbles (/ total-marbles 2)))  
+        (('several) (> marbles 2))
+        (('afew) (and (< marbles (* total-marbles .7)) (> marbles 1)))               
+        (('veryfew) (< marbles (/ total-marbles 2)))                         
+        (('alot) (> marbles (/ total-marbles 2)))
+        ))
+
+(define (QUD-cell QUD marbles total-marbles)
+  (case QUD
+        (('is-all) (= marbles total-marbles))
+        (('is-any) (> marbles 0))
+        (('how-many) marbles)))
+
+(define (quantifier quantifier-alternatives) (uniform-draw quantifier-alternatives))
+
+(define (marble-state theprior)
+	(multinomial '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15) theprior))
+
+(define literal-listener 
+  (mem (lambda (utterance QUD total-marbles quantifier-alternatives allprior)
+         (enumeration-query
+; if you want the literal listener to not take into account priors, comment out next line, uncomment line after
+          (define marbles (marble-state allprior))
+;          (define marbles (uniform-draw  '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15)))
+          
+          (QUD-cell QUD marbles total-marbles)
+          
+          (meaning utterance marbles total-marbles)
+	      ;true
+          ))))
+
+(define pragmatic-speaker 
+  (mem (lambda (marbles QUD total-marbles quantifier-alternatives allprior)
+         (enumeration-query
+          (define utterance (quantifier quantifier-alternatives))
+          utterance
+          ;true
+          (and
+           (equal? (QUD-cell QUD marbles total-marbles)
+                   (apply multinomial
+                          (literal-listener utterance QUD total-marbles quantifier-alternatives allprior)))
+           (meaning utterance marbles total-marbles))
+           ))))
+
+(define (pragmatic-listener utterance QUD total-marbles quantifier-alternatives allprior speaker-opt)
+	(enumeration-query
+		(define marbles (marble-state allprior))
+		marbles
+		(equal? utterance (apply multinomial 
+                                 (power (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives allprior)
+                                        speaker-opt))))) 
+
+; modify available alternatives at will
+(define alternatives '(some all none))
+
+; modify the prior on states at will
+(define theprior (list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 1))
+
+; get speaker predictions for each set size:
+;(map (lambda (x) (power (pragmatic-speaker x 'how-many 15 alternatives theprior) 0)) (list 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15))
+
+;(literal-listener 'some 'how-many 15 alternatives theprior)
+(pragmatic-listener 'some 'how-many 15 alternatives theprior 2) ; .1 regular; .4 if neither speaker nor listener condition on meaning (but speaker is trying to be informative to literal listener); also .4 if speaker just conditions on true; .26 if not being informative to literal listener (only conditioning on meaning)
+;(pragmatic-listener 'all 'how-many 15 alternatives theprior 2) 
+;(pragmatic-listener 'none 'how-many 15 alternatives theprior 2) 

@@ -3,12 +3,66 @@ setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marble
 source("rscripts/helpers.r")
 load("data/r.RData") # the dataset
 summary(r)
+r = r[!is.na(r$normresponse),]
 
 # histogram of trial types
 ggplot(r,aes(x=Item,fill=quantifier)) +
   geom_histogram() +
   theme(axis.text.x=element_text(angle=45,vjust=1,hjust=1))
 ggsave(file="graphs/trial_histogram.pdf",height=9,width=13)
+
+# PAPER PLOT
+# mean ratings on "all" slider on "some" trials
+some100 = droplevels(subset(r, Proportion == "100" & quantifier == "Some"))
+agr = aggregate(normresponse ~ AllPriorProbability  + trial_type + Item,data=some100,FUN=mean)
+agr$CILow = aggregate(normresponse ~ AllPriorProbability + trial_type + Item,data=some100, FUN=ci.low)$normresponse
+agr$CIHigh = aggregate(normresponse ~ AllPriorProbability + trial_type + Item,data=some100,FUN=ci.high)$normresponse
+agr$YMin = agr$normresponse - agr$CILow
+agr$YMax = agr$normresponse + agr$CIHigh
+
+p=ggplot(agr, aes(x=AllPriorProbability,y=normresponse, color=trial_type)) +
+  geom_point() +
+  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth(method="lm") +
+  scale_y_continuous(name="Posterior probability of all-state") +
+  scale_x_continuous(name="Prior probability of all-state") +
+  scale_color_discrete(name="Trial type",breaks=levels(agr$trial_type),labels=c("unreliable (court)", "unreliable (drunk)", "reliable (sober)"))
+ggsave("graphs/norm_means_some_bycondition.pdf",width=6.5,height=4.5)
+ggsave("../../../writing/_2015/_journal_cognition/pics/speakerreliabilityresults.pdf",width=7,height=4)
+
+agr = aggregate(normresponse ~ AllPriorProbability  + trial_type + Item + block,data=some100,FUN=mean)
+agr$CILow = aggregate(normresponse ~ AllPriorProbability + trial_type + Item+ block,data=some100, FUN=ci.low)$normresponse
+agr$CIHigh = aggregate(normresponse ~ AllPriorProbability + trial_type + Item + block,data=some100,FUN=ci.high)$normresponse
+agr$YMin = agr$normresponse - agr$CILow
+agr$YMax = agr$normresponse + agr$CIHigh
+
+p=ggplot(agr, aes(x=AllPriorProbability,y=normresponse, color=trial_type)) +
+  geom_point() +
+  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth(method="lm") +
+  scale_y_continuous(name="Posterior probability of all-state") +
+  scale_x_continuous(name="Prior probability of all-state") +
+  scale_color_discrete(name="Trial type",breaks=levels(agr$trial_type),labels=c("unreliable (court)", "unreliable (drunk)", "reliable (sober)")) +
+  facet_wrap(~block)
+ggsave("../../../writing/_2015/_journal_cognition/pics/speakerreliabilityresults-byblock.pdf",width=12,height=3.7)
+
+some100$Reliability = as.factor(ifelse(some100$trial_type == "sober","reliable","unreliable"))
+centered = cbind(some100, myCenter(some100[,c("AllPriorProbability","Reliability")]))
+m = lmer(normresponse ~ cAllPriorProbability * cReliability + (cAllPriorProbability * cReliability | Item) + (cAllPriorProbability * cReliability | workerid), data=centered)
+summary(m)
+
+m.simple = lmer(normresponse ~ cAllPriorProbability * Reliability - cAllPriorProbability + (cAllPriorProbability * cReliability | Item) + (cAllPriorProbability * cReliability | workerid), data=centered)
+summary(m.simple)
+
+library(lmerTest)
+
+# by-subject ratings on "all" slider
+p=ggplot(droplevels(r[r$Proportion == "100",]), aes(x=PriorExpectationProportion,y=normresponse, color=trial_type)) +
+  geom_point() +
+  geom_smooth() +
+  scale_y_continuous(limits=c(0,1)) +
+  facet_grid(workerid~quantifier)
+ggsave("graphs/bysubject-effects.pdf",width=6,height=45)
 
 ggplot(r, aes(x=PriorExpectationProportion, y=response, color=quantifier)) +
   geom_point() +
@@ -73,10 +127,21 @@ agrr = aggregate(normresponse ~ AllPriorProbability + Proportion + quantifier + 
 ggplot(agrr, aes(x=AllPriorProbability, y=normresponse, color=trial_type)) +
   geom_point() +
   #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
-  geom_smooth() +
+  geom_smooth(method="lm") +
   facet_grid(quantifier~Proportion,scales="free_y") +
   ylab("Mean normalized response")   
 ggsave(file="graphs/norm_means_byquantifier_smoothed_allprob_bytrialtype.pdf",width=12,height=8)
+
+agrr = aggregate(normresponse ~ AllPriorProbability + Proportion + quantifier + Item + trial_type + Confused,data=r[r$Proportion == "100",],FUN=mean)
+#agrr = droplevels(subset(agrr, Proportion == "100"))
+ggplot(agrr, aes(x=AllPriorProbability, y=normresponse, color=trial_type)) +
+  geom_point() +
+  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth(method="lm") +
+  scale_y_continuous(limits=c(0,1)) +
+  facet_grid(Confused~quantifier,scales="free_y") +
+  ylab("Mean normalized response")   
+ggsave(file="graphs/norm_means_byquantifier_smoothed_allprob_bytrialtype_confused.pdf",width=12,height=6)
 
 agrr = aggregate(response ~ AllPriorProbability + Proportion + quantifier + Item + trial_type,data=r,FUN=mean)
 #agrr = droplevels(subset(agrr, Proportion == "100"))
@@ -87,6 +152,17 @@ ggplot(agrr, aes(x=AllPriorProbability, y=response, color=trial_type)) +
   facet_grid(quantifier~Proportion,scales="free_y") +
   ylab("Mean normalized response")   
 ggsave(file="graphs/raw_means_byquantifier_smoothed_allprob_bytrialtype.pdf",width=12,height=8)
+
+agrr = aggregate(normresponse ~ PriorExpectation + Proportion + quantifier + Item + trial_type + Confused,data=r[r$Proportion == "100",],FUN=mean)
+#agrr = droplevels(subset(agrr, Proportion == "100"))
+ggplot(agrr, aes(x=PriorExpectation, y=normresponse, color=trial_type)) +
+  geom_point() +
+  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth() +
+  scale_y_continuous(limits=c(0,1)) +
+  facet_grid(Confused~quantifier,scales="free_y") +
+  ylab("Mean normalized response")   
+ggsave(file="graphs/norm_means_byquantifier_smoothed_exp_bytrialtype_confused.pdf",width=12,height=8)
 
 agrr = aggregate(normresponse ~ PriorExpectation + Proportion + quantifier + Item + trial_type,data=r,FUN=mean)
 #agrr = droplevels(subset(agrr, Proportion == "100"))
