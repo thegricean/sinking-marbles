@@ -93,7 +93,7 @@ This prediction follows from the weak semantics of \emph{some} and the isolated 
 %This prediction follows from the weak semantics of \emph{some} and the isolated effect of the alternative \emph{all}: because \emph{Some of the X sank} only restricts the interpretation (i.e., the number of marbles that sank) to be greater than zero, and because the scalar implicature resulting from the alternative \emph{All of the X sank} can at most rule out the state in which all of the X sank, the prior will dominate the inference about exactly how many X sank.
 
 
-However, intuition is at odds with these predictions: as \citeA{geurts2010} has observed, for events with very high prior probability of occurrence (e.g., marbles sinking), observing an utterance such as \emph{Some of the marbles sank} seems to yield strong implicatures; that is, contrary to RSA predictions, the subjective probability that all of the marbles sank is intuitively close to 0. 
+However, intuition is at odds with these predictions: as \citeA{geurts2010} has observed, for events with very high prior probability of occurrence (e.g., marbles sinking), an utterance like  \emph{Some of the marbles sank} seems to yield strong implicatures; thus, contrary to RSA predictions, the subjective probability that all of the marbles sank is intuitively close to 0. 
 %The reason for this is presumably that listeners realize that the speaker went to the trouble of producing an utterance that is weaker than what the prior would lead one to believe.
 %
 
@@ -109,14 +109,11 @@ Exp.~1 measured listeners' prior beliefs about how many objects exhibit a certai
 
 \subsection{Method}
 
-\subsubsection{Participants}
-We recruited 60 participants over Amazon's crowd-sourcing platform Mechanical Turk.
+\subsubsection{Participants, procedure and materials}
 
+We recruited 60 participants over Amazon's Mechanical Turk.
 
-
-\subsubsection{Procedure and materials}
-
-On each trial,\footnote{This experiment can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/prior/sinking-marbles-prior.html}} participants read a one-sentence description of an event like \emph{John threw 15 marbles into a pool.} They were then asked to provide a judgment of an effect, e.g.~\emph{How many of the marbles do you think sank?}, on a sliding scale from 0 to 15. Each item had a similar form: the first sentence introduced the objects at issue (e.g., marbles). The question always had the form \emph{How many of the X Yed?}, where \emph{X} was the head of the direct object noun phrase introduced in the first sentence (e.g., \emph{marbles}, \emph{cups}, \emph{balloons}) and \emph{Yed} was a verb phrase denoting an effect that the objects underwent (e.g., \emph{sank}, \emph{broke}, \emph{stuck to the wall}). Each verb phrase occurred with three different objects, e.g., \emph{sank} occurred with \emph{marbles}, \emph{cups}, and \emph{balloons}. Items were constructed to intuitively cover the range of probabilities as much as possible, while also somewhat oversampling the upper range of probabilities to have more fine-grained coverage of this region that is of most interest for testing the RSA model. Judgments were obtained for 90 items, of which each participant saw a random selection of 30 items. 
+On each trial,\footnote{See this experiment at \url{http://cocolab.stanford.edu/cogsci2015/wonky/prior/sinking-marbles-prior.html}} participants read a one-sentence description of an event like \emph{John threw 15 marbles into a pool.} They were then asked to provide a judgment of an effect, e.g.~\emph{How many of the marbles do you think sank?}, on a sliding scale from 0 to 15. Each item had a similar form: the first sentence introduced the objects at issue (e.g., marbles). The question always had the form \emph{How many of the X Yed?}, where \emph{X} was the head of the direct object noun phrase introduced in the first sentence (e.g., \emph{marbles}, \emph{cups}, \emph{balloons}) and \emph{Yed} was a verb phrase denoting an effect that the objects underwent (e.g., \emph{sank}, \emph{broke}, \emph{stuck to the wall}). Each verb phrase occurred with three different objects, e.g., \emph{sank} occurred with \emph{marbles}, \emph{cups}, and \emph{balloons}. Items were constructed to intuitively cover the range of probabilities as much as possible, while also somewhat oversampling the upper range of probabilities to have more fine-grained coverage of this region that is of most interest for testing the RSA model. Judgments were obtained for 90 items, of which each participant saw a random selection of 30 items. 
 %\red{should be more specific about the materials... each item had a similar form, with action, category, and outcome differing? say that we constructed them to cover the range of probabilities as much as possible.}
 
 
@@ -173,7 +170,7 @@ RSA is defined by:
 \end{eqnarray}
 Here $\denote{u}: S \rightarrow \text{Boolean}$ is a truth-function specifying the literal meaning of each utterance.
 
-For concreteness, assume that the set of states of the world is $S = \{s_0, s_1, s_2, \dots, s_{15}\}$, where the subscript indicates the number of objects (e.g., marbles) that exhibit an effect (e.g., sinking). 
+For concreteness, assume the set of states of the world $S = \{s_0, s_1, s_2, \dots, s_{15}\}$, where the subscript indicates the number of objects (e.g., marbles) that exhibit an effect (e.g., sinking). 
 Further assume that the set of utterances \emph{All/None/Some of the marbles sank} is denoted $U = \{u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}\}$ and each has its usual literal meaning: 
 %$\denote{u_{\textrm{none}}}: s=0$,  
 %$\denote{u_{\textrm{some}}}: s>0$,
@@ -186,7 +183,7 @@ $\denote{u_{\textrm{all}}}= \{s_i | i = 15\}$.
 
 \begin{figure*}
 \centering
-	\includegraphics[width=.9\textwidth]{pics/rsa-predictions}
+	\includegraphics[width=.8\textwidth]{pics/rsa-predictions}
 %	\includegraphics[width=\textwidth]{pics/rsa-predictions-uniform}	
 	\caption{For each item, RSA and wRSA model predicted number of objects ($\mathbb{E}[P(s|u_{\textrm{some}})]$ as a function of $\mathbb{E}[P(s)]$, left) and model predicted all-state probability  ($P(s_{15}|u_{\textrm{some}})$ as a function of $P(s_{15})$, right) after observing \emph{Some of the X Yed}.}
 	\label{fig:rrsaexppredictions}	
@@ -238,14 +235,13 @@ We next turn to an empirical test of these predictions, or rather, of the intuit
 
 %\red{i think the current 2b should go first, since it uses the same DM as expt 1....}
 
-Exps.~2a and 2b\footnote{These experiments can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/expectation/sinking-marbles.html} and \url{http://cocolab.stanford.edu/cogsci2015/wonky/stateprobs/sinking-marbles-nullutterance.html}}  measured participants' posterior beliefs $P(s|u)$ about how many objects exhibited a certain effect (e.g., marbles sinking), after observing an utterance. The only difference between the experiments was the dependent measure. We used different dependent measures for two reasons. First, this allowed for directly and independently estimating the two values that the  predictions above are concerned with: $\mathbb{E}[P(s|u_{\textrm{some}})]$ and $P(s_{15}|u_{\textrm{some}})$. Second, this allows for evaluating the generalizability of the empirical result, a growing concern in experimental pragmatics.\footnote{\citeA<For a discussion of the role of dependent measures in experimental pragmatics, see e.g.,>{benzgotzner2014,degengoodman2014}.}
+Exps.~2a and 2b\footnote{See these experiments at \url{http://cocolab.stanford.edu/cogsci2015/wonky/expectation/sinking-marbles.html} and \url{http://cocolab.stanford.edu/cogsci2015/wonky/stateprobs/sinking-marbles-nullutterance.html}}  measured participants' posterior beliefs $P(s|u)$ about how many objects exhibited a certain effect (e.g., marbles sinking), after observing an utterance. The only difference between the experiments was the dependent measure. We used different dependent measures for two reasons. First, this allowed for directly and independently estimating the two values that the  predictions above are concerned with: $\mathbb{E}[P(s|u_{\textrm{some}})]$ and $P(s_{15}|u_{\textrm{some}})$. Second, this allows for evaluating the generalizability of the empirical result, a growing concern in experimental pragmatics.\footnote{\citeA<For a discussion of the role of dependent measures in experimental pragmatics, see e.g.,>{benzgotzner2014,degengoodman2014}.}
 
 \subsection{Method}
 
-\subsubsection{Participants}
-For each experiment we recruited 120 participants over Amazon's Mechanical Turk.
+\subsubsection{Participants, procedure and materials}
 
-\subsubsection{Procedure and materials}
+For each experiment we recruited 120 participants over Mechanical Turk.
 
 Participants read the same descriptions as in Exp.~1. They additionally saw an utterance produced by a knowledgeable speaker about the event, e.g.~\textit{John, who observed what happened, said: ``Some of the marbles sank''}. In Exp.~2a (just as in Exp.~1), they then provided a judgment of an effect, e.g.~\textit{How many of the marbles do you think sank?}, on a sliding scale from 0 to 15. In Exp.~2b they instead rated on sliding scales with endpoints labeled ``definitely not'' and ``definitely'', how likely they thought 0\%, 1-50\%, 51-99\%, or 100\% of the objects exhibited the effect.
 
@@ -254,7 +250,7 @@ Each participant saw 10 \emph{some} trials and 20 filler trials, of which 10 con
  
 \begin{figure*}
 \centering
-	\includegraphics[width=.9\textwidth]{pics/empirical-results}	
+	\includegraphics[width=.8\textwidth]{pics/empirical-results}	
 	\caption{For each item and quantifier, (left) empirical mean number of objects as a function of the prior mean number of objects (i.e.,  $\mathbb{E}[P(s|u_{\textrm{some}})]$ vs. $\mathbb{E}[P(s)]$ from Exp.~2a and Exp.~1); and (right) empirical mean all-state probability as a function of the prior mean all-state probability (i.e., $P(s_{15}|u_{\textrm{some}})$ vs.~$P(s_{15})$ from Exp.~2b and Exp.~1). Implicatures from \emph{some} to \emph{not all} were generally strong, as evidenced in the low all-state probabilities after observing \emph{some}.}
 	\label{fig:empiricalresults}	
 \end{figure*}
@@ -288,8 +284,8 @@ This inferred prior is used in both the literal and pragmatic listeners, indicat
 &&P_{S_1}(u|s,w) \propto \mathrm{exp}({\lambda \ln P_{L_0}(s|u,w))}\\
 &&P_{L_1}(s,w|u)\propto P_{S_1}(u|s,w)\cdot P(s|w) \cdot P(w)
 \end{eqnarray}
-We refer to this model as wRSA. Notice that the choice of $w$ that the listener makes will depend on $P_{S_1}(u|s,w)$: if a given utterance can't be explained by the usual prior, because it is unlikely under any plausible world state $s$, then the pragmatic listener will infer that the world is wonky, and back off to the uniform prior.
-That is, if the utterance is odd, the listener will revise her opinion about what world knowledge is appropriate to use.
+We refer to this model as wRSA. Notice that the choice of $w$ that the listener makes will depend on $P_{S_1}(u|s,w)$: if a given utterance can't be explained by the usual prior because it is unlikely under any plausible world state $s$, the pragmatic listener infers that the world is wonky and backs off to the uniform prior.
+That is, if the utterance is odd, the listener will revise her opinion about appropriate world knowledge.
 
 To make predictions for Exp.~2 from wRSA we use the smoothed empirical priors from Exp.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality $\lambda$ are fit to optimize mean squared error (MSE) with Exp.~2 data. The optimal parameters ($\lambda = 2$, $P(w) = 0.5$) resulted in an MSE of 2.15 (compared to 14.53 for RSA) for the expected number of objects, and 0.01 (compared to 0.07 for RSA) for the all-state probability. The better fit of wRSA compared to RSA can be seen in the comparison of \figref{fig:rrsaexppredictions} and \figref{fig:empiricalresults}: in both cases, wRSA (light blue lines) predicts a much attenuated effect of the prior compared to regular RSA (dark blue lines), in line with the empirical data. Furthermore, wRSA does not make either of the problematic predictions identified earlier for regular RSA.
 
@@ -305,19 +301,18 @@ Note the U-shaped curve, in which the world is judged wonky if $u_{\textrm{some}
 \begin{figure}
 	\centering
 %	\includegraphics[width=.5\textwidth]{pics/model-wonkiness-binomial}
-	\includegraphics[width=.45\textwidth]{pics/model-wonkiness-uniform}
+	\includegraphics[width=.43\textwidth]{pics/model-wonkiness-uniform}
 	\caption{For each item, predicted wonkiness probability after observing an utterance ($u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}$), as a function of the prior expected number of affected objects.}
 	\label{fig:wonkymodel}	
 \end{figure}
 
 \section{Experiment 3: wonkiness}
 
-Exp.~3\footnote{This experiment can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/wonkiness/sinking-marbles-normal.html}} measured participants' beliefs in world wonkiness after observing the scenarios and utterances from Exps.~2a and 2b.
+Exp.~3\footnote{See the experiment at \url{http://cocolab.stanford.edu/cogsci2015/wonky/wonkiness/sinking-marbles-normal.html}} measured participants' beliefs in world wonkiness after observing the scenarios and utterances from Exps.~2.
 
-\subsubsection{Participants}
-We recruited 60 participants over Amazon's crowd-sourcing platform Mechanical Turk.
+\subsubsection{Participants, procedure and materials}
 
-\subsubsection{Procedure and materials}
+We recruited 60 participants over Mechanical Turk.
 
 The procedure and materials were identical to those of Exps.~2a and 2b, with the exception of the dependent measure. Rather than providing estimates of what they believed the world was like, participants were asked to indicate how likely it was that the objects  (e.g., the marbles) involved in the scenario were normal objects, by adjusting a slider that ranged from \emph{definitely not normal} to \emph{definitely normal}.
 
@@ -327,7 +322,7 @@ The extreme ends of the sliders were coded as 1 (\emph{definitely not normal}, i
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.45\textwidth]{pics/empirical-wonkiness}
+	\includegraphics[width=.43\textwidth]{pics/empirical-wonkiness}
 	\caption{For each item, mean empirical wonkiness probability after observing an utterance ($u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}$), as a function of the prior expected  number of affected objects.}
 	\label{fig:wonkyratings}	
 \end{figure}
@@ -367,12 +362,12 @@ As a result, an odd utterance can lead the listener to update their own view of 
 This is reminiscent of linguistic theories of presupposition accommodation \cite{lewis1979,stalnaker1973,stalnaker1998}.
 It will be interesting to further explore the relation of the wRSA approach to presupposition.
 
-Throughout this paper we discussed wonkiness as an attribute of the \emph{world}, yet empirically we elicited wonkiness judgments about the \emph{objects} involved in the events. 
-This raises the question of what exactly listeners are revising about their prior beliefs: objects, events, the speaker's beliefs, or the way the speaker uses language? 
+Throughout this paper we discussed wonkiness as an attribute of the \emph{world}, yet empirically we elicited wonkiness judgments about \emph{objects} involved in events. 
+This raises the question of what exactly listeners are revising  their prior beliefs about: objects, events, the speaker's beliefs, or the way the speaker uses language? 
 %Relatedly, in the current implementation of wRSA, prior belief revision has a global effect: that is, the prior that the listener infers is simultaneously the prior the listener attributes to the speaker; that is, the prior is treated as being in common ground, and the revision of the prior thus leads to a revision of common ground. But it is in fact an empirical question whether listeners revise their own privileged beliefs about the world, their beliefs about the common ground, or their beliefs about the speaker's beliefs. \red{WONKY SENTENCE: Addressing this question in future research will reveal whether a more complex mechanism for prior belief revision needs to incorporated that explicitly models prior vs.~privileged ground.}
-Relatedly, we have used a uniform prior distribution as the alternative to consider when the listener believes the world is wonky.  One could imagine various more flexible alternatives. For instance, listeners may make minimal adjustments to their prior knowledge, or alternatively, may prefer extreme priors that rationalize the utterance once they have discounted the usual priors.
+Relatedly, we used a uniform prior distribution as the alternative prior when the listener believes the world is wonky.  One could imagine various more flexible alternatives. For instance, listeners may make minimal adjustments to their prior knowledge, or alternatively, may prefer extreme priors that rationalize the utterance once they have discounted the usual priors.
 %Do metaphorical interpretations draw listeners out of the wonky world? 
-Future research should investigate the options listeners have available when their world knowledge must be revised to accommodate an utterance.
+Future research should investigate the options listeners consider when their world knowledge must be revised to accommodate an utterance.
 
 This work also has methodological implications: researchers working in the field of experimental semantics and pragmatics would be well served to take into account the effect of `odd' items, prior beliefs, and interactions between the two.\footnote{For an in depth discussion of this issue in syntactic processing, see, e.g., \citeA{jaeger2010, fine2013a}.} In particular, if the attempt to design uniform stimuli across conditions yields odd utterances in some conditions, we predict that participants will respond by revising their prior beliefs in ways that can be unpredictable. That is, we expect unpredictable interaction effects between stimuli and conditions. This is likely to inflate or compress potential effects of an experimental manipulation. 
 
@@ -392,6 +387,10 @@ appears to be a favorite.
 %%	\item implication for experiments on language understanding
 %
 %\end{itemize}
+
+\section{Acknowledgments}
+
+This work was supported by a James S. McDonnell Foundation Scholar Award to NDG and by an SNF Early Postdoc.Mobility Award to JD.
 
 \small
 
