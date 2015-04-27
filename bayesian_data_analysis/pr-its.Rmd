@@ -7,6 +7,7 @@ output: html_document
 
 ```{r}
 library(rstan)
+library(parallel)
 setwd("~/Documents/research/sinking-marbles/bayesian_data_analysis/")
 dir()
 ```
@@ -16,29 +17,55 @@ dir()
 model <- "
 // Give a number task
 data { 
-  int<lower=1> subjects;
+  int<lower=1> subjects_nt;
+  int<lower=1> subjects_bh;
   int<lower=0> states;
   int<lower=1> items;
-  int<lower=0,upper=99> ntdata[items,subjects];
-  int d_na[items,subjects];  // locating NAs in ntdata
-  int n_na;         // number of NAs
+  int<lower=0,upper=99> ntdata[items,subjects_nt];
+  int<lower=0,upper=99> bhdata[items,subjects_bh, states];
+  int d_na_nt[items,subjects_nt];  // locating NAs in ntdata
+  int n_na_nt;         // number of NAs in ntdata
+  int d_na_bh[items,subjects_bh,states];  // locating NAs in bhdata
+  int n_na_bh;         // number of NAs in bhdata
 }
 parameters {
   matrix<lower=0,upper=1>[items,states] prits; 
   vector<lower=0>[subjects] alpha;
+  vector<lower=0>[subjects] scale;
+  vector<lower=0>[subjects] offset;
   real<lower=0> big_alpha;
 }
 transformed parameters {
   vector[states] exp_prits[subjects,items];
-// make this into array of arrays somehow
-  for (i in 1:subjects){
+  vector[states] logistic_prits[subjects,items];
+  vector[states] logit_logistic_prits[subjects,items];
+
+
+  for (i in 1:subjects_nt){
     for (j in 1:items){
       for (k in 1:states){
-        exp_prits[i,j,k] <- pow(prits[j,k],alpha[i]);
-      }
+        //exp_prits[i,j,k] <- pow(prits[j,k],alpha[i]);
+        exp_prits[i,j,k] <- pow(prits[j,k],1);
+    }
       exp_prits[i,j] <- exp_prits[i,j]/sum(exp_prits[i,j]);
     }
   }
+
+
+  for (i in 1:subjects_bh){
+    for (j in 1:items){
+      for (k in 1:states){
+
+      // do logisitic and logit business
+
+        //exp_prits[i,j,k] <- pow(prits[j,k],alpha[i]);
+        exp_prits[i,j,k] <- pow(prits[j,k],1);
+    }
+      exp_prits[i,j] <- exp_prits[i,j]/sum(exp_prits[i,j]);
+    }
+  }
+
+
 }
 
 model {
@@ -80,29 +107,46 @@ generated quantities {
 
 ```{r}
 
-allpriors<-read.csv(file="inferpriorinsky_number.txt", sep='\t')
-f<-allpriors %>% gather(key, value,-workerid)
+ntpriors<-read.csv(file="inferpriorinsky_number.txt", sep='\t')
+bhpriors <- read.csv(file="inferpriorinsky_binnedhistogram.txt", sep='\t')
+bhpriors <- bhpriors[complete.cases(bhpriors),]
+
+g<- bhpriors %>% gather(key, value,-workerid,-Item)
+h<- acast(g, Item~ workerid~key)
+
+f<-ntpriors %>% gather(key, value,-workerid)
 d<-acast(f,key~workerid)
 
 d[d==-1] <- NA
 
-subjects <- length(d[1,])  # number of subjects
-items <- length(d[,1])  # number of items
-states <- 16 # number of states
+subjects.nt <- length(d[1,])  # number of subjects (number task)
+subjects.bh <- length(h[,1,1])  # number of subjects (binned histograms)
+items <- length(h[1,,1])  # number of items
+states <- length(h[1,1,])
 
-d_na <- is.na(d) + 0  # Matrix locating missing values: 1 = missing
-n_na <- sum(d_na)  # number of missing values
+d_na.nt <- is.na(d) + 0  # Matrix locating missing values: 1 = missing
+d_na.bh <- is.na(h) + 0  # Matrix locating missing values: 1 = missing
+
+n_na.nt <- sum(d_na.nt)  # number of missing values
+n_na.bh <- sum(d_na.bh)  # number of missing values
+
 d=d+1  # add 1 for sake of the categorical
 d[is.na(d)] <- 99  # some numeric value, since Stan doesn't eat NAs
+h[is.na(h)] <- 99  # some numeric value, since Stan doesn't eat NAs
+
   
-parameters <- c("prits","alpha","na_array")  # parameters to be monitored   
+parameters <- c("prits","alpha","scale","offset","na_array_tc", "na_array_bh")  # parameters to be monitored   
 
 data <- list(ntdata=d, 
-             subjects=subjects,
+             bhdata = h,
+             subjects_nt=subjects.nt,
+             subjects_bh=subjects.bh,
              items=items,
              states=states,
-             d_na=d_na,
-             n_na=n_na) # to be passed on to Stan
+             d_na_nt=d_na.nt,
+             d_na_bh=d_na.bh,
+             n_na_tc=n_na.tc,
+             n_na_bh=n_na.bh) # to be passed on to Stan
 
 fit0 <- stan(model_code=model, data = data, chains = 0)
 
@@ -114,13 +158,13 @@ fit0 <- stan(model_code=model, data = data, chains = 0)
 
 
 sflist <- 
-  mclapply(1:4, mc.cores = 2, 
+  mclapply(1:3, mc.cores = 3, 
            function(i) stan(fit = fit0, 
                             pars=parameters,
                             data = data, 
                             chains = 1, 
                             chain_id = i,
-                            iter=500,
+                            iter=2000,
                             thin=10,
                             refresh = -1))
 
@@ -133,7 +177,7 @@ sky.prior<-df %>% select(starts_with('prits')) %>%
   gather(key,value) %>%
   separate(key, c("dull","item","state","chain")) %>%
   select(-dull) %>%
-  mutate(chain = factor(chain, labels=c(1,2,3,4))) %>%
+  mutate(chain = factor(chain, labels=c(1,2,3))) %>%
   group_by(item,state) %>%
 #   summarise(posterior.median = median(value),
 #             posterior.975 = quantile(value,probs=.975),
@@ -158,7 +202,7 @@ sky.prior<- sky.prior %>%
 ggplot(sky.prior,aes(x=value))+
   geom_histogram()+
   facet_grid(state~item)
-ggsave(file='STAN_numbertask_iter100x4_lognormal_stateXitem.png', height=30, width=30)
+ggsave(file='STAN_numbertask_iter2000_burn10_x4_lognormal_stateXitem.png', height=30, width=30)
 
 plt1<-ggplot(sky.prior,aes(x=state, y= norm_expval))+
   geom_bar(stat='identity',position=position_dodge())+
@@ -166,21 +210,25 @@ plt1<-ggplot(sky.prior,aes(x=state, y= norm_expval))+
  #               position=position_dodge())+
   facet_wrap(~item)
 
-ggsave(plot=plt1,file='STAN_numbertask_iter1000_lognormal_mean1.png',height=20, width=30)
+ggsave(plot=plt1,file='STAN_numbertask_iter2000_burn10_x3_sansAlpha.png',height=20, width=30)
 
 
 
 alpha.subj<-df %>% select(starts_with('alpha'))%>%
   gather(key,value) 
 
-ggplot(alpha.subj,aes(x=value))+
-  geom_histogram(binwidth=0.2)+
-  facet_wrap(~key)
+plt2<-ggplot(alpha.subj,aes(x=value))+
+  geom_histogram()+
+  facet_wrap(~key,scales='free')
+
+ggsave(plot=plt2,file='STAN_numbertask_alphasPrior_iter2000_burn10_x3_lognormal_mean1.png',height=20, width=30)
 #+
 #  xlim(0,5)
 
 qplot(df$big_alpha,geom='histogram')
 
+
+save(sky.prior,file='prits_numbertask_iter2000_burn10_x3_sansAlpha.Rdata')
 ```
 
 
