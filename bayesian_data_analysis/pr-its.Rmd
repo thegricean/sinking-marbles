@@ -22,24 +22,24 @@ data {
   int<lower=0> states;
   int<lower=1> items;
   int<lower=0,upper=99> ntdata[items,subjects_nt];
-  int<lower=0,upper=99> bhdata[items,subjects_bh, states];
+  vector<lower=0,upper=99>[states] bhdata[items,subjects_bh];
+  //int<lower=0,upper=99> bhdata[items,subjects_bh, states];
   int d_na_nt[items,subjects_nt];  // locating NAs in ntdata
   int n_na_nt;         // number of NAs in ntdata
   int d_na_bh[items,subjects_bh,states];  // locating NAs in bhdata
   int n_na_bh;         // number of NAs in bhdata
 }
 parameters {
-  matrix<lower=0,upper=1>[items,states] prits; 
-  vector<lower=0>[subjects] alpha;
-  vector<lower=0>[subjects] scale;
-  vector<lower=0>[subjects] offset;
-  real<lower=0> big_alpha;
+  matrix<lower=0,upper=1>[items,states] prits;
+  vector<lower=0>[items] concentration;
+  vector<lower=0>[subjects_nt] alpha;
+  vector<lower=0>[subjects_bh] scale;
+  vector[subjects_bh] offset;
+//  real<lower=0> big_alpha;
 }
 transformed parameters {
-  vector[states] exp_prits[subjects,items];
-  vector[states] logistic_prits[subjects,items];
-  vector[states] logit_logistic_prits[subjects,items];
-
+  vector[states] exp_prits[subjects_nt,items];
+  vector[states] xform_prits[subjects_bh,items];
 
   for (i in 1:subjects_nt){
     for (j in 1:items){
@@ -55,16 +55,11 @@ transformed parameters {
   for (i in 1:subjects_bh){
     for (j in 1:items){
       for (k in 1:states){
-
-      // do logisitic and logit business
-
-        //exp_prits[i,j,k] <- pow(prits[j,k],alpha[i]);
-        exp_prits[i,j,k] <- pow(prits[j,k],1);
-    }
-      exp_prits[i,j] <- exp_prits[i,j]/sum(exp_prits[i,j]);
+        xform_prits[i,j,k] <- inv_logit(scale[i]*(logit(prits[j,k])-offset[i]));
+      }
+      xform_prits[i,j] <- (concentration[j]*xform_prits[i,j])/sum(xform_prits[i,j]);
     }
   }
-
 
 }
 
@@ -72,31 +67,56 @@ model {
 
   // Priors
   
-  for (j in 1:items)
-    for (k in 1:states)
+  for (j in 1:items){
+    for (k in 1:states){
       prits[j,k] ~ beta(1,1);
+    }
+    concentration[j] ~ lognormal(1,1);
+  }
 
-  for (i in 1:subjects)
+  for (i in 1:subjects_nt){
       alpha[i] ~ lognormal(1,1);
+  }
+
+  for (i in 1:subjects_bh){
+      scale[i] ~ lognormal(1,1);
+      offset[i] ~ normal(0,1);
+  }
 
   for (j in 1:items){
-    for (i in 1:subjects){
-      if (d_na[j,i] == 0){     // If ntdata[j,i] is not missing
+    for (i in 1:subjects_nt){
+      if (d_na_nt[j,i] == 0){     // If ntdata[j,i] is NOT missing
         ntdata[j,i] ~ categorical(exp_prits[i,j]);
       }
-  }
+    }
+
+    for (i in 1:subjects_bh){
+      if (d_na_bh[j,i,1] == 0){ // if bhdata[j,i] is NOT missing
+        bhdata[j,i] ~ dirichlet(xform_prits[i,j]);
+      }
+    }
 }
 }
 generated quantities {
-  int na_array[n_na];
-  int index;
+  int na_array_nt[n_na_nt];
+  vector<lower=0>[states] na_array_bh[n_na_bh];
+  int index_nt;
+  int index_bh;
   
-  index <- 1;
+  index_nt <- 1;
+  index_bh <- 1;
+
   for (j in 1:items) {
-    for (i in 1:subjects) {   
-      if (d_na[j,i] == 1) {   // If ntdata[j,i] is missing
-        na_array[index] <- categorical_rng(exp_prits[i,j]);
-        index <- index + 1;
+    for (i in 1:subjects_nt) {   
+      if (d_na_nt[j,i] == 1) {   // If ntdata[j,i] is missing
+        na_array_nt[index_nt] <- categorical_rng(exp_prits[i,j]);
+        index_nt <- index_nt + 1;
+      }
+  }
+    for (i in 1:subjects_bh){
+      if (d_na_bh[j,i,1] == 1){  // If bhdata[j,i] is missing
+        na_array_bh[index_bh] <- dirichlet_rng(xform_prits[i,j]);
+        index_bh <- index_bh + 1;
       }
     }
   }
@@ -106,13 +126,17 @@ generated quantities {
 
 
 ```{r}
-
 ntpriors<-read.csv(file="inferpriorinsky_number.txt", sep='\t')
 bhpriors <- read.csv(file="inferpriorinsky_binnedhistogram.txt", sep='\t')
 bhpriors <- bhpriors[complete.cases(bhpriors),]
 
 g<- bhpriors %>% gather(key, value,-workerid,-Item)
-h<- acast(g, Item~ workerid~key)
+g[g$value==0,]$value<-0.0001
+g0<- g %>%
+  group_by(workerid,Item) %>%
+  mutate(value = value/sum(value))
+  
+h<- acast(g0, Item~ workerid~key)
 
 f<-ntpriors %>% gather(key, value,-workerid)
 d<-acast(f,key~workerid)
@@ -120,22 +144,30 @@ d<-acast(f,key~workerid)
 d[d==-1] <- NA
 
 subjects.nt <- length(d[1,])  # number of subjects (number task)
-subjects.bh <- length(h[,1,1])  # number of subjects (binned histograms)
-items <- length(h[1,,1])  # number of items
+subjects.bh <- length(h[1,,1])  # number of subjects (binned histograms)
+items <- length(h[,1,1])  # number of items
 states <- length(h[1,1,])
 
 d_na.nt <- is.na(d) + 0  # Matrix locating missing values: 1 = missing
 d_na.bh <- is.na(h) + 0  # Matrix locating missing values: 1 = missing
 
 n_na.nt <- sum(d_na.nt)  # number of missing values
-n_na.bh <- sum(d_na.bh)  # number of missing values
+n_na.bh <- sum(d_na.bh)/states  # number of missing items
 
 d=d+1  # add 1 for sake of the categorical
 d[is.na(d)] <- 99  # some numeric value, since Stan doesn't eat NAs
 h[is.na(h)] <- 99  # some numeric value, since Stan doesn't eat NAs
 
   
-parameters <- c("prits","alpha","scale","offset","na_array_tc", "na_array_bh")  # parameters to be monitored   
+parameters <- c("prits","alpha","scale","offset",
+                "na_array_nt", "na_array_bh")  # parameters to be monitored   
+myinits <- list(
+  list(
+       alpha = rep(1,subjects.nt),
+       scale = rep(1,subjects.bh),
+       offset = rep(0, subjects.bh)
+       ))
+
 
 data <- list(ntdata=d, 
              bhdata = h,
@@ -145,39 +177,54 @@ data <- list(ntdata=d,
              states=states,
              d_na_nt=d_na.nt,
              d_na_bh=d_na.bh,
-             n_na_tc=n_na.tc,
+             n_na_nt=n_na.nt,
              n_na_bh=n_na.bh) # to be passed on to Stan
 
 fit0 <- stan(model_code=model, data = data, chains = 0)
+```
 
-# fit0<-stan(fit=foo, 
+Run model (in parallel)
+
+```{r}
+# fit1<-stan(fit=fit0, 
 #      data = data, 
-#      iter = 1000,
+#      iter = 10,
+#      seed=100,
 #      pars=parameters,
-#      chains = 2)
+#      chains = 1)
 
+chain_names = 1:3
 
 sflist <- 
-  mclapply(1:3, mc.cores = 3, 
+  mclapply(chain_names, mc.cores = 3, 
            function(i) stan(fit = fit0, 
                             pars=parameters,
                             data = data, 
                             chains = 1, 
                             chain_id = i,
-                            iter=2000,
+                            iter=1000,
                             thin=10,
                             refresh = -1))
 
 fit1 <- sflist2stanfit(sflist)
+```
+
+Put data in frame, make plots
+
+```{r}
 
 
 df<-data.frame(fit1@sim$samples)
+
+save(df,file='prits_allPosteriors_iter1000_thin10_x3.Rdata')
+
+
 
 sky.prior<-df %>% select(starts_with('prits')) %>%
   gather(key,value) %>%
   separate(key, c("dull","item","state","chain")) %>%
   select(-dull) %>%
-  mutate(chain = factor(chain, labels=c(1,2,3))) %>%
+  mutate(chain = factor(chain, labels=chain_names)) %>%
   group_by(item,state) %>%
 #   summarise(posterior.median = median(value),
 #             posterior.975 = quantile(value,probs=.975),
@@ -198,38 +245,123 @@ sky.prior<- sky.prior %>%
   mutate(item = factor(sky.prior$item, levels=seq(1,90), labels =levels(f$key)),
          state = to.n(state)-1)
 
-
-ggplot(sky.prior,aes(x=value))+
-  geom_histogram()+
-  facet_grid(state~item)
-ggsave(file='STAN_numbertask_iter2000_burn10_x4_lognormal_stateXitem.png', height=30, width=30)
-
+# plot the expected value of each state, facet by item
 plt1<-ggplot(sky.prior,aes(x=state, y= norm_expval))+
   geom_bar(stat='identity',position=position_dodge())+
  # geom_errorbar(aes(ymin=posterior.025, ymax=posterior.975), 
  #               position=position_dodge())+
   facet_wrap(~item)
 
-ggsave(plot=plt1,file='STAN_numbertask_iter2000_burn10_x3_sansAlpha.png',height=20, width=30)
+ggsave(plot=plt1,file='STAN_bothtasks_iter1000_thin10_x3.png',height=20, width=30)
+```
 
+More fine detailed version. State ~ item posteriors.
+```{r}
+# 
+sky.prior<-df %>% select(starts_with('prits')) %>%
+  gather(key,value) %>%
+  separate(key, c("dull","item","state","chain")) %>%
+  select(-dull) %>%
+  mutate(chain = factor(chain, labels=chain_names),
+         item = factor(sky.prior$item, levels=seq(1,90), labels =levels(f$key)),
+         state = to.n(state)-1)
+
+plt2<-ggplot(sky.prior,aes(x=value))+
+  geom_histogram()+
+  facet_grid(state~item)+
+  theme(strip.text.x = element_text(angle=90))
+
+ggsave(plot=plt2,
+       file='STAN_bothtasks_iter1000_thin10_x3_stateXitema.png', height=30, width=50,
+       limitsize=F)
+
+```
+
+# Subject level parameters
+
+## Alpha (the "give a number", exponent parameter)
+
+```{r}
 
 
 alpha.subj<-df %>% select(starts_with('alpha'))%>%
-  gather(key,value) 
+  gather(key,value)  %>%
+  separate(key, c("dull","subject","chain")) %>%
+  select(-dull) %>%
+  mutate(chain = factor(chain, labels=chain_names),
+         subject = to.n(subject))
 
-plt2<-ggplot(alpha.subj,aes(x=value))+
-  geom_histogram()+
-  facet_wrap(~key,scales='free')
+plt3<-ggplot(alpha.subj,aes(x=value))+
+  geom_histogram(binwidth=0.2)+
+  facet_wrap(~subject,scales='free')+
+  xlim(0,10)
 
-ggsave(plot=plt2,file='STAN_numbertask_alphasPrior_iter2000_burn10_x3_lognormal_mean1.png',height=20, width=30)
+ggsave(plot=plt3,file='STAN_bothtasks_subjAlpha_iter1000_thin10_x3.png',height=20, width=30)
 #+
 #  xlim(0,5)
 
-qplot(df$big_alpha,geom='histogram')
-
-
-save(sky.prior,file='prits_numbertask_iter2000_burn10_x3_sansAlpha.Rdata')
+#qplot(df$big_alpha,geom='histogram')
 ```
+
+## Scale subject parameter
+
+```{r}
+
+
+scale.subj<-df %>% 
+  select(starts_with('scale')) %>%
+  gather(key,value)  %>%
+  separate(key, c("dull","subject","chain")) %>%
+  select(-dull) %>%
+  mutate(chain = factor(chain, labels=chain_names),
+         subject = to.n(subject))
+
+plt4<-ggplot(scale.subj,aes(x=value))+
+  geom_histogram()+
+  facet_wrap(~subject,scales='free')
+
+ggsave(plot=plt4, file='STAN_bothtasks_subjScale_iter1000_thin10_x3.png', height=20, width=30)
+
+#+
+#  xlim(0,5)
+
+#qplot(df$big_alpha,geom='histogram')
+
+
+#save(sky.prior,file='prits_numbertask_iter2000_burn10_x3_sansAlpha.Rdata')
+```
+
+## Scale offset parameter
+
+```{r}
+
+offset.subj<-df %>% 
+  select(starts_with('offset')) %>%
+  gather(key,value)  %>%
+  separate(key, c("dull","subject","chain")) %>%
+  select(-dull) %>%
+  mutate(chain = factor(chain, labels=chain_names),
+         subject = to.n(subject))
+
+plt5<-ggplot(offset.subj,aes(x=value))+
+  geom_histogram()+
+  facet_wrap(~subject,scales='free')
+
+ggsave(plot=plt5, file='STAN_bothtasks_subjOffset_iter1000_thin10_x3.png', height=20, width=30)
+
+#+
+#  xlim(0,5)
+
+#qplot(df$big_alpha,geom='histogram')
+
+
+#save(sky.prior,file='prits_numbertask_iter2000_burn10_x3_sansAlpha.Rdata')
+```
+
+
+
+
+
 
 
 
