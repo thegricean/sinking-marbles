@@ -30,17 +30,15 @@ agr$CILow = aggregate(normresponse ~ slider_id + Item,data=r, FUN=ci.low)$normre
 agr$CIHigh = aggregate(normresponse ~ slider_id + Item,data=r,FUN=ci.high)$normresponse
 #save(agrr, file="data/agrr.RData")
 head(agr)
-agr = agr %>% rename(prior_number = PriorProbability,
-                     State = slider_id,
-                     Item = Item,
-                     prior_slider = normresponse)
-agr$YMin = agr$prior_slider - agr$CILow
-agr$YMax = agr$prior_slider + agr$CIHigh
-gathered = agr %>% gather(Probability, value,-Item,-State,-YMin,-YMax,-CIHigh,-CILow)
+agr$YMin = agr$normresponse - agr$CILow
+agr$YMax = agr$normresponse + agr$CIHigh
+gathered = agr %>% gather(Probability, value,-Item,-slider_id,-YMin,-YMax,-CIHigh,-CILow)
 gathered[gathered$Probability == "prior_number",]$YMin = gathered[gathered$Probability == "prior_number",]$value
 gathered[gathered$Probability == "prior_number",]$YMax = gathered[gathered$Probability == "prior_number",]$value
 head(gathered)
 save(agr, file="data/agr-normresponses.RData")
+gathered$State = gathered$slider_id
+write.table(agr[,c("slider_id","Item","normresponse","YMin","YMax")],file="data/aggregated_priors.csv",sep="\t",row.names=F,quote=F)
 
 ggplot(gathered, aes(x=State, y=value, color=Probability)) +
   geom_point() +
@@ -313,6 +311,16 @@ for (i in levels(r$workerid))
     geom_line() +
     facet_wrap(~Item)
   ggsave(plot=p, filename=paste("graphs/individual_subjects/",i,".pdf",sep=""),height=10,width=14)
+  
+}
+
+for (i in levels(r$workerid))
+{
+  p=ggplot(r[r$workerid == i,], aes(x=slider_id,y=normresponse)) +
+    geom_point() +
+    geom_line() +
+    facet_wrap(~Item)
+  ggsave(plot=p, filename=paste("graphs/individual_subjects/normalized",i,".pdf",sep=""),height=10,width=14)
   
 }
 
