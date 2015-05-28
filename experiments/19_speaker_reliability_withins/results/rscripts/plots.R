@@ -28,7 +28,10 @@ p=ggplot(agr, aes(x=AllPriorProbability,y=normresponse, color=trial_type)) +
   scale_x_continuous(name="Prior probability of all-state") +
   scale_color_discrete(name="Trial type",breaks=levels(agr$trial_type),labels=c("unreliable (court)", "unreliable (drunk)", "reliable (sober)"))
 ggsave("graphs/norm_means_some_bycondition.pdf",width=6.5,height=4.5)
+p
+ggsave("graphs/norm_means_some_bycondition.png",width=7,height=4.5)
 ggsave("../../../writing/_2015/_journal_cognition/pics/speakerreliabilityresults.pdf",width=7,height=4)
+
 
 agr = aggregate(normresponse ~ AllPriorProbability  + trial_type + Item + block,data=some100,FUN=mean)
 agr$CILow = aggregate(normresponse ~ AllPriorProbability + trial_type + Item+ block,data=some100, FUN=ci.low)$normresponse
