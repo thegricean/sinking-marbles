@@ -68,10 +68,37 @@ best_guesses = droplevels(subset(r, responsetype == "best_guess"))
 library(np)
 library(plyr)
 smoothed_dist15 = ddply(best_guesses, .(Item), summarise, State = c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15),SmoothedProportion = (npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001)/sum(npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001))
+smoothed_dist15$SmoothedProportion = format(round(smoothed_dist15$SmoothedProportion,7), scientific=F)
+casted = dcast(smoothed_dist15, Item ~ State, value.var="SmoothedProportion")
+head(casted)
+write.table(casted,file="data/smoothed_15marbles_priors_withnames.txt",row.names=F,quote=F,sep="\t")
+write.table(casted,file="../../../models/wonky_world/fourstep_15marbles_priors_withnames.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,2:length(colnames(casted))],file="data/smoothed_15marbles_priors.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,1],file="data/items.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,2:length(colnames(casted))],file="../../../models/wonky_world/fourstep_15marbles_priors.txt",row.names=F,quote=F,sep="\t")
+
 
 head(smoothed_dist15)
 summary(smoothed_dist15)
 sum(smoothed_dist15[smoothed_dist15$Item == "ate the seeds birds",]$SmoothedProportion)
+
+expectations = ddply(r, .(Item), summarise, expectation=sum(npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens*seq(0,15)),densitysum=sum(npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens))
+expectations$expectation_corr = expectations$expectation/expectations$densitysum
+head(expectations)
+
+mean(expectations$expectation_corr)
+median(expectations$expectation_corr)
+
+ggplot(expectations, aes(x=expectation_corr)) +
+  geom_histogram() +
+  scale_x_continuous()
+
+head(expectations)
+write.table(expectations[,c("Item","expectation_corr")],row.names=F,sep="\t",quote=F,file="data/expectations.txt")
+ordered = expectations[order(expectations[,c("expectation_corr")]),c("Item","expectation_corr")]
+write.table(ordered[,c("Item","expectation_corr")],row.names=F,sep="\t",quote=F,file="data/ordered_expectations.txt")
+t = table(r$Item)
+t
 
 priors = as.data.frame(prop.table(table(best_guesses$Item,best_guesses$response),mar=c(1)))
 head(priors)

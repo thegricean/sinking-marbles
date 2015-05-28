@@ -34,10 +34,10 @@ wr$PriorExpectation = priorexpectations[as.character(wr$Item),]$expectation
 # get smoothed prior probabilities
 priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
 head(priorprobs)
-row.names(priorprobs) = paste(priorprobs$effect,priorprobs$object)
-mpriorprobs = melt(priorprobs, id.vars=c("effect", "object"))
+row.names(priorprobs) = priorprobs$Item
+mpriorprobs = melt(priorprobs, id.vars=c("Item"))
 head(mpriorprobs)
-row.names(mpriorprobs) = paste(mpriorprobs$effect,mpriorprobs$object,mpriorprobs$variable)
+row.names(mpriorprobs) = paste(mpriorprobs$Item,mpriorprobs$variable)
 mp$PriorProbability = mpriorprobs[paste(as.character(mp$Item)," X",mp$State,sep=""),]$value
 mp$AllPriorProbability = priorprobs[paste(as.character(mp$Item)),]$X15
 head(mp)
@@ -91,20 +91,41 @@ agr = aggregate(ProportionResponse ~ Item + quantifier, data=r, FUN=mean)
 #agr$YMax = agr$ProportionResponse + agr$CIHigh
 agr$Quantifier = as.factor(tolower(agr$quantifier))
 row.names(agr) = paste(agr$Item, agr$Quantifier)
-mp$PosteriorExpectation_empirical = agr[paste(mp$Item,mp$Quantifier),]$ProportionResponse
-mp$PriorExpectation_smoothed = mp$PriorExpectation/15
+mp$PosteriorExpectation_empirical = agr[paste(mp$Item,mp$Quantifier),]$ProportionResponse*15
+mp$PriorExpectation_smoothed = mp$PriorExpectation
 
-pexpectations = ddply(mp, .(Item, Quantifier, SpeakerOptimality,PriorExpectation_smoothed, WonkyWorldPrior, PosteriorExpectation_empirical), summarise, PosteriorExpectation_predicted=sum(State*PosteriorProbability)/15)
+pexpectations = ddply(mp, .(Item, Quantifier, SpeakerOptimality,PriorExpectation_smoothed, WonkyWorldPrior, PosteriorExpectation_empirical), summarise, PosteriorExpectation_predicted=sum(State*PosteriorProbability))
 head(pexpectations)
 some = droplevels(subset(pexpectations, Quantifier == "some"))
 
-cors = ddply(some, .(SpeakerOptimality, WonkyWorldPrior), summarise, r=cor(PosteriorExpectation_predicted, PosteriorExpectation_empirical))
-cors = cors[order(cors[,c("r")],decreasing=T),]
-head(cors)
+library(hydroGOF)
+#mses = ddply(some, .(SpeakerOptimality, WonkyWorldPrior), summarise, mse=mse(PosteriorExpectation_predicted, PosteriorExpectation_empirical))
+#mses = mses[order(mses[,c("mse")]),]
+#head(mses)
 
-mses = ddply(some, .(SpeakerOptimality, WonkyWorldPrior), summarise, mse=mse(PosteriorExpectation_predicted, PosteriorExpectation_empirical))
-mses = mses[order(mses[,c("mse")]),]
-head(mses)
+test = ddply(some, .(SpeakerOptimality, WonkyWorldPrior), summarise, mse=gof(PosteriorExpectation_predicted, PosteriorExpectation_empirical)["MSE",],r=gof(PosteriorExpectation_predicted, PosteriorExpectation_empirical)["r",],R2=gof(PosteriorExpectation_predicted, PosteriorExpectation_empirical)["R2",])
+test = test[order(test[,c("mse")]),]
+head(test,10)
+test = test[order(test[,c("r")],decreasing=T),]
+head(test,10)
+test = test[order(test[,c("R2")],decreasing=T),]
+head(test,10)
+head(some)
+some$Predicted = some$ScaledPosteriorExpectation_predicted
+some$Empirical = some$ScaledPosteriorExpectation_empirical
+some[,c("Item","WonkyWorldPrior","SpeakerOptimality","Predicted","Empirical")] %>% 
+  save(file="data/some-expectations-originalpriors.RData")
+
+some$ScaledPosteriorExpectation_predicted = some$PosteriorExpectation_predicted/15
+some$ScaledPosteriorExpectation_empirical = some$PosteriorExpectation_empirical/15
+test = ddply(some, .(SpeakerOptimality, WonkyWorldPrior), summarise, mse=gof(ScaledPosteriorExpectation_predicted, ScaledPosteriorExpectation_empirical)["MSE",],r=gof(ScaledPosteriorExpectation_predicted, ScaledPosteriorExpectation_empirical)["r",],R2=gof(ScaledPosteriorExpectation_predicted, ScaledPosteriorExpectation_empirical)["R2",])
+test = test[order(test[,c("mse")]),]
+head(test,10)
+test = test[order(test[,c("r")],decreasing=T),]
+head(test,10)
+test = test[order(test[,c("R2")],decreasing=T),]
+head(test,10)
+head(some)
 
 ggplot(some, aes(x=PosteriorExpectation_predicted, y=PosteriorExpectation_empirical,color=as.factor(SpeakerOptimality), shape=as.factor(WonkyWorldPrior))) +
   geom_point() +
@@ -132,14 +153,41 @@ ggsave("graphs/model-uniform-expectations.pdf",width=20,height=10)
 
 #plot empirical against predicted allstate-prbabilities for "some"
 allstate = droplevels(subset(mp, State == 15 & Quantifier == "some"))
-cors = ddply(allstate, .(SpeakerOptimality, WonkyWorldPrior), summarise, r=cor(PosteriorProbability, PosteriorProbability_empirical))
-cors = cors[order(cors[,c("r")],decreasing=T),]
-head(cors)
 
-mses = ddply(allstate, .(SpeakerOptimality, WonkyWorldPrior), summarise, mse=mse(PosteriorProbability, PosteriorProbability_empirical))
-mses = mses[order(mses[,c("mse")]),]
-head(mses)
-# .46 correlation despite being shitty model
+test = ddply(allstate, .(SpeakerOptimality, WonkyWorldPrior), summarise, mse=gof(PosteriorProbability, PosteriorProbability_empirical)["MSE",],r=gof(PosteriorProbability, PosteriorProbability_empirical)["r",],R2=gof(PosteriorProbability, PosteriorProbability_empirical)["R2",])
+test = test[order(test[,c("mse")]),]
+head(test,10)
+test = test[order(test[,c("r")],decreasing=T),]
+head(test,10)
+test = test[order(test[,c("R2")],decreasing=T),]
+head(test,10)
+head(some)
+
+
+allstate$Predicted = allstate$PosteriorProbability
+allstate$Empirical = allstate$PosteriorProbability_empirical
+allstate[,c("Item","WonkyWorldPrior","SpeakerOptimality","Predicted","Empirical")] %>% 
+  save(file="data/some-allprobs-originalpriors.RData")
+
+probs_and_exps = rbind(some[,c("Item","WonkyWorldPrior","SpeakerOptimality","Predicted","Empirical")],allstate[,c("Item","WonkyWorldPrior","SpeakerOptimality","Predicted","Empirical")])
+nrow(probs_and_exps)
+test = ddply(probs_and_exps, .(SpeakerOptimality, WonkyWorldPrior), summarise, mse=gof(Predicted, Empirical)["MSE",],r=gof(Predicted, Empirical)["r",],R2=gof(Predicted, Empirical)["R2",])
+test = test[order(test[,c("mse")]),]
+head(test,10)
+test = test[order(test[,c("r")],decreasing=T),]
+head(test,10)
+test = test[order(test[,c("R2")],decreasing=T),]
+head(test,10)
+
+toplot = probs_and_exps[probs_and_exps$WonkyWorldPrior == .7 &  probs_and_exps$SpeakerOptimality == 0,]
+toplot$Type = rep(c("expectation","allprob"),each=90)
+nrow(toplot)
+
+ggplot(toplot, aes(x=Predicted,y=Empirical,color=Type)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  geom_abline(intercept=0,slope=1)
+ggsave(file="graphs/optimal-uniform.pdf")
 
 ggplot(allstate, aes(x=PosteriorProbability, y=PosteriorProbability_empirical,color=as.factor(WonkyWorldPrior), shape=as.factor(SpeakerOptimality))) +
   geom_point() +
@@ -194,13 +242,14 @@ ggplot(toplot, aes(x=PriorExpectation, y=PosteriorProbability, color=Quantifier)
   geom_smooth() 
 ggsave(file="graphs/wonkinessplot.pdf",width=6)
 
-cors = ddply(wonky, .(SpeakerOptimality, Quantifier, WonkyWorldPrior), summarise, r=cor(PosteriorProbability, PosteriorProbability_empirical))
-cors = cors[order(cors[,c("r")],decreasing=T),]
-head(cors,15)
-
-mses = ddply(wonky, .(SpeakerOptimality, Quantifier, WonkyWorldPrior), summarise, mse=mse(PosteriorProbability, PosteriorProbability_empirical))
-mses = mses[order(mses[,c("mse")]),]
-head(mses,15)
+test = ddply(wonky, .(SpeakerOptimality, WonkyWorldPrior), summarise, mse=gof(PosteriorProbability, PosteriorProbability_empirical)["MSE",],r=gof(PosteriorProbability, PosteriorProbability_empirical)["r",],R2=gof(PosteriorProbability, PosteriorProbability_empirical)["R2",])
+test = test[order(test[,c("mse")]),]
+head(test,10)
+test = test[order(test[,c("r")],decreasing=T),]
+head(test,10)
+test = test[order(test[,c("R2")],decreasing=T),]
+head(test,10)
+test
 
 wonky_all = subset(wonky, Quantifier == "all")
 wonky_none = subset(wonky, Quantifier == "none")

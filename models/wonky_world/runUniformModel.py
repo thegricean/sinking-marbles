@@ -9,6 +9,7 @@ ch_model = [l.rstrip() for l in f.readlines()]
 f.close()
 
 pfile = open("smoothed_15marbles_priors.txt") # get smoothed priors (kernel density estimates)
+#pfile = open("fourstep_15marbles_priors.txt") # get smoothed priors (kernel density estimates)
 priors_15 = [l.rstrip() for l in pfile.readlines()[1:]]
 pfile.close()
 
