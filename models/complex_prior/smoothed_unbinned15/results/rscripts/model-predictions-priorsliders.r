@@ -10,7 +10,7 @@ setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marble
 source("rscripts/helpers.r")
 
 #' get model predictions
-load("data/mp.RData")
+load("data/mp-sliderpriors.RData")
 mp = read.table("data/parsed_priorslider_results.tsv", quote="", sep="\t", header=T)
 nrow(mp)
 head(mp)
@@ -34,10 +34,13 @@ mp$AllPriorProbability_number = priorprobs[paste(as.character(mp$Item)),]$X15
 head(mp)
 
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/23_sinking-marbles-prior-sliders-exactly/results/data/agr-normresponses.RData")
-row.names(agr) = paste(agr$State, agr$Item)
-mp$PriorProbability_slider = agr[paste(mp$State, mp$Item),]$prior_slider
+row.names(agr) = paste(agr$slider_id, agr$Item)
+expectations = ddply(agr, .(Item), summarise, expectation = sum(slider_id*normresponse))
+row.names(expectations) = expectations$Item
+mp$PriorProbability_slider = agr[paste(mp$State, mp$Item),]$normresponse
 mp$PriorProbability_slider_ymin = agr[paste(mp$State, mp$Item),]$YMin
 mp$PriorProbability_slider_ymax = agr[paste(mp$State, mp$Item),]$YMax
+mp$PriorExpectation_slider = expectations[as.character(mp$Item),]$expectation
 
 save(mp, file="data/mp-sliderpriors.RData")
 
@@ -90,4 +93,73 @@ ggplot(agr, aes(x=PosteriorProbability, y=PosteriorProbability_empirical, color=
   geom_abline(intercept=0,slope=1,color="gray60") +
   facet_wrap(~SpeakerOptimality)
 ggsave("graphs/mp-empirical-priorsliders.pdf",height=7)
+
+
+library(hydroGOF)
+
+test = ddply(agr, .(SpeakerOptimality), summarise, mse=gof(PosteriorProbability, PosteriorProbability_empirical)["MSE",],r=gof(PosteriorProbability, PosteriorProbability_empirical)["r",],R2=gof(PosteriorProbability, PosteriorProbability_empirical)["R2",])
+test = test[order(test[,c("mse")]),]
+head(test,10)
+test = test[order(test[,c("r")],decreasing=T),]
+head(test,10)
+test = test[order(test[,c("R2")],decreasing=T),]
+head(test,10)
+head(some)
+
+
+#plot empirical against predicted expectations for "some"
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
+summary(r)
+r$Item = as.factor(paste(r$effect, r$object))
+agr = aggregate(ProportionResponse ~ Item + quantifier, data=r, FUN=mean)
+agr$Quantifier = as.factor(tolower(agr$quantifier))
+row.names(agr) = paste(agr$Item, agr$Quantifier)
+mp$PosteriorExpectation_empirical = agr[paste(mp$Item,"some"),]$ProportionResponse*15
+
+agr = aggregate(PosteriorProbability ~ Item + State + SpeakerOptimality + PriorExpectation_slider + PosteriorExpectation_empirical, FUN=mean, data=mp)
+
+pexpectations = ddply(agr, .(Item,SpeakerOptimality,PriorExpectation_slider,PosteriorExpectation_empirical), summarise, PosteriorExpectation_predicted=sum(State*PosteriorProbability))
+head(pexpectations)
+some=pexpectations
+
+
+library(hydroGOF)
+
+test = ddply(some, .(SpeakerOptimality), summarise, mse=gof(PosteriorExpectation_predicted, PosteriorExpectation_empirical)["MSE",],r=gof(PosteriorExpectation_predicted, PosteriorExpectation_empirical)["r",],R2=gof(PosteriorExpectation_predicted, PosteriorExpectation_empirical)["R2",])
+test = test[order(test[,c("mse")]),]
+head(test,10)
+test = test[order(test[,c("r")],decreasing=T),]
+head(test,10)
+test = test[order(test[,c("R2")],decreasing=T),]
+head(test,10)
+head(some)
+
+ggplot(some, aes(x=PriorExpectation_slider, y=PosteriorExpectation_empirical, color=as.factor(SpeakerOptimality))) +
+  geom_point() +
+  geom_smooth(method='lm') +
+  #geom_line() +
+  #geom_errorbarh(aes(xmin=YMin,xmax=YMax)) +
+  #geom_errorbar(aes(ymin=PosteriorProbability_empirical_ymin,ymax=PosteriorProbability_empirical_ymax)) +
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  facet_wrap(~SpeakerOptimality)
+ggsave("graphs/mp-exps-priorsliders.pdf",height=7)
+
+ggplot(some, aes(x=PosteriorExpectation_predicted, y=PosteriorExpectation_empirical, color=as.factor(SpeakerOptimality))) +
+  geom_point() +
+  geom_smooth(method='lm') +
+  #geom_line() +
+  #geom_errorbarh(aes(xmin=YMin,xmax=YMax)) +
+  #geom_errorbar(aes(ymin=PosteriorProbability_empirical_ymin,ymax=PosteriorProbability_empirical_ymax)) +
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  facet_wrap(~SpeakerOptimality)
+ggsave("graphs/mp-empirical-exps-priorsliders.pdf",height=7)
+
+ggplot(some[some$SpeakerOptimality == 3,], aes(x=PriorExpectation_slider, y=PosteriorExpectation_empirical, color=as.factor(SpeakerOptimality))) +
+  geom_point() +
+  geom_smooth() +
+  scale_color_manual(values=c("darkred")) +
+  scale_x_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Prior expectation") +
+  scale_y_continuous(limits=c(0,15), breaks=seq(1,15,by=2), name="Posterior expectation") 
+
+ggsave("graphs/mp-empirical-exps-priorsliders.pdf",height=7)
 
