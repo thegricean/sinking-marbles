@@ -29,6 +29,24 @@ ggplot(pr, aes(x=State,y=Probability,color=PriorType,group=PriorType)) +
 ggsave(file="graphs/original.vs.current.smoothed.priors.pdf",width=24,height=18)
 ggsave(file="graphs/priors.png",width=24,height=18)
 
+
+subs = droplevels(subset(pr, Item %in% c("sank marbles") & PriorType == "NumberTask"))
+nrow(subs)
+sum(as.numeric(as.character(subs$State))*subs$Probability)
+
+ggplot(subs, aes(x=State,y=Probability,group=1)) +
+  geom_point() +
+  geom_line() +
+  geom_vline(xintercept=14.85,color="darkred",size=1.5)
+ggsave("graphs/mxprag-mean.png",width=7)
+
+ggplot(subs, aes(x=State,y=Probability,group=1)) +
+  geom_point() +
+  geom_line() +
+  geom_vline(xintercept=16,color="darkred",size=1.5,linetype="dashed")+
+  geom_hline(yintercept=.65,color="darkred",size=1.5)
+ggsave("graphs/mxprag-allstate.png",width=7)
+
 # histogram of trial types
 ggplot(r,aes(x=Item)) +
   geom_histogram() +
