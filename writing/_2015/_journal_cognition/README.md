@@ -25,8 +25,8 @@
 
 # QUESTIONS
 
-- instead of presented MSE, present some measure you get out of the bayesian model comparison between rrsa and wrsa? talk to mh about this.
+- instead of presenting MSE, present some measure you get out of the bayesian model comparison between rrsa and wrsa. TODO: mh does bda.
 
-- fit both comprehension experiments jointly or separately? will get different rationality parameters and wonkiness priors out of this; instead assume a linking function from model prediction to slider data?
+- should we try to get quantitative fit for wonkiness? yes, by assuming softmax linking function  between model predictions and data. TODO: mh implements this as part of regular wonkiness model
 
-- should we try to get quantitative fit for wonkiness? have started playing around with interpolating between uniform and empirical, but can't quite figure out how to make it work -- so far, just raising to a power, but that doesn't do the right thing 
+- include a bit on why alternatives like null utterance model doesn't work (maybe build into a section that's combined with speaker wonkiness -- basically, alternatives to world wonkiness) 
