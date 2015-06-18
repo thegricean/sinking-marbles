@@ -1,5 +1,6 @@
 \documentclass[11pt]{article}
 
+%\usepackage{gb4e}
 %\usepackage{pslatex}
 \usepackage{apacite}
 \usepackage{amsmath,amssymb}
@@ -9,6 +10,8 @@
 \usepackage{fullpage}
 \usepackage{setspace}
 \usepackage{booktabs}
+\usepackage{lingmacros}
+
 %\newcommand{\url}[1]{$#1$}
 
 
@@ -26,6 +29,7 @@
 \newcommand{\sectionref}[1]{Section \ref{#1}}
 
 \doublespacing
+
 
 \title{Wonky worlds: Listeners revise world knowledge when utterances are odd}
 %\title{Wonky worlds: Listeners reconsider world knowledge when utterances are odd}
@@ -66,7 +70,15 @@ scalar implicature; world knowledge; prior beliefs; experimental pragmatics; com
 \section{Introduction}
 \label{sec:intro}
 
-How often do you think marbles sink in water? Probably extremely often, if not always. Now imagine someone says \emph{Max threw fifteen marbles in the water. Some of the marbles sank.} Have you begun to reconsider your assumptions? Perhaps you now suspect that these marbles are in fact made of hollow plastic or the water is covered with thick algae? That is, maybe you have begun to suspect that these are not just normal marbles in normal water. Alternatively, maybe you know the speaker who produced the utterance and know them to be unreliable in their descriptions of the world. Here we explore how prior world knowledge enters into pragmatic utterance interpretation, and when this world knowledge is defeasible: some utterances are odd and may lead listeners to conclude that the world under discussion is abnormal in the sense that events in that world have appropriately different prior probabilities. We refer to such abnormal worlds  as \emph{wonky} worlds. However, sometimes the oddness of those same utterances may be explained away by the knowledge of \emph{speaker unreliability}, in which case listeners' prior beliefs about the world that they bring to bear on the utterance situation should remain unchanged.
+Speakers' utterances are interpreted by listeners against a rich backdrop of mutual knowledge and mutual beliefs that constitute common ground between interlocutors \cite{stalnaker1978, ClarkMarshall1981}. One type of knowledge that  common ground contains is world knowledge, which includes beliefs about how objects typically behave in events of various types. For example, two average Americans are likely to believe that marbles typically sink in water and that baseballs typically do not stick to walls, and are also likely to believe of each other (though not necessarily explicitly) that they hold these beliefs. However, common ground is not fixed; it is updated moment by moment during communication \cite{Clark1991}. One way in which common ground is updated is by adding new speaker commitments as the discourse unfolds. Another is by means of accommodation \cite{karttunen1974, lewis1979, Beaver2008}: if the interpretation of an utterance requires that a certain presupposition not already contained in common ground be true, listeners are expected to add that presupposition to common ground. For example, assume that Mary does not know that John has a cat and the following conversation transpires:
+
+\enumsentence{Mary: How are you?\\
+	John: Not so well. My cat is sick.}
+
+Ceteris paribus, rather than Mary being confused about John's utterance, the possessive pronoun triggers an accommodation process: if Mary does not protest, the fact that John has a cat is quietly added to common ground, despite John not having explicitly asserted that he owns a cat.\footnote{Mary is of course free to block the accommodation process by questioning the presupposition, e.g., by saying ``What cat? You don't have a cat!''}
+
+%How often do you think marbles sink in water? Probably extremely often, if not always. Now imagine someone says \emph{Max threw fifteen marbles in the water. Some of the marbles sank.} Have you begun to reconsider your assumptions? Perhaps you now suspect that these marbles are in fact made of hollow plastic or the water is covered with thick algae? That is, maybe you have begun to suspect that these are not just normal marbles in normal water. Alternatively, maybe you know the speaker who produced the utterance and know them to be unreliable in their descriptions of the world. 
+In this paper, we explore how world knowledge presumed to be in common ground enters into utterance interpretation. In particular, we ask how and to what extent listeners update world knowledge in response to odd utterances. We pursue the intuition that listeners deem an utterance odd to the extent that it is surprising---given what is presumed to be common ground---either because it is uninformative or because it communicates something that is highly unlikely to be true. Both uninformative and untrue utterances violate the Gricean Cooperative Principle \cite{grice1975}. We propose that in such situations, rather than give up the assumption that the speaker is cooperative, listeners will try to save the interaction by concluding that the world under discussion is abnormal, in the sense that events in that world have appropriately different prior probabilities. We refer to such abnormal worlds  as \emph{wonky} worlds. However, if listeners have independent evidence that the speaker is likely to say uninformative or untrue things, they should instead explain away the oddness of those same utterances  by the knowledge of speaker unreliability and not update their prior beliefs about the world.
 
 The Rational Speech Act framework  \cite<RSA, >{frank2012,goodmanstuhlmueller2013}, and related models \cite{franke2011,russell2012}, treat communication as a signaling game \cite{lewis1969} between a speaker and a listener.
 The listener reasons by Bayesian inference about what the world is like given that a speaker who produced the utterance is trying to be informative (with respect to a na\"ive listener who interprets utterances literally). 
@@ -75,7 +87,9 @@ A defining feature of Bayesian reasoning is that prior beliefs affect inferences
 %These models make clear predictions about how prior beliefs about states of the world should be integrated with listeners' expectations about utterances a speaker is likely to produce to communicate a particular state of the world. 
 While this impact of prior knowledge has been noted, and included in models, it hasn't been systematically studied.
 
-Generalizing our opening example, consider \emph{Some of the X sank}, where \emph{X} is a plural noun such as \emph{marbles}, \emph{feathers}, or \emph{balloons}, and \emph{the X} refers to a contextually established group of objects from category X. When the prior probability, $\theta_{X}$, of an X\footnote{We will use `X' interchangeably to refer to both the category and the members of the category.} sinking is not extreme (e.g., a feather sinking), RSA leads to the standard scalar implicature: the posterior probability that all of the X sank, after hearing the utterance, is much lower than its prior probability (i.e., \emph{Some of the feathers sank} yields that not all of them did). This is because a rational speaker would have been expected to produce the more informative (and contextually relevant) \emph{All of the X sank}, had it been true.
+\red{HERE INTRODUCE SCALAR IMPLICATURE AND THE EFFECT THAT WORLD KNOWLEDGE HAS BEEN ARGUED TO HAVE ON IT}
+
+Consider an utterance of the form \emph{Some of the X sank}, where \emph{X} is a plural noun such as \emph{marbles}, \emph{feathers}, or \emph{balloons}, and \emph{the X} refers to a contextually established group of objects from category X. When the prior probability, $\theta_{X}$, of an X\footnote{We will use `X' interchangeably to refer to both the category and the members of the category.} sinking is not extreme (e.g., a feather sinking), RSA leads to the standard scalar implicature: the posterior probability that all of the X sank, after hearing the utterance, is much lower than its prior probability (i.e., \emph{Some of the feathers sank} yields that not all of them did). This is because a rational speaker would have been expected to produce the more informative (and contextually relevant) \emph{All of the X sank}, had it been true.
 As we will show in \sectionref{sec:rsa}, RSA makes two strong predictions about the effect of the prior on the interpretation of \emph{Some of the X sank}: 
 
 \begin{enumerate}
@@ -98,7 +112,7 @@ However, intuition is at odds with these predictions: as \citeA{geurts2010} has 
 The rest of the paper is structured as follows. In Exp.~1 we collect prior probabilities for a variety of events (e.g., sinking) and categories that participate in those events (e.g., marbles). In Exps.~2a and 2b we collect corresponding posterior interpretations after observing descriptions of those events containing quantifiers (\emph{some}, \emph{all}, \emph{none}). These experimental results confirm the intuition of relatively strong implicatures---hence prediction (1) of RSA is incorrect---and show that the prior has a muted effect on posterior expectation---hence prediction (2) of RSA is incorrect.
 
 Given the previous success of RSA models, this constitutes a striking puzzle. 
-To address this puzzle we pursue the intuition raised at the very beginning of this paper: that sometimes, the speaker's utterance will lead the listener to infer that the world under discussion is wonky and she should therefore use less extreme prior beliefs in the computation of speaker meaning. In \sectionref{sec:wrsa} we introduce a variant of RSA, \emph{wonky RSA (wRSA)}, in which the listener can revise her beliefs about the domain under discussion. We show that this extension resolves the puzzle of the prior's muted effects.
+To address this puzzle we pursue the intuition raised at the very beginning of this paper: that sometimes, the speaker's utterance will lead the listener to infer that the world under discussion is wonky and she should therefore use less extreme prior beliefs in the computation of speaker meaning. In \sectionref{sec:wrsa} we introduce a variant of RSA, \emph{wonky RSA (wRSA)}, in which the listener can revise the beliefs about the domain under discussion that are presumed to be in common ground. We show that this extension resolves the puzzle of the prior's muted effects.
 
 The extended wRSA model makes predictions not just about the actual state of the world that the listener infers the speaker as trying to communicate, but also about listeners' judgments of world wonkiness. This allows for a further test of wRSA: in Exp.~3 we collect participants' judgments about whether the world is wonky in the scenarios of Exps.~2a and 2b.
 
