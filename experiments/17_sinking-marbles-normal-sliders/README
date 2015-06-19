@@ -1,0 +1,22 @@
+rewriteProperties::yes
+liveHIT::yes
+title::Language study
+description::A 10-minute experiment where you answer some questions about events
+nameofexperimentfiles::sinking_marbles
+experimentURL::https://www.stanford.edu/~jdegen/17_sinking-marbles-normal-sliders/sinking-marbles-normal.html
+hitfolderpath::/Users/titlis/webprojects/79_sinking-marbles-normal-sliders/
+locationofCLT::/Users/titlis/aws-mturk-clt-1.3.1
+keywords::language experiment study communication stanford fun cognitive science
+USonly?::yes
+minPercentPreviousHITsApproved::95
+frameheight::650
+reward::0.50
+numberofassignments::60
+assignmentduration::2400  
+hitlifetime::259200
+autoapprovaldelay::259200
+conditions::condition
+
+
+
+
