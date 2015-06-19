@@ -45,11 +45,6 @@ function readinNumberTask(){
 
 function readinBinnedHist(){
 	var bhData = readCSV('inferpriorinsky_binnedhistogram.txt').data;
-		// _.map(bhData.slice(1),
-		// 	function(lst){
-		// 		return ['s'+lst[0], ]
-		// 	})
-
 	var stateLst = bhData[0].slice(2)
 	var itemLst = _.sortBy(
 		_.uniq(
@@ -61,36 +56,22 @@ function readinBinnedHist(){
 			_.map(bhData.slice(1), function(lst){return lst[0]})), 
 		function(name){return name})
 
-
-
 	return _.object(
 		_.map(subjLst,
 		function(subj){
 			var subjData = _.filter(bhData.slice(1),
 							function(lst){return lst[0] == subj})
-
 			return [subj, 
 			_.object(_.map(subjData,
 				function(lst){
-
 					return [lst[1],
 								_.object(_.zip(stateLst, lst.slice(2)))
-								]})
-			)
+								]
+							}
+							))
 			]
-									// _.object(_.zip(stateLst, lst.slice(2)))
-									// ])})]
-
-			// return [subj, _.object(_.zip(stateLst, subjData[0].slice(2))) ]
 		}
 		))
-
-	// bhData[1]
-	//  _.object(['b'+lst[0], 
-	//  		_.object([lst[1], ])]
-
-	//return 
-
 }
 
 

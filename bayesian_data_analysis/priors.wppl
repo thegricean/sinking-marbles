@@ -47,10 +47,17 @@ var generatePriorInTheSky = function(){
 
 
 
-// read in data
+// read in number task data
 var ntData = utils.readinNumberTask()[1]
 
+// read in binnedhist data
+
+var bhData = utils.readinBinnedHist()
+
+
 var nSubj_nt = _.keys(ntData).length-1
+
+var nSubj_bh = _.keys(bhData).length-1
 
 // linking functions
 var numberTask = cache(function(itemPrior,alpha){
@@ -127,7 +134,6 @@ var inferPrITS = function(){
 }
 //utils.readinNumberTask()[1]['s0']
 
-utils.readinBinnedHist()['1']
 // var mhsamples = 1000
 
 // var results = MH(inferPrITS,mhsamples)
