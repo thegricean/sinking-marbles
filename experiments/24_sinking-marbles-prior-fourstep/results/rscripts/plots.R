@@ -29,6 +29,24 @@ ggplot(pr, aes(x=State,y=Probability,color=PriorType,group=PriorType)) +
 ggsave(file="graphs/original.vs.current.smoothed.priors.pdf",width=24,height=18)
 ggsave(file="graphs/priors.png",width=24,height=18)
 
+
+subs = droplevels(subset(pr, Item %in% c("sank marbles") & PriorType == "NumberTask"))
+nrow(subs)
+sum(as.numeric(as.character(subs$State))*subs$Probability)
+
+ggplot(subs, aes(x=State,y=Probability,group=1)) +
+  geom_point() +
+  geom_line() +
+  geom_vline(xintercept=14.85,color="darkred",size=1.5)
+ggsave("graphs/mxprag-mean.png",width=7)
+
+ggplot(subs, aes(x=State,y=Probability,group=1)) +
+  geom_point() +
+  geom_line() +
+  geom_vline(xintercept=16,color="darkred",size=1.5,linetype="dashed")+
+  geom_hline(yintercept=.65,color="darkred",size=1.5)
+ggsave("graphs/mxprag-allstate.png",width=7)
+
 # histogram of trial types
 ggplot(r,aes(x=Item)) +
   geom_histogram() +
@@ -104,11 +122,12 @@ agr$CIHigh = aggregate(response ~ Item, FUN=ci.high, data=confidence)$response
 agr$YMin = agr$response - agr$CILow
 agr$YMax = agr$response + agr$CIHigh
 agr = agr[order(agr[,c("response")]),]
+write.table(agr, file="data/confidence.txt", row.names=F, quote=F, sep="\t")
 agr$It = factor(x=as.character(agr$Item),levels=as.character(agr$Item))
 
 ggplot(agr, aes(x=It, y=response)) +
   geom_bar(stat="identity",fill="gray60",color="black") +
-  geom_errorbar(aes(ymin=YMin, ymax=YMax)) +
+  geom_errorbar(aes(ymin=YMin, ymax=YMax),width=.25) +
   theme(axis.text.x=element_text(angle=45,vjust=1,hjust=1,size=8))
 ggsave("graphs/confidence_by_item.pdf",width=15,height=8)
 
@@ -132,7 +151,7 @@ summary(spr)
 spr$interval = spr$ci_high - spr$ci_low
 
 library(lmerTest)
-m = lmer(confidence ~ gender.1 + poly(interval,2) + poly(best_guess,2) + (1|workerid) + (1|Item), data=spr)
+m = lmer(confidence ~ gender.1 + poly(interval,2) + poly(best_guess,2) +  (1|workerid) + (1|Item), data=spr)
 summary(m)
 
 agr = aggregate(best_guess ~ Item, data=spr, FUN=mean)

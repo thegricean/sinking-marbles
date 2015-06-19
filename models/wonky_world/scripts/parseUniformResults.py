@@ -81,7 +81,7 @@ while k < len(lines):
 #		k = k + 1		
 #		smoothing_bw = lines[k].split("_")[1]
 #		k = k + 1	
-		k = k + 4
+		k = k + 6
 		wonkyworldprior = lines[k]	
 		k = k  + 1			
 		quantifier = lines[k].split(",")[1]
@@ -163,6 +163,7 @@ for r in results:
 	inner_dict = dict(zip(headers,r))
 	wresults.append(inner_dict)
 
+#oname = '../results/data/parsed_uniform_fourstep_results.tsv'
 oname = '../results/data/parsed_uniform_results.tsv'
 w = csv.DictWriter(open(oname, 'wb'),fieldnames=headers,restval="NA",delimiter="\t")
 

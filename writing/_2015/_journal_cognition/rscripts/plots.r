@@ -27,7 +27,7 @@ ggsave("priorexpectations-histogram.pdf",width=5,height=3.7)
 
 # get prior allstate-probs
 priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
-row.names(priorprobs) = paste(priorprobs$effect, priorprobs$object)
+row.names(priorprobs) = priorprobs$Item
 head(priorprobs)
 
 # histogram of allstate-probs
@@ -44,7 +44,6 @@ dev.off()
 #####################################
 # plot model predictions: expectations
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-uniform.RData")
-load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/mp-binomial.RData")
 
 # plot expectations for unreliable speaker model: 
 toplot = droplevels(subset(mp, Quantifier == "some"))
@@ -260,11 +259,12 @@ load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonk
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/models/wonky_world/results/data/wr-binomial.RData")
 
 # plot expectations for best basic model: 
-toplot = droplevels(subset(wr, QUD == "how-many" & Alternatives == "0_basic" & WonkyWorldPrior == .5 & Wonky == "true"))
+toplot = droplevels(subset(wr, WonkyWorldPrior == .5 & Wonky == "true"))
 nrow(toplot)
 toplot$Mode = priormodes[as.character(toplot$Item),]$Mode
 
 toplot = droplevels(subset(toplot, SpeakerOptimality == 2))
+mod = toplot
 nrow(toplot)
 head(toplot)
 
@@ -327,7 +327,28 @@ grid.arrange(p_wmodel_nolegend, p_wempirical_nolegend, legend,nrow=1,widths=unit
 dev.off()
 
 
+# scatterplot of mdoel vs empirical
+head(toplot)
+toplot$PosteriorProbability = toplot$response
+head(mod)
+toplot$Type = "empirical"
+mod$Type = "model"
 
+pl = merge(mod, toplot, all=T)
+summary(pl)
+pl$Type = as.factor(as.character(pl$Type))
+topl = pl %>% select(Item, Quantifier,PosteriorProbability,Type) %>%
+  spread(Type,PosteriorProbability)
+summary(topl)
+
+ggplot(topl, aes(x=model,y=empirical,color=Quantifier,group=1)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  scale_color_manual(values=c("#F8766D","#00BF7D","#00B0F6"))
+cor(topl$model,topl$empirical,use="pairwise.complete.obs") # cor=.69
+
+library(hydroGOF)
+gof(topl$model,topl$empirical,na.rm=T,do.spearman=T)
 
 #plot by mode
 ggplot(toplot, aes(x=Mode, y=response, color=Quantifier)) +
