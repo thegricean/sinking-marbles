@@ -14,8 +14,8 @@ priormodes = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sin
 row.names(priormodes) = paste(priormodes$Item)
 
 # get prior expectations
-priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
-row.names(priorexpectations) = paste(priorexpectations$effect, priorexpectations$object)
+priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/expectations.txt",sep="\t", header=T, quote="")
+row.names(priorexpectations) = priorexpectations$Item
 
 # histogram of expectations
 exps = ggplot(priorexpectations, aes(x=expectation_corr)) +
@@ -26,7 +26,7 @@ ggsave("priorexpectations-histogram.pdf",width=5,height=3.7)
 
 
 # get prior allstate-probs
-priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
 row.names(priorprobs) = priorprobs$Item
 head(priorprobs)
 
@@ -37,6 +37,7 @@ allprobs = ggplot(priorprobs, aes(x=X15)) +
   scale_y_continuous(name="Number of cases")
 ggsave("priorallprobs-histogram.pdf")
 
+library(gridExtra)
 pdf("priordistributions.pdf",width=10,height=4)
 grid.arrange(exps, allprobs, nrow=1,widths=unit.c(unit(.5, "npc"), unit(.5, "npc")))
 dev.off()
