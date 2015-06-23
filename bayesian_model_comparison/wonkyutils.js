@@ -25,7 +25,7 @@ function readPriors(){
   var priorfile = dfilepath+ 'priors.csv'
   var dPriors = readCSV(priorfile).data
   // create assoc. array out of domain name and probabilities
-  var priorClean = _.object(_.map(dPriors,function(x){
+  var priorClean = _.object(_.map(dPriors.slice(1),function(x){
     return [x[0],_.map(x.slice(1),parseFloat)]
   }))
 
@@ -35,7 +35,7 @@ function readPriors(){
 function readData(){
 
   var dfilepath = "../writing/_2015/_journal_cognition/data/";
-  var priorfile = dfilepath+ 'empirical.csv'
+  var priorfile = dfilepath+ 'empirical_nozero.csv'
   var empirical = readCSV(priorfile).data
 
   var dependentMeasures = _.uniq(_.map(empirical.slice(1), function(x){return x[4]}))
@@ -67,7 +67,52 @@ function readData(){
 
    return empiricalClean
 
+};
+
+var writeERP = function(myERP){
+  return _.map(myERP.support(),
+    function(val){
+      return [val, Math.exp(myERP.score([],val))]
+    })
 }
+
+// var writePosteriorPredictive = function(myERP){
+//   var supp = myERP.support();
+//   return _.flatten(supp.map(
+//     function(val){
+//         return val.map(
+//           function(ppval){
+//             return [ppval, Math.exp(myERP.score([],val))]
+//           })
+//       }),true)
+// }
+
+var writePosteriorPredictive = function(myERP){
+  return _.flatten(
+        _.map(myERP.support(),
+      function(val){
+          return _.map(val,
+        function(ppval){
+            return [ppval, Math.exp(myERP.score([],val))]
+      })
+  }),true)
+}
+
+
+
+var writePosteriorPredictiveWithParams = function(myERP,numOfParams){
+  return _.flatten(
+        _.map(myERP.support(),
+        function(val){
+          return _.map(val,
+        function(ppval){
+            return [ppval, Math.exp(myERP.score([],val))]
+      })
+  }),true)
+}
+
+
+
 
 
 module.exports = {
@@ -75,5 +120,7 @@ module.exports = {
   writeCSV: writeCSV,
   fillArray: fillArray,
   readPriors: readPriors,
-  readData: readData
+  readData: readData,
+  writeERP: writeERP,
+  writePosteriorPredictive:writePosteriorPredictive
 };
