@@ -135,7 +135,6 @@ var queryDictionary = {'comp_state':"world",
 
 
 var dataAnalysis = function(){
-  Enumerate(function(){
 
   // Priors
   // var speakerOptimality = sample(uniformERP, [0,10])
@@ -185,34 +184,46 @@ var dataAnalysis = function(){
       }, listOf90Items)
 
   return [speakerOptimality,wonkinessPrior,linkingBetaConcentration]
-})
 }
 
-// var utterance = 'Some'
-// var item = 'stuck to the wall baseballs'//listOf90Items[0]
-// console.log(item)
-// console.log(empiricalPriors[item])
-// var measure = dependentMeasures[2]
 
-// var speakerOptimality = 0.1+(randomInteger(20)/4)
-// var wonkinessPrior = 0.01+(randomInteger(10)/10)
-// var linkingBetaConcentration = (randomInteger(10)+1)/3
-
-// var predictionERP = listener(utterance, wonkinessPrior, speakerOptimality,item)
-// var dataPoints = languageData[item][utterance][measure]
-// var query = queryDictionary[measure]
-// var marginalERP = getMarginal(predictionERP, query)
-
-// //marginalERP
-// //literalListener("None",empiricalPriors[item])
-// var linkedERP = measure == "comp_state" ?
-//                   marginalERP :
-//                   linkingFunction(marginalERP, measure, linkingBetaConcentration)
-// linkedERP
-
-//marginalERP
+var mhsamples = 10
+var results = MH(dataAnalysis,mhsamples)
+//var results = Enumerate(dataAnalysis)
 
 
-//marginalERP
+var marginalize = function(myERP, index){
+  Enumerate(function(){
+    var x = sample(myERP)
+    return x[index]
+  })
+}
 
-dataAnalysis()
+var writeERP = function(myERP){
+  return map(function(val){
+    return [val, Math.exp(myERP.score([],val))]
+  },myERP.support())
+}
+
+var speakerOptPosterior = writeERP(marginalize(results,0))
+speakerOptPosterior.unshift(['speakerOptimality','posteriorProb']);
+
+var wonkinessPriorPosterior = writeERP(marginalize(results,1))
+wonkinessPriorPosterior.unshift(['wonkinessPrior','posteriorProb']);
+
+var linkingBetaPosterior = writeERP(marginalize(results,2))
+linkingBetaPosterior.unshift(['linkingBetaConcentration','posteriorProb']);
+
+
+wonkyutils.writeCSV(speakerOptPosterior, 
+// 'wonky_tfbtPosterior_speakerOptimality_enumerateCoarse'+ mhsamples+ '.csv')
+  'wonky_tfbtPosterior_speakerOptimality_mh'+ mhsamples+ '.csv')
+
+wonkyutils.writeCSV(wonkinessPriorPosterior, 
+//  'wonky_tfbtPosterior_wonkinessPrior_enumerateCoarse'+ mhsamples+ '.csv')
+  'wonky_tfbtPosterior_wonkinessPrior_mh'+ mhsamples+ '.csv')
+
+wonkyutils.writeCSV(linkingBetaPosterior, 
+//  'wonky_tfbtPosterior_linkingBetaConcentration_enumerateCoarse'+ mhsamples+ '.csv')
+  'wonky_tfbtPosterior_linkingBetaConcentration_mh'+ mhsamples+ '.csv')
+
