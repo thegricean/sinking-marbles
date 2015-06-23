@@ -137,13 +137,14 @@ var queryDictionary = {'comp_state':"world",
 var dataAnalysis = function(){
 
   // Priors
-  // var speakerOptimality = sample(uniformERP, [0,10])
-  var speakerOptimality = 0.1+(randomInteger(20)/4)
-  // var wonkinessPrior = sample(uniformERP, [0,10])
-  var wonkinessPrior = 0.01+(randomInteger(10)/10)
+  var speakerOptimality = uniform(0,10)
+ // var speakerOptimality = 0.1+(randomInteger(20)/4)
+   var wonkinessPrior = uniform(0,1)
+ // var wonkinessPrior = 0.01+(randomInteger(10)/10)
   //var wonkySoftmax = randomInteger(10)
-  // var linkingBetaConcentration = sample(uniformERP,[0,10])
-  var linkingBetaConcentration = (randomInteger(10)+1)/3
+  var linkingBetaConcentration = uniform(0,10)
+  // var linkingBetaConcentration = (randomInteger(10)+1)/3
+
 
   var posteriorPredictive = 
     map(function(item){
@@ -170,12 +171,14 @@ var dataAnalysis = function(){
                             marginalERP :
                             linkingFunction(marginalERP, measure, linkingBetaConcentration)
 
-         // console.log(modelScore(linkedERP, dataPoints))
-          factor(modelScore(linkedERP, dataPoints))
+         // modelScore(linkedERP, dataPoints)==-Infinity ? console.log('error'):null
+         factor(modelScore(linkedERP, dataPoints))
           
-          // factor(modelScore(linkedERP, dataObject[measure][item][utterance]))
-          // return [measure, item, utterance, 
-          //           Math.exp(predictionERP.score([], 15))]
+          // get posterior prob for each of the values in the support
+           return map(
+            function(val){
+              return [measure, item, utterance, val, Math.exp(linkedERP.score([], val))]
+            },linkedERP.support())
 
           }, dependentMeasures)
 
@@ -183,47 +186,60 @@ var dataAnalysis = function(){
 
       }, listOf90Items)
 
-  return [speakerOptimality,wonkinessPrior,linkingBetaConcentration]
+
+//  return [speakerOptimality,wonkinessPrior,linkingBetaConcentration]
+ return [speakerOptimality,wonkinessPrior,linkingBetaConcentration,
+        _.flatten(_.flatten(_.flatten(posteriorPredictive, true),true),true)]
+
+ // return _.flatten(_.flatten(_.flatten(posteriorPredictive, true),true),true)
 }
 
+// dataAnalysis()
 
-var mhsamples = 10
-var results = MH(dataAnalysis,mhsamples)
-//var results = Enumerate(dataAnalysis)
+var mhsamples = 1000
+var burn = 10
+var results = MH(dataAnalysis,mhsamples, burn)
+// //var results = Enumerate(dataAnalysis, 10)
 
+// results
 
-var marginalize = function(myERP, index){
-  Enumerate(function(){
-    var x = sample(myERP)
-    return x[index]
-  })
-}
+console.log('model complete. munging data...')
 
-var writeERP = function(myERP){
-  return map(function(val){
-    return [val, Math.exp(myERP.score([],val))]
-  },myERP.support())
-}
-
-var speakerOptPosterior = writeERP(marginalize(results,0))
-speakerOptPosterior.unshift(['speakerOptimality','posteriorProb']);
-
-var wonkinessPriorPosterior = writeERP(marginalize(results,1))
-wonkinessPriorPosterior.unshift(['wonkinessPrior','posteriorProb']);
-
-var linkingBetaPosterior = writeERP(marginalize(results,2))
-linkingBetaPosterior.unshift(['linkingBetaConcentration','posteriorProb']);
+// var marginalize = function(myERP, index){
+//   Enumerate(function(){
+//     var x = sample(myERP)
+//     return x[index]
+//   })
+// }
 
 
-wonkyutils.writeCSV(speakerOptPosterior, 
+var output = wonkyutils.writeERP(results)
+output.unshift(['speakerOptimality,wonkinessPrior,linkingBetaConcentration,posteriorPredictive','posteriorProb']);
+
+wonkyutils.writeCSV(output, 
 // 'wonky_tfbtPosterior_speakerOptimality_enumerateCoarse'+ mhsamples+ '.csv')
-  'wonky_tfbtPosterior_speakerOptimality_mh'+ mhsamples+ '.csv')
+  'results/wonky_tfbtPosterior_predictiveAndParams_mh'+ mhsamples+ 'b'+burn+'.csv')
 
-wonkyutils.writeCSV(wonkinessPriorPosterior, 
-//  'wonky_tfbtPosterior_wonkinessPrior_enumerateCoarse'+ mhsamples+ '.csv')
-  'wonky_tfbtPosterior_wonkinessPrior_mh'+ mhsamples+ '.csv')
 
-wonkyutils.writeCSV(linkingBetaPosterior, 
-//  'wonky_tfbtPosterior_linkingBetaConcentration_enumerateCoarse'+ mhsamples+ '.csv')
-  'wonky_tfbtPosterior_linkingBetaConcentration_mh'+ mhsamples+ '.csv')
+// var speakerOptPosterior = writeERP(marginalize(results,0))
+// speakerOptPosterior.unshift(['speakerOptimality','posteriorProb']);
+
+// var wonkinessPriorPosterior = writeERP(marginalize(results,1))
+// wonkinessPriorPosterior.unshift(['wonkinessPrior','posteriorProb']);
+
+// var linkingBetaPosterior = writeERP(marginalize(results,2))
+// linkingBetaPosterior.unshift(['linkingBetaConcentration','posteriorProb']);
+
+
+// wonkyutils.writeCSV(speakerOptPosterior, 
+// // 'wonky_tfbtPosterior_speakerOptimality_enumerateCoarse'+ mhsamples+ '.csv')
+//   'results/wonky_tfbtPosterior_speakerOptimalityC_mh'+ mhsamples+ 'b'+burn+'.csv')
+
+// wonkyutils.writeCSV(wonkinessPriorPosterior, 
+// //  'wonky_tfbtPosterior_wonkinessPrior_enumerateCoarse'+ mhsamples+ '.csv')
+//   'results/wonky_tfbtPosterior_wonkinessPriorC_mh'+ mhsamples+ 'b'+burn+'.csv')
+
+// wonkyutils.writeCSV(linkingBetaPosterior, 
+// //  'wonky_tfbtPosterior_linkingBetaConcentration_enumerateCoarse'+ mhsamples+ '.csv')
+//   'results/wonky_tfbtPosterior_linkingBetaConcentrationC_mh'+ mhsamples+ 'b'+burn+'.csv')
 
