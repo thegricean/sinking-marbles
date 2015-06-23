@@ -51,6 +51,10 @@ d[d$measure != "comp_state" & d$response == 1.0,]$response = 0.999
 
 write.csv(d,file="empirical.csv",row.names=F,quote=F)
 
+d_nozero = droplevels(subset(d, !(measure == "comp_state" & response == 0)))
+nrow(d_nozero)
+write.csv(d_nozero,file="empirical_nozero.csv",row.names=F,quote=F)
+
 # get prior probabilities from 4-step procedure
 priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
 row.names(priorprobs) = priorprobs$Item
