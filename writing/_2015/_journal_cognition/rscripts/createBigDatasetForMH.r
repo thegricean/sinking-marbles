@@ -45,9 +45,9 @@ d = droplevels(rbind(comp_state,comp_allprob,wonkiness))
 nrow(d)
 str(d)
 summary(d)
-d$response = round(d$response, 1)
-d[d$response == 0.0,]$response = 0.001
-d[d$response == 1.0,]$response = 0.999
+d[d$measure != "comp_state",]$response = round(d[d$measure != "comp_state",]$response, 1)
+d[d$measure != "comp_state" & d$response == 0.0,]$response = 0.001
+d[d$measure != "comp_state" & d$response == 1.0,]$response = 0.999
 
 write.csv(d,file="empirical.csv",row.names=F,quote=F)
 

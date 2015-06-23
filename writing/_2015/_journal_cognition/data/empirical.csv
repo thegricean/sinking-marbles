@@ -446,7 +446,7 @@ subject,item,utterance,response,measure
 44,flashed webcams,Some,5,comp_state
 44,reflected the sunlight mirrors,Some,9,comp_state
 44,ripped books,Some,15,comp_state
-44,sank balloons,Some,0.999,comp_state
+44,sank balloons,Some,1,comp_state
 44,stopped motorcycles,Some,4,comp_state
 44,beeped houses,Some,7,comp_state
 45,reflected the sunlight phone screens,Some,6,comp_state
@@ -637,7 +637,7 @@ subject,item,utterance,response,measure
 63,got stained white carpets,Some,12,comp_state
 63,broke logs,Some,5,comp_state
 63,had the letter Z in them birthday cards,Some,3,comp_state
-63,exploded candles,Some,0.999,comp_state
+63,exploded candles,Some,1,comp_state
 63,fell down card towers,Some,14,comp_state
 64,burnt rocks,Some,6,comp_state
 64,sank marbles,Some,6,comp_state
@@ -719,7 +719,7 @@ subject,item,utterance,response,measure
 71,stopped cars,Some,7,comp_state
 71,got stained white shirts,Some,7,comp_state
 71,ripped books,Some,7,comp_state
-72,burnt rocks,Some,0.001,comp_state
+72,burnt rocks,Some,0,comp_state
 72,sank marbles,Some,8,comp_state
 72,rhymed limericks,Some,2,comp_state
 72,decomposed pinecones,Some,2,comp_state
@@ -728,7 +728,7 @@ subject,item,utterance,response,measure
 72,laughed comedians,Some,3,comp_state
 72,beeped new cars,Some,5,comp_state
 72,rolled wheelchairs,Some,9,comp_state
-72,had the letter Z in them birthday cards,Some,0.999,comp_state
+72,had the letter Z in them birthday cards,Some,1,comp_state
 73,were green clovers,Some,8,comp_state
 73,stuck to the wall baseballs,Some,6,comp_state
 73,had the letter Z in them birthday cards,Some,3,comp_state
@@ -759,7 +759,7 @@ subject,item,utterance,response,measure
 75,decomposed banana peels,Some,7,comp_state
 75,landed flat notebooks,Some,8,comp_state
 75,honked taxi drivers,Some,7,comp_state
-76,got stained white carpets,Some,0.001,comp_state
+76,got stained white carpets,Some,0,comp_state
 76,exploded fireworks,Some,6,comp_state
 76,landed flat pancakes,Some,6,comp_state
 76,dissolved carrots,Some,6,comp_state
@@ -772,10 +772,10 @@ subject,item,utterance,response,measure
 77,blew away hats,Some,3,comp_state
 77,laughed comedians,Some,2,comp_state
 77,exploded gas tanks,Some,10,comp_state
-77,melted pencils,Some,0.001,comp_state
+77,melted pencils,Some,0,comp_state
 77,popped bubbles,Some,15,comp_state
 77,reflected the sunlight diamonds,Some,15,comp_state
-77,decomposed soda cans,Some,0.999,comp_state
+77,decomposed soda cans,Some,1,comp_state
 77,broke boxes,Some,10,comp_state
 77,beeped new cars,Some,5,comp_state
 77,rhymed songs,Some,3,comp_state
@@ -923,7 +923,7 @@ subject,item,utterance,response,measure
 92,decomposed pinecones,Some,7,comp_state
 92,ripped books,Some,5,comp_state
 92,froze bottles of hand soap,Some,6,comp_state
-92,dissolved carrots,Some,0.001,comp_state
+92,dissolved carrots,Some,0,comp_state
 92,blew away backpacks,Some,5,comp_state
 92,had the letter Z in them novels,Some,5,comp_state
 92,exploded fireworks,Some,11,comp_state
@@ -1020,7 +1020,7 @@ subject,item,utterance,response,measure
 101,dissolved sugar cubes,Some,7,comp_state
 101,stuck beads,Some,8,comp_state
 102,rolled shopping carts,Some,5,comp_state
-102,had the letter Z in them birthday cards,Some,0.999,comp_state
+102,had the letter Z in them birthday cards,Some,1,comp_state
 102,ate the seeds birds,Some,6,comp_state
 102,dissolved carrots,Some,5,comp_state
 102,stuck to the wall cakes,Some,6,comp_state
@@ -1046,7 +1046,7 @@ subject,item,utterance,response,measure
 104,laughed comedians,Some,5,comp_state
 104,ran out of batteries phones,Some,4,comp_state
 104,popped eggs,Some,5,comp_state
-104,ripped shirts,Some,0.001,comp_state
+104,ripped shirts,Some,0,comp_state
 104,honked bus drivers,Some,4,comp_state
 104,melted crayons,Some,3,comp_state
 105,had the letter Z in them birthday cards,Some,5,comp_state
@@ -2427,7 +2427,7 @@ subject,item,utterance,response,measure
 241,exploded CDs,All,0.1,wonkiness
 241,rolled wheelchairs,All,0.1,wonkiness
 241,ate the seeds dogs,All,0.1,wonkiness
-241,blew away hats,Some,0.001,wonkiness
+241,blew away hats,Some,0.1,wonkiness
 241,laughed lawyers,Some,0.5,wonkiness
 241,stopped motorcycles,None,0.1,wonkiness
 241,decomposed soda cans,Some,0.4,wonkiness
@@ -2501,7 +2501,7 @@ subject,item,utterance,response,measure
 244,were green clovers,None,0.4,wonkiness
 245,froze bottles of hand soap,Some,0.5,wonkiness
 245,fell down block towers,Some,0.7,wonkiness
-245,were green bananas,None,0.001,wonkiness
+245,were green bananas,None,0.1,wonkiness
 245,stuck sequins,Some,0.1,wonkiness
 245,dissolved sugar cubes,Some,0.2,wonkiness
 245,exploded gas tanks,Some,0.2,wonkiness
@@ -2527,7 +2527,7 @@ subject,item,utterance,response,measure
 246,laughed kids,Some,0.001,wonkiness
 246,got stained white carpets,None,0.7,wonkiness
 246,stopped cars,Some,0.2,wonkiness
-246,exploded CDs,All,0.001,wonkiness
+246,exploded CDs,All,0.1,wonkiness
 246,sank marbles,All,0.3,wonkiness
 246,ran out of batteries bike lights,Some,0.1,wonkiness
 246,dissolved oreos,Some,0.3,wonkiness
@@ -2547,7 +2547,7 @@ subject,item,utterance,response,measure
 247,ran out of batteries bike lights,Some,0.1,wonkiness
 247,laughed comedians,Some,0.001,wonkiness
 247,honked bus drivers,All,0.001,wonkiness
-247,fell down card towers,All,0.001,wonkiness
+247,fell down card towers,All,0.1,wonkiness
 247,blew away napkins,All,0.001,wonkiness
 247,flashed webcams,None,0.5,wonkiness
 247,burnt matches,Some,0.6,wonkiness
@@ -2620,7 +2620,7 @@ subject,item,utterance,response,measure
 250,stopped cars,All,0.001,wonkiness
 250,got stained white tablecloths,Some,0.9,wonkiness
 251,blew away hats,None,0.9,wonkiness
-251,ripped books,Some,0.001,wonkiness
+251,ripped books,Some,0.1,wonkiness
 251,beeped old cars,All,0.9,wonkiness
 251,lit up computers,All,0.1,wonkiness
 251,rolled shopping carts,Some,0.4,wonkiness
@@ -2639,7 +2639,7 @@ subject,item,utterance,response,measure
 251,broke boxes,All,0.001,wonkiness
 251,were green bananas,None,0.4,wonkiness
 251,burnt books,Some,0.7,wonkiness
-252,landed flat notebooks,Some,0.001,wonkiness
+252,landed flat notebooks,Some,0.1,wonkiness
 252,ripped shirts,None,0.4,wonkiness
 252,rolled wheelchairs,None,0.8,wonkiness
 252,honked bicyclists,None,0.7,wonkiness
@@ -2658,7 +2658,7 @@ subject,item,utterance,response,measure
 252,burnt matches,Some,0.4,wonkiness
 252,exploded fireworks,All,0.001,wonkiness
 252,lit up computers,Some,0.4,wonkiness
-252,blew away hats,All,0.001,wonkiness
+252,blew away hats,All,0.1,wonkiness
 253,rolled shopping carts,None,0.999,wonkiness
 253,ate the seeds dogs,Some,0.3,wonkiness
 253,lit up computers,Some,0.6,wonkiness
@@ -2666,7 +2666,7 @@ subject,item,utterance,response,measure
 253,honked taxi drivers,Some,0.001,wonkiness
 253,had the letter Z in them novels,All,0.8,wonkiness
 253,blew away backpacks,Some,0.3,wonkiness
-253,ripped shoes,Some,0.001,wonkiness
+253,ripped shoes,Some,0.1,wonkiness
 253,stuck stickers,Some,0.001,wonkiness
 253,sank balloons,Some,0.9,wonkiness
 253,stuck to the wall pieces of gum,Some,0.4,wonkiness
@@ -3001,7 +3001,7 @@ subject,item,utterance,response,measure
 269,exploded eggs,All,0.8,wonkiness
 270,burnt matches,Some,0.9,wonkiness
 270,honked bicyclists,Some,0.001,wonkiness
-270,exploded CDs,Some,0.001,wonkiness
+270,exploded CDs,Some,0.1,wonkiness
 270,froze berries,None,0.999,wonkiness
 270,sank cups,All,0.3,wonkiness
 270,fell down block towers,Some,0.999,wonkiness
