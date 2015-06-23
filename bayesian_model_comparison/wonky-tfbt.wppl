@@ -135,6 +135,7 @@ var queryDictionary = {'comp_state':"world",
 
 
 var dataAnalysis = function(){
+  Enumerate(function(){
 
   // Priors
   // var speakerOptimality = sample(uniformERP, [0,10])
@@ -147,15 +148,15 @@ var dataAnalysis = function(){
 
   var posteriorPredictive = 
     map(function(item){
-      console.log(item)
+   //   console.log(item)
       return map(function(utterance){
-        console.log(utterance)
+     //   console.log(utterance)
 
         var predictionERP = listener(utterance, wonkinessPrior, speakerOptimality,item)
 
         return map(function(measure){
 
-          console.log(measure)
+   //       console.log(measure)
           var dataPoints = languageData[item][utterance][measure]
 
           var query = queryDictionary[measure]
@@ -170,8 +171,8 @@ var dataAnalysis = function(){
                             marginalERP :
                             linkingFunction(marginalERP, measure, linkingBetaConcentration)
 
-          console.log(modelScore(linkedERP, dataPoints))
-          return modelScore(linkedERP, dataPoints)
+         // console.log(modelScore(linkedERP, dataPoints))
+          factor(modelScore(linkedERP, dataPoints))
           
           // factor(modelScore(linkedERP, dataObject[measure][item][utterance]))
           // return [measure, item, utterance, 
@@ -183,7 +184,8 @@ var dataAnalysis = function(){
 
       }, listOf90Items)
 
-  return posteriorPredictive
+  return [speakerOptimality,wonkinessPrior,linkingBetaConcentration]
+})
 }
 
 // var utterance = 'Some'
