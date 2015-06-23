@@ -1,14 +1,6 @@
 # TODO FOR WONKY MARBLES (manuscript)
 
 
-- p. 5 correct the prits sentence to one about the four-step prior inference procedure
-
-- p. 5-6 update prior section to reflect the four-step procedure
-
-- p. 6 figure 1: update graphs to reflect four-step numbers
-
-- p. 6 remove procedure on prior inference
-
 - p. 10 rerun and rereport all analyses with four-step numbers
 
 - p. 11 footnote describing other possible priors
