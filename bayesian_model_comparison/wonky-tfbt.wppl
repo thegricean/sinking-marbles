@@ -170,6 +170,7 @@ var dataAnalysis = function(){
                             marginalERP :
                             linkingFunction(marginalERP, measure, linkingBetaConcentration)
 
+          console.log(modelScore(linkedERP, dataPoints))
           return modelScore(linkedERP, dataPoints)
           
           // factor(modelScore(linkedERP, dataObject[measure][item][utterance]))
