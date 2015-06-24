@@ -8,9 +8,15 @@ d = read.csv("munged.csv",sep=",",quote="")
 head(d)
 summary(d)
 
+# since munged.csv has parameter values repeated for all items in posterior predictive
+# take only unique rows (unique sets of parameter values)
+d.params <- unique(d %>% select(SpeakerOptimality, 
+                         WonkinessPrior,
+                         LinkingBetaConcentration,
+                         PosteriorProbability))
+
 # speaker optimality
-d.speakOpt <-unique(d %>% 
-  select(SpeakerOptimality, PosteriorProbability)) %>%
+d.speakOpt <- d.params %>% 
   group_by(SpeakerOptimality) %>%
   summarise(prob = sum(PosteriorProbability))
 
@@ -18,8 +24,7 @@ ggplot(d.speakOpt, aes(x=SpeakerOptimality, y=prob)) +
   geom_histogram(stat='identity', position=position_dodge())
 
 # wonkiness prior
-d.wonkiness <-unique(d %>% 
-                      select(WonkinessPrior, PosteriorProbability)) %>%
+d.wonkiness <-d.params %>% 
   group_by(WonkinessPrior) %>%
   summarise(prob = sum(PosteriorProbability))
 
@@ -28,9 +33,7 @@ ggplot(d.wonkiness, aes(x=WonkinessPrior, y=prob)) +
 
 
 # LinkingBetaConcentration prior
-d.lbc <-unique(d %>% 
-          select(LinkingBetaConcentration, 
-                 PosteriorProbability)) %>%
+d.lbc <- d.params %>% 
   group_by(LinkingBetaConcentration) %>%
   summarise(prob = sum(PosteriorProbability))
 
