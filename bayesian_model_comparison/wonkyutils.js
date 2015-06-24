@@ -112,6 +112,14 @@ var writePosteriorPredictiveWithParams = function(myERP,numOfParams){
 }
 
 
+var softmax = function(prob, softmaxparam){
+  var dist = [prob, 1-prob]
+  var exponentiated = _.map(dist, 
+                        function(p){return Math.pow(p,softmaxparam)})
+  var sum = _.reduce(exponentiated, function(memo, num){return memo + num;}, 0);
+  var renormalized = _.map(exponentiated, function(x){return x/sum})
+  return renormalized[0]
+}
 
 
 
@@ -122,5 +130,6 @@ module.exports = {
   readPriors: readPriors,
   readData: readData,
   writeERP: writeERP,
-  writePosteriorPredictive:writePosteriorPredictive
+  writePosteriorPredictive:writePosteriorPredictive,
+  softmax:softmax
 };
