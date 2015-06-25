@@ -9,6 +9,10 @@ d = read.csv("munged_regular.csv",sep=",",quote="")
 head(d)
 summary(d)
 
+## plot posterior predictive -- scatterplot of model vs human
+head(d[d$Item == "sank marbles" & d$Measure == "comp_state" & d$Quantifier == "All",])
+
+## plot parameter posteriors
 # since munged_regular.csv has parameter values repeated for all items in posterior predictive
 # take only unique rows (unique sets of parameter values)
 d.params <- unique(d %>% select(SpeakerOptimality, 
