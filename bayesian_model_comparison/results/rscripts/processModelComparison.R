@@ -4,13 +4,76 @@ setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marble
 #setwd("~/Documents/research/sinking-marbles/bayesian_model_comparison/results")
 #source("../rscripts/helpers.r")
 
+## load empirical data and combine into one data.frame
+# wonkiness
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
+wonkiness <- r[r$quantifier %in% c("Some","All","None"),] %>%
+  select(Item,quantifier,response) %>%
+  group_by(Item,quantifier) %>%
+  summarise(mean.emp.val=mean(response)) %>%
+  rename(Quantifier=quantifier)
+wonkiness$Measure = "wonkiness"
+
+ggplot(wonkiness, aes(x=mean.emp.val)) +
+  geom_histogram() +
+  facet_wrap(~Quantifier)
+
+# comp_state
+load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
+comp_state <- r[r$quantifier == c("Some"),] %>%
+  select(Item,quantifier,response) %>%
+  group_by(Item,quantifier) %>%
+  summarise(mean.emp.val=mean(response)) %>%
+  rename(Quantifier=quantifier)
+comp_state$Measure = "comp_state"
+
+ggplot(comp_state, aes(x=mean.emp.val)) +
+  geom_histogram() +
+  facet_wrap(~Quantifier)
+
+# comp_allprob
+load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
+comp_allprob <- r[r$quantifier == c("Some") & r$Proportion == 100,] %>%
+  select(Item,quantifier,normresponse) %>%
+  group_by(Item,quantifier) %>%
+  summarise(mean.emp.val=mean(normresponse)) %>%
+  rename(Quantifier=quantifier)
+comp_allprob$Measure = "comp_allprob"
+
+ggplot(comp_allprob, aes(x=mean.emp.val)) +
+  geom_histogram() +
+  facet_wrap(~Quantifier)
+
+empirical = as.data.frame(droplevels(rbind(comp_state,comp_allprob,wonkiness)))
+nrow(empirical)
+summary(empirical)
+row.names(empirical) = paste(empirical$Item,empirical$Measure,empirical$Quantifier)
+head(empirical)
+
 ### parse results for one spopt parameter and no wonkiness softmax
 d = read.csv("munged_regular.csv",sep=",",quote="")
 head(d)
 summary(d)
 
 ## plot posterior predictive -- scatterplot of model vs human
-head(d[d$Item == "sank marbles" & d$Measure == "comp_state" & d$Quantifier == "All",])
+d.postpred<-d %>%
+  mutate(Probability = to.n(Probability)) %>%
+  group_by(Measure,Item,Quantifier,Response) %>%
+  summarise(exp.val = sum(PosteriorProbability*Probability))
+
+d.postpred.expval <- d.postpred %>%
+  group_by(Measure,Item,Quantifier) %>%
+  summarise(mean.exp.val = sum(Response*exp.val))
+
+#add empirical values
+d.postpred.expval$mean.emp.val = empirical[paste(d.postpred.expval$Item,d.postpred.expval$Measure,d.postpred.expval$Quantifier),]$mean.emp.val
+
+#make scatterplot of model against human 
+ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
+  geom_point() +
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  facet_wrap(~Measure,scales='free')
+ggsave("graphs/scatterplots/regular_model-vs-human.pdf",width=14)
 
 ## plot parameter posteriors
 # since munged_regular.csv has parameter values repeated for all items in posterior predictive
@@ -52,6 +115,27 @@ d = read.csv("munged_3speakers.csv",sep=",",quote="")
 nrow(d)
 head(d)
 summary(d)
+
+## plot posterior predictive -- scatterplot of model vs human
+d.postpred<-d %>%
+  mutate(Probability = to.n(Probability)) %>%
+  group_by(Measure,Item,Quantifier,Response) %>%
+  summarise(exp.val = sum(PosteriorProbability*Probability))
+
+d.postpred.expval <- d.postpred %>%
+  group_by(Measure,Item,Quantifier) %>%
+  summarise(mean.exp.val = sum(Response*exp.val))
+
+#add empirical values
+d.postpred.expval$mean.emp.val = empirical[paste(d.postpred.expval$Item,d.postpred.expval$Measure,d.postpred.expval$Quantifier),]$mean.emp.val
+
+#make scatterplot of model against human 
+ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
+  geom_point() +
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  facet_wrap(~Measure,scales='free')
+ggsave("graphs/scatterplots/3speakers_model-vs-human.pdf",width=14)
+
 
 # since munged_xxx.csv has parameter values repeated for all items in posterior predictive
 # take only unique rows (unique sets of parameter values)
@@ -113,6 +197,27 @@ d = read.csv("munged_wonkysoftmax.csv",sep=",",quote="")
 head(d)
 summary(d)
 
+## plot posterior predictive -- scatterplot of model vs human
+d.postpred<-d %>%
+  mutate(Probability = to.n(Probability)) %>%
+  group_by(Measure,Item,Quantifier,Response) %>%
+  summarise(exp.val = sum(PosteriorProbability*Probability))
+
+d.postpred.expval <- d.postpred %>%
+  group_by(Measure,Item,Quantifier) %>%
+  summarise(mean.exp.val = sum(Response*exp.val))
+
+#add empirical values
+d.postpred.expval$mean.emp.val = empirical[paste(d.postpred.expval$Item,d.postpred.expval$Measure,d.postpred.expval$Quantifier),]$mean.emp.val
+
+#make scatterplot of model against human 
+ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
+  geom_point() +
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  facet_wrap(~Measure,scales='free')
+ggsave("graphs/scatterplots/wonkysoftmax_model-vs-human.pdf",width=14)
+
+
 # since munged_regular.csv has parameter values repeated for all items in posterior predictive
 # take only unique rows (unique sets of parameter values)
 d.params <- unique(d %>% select(SpeakerOptimality, 
@@ -163,6 +268,27 @@ d = read.csv("munged_3sp-ws.csv",sep=",",quote="")
 nrow(d)
 head(d)
 summary(d)
+
+## plot posterior predictive -- scatterplot of model vs human
+d.postpred<-d %>%
+  mutate(Probability = to.n(Probability)) %>%
+  group_by(Measure,Item,Quantifier,Response) %>%
+  summarise(exp.val = sum(PosteriorProbability*Probability))
+
+d.postpred.expval <- d.postpred %>%
+  group_by(Measure,Item,Quantifier) %>%
+  summarise(mean.exp.val = sum(Response*exp.val))
+
+#add empirical values
+d.postpred.expval$mean.emp.val = empirical[paste(d.postpred.expval$Item,d.postpred.expval$Measure,d.postpred.expval$Quantifier),]$mean.emp.val
+
+#make scatterplot of model against human 
+ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
+  geom_point() +
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  facet_wrap(~Measure,scales='free')
+ggsave("graphs/scatterplots/3sp-ws_model-vs-human.pdf",width=14)
+
 
 # since munged_xxx.csv has parameter values repeated for all items in posterior predictive
 # take only unique rows (unique sets of parameter values)
