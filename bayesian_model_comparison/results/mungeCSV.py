@@ -1,3 +1,15 @@
+# run with one of the following commands:
+# 
+# python mungeCSV.py wonky_tfbtPosterior_predictiveAnddiscreteParams_mh10000b1000.csv regula
+#
+# python mungeCSV.py wonky_tfbtPosterior_predictiveAnddiscreteParams_3speakerOptimalities_mh10000b1000.csv 3speakers
+#
+# python mungeCSV.py wonky_tfbtPosterior_predictiveAnddiscreteParams_softmaxWonky_mh10000b1000.csv wonkysoftmax
+#
+# python mungeCSV.py wonky_tfbtPosterior_predictiveAnddiscreteParams_3speakerOptimalities_softmaxWonky_mh10000b1000.csv 3sp-ws
+#
+# python mungeCSV.py wonky_tfbtPosterior_predictiveAnddiscreteParams_3speakerOptimalities_2betas_softmaxWonky_mh10000b1000.csv 3sp-ws-2betas
+
 import sys
 
 f = open(sys.argv[1])
