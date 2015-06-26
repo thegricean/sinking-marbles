@@ -1,9 +1,26 @@
-library(tidyr)
+library(plyr)
 
 setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/results/")
 #setwd("~/Documents/research/sinking-marbles/bayesian_model_comparison/results")
 #source("../rscripts/helpers.r")
 
+## load priors for generating plots 
+priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+row.names(priorprobs) = priorprobs$Item
+nrow(priorprobs)
+
+# prior all-state probability for each item
+prior_allprobs = priorprobs[,c("Item","X15")]
+row.names(prior_allprobs) = prior_allprobs$Item
+
+# prior expectation for each item
+gathered_probs <- priorprobs %>%
+  gather(State,Probability,X0:X15)
+gathered_probs$State = as.numeric(as.character(gsub("X","",gathered_probs$State)))
+prior_exps = ddply(gathered_probs, .(Item), summarise, exp.val=sum(State*Probability))
+row.names(prior_exps) = prior_exps$Item
+
+library(tidyr)
 ## load empirical data and combine into one data.frame
 # wonkiness
 load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
@@ -13,6 +30,7 @@ wonkiness <- r[r$quantifier %in% c("Some","All","None"),] %>%
   summarise(mean.emp.val=mean(response)) %>%
   rename(Quantifier=quantifier)
 wonkiness$Measure = "wonkiness"
+wonkiness$PriorMeasure = "expected_value"
 
 ggplot(wonkiness, aes(x=mean.emp.val)) +
   geom_histogram() +
@@ -26,6 +44,7 @@ comp_state <- r[r$quantifier == c("Some"),] %>%
   summarise(mean.emp.val=mean(response)) %>%
   rename(Quantifier=quantifier)
 comp_state$Measure = "comp_state"
+comp_state$PriorMeasure = "expected_value"
 
 ggplot(comp_state, aes(x=mean.emp.val)) +
   geom_histogram() +
@@ -39,6 +58,7 @@ comp_allprob <- r[r$quantifier == c("Some") & r$Proportion == 100,] %>%
   summarise(mean.emp.val=mean(normresponse)) %>%
   rename(Quantifier=quantifier)
 comp_allprob$Measure = "comp_allprob"
+comp_allprob$PriorMeasure = "all_prob"
 
 ggplot(comp_allprob, aes(x=mean.emp.val)) +
   geom_histogram() +
@@ -49,6 +69,17 @@ nrow(empirical)
 summary(empirical)
 row.names(empirical) = paste(empirical$Item,empirical$Measure,empirical$Quantifier)
 head(empirical)
+
+empirical$Prior = -555
+empirical[empirical$PriorMeasure == "expected_value",]$Prior = prior_exps[as.character(empirical[empirical$PriorMeasure == "expected_value",]$Item),]$exp.val
+empirical[empirical$PriorMeasure == "all_prob",]$Prior = prior_allprobs[as.character(empirical[empirical$PriorMeasure == "all_prob",]$Item),]$X15
+
+# plot all empirical results
+ggplot(empirical, aes(x=Prior,y=mean.emp.val,color=Quantifier)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~Measure,scales="free")
+ggsave("graphs/empirical_curves.pdf",width=15)
 
 ### parse results for one spopt parameter and no wonkiness softmax
 d = read.csv("munged_regular.csv",sep=",",quote="")
@@ -65,6 +96,7 @@ d.postpred.expval <- d.postpred %>%
   group_by(Measure,Item,Quantifier) %>%
   summarise(mean.exp.val = sum(Response*exp.val))
 
+
 #add empirical values
 d.postpred.expval$mean.emp.val = empirical[paste(d.postpred.expval$Item,d.postpred.expval$Measure,d.postpred.expval$Quantifier),]$mean.emp.val
 
@@ -74,6 +106,19 @@ ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
   geom_abline(intercept=0,slope=1,color="gray60") +
   facet_wrap(~Measure,scales='free')
 ggsave("graphs/scatterplots/regular_model-vs-human.pdf",width=14)
+
+# add priors
+d.postpred.expval$Prior = -555
+d.postpred.expval[d.postpred.expval$Measure %in% c("comp_state","wonkiness"),]$Prior = prior_exps[as.character(d.postpred.expval[d.postpred.expval$Measure  %in% c("comp_state","wonkiness"),]$Item),]$exp.val
+d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Item),]$X15
+
+# plot all model predictions
+ggplot(d.postpred.expval, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~Measure,scales="free")
+ggsave("graphs/model_curves_regular.pdf",width=15)
+
 
 ## plot parameter posteriors
 # since munged_regular.csv has parameter values repeated for all items in posterior predictive
@@ -136,6 +181,17 @@ ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
   facet_wrap(~Measure,scales='free')
 ggsave("graphs/scatterplots/3speakers_model-vs-human.pdf",width=14)
 
+# add priors
+d.postpred.expval$Prior = -555
+d.postpred.expval[d.postpred.expval$Measure %in% c("comp_state","wonkiness"),]$Prior = prior_exps[as.character(d.postpred.expval[d.postpred.expval$Measure  %in% c("comp_state","wonkiness"),]$Item),]$exp.val
+d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Item),]$X15
+
+# plot all model predictions
+ggplot(d.postpred.expval, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~Measure,scales="free")
+ggsave("graphs/model_curves_3speakers.pdf",width=15)
 
 # since munged_xxx.csv has parameter values repeated for all items in posterior predictive
 # take only unique rows (unique sets of parameter values)
@@ -217,6 +273,17 @@ ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
   facet_wrap(~Measure,scales='free')
 ggsave("graphs/scatterplots/wonkysoftmax_model-vs-human.pdf",width=14)
 
+# add priors
+d.postpred.expval$Prior = -555
+d.postpred.expval[d.postpred.expval$Measure %in% c("comp_state","wonkiness"),]$Prior = prior_exps[as.character(d.postpred.expval[d.postpred.expval$Measure  %in% c("comp_state","wonkiness"),]$Item),]$exp.val
+d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Item),]$X15
+
+# plot all model predictions
+ggplot(d.postpred.expval, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~Measure,scales="free")
+ggsave("graphs/model_curves_wonkysoftmax.pdf",width=15)
 
 # since munged_regular.csv has parameter values repeated for all items in posterior predictive
 # take only unique rows (unique sets of parameter values)
@@ -288,6 +355,18 @@ ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
   geom_abline(intercept=0,slope=1,color="gray60") +
   facet_wrap(~Measure,scales='free')
 ggsave("graphs/scatterplots/3sp-ws_model-vs-human.pdf",width=14)
+
+# add priors
+d.postpred.expval$Prior = -555
+d.postpred.expval[d.postpred.expval$Measure %in% c("comp_state","wonkiness"),]$Prior = prior_exps[as.character(d.postpred.expval[d.postpred.expval$Measure  %in% c("comp_state","wonkiness"),]$Item),]$exp.val
+d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Item),]$X15
+
+# plot all model predictions
+ggplot(d.postpred.expval, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~Measure,scales="free")
+ggsave("graphs/model_curves_3sp-ws.pdf",width=15)
 
 
 # since munged_xxx.csv has parameter values repeated for all items in posterior predictive
@@ -381,6 +460,17 @@ ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
   facet_wrap(~Measure,scales='free')
 ggsave("graphs/scatterplots/3sp-ws-2betas_model-vs-human.pdf",width=14)
 
+# add priors
+d.postpred.expval$Prior = -555
+d.postpred.expval[d.postpred.expval$Measure %in% c("comp_state","wonkiness"),]$Prior = prior_exps[as.character(d.postpred.expval[d.postpred.expval$Measure  %in% c("comp_state","wonkiness"),]$Item),]$exp.val
+d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Item),]$X15
+
+# plot all model predictions
+ggplot(d.postpred.expval, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~Measure,scales="free")
+ggsave("graphs/model_curves_3sp-ws-2betas.pdf",width=15)
 
 # since munged_xxx.csv has parameter values repeated for all items in posterior predictive
 # take only unique rows (unique sets of parameter values)

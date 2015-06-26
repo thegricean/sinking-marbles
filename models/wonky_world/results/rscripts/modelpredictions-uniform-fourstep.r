@@ -185,6 +185,17 @@ ggplot(some, aes(x=PriorExpectation_smoothed, y=PosteriorExpectation_predicted,c
   facet_grid(SpeakerOptimality~WonkyWorldPrior)
 ggsave("graphs/model-uniform-expectations-fourstep.pdf",width=20,height=10)
 
+# plot for best values: wprior = .8, spopt=3
+ggplot(some[some$WonkyWorldPrior==.8 & some$SpeakerOptimality == 3,], aes(x=PosteriorExpectation_predicted, y=PosteriorExpectation_empirical)) +
+  geom_point() +
+  scale_x_continuous(limits=c(0,15)) +
+  scale_y_continuous(limits=c(0,15)) +  
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  ggtitle("Best parameters (MSE=.85,r=.65): wprior=.8, spopt=3")
+ggsave("graphs/3_number_fourstep/model-empirical-fourstep-expectations.pdf",width=10,height=6)
+
+
+
 #plot empirical against predicted allstate-prbabilities for "some"
 allstate = droplevels(subset(mp, State == 15 & Quantifier == "some"))
 #cors = ddply(allstate, .(SpeakerOptimality, WonkyWorldPrior), summarise, r=cor(PosteriorProbability, PosteriorProbability_empirical))
@@ -242,6 +253,15 @@ ggplot(allstate, aes(x=PosteriorProbability, y=PosteriorProbability_empirical,co
   facet_grid(SpeakerOptimality~WonkyWorldPrior)
 ggsave("graphs/model-empirical-uniform-allstateprobs-fourstep.pdf",width=30,height=10)
 
+# plot for best values: wprior = .6, spopt=0
+ggplot(allstate[allstate$WonkyWorldPrior==.6 & allstate$SpeakerOptimality == 0,], aes(x=PosteriorProbability, y=PosteriorProbability_empirical)) +
+  geom_point() +
+  scale_x_continuous(limits=c(0,1)) +
+  scale_y_continuous(limits=c(0,1)) +  
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  ggtitle("Best parameters (MSE=.0,r=.41): wprior=.6, spopt=0")
+ggsave("graphs/3_number_fourstep/model-empirical-fourstep-allprobs.pdf",width=10,height=6)
+
 # plot by-item diff in predicted and empirical expectation by confidence rating
 confidence = read.table("../../../experiments/24_sinking-marbles-prior-fourstep/results/data/confidence.txt",sep="\t",quote="",header=T)
 nrow(confidence)
@@ -285,39 +305,34 @@ ggplot(allstate, aes(x=PriorProbability, y=PosteriorProbability,color=as.factor(
 ggsave("graphs/model-uniform-allstateprobs-fourstep.pdf",width=30,height=10)
 
 # get empirical wonkiness posteriors
-load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
 head(r)
 nrow(r)
-r$Item = as.factor(paste(r$effect,r$object))
 
-t = as.data.frame(prop.table(table(r$Item, r$quantifier, r$response), mar=c(1,2)))
-head(t)
-colnames(t) = c("Item","Quantifier","NormalMarbles","Proportion")
-t[t$Var1=="ate the seeds birds",]
-t$Quantifier = tolower(t$Quantifier)
-tail(t)
-t$Wonky = as.factor(ifelse(t$NormalMarbles == "yes","false","true"))
-row.names(t) = paste(t$Item, t$Quantifier, t$Wonky)
+agr = aggregate(response~Item+quantifier,data=r,FUN=mean)
+row.names(agr) = paste(agr$Item,tolower(agr$quantifier))
 
-wr$PosteriorProbability_empirical = t[paste(wr$Item, wr$Quantifier, wr$Wonky),]$Proportion
+wr$PosteriorProbability_empirical = agr[paste(wr$Item, wr$Quantifier),]$response
 head(wr)
 wonky = droplevels(subset(wr, Wonky == "true"))
 
-head(wonky)
-toplot = droplevels(subset(wonky,  WonkyWorldPrior == .7 & SpeakerOptimality == 0))
-
-ggplot(toplot, aes(x=PriorExpectation, y=PosteriorProbability, color=Quantifier)) +
-  geom_point() +
-  geom_smooth() 
-ggsave(file="graphs/wonkinessplot-fourstep.pdf",width=6)
-
-test = ddply(wonky, .(SpeakerOptimality, WonkyWorldPrior), summarise, mse=gof(PosteriorProbability, PosteriorProbability_empirical)["MSE",],r=gof(PosteriorProbability, PosteriorProbability_empirical)["r",],R2=gof(PosteriorProbability, PosteriorProbability_empirical)["R2",])
+test = ddply(wonky, .(SpeakerOptimality, WonkyWorldPrior,Quantifier), summarise, mse=gof(PosteriorProbability, PosteriorProbability_empirical)["MSE",],r=gof(PosteriorProbability, PosteriorProbability_empirical)["r",],R2=gof(PosteriorProbability, PosteriorProbability_empirical)["R2",])
 test = test[order(test[,c("mse")]),]
-head(test,10)
+head(test,20)
 test = test[order(test[,c("r")],decreasing=T),]
 head(test,10)
 test = test[order(test[,c("R2")],decreasing=T),]
 head(test,10)
+
+
+# plot for best values: wprior = .3, spopt=0
+ggplot(wonky[wonky$WonkyWorldPrior==.3 & wonky$SpeakerOptimality == 0,], aes(x=PosteriorProbability, y=PosteriorProbability_empirical,color=Quantifier)) +
+  geom_point() +
+  scale_x_continuous(limits=c(0,1)) +
+  scale_y_continuous(limits=c(0,1)) +  
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  ggtitle("Best parameters (MSE=.03/.05/.08,r=.58/.62/.63): wprior=.3, spopt=0")
+ggsave("graphs/3_number_fourstep/model-empirical-fourstep-wonkiness.pdf",width=10,height=6)
 
 # plot by-item diff in predicted and empirical expectation by confidence rating
 confidence = read.table("../../../experiments/24_sinking-marbles-prior-fourstep/results/data/confidence.txt",sep="\t",quote="",header=T)
