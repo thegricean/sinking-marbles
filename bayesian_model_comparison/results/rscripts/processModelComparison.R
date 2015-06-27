@@ -17,11 +17,10 @@ row.names(prior_allprobs) = prior_allprobs$Item
 # prior expectation for each item
 gathered_probs <- priorprobs %>%
   gather(State,Probability,X0:X15)
-gathered_probs$State = as.numeric(as.character(gsub("X","",gathered_probs$State)))
-prior_exps = ddply(gathered_probs, .(Item), summarise, exp.val=sum(State*Probability))
+gathered_probs$State = as.numeric(as.character(gsub("X","",gathered_probs$variable)))
+prior_exps = ddply(gathered_probs, .(Item), summarise, exp.val=sum(State*value))
 row.names(prior_exps) = prior_exps$Item
 
-library(dplyr)
 library(tidyr)
 ## load empirical data and combine into one data.frame
 # wonkiness
@@ -547,6 +546,120 @@ d.wsoftmax <-d.params %>%
 ggplot(d.wsoftmax, aes(x=WonkySoftmax, y=prob)) +
   geom_histogram(stat='identity', position=position_dodge())
 ggsave("graphs/3sp-ws-2betas_wsoftmax.png",width=8,height=6)
+
+### parse results for three spopt parameters and 2 linking sigmas for wonkiness and allprob task
+d = read.csv("munged_3sp-2sigmas.csv",sep=",",quote="")
+nrow(d)
+head(d)
+summary(d)
+
+## plot posterior predictive -- scatterplot of model vs human
+d.postpred<-d %>%
+  mutate(Probability = to.n(Probability)) %>%
+  group_by(Measure,Item,Quantifier,Response) %>%
+  summarise(exp.val = sum(PosteriorProbability*Probability))
+
+d.postpred.expval <- d.postpred %>%
+  group_by(Measure,Item,Quantifier) %>%
+  summarise(mean.exp.val = sum(Response*exp.val))
+
+#add empirical values
+d.postpred.expval$mean.emp.val = empirical[paste(d.postpred.expval$Item,d.postpred.expval$Measure,d.postpred.expval$Quantifier),]$mean.emp.val
+
+#make scatterplot of model against human 
+ggplot(d.postpred.expval, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
+  geom_point() +
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  facet_wrap(~Measure,scales='free')
+ggsave("graphs/scatterplots/3sp-ws-2betas_model-vs-human.pdf",width=14)
+
+# add priors
+d.postpred.expval$Prior = -555
+d.postpred.expval[d.postpred.expval$Measure %in% c("comp_state","wonkiness"),]$Prior = prior_exps[as.character(d.postpred.expval[d.postpred.expval$Measure  %in% c("comp_state","wonkiness"),]$Item),]$exp.val
+d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.postpred.expval[d.postpred.expval$Measure == "comp_allprob",]$Item),]$X15
+
+# plot all model predictions
+ggplot(d.postpred.expval, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~Measure,scales="free")
+ggsave("graphs/model_curves_3sp-ws-2betas.pdf",width=15)
+
+# since munged_xxx.csv has parameter values repeated for all items in posterior predictive
+# take only unique rows (unique sets of parameter values)
+d.params <- unique(d %>% select(SpeakerOptimality1, 
+                                SpeakerOptimality2,
+                                SpeakerOptimality3,
+                                Sigma_allprob,
+                                Sigma_wonky,
+                                WonkinessPrior,
+                                PosteriorProbability))
+
+# speaker optimality 1
+d.speakOpt1 <- d.params %>% 
+  group_by(SpeakerOptimality1) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.speakOpt1, aes(x=SpeakerOptimality1, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge())
+ggsave("graphs/3sp-ws-2betas_compstate_spopt.png",width=8,height=6)
+
+# speaker optimality 2
+d.speakOpt2 <- d.params %>% 
+  group_by(SpeakerOptimality2) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.speakOpt2, aes(x=SpeakerOptimality2, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge())
+ggsave("graphs/3sp-ws-2betas_compallprob_spopt.png",width=8,height=6)
+
+# speaker optimality 3
+d.speakOpt3 <- d.params %>% 
+  group_by(SpeakerOptimality3) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.speakOpt3, aes(x=SpeakerOptimality3, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge())
+ggsave("graphs/3sp-ws-2betas_wonkiness_spopt.png",width=8,height=6)
+
+# wonkiness prior
+d.wonkiness <-d.params %>% 
+  group_by(WonkinessPrior) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.wonkiness, aes(x=WonkinessPrior, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge())
+ggsave("graphs/3sp-ws-2betas_wprior.png",width=8,height=6)
+
+# LinkingBetaConcentration_allprob prior
+d.lbc <- d.params %>% 
+  group_by(LinkingBetaConcentration_allprob) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.lbc, aes(x=LinkingBetaConcentration_allprob, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge(),width=.2)
+ggsave("graphs/3sp-ws-2betas_linkbetaconcentration_allprob.png",width=8,height=6)
+
+# LinkingBetaConcentration_wonky prior
+d.lbc <- d.params %>% 
+  group_by(LinkingBetaConcentration_wonky) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.lbc, aes(x=LinkingBetaConcentration_wonky, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge(),width=.2)
+ggsave("graphs/3sp-ws-2betas_linkbetaconcentration_wonky.png",width=8,height=6)
+
+# wonkysoftmax 
+d.wsoftmax <-d.params %>% 
+  group_by(WonkySoftmax) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.wsoftmax, aes(x=WonkySoftmax, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge())
+ggsave("graphs/3sp-ws-2betas_wsoftmax.png",width=8,height=6)
+
+
+
 
 
 ### parse results for three spopt parameters and wonkiness softmax and 2 different beta linking functions for wonkiness and allprob task
