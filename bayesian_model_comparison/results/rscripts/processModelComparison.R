@@ -1,5 +1,6 @@
 library(plyr)
-
+to.n <- function(x) {return(as.numeric(as.character(x)))}
+  
 setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/results/")
 #setwd("~/Documents/research/sinking-marbles/bayesian_model_comparison/results")
 #source("../rscripts/helpers.r")
@@ -20,6 +21,7 @@ gathered_probs$State = as.numeric(as.character(gsub("X","",gathered_probs$State)
 prior_exps = ddply(gathered_probs, .(Item), summarise, exp.val=sum(State*Probability))
 row.names(prior_exps) = prior_exps$Item
 
+library(dplyr)
 library(tidyr)
 ## load empirical data and combine into one data.frame
 # wonkiness
@@ -547,4 +549,52 @@ ggplot(d.wsoftmax, aes(x=WonkySoftmax, y=prob)) +
 ggsave("graphs/3sp-ws-2betas_wsoftmax.png",width=8,height=6)
 
 
+### parse results for three spopt parameters and wonkiness softmax and 2 different beta linking functions for wonkiness and allprob task
+d = read.csv("munged_enumerated.csv",sep=",",quote="")
+nrow(d)
+head(d)
+summary(d)
 
+# since munged_xxx.csv has parameter values repeated for all items in posterior predictive
+# take only unique rows (unique sets of parameter values)
+d.params <- unique(d %>% select(SpeakerOptimality, 
+                                LinkingBetaConcentration,
+                                WonkinessPrior,
+                                WonkySoftmax,
+                                PosteriorProbability))
+
+# speaker optimality 1
+d.speakOpt <- d.params %>% 
+  group_by(SpeakerOptimality) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.speakOpt, aes(x=SpeakerOptimality, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge())
+ggsave("graphs/enumerated_spopt.png",width=8,height=6)
+
+# wonkiness prior
+d.wonkiness <-d.params %>% 
+  group_by(WonkinessPrior) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.wonkiness, aes(x=WonkinessPrior, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge())
+ggsave("graphs/enumerated_wprior.png",width=8,height=6)
+
+# LinkingBetaConcentration_allprob prior
+d.lbc <- d.params %>% 
+  group_by(LinkingBetaConcentration) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.lbc, aes(x=LinkingBetaConcentration, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge(),width=.2)
+ggsave("graphs/enumerated_linkbetaconcentration.png",width=8,height=6)
+
+# LinkingBetaConcentration_wonky prior
+d.lbc <- d.params %>% 
+  group_by(WonkySoftmax) %>%
+  summarise(prob = sum(PosteriorProbability))
+
+ggplot(d.lbc, aes(x=WonkySoftmax, y=prob)) +
+  geom_histogram(stat='identity', position=position_dodge(),width=.2)
+ggsave("graphs/enumerated_wonkysoftmax.png",width=8,height=6)
