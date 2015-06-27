@@ -16,8 +16,8 @@ f = open(sys.argv[1])
 lines = [l.rstrip() for l in f.readlines()]
 f.close()
 
-mungetype = sys.argv[2] # can be regular, 3speakers, wonkysoftmax, 3sp-ws, 3sp-ws-2betas
-headers = {"regular":["SpeakerOptimality","WonkinessPrior","LinkingBetaConcentration","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"],"3speakers":["SpeakerOptimality1","SpeakerOptimality2","SpeakerOptimality3","WonkinessPrior","LinkingBetaConcentration","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"],"wonkysoftmax":["SpeakerOptimality","WonkinessPrior","LinkingBetaConcentration","WonkySoftmax","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"],"3sp-ws":["SpeakerOptimality1","SpeakerOptimality2","SpeakerOptimality3","WonkinessPrior","LinkingBetaConcentration","WonkySoftmax","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"],"3sp-ws-2betas":["SpeakerOptimality1","SpeakerOptimality2","SpeakerOptimality3","WonkinessPrior","LinkingBetaConcentration_allprob","LinkingBetaConcentration_wonky","WonkySoftmax","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"]}
+mungetype = sys.argv[2] # can be regular, 3speakers, wonkysoftmax, 3sp-ws, 3sp-ws-2betas,3sp-2sigmas
+headers = {"regular":["SpeakerOptimality","WonkinessPrior","LinkingBetaConcentration","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"],"3speakers":["SpeakerOptimality1","SpeakerOptimality2","SpeakerOptimality3","WonkinessPrior","LinkingBetaConcentration","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"],"wonkysoftmax":["SpeakerOptimality","WonkinessPrior","LinkingBetaConcentration","WonkySoftmax","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"],"3sp-ws":["SpeakerOptimality1","SpeakerOptimality2","SpeakerOptimality3","WonkinessPrior","LinkingBetaConcentration","WonkySoftmax","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"],"3sp-ws-2betas":["SpeakerOptimality1","SpeakerOptimality2","SpeakerOptimality3","WonkinessPrior","LinkingBetaConcentration_allprob","LinkingBetaConcentration_wonky","WonkySoftmax","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"],"3sp-2sigmas":["SpeakerOptimality1","SpeakerOptimality2","SpeakerOptimality3","WonkinessPrior","Sigma_allprob","Sigma_wonky","PosteriorProbability","Measure","Item","Quantifier","Response","Probability"]}
 
 outfile = open("munged_"+mungetype+".csv","w")
 outfile.write(",".join(headers[mungetype]))
@@ -83,6 +83,22 @@ for l in lines[1:]:
 			probability = splited.pop(0).strip("\"")		
 			outfile.write(",".join([speakerOptimality1,speakerOptimality2,speakerOptimality3, wonkinessPrior,linkingBetaConcentration,wonkysoftmax,posteriorProb,measure,item,quantifier,response,probability]))
 			outfile.write("\n")			
+	elif mungetype == "3sp-2sigmas":
+		speakerOptimality1 = splited.pop(0).strip("\"")
+		speakerOptimality2 = splited.pop(0)
+		speakerOptimality3 = splited.pop(0)		
+		wonkinessPrior = splited.pop(0).strip("\"")		
+		sigma_all = splited.pop(0)
+		sigma_w = splited.pop(0)		
+		posteriorProb = splited.pop().strip("\"")				
+		while len(splited) > 0:
+			measure = splited.pop(0)
+			item = splited.pop(0)
+			quantifier = splited.pop(0)
+			response = splited.pop(0)
+			probability = splited.pop(0).strip("\"")		
+			outfile.write(",".join([speakerOptimality1,speakerOptimality2,speakerOptimality3, wonkinessPrior,sigma_all,sigma_w,posteriorProb,measure,item,quantifier,response,probability]))
+			outfile.write("\n")						
 	elif mungetype == "3sp-ws-2betas":
 		speakerOptimality1 = splited.pop(0).strip("\"")
 		speakerOptimality2 = splited.pop(0)
