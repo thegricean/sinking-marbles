@@ -11,11 +11,9 @@ var transpose = function(lst){
 
 
 var modelScore = function(modelERP, data){
-    return sum(
-      map(
-        function(d){return modelERP.score([],d)},
-      data)
-      )
+    return reduce(function(dataPoint, memo) {
+                return memo + modelERP.score([], dataPoint);
+            }, 0, data)
   }
 
 
@@ -93,41 +91,78 @@ var getMarginal = function(myERP, measure){
   })
 }
 
-var linkingFunction = function(marginalERP, measure, linkingBetaConcentration, wonkySoftmax){
-  Enumerate(function(){
+// var linkingFunction = function(marginalERP, measure, linkingBetaConcentration, wonkySoftmax){
+// // var linkingFunction = cache(function(marginalERP, measure, sigma, wonkySoftmax){
+//   Enumerate(function(){
 
-    // var queryStatement = sample(betaERP, [shape_alpha(posteriorProb, delta),
-    //                                        shape_beta(posteriorProb, delta)])
+//     // var queryStatement = sample(betaERP, [shape_alpha(posteriorProb, delta),
+//     //                                        shape_beta(posteriorProb, delta)])
 
-    var discreteModelPredSliderVal = function(gamma, delta) {
+//     var discreteModelPredSliderVal = function(gamma, delta) {
+//       var bins = [0.001,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.999]
+//       var discretizeBeta = function(gamma, delta){
+//         var shape_alpha = gamma * delta
+//         var shape_beta = (1-gamma) * delta
+//         var betaPDF = function(x){
+//           return Math.pow(x,shape_alpha-1)*
+//               Math.pow((1-x),shape_beta-1)
+//         }
+//         return map(betaPDF, bins)
+//       }
+//       var quintileProbs = discretizeBeta(gamma,delta)
+//       //return quintileProbs
+//        var sliderVal = bins[discrete(quintileProbs)]
+//        return sliderVal
+//     }
+
+
+
+//     var posteriorProb = measure == "comp_allprob" ? 
+//                                 Math.exp(marginalERP.score([], 15)):
+//                                wonkyutils.softmax(Math.exp(marginalERP.score([], true)),wonkySoftmax)
+//                                 // Math.exp(marginalERP.score([], true))
+
+//     var queryStatement = discreteModelPredSliderVal(posteriorProb,linkingBetaConcentration)
+
+//     return queryStatement
+//  //   return [posteriorProb, linkingBetaConcentration]
+// }
+// )}
+
+
+
+var linkingFunction2 =  function(marginalERP, measure, sigma){
+
+   var makeERPfromObject = function(obj){
+    return Enumerate(
+      function(){
+        return wonkyutils.wpParseFloat(_.keys(obj)[discrete(_.values(obj))])
+      })
+   }
+
+    var logitNoiseLogistic = function(prob,sigma){
       var bins = [0.001,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.999]
-      var discretizeBeta = function(gamma, delta){
-        var shape_alpha = gamma * delta
-        var shape_beta = (1-gamma) * delta
-        var betaPDF = function(x){
-          return Math.pow(x,shape_alpha-1)*
-              Math.pow((1-x),shape_beta-1)
-        }
-        return map(betaPDF, bins)
-      }
-      var quintileProbs = discretizeBeta(gamma,delta)
-      //return quintileProbs
-       var sliderVal = bins[discrete(quintileProbs)]
-       return sliderVal
+
+      var linkedDist=  _.object(map(
+        function(d){return [d, Math.exp(gaussianERP.score([wonkyutils.logit(prob),sigma], wonkyutils.logit(d)))]},
+        bins))
+
+      return makeERPfromObject(linkedDist)
     }
 
 
     var posteriorProb = measure == "comp_allprob" ? 
                                 Math.exp(marginalERP.score([], 15)):
-                                wonkyutils.softmax(Math.exp(marginalERP.score([], true)),wonkySoftmax)
+//                                wonkyutils.softmax(Math.exp(marginalERP.score([], true)),wonkySoftmax)
+                                Math.exp(marginalERP.score([], true))
 
-    var queryStatement = discreteModelPredSliderVal(posteriorProb,linkingBetaConcentration)
+
+    var posteriorProbAvoidEnds = ((posteriorProb==1) | (posteriorProb==0))? {0:0.001, 1:0.999}[posteriorProb]:posteriorProb
+
+    var queryStatement = logitNoiseLogistic(posteriorProbAvoidEnds,sigma)
 
     return queryStatement
- //   return [posteriorProb, linkingBetaConcentration]
 }
-)}
-
 
 
 
@@ -141,18 +176,26 @@ var dataAnalysis = function(){
   // Priors
   // var speakerOptimality = uniform(0,10)
 
- var speakerOptimality = 0.1+(randomInteger(20)/4)
-  // var speakerOptimality = {
-  //                       'comp_state':0.1+(randomInteger(20)/4),
-  //                       'comp_allprob':0.1+(randomInteger(20)/4),
-  //                       'wonkiness':0.1+(randomInteger(20)/4)
-  // }
+// var speakerOptimality = 0.1+(randomInteger(10)/2)
+  var speakerOptimality = {
+                        'comp_state':0.1+(randomInteger(10)/2),
+                        'comp_allprob':0.1+(randomInteger(10)/2),
+                        'wonkiness':0.1+(randomInteger(10)/2)
+  }
 
    // var wonkinessPrior = uniform(0,1)
   var wonkinessPrior = 0.01+(randomInteger(10)/10)
-  var wonkySoftmax = 0.01+randomInteger(20)/4
- // var linkingBetaConcentration = uniform(0,10)
-   var linkingBetaConcentration = (randomInteger(20)+1)/3
+  // var wonkySoftmax = 0.01+randomInteger(10)/2
+ // var linkingBetaConcentration = (randomInteger(20)+1)/3
+   // var linkingBetaConcentration = {
+   //                      'comp_allprob':   (randomInteger(10)+1)/2,
+   //                      'wonkiness':   (randomInteger(10)+1)/2
+   //                    }
+
+   var linkingSigma = {
+                        'comp_allprob':   (randomInteger(20)+1)/3,
+                        'wonkiness':   (randomInteger(20)+1)/3
+                      }
 
 
   var posteriorPredictive = 
@@ -163,13 +206,15 @@ var dataAnalysis = function(){
 
         return map(function(measure){
    //       console.log(measure)
+        //console.log(item+measure+utterance)
+
           var dataPoints = languageData[item][utterance][measure]
           var query = queryDictionary[measure]
 
           // for model with just 1 speakerOptimality for all 3 tasks
-          var predictionERP = listener(utterance, wonkinessPrior, speakerOptimality, item, query)
+         // var predictionERP = listener(utterance, wonkinessPrior, speakerOptimality, item, query)
           // for speakerOptimalities that differ across tasks
-          // var predictionERP = listener(utterance, wonkinessPrior, speakerOptimality[measure], item, query)
+          var predictionERP = listener(utterance, wonkinessPrior, speakerOptimality[measure], item, query)
 
 
           // if comprehension task "give a number", use the marginal posterior directly
@@ -177,12 +222,13 @@ var dataAnalysis = function(){
           // here, we assume the slider value is the mean of a beta (possibly discretized, for implementation)
           // and there is some concentration (delta) variable; this is a mere nuisance, data-analysis parameter
           var linkedERP = measure == "comp_state" ?
-                            predictionERP :
-                            linkingFunction(predictionERP, measure, linkingBetaConcentration, wonkySoftmax)
+                           predictionERP :
+                           // linkingFunction(predictionERP, measure, linkingBetaConcentration, wonkySoftmax)
+                          // linkingFunction(predictionERP, measure, linkingBetaConcentration[measure], wonkySoftmax)
+                            linkingFunction2(predictionERP, measure, linkingSigma[measure])
 
          // modelScore(linkedERP, dataPoints)==-Infinity ? console.log('error'):null
          factor(modelScore(linkedERP, dataPoints))
-          
           // get posterior prob for each of the values in the support
            return map(
             function(val){
@@ -196,68 +242,70 @@ var dataAnalysis = function(){
       }, listOf90Items)
 
 
-//  return [speakerOptimality,wonkinessPrior,linkingBetaConcentration]
- // return [_.values(speakerOptimality),wonkinessPrior,linkingBetaConcentration,
+ // return [speakerOptimality,wonkinessPrior,linkingBetaConcentration, ]
+ // return [_.values(speakerOptimality),wonkinessPrior,_.values(linkingBetaConcentration),wonkySoftmax,
  //        _.flatten(_.flatten(_.flatten(posteriorPredictive, true),true),true)]
- return [speakerOptimality,wonkinessPrior,linkingBetaConcentration,wonkySoftmax,
+
+//return posteriorPredictive
+ return [_.values(speakerOptimality),wonkinessPrior,_.values(linkingSigma),
         _.flatten(_.flatten(_.flatten(posteriorPredictive, true),true),true)]
 
+ // return [speakerOptimality,wonkinessPrior,linkingBetaConcentration,wonkySoftmax]
+ //,       _.flatten(_.flatten(_.flatten(posteriorPredictive, true),true),true)]
 
+        // return speakerOptimality
 
  // return _.flatten(_.flatten(_.flatten(posteriorPredictive, true),true),true)
 }
 
 // dataAnalysis()
 
-var mhsamples = 10000
-var burn = 1000
-var results = MH(dataAnalysis,mhsamples, burn)
-// //var results = Enumerate(dataAnalysis, 10)
+ var mhsamples = 10000
+// var burn = 10
 
-// results
+var opts = {
+  burn: 1000,
+  skip: 0
+}
+
+var results = HashMH(dataAnalysis,mhsamples, opts)
+// console.log('here')
+// var results = Enumerate(dataAnalysis)
+
+// map(function(l){return Math.exp(results.score([],l))}, results.support())
 
 console.log('model complete. munging data...')
-
-// var marginalize = function(myERP, index){
-//   Enumerate(function(){
-//     var x = sample(myERP)
-//     return x[index]
-//   })
-// }
-
+results
 
 var output = wonkyutils.writeERP(results)
-//output.unshift([_.keys(queryDictionary).join('so,')+',wonkinessPrior,linkingBetaConcentration,posteriorPredictive','posteriorProb']);
-//output.unshift(['speakerOptimality,wonkinessPrior,linkingBetaConcentration,posteriorPredictive','posteriorProb']);
-output.unshift(['speakerOptimality,wonkinessPrior,linkingBetaConcentration,softmaxWonky,posteriorPredictive','posteriorProb']);
+// output.unshift([_.keys(queryDictionary).join('so,')+',wonkinessPrior,linkingBetaConcentration_allProb,linkingBetaConcentrationWonky,softmaxWonky,posteriorPredictive','posteriorProb']);
+output.unshift([_.keys(queryDictionary).join('so,')+',wonkinessPrior,linkingSigma_allProb,linkingSigmaWonky,posteriorPredictive','posteriorProb']);
 
-var outfile = 'results/wonky_tfbtPosterior_predictiveAnddiscreteParams_softmaxWonky_mh'+ mhsamples+ 'b'+burn+'.csv'
-//  'results/wonky_tfbtPosterior_predictiveAnddiscreteParams_3speakerOptimalities_mh'+ mhsamples+ 'b'+burn+'.csv')
+// //output.unshift(['speakerOptimality,wonkinessPrior,linkingBetaConcentration,posteriorPredictive','posteriorProb']);
+// output.unshift(['speakerOptimality,wonkinessPrior,linkingBetaConcentration,softmaxWonky,posteriorPredictive','posteriorProb']);
 
+// output.unshift(['speakerOptimality,wonkinessPrior,linkingBetaConcentration,softmaxWonky','posteriorProb']);
+
+var outfile = 
+ //'results/wonky_tfbtPosterior_predictiveAnddiscreteParams_softmaxWonky_mh'+ mhsamples+ 'b'+burn+'.csv'
+// 'results/wonky_tfbtPosterior_predictiveAnddiscreteParams_3speakerOptimalities_2betas_softmaxWonky_mh'+ mhsamples+ 'b'+burn+'.csv'
+'results/wonkyFBTPosterior_3speakerOptimalities_2sigmas_mh'+ mhsamples+ 'b'+opts.burn+'.csv'
+  // 'results/wonkyFBTPosterior_paramsOnly_1sOpt_lbc_wSmax_enumerate.csv'
+ // 'results/wonkyFBTPosterior_3sOpt_2lbc_wSmax_enumerate.csv'
 
 wonkyutils.writeCSV(output, outfile)
 
 console.log('wrote ' +outfile)
 
-// var speakerOptPosterior = writeERP(marginalize(results,0))
-// speakerOptPosterior.unshift(['speakerOptimality','posteriorProb']);
-
-// var wonkinessPriorPosterior = writeERP(marginalize(results,1))
-// wonkinessPriorPosterior.unshift(['wonkinessPrior','posteriorProb']);
-
-// var linkingBetaPosterior = writeERP(marginalize(results,2))
-// linkingBetaPosterior.unshift(['linkingBetaConcentration','posteriorProb']);
 
 
-// wonkyutils.writeCSV(speakerOptPosterior, 
-// // 'wonky_tfbtPosterior_speakerOptimality_enumerateCoarse'+ mhsamples+ '.csv')
-//   'results/wonky_tfbtPosterior_speakerOptimalityC_mh'+ mhsamples+ 'b'+burn+'.csv')
+  // var predictionERP = listener("None", 0.5, 2, listOf90Items[0], "world")
+  // // if comprehension task "give a number", use the marginal posterior directly
+  // // otherwise, need to connect to the slider value somehow
+  // // here, we assume the slider value is the mean of a beta (possibly discretized, for implementation)
+  // // and there is some concentration (delta) variable; this is a mere nuisance, data-analysis parameter
 
-// wonkyutils.writeCSV(wonkinessPriorPosterior, 
-// //  'wonky_tfbtPosterior_wonkinessPrior_enumerateCoarse'+ mhsamples+ '.csv')
-//   'results/wonky_tfbtPosterior_wonkinessPriorC_mh'+ mhsamples+ 'b'+burn+'.csv')
+  // var linkedERP = linkingFunction2(predictionERP, "comp_allprob", 5)
 
-// wonkyutils.writeCSV(linkingBetaPosterior, 
-// //  'wonky_tfbtPosterior_linkingBetaConcentration_enumerateCoarse'+ mhsamples+ '.csv')
-//   'results/wonky_tfbtPosterior_linkingBetaConcentrationC_mh'+ mhsamples+ 'b'+burn+'.csv')
+  // linkedERP
 
