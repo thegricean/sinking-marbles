@@ -1,0 +1,58 @@
+
+var numObjs = 15
+
+var worldPrior = function() {
+  var marbles = randomInteger(numObjs+1) //15 marbles... 0-15 can sink
+  return marbles
+}
+
+var utterancePrior = function() {
+  var utterances = ["Some",
+                    "All",
+                    "None"]
+  return uniformDraw(utterances)
+}
+
+var meaning = function(utt,world) {
+  return utt=="Some"? world>0 :
+  utt=="All"? world==numObjs :
+  utt=="None"? world==0 :
+  true
+}
+
+var empiricalPriors = wonkyutils.readPriors()
+
+var literalListener = cache(function(utterance, prior) {
+                            Enumerate(function(){
+                                      var world = discrete(prior)
+                                      var m = meaning(utterance, world)
+                                      factor(m?0:-Infinity)
+                                      return world
+                                      })
+                            })
+
+var speaker = cache(function(world, prior) {
+                    Enumerate(function(){
+                              var utterance = utterancePrior()
+                              var L = literalListener(utterance, prior)
+                              factor(L.score([],world))
+                              return utterance
+                              })
+                    })
+
+var wRSA = cache(function(utterance,wonkinessPrior,speakerOptimality,item,query) {
+                      Enumerate(function(){
+                                var wonky = flip(wonkinessPrior)
+                                var prior = wonky ? 
+                                      wonkyutils.fillArray(1,16) :
+                                      empiricalPriors[item]
+                                    // [.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,1,5]
+                                    //empiricalPriors[item]
+                                var world = discrete(prior)
+                                var S = speaker(world, prior)
+                                factor(speakerOptimality*S.score([],utterance))
+                                var queryStatement = {"world":world,
+                                                      "wonky":wonky}
+                                return queryStatement[query]
+                                })
+                    })
