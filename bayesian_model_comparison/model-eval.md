@@ -22,5 +22,4 @@
 
 | Attempt        | speaker optimality           | wonkiness prior  | | slider link | wonkiness link || Posterior on parameters | Posterior predictive fit |
 | ------------- |:-------------:| -----:| ---| ----| --| --| ---| ---|
-| 1. |  | 1 | 1 | | 1 Beta | 0 | | |
-
+| | | | | | | 
