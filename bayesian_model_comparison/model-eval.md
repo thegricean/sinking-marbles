@@ -5,10 +5,10 @@
 
 | Attempt | Speaker optimality | Wonkiness prior | Slider link | Wonkiness link | Posterior on parameters | Posterior predictive fit|
 |----|---|-----------|---|-|-- |--|
-| 1.  | 1 | 1  | 1 Beta | 0 | 
-| 2.  | 1 | 1  | 1 Beta | softmax |
-| 3.  | 1 | 1  | 2 Beta | 0 | 
-| 4.  | 1 | 1  | 2 Beta | softmax | 
+| 1.  | 1 | 1  | 1 Beta | 0 | comments|  comments| 
+| 2.  | 1 | 1  | 1 Beta | softmax |  comments|  comments| 
+| 3.  | 1 | 1  | 2 Beta | 0 |  comments|  comments| 
+| 4.  | 1 | 1  | 2 Beta | softmax |  comments|  comments| 
  
 
 ### 3 (different) speaker optimalities
