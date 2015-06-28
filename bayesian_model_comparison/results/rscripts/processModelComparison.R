@@ -583,7 +583,7 @@ ggplot(d.postpred.expval, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
   geom_point() +
   geom_smooth() +
   facet_wrap(~Measure,scales="free")
-ggsave("graphs/model_curves_3sp-ws-2betas.pdf",width=15)
+ggsave("graphs/model_curves_3sp-2sigmas.pdf",width=15)
 
 # since munged_xxx.csv has parameter values repeated for all items in posterior predictive
 # take only unique rows (unique sets of parameter values)
