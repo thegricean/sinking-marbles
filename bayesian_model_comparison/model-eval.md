@@ -3,23 +3,18 @@
 
 ### 1 (shared) speaker optimality 
 
-| Attempt | Speaker optimality | Wonkiness prior | Slider link | Wonkiness link | Posterior on parameters | Posterior predictive fit|
-|----|---|-----------|---|-|-- |--|
-| 1.  | 1 | 1  | 1 Beta | 0 | comments|  comments| 
-| 2.  | 1 | 1  | 1 Beta | softmax |  comments|  comments| 
-| 3.  | 1 | 1  | 2 Beta | 0 |  comments|  comments| 
-| 4.  | 1 | 1  | 2 Beta | softmax |  comments|  comments| 
- 
+| Attempt | Speaker optimality | Wonkiness prior | Slider link | Wonkiness link | Posterior on parameters | Posterior  predictive |
+|---------|--------------------|-----------------|-------------|----------------|-------------------------|-----------------------|
+| 1       | 1                  | 1               | 1 beta      | 0              |                         |                       |
+| 2       | 1                  | 1               | 1 beta      | softmax        |                         |                       |
+| 3       | 1                  | 1               | 2 beta      | 0              |                         |                       |
+| 4       | 1                  | 1               | 2 beta      | softmax        |                         |                       |
 
 ### 3 (different) speaker optimalities
 
-| Attempt | | Speaker optimality | Wonkiness prior | Slider link | Wonkiness link | Posterior on parameters | Posterior predictive fit|
-|---|--|---|---|-|--------|---|-|-|
-| 1. |  | 3 | 1 | | 1 Beta | 0 | 
-| 2. |  | 3 | 1 | | 2 Beta | 0 | 
-| 3. |  | 3 | 1 | | 1 Beta | softmax |
-| 4. |  | 3 | 1 | | 2 Beta | softmax | 
-
-| Attempt        | speaker optimality           | wonkiness prior  |  |
-| ------------| ----------| ----------| --|
-| 1 | 1 | 1 | |
+| Attempt | Speaker optimality | Wonkiness prior | Slider link | Wonkiness link | Posterior on parameters | Posterior  predictive |
+|---------|--------------------|-----------------|-------------|----------------|-------------------------|-----------------------|
+| 1       | 3                  | 1               | 1 beta      | 0              |                         |                       |
+| 2       | 3                  | 1               | 1 beta      | softmax        |                         |                       |
+| 3       | 3                  | 1               | 2 beta      | 0              |                         |                       |
+| 4       | 3                  | 1               | 2 beta      | softmax        |                         |                       |
