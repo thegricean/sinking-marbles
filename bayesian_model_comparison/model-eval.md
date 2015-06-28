@@ -3,12 +3,12 @@
 
 ### 1 (shared) speaker optimality 
 
-| Attempt | | Speaker optimality | Wonkiness prior || Slider link | Wonkiness link || Posterior on parameters | Posterior predictive fit|
-| ------------- |:-------------:| -----:|
-| 1. |  | 1 | 1 | | 1 Beta | 0 | | |
-| 2. |  | 1 | 1 | | 1 Beta | softmax | | |
-| 3. |  | 1 | 1 | | 2 Beta | 0 | | |
-| 4. |  | 1 | 1 | | 2 Beta | softmax | | |
+| Attempt | Speaker optimality | Wonkiness prior | Slider link | Wonkiness link | Posterior on parameters | Posterior predictive fit|
+|----|---|-----------|---|-|-- |--|
+| 1.  | 1 | 1  | 1 Beta | 0 | | |
+| 2.  | 1 | 1  | 1 Beta | softmax | | |
+| 3.  | 1 | 1  | 2 Beta | 0 | | |
+| 4.  | 1 | 1  | 2 Beta | softmax | | |
  
 
 ### 3 (different) speaker optimalities
