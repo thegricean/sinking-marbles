@@ -1,6 +1,10 @@
 library(plyr)
+<<<<<<< HEAD
 to.n <- function(x) {return(as.numeric(as.character(x)))}
   
+=======
+
+>>>>>>> 7342f808380f3d08572d080d0a317d9ba9be215d
 setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/results/")
 #setwd("~/Documents/research/sinking-marbles/bayesian_model_comparison/results")
 #source("../rscripts/helpers.r")
@@ -547,6 +551,7 @@ ggplot(d.wsoftmax, aes(x=WonkySoftmax, y=prob)) +
   geom_histogram(stat='identity', position=position_dodge())
 ggsave("graphs/3sp-ws-2betas_wsoftmax.png",width=8,height=6)
 
+<<<<<<< HEAD
 ### parse results for three spopt parameters and 2 linking sigmas for wonkiness and allprob task
 d = read.csv("munged_3sp-2sigmas.csv",sep=",",quote="")
 nrow(d)
@@ -700,3 +705,7 @@ d.lbc <- d.params %>%
 ggplot(d.lbc, aes(x=WonkySoftmax, y=prob)) +
   geom_histogram(stat='identity', position=position_dodge(),width=.2)
 ggsave("graphs/enumerated_wonkysoftmax.png",width=8,height=6)
+=======
+
+
+>>>>>>> 7342f808380f3d08572d080d0a317d9ba9be215d
