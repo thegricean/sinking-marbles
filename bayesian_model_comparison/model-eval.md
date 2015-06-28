@@ -20,8 +20,7 @@
 | 3. |  | 3 | 1 | | 1 Beta | softmax | | |
 | 4. |  | 3 | 1 | | 2 Beta | softmax | | |
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Attempt        | speaker optimality           | wonkiness prior  | | slider link | wonkiness link || Posterior on parameters | Posterior predictive fit |
+| ------------- |:-------------:| -----:| ---| ----| --| --| ---| ---|
+| 1. |  | 1 | 1 | | 1 Beta | 0 | | |
+
