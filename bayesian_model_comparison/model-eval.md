@@ -20,6 +20,6 @@
 | 3. |  | 3 | 1 | | 1 Beta | softmax | | |
 | 4. |  | 3 | 1 | | 2 Beta | softmax | | |
 
-| Attempt        | speaker optimality           | wonkiness prior  | 
-| ------------| ----------| ----------|
-| 1 | 1 | 1 |
+| Attempt        | speaker optimality           | wonkiness prior  |  |
+| ------------| ----------| ----------| --|
+| 1 | 1 | 1 | |
