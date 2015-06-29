@@ -43,3 +43,5 @@ Further desiderata:
 3. if necessary, assume different linking functions for different tasks; basically, try to save 1. and 2. for theoretical reasons
 
 ![Empirical data for three different tasks](/bayesian_model_comparison/results/graphs/empirical_curves.png "Empirical means for each task")
+
+![Empirical data for three different tasks for selected items](/bayesian_model_comparison/results/graphs/empirical_curves_selected.png "Empirical means for each task (selected items)")

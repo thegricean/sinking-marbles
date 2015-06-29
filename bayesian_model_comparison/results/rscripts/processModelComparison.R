@@ -98,6 +98,16 @@ ggplot(empirical, aes(x=Prior,y=mean.emp.val,color=Quantifier)) +
   facet_wrap(~Measure,scales="free")
 ggsave("graphs/empirical_curves_errbars.pdf",width=15)
 
+items = droplevels(subset(empirical, Item %in% c("stuck to the wall baseballs","sank balloons","fell down shelves","popped eggs","landed flat pancakes","sank marbles","melted ice cubes")))
+
+ggplot(items, aes(x=Prior,y=mean.emp.val,color=Quantifier)) +
+  geom_point(size=4) +
+#  geom_smooth() +
+  geom_text(aes(label=Item),size=4) +
+  facet_wrap(~Measure,scales="free")
+ggsave("graphs/empirical_curves_selected.pdf",width=15)
+ggsave("graphs/empirical_curves_selected.png",width=15)
+
 ### parse results for one spopt parameter and no wonkiness softmax
 d = read.csv("munged_regular.csv",sep=",",quote="")
 head(d)
