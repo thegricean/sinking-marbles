@@ -20,7 +20,7 @@
 | 4       | 3                  | 1               | 2 beta      | softmax        | wprior: .7, beta_allprob: 3.5, beta_allprob: 1.6, softmax: 0, spopt_allprob: 0, spopt_state: around 1, spopt_wonky: around 1                        | allprob: good, comp_state: good, wonkiness: probabilities too compressed and U basically flat                      |
 
 
-Aspects of the empirical data we want to capture:
+Aspects of the empirical data (shown below) that we want to capture:
 
 - comp_allprob: small effect of prior, low max value
 
@@ -41,3 +41,5 @@ Further desiderata:
 2. one wonkiness prior
 
 3. if necessary, assume different linking functions for different tasks; basically, try to save 1. and 2. for theoretical reasons
+
+![Empirical data for three different tasks](/results/graphs/empirical_curves.png "Empirical means for each task")

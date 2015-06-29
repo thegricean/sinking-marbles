@@ -88,6 +88,7 @@ ggplot(empirical, aes(x=Prior,y=mean.emp.val,color=Quantifier)) +
   geom_smooth() +
   facet_wrap(~Measure,scales="free")
 ggsave("graphs/empirical_curves.pdf",width=15)
+ggsave("graphs/empirical_curves.png",width=15)
 
 # plot all empirical results with error bars
 ggplot(empirical, aes(x=Prior,y=mean.emp.val,color=Quantifier)) +
