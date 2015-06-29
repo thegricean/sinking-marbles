@@ -15,6 +15,36 @@ ggplot(pr, aes(x=State,y=Probability,color=PriorType,group=PriorType)) +
   facet_wrap(~Item)
 ggsave(file="graphs/smoothed.vs.empirical.pdf",width=24,height=18)
 
+## plot individual items best guesses with expectation
+exps = priors %>% 
+  group_by(Item) %>%
+  summarise(expectation=sum(as.numeric(as.character(State))*SmoothedProportion))
+exps = as.data.frame(exps)
+row.names(exps) = exps$Item
+
+priors$Expectation = exps[as.character(priors$Item),]$expectation
+priors$It = factor(x=as.character(priors$Item),levels=unique(priors[order(priors[,c("Expectation")]),]$Item))
+exps$It = factor(x=exps$Item, levels=levels(priors$It))
+
+p=ggplot(priors, aes(x=State, y=SmoothedProportion, group=1)) +
+  geom_point() +
+  geom_line() +
+  geom_vline(data=exps,aes(xintercept=expectation+1),color="red",size=1) +
+  facet_wrap(~It)
+ggsave(p,file="graphs/dists_with_expvalue.pdf",width=20,height=15)
+
+# plot selected items to use as tracking test items in bayesian model comparison
+items = droplevels(subset(priors, Item %in% c("stuck to the wall baseballs","sank balloons","fell down shelves","popped eggs","landed flat pancakes","sank marbles","melted ice cubes")))
+it_exps = droplevels(subset(exps, Item %in% levels(items$Item)))
+
+ggplot(items, aes(x=State, y=SmoothedProportion, group=1)) +
+  geom_point() +
+  geom_line() +
+  geom_vline(data=it_exps,aes(xintercept=expectation+1),color="red",size=1) +
+  geom_text(data=it_exps,x=7,y=.5,aes(label=as.character(round(expectation,1)))) +
+  facet_wrap(~It)
+ggsave(file="graphs/dists_with_expvalue_selected.pdf",width=8,height=5)
+
 # plot original smoothed vs current smoothed vs slider best guesses
 priors$NumberTask = priors$OriginalSmoothedProportion
 priors$FourStepNumberTask = priors$SmoothedProportion
