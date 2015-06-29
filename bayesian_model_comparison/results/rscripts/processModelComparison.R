@@ -102,7 +102,7 @@ items = droplevels(subset(empirical, Item %in% c("stuck to the wall baseballs","
 
 ggplot(items, aes(x=Prior,y=mean.emp.val,color=Quantifier)) +
   geom_point(size=4) +
-#  geom_smooth() +
+  geom_errorbar(aes(ymin=CILow,ymax=CIHigh)) +
   geom_text(aes(label=Item),size=4) +
   facet_wrap(~Measure,scales="free")
 ggsave("graphs/empirical_curves_selected.pdf",width=15)
