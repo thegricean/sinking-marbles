@@ -3599,2403 +3599,2403 @@ subject,item,utterance,response,measure
 359,lit up flashlights,Some,0.001,comp_allprob
 359,landed flat coins,Some,0.001,comp_allprob
 359,dissolved sugar cubes,Some,0.001,comp_allprob
-360,phone screens reflected the sunlight,None,1,wonkiness
-360,wheelchairs rolled,All,0,wonkiness
-360,webcams flashed,None,1,wonkiness
-360,stickers stuck,Some,0,wonkiness
-360,matches burnt,None,1,wonkiness
-360,shelves fell down,Some,0,wonkiness
-360,shirts ripped,All,0,wonkiness
-360,pencils melted,Some,1,wonkiness
-360,napkins blew away,Some,0,wonkiness
-360,banana peels decomposed,Some,0,wonkiness
-360,chocolate bars froze,Some,0,wonkiness
-360,coins landed flat,Some,0,wonkiness
-360,bike lights ran out of batteries,None,0,wonkiness
-360,flashlights lit up,None,0,wonkiness
-360,eggs popped,All,1,wonkiness
-360,fireworks exploded,All,0,wonkiness
-360,birthday cards had the letter Z in them,Some,0,wonkiness
-360,carrots dissolved,Some,1,wonkiness
-360,songs rhymed,Some,0,wonkiness
-360,strawberries were green,All,0,wonkiness
-361,eggs popped,All,1,wonkiness
-361,bottles of hand soap froze,Some,0,wonkiness
-361,dogs ate the seeds,None,0,wonkiness
-361,white carpets got stained,All,0,wonkiness
-361,houses beeped,Some,1,wonkiness
-361,fireworks exploded,Some,0,wonkiness
-361,ice cubes melted,None,1,wonkiness
-361,eggs exploded,Some,1,wonkiness
-361,webcams flashed,Some,1,wonkiness
-361,bus drivers honked,None,0,wonkiness
-361,pieces of gum stuck to the wall,Some,0,wonkiness
-361,motorcycles stopped,Some,0,wonkiness
-361,songs rhymed,Some,0,wonkiness
-361,pancakes landed flat,All,0,wonkiness
-361,love notes had the letter Z in them,None,0,wonkiness
-361,clovers were green,All,0,wonkiness
-361,cd-players lit up,All,1,wonkiness
-361,balloons sank,Some,1,wonkiness
-361,boxes broke,Some,0,wonkiness
-361,hats blew away,None,1,wonkiness
-362,shoes ripped,Some,0,wonkiness
-362,baseballs stuck to the wall,All,1,wonkiness
-362,new cars beeped,None,1,wonkiness
-362,balls of tin foil exploded,All,0,wonkiness
-362,kids laughed,None,0,wonkiness
-362,notebooks landed flat,Some,0,wonkiness
-362,bottles of hand soap froze,All,0,wonkiness
-362,shelves fell down,Some,0,wonkiness
-362,banana peels decomposed,Some,1,wonkiness
-362,butterflies ate the seeds,None,0,wonkiness
-362,computers lit up,Some,1,wonkiness
-362,eggs popped,Some,1,wonkiness
-362,phone screens reflected the sunlight,Some,0,wonkiness
-362,cars stopped,Some,1,wonkiness
-362,songs rhymed,None,1,wonkiness
-362,sequins stuck,Some,0,wonkiness
-362,cups sank,All,1,wonkiness
-362,bus drivers honked,All,0,wonkiness
-362,laptops ran out of batteries,Some,1,wonkiness
-362,love notes had the letter Z in them,None,0,wonkiness
-363,bubbles popped,None,1,wonkiness
-363,dogs ate the seeds,Some,0,wonkiness
-363,bicycles stopped,Some,0,wonkiness
-363,card towers fell down,All,1,wonkiness
-363,shopping carts rolled,None,1,wonkiness
-363,phones flashed,None,1,wonkiness
-363,kids laughed,All,0,wonkiness
-363,new cars beeped,All,0,wonkiness
-363,poems rhymed,Some,0,wonkiness
-363,crayons melted,Some,0,wonkiness
-363,pancakes landed flat,None,1,wonkiness
-363,napkins blew away,Some,0,wonkiness
-363,marbles sank,Some,0,wonkiness
-363,eggs exploded,Some,0,wonkiness
-363,computers lit up,Some,0,wonkiness
-363,logs broke,All,1,wonkiness
-363,diamonds reflected the sunlight,Some,1,wonkiness
-363,sugar cubes dissolved,None,0,wonkiness
-363,clovers were green,All,0,wonkiness
-363,love notes had the letter Z in them,Some,0,wonkiness
-364,eggs exploded,None,0,wonkiness
-364,motorcycles stopped,None,1,wonkiness
-364,old cars beeped,Some,0,wonkiness
-364,cakes stuck to the wall,None,0,wonkiness
-364,block towers fell down,Some,0,wonkiness
-364,love notes had the letter Z in them,All,1,wonkiness
-364,bananas were green,Some,0,wonkiness
-364,white tablecloths got stained,All,0,wonkiness
-364,boxes broke,Some,0,wonkiness
-364,berries froze,None,1,wonkiness
-364,butterflies ate the seeds,Some,0,wonkiness
-364,candles exploded,All,1,wonkiness
-364,bicyclists honked,None,0,wonkiness
-364,pinecones decomposed,All,0,wonkiness
-364,wheelchairs rolled,Some,0,wonkiness
-364,cameras flashed,Some,0,wonkiness
-364,pencils melted,Some,0,wonkiness
-364,diamonds reflected the sunlight,All,0,wonkiness
-364,limericks rhymed,Some,0,wonkiness
-364,computers lit up,Some,0,wonkiness
-365,hats blew away,Some,0,wonkiness
-365,mirrors reflected the sunlight,Some,0,wonkiness
-365,balloons sank,Some,1,wonkiness
-365,rocks burnt,None,0,wonkiness
-365,coins landed flat,Some,0,wonkiness
-365,stickers stuck,Some,0,wonkiness
-365,bicyclists honked,Some,0,wonkiness
-365,old cars beeped,None,0,wonkiness
-365,shirts ripped,Some,0,wonkiness
-365,sugar cubes dissolved,Some,0,wonkiness
-365,block towers fell down,None,1,wonkiness
-365,banana peels decomposed,None,1,wonkiness
-365,birds ate the seeds,All,0,wonkiness
-365,computers lit up,Some,0,wonkiness
-365,strawberries were green,All,1,wonkiness
-365,bubbles popped,All,0,wonkiness
-365,kids laughed,Some,0,wonkiness
-365,baseballs stuck to the wall,All,1,wonkiness
-365,phones flashed,All,1,wonkiness
-365,gas tanks exploded,None,1,wonkiness
-366,eggs exploded,Some,1,wonkiness
-366,sugar cubes dissolved,All,0,wonkiness
-366,bicycles stopped,Some,1,wonkiness
-366,pancakes landed flat,None,1,wonkiness
-366,boxes broke,Some,0,wonkiness
-366,birthday cards had the letter Z in them,Some,0,wonkiness
-366,bus drivers honked,None,1,wonkiness
-366,houses beeped,None,1,wonkiness
-366,shirts ripped,None,0,wonkiness
-366,beads stuck,Some,1,wonkiness
-366,white carpets got stained,All,1,wonkiness
-366,songs rhymed,Some,1,wonkiness
-366,flashlights lit up,Some,1,wonkiness
-366,webcams flashed,All,1,wonkiness
-366,chocolate bars froze,All,0,wonkiness
-366,birds ate the seeds,Some,0,wonkiness
-366,ice cubes melted,Some,1,wonkiness
-366,block towers fell down,Some,1,wonkiness
-366,napkins blew away,None,0,wonkiness
-366,laptops ran out of batteries,All,1,wonkiness
-367,hats blew away,Some,0,wonkiness
-367,laptops ran out of batteries,Some,1,wonkiness
-367,taxi drivers honked,Some,0,wonkiness
-367,sunglasses broke,None,1,wonkiness
-367,cd-players lit up,Some,0,wonkiness
-367,shirts ripped,Some,0,wonkiness
-367,balls of tin foil exploded,Some,0,wonkiness
-367,eggs popped,None,1,wonkiness
-367,soda cans decomposed,None,0,wonkiness
-367,pencils melted,All,1,wonkiness
-367,berries froze,None,1,wonkiness
-367,shelves fell down,Some,0,wonkiness
-367,cameras flashed,All,0,wonkiness
-367,cakes stuck to the wall,Some,0,wonkiness
-367,sequins stuck,All,0,wonkiness
-367,bicycles stopped,All,0,wonkiness
-367,novels had the letter Z in them,None,0,wonkiness
-367,gas tanks exploded,Some,0,wonkiness
-367,white tablecloths got stained,All,0,wonkiness
-367,clovers were green,Some,0,wonkiness
-368,love notes had the letter Z in them,All,1,wonkiness
-368,lawyers laughed,Some,0,wonkiness
-368,clovers were green,Some,0,wonkiness
-368,backpacks blew away,Some,0,wonkiness
-368,coins landed flat,All,0,wonkiness
-368,new cars beeped,Some,0,wonkiness
-368,butterflies ate the seeds,None,0,wonkiness
-368,songs rhymed,Some,0,wonkiness
-368,banana peels decomposed,All,0,wonkiness
-368,pieces of gum stuck to the wall,Some,0,wonkiness
-368,balls of tin foil exploded,Some,0,wonkiness
-368,bike lights ran out of batteries,None,1,wonkiness
-368,rocks burnt,All,0,wonkiness
-368,chocolate bars froze,None,1,wonkiness
-368,stickers stuck,All,0,wonkiness
-368,oreos dissolved,None,1,wonkiness
-368,balloons sank,Some,1,wonkiness
-368,webcams flashed,Some,1,wonkiness
-368,logs broke,None,0,wonkiness
-368,bicycles stopped,Some,0,wonkiness
-369,pinecones decomposed,Some,0,wonkiness
-369,ice cubes melted,Some,1,wonkiness
-369,poems rhymed,All,1,wonkiness
-369,taxi drivers honked,None,1,wonkiness
-369,logs broke,All,1,wonkiness
-369,birthday cards had the letter Z in them,Some,1,wonkiness
-369,diamonds reflected the sunlight,All,0,wonkiness
-369,bubbles popped,Some,1,wonkiness
-369,backpacks blew away,All,1,wonkiness
-369,bike lights ran out of batteries,Some,0,wonkiness
-369,berries froze,None,1,wonkiness
-369,coins landed flat,Some,0,wonkiness
-369,houses beeped,Some,1,wonkiness
-369,cakes stuck to the wall,None,1,wonkiness
-369,books ripped,Some,0,wonkiness
-369,sequins stuck,All,0,wonkiness
-369,matches burnt,None,1,wonkiness
-369,kids laughed,Some,1,wonkiness
-369,toy cars rolled,None,1,wonkiness
-369,card towers fell down,Some,1,wonkiness
-370,card towers fell down,Some,1,wonkiness
-370,books burnt,Some,0,wonkiness
-370,cakes stuck to the wall,Some,0,wonkiness
-370,cups sank,All,1,wonkiness
-370,birthday cards had the letter Z in them,Some,0,wonkiness
-370,songs rhymed,All,0,wonkiness
-370,strawberries were green,All,0,wonkiness
-370,lawyers laughed,None,0,wonkiness
-370,chocolate bars froze,None,1,wonkiness
-370,stickers stuck,Some,0,wonkiness
-370,dogs ate the seeds,All,0,wonkiness
-370,webcams flashed,None,0,wonkiness
-370,soda cans decomposed,Some,1,wonkiness
-370,pencils melted,None,0,wonkiness
-370,phone screens reflected the sunlight,None,0,wonkiness
-370,candles exploded,Some,1,wonkiness
-370,pancakes landed flat,Some,0,wonkiness
-370,balloons popped,Some,0,wonkiness
-370,white carpets got stained,All,0,wonkiness
-370,backpacks blew away,Some,0,wonkiness
-371,sequins stuck,Some,0,wonkiness
-371,shoes ripped,Some,1,wonkiness
-371,sugar cubes dissolved,All,0,wonkiness
-371,laptops ran out of batteries,None,1,wonkiness
-371,coins landed flat,Some,0,wonkiness
-371,banana peels decomposed,Some,0,wonkiness
-371,bicycles stopped,All,0,wonkiness
-371,toy cars rolled,None,1,wonkiness
-371,computers lit up,None,1,wonkiness
-371,sunglasses broke,Some,1,wonkiness
-371,candles exploded,None,0,wonkiness
-371,birds ate the seeds,None,1,wonkiness
-371,new cars beeped,All,1,wonkiness
-371,webcams flashed,Some,0,wonkiness
-371,bubbles popped,Some,1,wonkiness
-371,white shirts got stained,Some,1,wonkiness
-371,bottles of hand soap froze,All,0,wonkiness
-371,matches burnt,Some,1,wonkiness
-371,kids laughed,All,0,wonkiness
-371,taxi drivers honked,Some,0,wonkiness
-372,chocolate bars froze,Some,0,wonkiness
-372,eggs popped,All,0,wonkiness
-372,ice cubes melted,All,0,wonkiness
-372,toy cars rolled,Some,1,wonkiness
-372,sugar cubes dissolved,None,1,wonkiness
-372,cameras flashed,None,1,wonkiness
-372,books burnt,None,1,wonkiness
-372,bicyclists honked,Some,0,wonkiness
-372,birthday cards had the letter Z in them,None,0,wonkiness
-372,soda cans decomposed,All,1,wonkiness
-372,phones ran out of batteries,Some,1,wonkiness
-372,notebooks landed flat,Some,0,wonkiness
-372,dogs ate the seeds,Some,1,wonkiness
-372,mirrors reflected the sunlight,All,0,wonkiness
-372,cars stopped,Some,0,wonkiness
-372,poems rhymed,Some,0,wonkiness
-372,marbles sank,All,0,wonkiness
-372,candles exploded,Some,1,wonkiness
-372,shoes ripped,Some,0,wonkiness
-372,sunglasses broke,None,1,wonkiness
-373,birthday cards had the letter Z in them,Some,1,wonkiness
-373,cameras flashed,Some,0,wonkiness
-373,new cars beeped,Some,1,wonkiness
-373,card towers fell down,Some,0,wonkiness
-373,limericks rhymed,Some,0,wonkiness
-373,diamonds reflected the sunlight,Some,0,wonkiness
-373,comedians laughed,All,0,wonkiness
-373,pieces of gum stuck to the wall,Some,0,wonkiness
-373,bicyclists honked,All,0,wonkiness
-373,computers lit up,None,1,wonkiness
-373,matches burnt,All,0,wonkiness
-373,pencils melted,All,1,wonkiness
-373,banana peels decomposed,All,0,wonkiness
-373,coins landed flat,None,1,wonkiness
-373,carrots dissolved,Some,1,wonkiness
-373,bananas were green,None,0,wonkiness
-373,shopping carts rolled,None,1,wonkiness
-373,balloons popped,None,1,wonkiness
-373,motorcycles stopped,Some,0,wonkiness
-373,laptops ran out of batteries,Some,0,wonkiness
-374,shoes ripped,All,0,wonkiness
-374,strawberries were green,Some,0,wonkiness
-374,kids laughed,Some,0,wonkiness
-374,cakes stuck to the wall,Some,0,wonkiness
-374,ice cubes melted,Some,0,wonkiness
-374,chocolate bars froze,None,1,wonkiness
-374,webcams flashed,None,0,wonkiness
-374,wheelchairs rolled,Some,0,wonkiness
-374,birthday cards had the letter Z in them,Some,0,wonkiness
-374,butterflies ate the seeds,Some,1,wonkiness
-374,flashlights lit up,None,0,wonkiness
-374,motorcycles stopped,Some,0,wonkiness
-374,bike lights ran out of batteries,All,0,wonkiness
-374,white shirts got stained,All,0,wonkiness
-374,gas tanks exploded,Some,0,wonkiness
-374,songs rhymed,All,1,wonkiness
-374,soda cans decomposed,None,0,wonkiness
-374,eggs popped,Some,0,wonkiness
-374,sugar cubes dissolved,All,0,wonkiness
-374,new cars beeped,None,1,wonkiness
-375,cups sank,All,0,wonkiness
-375,shelves fell down,Some,0,wonkiness
-375,bike lights ran out of batteries,Some,0,wonkiness
-375,lawyers laughed,None,1,wonkiness
-375,white shirts got stained,Some,0,wonkiness
-375,beads stuck,Some,0,wonkiness
-375,flashlights lit up,Some,0,wonkiness
-375,dogs ate the seeds,None,1,wonkiness
-375,shoes ripped,All,0,wonkiness
-375,baseballs stuck to the wall,Some,1,wonkiness
-375,notebooks landed flat,None,1,wonkiness
-375,fireworks exploded,None,1,wonkiness
-375,strawberries were green,Some,1,wonkiness
-375,carrots dissolved,Some,1,wonkiness
-375,wheelchairs rolled,None,1,wonkiness
-375,berries froze,Some,0,wonkiness
-375,old cars beeped,Some,0,wonkiness
-375,eggs exploded,All,0,wonkiness
-375,motorcycles stopped,All,0,wonkiness
-375,crayons melted,All,0,wonkiness
-376,napkins blew away,None,1,wonkiness
-376,matches burnt,Some,1,wonkiness
-376,love notes had the letter Z in them,Some,1,wonkiness
-376,pinecones decomposed,None,1,wonkiness
-376,block towers fell down,All,1,wonkiness
-376,stickers stuck,None,1,wonkiness
-376,pancakes landed flat,Some,1,wonkiness
-376,limericks rhymed,All,1,wonkiness
-376,cups sank,None,1,wonkiness
-376,candles exploded,All,1,wonkiness
-376,pieces of gum stuck to the wall,All,0,wonkiness
-376,shopping carts rolled,Some,1,wonkiness
-376,bicyclists honked,Some,0,wonkiness
-376,phone screens reflected the sunlight,Some,1,wonkiness
-376,comedians laughed,Some,0,wonkiness
-376,phones ran out of batteries,Some,0,wonkiness
-376,houses beeped,Some,1,wonkiness
-376,berries froze,All,0,wonkiness
-376,logs broke,None,0,wonkiness
-376,cd-players lit up,Some,1,wonkiness
-377,novels had the letter Z in them,Some,0,wonkiness
-377,poems rhymed,Some,0,wonkiness
-377,lawyers laughed,All,0,wonkiness
-377,dogs ate the seeds,Some,0,wonkiness
-377,phones ran out of batteries,All,0,wonkiness
-377,books ripped,None,1,wonkiness
-377,clovers were green,Some,0,wonkiness
-377,shopping carts rolled,Some,0,wonkiness
-377,sunglasses broke,None,1,wonkiness
-377,bubbles popped,Some,1,wonkiness
-377,phone screens reflected the sunlight,All,0,wonkiness
-377,rocks burnt,None,0,wonkiness
-377,beads stuck,All,0,wonkiness
-377,fireworks exploded,None,1,wonkiness
-377,cups sank,Some,0,wonkiness
-377,coins landed flat,All,0,wonkiness
-377,bicycles stopped,Some,1,wonkiness
-377,soda cans decomposed,Some,1,wonkiness
-377,new cars beeped,Some,1,wonkiness
-377,white tablecloths got stained,None,1,wonkiness
-378,ice cubes melted,Some,1,wonkiness
-378,pieces of gum stuck to the wall,Some,0,wonkiness
-378,boxes broke,None,1,wonkiness
-378,taxi drivers honked,Some,0,wonkiness
-378,sequins stuck,All,0,wonkiness
-378,bike lights ran out of batteries,All,0,wonkiness
-378,backpacks blew away,All,1,wonkiness
-378,bananas were green,Some,0,wonkiness
-378,phone screens reflected the sunlight,Some,0,wonkiness
-378,poems rhymed,None,1,wonkiness
-378,bubbles popped,Some,1,wonkiness
-378,birds ate the seeds,Some,0,wonkiness
-378,comedians laughed,None,0,wonkiness
-378,shoes ripped,Some,0,wonkiness
-378,fireworks exploded,None,1,wonkiness
-378,novels had the letter Z in them,None,0,wonkiness
-378,white carpets got stained,Some,0,wonkiness
-378,chocolate bars froze,All,0,wonkiness
-378,sugar cubes dissolved,All,0,wonkiness
-378,balloons sank,Some,1,wonkiness
-379,banana peels decomposed,All,0,wonkiness
-379,butterflies ate the seeds,Some,1,wonkiness
-379,kids laughed,All,0,wonkiness
-379,pencils melted,None,0,wonkiness
-379,songs rhymed,All,1,wonkiness
-379,logs broke,None,0,wonkiness
-379,balls of tin foil exploded,Some,0,wonkiness
-379,cameras flashed,None,1,wonkiness
-379,bus drivers honked,Some,0,wonkiness
-379,phone screens reflected the sunlight,Some,0,wonkiness
-379,white tablecloths got stained,Some,0,wonkiness
-379,block towers fell down,None,0,wonkiness
-379,fireworks exploded,All,0,wonkiness
-379,sequins stuck,Some,0,wonkiness
-379,hats blew away,Some,0,wonkiness
-379,matches burnt,All,0,wonkiness
-379,pieces of gum stuck to the wall,Some,0,wonkiness
-379,houses beeped,None,0,wonkiness
-379,novels had the letter Z in them,Some,0,wonkiness
-379,oreos dissolved,Some,0,wonkiness
-380,boxes broke,Some,0,wonkiness
-380,toy cars rolled,None,1,wonkiness
-380,balls of tin foil exploded,All,0,wonkiness
-380,berries froze,Some,1,wonkiness
-380,cd-players lit up,Some,0,wonkiness
-380,bicyclists honked,None,0,wonkiness
-380,birthday cards had the letter Z in them,All,0,wonkiness
-380,books ripped,None,1,wonkiness
-380,candles exploded,None,0,wonkiness
-380,balloons sank,None,0,wonkiness
-380,butterflies ate the seeds,Some,0,wonkiness
-380,block towers fell down,Some,1,wonkiness
-380,white tablecloths got stained,Some,0,wonkiness
-380,laptops ran out of batteries,Some,0,wonkiness
-380,oreos dissolved,Some,1,wonkiness
-380,cameras flashed,Some,0,wonkiness
-380,pencils melted,All,1,wonkiness
-380,books burnt,All,0,wonkiness
-380,balloons popped,All,0,wonkiness
-380,pancakes landed flat,Some,0,wonkiness
-381,carrots dissolved,Some,1,wonkiness
-381,bananas were green,Some,0,wonkiness
-381,beads stuck,Some,0,wonkiness
-381,sunglasses broke,None,1,wonkiness
-381,houses beeped,Some,1,wonkiness
-381,books ripped,All,0,wonkiness
-381,phone screens reflected the sunlight,Some,0,wonkiness
-381,flashlights lit up,All,0,wonkiness
-381,shopping carts rolled,None,0,wonkiness
-381,balloons popped,All,0,wonkiness
-381,bicyclists honked,All,0,wonkiness
-381,matches burnt,Some,0,wonkiness
-381,cups sank,Some,0,wonkiness
-381,webcams flashed,Some,0,wonkiness
-381,motorcycles stopped,Some,0,wonkiness
-381,white tablecloths got stained,None,1,wonkiness
-381,eggs exploded,None,1,wonkiness
-381,novels had the letter Z in them,None,1,wonkiness
-381,block towers fell down,All,0,wonkiness
-381,ice cubes melted,Some,1,wonkiness
-382,pieces of gum stuck to the wall,Some,0,wonkiness
-382,love notes had the letter Z in them,Some,0,wonkiness
-382,lawyers laughed,Some,0,wonkiness
-382,shopping carts rolled,Some,0,wonkiness
-382,butterflies ate the seeds,Some,0,wonkiness
-382,cd-players lit up,All,0,wonkiness
-382,sugar cubes dissolved,None,1,wonkiness
-382,taxi drivers honked,Some,0,wonkiness
-382,poems rhymed,None,1,wonkiness
-382,white tablecloths got stained,Some,0,wonkiness
-382,bubbles popped,None,1,wonkiness
-382,bike lights ran out of batteries,Some,0,wonkiness
-382,soda cans decomposed,All,1,wonkiness
-382,marbles sank,None,1,wonkiness
-382,bicycles stopped,Some,0,wonkiness
-382,new cars beeped,Some,0,wonkiness
-382,stickers stuck,All,0,wonkiness
-382,crayons melted,All,0,wonkiness
-382,cameras flashed,None,1,wonkiness
-382,hats blew away,All,0,wonkiness
-383,cakes stuck to the wall,Some,0,wonkiness
-383,pancakes landed flat,All,0,wonkiness
-383,toy cars rolled,Some,0,wonkiness
-383,sequins stuck,Some,0,wonkiness
-383,pencils melted,Some,1,wonkiness
-383,carrots dissolved,Some,1,wonkiness
-383,phones flashed,None,0,wonkiness
-383,eggs exploded,Some,0,wonkiness
-383,flashlights lit up,All,0,wonkiness
-383,balloons popped,Some,1,wonkiness
-383,shoes ripped,None,0,wonkiness
-383,gas tanks exploded,Some,0,wonkiness
-383,white shirts got stained,All,0,wonkiness
-383,butterflies ate the seeds,None,0,wonkiness
-383,love notes had the letter Z in them,None,0,wonkiness
-383,marbles sank,Some,1,wonkiness
-383,bicyclists honked,Some,0,wonkiness
-383,hats blew away,All,0,wonkiness
-383,mirrors reflected the sunlight,All,0,wonkiness
-383,limericks rhymed,None,1,wonkiness
-384,dogs ate the seeds,None,1,wonkiness
-384,strawberries were green,Some,0,wonkiness
-384,sunglasses broke,All,0,wonkiness
-384,napkins blew away,Some,0,wonkiness
-384,lawyers laughed,Some,0,wonkiness
-384,flashlights lit up,All,0,wonkiness
-384,block towers fell down,All,0,wonkiness
-384,banana peels decomposed,Some,0,wonkiness
-384,shirts ripped,Some,0,wonkiness
-384,chocolate bars froze,None,1,wonkiness
-384,CDs exploded,All,0,wonkiness
-384,marbles sank,None,1,wonkiness
-384,carrots dissolved,None,0,wonkiness
-384,wheelchairs rolled,None,1,wonkiness
-384,diamonds reflected the sunlight,Some,1,wonkiness
-384,novels had the letter Z in them,Some,1,wonkiness
-384,pieces of gum stuck to the wall,All,0,wonkiness
-384,pancakes landed flat,Some,1,wonkiness
-384,white shirts got stained,Some,1,wonkiness
-384,bicycles stopped,Some,0,wonkiness
-385,white shirts got stained,All,0,wonkiness
-385,cd-players lit up,All,0,wonkiness
-385,oreos dissolved,None,1,wonkiness
-385,candles exploded,Some,1,wonkiness
-385,birthday cards had the letter Z in them,All,1,wonkiness
-385,toy cars rolled,All,0,wonkiness
-385,marbles sank,Some,1,wonkiness
-385,phones flashed,Some,0,wonkiness
-385,phone screens reflected the sunlight,None,1,wonkiness
-385,lawyers laughed,Some,0,wonkiness
-385,pinecones decomposed,None,1,wonkiness
-385,old cars beeped,Some,1,wonkiness
-385,coins landed flat,Some,0,wonkiness
-385,balls of tin foil exploded,Some,1,wonkiness
-385,bananas were green,None,0,wonkiness
-385,shoes ripped,None,0,wonkiness
-385,laptops ran out of batteries,Some,0,wonkiness
-385,shelves fell down,Some,0,wonkiness
-385,bicycles stopped,Some,0,wonkiness
-385,balloons popped,All,0,wonkiness
-386,pencils melted,Some,1,wonkiness
-386,toy cars rolled,Some,0,wonkiness
-386,soda cans decomposed,None,0,wonkiness
-386,novels had the letter Z in them,All,1,wonkiness
-386,bike lights ran out of batteries,All,1,wonkiness
-386,pancakes landed flat,All,0,wonkiness
-386,stickers stuck,Some,0,wonkiness
-386,poems rhymed,Some,0,wonkiness
-386,white shirts got stained,Some,0,wonkiness
-386,balloons sank,Some,1,wonkiness
-386,birds ate the seeds,None,0,wonkiness
-386,rocks burnt,Some,1,wonkiness
-386,houses beeped,Some,1,wonkiness
-386,books ripped,None,0,wonkiness
-386,mirrors reflected the sunlight,None,1,wonkiness
-386,pieces of gum stuck to the wall,Some,1,wonkiness
-386,fireworks exploded,None,1,wonkiness
-386,eggs exploded,All,0,wonkiness
-386,bus drivers honked,All,0,wonkiness
-386,carrots dissolved,Some,1,wonkiness
-387,white tablecloths got stained,Some,0,wonkiness
-387,poems rhymed,All,0,wonkiness
-387,webcams flashed,Some,1,wonkiness
-387,bus drivers honked,Some,0,wonkiness
-387,bananas were green,Some,0,wonkiness
-387,old cars beeped,None,0,wonkiness
-387,cd-players lit up,None,1,wonkiness
-387,toy cars rolled,Some,0,wonkiness
-387,eggs exploded,None,0,wonkiness
-387,balloons popped,All,0,wonkiness
-387,bicycles stopped,Some,1,wonkiness
-387,card towers fell down,All,0,wonkiness
-387,boxes broke,Some,0,wonkiness
-387,sugar cubes dissolved,Some,0,wonkiness
-387,hats blew away,All,0,wonkiness
-387,candles exploded,All,0,wonkiness
-387,coins landed flat,None,0,wonkiness
-387,birds ate the seeds,Some,0,wonkiness
-387,bottles of hand soap froze,Some,0,wonkiness
-387,shirts ripped,None,0,wonkiness
-388,napkins blew away,Some,0,wonkiness
-388,block towers fell down,Some,1,wonkiness
-388,clovers were green,Some,0,wonkiness
-388,songs rhymed,Some,0,wonkiness
-388,balloons popped,Some,0,wonkiness
-388,carrots dissolved,None,0,wonkiness
-388,books ripped,Some,0,wonkiness
-388,soda cans decomposed,None,0,wonkiness
-388,white tablecloths got stained,Some,0,wonkiness
-388,taxi drivers honked,Some,0,wonkiness
-388,motorcycles stopped,Some,0,wonkiness
-388,balloons sank,None,0,wonkiness
-388,rocks burnt,Some,1,wonkiness
-388,cameras flashed,All,0,wonkiness
-388,lawyers laughed,None,1,wonkiness
-388,candles exploded,None,0,wonkiness
-388,phone screens reflected the sunlight,All,0,wonkiness
-388,butterflies ate the seeds,All,1,wonkiness
-388,boxes broke,All,0,wonkiness
-388,crayons melted,All,0,wonkiness
-389,clovers were green,None,1,wonkiness
-389,cups sank,Some,0,wonkiness
-389,matches burnt,All,0,wonkiness
-389,webcams flashed,None,0,wonkiness
-389,shoes ripped,None,1,wonkiness
-389,houses beeped,Some,1,wonkiness
-389,limericks rhymed,Some,0,wonkiness
-389,coins landed flat,Some,0,wonkiness
-389,pinecones decomposed,All,0,wonkiness
-389,shopping carts rolled,None,1,wonkiness
-389,lawyers laughed,Some,0,wonkiness
-389,bubbles popped,Some,0,wonkiness
-389,phone screens reflected the sunlight,Some,0,wonkiness
-389,flashlights lit up,All,0,wonkiness
-389,shelves fell down,All,0,wonkiness
-389,fireworks exploded,All,0,wonkiness
-389,novels had the letter Z in them,None,1,wonkiness
-389,phones ran out of batteries,Some,0,wonkiness
-389,taxi drivers honked,Some,0,wonkiness
-389,white shirts got stained,Some,0,wonkiness
-390,phone screens reflected the sunlight,Some,0,wonkiness
-390,coins landed flat,Some,0,wonkiness
-390,candles exploded,All,1,wonkiness
-390,pieces of gum stuck to the wall,All,0,wonkiness
-390,clovers were green,All,0,wonkiness
-390,kids laughed,Some,0,wonkiness
-390,marbles sank,Some,0,wonkiness
-390,sequins stuck,Some,0,wonkiness
-390,sugar cubes dissolved,Some,0,wonkiness
-390,eggs popped,Some,1,wonkiness
-390,hats blew away,Some,0,wonkiness
-390,wheelchairs rolled,None,1,wonkiness
-390,love notes had the letter Z in them,Some,0,wonkiness
-390,cameras flashed,None,1,wonkiness
-390,rocks burnt,None,0,wonkiness
-390,crayons melted,None,1,wonkiness
-390,sunglasses broke,All,0,wonkiness
-390,balls of tin foil exploded,None,1,wonkiness
-390,white tablecloths got stained,Some,0,wonkiness
-390,new cars beeped,All,0,wonkiness
-391,block towers fell down,Some,1,wonkiness
-391,novels had the letter Z in them,All,0,wonkiness
-391,stickers stuck,None,0,wonkiness
-391,cd-players lit up,All,1,wonkiness
-391,webcams flashed,All,0,wonkiness
-391,lawyers laughed,All,1,wonkiness
-391,houses beeped,Some,0,wonkiness
-391,clovers were green,Some,0,wonkiness
-391,pinecones decomposed,Some,1,wonkiness
-391,rocks burnt,All,1,wonkiness
-391,ice cubes melted,Some,1,wonkiness
-391,diamonds reflected the sunlight,Some,0,wonkiness
-391,logs broke,Some,1,wonkiness
-391,limericks rhymed,None,1,wonkiness
-391,berries froze,Some,0,wonkiness
-391,balloons popped,Some,1,wonkiness
-391,taxi drivers honked,Some,0,wonkiness
-391,balloons sank,None,1,wonkiness
-391,cakes stuck to the wall,None,0,wonkiness
-391,white tablecloths got stained,None,1,wonkiness
-392,boxes broke,Some,1,wonkiness
-392,novels had the letter Z in them,Some,0,wonkiness
-392,matches burnt,Some,0,wonkiness
-392,balls of tin foil exploded,Some,0,wonkiness
-392,crayons melted,Some,0,wonkiness
-392,phones ran out of batteries,None,0,wonkiness
-392,notebooks landed flat,Some,0,wonkiness
-392,carrots dissolved,All,1,wonkiness
-392,pinecones decomposed,All,0,wonkiness
-392,lawyers laughed,All,0,wonkiness
-392,stickers stuck,Some,0,wonkiness
-392,old cars beeped,Some,1,wonkiness
-392,eggs popped,None,0,wonkiness
-392,motorcycles stopped,None,1,wonkiness
-392,bottles of hand soap froze,None,1,wonkiness
-392,marbles sank,Some,0,wonkiness
-392,cd-players lit up,All,0,wonkiness
-392,shopping carts rolled,All,0,wonkiness
-392,limericks rhymed,None,1,wonkiness
-392,white tablecloths got stained,Some,0,wonkiness
-393,cars stopped,All,0,wonkiness
-393,kids laughed,Some,0,wonkiness
-393,computers lit up,Some,1,wonkiness
-393,ice cubes melted,None,1,wonkiness
-393,rocks burnt,Some,1,wonkiness
-393,webcams flashed,Some,0,wonkiness
-393,boxes broke,All,0,wonkiness
-393,baseballs stuck to the wall,Some,1,wonkiness
-393,coins landed flat,All,0,wonkiness
-393,backpacks blew away,Some,0,wonkiness
-393,white shirts got stained,All,0,wonkiness
-393,butterflies ate the seeds,None,1,wonkiness
-393,bubbles popped,None,1,wonkiness
-393,bicyclists honked,All,1,wonkiness
-393,mirrors reflected the sunlight,Some,0,wonkiness
-393,stickers stuck,None,1,wonkiness
-393,books ripped,None,1,wonkiness
-393,sugar cubes dissolved,Some,1,wonkiness
-393,berries froze,Some,1,wonkiness
-393,marbles sank,Some,1,wonkiness
-394,lawyers laughed,None,0,wonkiness
-394,sugar cubes dissolved,None,1,wonkiness
-394,ice cubes melted,Some,0,wonkiness
-394,stickers stuck,Some,0,wonkiness
-394,phones ran out of batteries,All,0,wonkiness
-394,shirts ripped,Some,0,wonkiness
-394,butterflies ate the seeds,Some,1,wonkiness
-394,shopping carts rolled,Some,0,wonkiness
-394,strawberries were green,Some,1,wonkiness
-394,cakes stuck to the wall,Some,0,wonkiness
-394,candles exploded,None,1,wonkiness
-394,books burnt,All,0,wonkiness
-394,pinecones decomposed,All,0,wonkiness
-394,taxi drivers honked,Some,0,wonkiness
-394,coins landed flat,All,0,wonkiness
-394,love notes had the letter Z in them,None,0,wonkiness
-394,hats blew away,None,0,wonkiness
-394,cameras flashed,All,0,wonkiness
-394,white tablecloths got stained,Some,0,wonkiness
-394,cd-players lit up,Some,1,wonkiness
-395,hats blew away,Some,0,wonkiness
-395,wheelchairs rolled,All,0,wonkiness
-395,carrots dissolved,None,1,wonkiness
-395,mirrors reflected the sunlight,All,0,wonkiness
-395,cakes stuck to the wall,Some,0,wonkiness
-395,crayons melted,Some,1,wonkiness
-395,computers lit up,All,0,wonkiness
-395,novels had the letter Z in them,Some,0,wonkiness
-395,dogs ate the seeds,Some,1,wonkiness
-395,candles exploded,Some,1,wonkiness
-395,sequins stuck,Some,0,wonkiness
-395,webcams flashed,All,0,wonkiness
-395,shelves fell down,None,0,wonkiness
-395,motorcycles stopped,Some,0,wonkiness
-395,bubbles popped,All,0,wonkiness
-395,balloons sank,None,1,wonkiness
-395,lawyers laughed,None,1,wonkiness
-395,boxes broke,Some,0,wonkiness
-395,laptops ran out of batteries,None,1,wonkiness
-395,limericks rhymed,Some,0,wonkiness
-396,berries froze,Some,0,wonkiness
-396,limericks rhymed,All,0,wonkiness
-396,bubbles popped,Some,1,wonkiness
-396,eggs exploded,None,0,wonkiness
-396,bananas were green,All,0,wonkiness
-396,bike lights ran out of batteries,None,1,wonkiness
-396,napkins blew away,None,1,wonkiness
-396,lawyers laughed,Some,0,wonkiness
-396,carrots dissolved,Some,1,wonkiness
-396,webcams flashed,All,0,wonkiness
-396,baseballs stuck to the wall,None,0,wonkiness
-396,taxi drivers honked,All,0,wonkiness
-396,balloons sank,Some,1,wonkiness
-396,logs broke,None,1,wonkiness
-396,motorcycles stopped,Some,0,wonkiness
-396,butterflies ate the seeds,Some,0,wonkiness
-396,pinecones decomposed,All,0,wonkiness
-396,pencils melted,Some,1,wonkiness
-396,birthday cards had the letter Z in them,Some,1,wonkiness
-396,fireworks exploded,Some,0,wonkiness
-397,fireworks exploded,None,1,wonkiness
-397,bus drivers honked,None,1,wonkiness
-397,balloons sank,All,1,wonkiness
-397,toy cars rolled,None,1,wonkiness
-397,dogs ate the seeds,Some,1,wonkiness
-397,cd-players lit up,Some,0,wonkiness
-397,pancakes landed flat,Some,0,wonkiness
-397,phone screens reflected the sunlight,All,0,wonkiness
-397,ice cubes melted,Some,0,wonkiness
-397,sugar cubes dissolved,All,0,wonkiness
-397,bicycles stopped,Some,0,wonkiness
-397,white carpets got stained,Some,0,wonkiness
-397,sequins stuck,All,0,wonkiness
-397,bananas were green,None,0,wonkiness
-397,laptops ran out of batteries,All,0,wonkiness
-397,phones flashed,None,0,wonkiness
-397,shoes ripped,Some,0,wonkiness
-397,boxes broke,Some,1,wonkiness
-397,eggs exploded,Some,0,wonkiness
-397,poems rhymed,Some,0,wonkiness
-398,butterflies ate the seeds,Some,0,wonkiness
-398,bicyclists honked,Some,0,wonkiness
-398,backpacks blew away,All,1,wonkiness
-398,card towers fell down,All,0,wonkiness
-398,sugar cubes dissolved,All,0,wonkiness
-398,phones ran out of batteries,None,0,wonkiness
-398,shirts ripped,None,1,wonkiness
-398,motorcycles stopped,All,0,wonkiness
-398,lawyers laughed,Some,0,wonkiness
-398,bubbles popped,Some,0,wonkiness
-398,fireworks exploded,None,1,wonkiness
-398,computers lit up,Some,0,wonkiness
-398,beads stuck,Some,0,wonkiness
-398,cups sank,Some,0,wonkiness
-398,songs rhymed,Some,0,wonkiness
-398,shopping carts rolled,Some,0,wonkiness
-398,logs broke,Some,0,wonkiness
-398,strawberries were green,None,0,wonkiness
-398,pinecones decomposed,None,1,wonkiness
-398,notebooks landed flat,All,0,wonkiness
-399,cars stopped,None,1,wonkiness
-399,pieces of gum stuck to the wall,Some,0,wonkiness
-399,shirts ripped,Some,0,wonkiness
-399,birthday cards had the letter Z in them,Some,1,wonkiness
-399,cameras flashed,All,0,wonkiness
-399,poems rhymed,All,0,wonkiness
-399,flashlights lit up,None,1,wonkiness
-399,candles exploded,Some,1,wonkiness
-399,bananas were green,All,1,wonkiness
-399,oreos dissolved,All,1,wonkiness
-399,cups sank,Some,0,wonkiness
-399,beads stuck,Some,0,wonkiness
-399,old cars beeped,All,0,wonkiness
-399,comedians laughed,Some,0,wonkiness
-399,coins landed flat,None,1,wonkiness
-399,bike lights ran out of batteries,Some,0,wonkiness
-399,white shirts got stained,Some,0,wonkiness
-399,wheelchairs rolled,Some,0,wonkiness
-399,matches burnt,None,1,wonkiness
-399,diamonds reflected the sunlight,None,1,wonkiness
-400,cd-players lit up,None,0,wonkiness
-400,baseballs stuck to the wall,Some,1,wonkiness
-400,songs rhymed,Some,0,wonkiness
-400,birthday cards had the letter Z in them,All,1,wonkiness
-400,matches burnt,Some,0,wonkiness
-400,taxi drivers honked,Some,0,wonkiness
-400,strawberries were green,Some,1,wonkiness
-400,oreos dissolved,Some,0,wonkiness
-400,sunglasses broke,Some,0,wonkiness
-400,pinecones decomposed,Some,0,wonkiness
-400,phones flashed,All,0,wonkiness
-400,shirts ripped,All,0,wonkiness
-400,old cars beeped,None,0,wonkiness
-400,cars stopped,None,0,wonkiness
-400,CDs exploded,All,1,wonkiness
-400,backpacks blew away,Some,0,wonkiness
-400,ice cubes melted,None,0,wonkiness
-400,pancakes landed flat,All,0,wonkiness
-400,white shirts got stained,None,1,wonkiness
-400,gas tanks exploded,Some,0,wonkiness
-401,beads stuck,None,1,wonkiness
-401,bike lights ran out of batteries,All,1,wonkiness
-401,candles exploded,All,1,wonkiness
-401,marbles sank,Some,0,wonkiness
-401,notebooks landed flat,Some,0,wonkiness
-401,webcams flashed,Some,0,wonkiness
-401,bicyclists honked,All,1,wonkiness
-401,pinecones decomposed,Some,1,wonkiness
-401,white tablecloths got stained,Some,1,wonkiness
-401,cd-players lit up,Some,0,wonkiness
-401,block towers fell down,None,0,wonkiness
-401,pieces of gum stuck to the wall,Some,0,wonkiness
-401,motorcycles stopped,None,1,wonkiness
-401,butterflies ate the seeds,Some,0,wonkiness
-401,eggs exploded,None,0,wonkiness
-401,berries froze,All,0,wonkiness
-401,crayons melted,Some,0,wonkiness
-401,shopping carts rolled,None,1,wonkiness
-401,lawyers laughed,Some,0,wonkiness
-401,shoes ripped,All,0,wonkiness
-402,block towers fell down,All,0,wonkiness
-402,chocolate bars froze,Some,0,wonkiness
-402,webcams flashed,All,0,wonkiness
-402,notebooks landed flat,All,0,wonkiness
-402,banana peels decomposed,None,1,wonkiness
-402,candles exploded,None,0,wonkiness
-402,marbles sank,Some,0,wonkiness
-402,hats blew away,Some,0,wonkiness
-402,white tablecloths got stained,Some,0,wonkiness
-402,comedians laughed,None,1,wonkiness
-402,beads stuck,Some,0,wonkiness
-402,ice cubes melted,Some,0,wonkiness
-402,sugar cubes dissolved,Some,0,wonkiness
-402,cakes stuck to the wall,None,0,wonkiness
-402,limericks rhymed,All,0,wonkiness
-402,flashlights lit up,Some,0,wonkiness
-402,matches burnt,All,0,wonkiness
-402,phone screens reflected the sunlight,None,1,wonkiness
-402,toy cars rolled,Some,0,wonkiness
-402,shirts ripped,Some,0,wonkiness
-403,songs rhymed,Some,0,wonkiness
-403,strawberries were green,Some,0,wonkiness
-403,books ripped,None,0,wonkiness
-403,balloons sank,All,1,wonkiness
-403,balls of tin foil exploded,None,1,wonkiness
-403,birthday cards had the letter Z in them,Some,0,wonkiness
-403,toy cars rolled,Some,0,wonkiness
-403,books burnt,Some,0,wonkiness
-403,bus drivers honked,Some,0,wonkiness
-403,cameras flashed,All,0,wonkiness
-403,gas tanks exploded,Some,0,wonkiness
-403,eggs popped,All,0,wonkiness
-403,carrots dissolved,None,1,wonkiness
-403,banana peels decomposed,None,1,wonkiness
-403,chocolate bars froze,All,0,wonkiness
-403,white shirts got stained,Some,0,wonkiness
-403,diamonds reflected the sunlight,None,1,wonkiness
-403,motorcycles stopped,All,0,wonkiness
-403,houses beeped,Some,0,wonkiness
-403,notebooks landed flat,Some,0,wonkiness
-404,dogs ate the seeds,None,1,wonkiness
-404,old cars beeped,Some,0,wonkiness
-404,gas tanks exploded,Some,0,wonkiness
-404,logs broke,None,1,wonkiness
-404,backpacks blew away,All,0,wonkiness
-404,stickers stuck,None,0,wonkiness
-404,lawyers laughed,Some,0,wonkiness
-404,crayons melted,Some,0,wonkiness
-404,computers lit up,None,0,wonkiness
-404,baseballs stuck to the wall,Some,1,wonkiness
-404,bike lights ran out of batteries,All,0,wonkiness
-404,taxi drivers honked,All,0,wonkiness
-404,white shirts got stained,All,0,wonkiness
-404,CDs exploded,Some,0,wonkiness
-404,phones flashed,Some,0,wonkiness
-404,bubbles popped,Some,0,wonkiness
-404,notebooks landed flat,Some,0,wonkiness
-404,phone screens reflected the sunlight,None,0,wonkiness
-404,shelves fell down,All,0,wonkiness
-404,matches burnt,Some,1,wonkiness
-405,berries froze,Some,0,wonkiness
-405,lawyers laughed,All,1,wonkiness
-405,eggs popped,None,0,wonkiness
-405,notebooks landed flat,All,0,wonkiness
-405,birds ate the seeds,Some,0,wonkiness
-405,strawberries were green,Some,0,wonkiness
-405,toy cars rolled,Some,0,wonkiness
-405,beads stuck,None,0,wonkiness
-405,limericks rhymed,Some,1,wonkiness
-405,crayons melted,All,0,wonkiness
-405,shirts ripped,Some,0,wonkiness
-405,white shirts got stained,All,0,wonkiness
-405,taxi drivers honked,Some,0,wonkiness
-405,banana peels decomposed,Some,1,wonkiness
-405,backpacks blew away,None,0,wonkiness
-405,balloons sank,All,1,wonkiness
-405,rocks burnt,Some,1,wonkiness
-405,phones ran out of batteries,None,1,wonkiness
-405,logs broke,None,0,wonkiness
-405,love notes had the letter Z in them,Some,0,wonkiness
-406,novels had the letter Z in them,None,1,wonkiness
-406,baseballs stuck to the wall,None,0,wonkiness
-406,old cars beeped,None,0,wonkiness
-406,berries froze,All,0,wonkiness
-406,phones ran out of batteries,Some,0,wonkiness
-406,kids laughed,Some,0,wonkiness
-406,taxi drivers honked,Some,0,wonkiness
-406,sequins stuck,Some,0,wonkiness
-406,motorcycles stopped,Some,1,wonkiness
-406,soda cans decomposed,Some,1,wonkiness
-406,clovers were green,Some,1,wonkiness
-406,rocks burnt,All,0,wonkiness
-406,books ripped,All,0,wonkiness
-406,CDs exploded,All,1,wonkiness
-406,toy cars rolled,None,1,wonkiness
-406,diamonds reflected the sunlight,Some,1,wonkiness
-406,eggs popped,Some,1,wonkiness
-406,flashlights lit up,All,0,wonkiness
-406,pancakes landed flat,Some,0,wonkiness
-406,crayons melted,None,1,wonkiness
-407,bubbles popped,Some,0,wonkiness
-407,CDs exploded,None,0,wonkiness
-407,bottles of hand soap froze,All,1,wonkiness
-407,baseballs stuck to the wall,All,1,wonkiness
-407,kids laughed,None,0,wonkiness
-407,taxi drivers honked,Some,0,wonkiness
-407,limericks rhymed,All,0,wonkiness
-407,flashlights lit up,Some,0,wonkiness
-407,butterflies ate the seeds,Some,1,wonkiness
-407,old cars beeped,Some,1,wonkiness
-407,phones flashed,None,0,wonkiness
-407,love notes had the letter Z in them,Some,0,wonkiness
-407,banana peels decomposed,None,1,wonkiness
-407,shirts ripped,None,0,wonkiness
-407,phone screens reflected the sunlight,Some,0,wonkiness
-407,logs broke,Some,0,wonkiness
-407,bicycles stopped,All,0,wonkiness
-407,white carpets got stained,Some,0,wonkiness
-407,block towers fell down,All,0,wonkiness
-407,oreos dissolved,Some,0,wonkiness
-408,lawyers laughed,Some,0,wonkiness
-408,notebooks landed flat,None,1,wonkiness
-408,white tablecloths got stained,Some,0,wonkiness
-408,love notes had the letter Z in them,Some,0,wonkiness
-408,shelves fell down,Some,0,wonkiness
-408,balloons sank,All,1,wonkiness
-408,motorcycles stopped,Some,1,wonkiness
-408,napkins blew away,None,1,wonkiness
-408,limericks rhymed,Some,0,wonkiness
-408,balls of tin foil exploded,Some,0,wonkiness
-408,berries froze,Some,0,wonkiness
-408,fireworks exploded,All,0,wonkiness
-408,birds ate the seeds,None,1,wonkiness
-408,bike lights ran out of batteries,All,0,wonkiness
-408,carrots dissolved,None,0,wonkiness
-408,baseballs stuck to the wall,All,1,wonkiness
-408,rocks burnt,Some,0,wonkiness
-408,eggs popped,None,0,wonkiness
-408,old cars beeped,Some,1,wonkiness
-408,shoes ripped,All,0,wonkiness
-409,wheelchairs rolled,Some,0,wonkiness
-409,backpacks blew away,Some,1,wonkiness
-409,comedians laughed,Some,0,wonkiness
-409,card towers fell down,All,0,wonkiness
-409,phone screens reflected the sunlight,None,1,wonkiness
-409,old cars beeped,Some,1,wonkiness
-409,cups sank,Some,0,wonkiness
-409,soda cans decomposed,Some,1,wonkiness
-409,computers lit up,All,0,wonkiness
-409,white tablecloths got stained,None,1,wonkiness
-409,beads stuck,Some,0,wonkiness
-409,cars stopped,Some,0,wonkiness
-409,ice cubes melted,None,1,wonkiness
-409,pieces of gum stuck to the wall,None,0,wonkiness
-409,bicyclists honked,All,1,wonkiness
-409,poems rhymed,Some,0,wonkiness
-409,balls of tin foil exploded,All,0,wonkiness
-409,matches burnt,None,1,wonkiness
-409,boxes broke,Some,0,wonkiness
-409,fireworks exploded,All,0,wonkiness
-410,cakes stuck to the wall,Some,1,wonkiness
-410,webcams flashed,Some,1,wonkiness
-410,backpacks blew away,None,0,wonkiness
-410,block towers fell down,All,0,wonkiness
-410,butterflies ate the seeds,Some,1,wonkiness
-410,berries froze,None,1,wonkiness
-410,diamonds reflected the sunlight,Some,0,wonkiness
-410,flashlights lit up,All,0,wonkiness
-410,notebooks landed flat,All,0,wonkiness
-410,white carpets got stained,All,0,wonkiness
-410,clovers were green,Some,0,wonkiness
-410,eggs popped,Some,0,wonkiness
-410,soda cans decomposed,All,1,wonkiness
-410,rocks burnt,Some,0,wonkiness
-410,marbles sank,None,1,wonkiness
-410,taxi drivers honked,Some,0,wonkiness
-410,kids laughed,None,0,wonkiness
-410,love notes had the letter Z in them,None,0,wonkiness
-410,shopping carts rolled,Some,0,wonkiness
-410,books ripped,Some,1,wonkiness
-411,toy cars rolled,All,0,wonkiness
-411,flashlights lit up,Some,0,wonkiness
-411,bicyclists honked,Some,0,wonkiness
-411,white shirts got stained,All,0,wonkiness
-411,bottles of hand soap froze,None,1,wonkiness
-411,bicycles stopped,Some,1,wonkiness
-411,love notes had the letter Z in them,Some,1,wonkiness
-411,phones flashed,None,1,wonkiness
-411,cups sank,Some,1,wonkiness
-411,hats blew away,None,1,wonkiness
-411,block towers fell down,All,0,wonkiness
-411,eggs popped,Some,1,wonkiness
-411,dogs ate the seeds,Some,1,wonkiness
-411,old cars beeped,All,1,wonkiness
-411,ice cubes melted,All,0,wonkiness
-411,sugar cubes dissolved,None,1,wonkiness
-411,coins landed flat,Some,0,wonkiness
-411,clovers were green,Some,1,wonkiness
-411,limericks rhymed,Some,0,wonkiness
-411,books ripped,None,1,wonkiness
-412,bike lights ran out of batteries,All,0,wonkiness
-412,wheelchairs rolled,Some,1,wonkiness
-412,shoes ripped,None,1,wonkiness
-412,eggs exploded,None,1,wonkiness
-412,bottles of hand soap froze,All,0,wonkiness
-412,balloons popped,All,0,wonkiness
-412,taxi drivers honked,Some,0,wonkiness
-412,crayons melted,None,1,wonkiness
-412,new cars beeped,Some,0,wonkiness
-412,cars stopped,Some,1,wonkiness
-412,candles exploded,Some,1,wonkiness
-412,matches burnt,Some,1,wonkiness
-412,pancakes landed flat,All,0,wonkiness
-412,diamonds reflected the sunlight,Some,1,wonkiness
-412,love notes had the letter Z in them,Some,0,wonkiness
-412,carrots dissolved,All,1,wonkiness
-412,webcams flashed,Some,1,wonkiness
-412,birds ate the seeds,None,1,wonkiness
-412,comedians laughed,Some,0,wonkiness
-412,block towers fell down,None,1,wonkiness
-413,strawberries were green,Some,1,wonkiness
-413,toy cars rolled,Some,1,wonkiness
-413,sequins stuck,All,0,wonkiness
-413,poems rhymed,None,0,wonkiness
-413,gas tanks exploded,None,1,wonkiness
-413,shirts ripped,Some,0,wonkiness
-413,pancakes landed flat,None,1,wonkiness
-413,kids laughed,None,1,wonkiness
-413,soda cans decomposed,Some,0,wonkiness
-413,rocks burnt,Some,1,wonkiness
-413,white shirts got stained,Some,0,wonkiness
-413,sunglasses broke,All,0,wonkiness
-413,phone screens reflected the sunlight,All,0,wonkiness
-413,cd-players lit up,Some,0,wonkiness
-413,balls of tin foil exploded,Some,1,wonkiness
-413,birthday cards had the letter Z in them,All,0,wonkiness
-413,taxi drivers honked,Some,0,wonkiness
-413,balloons sank,All,0,wonkiness
-413,shelves fell down,Some,0,wonkiness
-413,laptops ran out of batteries,None,1,wonkiness
-414,white tablecloths got stained,None,1,wonkiness
-414,birds ate the seeds,Some,0,wonkiness
-414,oreos dissolved,Some,0,wonkiness
-414,diamonds reflected the sunlight,Some,0,wonkiness
-414,chocolate bars froze,None,1,wonkiness
-414,old cars beeped,Some,0,wonkiness
-414,ice cubes melted,All,0,wonkiness
-414,computers lit up,All,0,wonkiness
-414,pancakes landed flat,All,0,wonkiness
-414,pinecones decomposed,None,0,wonkiness
-414,laptops ran out of batteries,Some,0,wonkiness
-414,fireworks exploded,Some,0,wonkiness
-414,baseballs stuck to the wall,Some,0,wonkiness
-414,birthday cards had the letter Z in them,All,1,wonkiness
-414,clovers were green,Some,0,wonkiness
-414,matches burnt,Some,0,wonkiness
-414,shirts ripped,Some,0,wonkiness
-414,napkins blew away,None,1,wonkiness
-414,balloons popped,None,1,wonkiness
-414,lawyers laughed,All,0,wonkiness
-415,berries froze,All,0,wonkiness
-415,crayons melted,All,0,wonkiness
-415,balloons popped,Some,0,wonkiness
-415,toy cars rolled,Some,0,wonkiness
-415,balls of tin foil exploded,None,1,wonkiness
-415,cd-players lit up,Some,1,wonkiness
-415,poems rhymed,Some,0,wonkiness
-415,bananas were green,None,0,wonkiness
-415,banana peels decomposed,Some,1,wonkiness
-415,baseballs stuck to the wall,Some,1,wonkiness
-415,oreos dissolved,Some,1,wonkiness
-415,love notes had the letter Z in them,All,1,wonkiness
-415,napkins blew away,Some,0,wonkiness
-415,cameras flashed,All,0,wonkiness
-415,boxes broke,All,0,wonkiness
-415,shelves fell down,Some,0,wonkiness
-415,matches burnt,None,1,wonkiness
-415,shirts ripped,None,1,wonkiness
-415,pancakes landed flat,Some,0,wonkiness
-415,fireworks exploded,None,1,wonkiness
-416,gas tanks exploded,Some,0,wonkiness
-416,soda cans decomposed,Some,1,wonkiness
-416,pancakes landed flat,Some,0,wonkiness
-416,boxes broke,None,1,wonkiness
-416,berries froze,All,1,wonkiness
-416,wheelchairs rolled,All,0,wonkiness
-416,balloons sank,Some,1,wonkiness
-416,beads stuck,Some,0,wonkiness
-416,songs rhymed,Some,0,wonkiness
-416,eggs popped,Some,0,wonkiness
-416,oreos dissolved,None,0,wonkiness
-416,pencils melted,Some,1,wonkiness
-416,kids laughed,All,0,wonkiness
-416,dogs ate the seeds,All,0,wonkiness
-416,bicycles stopped,None,0,wonkiness
-416,hats blew away,Some,0,wonkiness
-416,shoes ripped,Some,0,wonkiness
-416,block towers fell down,None,1,wonkiness
-416,white carpets got stained,All,0,wonkiness
-416,old cars beeped,None,0,wonkiness
-417,white shirts got stained,All,0,wonkiness
-417,birthday cards had the letter Z in them,Some,0,wonkiness
-417,dogs ate the seeds,Some,0,wonkiness
-417,backpacks blew away,All,1,wonkiness
-417,mirrors reflected the sunlight,None,1,wonkiness
-417,soda cans decomposed,Some,1,wonkiness
-417,phones flashed,None,1,wonkiness
-417,poems rhymed,Some,0,wonkiness
-417,sequins stuck,All,0,wonkiness
-417,notebooks landed flat,Some,1,wonkiness
-417,houses beeped,Some,1,wonkiness
-417,taxi drivers honked,None,1,wonkiness
-417,crayons melted,Some,1,wonkiness
-417,bottles of hand soap froze,None,1,wonkiness
-417,bubbles popped,Some,0,wonkiness
-417,bicycles stopped,Some,1,wonkiness
-417,sugar cubes dissolved,All,0,wonkiness
-417,rocks burnt,None,1,wonkiness
-417,logs broke,Some,1,wonkiness
-417,balls of tin foil exploded,All,0,wonkiness
-418,crayons melted,None,1,wonkiness
-418,strawberries were green,Some,0,wonkiness
-418,poems rhymed,Some,0,wonkiness
-418,balls of tin foil exploded,All,0,wonkiness
-418,baseballs stuck to the wall,None,0,wonkiness
-418,taxi drivers honked,None,1,wonkiness
-418,soda cans decomposed,Some,1,wonkiness
-418,kids laughed,Some,0,wonkiness
-418,card towers fell down,All,0,wonkiness
-418,logs broke,Some,0,wonkiness
-418,shirts ripped,Some,0,wonkiness
-418,mirrors reflected the sunlight,All,0,wonkiness
-418,chocolate bars froze,Some,0,wonkiness
-418,cups sank,None,0,wonkiness
-418,bike lights ran out of batteries,None,1,wonkiness
-418,webcams flashed,Some,0,wonkiness
-418,love notes had the letter Z in them,All,1,wonkiness
-418,flashlights lit up,All,0,wonkiness
-418,notebooks landed flat,Some,0,wonkiness
-418,napkins blew away,Some,0,wonkiness
-419,cups sank,None,1,wonkiness
-419,songs rhymed,Some,0,wonkiness
-419,crayons melted,None,1,wonkiness
-419,card towers fell down,All,0,wonkiness
-419,houses beeped,Some,1,wonkiness
-419,wheelchairs rolled,Some,1,wonkiness
-419,cars stopped,Some,0,wonkiness
-419,phones flashed,Some,0,wonkiness
-419,white shirts got stained,Some,1,wonkiness
-419,bicyclists honked,Some,0,wonkiness
-419,computers lit up,All,0,wonkiness
-419,stickers stuck,Some,0,wonkiness
-419,sugar cubes dissolved,All,0,wonkiness
-419,mirrors reflected the sunlight,Some,0,wonkiness
-419,banana peels decomposed,All,0,wonkiness
-419,comedians laughed,All,0,wonkiness
-419,balloons popped,Some,0,wonkiness
-419,coins landed flat,None,1,wonkiness
-419,shoes ripped,None,0,wonkiness
-419,berries froze,None,1,wonkiness
-420,eggs popped,Some,1,wonkiness
-420,novels had the letter Z in them,None,0,wonkiness
-420,limericks rhymed,Some,0,wonkiness
-420,cups sank,Some,1,wonkiness
-420,bananas were green,All,0,wonkiness
-420,webcams flashed,Some,0,wonkiness
-420,phone screens reflected the sunlight,None,0,wonkiness
-420,shirts ripped,All,0,wonkiness
-420,candles exploded,Some,1,wonkiness
-420,bottles of hand soap froze,Some,0,wonkiness
-420,pinecones decomposed,None,1,wonkiness
-420,matches burnt,Some,1,wonkiness
-420,notebooks landed flat,Some,0,wonkiness
-420,bike lights ran out of batteries,All,0,wonkiness
-420,bicyclists honked,Some,1,wonkiness
-420,pencils melted,Some,0,wonkiness
-420,hats blew away,All,0,wonkiness
-420,shelves fell down,All,1,wonkiness
-420,eggs exploded,None,1,wonkiness
-420,shopping carts rolled,None,0,wonkiness
-421,berries froze,All,0,wonkiness
-421,boxes broke,None,0,wonkiness
-421,shoes ripped,Some,1,wonkiness
-421,rocks burnt,Some,0,wonkiness
-421,pieces of gum stuck to the wall,All,0,wonkiness
-421,computers lit up,Some,0,wonkiness
-421,motorcycles stopped,Some,1,wonkiness
-421,banana peels decomposed,None,0,wonkiness
-421,shelves fell down,All,0,wonkiness
-421,eggs exploded,None,0,wonkiness
-421,marbles sank,Some,1,wonkiness
-421,white tablecloths got stained,None,0,wonkiness
-421,pencils melted,Some,0,wonkiness
-421,birds ate the seeds,Some,0,wonkiness
-421,fireworks exploded,Some,0,wonkiness
-421,diamonds reflected the sunlight,None,1,wonkiness
-421,poems rhymed,Some,1,wonkiness
-421,kids laughed,All,1,wonkiness
-421,houses beeped,All,0,wonkiness
-421,wheelchairs rolled,Some,0,wonkiness
-422,soda cans decomposed,None,0,wonkiness
-422,oreos dissolved,Some,0,wonkiness
-422,stickers stuck,All,0,wonkiness
-422,gas tanks exploded,All,0,wonkiness
-422,diamonds reflected the sunlight,Some,0,wonkiness
-422,kids laughed,Some,0,wonkiness
-422,boxes broke,Some,1,wonkiness
-422,cd-players lit up,Some,1,wonkiness
-422,card towers fell down,None,1,wonkiness
-422,bicyclists honked,All,1,wonkiness
-422,cakes stuck to the wall,All,0,wonkiness
-422,cars stopped,Some,0,wonkiness
-422,napkins blew away,Some,1,wonkiness
-422,bike lights ran out of batteries,None,1,wonkiness
-422,strawberries were green,None,1,wonkiness
-422,old cars beeped,Some,0,wonkiness
-422,shopping carts rolled,Some,0,wonkiness
-422,balls of tin foil exploded,None,1,wonkiness
-422,birthday cards had the letter Z in them,All,1,wonkiness
-422,coins landed flat,Some,1,wonkiness
-423,fireworks exploded,None,1,wonkiness
-423,bike lights ran out of batteries,Some,0,wonkiness
-423,dogs ate the seeds,None,0,wonkiness
-423,toy cars rolled,None,1,wonkiness
-423,white carpets got stained,Some,0,wonkiness
-423,cameras flashed,All,0,wonkiness
-423,pieces of gum stuck to the wall,All,0,wonkiness
-423,old cars beeped,Some,0,wonkiness
-423,mirrors reflected the sunlight,None,1,wonkiness
-423,soda cans decomposed,Some,1,wonkiness
-423,sequins stuck,All,0,wonkiness
-423,berries froze,All,0,wonkiness
-423,backpacks blew away,Some,1,wonkiness
-423,shelves fell down,All,0,wonkiness
-423,matches burnt,Some,0,wonkiness
-423,eggs exploded,Some,0,wonkiness
-423,sunglasses broke,None,1,wonkiness
-423,bubbles popped,Some,0,wonkiness
-423,songs rhymed,Some,0,wonkiness
-423,novels had the letter Z in them,Some,0,wonkiness
-424,toy cars rolled,All,0,wonkiness
-424,pinecones decomposed,Some,0,wonkiness
-424,computers lit up,Some,1,wonkiness
-424,diamonds reflected the sunlight,Some,0,wonkiness
-424,love notes had the letter Z in them,Some,1,wonkiness
-424,oreos dissolved,None,1,wonkiness
-424,shoes ripped,Some,0,wonkiness
-424,bottles of hand soap froze,Some,1,wonkiness
-424,backpacks blew away,All,1,wonkiness
-424,cakes stuck to the wall,Some,0,wonkiness
-424,songs rhymed,All,0,wonkiness
-424,comedians laughed,Some,0,wonkiness
-424,eggs popped,None,0,wonkiness
-424,cars stopped,None,1,wonkiness
-424,CDs exploded,All,0,wonkiness
-424,bicyclists honked,Some,0,wonkiness
-424,strawberries were green,Some,1,wonkiness
-424,logs broke,All,1,wonkiness
-424,beads stuck,None,1,wonkiness
-424,phones flashed,None,1,wonkiness
-425,bus drivers honked,Some,0,wonkiness
-425,stickers stuck,Some,0,wonkiness
-425,birds ate the seeds,Some,0,wonkiness
-425,banana peels decomposed,None,1,wonkiness
-425,cakes stuck to the wall,All,1,wonkiness
-425,eggs exploded,Some,0,wonkiness
-425,old cars beeped,None,0,wonkiness
-425,computers lit up,All,0,wonkiness
-425,birthday cards had the letter Z in them,Some,0,wonkiness
-425,shoes ripped,Some,0,wonkiness
-425,backpacks blew away,All,0,wonkiness
-425,wheelchairs rolled,None,1,wonkiness
-425,rocks burnt,Some,0,wonkiness
-425,cups sank,Some,0,wonkiness
-425,eggs popped,All,1,wonkiness
-425,cars stopped,Some,0,wonkiness
-425,card towers fell down,Some,0,wonkiness
-425,berries froze,None,1,wonkiness
-425,pancakes landed flat,All,0,wonkiness
-425,oreos dissolved,None,0,wonkiness
-426,dogs ate the seeds,None,0,wonkiness
-426,birthday cards had the letter Z in them,Some,1,wonkiness
-426,old cars beeped,Some,1,wonkiness
-426,napkins blew away,None,0,wonkiness
-426,eggs popped,All,0,wonkiness
-426,bottles of hand soap froze,None,0,wonkiness
-426,cakes stuck to the wall,All,0,wonkiness
-426,shirts ripped,All,0,wonkiness
-426,webcams flashed,Some,0,wonkiness
-426,candles exploded,Some,1,wonkiness
-426,balloons sank,Some,1,wonkiness
-426,bike lights ran out of batteries,Some,0,wonkiness
-426,notebooks landed flat,Some,0,wonkiness
-426,taxi drivers honked,Some,0,wonkiness
-426,pencils melted,None,0,wonkiness
-426,phone screens reflected the sunlight,None,1,wonkiness
-426,toy cars rolled,Some,0,wonkiness
-426,cars stopped,All,0,wonkiness
-426,books burnt,All,0,wonkiness
-426,block towers fell down,Some,0,wonkiness
-427,cd-players lit up,None,1,wonkiness
-427,bottles of hand soap froze,All,0,wonkiness
-427,coins landed flat,Some,0,wonkiness
-427,baseballs stuck to the wall,All,1,wonkiness
-427,butterflies ate the seeds,Some,0,wonkiness
-427,banana peels decomposed,Some,0,wonkiness
-427,logs broke,Some,0,wonkiness
-427,novels had the letter Z in them,All,0,wonkiness
-427,sugar cubes dissolved,Some,0,wonkiness
-427,songs rhymed,None,1,wonkiness
-427,phone screens reflected the sunlight,None,1,wonkiness
-427,lawyers laughed,Some,0,wonkiness
-427,books burnt,All,0,wonkiness
-427,cameras flashed,All,0,wonkiness
-427,bike lights ran out of batteries,Some,0,wonkiness
-427,bicycles stopped,None,1,wonkiness
-427,clovers were green,Some,0,wonkiness
-427,bubbles popped,Some,0,wonkiness
-427,old cars beeped,None,0,wonkiness
-427,card towers fell down,Some,0,wonkiness
-428,birds ate the seeds,All,0,wonkiness
-428,comedians laughed,Some,0,wonkiness
-428,block towers fell down,All,1,wonkiness
-428,toy cars rolled,All,1,wonkiness
-428,soda cans decomposed,None,0,wonkiness
-428,oreos dissolved,None,1,wonkiness
-428,bike lights ran out of batteries,Some,0,wonkiness
-428,books ripped,Some,0,wonkiness
-428,balls of tin foil exploded,All,1,wonkiness
-428,phones flashed,Some,1,wonkiness
-428,rocks burnt,None,0,wonkiness
-428,songs rhymed,Some,1,wonkiness
-428,cd-players lit up,None,1,wonkiness
-428,backpacks blew away,Some,1,wonkiness
-428,eggs popped,All,1,wonkiness
-428,beads stuck,Some,1,wonkiness
-428,phone screens reflected the sunlight,None,0,wonkiness
-428,chocolate bars froze,Some,1,wonkiness
-428,cakes stuck to the wall,Some,1,wonkiness
-428,taxi drivers honked,Some,1,wonkiness
-429,pancakes landed flat,All,0,wonkiness
-429,eggs exploded,Some,1,wonkiness
-429,love notes had the letter Z in them,Some,1,wonkiness
-429,birds ate the seeds,All,0,wonkiness
-429,crayons melted,Some,0,wonkiness
-429,balloons sank,None,0,wonkiness
-429,strawberries were green,Some,1,wonkiness
-429,wheelchairs rolled,All,0,wonkiness
-429,computers lit up,None,0,wonkiness
-429,comedians laughed,None,0,wonkiness
-429,bike lights ran out of batteries,None,1,wonkiness
-429,boxes broke,Some,0,wonkiness
-429,card towers fell down,All,0,wonkiness
-429,houses beeped,None,1,wonkiness
-429,bicycles stopped,Some,0,wonkiness
-429,banana peels decomposed,All,0,wonkiness
-429,sugar cubes dissolved,Some,1,wonkiness
-429,phones flashed,Some,0,wonkiness
-429,phone screens reflected the sunlight,Some,1,wonkiness
-429,balloons popped,Some,1,wonkiness
-430,shirts ripped,Some,0,wonkiness
-430,cd-players lit up,None,1,wonkiness
-430,gas tanks exploded,Some,0,wonkiness
-430,banana peels decomposed,Some,0,wonkiness
-430,baseballs stuck to the wall,All,1,wonkiness
-430,CDs exploded,All,0,wonkiness
-430,poems rhymed,None,1,wonkiness
-430,dogs ate the seeds,None,0,wonkiness
-430,balloons sank,None,0,wonkiness
-430,bus drivers honked,Some,0,wonkiness
-430,pencils melted,None,0,wonkiness
-430,sugar cubes dissolved,Some,0,wonkiness
-430,wheelchairs rolled,All,0,wonkiness
-430,bike lights ran out of batteries,Some,0,wonkiness
-430,phone screens reflected the sunlight,All,0,wonkiness
-430,comedians laughed,Some,0,wonkiness
-430,birthday cards had the letter Z in them,Some,0,wonkiness
-430,old cars beeped,Some,1,wonkiness
-430,napkins blew away,Some,0,wonkiness
-430,beads stuck,All,0,wonkiness
-431,baseballs stuck to the wall,Some,1,wonkiness
-431,notebooks landed flat,Some,0,wonkiness
-431,carrots dissolved,Some,1,wonkiness
-431,cars stopped,Some,0,wonkiness
-431,white tablecloths got stained,All,0,wonkiness
-431,bus drivers honked,All,0,wonkiness
-431,stickers stuck,Some,0,wonkiness
-431,kids laughed,All,0,wonkiness
-431,banana peels decomposed,Some,0,wonkiness
-431,birds ate the seeds,None,1,wonkiness
-431,marbles sank,None,1,wonkiness
-431,phones ran out of batteries,All,0,wonkiness
-431,shoes ripped,Some,0,wonkiness
-431,gas tanks exploded,Some,0,wonkiness
-431,cameras flashed,None,0,wonkiness
-431,napkins blew away,Some,0,wonkiness
-431,toy cars rolled,All,0,wonkiness
-431,balloons popped,None,1,wonkiness
-431,strawberries were green,Some,0,wonkiness
-431,rocks burnt,None,0,wonkiness
-432,dogs ate the seeds,None,0,wonkiness
-432,coins landed flat,All,0,wonkiness
-432,toy cars rolled,All,0,wonkiness
-432,sunglasses broke,All,0,wonkiness
-432,cakes stuck to the wall,Some,0,wonkiness
-432,books burnt,All,0,wonkiness
-432,cars stopped,Some,0,wonkiness
-432,bus drivers honked,Some,0,wonkiness
-432,eggs exploded,Some,0,wonkiness
-432,bike lights ran out of batteries,None,0,wonkiness
-432,candles exploded,None,0,wonkiness
-432,soda cans decomposed,Some,1,wonkiness
-432,songs rhymed,All,0,wonkiness
-432,bubbles popped,Some,0,wonkiness
-432,old cars beeped,Some,0,wonkiness
-432,white carpets got stained,Some,0,wonkiness
-432,comedians laughed,None,1,wonkiness
-432,cups sank,None,0,wonkiness
-432,books ripped,Some,0,wonkiness
-432,diamonds reflected the sunlight,Some,0,wonkiness
-433,oreos dissolved,All,1,wonkiness
-433,songs rhymed,None,0,wonkiness
-433,rocks burnt,All,1,wonkiness
-433,cars stopped,Some,0,wonkiness
-433,bike lights ran out of batteries,All,0,wonkiness
-433,crayons melted,None,1,wonkiness
-433,computers lit up,All,0,wonkiness
-433,lawyers laughed,Some,0,wonkiness
-433,novels had the letter Z in them,Some,0,wonkiness
-433,webcams flashed,Some,0,wonkiness
-433,shelves fell down,Some,0,wonkiness
-433,new cars beeped,Some,0,wonkiness
-433,eggs popped,None,0,wonkiness
-433,dogs ate the seeds,Some,0,wonkiness
-433,backpacks blew away,Some,0,wonkiness
-433,mirrors reflected the sunlight,All,0,wonkiness
-433,beads stuck,None,1,wonkiness
-433,berries froze,Some,0,wonkiness
-433,pinecones decomposed,Some,0,wonkiness
-433,pieces of gum stuck to the wall,None,0,wonkiness
-434,bike lights ran out of batteries,Some,0,wonkiness
-434,clovers were green,Some,0,wonkiness
-434,taxi drivers honked,Some,0,wonkiness
-434,carrots dissolved,Some,1,wonkiness
-434,cups sank,All,0,wonkiness
-434,hats blew away,Some,0,wonkiness
-434,shelves fell down,None,0,wonkiness
-434,pencils melted,Some,0,wonkiness
-434,toy cars rolled,None,1,wonkiness
-434,phone screens reflected the sunlight,None,0,wonkiness
-434,notebooks landed flat,Some,0,wonkiness
-434,cars stopped,None,1,wonkiness
-434,logs broke,All,0,wonkiness
-434,pinecones decomposed,Some,0,wonkiness
-434,love notes had the letter Z in them,None,0,wonkiness
-434,pieces of gum stuck to the wall,All,0,wonkiness
-434,white carpets got stained,Some,0,wonkiness
-434,sequins stuck,All,0,wonkiness
-434,gas tanks exploded,Some,0,wonkiness
-434,poems rhymed,All,0,wonkiness
-435,napkins blew away,Some,0,wonkiness
-435,candles exploded,None,0,wonkiness
-435,boxes broke,Some,0,wonkiness
-435,pinecones decomposed,Some,0,wonkiness
-435,wheelchairs rolled,Some,0,wonkiness
-435,strawberries were green,All,1,wonkiness
-435,books ripped,All,0,wonkiness
-435,cups sank,Some,0,wonkiness
-435,crayons melted,None,0,wonkiness
-435,stickers stuck,None,0,wonkiness
-435,rocks burnt,Some,0,wonkiness
-435,songs rhymed,All,0,wonkiness
-435,eggs popped,None,1,wonkiness
-435,oreos dissolved,All,0,wonkiness
-435,houses beeped,Some,0,wonkiness
-435,dogs ate the seeds,Some,0,wonkiness
-435,kids laughed,None,0,wonkiness
-435,white tablecloths got stained,Some,0,wonkiness
-435,bottles of hand soap froze,Some,0,wonkiness
-435,love notes had the letter Z in them,All,0,wonkiness
-436,sequins stuck,Some,0,wonkiness
-436,new cars beeped,Some,1,wonkiness
-436,white tablecloths got stained,Some,1,wonkiness
-436,soda cans decomposed,Some,0,wonkiness
-436,bubbles popped,None,1,wonkiness
-436,gas tanks exploded,Some,1,wonkiness
-436,cups sank,Some,0,wonkiness
-436,pencils melted,All,1,wonkiness
-436,CDs exploded,All,0,wonkiness
-436,coins landed flat,Some,1,wonkiness
-436,bicycles stopped,Some,1,wonkiness
-436,cd-players lit up,None,0,wonkiness
-436,taxi drivers honked,None,1,wonkiness
-436,comedians laughed,All,0,wonkiness
-436,bottles of hand soap froze,All,0,wonkiness
-436,dogs ate the seeds,All,0,wonkiness
-436,shelves fell down,None,0,wonkiness
-436,shirts ripped,None,1,wonkiness
-436,poems rhymed,Some,1,wonkiness
-436,novels had the letter Z in them,Some,1,wonkiness
-437,bottles of hand soap froze,Some,0,wonkiness
-437,birds ate the seeds,Some,0,wonkiness
-437,matches burnt,Some,0,wonkiness
-437,card towers fell down,Some,0,wonkiness
-437,love notes had the letter Z in them,Some,0,wonkiness
-437,old cars beeped,All,0,wonkiness
-437,wheelchairs rolled,None,1,wonkiness
-437,shoes ripped,All,0,wonkiness
-437,bicycles stopped,None,1,wonkiness
-437,strawberries were green,All,1,wonkiness
-437,sequins stuck,None,1,wonkiness
-437,bike lights ran out of batteries,Some,0,wonkiness
-437,cd-players lit up,All,0,wonkiness
-437,logs broke,All,0,wonkiness
-437,carrots dissolved,None,0,wonkiness
-437,napkins blew away,Some,0,wonkiness
-437,comedians laughed,Some,0,wonkiness
-437,pieces of gum stuck to the wall,Some,0,wonkiness
-437,balls of tin foil exploded,None,1,wonkiness
-437,cameras flashed,Some,0,wonkiness
-438,old cars beeped,Some,0,wonkiness
-438,computers lit up,All,0,wonkiness
-438,poems rhymed,None,0,wonkiness
-438,matches burnt,Some,0,wonkiness
-438,books ripped,None,1,wonkiness
-438,bus drivers honked,All,0,wonkiness
-438,oreos dissolved,Some,0,wonkiness
-438,gas tanks exploded,Some,0,wonkiness
-438,phone screens reflected the sunlight,Some,0,wonkiness
-438,block towers fell down,All,0,wonkiness
-438,CDs exploded,Some,0,wonkiness
-438,boxes broke,All,0,wonkiness
-438,wheelchairs rolled,Some,0,wonkiness
-438,birthday cards had the letter Z in them,Some,0,wonkiness
-438,pencils melted,None,0,wonkiness
-438,bottles of hand soap froze,Some,0,wonkiness
-438,motorcycles stopped,None,1,wonkiness
-438,cups sank,None,0,wonkiness
-438,webcams flashed,All,0,wonkiness
-438,eggs popped,Some,1,wonkiness
-439,phones ran out of batteries,Some,0,wonkiness
-439,shirts ripped,All,0,wonkiness
-439,baseballs stuck to the wall,Some,1,wonkiness
-439,stickers stuck,None,1,wonkiness
-439,dogs ate the seeds,Some,0,wonkiness
-439,carrots dissolved,Some,1,wonkiness
-439,flashlights lit up,All,0,wonkiness
-439,white carpets got stained,None,1,wonkiness
-439,novels had the letter Z in them,Some,0,wonkiness
-439,poems rhymed,None,0,wonkiness
-439,webcams flashed,Some,0,wonkiness
-439,backpacks blew away,Some,0,wonkiness
-439,cars stopped,Some,1,wonkiness
-439,toy cars rolled,All,0,wonkiness
-439,phone screens reflected the sunlight,None,0,wonkiness
-439,bus drivers honked,All,0,wonkiness
-439,boxes broke,Some,0,wonkiness
-439,notebooks landed flat,All,0,wonkiness
-439,bottles of hand soap froze,None,0,wonkiness
-439,comedians laughed,Some,0,wonkiness
-440,white shirts got stained,All,0,wonkiness
-440,motorcycles stopped,None,1,wonkiness
-440,bubbles popped,All,0,wonkiness
-440,phones flashed,Some,1,wonkiness
-440,phones ran out of batteries,None,1,wonkiness
-440,balloons sank,Some,1,wonkiness
-440,wheelchairs rolled,All,0,wonkiness
-440,shoes ripped,Some,0,wonkiness
-440,CDs exploded,All,1,wonkiness
-440,clovers were green,Some,1,wonkiness
-440,napkins blew away,Some,0,wonkiness
-440,carrots dissolved,None,1,wonkiness
-440,pencils melted,Some,1,wonkiness
-440,love notes had the letter Z in them,None,1,wonkiness
-440,gas tanks exploded,Some,0,wonkiness
-440,computers lit up,All,0,wonkiness
-440,cakes stuck to the wall,Some,0,wonkiness
-440,shelves fell down,Some,0,wonkiness
-440,notebooks landed flat,None,1,wonkiness
-440,limericks rhymed,Some,0,wonkiness
-441,boxes broke,None,0,wonkiness
-441,birthday cards had the letter Z in them,None,0,wonkiness
-441,limericks rhymed,Some,0,wonkiness
-441,fireworks exploded,Some,1,wonkiness
-441,bus drivers honked,All,0,wonkiness
-441,houses beeped,All,1,wonkiness
-441,cars stopped,Some,1,wonkiness
-441,napkins blew away,All,0,wonkiness
-441,shopping carts rolled,All,0,wonkiness
-441,phone screens reflected the sunlight,Some,0,wonkiness
-441,balloons popped,All,1,wonkiness
-441,butterflies ate the seeds,Some,1,wonkiness
-441,shelves fell down,Some,1,wonkiness
-441,berries froze,None,1,wonkiness
-441,flashlights lit up,None,0,wonkiness
-441,kids laughed,Some,1,wonkiness
-441,pencils melted,Some,1,wonkiness
-441,phones ran out of batteries,Some,0,wonkiness
-441,books burnt,None,1,wonkiness
-441,stickers stuck,Some,0,wonkiness
-442,balloons popped,Some,0,wonkiness
-442,eggs exploded,All,0,wonkiness
-442,carrots dissolved,None,0,wonkiness
-442,matches burnt,Some,0,wonkiness
-442,ice cubes melted,None,1,wonkiness
-442,backpacks blew away,All,0,wonkiness
-442,diamonds reflected the sunlight,All,0,wonkiness
-442,soda cans decomposed,None,0,wonkiness
-442,songs rhymed,Some,0,wonkiness
-442,cars stopped,Some,0,wonkiness
-442,novels had the letter Z in them,Some,0,wonkiness
-442,shopping carts rolled,All,0,wonkiness
-442,comedians laughed,None,0,wonkiness
-442,butterflies ate the seeds,Some,0,wonkiness
-442,notebooks landed flat,Some,0,wonkiness
-442,houses beeped,Some,1,wonkiness
-442,cakes stuck to the wall,Some,0,wonkiness
-442,cd-players lit up,All,0,wonkiness
-442,marbles sank,None,0,wonkiness
-442,beads stuck,Some,0,wonkiness
-443,phone screens reflected the sunlight,All,0,wonkiness
-443,eggs exploded,Some,0,wonkiness
-443,candles exploded,None,0,wonkiness
-443,napkins blew away,All,0,wonkiness
-443,chocolate bars froze,Some,0,wonkiness
-443,sequins stuck,None,1,wonkiness
-443,wheelchairs rolled,All,0,wonkiness
-443,limericks rhymed,Some,1,wonkiness
-443,pinecones decomposed,None,1,wonkiness
-443,bicycles stopped,None,1,wonkiness
-443,butterflies ate the seeds,Some,1,wonkiness
-443,rocks burnt,Some,0,wonkiness
-443,crayons melted,All,0,wonkiness
-443,coins landed flat,Some,1,wonkiness
-443,cups sank,All,0,wonkiness
-443,bicyclists honked,Some,1,wonkiness
-443,eggs popped,Some,1,wonkiness
-443,white carpets got stained,Some,1,wonkiness
-443,love notes had the letter Z in them,Some,0,wonkiness
-443,logs broke,None,1,wonkiness
-444,bicyclists honked,Some,1,wonkiness
-444,mirrors reflected the sunlight,All,0,wonkiness
-444,ice cubes melted,None,1,wonkiness
-444,soda cans decomposed,Some,1,wonkiness
-444,love notes had the letter Z in them,All,1,wonkiness
-444,CDs exploded,Some,0,wonkiness
-444,cars stopped,None,1,wonkiness
-444,laptops ran out of batteries,None,1,wonkiness
-444,backpacks blew away,All,1,wonkiness
-444,baseballs stuck to the wall,Some,1,wonkiness
-444,pancakes landed flat,Some,0,wonkiness
-444,sugar cubes dissolved,All,0,wonkiness
-444,stickers stuck,Some,0,wonkiness
-444,strawberries were green,Some,1,wonkiness
-444,flashlights lit up,Some,0,wonkiness
-444,houses beeped,All,1,wonkiness
-444,comedians laughed,Some,0,wonkiness
-444,berries froze,None,1,wonkiness
-444,white tablecloths got stained,Some,0,wonkiness
-444,shoes ripped,None,0,wonkiness
-445,cakes stuck to the wall,All,1,wonkiness
-445,birthday cards had the letter Z in them,All,0,wonkiness
-445,white carpets got stained,Some,0,wonkiness
-445,butterflies ate the seeds,Some,0,wonkiness
-445,bicycles stopped,None,1,wonkiness
-445,CDs exploded,Some,0,wonkiness
-445,bubbles popped,Some,0,wonkiness
-445,comedians laughed,All,0,wonkiness
-445,rocks burnt,Some,0,wonkiness
-445,logs broke,All,0,wonkiness
-445,diamonds reflected the sunlight,Some,0,wonkiness
-445,taxi drivers honked,Some,0,wonkiness
-445,shirts ripped,Some,0,wonkiness
-445,hats blew away,All,0,wonkiness
-445,old cars beeped,None,0,wonkiness
-445,webcams flashed,Some,0,wonkiness
-445,banana peels decomposed,None,1,wonkiness
-445,stickers stuck,Some,0,wonkiness
-445,flashlights lit up,None,1,wonkiness
-445,card towers fell down,None,1,wonkiness
-446,bus drivers honked,All,0,wonkiness
-446,carrots dissolved,Some,1,wonkiness
-446,old cars beeped,Some,0,wonkiness
-446,soda cans decomposed,Some,1,wonkiness
-446,flashlights lit up,None,1,wonkiness
-446,bike lights ran out of batteries,None,0,wonkiness
-446,songs rhymed,Some,0,wonkiness
-446,pieces of gum stuck to the wall,All,1,wonkiness
-446,ice cubes melted,Some,0,wonkiness
-446,notebooks landed flat,Some,0,wonkiness
-446,shopping carts rolled,All,0,wonkiness
-446,shelves fell down,Some,0,wonkiness
-446,logs broke,None,0,wonkiness
-446,beads stuck,Some,0,wonkiness
-446,butterflies ate the seeds,All,0,wonkiness
-446,books burnt,None,1,wonkiness
-446,novels had the letter Z in them,None,1,wonkiness
-446,CDs exploded,Some,0,wonkiness
-446,gas tanks exploded,Some,0,wonkiness
-446,backpacks blew away,All,0,wonkiness
-447,old cars beeped,Some,1,wonkiness
-447,comedians laughed,None,1,wonkiness
-447,shoes ripped,All,0,wonkiness
-447,block towers fell down,Some,1,wonkiness
-447,pencils melted,None,0,wonkiness
-447,limericks rhymed,Some,1,wonkiness
-447,books burnt,Some,1,wonkiness
-447,sunglasses broke,Some,1,wonkiness
-447,shopping carts rolled,Some,1,wonkiness
-447,gas tanks exploded,All,0,wonkiness
-447,baseballs stuck to the wall,All,1,wonkiness
-447,motorcycles stopped,None,1,wonkiness
-447,chocolate bars froze,Some,1,wonkiness
-447,diamonds reflected the sunlight,All,0,wonkiness
-447,marbles sank,Some,1,wonkiness
-447,pinecones decomposed,Some,0,wonkiness
-447,cameras flashed,None,0,wonkiness
-447,balloons popped,All,0,wonkiness
-447,birds ate the seeds,None,1,wonkiness
-447,hats blew away,Some,0,wonkiness
-448,chocolate bars froze,None,1,wonkiness
-448,strawberries were green,All,1,wonkiness
-448,new cars beeped,Some,0,wonkiness
-448,backpacks blew away,Some,0,wonkiness
-448,ice cubes melted,Some,0,wonkiness
-448,card towers fell down,None,0,wonkiness
-448,fireworks exploded,All,0,wonkiness
-448,wheelchairs rolled,None,1,wonkiness
-448,eggs exploded,All,0,wonkiness
-448,bubbles popped,Some,0,wonkiness
-448,books ripped,Some,0,wonkiness
-448,phones ran out of batteries,Some,0,wonkiness
-448,books burnt,Some,0,wonkiness
-448,stickers stuck,All,0,wonkiness
-448,comedians laughed,All,0,wonkiness
-448,marbles sank,Some,0,wonkiness
-448,banana peels decomposed,Some,0,wonkiness
-448,coins landed flat,Some,0,wonkiness
-448,phone screens reflected the sunlight,None,0,wonkiness
-448,birds ate the seeds,None,1,wonkiness
-449,balloons popped,Some,0,wonkiness
-449,novels had the letter Z in them,Some,0,wonkiness
-449,bicycles stopped,All,0,wonkiness
-449,soda cans decomposed,None,1,wonkiness
-449,toy cars rolled,Some,1,wonkiness
-449,block towers fell down,All,0,wonkiness
-449,flashlights lit up,None,1,wonkiness
-449,hats blew away,Some,1,wonkiness
-449,phones flashed,All,0,wonkiness
-449,cups sank,None,0,wonkiness
-449,baseballs stuck to the wall,Some,1,wonkiness
-449,poems rhymed,All,0,wonkiness
-449,new cars beeped,Some,1,wonkiness
-449,shirts ripped,Some,0,wonkiness
-449,logs broke,Some,1,wonkiness
-449,bananas were green,All,0,wonkiness
-449,oreos dissolved,Some,1,wonkiness
-449,butterflies ate the seeds,Some,0,wonkiness
-449,books burnt,None,1,wonkiness
-449,bicyclists honked,None,1,wonkiness
-450,novels had the letter Z in them,Some,0,wonkiness
-450,matches burnt,Some,0,wonkiness
-450,fireworks exploded,Some,0,wonkiness
-450,houses beeped,Some,1,wonkiness
-450,beads stuck,Some,0,wonkiness
-450,shelves fell down,None,1,wonkiness
-450,bike lights ran out of batteries,Some,0,wonkiness
-450,dogs ate the seeds,Some,0,wonkiness
-450,sunglasses broke,All,0,wonkiness
-450,shirts ripped,All,1,wonkiness
-450,pencils melted,None,0,wonkiness
-450,webcams flashed,None,1,wonkiness
-450,comedians laughed,Some,0,wonkiness
-450,balloons sank,Some,1,wonkiness
-450,bicyclists honked,All,0,wonkiness
-450,balloons popped,All,0,wonkiness
-450,limericks rhymed,None,1,wonkiness
-450,backpacks blew away,Some,0,wonkiness
-450,wheelchairs rolled,All,0,wonkiness
-450,chocolate bars froze,None,1,wonkiness
-451,comedians laughed,Some,0,wonkiness
-451,diamonds reflected the sunlight,All,0,wonkiness
-451,white shirts got stained,Some,0,wonkiness
-451,taxi drivers honked,All,0,wonkiness
-451,new cars beeped,All,0,wonkiness
-451,laptops ran out of batteries,All,0,wonkiness
-451,gas tanks exploded,None,0,wonkiness
-451,marbles sank,None,0,wonkiness
-451,crayons melted,Some,0,wonkiness
-451,balls of tin foil exploded,All,0,wonkiness
-451,shoes ripped,Some,0,wonkiness
-451,dogs ate the seeds,None,0,wonkiness
-451,cars stopped,Some,0,wonkiness
-451,backpacks blew away,Some,0,wonkiness
-451,sunglasses broke,Some,0,wonkiness
-451,berries froze,Some,0,wonkiness
-451,wheelchairs rolled,Some,0,wonkiness
-451,carrots dissolved,None,0,wonkiness
-451,notebooks landed flat,Some,0,wonkiness
-451,beads stuck,None,0,wonkiness
-452,logs broke,Some,0,wonkiness
-452,mirrors reflected the sunlight,Some,0,wonkiness
-452,fireworks exploded,None,1,wonkiness
-452,eggs exploded,None,1,wonkiness
-452,pencils melted,Some,0,wonkiness
-452,bike lights ran out of batteries,All,0,wonkiness
-452,cd-players lit up,Some,0,wonkiness
-452,cups sank,Some,0,wonkiness
-452,houses beeped,Some,1,wonkiness
-452,matches burnt,All,0,wonkiness
-452,webcams flashed,Some,0,wonkiness
-452,bicyclists honked,All,0,wonkiness
-452,berries froze,All,0,wonkiness
-452,lawyers laughed,None,0,wonkiness
-452,sugar cubes dissolved,None,1,wonkiness
-452,motorcycles stopped,Some,1,wonkiness
-452,dogs ate the seeds,All,0,wonkiness
-452,card towers fell down,None,1,wonkiness
-452,beads stuck,Some,0,wonkiness
-452,hats blew away,Some,0,wonkiness
-453,bottles of hand soap froze,Some,0,wonkiness
-453,books ripped,None,1,wonkiness
-453,balloons popped,All,0,wonkiness
-453,butterflies ate the seeds,All,1,wonkiness
-453,rocks burnt,Some,1,wonkiness
-453,lawyers laughed,Some,0,wonkiness
-453,pencils melted,Some,1,wonkiness
-453,new cars beeped,None,1,wonkiness
-453,white tablecloths got stained,Some,0,wonkiness
-453,laptops ran out of batteries,None,1,wonkiness
-453,coins landed flat,Some,0,wonkiness
-453,oreos dissolved,None,0,wonkiness
-453,eggs exploded,Some,0,wonkiness
-453,cakes stuck to the wall,All,0,wonkiness
-453,birthday cards had the letter Z in them,Some,0,wonkiness
-453,webcams flashed,Some,0,wonkiness
-453,phone screens reflected the sunlight,All,0,wonkiness
-453,shelves fell down,None,0,wonkiness
-453,logs broke,Some,0,wonkiness
-453,hats blew away,All,0,wonkiness
-454,bottles of hand soap froze,Some,0,wonkiness
-454,pancakes landed flat,Some,0,wonkiness
-454,CDs exploded,None,1,wonkiness
-454,shirts ripped,All,0,wonkiness
-454,dogs ate the seeds,None,0,wonkiness
-454,diamonds reflected the sunlight,Some,1,wonkiness
-454,wheelchairs rolled,None,1,wonkiness
-454,block towers fell down,Some,0,wonkiness
-454,computers lit up,Some,1,wonkiness
-454,phones ran out of batteries,All,0,wonkiness
-454,backpacks blew away,All,1,wonkiness
-454,songs rhymed,None,1,wonkiness
-454,logs broke,Some,0,wonkiness
-454,white tablecloths got stained,All,0,wonkiness
-454,clovers were green,Some,1,wonkiness
-454,pencils melted,Some,1,wonkiness
-454,beads stuck,Some,0,wonkiness
-454,marbles sank,Some,0,wonkiness
-454,houses beeped,All,1,wonkiness
-454,novels had the letter Z in them,None,1,wonkiness
-455,phones flashed,Some,0,wonkiness
-455,strawberries were green,None,0,wonkiness
-455,matches burnt,Some,0,wonkiness
-455,bicycles stopped,Some,0,wonkiness
-455,flashlights lit up,None,1,wonkiness
-455,chocolate bars froze,None,1,wonkiness
-455,candles exploded,Some,1,wonkiness
-455,balloons popped,All,0,wonkiness
-455,bicyclists honked,None,0,wonkiness
-455,bike lights ran out of batteries,Some,0,wonkiness
-455,shirts ripped,None,1,wonkiness
-455,houses beeped,Some,1,wonkiness
-455,crayons melted,Some,0,wonkiness
-455,kids laughed,All,0,wonkiness
-455,hats blew away,All,0,wonkiness
-455,limericks rhymed,All,0,wonkiness
-455,shopping carts rolled,Some,0,wonkiness
-455,stickers stuck,Some,0,wonkiness
-455,white carpets got stained,All,0,wonkiness
-455,birds ate the seeds,Some,0,wonkiness
-456,laptops ran out of batteries,None,1,wonkiness
-456,motorcycles stopped,Some,0,wonkiness
-456,books burnt,Some,0,wonkiness
-456,cups sank,None,0,wonkiness
-456,white shirts got stained,None,1,wonkiness
-456,balloons popped,Some,0,wonkiness
-456,notebooks landed flat,Some,0,wonkiness
-456,birds ate the seeds,Some,0,wonkiness
-456,logs broke,Some,1,wonkiness
-456,sequins stuck,All,0,wonkiness
-456,oreos dissolved,All,0,wonkiness
-456,birthday cards had the letter Z in them,Some,0,wonkiness
-456,hats blew away,Some,0,wonkiness
-456,computers lit up,Some,0,wonkiness
-456,phone screens reflected the sunlight,Some,0,wonkiness
-456,phones flashed,None,1,wonkiness
-456,taxi drivers honked,All,0,wonkiness
-456,wheelchairs rolled,All,0,wonkiness
-456,shelves fell down,None,0,wonkiness
-456,gas tanks exploded,All,0,wonkiness
-457,backpacks blew away,None,0,wonkiness
-457,novels had the letter Z in them,Some,0,wonkiness
-457,bike lights ran out of batteries,Some,0,wonkiness
-457,notebooks landed flat,Some,0,wonkiness
-457,white tablecloths got stained,None,1,wonkiness
-457,stickers stuck,None,1,wonkiness
-457,cd-players lit up,All,0,wonkiness
-457,eggs popped,Some,0,wonkiness
-457,baseballs stuck to the wall,All,1,wonkiness
-457,taxi drivers honked,Some,0,wonkiness
-457,sugar cubes dissolved,All,0,wonkiness
-457,books burnt,All,0,wonkiness
-457,balls of tin foil exploded,None,1,wonkiness
-457,butterflies ate the seeds,Some,0,wonkiness
-457,soda cans decomposed,All,1,wonkiness
-457,shopping carts rolled,None,1,wonkiness
-457,houses beeped,Some,1,wonkiness
-457,marbles sank,Some,1,wonkiness
-457,chocolate bars froze,Some,1,wonkiness
-457,limericks rhymed,Some,0,wonkiness
-458,houses beeped,All,1,wonkiness
-458,fireworks exploded,All,0,wonkiness
-458,cups sank,None,0,wonkiness
-458,phones flashed,Some,0,wonkiness
-458,cakes stuck to the wall,All,0,wonkiness
-458,matches burnt,Some,0,wonkiness
-458,kids laughed,Some,0,wonkiness
-458,clovers were green,Some,1,wonkiness
-458,pencils melted,None,0,wonkiness
-458,notebooks landed flat,Some,0,wonkiness
-458,pinecones decomposed,Some,0,wonkiness
-458,boxes broke,None,1,wonkiness
-458,bus drivers honked,Some,0,wonkiness
-458,shopping carts rolled,All,0,wonkiness
-458,shoes ripped,Some,0,wonkiness
-458,card towers fell down,None,1,wonkiness
-458,laptops ran out of batteries,All,0,wonkiness
-458,love notes had the letter Z in them,Some,0,wonkiness
-458,bicycles stopped,Some,1,wonkiness
-458,mirrors reflected the sunlight,None,1,wonkiness
-459,bicyclists honked,Some,1,wonkiness
-459,fireworks exploded,Some,0,wonkiness
-459,balls of tin foil exploded,Some,0,wonkiness
-459,cameras flashed,Some,0,wonkiness
-459,rocks burnt,None,0,wonkiness
-459,cups sank,All,0,wonkiness
-459,computers lit up,All,0,wonkiness
-459,clovers were green,Some,0,wonkiness
-459,new cars beeped,All,0,wonkiness
-459,chocolate bars froze,Some,0,wonkiness
-459,pancakes landed flat,Some,0,wonkiness
-459,comedians laughed,Some,0,wonkiness
-459,books ripped,Some,0,wonkiness
-459,card towers fell down,All,0,wonkiness
-459,white tablecloths got stained,Some,0,wonkiness
-459,songs rhymed,None,1,wonkiness
-459,sunglasses broke,None,1,wonkiness
-459,bicycles stopped,All,0,wonkiness
-459,hats blew away,None,0,wonkiness
-459,mirrors reflected the sunlight,None,1,wonkiness
-460,crayons melted,Some,0,wonkiness
-460,cd-players lit up,All,1,wonkiness
-460,toy cars rolled,All,0,wonkiness
-460,phone screens reflected the sunlight,Some,0,wonkiness
-460,bottles of hand soap froze,None,1,wonkiness
-460,marbles sank,All,0,wonkiness
-460,sugar cubes dissolved,All,0,wonkiness
-460,fireworks exploded,Some,0,wonkiness
-460,notebooks landed flat,Some,0,wonkiness
-460,phones flashed,None,1,wonkiness
-460,rocks burnt,Some,1,wonkiness
-460,beads stuck,Some,0,wonkiness
-460,love notes had the letter Z in them,None,0,wonkiness
-460,balloons popped,Some,1,wonkiness
-460,logs broke,Some,0,wonkiness
-460,books ripped,None,1,wonkiness
-460,bus drivers honked,All,0,wonkiness
-460,block towers fell down,Some,1,wonkiness
-460,pinecones decomposed,None,1,wonkiness
-460,limericks rhymed,Some,1,wonkiness
-461,poems rhymed,None,1,wonkiness
-461,birds ate the seeds,Some,0,wonkiness
-461,coins landed flat,Some,1,wonkiness
-461,books burnt,All,0,wonkiness
-461,banana peels decomposed,All,0,wonkiness
-461,bicycles stopped,None,1,wonkiness
-461,ice cubes melted,Some,1,wonkiness
-461,marbles sank,None,1,wonkiness
-461,diamonds reflected the sunlight,All,0,wonkiness
-461,bicyclists honked,All,1,wonkiness
-461,strawberries were green,All,1,wonkiness
-461,birthday cards had the letter Z in them,None,0,wonkiness
-461,balls of tin foil exploded,Some,1,wonkiness
-461,gas tanks exploded,Some,1,wonkiness
-461,sequins stuck,None,1,wonkiness
-461,white shirts got stained,Some,1,wonkiness
-461,new cars beeped,Some,0,wonkiness
-461,boxes broke,Some,1,wonkiness
-461,chocolate bars froze,Some,1,wonkiness
-461,shelves fell down,Some,0,wonkiness
-462,cars stopped,None,1,wonkiness
-462,ice cubes melted,Some,1,wonkiness
-462,new cars beeped,None,1,wonkiness
-462,white shirts got stained,Some,1,wonkiness
-462,balloons popped,All,0,wonkiness
-462,pieces of gum stuck to the wall,Some,0,wonkiness
-462,pancakes landed flat,Some,1,wonkiness
-462,beads stuck,None,1,wonkiness
-462,limericks rhymed,None,1,wonkiness
-462,balloons sank,Some,1,wonkiness
-462,oreos dissolved,Some,1,wonkiness
-462,computers lit up,All,0,wonkiness
-462,books ripped,All,0,wonkiness
-462,pinecones decomposed,Some,0,wonkiness
-462,CDs exploded,None,0,wonkiness
-462,backpacks blew away,Some,1,wonkiness
-462,birthday cards had the letter Z in them,All,1,wonkiness
-462,lawyers laughed,All,0,wonkiness
-462,wheelchairs rolled,Some,0,wonkiness
-462,boxes broke,Some,1,wonkiness
-463,pinecones decomposed,All,0,wonkiness
-463,toy cars rolled,All,0,wonkiness
-463,white carpets got stained,All,0,wonkiness
-463,phones ran out of batteries,Some,0,wonkiness
-463,ice cubes melted,Some,0,wonkiness
-463,sunglasses broke,Some,1,wonkiness
-463,cd-players lit up,None,1,wonkiness
-463,poems rhymed,None,1,wonkiness
-463,matches burnt,Some,1,wonkiness
-463,marbles sank,Some,1,wonkiness
-463,phone screens reflected the sunlight,None,1,wonkiness
-463,gas tanks exploded,Some,1,wonkiness
-463,sugar cubes dissolved,Some,1,wonkiness
-463,bicyclists honked,Some,0,wonkiness
-463,motorcycles stopped,None,1,wonkiness
-463,lawyers laughed,Some,0,wonkiness
-463,phones flashed,Some,0,wonkiness
-463,stickers stuck,None,1,wonkiness
-463,bananas were green,All,0,wonkiness
-463,napkins blew away,All,0,wonkiness
-464,phone screens reflected the sunlight,Some,0,wonkiness
-464,candles exploded,Some,1,wonkiness
-464,birds ate the seeds,Some,0,wonkiness
-464,berries froze,All,0,wonkiness
-464,backpacks blew away,None,0,wonkiness
-464,logs broke,All,0,wonkiness
-464,books ripped,All,0,wonkiness
-464,card towers fell down,Some,0,wonkiness
-464,old cars beeped,Some,0,wonkiness
-464,birthday cards had the letter Z in them,Some,0,wonkiness
-464,flashlights lit up,None,1,wonkiness
-464,ice cubes melted,Some,0,wonkiness
-464,bicycles stopped,All,0,wonkiness
-464,phones ran out of batteries,None,1,wonkiness
-464,stickers stuck,Some,0,wonkiness
-464,matches burnt,None,1,wonkiness
-464,comedians laughed,Some,1,wonkiness
-464,bananas were green,None,0,wonkiness
-464,cakes stuck to the wall,All,0,wonkiness
-464,poems rhymed,Some,0,wonkiness
-465,motorcycles stopped,Some,0,wonkiness
-465,fireworks exploded,All,0,wonkiness
-465,pancakes landed flat,Some,0,wonkiness
-465,block towers fell down,Some,1,wonkiness
-465,boxes broke,Some,1,wonkiness
-465,bananas were green,None,1,wonkiness
-465,phone screens reflected the sunlight,All,0,wonkiness
-465,CDs exploded,None,0,wonkiness
-465,books burnt,All,1,wonkiness
-465,eggs popped,All,0,wonkiness
-465,cd-players lit up,None,0,wonkiness
-465,bottles of hand soap froze,None,1,wonkiness
-465,poems rhymed,Some,0,wonkiness
-465,novels had the letter Z in them,Some,1,wonkiness
-465,comedians laughed,None,1,wonkiness
-465,balloons sank,Some,0,wonkiness
-465,crayons melted,Some,1,wonkiness
-465,shoes ripped,Some,0,wonkiness
-465,shopping carts rolled,Some,1,wonkiness
-465,birds ate the seeds,All,0,wonkiness
-466,crayons melted,Some,0,wonkiness
-466,fireworks exploded,None,1,wonkiness
-466,love notes had the letter Z in them,Some,0,wonkiness
-466,bananas were green,All,0,wonkiness
-466,butterflies ate the seeds,Some,0,wonkiness
-466,computers lit up,Some,0,wonkiness
-466,bicyclists honked,Some,1,wonkiness
-466,cameras flashed,All,0,wonkiness
-466,songs rhymed,All,0,wonkiness
-466,notebooks landed flat,None,1,wonkiness
-466,hats blew away,None,1,wonkiness
-466,shirts ripped,Some,0,wonkiness
-466,houses beeped,Some,1,wonkiness
-466,eggs exploded,None,1,wonkiness
-466,sugar cubes dissolved,None,1,wonkiness
-466,stickers stuck,All,0,wonkiness
-466,white tablecloths got stained,Some,0,wonkiness
-466,soda cans decomposed,Some,1,wonkiness
-466,phones ran out of batteries,Some,0,wonkiness
-466,sunglasses broke,All,0,wonkiness
-467,block towers fell down,Some,0,wonkiness
-467,comedians laughed,None,0,wonkiness
-467,cd-players lit up,None,1,wonkiness
-467,logs broke,Some,0,wonkiness
-467,chocolate bars froze,Some,0,wonkiness
-467,notebooks landed flat,Some,1,wonkiness
-467,new cars beeped,All,1,wonkiness
-467,napkins blew away,All,0,wonkiness
-467,laptops ran out of batteries,None,1,wonkiness
-467,songs rhymed,All,0,wonkiness
-467,CDs exploded,Some,0,wonkiness
-467,banana peels decomposed,Some,0,wonkiness
-467,birds ate the seeds,Some,0,wonkiness
-467,mirrors reflected the sunlight,Some,1,wonkiness
-467,toy cars rolled,None,1,wonkiness
-467,cakes stuck to the wall,All,0,wonkiness
-467,novels had the letter Z in them,Some,1,wonkiness
-467,candles exploded,None,0,wonkiness
-467,rocks burnt,Some,1,wonkiness
-467,crayons melted,All,0,wonkiness
-468,birds ate the seeds,All,0,wonkiness
-468,pieces of gum stuck to the wall,Some,0,wonkiness
-468,fireworks exploded,Some,1,wonkiness
-468,bubbles popped,Some,1,wonkiness
-468,flashlights lit up,All,0,wonkiness
-468,beads stuck,Some,1,wonkiness
-468,bicycles stopped,Some,1,wonkiness
-468,cups sank,None,1,wonkiness
-468,bananas were green,None,0,wonkiness
-468,songs rhymed,None,1,wonkiness
-468,pinecones decomposed,None,1,wonkiness
-468,pancakes landed flat,All,0,wonkiness
-468,shelves fell down,Some,0,wonkiness
-468,rocks burnt,All,0,wonkiness
-468,logs broke,Some,1,wonkiness
-468,comedians laughed,Some,0,wonkiness
-468,chocolate bars froze,All,0,wonkiness
-468,toy cars rolled,Some,1,wonkiness
-468,hats blew away,None,1,wonkiness
-468,bus drivers honked,Some,1,wonkiness
-469,fireworks exploded,None,1,wonkiness
-469,oreos dissolved,Some,0,wonkiness
-469,soda cans decomposed,Some,1,wonkiness
-469,backpacks blew away,None,0,wonkiness
-469,chocolate bars froze,Some,1,wonkiness
-469,houses beeped,Some,0,wonkiness
-469,stickers stuck,All,0,wonkiness
-469,flashlights lit up,All,0,wonkiness
-469,songs rhymed,None,1,wonkiness
-469,cups sank,All,0,wonkiness
-469,balls of tin foil exploded,Some,1,wonkiness
-469,comedians laughed,Some,0,wonkiness
-469,shelves fell down,All,1,wonkiness
-469,mirrors reflected the sunlight,None,1,wonkiness
-469,phones ran out of batteries,Some,0,wonkiness
-469,sunglasses broke,All,0,wonkiness
-469,taxi drivers honked,Some,0,wonkiness
-469,toy cars rolled,None,1,wonkiness
-469,cakes stuck to the wall,Some,0,wonkiness
-469,pancakes landed flat,Some,0,wonkiness
-470,pinecones decomposed,Some,0,wonkiness
-470,old cars beeped,None,0,wonkiness
-470,webcams flashed,All,1,wonkiness
-470,gas tanks exploded,All,0,wonkiness
-470,bottles of hand soap froze,Some,0,wonkiness
-470,napkins blew away,Some,0,wonkiness
-470,birds ate the seeds,All,0,wonkiness
-470,oreos dissolved,Some,0,wonkiness
-470,cd-players lit up,Some,0,wonkiness
-470,shirts ripped,All,0,wonkiness
-470,card towers fell down,All,0,wonkiness
-470,laptops ran out of batteries,Some,0,wonkiness
-470,beads stuck,None,1,wonkiness
-470,crayons melted,None,1,wonkiness
-470,shopping carts rolled,None,1,wonkiness
-470,phone screens reflected the sunlight,None,1,wonkiness
-470,bicyclists honked,Some,0,wonkiness
-470,clovers were green,Some,0,wonkiness
-470,matches burnt,Some,0,wonkiness
-470,white tablecloths got stained,Some,0,wonkiness
-471,soda cans decomposed,Some,1,wonkiness
-471,balloons sank,None,0,wonkiness
-471,motorcycles stopped,None,1,wonkiness
-471,shopping carts rolled,Some,0,wonkiness
-471,balls of tin foil exploded,Some,0,wonkiness
-471,dogs ate the seeds,Some,1,wonkiness
-471,matches burnt,Some,0,wonkiness
-471,comedians laughed,Some,0,wonkiness
-471,sugar cubes dissolved,All,0,wonkiness
-471,baseballs stuck to the wall,All,1,wonkiness
-471,flashlights lit up,All,0,wonkiness
-471,sequins stuck,Some,0,wonkiness
-471,coins landed flat,Some,0,wonkiness
-471,songs rhymed,None,0,wonkiness
-471,boxes broke,None,1,wonkiness
-471,block towers fell down,None,1,wonkiness
-471,bananas were green,Some,0,wonkiness
-471,bottles of hand soap froze,Some,0,wonkiness
-471,bubbles popped,All,0,wonkiness
-471,taxi drivers honked,All,0,wonkiness
-472,logs broke,None,1,wonkiness
-472,oreos dissolved,Some,0,wonkiness
-472,ice cubes melted,Some,1,wonkiness
-472,novels had the letter Z in them,Some,0,wonkiness
-472,backpacks blew away,All,0,wonkiness
-472,cups sank,Some,0,wonkiness
-472,diamonds reflected the sunlight,Some,1,wonkiness
-472,songs rhymed,Some,0,wonkiness
-472,pinecones decomposed,All,0,wonkiness
-472,shopping carts rolled,All,0,wonkiness
-472,comedians laughed,None,0,wonkiness
-472,sequins stuck,None,1,wonkiness
-472,phones ran out of batteries,None,0,wonkiness
-472,bubbles popped,Some,1,wonkiness
-472,motorcycles stopped,All,0,wonkiness
-472,taxi drivers honked,Some,0,wonkiness
-472,gas tanks exploded,Some,1,wonkiness
-472,phones flashed,None,0,wonkiness
-472,clovers were green,Some,0,wonkiness
-472,white shirts got stained,All,0,wonkiness
-473,limericks rhymed,Some,0,wonkiness
-473,rocks burnt,None,0,wonkiness
-473,pinecones decomposed,Some,0,wonkiness
-473,cups sank,None,0,wonkiness
-473,white shirts got stained,All,0,wonkiness
-473,lawyers laughed,Some,0,wonkiness
-473,books ripped,None,0,wonkiness
-473,sugar cubes dissolved,Some,0,wonkiness
-473,laptops ran out of batteries,Some,0,wonkiness
-473,gas tanks exploded,Some,0,wonkiness
-473,shelves fell down,Some,0,wonkiness
-473,computers lit up,All,0,wonkiness
-473,phones flashed,None,0,wonkiness
-473,pancakes landed flat,All,0,wonkiness
-473,stickers stuck,Some,0,wonkiness
-473,strawberries were green,All,1,wonkiness
-473,houses beeped,Some,1,wonkiness
-473,bicycles stopped,All,0,wonkiness
-473,hats blew away,None,0,wonkiness
-473,berries froze,Some,0,wonkiness
-474,cups sank,Some,0,wonkiness
-474,limericks rhymed,All,0,wonkiness
-474,ice cubes melted,Some,1,wonkiness
-474,chocolate bars froze,None,1,wonkiness
-474,eggs popped,All,0,wonkiness
-474,backpacks blew away,Some,0,wonkiness
-474,shelves fell down,None,0,wonkiness
-474,pancakes landed flat,Some,0,wonkiness
-474,white carpets got stained,None,1,wonkiness
-474,houses beeped,Some,1,wonkiness
-474,eggs exploded,Some,0,wonkiness
-474,phones ran out of batteries,Some,0,wonkiness
-474,lawyers laughed,All,0,wonkiness
-474,candles exploded,Some,1,wonkiness
-474,phones flashed,Some,0,wonkiness
-474,mirrors reflected the sunlight,All,0,wonkiness
-474,books ripped,None,1,wonkiness
-474,baseballs stuck to the wall,Some,1,wonkiness
-474,sunglasses broke,All,0,wonkiness
-474,novels had the letter Z in them,None,0,wonkiness
-475,wheelchairs rolled,None,0,wonkiness
-475,diamonds reflected the sunlight,Some,0,wonkiness
-475,carrots dissolved,Some,1,wonkiness
-475,shelves fell down,Some,0,wonkiness
-475,berries froze,Some,0,wonkiness
-475,gas tanks exploded,Some,1,wonkiness
-475,bubbles popped,All,0,wonkiness
-475,sequins stuck,Some,0,wonkiness
-475,baseballs stuck to the wall,None,0,wonkiness
-475,birds ate the seeds,All,0,wonkiness
-475,books ripped,Some,0,wonkiness
-475,sunglasses broke,None,0,wonkiness
-475,cups sank,Some,0,wonkiness
-475,kids laughed,None,1,wonkiness
-475,new cars beeped,Some,0,wonkiness
-475,cars stopped,All,0,wonkiness
-475,crayons melted,Some,0,wonkiness
-475,soda cans decomposed,All,1,wonkiness
-475,rocks burnt,All,1,wonkiness
-475,notebooks landed flat,None,0,wonkiness
-476,pinecones decomposed,All,0,wonkiness
-476,bottles of hand soap froze,None,1,wonkiness
-476,shoes ripped,All,0,wonkiness
-476,motorcycles stopped,None,1,wonkiness
-476,stickers stuck,None,1,wonkiness
-476,rocks burnt,Some,0,wonkiness
-476,strawberries were green,Some,0,wonkiness
-476,laptops ran out of batteries,Some,0,wonkiness
-476,pencils melted,None,0,wonkiness
-476,diamonds reflected the sunlight,Some,0,wonkiness
-476,love notes had the letter Z in them,All,1,wonkiness
-476,flashlights lit up,All,0,wonkiness
-476,white shirts got stained,Some,0,wonkiness
-476,cameras flashed,Some,0,wonkiness
-476,pancakes landed flat,Some,0,wonkiness
-476,new cars beeped,All,0,wonkiness
-476,butterflies ate the seeds,Some,1,wonkiness
-476,limericks rhymed,Some,0,wonkiness
-476,carrots dissolved,Some,1,wonkiness
-476,eggs popped,None,1,wonkiness
-477,rocks burnt,All,1,wonkiness
-477,books ripped,None,1,wonkiness
-477,diamonds reflected the sunlight,All,0,wonkiness
-477,white carpets got stained,Some,0,wonkiness
-477,cd-players lit up,All,0,wonkiness
-477,carrots dissolved,Some,1,wonkiness
-477,laptops ran out of batteries,All,0,wonkiness
-477,shelves fell down,Some,0,wonkiness
-477,logs broke,All,1,wonkiness
-477,dogs ate the seeds,None,0,wonkiness
-477,poems rhymed,Some,0,wonkiness
-477,bicycles stopped,Some,1,wonkiness
-477,pancakes landed flat,Some,0,wonkiness
-477,soda cans decomposed,Some,1,wonkiness
-477,ice cubes melted,Some,0,wonkiness
-477,baseballs stuck to the wall,None,0,wonkiness
-477,sequins stuck,None,0,wonkiness
-477,berries froze,None,1,wonkiness
-477,new cars beeped,Some,0,wonkiness
-477,fireworks exploded,Some,0,wonkiness
-478,notebooks landed flat,Some,0,wonkiness
-478,shoes ripped,Some,0,wonkiness
-478,baseballs stuck to the wall,All,1,wonkiness
-478,flashlights lit up,None,1,wonkiness
-478,berries froze,Some,0,wonkiness
-478,old cars beeped,Some,0,wonkiness
-478,matches burnt,None,1,wonkiness
-478,phones flashed,Some,0,wonkiness
-478,crayons melted,All,0,wonkiness
-478,block towers fell down,None,1,wonkiness
-478,songs rhymed,Some,0,wonkiness
-478,butterflies ate the seeds,All,0,wonkiness
-478,balloons popped,All,0,wonkiness
-478,novels had the letter Z in them,None,1,wonkiness
-478,toy cars rolled,Some,0,wonkiness
-478,mirrors reflected the sunlight,Some,0,wonkiness
-478,white tablecloths got stained,None,1,wonkiness
-478,candles exploded,Some,1,wonkiness
-478,backpacks blew away,Some,0,wonkiness
-478,stickers stuck,All,0,wonkiness
-479,notebooks landed flat,All,0,wonkiness
-479,banana peels decomposed,Some,0,wonkiness
-479,mirrors reflected the sunlight,None,1,wonkiness
-479,carrots dissolved,None,0,wonkiness
-479,napkins blew away,Some,0,wonkiness
-479,songs rhymed,None,1,wonkiness
-479,butterflies ate the seeds,Some,0,wonkiness
-479,balloons sank,All,1,wonkiness
-479,bicycles stopped,Some,1,wonkiness
-479,strawberries were green,None,0,wonkiness
-479,logs broke,None,0,wonkiness
-479,sequins stuck,Some,0,wonkiness
-479,pencils melted,Some,1,wonkiness
-479,shopping carts rolled,Some,1,wonkiness
-479,block towers fell down,All,0,wonkiness
-479,white shirts got stained,Some,1,wonkiness
-479,books burnt,All,0,wonkiness
-479,shoes ripped,Some,0,wonkiness
-479,old cars beeped,All,0,wonkiness
-479,balls of tin foil exploded,Some,1,wonkiness
+360,reflected the sunlight phone screens,None,1,wonkiness
+360,rolled wheelchairs,All,0,wonkiness
+360,flashed webcams,None,1,wonkiness
+360,stuck stickers,Some,0,wonkiness
+360,burnt matches,None,1,wonkiness
+360,fell down shelves,Some,0,wonkiness
+360,ripped shirts,All,0,wonkiness
+360,melted pencils,Some,1,wonkiness
+360,blew away napkins,Some,0,wonkiness
+360,decomposed banana peels,Some,0,wonkiness
+360,froze chocolate bars,Some,0,wonkiness
+360,landed flat coins,Some,0,wonkiness
+360,ran out of batteries bike lights,None,0,wonkiness
+360,lit up flashlights,None,0,wonkiness
+360,popped eggs,All,1,wonkiness
+360,exploded fireworks,All,0,wonkiness
+360,had the letter Z in them birthday cards,Some,0,wonkiness
+360,dissolved carrots,Some,1,wonkiness
+360,rhymed songs,Some,0,wonkiness
+360,were green strawberries,All,0,wonkiness
+361,popped eggs,All,1,wonkiness
+361,froze bottles of hand soap,Some,0,wonkiness
+361,ate the seeds dogs,None,0,wonkiness
+361,got stained white carpets,All,0,wonkiness
+361,beeped houses,Some,1,wonkiness
+361,exploded fireworks,Some,0,wonkiness
+361,melted ice cubes,None,1,wonkiness
+361,exploded eggs,Some,1,wonkiness
+361,flashed webcams,Some,1,wonkiness
+361,honked bus drivers,None,0,wonkiness
+361,stuck to the wall pieces of gum,Some,0,wonkiness
+361,stopped motorcycles,Some,0,wonkiness
+361,rhymed songs,Some,0,wonkiness
+361,landed flat pancakes,All,0,wonkiness
+361,had the letter Z in them love notes,None,0,wonkiness
+361,were green clovers,All,0,wonkiness
+361,lit up cd-players,All,1,wonkiness
+361,sank balloons,Some,1,wonkiness
+361,broke boxes,Some,0,wonkiness
+361,blew away hats,None,1,wonkiness
+362,ripped shoes,Some,0,wonkiness
+362,stuck to the wall baseballs,All,1,wonkiness
+362,beeped new cars,None,1,wonkiness
+362,exploded balls of tin foil,All,0,wonkiness
+362,laughed kids,None,0,wonkiness
+362,landed flat notebooks,Some,0,wonkiness
+362,froze bottles of hand soap,All,0,wonkiness
+362,fell down shelves,Some,0,wonkiness
+362,decomposed banana peels,Some,1,wonkiness
+362,ate the seeds butterflies,None,0,wonkiness
+362,lit up computers,Some,1,wonkiness
+362,popped eggs,Some,1,wonkiness
+362,reflected the sunlight phone screens,Some,0,wonkiness
+362,stopped cars,Some,1,wonkiness
+362,rhymed songs,None,1,wonkiness
+362,stuck sequins,Some,0,wonkiness
+362,sank cups,All,1,wonkiness
+362,honked bus drivers,All,0,wonkiness
+362,ran out of batteries laptops,Some,1,wonkiness
+362,had the letter Z in them love notes,None,0,wonkiness
+363,popped bubbles,None,1,wonkiness
+363,ate the seeds dogs,Some,0,wonkiness
+363,stopped bicycles,Some,0,wonkiness
+363,fell down card towers,All,1,wonkiness
+363,rolled shopping carts,None,1,wonkiness
+363,flashed phones,None,1,wonkiness
+363,laughed kids,All,0,wonkiness
+363,beeped new cars,All,0,wonkiness
+363,rhymed poems,Some,0,wonkiness
+363,melted crayons,Some,0,wonkiness
+363,landed flat pancakes,None,1,wonkiness
+363,blew away napkins,Some,0,wonkiness
+363,sank marbles,Some,0,wonkiness
+363,exploded eggs,Some,0,wonkiness
+363,lit up computers,Some,0,wonkiness
+363,broke logs,All,1,wonkiness
+363,reflected the sunlight diamonds,Some,1,wonkiness
+363,dissolved sugar cubes,None,0,wonkiness
+363,were green clovers,All,0,wonkiness
+363,had the letter Z in them love notes,Some,0,wonkiness
+364,exploded eggs,None,0,wonkiness
+364,stopped motorcycles,None,1,wonkiness
+364,beeped old cars,Some,0,wonkiness
+364,stuck to the wall cakes,None,0,wonkiness
+364,fell down block towers,Some,0,wonkiness
+364,had the letter Z in them love notes,All,1,wonkiness
+364,were green bananas,Some,0,wonkiness
+364,got stained white tablecloths,All,0,wonkiness
+364,broke boxes,Some,0,wonkiness
+364,froze berries,None,1,wonkiness
+364,ate the seeds butterflies,Some,0,wonkiness
+364,exploded candles,All,1,wonkiness
+364,honked bicyclists,None,0,wonkiness
+364,decomposed pinecones,All,0,wonkiness
+364,rolled wheelchairs,Some,0,wonkiness
+364,flashed cameras,Some,0,wonkiness
+364,melted pencils,Some,0,wonkiness
+364,reflected the sunlight diamonds,All,0,wonkiness
+364,rhymed limericks,Some,0,wonkiness
+364,lit up computers,Some,0,wonkiness
+365,blew away hats,Some,0,wonkiness
+365,reflected the sunlight mirrors,Some,0,wonkiness
+365,sank balloons,Some,1,wonkiness
+365,burnt rocks,None,0,wonkiness
+365,landed flat coins,Some,0,wonkiness
+365,stuck stickers,Some,0,wonkiness
+365,honked bicyclists,Some,0,wonkiness
+365,beeped old cars,None,0,wonkiness
+365,ripped shirts,Some,0,wonkiness
+365,dissolved sugar cubes,Some,0,wonkiness
+365,fell down block towers,None,1,wonkiness
+365,decomposed banana peels,None,1,wonkiness
+365,ate the seeds birds,All,0,wonkiness
+365,lit up computers,Some,0,wonkiness
+365,were green strawberries,All,1,wonkiness
+365,popped bubbles,All,0,wonkiness
+365,laughed kids,Some,0,wonkiness
+365,stuck to the wall baseballs,All,1,wonkiness
+365,flashed phones,All,1,wonkiness
+365,exploded gas tanks,None,1,wonkiness
+366,exploded eggs,Some,1,wonkiness
+366,dissolved sugar cubes,All,0,wonkiness
+366,stopped bicycles,Some,1,wonkiness
+366,landed flat pancakes,None,1,wonkiness
+366,broke boxes,Some,0,wonkiness
+366,had the letter Z in them birthday cards,Some,0,wonkiness
+366,honked bus drivers,None,1,wonkiness
+366,beeped houses,None,1,wonkiness
+366,ripped shirts,None,0,wonkiness
+366,stuck beads,Some,1,wonkiness
+366,got stained white carpets,All,1,wonkiness
+366,rhymed songs,Some,1,wonkiness
+366,lit up flashlights,Some,1,wonkiness
+366,flashed webcams,All,1,wonkiness
+366,froze chocolate bars,All,0,wonkiness
+366,ate the seeds birds,Some,0,wonkiness
+366,melted ice cubes,Some,1,wonkiness
+366,fell down block towers,Some,1,wonkiness
+366,blew away napkins,None,0,wonkiness
+366,ran out of batteries laptops,All,1,wonkiness
+367,blew away hats,Some,0,wonkiness
+367,ran out of batteries laptops,Some,1,wonkiness
+367,honked taxi drivers,Some,0,wonkiness
+367,broke sunglasses,None,1,wonkiness
+367,lit up cd-players,Some,0,wonkiness
+367,ripped shirts,Some,0,wonkiness
+367,exploded balls of tin foil,Some,0,wonkiness
+367,popped eggs,None,1,wonkiness
+367,decomposed soda cans,None,0,wonkiness
+367,melted pencils,All,1,wonkiness
+367,froze berries,None,1,wonkiness
+367,fell down shelves,Some,0,wonkiness
+367,flashed cameras,All,0,wonkiness
+367,stuck to the wall cakes,Some,0,wonkiness
+367,stuck sequins,All,0,wonkiness
+367,stopped bicycles,All,0,wonkiness
+367,had the letter Z in them novels,None,0,wonkiness
+367,exploded gas tanks,Some,0,wonkiness
+367,got stained white tablecloths,All,0,wonkiness
+367,were green clovers,Some,0,wonkiness
+368,had the letter Z in them love notes,All,1,wonkiness
+368,laughed lawyers,Some,0,wonkiness
+368,were green clovers,Some,0,wonkiness
+368,blew away backpacks,Some,0,wonkiness
+368,landed flat coins,All,0,wonkiness
+368,beeped new cars,Some,0,wonkiness
+368,ate the seeds butterflies,None,0,wonkiness
+368,rhymed songs,Some,0,wonkiness
+368,decomposed banana peels,All,0,wonkiness
+368,stuck to the wall pieces of gum,Some,0,wonkiness
+368,exploded balls of tin foil,Some,0,wonkiness
+368,ran out of batteries bike lights,None,1,wonkiness
+368,burnt rocks,All,0,wonkiness
+368,froze chocolate bars,None,1,wonkiness
+368,stuck stickers,All,0,wonkiness
+368,dissolved oreos,None,1,wonkiness
+368,sank balloons,Some,1,wonkiness
+368,flashed webcams,Some,1,wonkiness
+368,broke logs,None,0,wonkiness
+368,stopped bicycles,Some,0,wonkiness
+369,decomposed pinecones,Some,0,wonkiness
+369,melted ice cubes,Some,1,wonkiness
+369,rhymed poems,All,1,wonkiness
+369,honked taxi drivers,None,1,wonkiness
+369,broke logs,All,1,wonkiness
+369,had the letter Z in them birthday cards,Some,1,wonkiness
+369,reflected the sunlight diamonds,All,0,wonkiness
+369,popped bubbles,Some,1,wonkiness
+369,blew away backpacks,All,1,wonkiness
+369,ran out of batteries bike lights,Some,0,wonkiness
+369,froze berries,None,1,wonkiness
+369,landed flat coins,Some,0,wonkiness
+369,beeped houses,Some,1,wonkiness
+369,stuck to the wall cakes,None,1,wonkiness
+369,ripped books,Some,0,wonkiness
+369,stuck sequins,All,0,wonkiness
+369,burnt matches,None,1,wonkiness
+369,laughed kids,Some,1,wonkiness
+369,rolled toy cars,None,1,wonkiness
+369,fell down card towers,Some,1,wonkiness
+370,fell down card towers,Some,1,wonkiness
+370,burnt books,Some,0,wonkiness
+370,stuck to the wall cakes,Some,0,wonkiness
+370,sank cups,All,1,wonkiness
+370,had the letter Z in them birthday cards,Some,0,wonkiness
+370,rhymed songs,All,0,wonkiness
+370,were green strawberries,All,0,wonkiness
+370,laughed lawyers,None,0,wonkiness
+370,froze chocolate bars,None,1,wonkiness
+370,stuck stickers,Some,0,wonkiness
+370,ate the seeds dogs,All,0,wonkiness
+370,flashed webcams,None,0,wonkiness
+370,decomposed soda cans,Some,1,wonkiness
+370,melted pencils,None,0,wonkiness
+370,reflected the sunlight phone screens,None,0,wonkiness
+370,exploded candles,Some,1,wonkiness
+370,landed flat pancakes,Some,0,wonkiness
+370,popped balloons,Some,0,wonkiness
+370,got stained white carpets,All,0,wonkiness
+370,blew away backpacks,Some,0,wonkiness
+371,stuck sequins,Some,0,wonkiness
+371,ripped shoes,Some,1,wonkiness
+371,dissolved sugar cubes,All,0,wonkiness
+371,ran out of batteries laptops,None,1,wonkiness
+371,landed flat coins,Some,0,wonkiness
+371,decomposed banana peels,Some,0,wonkiness
+371,stopped bicycles,All,0,wonkiness
+371,rolled toy cars,None,1,wonkiness
+371,lit up computers,None,1,wonkiness
+371,broke sunglasses,Some,1,wonkiness
+371,exploded candles,None,0,wonkiness
+371,ate the seeds birds,None,1,wonkiness
+371,beeped new cars,All,1,wonkiness
+371,flashed webcams,Some,0,wonkiness
+371,popped bubbles,Some,1,wonkiness
+371,got stained white shirts,Some,1,wonkiness
+371,froze bottles of hand soap,All,0,wonkiness
+371,burnt matches,Some,1,wonkiness
+371,laughed kids,All,0,wonkiness
+371,honked taxi drivers,Some,0,wonkiness
+372,froze chocolate bars,Some,0,wonkiness
+372,popped eggs,All,0,wonkiness
+372,melted ice cubes,All,0,wonkiness
+372,rolled toy cars,Some,1,wonkiness
+372,dissolved sugar cubes,None,1,wonkiness
+372,flashed cameras,None,1,wonkiness
+372,burnt books,None,1,wonkiness
+372,honked bicyclists,Some,0,wonkiness
+372,had the letter Z in them birthday cards,None,0,wonkiness
+372,decomposed soda cans,All,1,wonkiness
+372,ran out of batteries phones,Some,1,wonkiness
+372,landed flat notebooks,Some,0,wonkiness
+372,ate the seeds dogs,Some,1,wonkiness
+372,reflected the sunlight mirrors,All,0,wonkiness
+372,stopped cars,Some,0,wonkiness
+372,rhymed poems,Some,0,wonkiness
+372,sank marbles,All,0,wonkiness
+372,exploded candles,Some,1,wonkiness
+372,ripped shoes,Some,0,wonkiness
+372,broke sunglasses,None,1,wonkiness
+373,had the letter Z in them birthday cards,Some,1,wonkiness
+373,flashed cameras,Some,0,wonkiness
+373,beeped new cars,Some,1,wonkiness
+373,fell down card towers,Some,0,wonkiness
+373,rhymed limericks,Some,0,wonkiness
+373,reflected the sunlight diamonds,Some,0,wonkiness
+373,laughed comedians,All,0,wonkiness
+373,stuck to the wall pieces of gum,Some,0,wonkiness
+373,honked bicyclists,All,0,wonkiness
+373,lit up computers,None,1,wonkiness
+373,burnt matches,All,0,wonkiness
+373,melted pencils,All,1,wonkiness
+373,decomposed banana peels,All,0,wonkiness
+373,landed flat coins,None,1,wonkiness
+373,dissolved carrots,Some,1,wonkiness
+373,were green bananas,None,0,wonkiness
+373,rolled shopping carts,None,1,wonkiness
+373,popped balloons,None,1,wonkiness
+373,stopped motorcycles,Some,0,wonkiness
+373,ran out of batteries laptops,Some,0,wonkiness
+374,ripped shoes,All,0,wonkiness
+374,were green strawberries,Some,0,wonkiness
+374,laughed kids,Some,0,wonkiness
+374,stuck to the wall cakes,Some,0,wonkiness
+374,melted ice cubes,Some,0,wonkiness
+374,froze chocolate bars,None,1,wonkiness
+374,flashed webcams,None,0,wonkiness
+374,rolled wheelchairs,Some,0,wonkiness
+374,had the letter Z in them birthday cards,Some,0,wonkiness
+374,ate the seeds butterflies,Some,1,wonkiness
+374,lit up flashlights,None,0,wonkiness
+374,stopped motorcycles,Some,0,wonkiness
+374,ran out of batteries bike lights,All,0,wonkiness
+374,got stained white shirts,All,0,wonkiness
+374,exploded gas tanks,Some,0,wonkiness
+374,rhymed songs,All,1,wonkiness
+374,decomposed soda cans,None,0,wonkiness
+374,popped eggs,Some,0,wonkiness
+374,dissolved sugar cubes,All,0,wonkiness
+374,beeped new cars,None,1,wonkiness
+375,sank cups,All,0,wonkiness
+375,fell down shelves,Some,0,wonkiness
+375,ran out of batteries bike lights,Some,0,wonkiness
+375,laughed lawyers,None,1,wonkiness
+375,got stained white shirts,Some,0,wonkiness
+375,stuck beads,Some,0,wonkiness
+375,lit up flashlights,Some,0,wonkiness
+375,ate the seeds dogs,None,1,wonkiness
+375,ripped shoes,All,0,wonkiness
+375,stuck to the wall baseballs,Some,1,wonkiness
+375,landed flat notebooks,None,1,wonkiness
+375,exploded fireworks,None,1,wonkiness
+375,were green strawberries,Some,1,wonkiness
+375,dissolved carrots,Some,1,wonkiness
+375,rolled wheelchairs,None,1,wonkiness
+375,froze berries,Some,0,wonkiness
+375,beeped old cars,Some,0,wonkiness
+375,exploded eggs,All,0,wonkiness
+375,stopped motorcycles,All,0,wonkiness
+375,melted crayons,All,0,wonkiness
+376,blew away napkins,None,1,wonkiness
+376,burnt matches,Some,1,wonkiness
+376,had the letter Z in them love notes,Some,1,wonkiness
+376,decomposed pinecones,None,1,wonkiness
+376,fell down block towers,All,1,wonkiness
+376,stuck stickers,None,1,wonkiness
+376,landed flat pancakes,Some,1,wonkiness
+376,rhymed limericks,All,1,wonkiness
+376,sank cups,None,1,wonkiness
+376,exploded candles,All,1,wonkiness
+376,stuck to the wall pieces of gum,All,0,wonkiness
+376,rolled shopping carts,Some,1,wonkiness
+376,honked bicyclists,Some,0,wonkiness
+376,reflected the sunlight phone screens,Some,1,wonkiness
+376,laughed comedians,Some,0,wonkiness
+376,ran out of batteries phones,Some,0,wonkiness
+376,beeped houses,Some,1,wonkiness
+376,froze berries,All,0,wonkiness
+376,broke logs,None,0,wonkiness
+376,lit up cd-players,Some,1,wonkiness
+377,had the letter Z in them novels,Some,0,wonkiness
+377,rhymed poems,Some,0,wonkiness
+377,laughed lawyers,All,0,wonkiness
+377,ate the seeds dogs,Some,0,wonkiness
+377,ran out of batteries phones,All,0,wonkiness
+377,ripped books,None,1,wonkiness
+377,were green clovers,Some,0,wonkiness
+377,rolled shopping carts,Some,0,wonkiness
+377,broke sunglasses,None,1,wonkiness
+377,popped bubbles,Some,1,wonkiness
+377,reflected the sunlight phone screens,All,0,wonkiness
+377,burnt rocks,None,0,wonkiness
+377,stuck beads,All,0,wonkiness
+377,exploded fireworks,None,1,wonkiness
+377,sank cups,Some,0,wonkiness
+377,landed flat coins,All,0,wonkiness
+377,stopped bicycles,Some,1,wonkiness
+377,decomposed soda cans,Some,1,wonkiness
+377,beeped new cars,Some,1,wonkiness
+377,got stained white tablecloths,None,1,wonkiness
+378,melted ice cubes,Some,1,wonkiness
+378,stuck to the wall pieces of gum,Some,0,wonkiness
+378,broke boxes,None,1,wonkiness
+378,honked taxi drivers,Some,0,wonkiness
+378,stuck sequins,All,0,wonkiness
+378,ran out of batteries bike lights,All,0,wonkiness
+378,blew away backpacks,All,1,wonkiness
+378,were green bananas,Some,0,wonkiness
+378,reflected the sunlight phone screens,Some,0,wonkiness
+378,rhymed poems,None,1,wonkiness
+378,popped bubbles,Some,1,wonkiness
+378,ate the seeds birds,Some,0,wonkiness
+378,laughed comedians,None,0,wonkiness
+378,ripped shoes,Some,0,wonkiness
+378,exploded fireworks,None,1,wonkiness
+378,had the letter Z in them novels,None,0,wonkiness
+378,got stained white carpets,Some,0,wonkiness
+378,froze chocolate bars,All,0,wonkiness
+378,dissolved sugar cubes,All,0,wonkiness
+378,sank balloons,Some,1,wonkiness
+379,decomposed banana peels,All,0,wonkiness
+379,ate the seeds butterflies,Some,1,wonkiness
+379,laughed kids,All,0,wonkiness
+379,melted pencils,None,0,wonkiness
+379,rhymed songs,All,1,wonkiness
+379,broke logs,None,0,wonkiness
+379,exploded balls of tin foil,Some,0,wonkiness
+379,flashed cameras,None,1,wonkiness
+379,honked bus drivers,Some,0,wonkiness
+379,reflected the sunlight phone screens,Some,0,wonkiness
+379,got stained white tablecloths,Some,0,wonkiness
+379,fell down block towers,None,0,wonkiness
+379,exploded fireworks,All,0,wonkiness
+379,stuck sequins,Some,0,wonkiness
+379,blew away hats,Some,0,wonkiness
+379,burnt matches,All,0,wonkiness
+379,stuck to the wall pieces of gum,Some,0,wonkiness
+379,beeped houses,None,0,wonkiness
+379,had the letter Z in them novels,Some,0,wonkiness
+379,dissolved oreos,Some,0,wonkiness
+380,broke boxes,Some,0,wonkiness
+380,rolled toy cars,None,1,wonkiness
+380,exploded balls of tin foil,All,0,wonkiness
+380,froze berries,Some,1,wonkiness
+380,lit up cd-players,Some,0,wonkiness
+380,honked bicyclists,None,0,wonkiness
+380,had the letter Z in them birthday cards,All,0,wonkiness
+380,ripped books,None,1,wonkiness
+380,exploded candles,None,0,wonkiness
+380,sank balloons,None,0,wonkiness
+380,ate the seeds butterflies,Some,0,wonkiness
+380,fell down block towers,Some,1,wonkiness
+380,got stained white tablecloths,Some,0,wonkiness
+380,ran out of batteries laptops,Some,0,wonkiness
+380,dissolved oreos,Some,1,wonkiness
+380,flashed cameras,Some,0,wonkiness
+380,melted pencils,All,1,wonkiness
+380,burnt books,All,0,wonkiness
+380,popped balloons,All,0,wonkiness
+380,landed flat pancakes,Some,0,wonkiness
+381,dissolved carrots,Some,1,wonkiness
+381,were green bananas,Some,0,wonkiness
+381,stuck beads,Some,0,wonkiness
+381,broke sunglasses,None,1,wonkiness
+381,beeped houses,Some,1,wonkiness
+381,ripped books,All,0,wonkiness
+381,reflected the sunlight phone screens,Some,0,wonkiness
+381,lit up flashlights,All,0,wonkiness
+381,rolled shopping carts,None,0,wonkiness
+381,popped balloons,All,0,wonkiness
+381,honked bicyclists,All,0,wonkiness
+381,burnt matches,Some,0,wonkiness
+381,sank cups,Some,0,wonkiness
+381,flashed webcams,Some,0,wonkiness
+381,stopped motorcycles,Some,0,wonkiness
+381,got stained white tablecloths,None,1,wonkiness
+381,exploded eggs,None,1,wonkiness
+381,had the letter Z in them novels,None,1,wonkiness
+381,fell down block towers,All,0,wonkiness
+381,melted ice cubes,Some,1,wonkiness
+382,stuck to the wall pieces of gum,Some,0,wonkiness
+382,had the letter Z in them love notes,Some,0,wonkiness
+382,laughed lawyers,Some,0,wonkiness
+382,rolled shopping carts,Some,0,wonkiness
+382,ate the seeds butterflies,Some,0,wonkiness
+382,lit up cd-players,All,0,wonkiness
+382,dissolved sugar cubes,None,1,wonkiness
+382,honked taxi drivers,Some,0,wonkiness
+382,rhymed poems,None,1,wonkiness
+382,got stained white tablecloths,Some,0,wonkiness
+382,popped bubbles,None,1,wonkiness
+382,ran out of batteries bike lights,Some,0,wonkiness
+382,decomposed soda cans,All,1,wonkiness
+382,sank marbles,None,1,wonkiness
+382,stopped bicycles,Some,0,wonkiness
+382,beeped new cars,Some,0,wonkiness
+382,stuck stickers,All,0,wonkiness
+382,melted crayons,All,0,wonkiness
+382,flashed cameras,None,1,wonkiness
+382,blew away hats,All,0,wonkiness
+383,stuck to the wall cakes,Some,0,wonkiness
+383,landed flat pancakes,All,0,wonkiness
+383,rolled toy cars,Some,0,wonkiness
+383,stuck sequins,Some,0,wonkiness
+383,melted pencils,Some,1,wonkiness
+383,dissolved carrots,Some,1,wonkiness
+383,flashed phones,None,0,wonkiness
+383,exploded eggs,Some,0,wonkiness
+383,lit up flashlights,All,0,wonkiness
+383,popped balloons,Some,1,wonkiness
+383,ripped shoes,None,0,wonkiness
+383,exploded gas tanks,Some,0,wonkiness
+383,got stained white shirts,All,0,wonkiness
+383,ate the seeds butterflies,None,0,wonkiness
+383,had the letter Z in them love notes,None,0,wonkiness
+383,sank marbles,Some,1,wonkiness
+383,honked bicyclists,Some,0,wonkiness
+383,blew away hats,All,0,wonkiness
+383,reflected the sunlight mirrors,All,0,wonkiness
+383,rhymed limericks,None,1,wonkiness
+384,ate the seeds dogs,None,1,wonkiness
+384,were green strawberries,Some,0,wonkiness
+384,broke sunglasses,All,0,wonkiness
+384,blew away napkins,Some,0,wonkiness
+384,laughed lawyers,Some,0,wonkiness
+384,lit up flashlights,All,0,wonkiness
+384,fell down block towers,All,0,wonkiness
+384,decomposed banana peels,Some,0,wonkiness
+384,ripped shirts,Some,0,wonkiness
+384,froze chocolate bars,None,1,wonkiness
+384,exploded CDs,All,0,wonkiness
+384,sank marbles,None,1,wonkiness
+384,dissolved carrots,None,0,wonkiness
+384,rolled wheelchairs,None,1,wonkiness
+384,reflected the sunlight diamonds,Some,1,wonkiness
+384,had the letter Z in them novels,Some,1,wonkiness
+384,stuck to the wall pieces of gum,All,0,wonkiness
+384,landed flat pancakes,Some,1,wonkiness
+384,got stained white shirts,Some,1,wonkiness
+384,stopped bicycles,Some,0,wonkiness
+385,got stained white shirts,All,0,wonkiness
+385,lit up cd-players,All,0,wonkiness
+385,dissolved oreos,None,1,wonkiness
+385,exploded candles,Some,1,wonkiness
+385,had the letter Z in them birthday cards,All,1,wonkiness
+385,rolled toy cars,All,0,wonkiness
+385,sank marbles,Some,1,wonkiness
+385,flashed phones,Some,0,wonkiness
+385,reflected the sunlight phone screens,None,1,wonkiness
+385,laughed lawyers,Some,0,wonkiness
+385,decomposed pinecones,None,1,wonkiness
+385,beeped old cars,Some,1,wonkiness
+385,landed flat coins,Some,0,wonkiness
+385,exploded balls of tin foil,Some,1,wonkiness
+385,were green bananas,None,0,wonkiness
+385,ripped shoes,None,0,wonkiness
+385,ran out of batteries laptops,Some,0,wonkiness
+385,fell down shelves,Some,0,wonkiness
+385,stopped bicycles,Some,0,wonkiness
+385,popped balloons,All,0,wonkiness
+386,melted pencils,Some,1,wonkiness
+386,rolled toy cars,Some,0,wonkiness
+386,decomposed soda cans,None,0,wonkiness
+386,had the letter Z in them novels,All,1,wonkiness
+386,ran out of batteries bike lights,All,1,wonkiness
+386,landed flat pancakes,All,0,wonkiness
+386,stuck stickers,Some,0,wonkiness
+386,rhymed poems,Some,0,wonkiness
+386,got stained white shirts,Some,0,wonkiness
+386,sank balloons,Some,1,wonkiness
+386,ate the seeds birds,None,0,wonkiness
+386,burnt rocks,Some,1,wonkiness
+386,beeped houses,Some,1,wonkiness
+386,ripped books,None,0,wonkiness
+386,reflected the sunlight mirrors,None,1,wonkiness
+386,stuck to the wall pieces of gum,Some,1,wonkiness
+386,exploded fireworks,None,1,wonkiness
+386,exploded eggs,All,0,wonkiness
+386,honked bus drivers,All,0,wonkiness
+386,dissolved carrots,Some,1,wonkiness
+387,got stained white tablecloths,Some,0,wonkiness
+387,rhymed poems,All,0,wonkiness
+387,flashed webcams,Some,1,wonkiness
+387,honked bus drivers,Some,0,wonkiness
+387,were green bananas,Some,0,wonkiness
+387,beeped old cars,None,0,wonkiness
+387,lit up cd-players,None,1,wonkiness
+387,rolled toy cars,Some,0,wonkiness
+387,exploded eggs,None,0,wonkiness
+387,popped balloons,All,0,wonkiness
+387,stopped bicycles,Some,1,wonkiness
+387,fell down card towers,All,0,wonkiness
+387,broke boxes,Some,0,wonkiness
+387,dissolved sugar cubes,Some,0,wonkiness
+387,blew away hats,All,0,wonkiness
+387,exploded candles,All,0,wonkiness
+387,landed flat coins,None,0,wonkiness
+387,ate the seeds birds,Some,0,wonkiness
+387,froze bottles of hand soap,Some,0,wonkiness
+387,ripped shirts,None,0,wonkiness
+388,blew away napkins,Some,0,wonkiness
+388,fell down block towers,Some,1,wonkiness
+388,were green clovers,Some,0,wonkiness
+388,rhymed songs,Some,0,wonkiness
+388,popped balloons,Some,0,wonkiness
+388,dissolved carrots,None,0,wonkiness
+388,ripped books,Some,0,wonkiness
+388,decomposed soda cans,None,0,wonkiness
+388,got stained white tablecloths,Some,0,wonkiness
+388,honked taxi drivers,Some,0,wonkiness
+388,stopped motorcycles,Some,0,wonkiness
+388,sank balloons,None,0,wonkiness
+388,burnt rocks,Some,1,wonkiness
+388,flashed cameras,All,0,wonkiness
+388,laughed lawyers,None,1,wonkiness
+388,exploded candles,None,0,wonkiness
+388,reflected the sunlight phone screens,All,0,wonkiness
+388,ate the seeds butterflies,All,1,wonkiness
+388,broke boxes,All,0,wonkiness
+388,melted crayons,All,0,wonkiness
+389,were green clovers,None,1,wonkiness
+389,sank cups,Some,0,wonkiness
+389,burnt matches,All,0,wonkiness
+389,flashed webcams,None,0,wonkiness
+389,ripped shoes,None,1,wonkiness
+389,beeped houses,Some,1,wonkiness
+389,rhymed limericks,Some,0,wonkiness
+389,landed flat coins,Some,0,wonkiness
+389,decomposed pinecones,All,0,wonkiness
+389,rolled shopping carts,None,1,wonkiness
+389,laughed lawyers,Some,0,wonkiness
+389,popped bubbles,Some,0,wonkiness
+389,reflected the sunlight phone screens,Some,0,wonkiness
+389,lit up flashlights,All,0,wonkiness
+389,fell down shelves,All,0,wonkiness
+389,exploded fireworks,All,0,wonkiness
+389,had the letter Z in them novels,None,1,wonkiness
+389,ran out of batteries phones,Some,0,wonkiness
+389,honked taxi drivers,Some,0,wonkiness
+389,got stained white shirts,Some,0,wonkiness
+390,reflected the sunlight phone screens,Some,0,wonkiness
+390,landed flat coins,Some,0,wonkiness
+390,exploded candles,All,1,wonkiness
+390,stuck to the wall pieces of gum,All,0,wonkiness
+390,were green clovers,All,0,wonkiness
+390,laughed kids,Some,0,wonkiness
+390,sank marbles,Some,0,wonkiness
+390,stuck sequins,Some,0,wonkiness
+390,dissolved sugar cubes,Some,0,wonkiness
+390,popped eggs,Some,1,wonkiness
+390,blew away hats,Some,0,wonkiness
+390,rolled wheelchairs,None,1,wonkiness
+390,had the letter Z in them love notes,Some,0,wonkiness
+390,flashed cameras,None,1,wonkiness
+390,burnt rocks,None,0,wonkiness
+390,melted crayons,None,1,wonkiness
+390,broke sunglasses,All,0,wonkiness
+390,exploded balls of tin foil,None,1,wonkiness
+390,got stained white tablecloths,Some,0,wonkiness
+390,beeped new cars,All,0,wonkiness
+391,fell down block towers,Some,1,wonkiness
+391,had the letter Z in them novels,All,0,wonkiness
+391,stuck stickers,None,0,wonkiness
+391,lit up cd-players,All,1,wonkiness
+391,flashed webcams,All,0,wonkiness
+391,laughed lawyers,All,1,wonkiness
+391,beeped houses,Some,0,wonkiness
+391,were green clovers,Some,0,wonkiness
+391,decomposed pinecones,Some,1,wonkiness
+391,burnt rocks,All,1,wonkiness
+391,melted ice cubes,Some,1,wonkiness
+391,reflected the sunlight diamonds,Some,0,wonkiness
+391,broke logs,Some,1,wonkiness
+391,rhymed limericks,None,1,wonkiness
+391,froze berries,Some,0,wonkiness
+391,popped balloons,Some,1,wonkiness
+391,honked taxi drivers,Some,0,wonkiness
+391,sank balloons,None,1,wonkiness
+391,stuck to the wall cakes,None,0,wonkiness
+391,got stained white tablecloths,None,1,wonkiness
+392,broke boxes,Some,1,wonkiness
+392,had the letter Z in them novels,Some,0,wonkiness
+392,burnt matches,Some,0,wonkiness
+392,exploded balls of tin foil,Some,0,wonkiness
+392,melted crayons,Some,0,wonkiness
+392,ran out of batteries phones,None,0,wonkiness
+392,landed flat notebooks,Some,0,wonkiness
+392,dissolved carrots,All,1,wonkiness
+392,decomposed pinecones,All,0,wonkiness
+392,laughed lawyers,All,0,wonkiness
+392,stuck stickers,Some,0,wonkiness
+392,beeped old cars,Some,1,wonkiness
+392,popped eggs,None,0,wonkiness
+392,stopped motorcycles,None,1,wonkiness
+392,froze bottles of hand soap,None,1,wonkiness
+392,sank marbles,Some,0,wonkiness
+392,lit up cd-players,All,0,wonkiness
+392,rolled shopping carts,All,0,wonkiness
+392,rhymed limericks,None,1,wonkiness
+392,got stained white tablecloths,Some,0,wonkiness
+393,stopped cars,All,0,wonkiness
+393,laughed kids,Some,0,wonkiness
+393,lit up computers,Some,1,wonkiness
+393,melted ice cubes,None,1,wonkiness
+393,burnt rocks,Some,1,wonkiness
+393,flashed webcams,Some,0,wonkiness
+393,broke boxes,All,0,wonkiness
+393,stuck to the wall baseballs,Some,1,wonkiness
+393,landed flat coins,All,0,wonkiness
+393,blew away backpacks,Some,0,wonkiness
+393,got stained white shirts,All,0,wonkiness
+393,ate the seeds butterflies,None,1,wonkiness
+393,popped bubbles,None,1,wonkiness
+393,honked bicyclists,All,1,wonkiness
+393,reflected the sunlight mirrors,Some,0,wonkiness
+393,stuck stickers,None,1,wonkiness
+393,ripped books,None,1,wonkiness
+393,dissolved sugar cubes,Some,1,wonkiness
+393,froze berries,Some,1,wonkiness
+393,sank marbles,Some,1,wonkiness
+394,laughed lawyers,None,0,wonkiness
+394,dissolved sugar cubes,None,1,wonkiness
+394,melted ice cubes,Some,0,wonkiness
+394,stuck stickers,Some,0,wonkiness
+394,ran out of batteries phones,All,0,wonkiness
+394,ripped shirts,Some,0,wonkiness
+394,ate the seeds butterflies,Some,1,wonkiness
+394,rolled shopping carts,Some,0,wonkiness
+394,were green strawberries,Some,1,wonkiness
+394,stuck to the wall cakes,Some,0,wonkiness
+394,exploded candles,None,1,wonkiness
+394,burnt books,All,0,wonkiness
+394,decomposed pinecones,All,0,wonkiness
+394,honked taxi drivers,Some,0,wonkiness
+394,landed flat coins,All,0,wonkiness
+394,had the letter Z in them love notes,None,0,wonkiness
+394,blew away hats,None,0,wonkiness
+394,flashed cameras,All,0,wonkiness
+394,got stained white tablecloths,Some,0,wonkiness
+394,lit up cd-players,Some,1,wonkiness
+395,blew away hats,Some,0,wonkiness
+395,rolled wheelchairs,All,0,wonkiness
+395,dissolved carrots,None,1,wonkiness
+395,reflected the sunlight mirrors,All,0,wonkiness
+395,stuck to the wall cakes,Some,0,wonkiness
+395,melted crayons,Some,1,wonkiness
+395,lit up computers,All,0,wonkiness
+395,had the letter Z in them novels,Some,0,wonkiness
+395,ate the seeds dogs,Some,1,wonkiness
+395,exploded candles,Some,1,wonkiness
+395,stuck sequins,Some,0,wonkiness
+395,flashed webcams,All,0,wonkiness
+395,fell down shelves,None,0,wonkiness
+395,stopped motorcycles,Some,0,wonkiness
+395,popped bubbles,All,0,wonkiness
+395,sank balloons,None,1,wonkiness
+395,laughed lawyers,None,1,wonkiness
+395,broke boxes,Some,0,wonkiness
+395,ran out of batteries laptops,None,1,wonkiness
+395,rhymed limericks,Some,0,wonkiness
+396,froze berries,Some,0,wonkiness
+396,rhymed limericks,All,0,wonkiness
+396,popped bubbles,Some,1,wonkiness
+396,exploded eggs,None,0,wonkiness
+396,were green bananas,All,0,wonkiness
+396,ran out of batteries bike lights,None,1,wonkiness
+396,blew away napkins,None,1,wonkiness
+396,laughed lawyers,Some,0,wonkiness
+396,dissolved carrots,Some,1,wonkiness
+396,flashed webcams,All,0,wonkiness
+396,stuck to the wall baseballs,None,0,wonkiness
+396,honked taxi drivers,All,0,wonkiness
+396,sank balloons,Some,1,wonkiness
+396,broke logs,None,1,wonkiness
+396,stopped motorcycles,Some,0,wonkiness
+396,ate the seeds butterflies,Some,0,wonkiness
+396,decomposed pinecones,All,0,wonkiness
+396,melted pencils,Some,1,wonkiness
+396,had the letter Z in them birthday cards,Some,1,wonkiness
+396,exploded fireworks,Some,0,wonkiness
+397,exploded fireworks,None,1,wonkiness
+397,honked bus drivers,None,1,wonkiness
+397,sank balloons,All,1,wonkiness
+397,rolled toy cars,None,1,wonkiness
+397,ate the seeds dogs,Some,1,wonkiness
+397,lit up cd-players,Some,0,wonkiness
+397,landed flat pancakes,Some,0,wonkiness
+397,reflected the sunlight phone screens,All,0,wonkiness
+397,melted ice cubes,Some,0,wonkiness
+397,dissolved sugar cubes,All,0,wonkiness
+397,stopped bicycles,Some,0,wonkiness
+397,got stained white carpets,Some,0,wonkiness
+397,stuck sequins,All,0,wonkiness
+397,were green bananas,None,0,wonkiness
+397,ran out of batteries laptops,All,0,wonkiness
+397,flashed phones,None,0,wonkiness
+397,ripped shoes,Some,0,wonkiness
+397,broke boxes,Some,1,wonkiness
+397,exploded eggs,Some,0,wonkiness
+397,rhymed poems,Some,0,wonkiness
+398,ate the seeds butterflies,Some,0,wonkiness
+398,honked bicyclists,Some,0,wonkiness
+398,blew away backpacks,All,1,wonkiness
+398,fell down card towers,All,0,wonkiness
+398,dissolved sugar cubes,All,0,wonkiness
+398,ran out of batteries phones,None,0,wonkiness
+398,ripped shirts,None,1,wonkiness
+398,stopped motorcycles,All,0,wonkiness
+398,laughed lawyers,Some,0,wonkiness
+398,popped bubbles,Some,0,wonkiness
+398,exploded fireworks,None,1,wonkiness
+398,lit up computers,Some,0,wonkiness
+398,stuck beads,Some,0,wonkiness
+398,sank cups,Some,0,wonkiness
+398,rhymed songs,Some,0,wonkiness
+398,rolled shopping carts,Some,0,wonkiness
+398,broke logs,Some,0,wonkiness
+398,were green strawberries,None,0,wonkiness
+398,decomposed pinecones,None,1,wonkiness
+398,landed flat notebooks,All,0,wonkiness
+399,stopped cars,None,1,wonkiness
+399,stuck to the wall pieces of gum,Some,0,wonkiness
+399,ripped shirts,Some,0,wonkiness
+399,had the letter Z in them birthday cards,Some,1,wonkiness
+399,flashed cameras,All,0,wonkiness
+399,rhymed poems,All,0,wonkiness
+399,lit up flashlights,None,1,wonkiness
+399,exploded candles,Some,1,wonkiness
+399,were green bananas,All,1,wonkiness
+399,dissolved oreos,All,1,wonkiness
+399,sank cups,Some,0,wonkiness
+399,stuck beads,Some,0,wonkiness
+399,beeped old cars,All,0,wonkiness
+399,laughed comedians,Some,0,wonkiness
+399,landed flat coins,None,1,wonkiness
+399,ran out of batteries bike lights,Some,0,wonkiness
+399,got stained white shirts,Some,0,wonkiness
+399,rolled wheelchairs,Some,0,wonkiness
+399,burnt matches,None,1,wonkiness
+399,reflected the sunlight diamonds,None,1,wonkiness
+400,lit up cd-players,None,0,wonkiness
+400,stuck to the wall baseballs,Some,1,wonkiness
+400,rhymed songs,Some,0,wonkiness
+400,had the letter Z in them birthday cards,All,1,wonkiness
+400,burnt matches,Some,0,wonkiness
+400,honked taxi drivers,Some,0,wonkiness
+400,were green strawberries,Some,1,wonkiness
+400,dissolved oreos,Some,0,wonkiness
+400,broke sunglasses,Some,0,wonkiness
+400,decomposed pinecones,Some,0,wonkiness
+400,flashed phones,All,0,wonkiness
+400,ripped shirts,All,0,wonkiness
+400,beeped old cars,None,0,wonkiness
+400,stopped cars,None,0,wonkiness
+400,exploded CDs,All,1,wonkiness
+400,blew away backpacks,Some,0,wonkiness
+400,melted ice cubes,None,0,wonkiness
+400,landed flat pancakes,All,0,wonkiness
+400,got stained white shirts,None,1,wonkiness
+400,exploded gas tanks,Some,0,wonkiness
+401,stuck beads,None,1,wonkiness
+401,ran out of batteries bike lights,All,1,wonkiness
+401,exploded candles,All,1,wonkiness
+401,sank marbles,Some,0,wonkiness
+401,landed flat notebooks,Some,0,wonkiness
+401,flashed webcams,Some,0,wonkiness
+401,honked bicyclists,All,1,wonkiness
+401,decomposed pinecones,Some,1,wonkiness
+401,got stained white tablecloths,Some,1,wonkiness
+401,lit up cd-players,Some,0,wonkiness
+401,fell down block towers,None,0,wonkiness
+401,stuck to the wall pieces of gum,Some,0,wonkiness
+401,stopped motorcycles,None,1,wonkiness
+401,ate the seeds butterflies,Some,0,wonkiness
+401,exploded eggs,None,0,wonkiness
+401,froze berries,All,0,wonkiness
+401,melted crayons,Some,0,wonkiness
+401,rolled shopping carts,None,1,wonkiness
+401,laughed lawyers,Some,0,wonkiness
+401,ripped shoes,All,0,wonkiness
+402,fell down block towers,All,0,wonkiness
+402,froze chocolate bars,Some,0,wonkiness
+402,flashed webcams,All,0,wonkiness
+402,landed flat notebooks,All,0,wonkiness
+402,decomposed banana peels,None,1,wonkiness
+402,exploded candles,None,0,wonkiness
+402,sank marbles,Some,0,wonkiness
+402,blew away hats,Some,0,wonkiness
+402,got stained white tablecloths,Some,0,wonkiness
+402,laughed comedians,None,1,wonkiness
+402,stuck beads,Some,0,wonkiness
+402,melted ice cubes,Some,0,wonkiness
+402,dissolved sugar cubes,Some,0,wonkiness
+402,stuck to the wall cakes,None,0,wonkiness
+402,rhymed limericks,All,0,wonkiness
+402,lit up flashlights,Some,0,wonkiness
+402,burnt matches,All,0,wonkiness
+402,reflected the sunlight phone screens,None,1,wonkiness
+402,rolled toy cars,Some,0,wonkiness
+402,ripped shirts,Some,0,wonkiness
+403,rhymed songs,Some,0,wonkiness
+403,were green strawberries,Some,0,wonkiness
+403,ripped books,None,0,wonkiness
+403,sank balloons,All,1,wonkiness
+403,exploded balls of tin foil,None,1,wonkiness
+403,had the letter Z in them birthday cards,Some,0,wonkiness
+403,rolled toy cars,Some,0,wonkiness
+403,burnt books,Some,0,wonkiness
+403,honked bus drivers,Some,0,wonkiness
+403,flashed cameras,All,0,wonkiness
+403,exploded gas tanks,Some,0,wonkiness
+403,popped eggs,All,0,wonkiness
+403,dissolved carrots,None,1,wonkiness
+403,decomposed banana peels,None,1,wonkiness
+403,froze chocolate bars,All,0,wonkiness
+403,got stained white shirts,Some,0,wonkiness
+403,reflected the sunlight diamonds,None,1,wonkiness
+403,stopped motorcycles,All,0,wonkiness
+403,beeped houses,Some,0,wonkiness
+403,landed flat notebooks,Some,0,wonkiness
+404,ate the seeds dogs,None,1,wonkiness
+404,beeped old cars,Some,0,wonkiness
+404,exploded gas tanks,Some,0,wonkiness
+404,broke logs,None,1,wonkiness
+404,blew away backpacks,All,0,wonkiness
+404,stuck stickers,None,0,wonkiness
+404,laughed lawyers,Some,0,wonkiness
+404,melted crayons,Some,0,wonkiness
+404,lit up computers,None,0,wonkiness
+404,stuck to the wall baseballs,Some,1,wonkiness
+404,ran out of batteries bike lights,All,0,wonkiness
+404,honked taxi drivers,All,0,wonkiness
+404,got stained white shirts,All,0,wonkiness
+404,exploded CDs,Some,0,wonkiness
+404,flashed phones,Some,0,wonkiness
+404,popped bubbles,Some,0,wonkiness
+404,landed flat notebooks,Some,0,wonkiness
+404,reflected the sunlight phone screens,None,0,wonkiness
+404,fell down shelves,All,0,wonkiness
+404,burnt matches,Some,1,wonkiness
+405,froze berries,Some,0,wonkiness
+405,laughed lawyers,All,1,wonkiness
+405,popped eggs,None,0,wonkiness
+405,landed flat notebooks,All,0,wonkiness
+405,ate the seeds birds,Some,0,wonkiness
+405,were green strawberries,Some,0,wonkiness
+405,rolled toy cars,Some,0,wonkiness
+405,stuck beads,None,0,wonkiness
+405,rhymed limericks,Some,1,wonkiness
+405,melted crayons,All,0,wonkiness
+405,ripped shirts,Some,0,wonkiness
+405,got stained white shirts,All,0,wonkiness
+405,honked taxi drivers,Some,0,wonkiness
+405,decomposed banana peels,Some,1,wonkiness
+405,blew away backpacks,None,0,wonkiness
+405,sank balloons,All,1,wonkiness
+405,burnt rocks,Some,1,wonkiness
+405,ran out of batteries phones,None,1,wonkiness
+405,broke logs,None,0,wonkiness
+405,had the letter Z in them love notes,Some,0,wonkiness
+406,had the letter Z in them novels,None,1,wonkiness
+406,stuck to the wall baseballs,None,0,wonkiness
+406,beeped old cars,None,0,wonkiness
+406,froze berries,All,0,wonkiness
+406,ran out of batteries phones,Some,0,wonkiness
+406,laughed kids,Some,0,wonkiness
+406,honked taxi drivers,Some,0,wonkiness
+406,stuck sequins,Some,0,wonkiness
+406,stopped motorcycles,Some,1,wonkiness
+406,decomposed soda cans,Some,1,wonkiness
+406,were green clovers,Some,1,wonkiness
+406,burnt rocks,All,0,wonkiness
+406,ripped books,All,0,wonkiness
+406,exploded CDs,All,1,wonkiness
+406,rolled toy cars,None,1,wonkiness
+406,reflected the sunlight diamonds,Some,1,wonkiness
+406,popped eggs,Some,1,wonkiness
+406,lit up flashlights,All,0,wonkiness
+406,landed flat pancakes,Some,0,wonkiness
+406,melted crayons,None,1,wonkiness
+407,popped bubbles,Some,0,wonkiness
+407,exploded CDs,None,0,wonkiness
+407,froze bottles of hand soap,All,1,wonkiness
+407,stuck to the wall baseballs,All,1,wonkiness
+407,laughed kids,None,0,wonkiness
+407,honked taxi drivers,Some,0,wonkiness
+407,rhymed limericks,All,0,wonkiness
+407,lit up flashlights,Some,0,wonkiness
+407,ate the seeds butterflies,Some,1,wonkiness
+407,beeped old cars,Some,1,wonkiness
+407,flashed phones,None,0,wonkiness
+407,had the letter Z in them love notes,Some,0,wonkiness
+407,decomposed banana peels,None,1,wonkiness
+407,ripped shirts,None,0,wonkiness
+407,reflected the sunlight phone screens,Some,0,wonkiness
+407,broke logs,Some,0,wonkiness
+407,stopped bicycles,All,0,wonkiness
+407,got stained white carpets,Some,0,wonkiness
+407,fell down block towers,All,0,wonkiness
+407,dissolved oreos,Some,0,wonkiness
+408,laughed lawyers,Some,0,wonkiness
+408,landed flat notebooks,None,1,wonkiness
+408,got stained white tablecloths,Some,0,wonkiness
+408,had the letter Z in them love notes,Some,0,wonkiness
+408,fell down shelves,Some,0,wonkiness
+408,sank balloons,All,1,wonkiness
+408,stopped motorcycles,Some,1,wonkiness
+408,blew away napkins,None,1,wonkiness
+408,rhymed limericks,Some,0,wonkiness
+408,exploded balls of tin foil,Some,0,wonkiness
+408,froze berries,Some,0,wonkiness
+408,exploded fireworks,All,0,wonkiness
+408,ate the seeds birds,None,1,wonkiness
+408,ran out of batteries bike lights,All,0,wonkiness
+408,dissolved carrots,None,0,wonkiness
+408,stuck to the wall baseballs,All,1,wonkiness
+408,burnt rocks,Some,0,wonkiness
+408,popped eggs,None,0,wonkiness
+408,beeped old cars,Some,1,wonkiness
+408,ripped shoes,All,0,wonkiness
+409,rolled wheelchairs,Some,0,wonkiness
+409,blew away backpacks,Some,1,wonkiness
+409,laughed comedians,Some,0,wonkiness
+409,fell down card towers,All,0,wonkiness
+409,reflected the sunlight phone screens,None,1,wonkiness
+409,beeped old cars,Some,1,wonkiness
+409,sank cups,Some,0,wonkiness
+409,decomposed soda cans,Some,1,wonkiness
+409,lit up computers,All,0,wonkiness
+409,got stained white tablecloths,None,1,wonkiness
+409,stuck beads,Some,0,wonkiness
+409,stopped cars,Some,0,wonkiness
+409,melted ice cubes,None,1,wonkiness
+409,stuck to the wall pieces of gum,None,0,wonkiness
+409,honked bicyclists,All,1,wonkiness
+409,rhymed poems,Some,0,wonkiness
+409,exploded balls of tin foil,All,0,wonkiness
+409,burnt matches,None,1,wonkiness
+409,broke boxes,Some,0,wonkiness
+409,exploded fireworks,All,0,wonkiness
+410,stuck to the wall cakes,Some,1,wonkiness
+410,flashed webcams,Some,1,wonkiness
+410,blew away backpacks,None,0,wonkiness
+410,fell down block towers,All,0,wonkiness
+410,ate the seeds butterflies,Some,1,wonkiness
+410,froze berries,None,1,wonkiness
+410,reflected the sunlight diamonds,Some,0,wonkiness
+410,lit up flashlights,All,0,wonkiness
+410,landed flat notebooks,All,0,wonkiness
+410,got stained white carpets,All,0,wonkiness
+410,were green clovers,Some,0,wonkiness
+410,popped eggs,Some,0,wonkiness
+410,decomposed soda cans,All,1,wonkiness
+410,burnt rocks,Some,0,wonkiness
+410,sank marbles,None,1,wonkiness
+410,honked taxi drivers,Some,0,wonkiness
+410,laughed kids,None,0,wonkiness
+410,had the letter Z in them love notes,None,0,wonkiness
+410,rolled shopping carts,Some,0,wonkiness
+410,ripped books,Some,1,wonkiness
+411,rolled toy cars,All,0,wonkiness
+411,lit up flashlights,Some,0,wonkiness
+411,honked bicyclists,Some,0,wonkiness
+411,got stained white shirts,All,0,wonkiness
+411,froze bottles of hand soap,None,1,wonkiness
+411,stopped bicycles,Some,1,wonkiness
+411,had the letter Z in them love notes,Some,1,wonkiness
+411,flashed phones,None,1,wonkiness
+411,sank cups,Some,1,wonkiness
+411,blew away hats,None,1,wonkiness
+411,fell down block towers,All,0,wonkiness
+411,popped eggs,Some,1,wonkiness
+411,ate the seeds dogs,Some,1,wonkiness
+411,beeped old cars,All,1,wonkiness
+411,melted ice cubes,All,0,wonkiness
+411,dissolved sugar cubes,None,1,wonkiness
+411,landed flat coins,Some,0,wonkiness
+411,were green clovers,Some,1,wonkiness
+411,rhymed limericks,Some,0,wonkiness
+411,ripped books,None,1,wonkiness
+412,ran out of batteries bike lights,All,0,wonkiness
+412,rolled wheelchairs,Some,1,wonkiness
+412,ripped shoes,None,1,wonkiness
+412,exploded eggs,None,1,wonkiness
+412,froze bottles of hand soap,All,0,wonkiness
+412,popped balloons,All,0,wonkiness
+412,honked taxi drivers,Some,0,wonkiness
+412,melted crayons,None,1,wonkiness
+412,beeped new cars,Some,0,wonkiness
+412,stopped cars,Some,1,wonkiness
+412,exploded candles,Some,1,wonkiness
+412,burnt matches,Some,1,wonkiness
+412,landed flat pancakes,All,0,wonkiness
+412,reflected the sunlight diamonds,Some,1,wonkiness
+412,had the letter Z in them love notes,Some,0,wonkiness
+412,dissolved carrots,All,1,wonkiness
+412,flashed webcams,Some,1,wonkiness
+412,ate the seeds birds,None,1,wonkiness
+412,laughed comedians,Some,0,wonkiness
+412,fell down block towers,None,1,wonkiness
+413,were green strawberries,Some,1,wonkiness
+413,rolled toy cars,Some,1,wonkiness
+413,stuck sequins,All,0,wonkiness
+413,rhymed poems,None,0,wonkiness
+413,exploded gas tanks,None,1,wonkiness
+413,ripped shirts,Some,0,wonkiness
+413,landed flat pancakes,None,1,wonkiness
+413,laughed kids,None,1,wonkiness
+413,decomposed soda cans,Some,0,wonkiness
+413,burnt rocks,Some,1,wonkiness
+413,got stained white shirts,Some,0,wonkiness
+413,broke sunglasses,All,0,wonkiness
+413,reflected the sunlight phone screens,All,0,wonkiness
+413,lit up cd-players,Some,0,wonkiness
+413,exploded balls of tin foil,Some,1,wonkiness
+413,had the letter Z in them birthday cards,All,0,wonkiness
+413,honked taxi drivers,Some,0,wonkiness
+413,sank balloons,All,0,wonkiness
+413,fell down shelves,Some,0,wonkiness
+413,ran out of batteries laptops,None,1,wonkiness
+414,got stained white tablecloths,None,1,wonkiness
+414,ate the seeds birds,Some,0,wonkiness
+414,dissolved oreos,Some,0,wonkiness
+414,reflected the sunlight diamonds,Some,0,wonkiness
+414,froze chocolate bars,None,1,wonkiness
+414,beeped old cars,Some,0,wonkiness
+414,melted ice cubes,All,0,wonkiness
+414,lit up computers,All,0,wonkiness
+414,landed flat pancakes,All,0,wonkiness
+414,decomposed pinecones,None,0,wonkiness
+414,ran out of batteries laptops,Some,0,wonkiness
+414,exploded fireworks,Some,0,wonkiness
+414,stuck to the wall baseballs,Some,0,wonkiness
+414,had the letter Z in them birthday cards,All,1,wonkiness
+414,were green clovers,Some,0,wonkiness
+414,burnt matches,Some,0,wonkiness
+414,ripped shirts,Some,0,wonkiness
+414,blew away napkins,None,1,wonkiness
+414,popped balloons,None,1,wonkiness
+414,laughed lawyers,All,0,wonkiness
+415,froze berries,All,0,wonkiness
+415,melted crayons,All,0,wonkiness
+415,popped balloons,Some,0,wonkiness
+415,rolled toy cars,Some,0,wonkiness
+415,exploded balls of tin foil,None,1,wonkiness
+415,lit up cd-players,Some,1,wonkiness
+415,rhymed poems,Some,0,wonkiness
+415,were green bananas,None,0,wonkiness
+415,decomposed banana peels,Some,1,wonkiness
+415,stuck to the wall baseballs,Some,1,wonkiness
+415,dissolved oreos,Some,1,wonkiness
+415,had the letter Z in them love notes,All,1,wonkiness
+415,blew away napkins,Some,0,wonkiness
+415,flashed cameras,All,0,wonkiness
+415,broke boxes,All,0,wonkiness
+415,fell down shelves,Some,0,wonkiness
+415,burnt matches,None,1,wonkiness
+415,ripped shirts,None,1,wonkiness
+415,landed flat pancakes,Some,0,wonkiness
+415,exploded fireworks,None,1,wonkiness
+416,exploded gas tanks,Some,0,wonkiness
+416,decomposed soda cans,Some,1,wonkiness
+416,landed flat pancakes,Some,0,wonkiness
+416,broke boxes,None,1,wonkiness
+416,froze berries,All,1,wonkiness
+416,rolled wheelchairs,All,0,wonkiness
+416,sank balloons,Some,1,wonkiness
+416,stuck beads,Some,0,wonkiness
+416,rhymed songs,Some,0,wonkiness
+416,popped eggs,Some,0,wonkiness
+416,dissolved oreos,None,0,wonkiness
+416,melted pencils,Some,1,wonkiness
+416,laughed kids,All,0,wonkiness
+416,ate the seeds dogs,All,0,wonkiness
+416,stopped bicycles,None,0,wonkiness
+416,blew away hats,Some,0,wonkiness
+416,ripped shoes,Some,0,wonkiness
+416,fell down block towers,None,1,wonkiness
+416,got stained white carpets,All,0,wonkiness
+416,beeped old cars,None,0,wonkiness
+417,got stained white shirts,All,0,wonkiness
+417,had the letter Z in them birthday cards,Some,0,wonkiness
+417,ate the seeds dogs,Some,0,wonkiness
+417,blew away backpacks,All,1,wonkiness
+417,reflected the sunlight mirrors,None,1,wonkiness
+417,decomposed soda cans,Some,1,wonkiness
+417,flashed phones,None,1,wonkiness
+417,rhymed poems,Some,0,wonkiness
+417,stuck sequins,All,0,wonkiness
+417,landed flat notebooks,Some,1,wonkiness
+417,beeped houses,Some,1,wonkiness
+417,honked taxi drivers,None,1,wonkiness
+417,melted crayons,Some,1,wonkiness
+417,froze bottles of hand soap,None,1,wonkiness
+417,popped bubbles,Some,0,wonkiness
+417,stopped bicycles,Some,1,wonkiness
+417,dissolved sugar cubes,All,0,wonkiness
+417,burnt rocks,None,1,wonkiness
+417,broke logs,Some,1,wonkiness
+417,exploded balls of tin foil,All,0,wonkiness
+418,melted crayons,None,1,wonkiness
+418,were green strawberries,Some,0,wonkiness
+418,rhymed poems,Some,0,wonkiness
+418,exploded balls of tin foil,All,0,wonkiness
+418,stuck to the wall baseballs,None,0,wonkiness
+418,honked taxi drivers,None,1,wonkiness
+418,decomposed soda cans,Some,1,wonkiness
+418,laughed kids,Some,0,wonkiness
+418,fell down card towers,All,0,wonkiness
+418,broke logs,Some,0,wonkiness
+418,ripped shirts,Some,0,wonkiness
+418,reflected the sunlight mirrors,All,0,wonkiness
+418,froze chocolate bars,Some,0,wonkiness
+418,sank cups,None,0,wonkiness
+418,ran out of batteries bike lights,None,1,wonkiness
+418,flashed webcams,Some,0,wonkiness
+418,had the letter Z in them love notes,All,1,wonkiness
+418,lit up flashlights,All,0,wonkiness
+418,landed flat notebooks,Some,0,wonkiness
+418,blew away napkins,Some,0,wonkiness
+419,sank cups,None,1,wonkiness
+419,rhymed songs,Some,0,wonkiness
+419,melted crayons,None,1,wonkiness
+419,fell down card towers,All,0,wonkiness
+419,beeped houses,Some,1,wonkiness
+419,rolled wheelchairs,Some,1,wonkiness
+419,stopped cars,Some,0,wonkiness
+419,flashed phones,Some,0,wonkiness
+419,got stained white shirts,Some,1,wonkiness
+419,honked bicyclists,Some,0,wonkiness
+419,lit up computers,All,0,wonkiness
+419,stuck stickers,Some,0,wonkiness
+419,dissolved sugar cubes,All,0,wonkiness
+419,reflected the sunlight mirrors,Some,0,wonkiness
+419,decomposed banana peels,All,0,wonkiness
+419,laughed comedians,All,0,wonkiness
+419,popped balloons,Some,0,wonkiness
+419,landed flat coins,None,1,wonkiness
+419,ripped shoes,None,0,wonkiness
+419,froze berries,None,1,wonkiness
+420,popped eggs,Some,1,wonkiness
+420,had the letter Z in them novels,None,0,wonkiness
+420,rhymed limericks,Some,0,wonkiness
+420,sank cups,Some,1,wonkiness
+420,were green bananas,All,0,wonkiness
+420,flashed webcams,Some,0,wonkiness
+420,reflected the sunlight phone screens,None,0,wonkiness
+420,ripped shirts,All,0,wonkiness
+420,exploded candles,Some,1,wonkiness
+420,froze bottles of hand soap,Some,0,wonkiness
+420,decomposed pinecones,None,1,wonkiness
+420,burnt matches,Some,1,wonkiness
+420,landed flat notebooks,Some,0,wonkiness
+420,ran out of batteries bike lights,All,0,wonkiness
+420,honked bicyclists,Some,1,wonkiness
+420,melted pencils,Some,0,wonkiness
+420,blew away hats,All,0,wonkiness
+420,fell down shelves,All,1,wonkiness
+420,exploded eggs,None,1,wonkiness
+420,rolled shopping carts,None,0,wonkiness
+421,froze berries,All,0,wonkiness
+421,broke boxes,None,0,wonkiness
+421,ripped shoes,Some,1,wonkiness
+421,burnt rocks,Some,0,wonkiness
+421,stuck to the wall pieces of gum,All,0,wonkiness
+421,lit up computers,Some,0,wonkiness
+421,stopped motorcycles,Some,1,wonkiness
+421,decomposed banana peels,None,0,wonkiness
+421,fell down shelves,All,0,wonkiness
+421,exploded eggs,None,0,wonkiness
+421,sank marbles,Some,1,wonkiness
+421,got stained white tablecloths,None,0,wonkiness
+421,melted pencils,Some,0,wonkiness
+421,ate the seeds birds,Some,0,wonkiness
+421,exploded fireworks,Some,0,wonkiness
+421,reflected the sunlight diamonds,None,1,wonkiness
+421,rhymed poems,Some,1,wonkiness
+421,laughed kids,All,1,wonkiness
+421,beeped houses,All,0,wonkiness
+421,rolled wheelchairs,Some,0,wonkiness
+422,decomposed soda cans,None,0,wonkiness
+422,dissolved oreos,Some,0,wonkiness
+422,stuck stickers,All,0,wonkiness
+422,exploded gas tanks,All,0,wonkiness
+422,reflected the sunlight diamonds,Some,0,wonkiness
+422,laughed kids,Some,0,wonkiness
+422,broke boxes,Some,1,wonkiness
+422,lit up cd-players,Some,1,wonkiness
+422,fell down card towers,None,1,wonkiness
+422,honked bicyclists,All,1,wonkiness
+422,stuck to the wall cakes,All,0,wonkiness
+422,stopped cars,Some,0,wonkiness
+422,blew away napkins,Some,1,wonkiness
+422,ran out of batteries bike lights,None,1,wonkiness
+422,were green strawberries,None,1,wonkiness
+422,beeped old cars,Some,0,wonkiness
+422,rolled shopping carts,Some,0,wonkiness
+422,exploded balls of tin foil,None,1,wonkiness
+422,had the letter Z in them birthday cards,All,1,wonkiness
+422,landed flat coins,Some,1,wonkiness
+423,exploded fireworks,None,1,wonkiness
+423,ran out of batteries bike lights,Some,0,wonkiness
+423,ate the seeds dogs,None,0,wonkiness
+423,rolled toy cars,None,1,wonkiness
+423,got stained white carpets,Some,0,wonkiness
+423,flashed cameras,All,0,wonkiness
+423,stuck to the wall pieces of gum,All,0,wonkiness
+423,beeped old cars,Some,0,wonkiness
+423,reflected the sunlight mirrors,None,1,wonkiness
+423,decomposed soda cans,Some,1,wonkiness
+423,stuck sequins,All,0,wonkiness
+423,froze berries,All,0,wonkiness
+423,blew away backpacks,Some,1,wonkiness
+423,fell down shelves,All,0,wonkiness
+423,burnt matches,Some,0,wonkiness
+423,exploded eggs,Some,0,wonkiness
+423,broke sunglasses,None,1,wonkiness
+423,popped bubbles,Some,0,wonkiness
+423,rhymed songs,Some,0,wonkiness
+423,had the letter Z in them novels,Some,0,wonkiness
+424,rolled toy cars,All,0,wonkiness
+424,decomposed pinecones,Some,0,wonkiness
+424,lit up computers,Some,1,wonkiness
+424,reflected the sunlight diamonds,Some,0,wonkiness
+424,had the letter Z in them love notes,Some,1,wonkiness
+424,dissolved oreos,None,1,wonkiness
+424,ripped shoes,Some,0,wonkiness
+424,froze bottles of hand soap,Some,1,wonkiness
+424,blew away backpacks,All,1,wonkiness
+424,stuck to the wall cakes,Some,0,wonkiness
+424,rhymed songs,All,0,wonkiness
+424,laughed comedians,Some,0,wonkiness
+424,popped eggs,None,0,wonkiness
+424,stopped cars,None,1,wonkiness
+424,exploded CDs,All,0,wonkiness
+424,honked bicyclists,Some,0,wonkiness
+424,were green strawberries,Some,1,wonkiness
+424,broke logs,All,1,wonkiness
+424,stuck beads,None,1,wonkiness
+424,flashed phones,None,1,wonkiness
+425,honked bus drivers,Some,0,wonkiness
+425,stuck stickers,Some,0,wonkiness
+425,ate the seeds birds,Some,0,wonkiness
+425,decomposed banana peels,None,1,wonkiness
+425,stuck to the wall cakes,All,1,wonkiness
+425,exploded eggs,Some,0,wonkiness
+425,beeped old cars,None,0,wonkiness
+425,lit up computers,All,0,wonkiness
+425,had the letter Z in them birthday cards,Some,0,wonkiness
+425,ripped shoes,Some,0,wonkiness
+425,blew away backpacks,All,0,wonkiness
+425,rolled wheelchairs,None,1,wonkiness
+425,burnt rocks,Some,0,wonkiness
+425,sank cups,Some,0,wonkiness
+425,popped eggs,All,1,wonkiness
+425,stopped cars,Some,0,wonkiness
+425,fell down card towers,Some,0,wonkiness
+425,froze berries,None,1,wonkiness
+425,landed flat pancakes,All,0,wonkiness
+425,dissolved oreos,None,0,wonkiness
+426,ate the seeds dogs,None,0,wonkiness
+426,had the letter Z in them birthday cards,Some,1,wonkiness
+426,beeped old cars,Some,1,wonkiness
+426,blew away napkins,None,0,wonkiness
+426,popped eggs,All,0,wonkiness
+426,froze bottles of hand soap,None,0,wonkiness
+426,stuck to the wall cakes,All,0,wonkiness
+426,ripped shirts,All,0,wonkiness
+426,flashed webcams,Some,0,wonkiness
+426,exploded candles,Some,1,wonkiness
+426,sank balloons,Some,1,wonkiness
+426,ran out of batteries bike lights,Some,0,wonkiness
+426,landed flat notebooks,Some,0,wonkiness
+426,honked taxi drivers,Some,0,wonkiness
+426,melted pencils,None,0,wonkiness
+426,reflected the sunlight phone screens,None,1,wonkiness
+426,rolled toy cars,Some,0,wonkiness
+426,stopped cars,All,0,wonkiness
+426,burnt books,All,0,wonkiness
+426,fell down block towers,Some,0,wonkiness
+427,lit up cd-players,None,1,wonkiness
+427,froze bottles of hand soap,All,0,wonkiness
+427,landed flat coins,Some,0,wonkiness
+427,stuck to the wall baseballs,All,1,wonkiness
+427,ate the seeds butterflies,Some,0,wonkiness
+427,decomposed banana peels,Some,0,wonkiness
+427,broke logs,Some,0,wonkiness
+427,had the letter Z in them novels,All,0,wonkiness
+427,dissolved sugar cubes,Some,0,wonkiness
+427,rhymed songs,None,1,wonkiness
+427,reflected the sunlight phone screens,None,1,wonkiness
+427,laughed lawyers,Some,0,wonkiness
+427,burnt books,All,0,wonkiness
+427,flashed cameras,All,0,wonkiness
+427,ran out of batteries bike lights,Some,0,wonkiness
+427,stopped bicycles,None,1,wonkiness
+427,were green clovers,Some,0,wonkiness
+427,popped bubbles,Some,0,wonkiness
+427,beeped old cars,None,0,wonkiness
+427,fell down card towers,Some,0,wonkiness
+428,ate the seeds birds,All,0,wonkiness
+428,laughed comedians,Some,0,wonkiness
+428,fell down block towers,All,1,wonkiness
+428,rolled toy cars,All,1,wonkiness
+428,decomposed soda cans,None,0,wonkiness
+428,dissolved oreos,None,1,wonkiness
+428,ran out of batteries bike lights,Some,0,wonkiness
+428,ripped books,Some,0,wonkiness
+428,exploded balls of tin foil,All,1,wonkiness
+428,flashed phones,Some,1,wonkiness
+428,burnt rocks,None,0,wonkiness
+428,rhymed songs,Some,1,wonkiness
+428,lit up cd-players,None,1,wonkiness
+428,blew away backpacks,Some,1,wonkiness
+428,popped eggs,All,1,wonkiness
+428,stuck beads,Some,1,wonkiness
+428,reflected the sunlight phone screens,None,0,wonkiness
+428,froze chocolate bars,Some,1,wonkiness
+428,stuck to the wall cakes,Some,1,wonkiness
+428,honked taxi drivers,Some,1,wonkiness
+429,landed flat pancakes,All,0,wonkiness
+429,exploded eggs,Some,1,wonkiness
+429,had the letter Z in them love notes,Some,1,wonkiness
+429,ate the seeds birds,All,0,wonkiness
+429,melted crayons,Some,0,wonkiness
+429,sank balloons,None,0,wonkiness
+429,were green strawberries,Some,1,wonkiness
+429,rolled wheelchairs,All,0,wonkiness
+429,lit up computers,None,0,wonkiness
+429,laughed comedians,None,0,wonkiness
+429,ran out of batteries bike lights,None,1,wonkiness
+429,broke boxes,Some,0,wonkiness
+429,fell down card towers,All,0,wonkiness
+429,beeped houses,None,1,wonkiness
+429,stopped bicycles,Some,0,wonkiness
+429,decomposed banana peels,All,0,wonkiness
+429,dissolved sugar cubes,Some,1,wonkiness
+429,flashed phones,Some,0,wonkiness
+429,reflected the sunlight phone screens,Some,1,wonkiness
+429,popped balloons,Some,1,wonkiness
+430,ripped shirts,Some,0,wonkiness
+430,lit up cd-players,None,1,wonkiness
+430,exploded gas tanks,Some,0,wonkiness
+430,decomposed banana peels,Some,0,wonkiness
+430,stuck to the wall baseballs,All,1,wonkiness
+430,exploded CDs,All,0,wonkiness
+430,rhymed poems,None,1,wonkiness
+430,ate the seeds dogs,None,0,wonkiness
+430,sank balloons,None,0,wonkiness
+430,honked bus drivers,Some,0,wonkiness
+430,melted pencils,None,0,wonkiness
+430,dissolved sugar cubes,Some,0,wonkiness
+430,rolled wheelchairs,All,0,wonkiness
+430,ran out of batteries bike lights,Some,0,wonkiness
+430,reflected the sunlight phone screens,All,0,wonkiness
+430,laughed comedians,Some,0,wonkiness
+430,had the letter Z in them birthday cards,Some,0,wonkiness
+430,beeped old cars,Some,1,wonkiness
+430,blew away napkins,Some,0,wonkiness
+430,stuck beads,All,0,wonkiness
+431,stuck to the wall baseballs,Some,1,wonkiness
+431,landed flat notebooks,Some,0,wonkiness
+431,dissolved carrots,Some,1,wonkiness
+431,stopped cars,Some,0,wonkiness
+431,got stained white tablecloths,All,0,wonkiness
+431,honked bus drivers,All,0,wonkiness
+431,stuck stickers,Some,0,wonkiness
+431,laughed kids,All,0,wonkiness
+431,decomposed banana peels,Some,0,wonkiness
+431,ate the seeds birds,None,1,wonkiness
+431,sank marbles,None,1,wonkiness
+431,ran out of batteries phones,All,0,wonkiness
+431,ripped shoes,Some,0,wonkiness
+431,exploded gas tanks,Some,0,wonkiness
+431,flashed cameras,None,0,wonkiness
+431,blew away napkins,Some,0,wonkiness
+431,rolled toy cars,All,0,wonkiness
+431,popped balloons,None,1,wonkiness
+431,were green strawberries,Some,0,wonkiness
+431,burnt rocks,None,0,wonkiness
+432,ate the seeds dogs,None,0,wonkiness
+432,landed flat coins,All,0,wonkiness
+432,rolled toy cars,All,0,wonkiness
+432,broke sunglasses,All,0,wonkiness
+432,stuck to the wall cakes,Some,0,wonkiness
+432,burnt books,All,0,wonkiness
+432,stopped cars,Some,0,wonkiness
+432,honked bus drivers,Some,0,wonkiness
+432,exploded eggs,Some,0,wonkiness
+432,ran out of batteries bike lights,None,0,wonkiness
+432,exploded candles,None,0,wonkiness
+432,decomposed soda cans,Some,1,wonkiness
+432,rhymed songs,All,0,wonkiness
+432,popped bubbles,Some,0,wonkiness
+432,beeped old cars,Some,0,wonkiness
+432,got stained white carpets,Some,0,wonkiness
+432,laughed comedians,None,1,wonkiness
+432,sank cups,None,0,wonkiness
+432,ripped books,Some,0,wonkiness
+432,reflected the sunlight diamonds,Some,0,wonkiness
+433,dissolved oreos,All,1,wonkiness
+433,rhymed songs,None,0,wonkiness
+433,burnt rocks,All,1,wonkiness
+433,stopped cars,Some,0,wonkiness
+433,ran out of batteries bike lights,All,0,wonkiness
+433,melted crayons,None,1,wonkiness
+433,lit up computers,All,0,wonkiness
+433,laughed lawyers,Some,0,wonkiness
+433,had the letter Z in them novels,Some,0,wonkiness
+433,flashed webcams,Some,0,wonkiness
+433,fell down shelves,Some,0,wonkiness
+433,beeped new cars,Some,0,wonkiness
+433,popped eggs,None,0,wonkiness
+433,ate the seeds dogs,Some,0,wonkiness
+433,blew away backpacks,Some,0,wonkiness
+433,reflected the sunlight mirrors,All,0,wonkiness
+433,stuck beads,None,1,wonkiness
+433,froze berries,Some,0,wonkiness
+433,decomposed pinecones,Some,0,wonkiness
+433,stuck to the wall pieces of gum,None,0,wonkiness
+434,ran out of batteries bike lights,Some,0,wonkiness
+434,were green clovers,Some,0,wonkiness
+434,honked taxi drivers,Some,0,wonkiness
+434,dissolved carrots,Some,1,wonkiness
+434,sank cups,All,0,wonkiness
+434,blew away hats,Some,0,wonkiness
+434,fell down shelves,None,0,wonkiness
+434,melted pencils,Some,0,wonkiness
+434,rolled toy cars,None,1,wonkiness
+434,reflected the sunlight phone screens,None,0,wonkiness
+434,landed flat notebooks,Some,0,wonkiness
+434,stopped cars,None,1,wonkiness
+434,broke logs,All,0,wonkiness
+434,decomposed pinecones,Some,0,wonkiness
+434,had the letter Z in them love notes,None,0,wonkiness
+434,stuck to the wall pieces of gum,All,0,wonkiness
+434,got stained white carpets,Some,0,wonkiness
+434,stuck sequins,All,0,wonkiness
+434,exploded gas tanks,Some,0,wonkiness
+434,rhymed poems,All,0,wonkiness
+435,blew away napkins,Some,0,wonkiness
+435,exploded candles,None,0,wonkiness
+435,broke boxes,Some,0,wonkiness
+435,decomposed pinecones,Some,0,wonkiness
+435,rolled wheelchairs,Some,0,wonkiness
+435,were green strawberries,All,1,wonkiness
+435,ripped books,All,0,wonkiness
+435,sank cups,Some,0,wonkiness
+435,melted crayons,None,0,wonkiness
+435,stuck stickers,None,0,wonkiness
+435,burnt rocks,Some,0,wonkiness
+435,rhymed songs,All,0,wonkiness
+435,popped eggs,None,1,wonkiness
+435,dissolved oreos,All,0,wonkiness
+435,beeped houses,Some,0,wonkiness
+435,ate the seeds dogs,Some,0,wonkiness
+435,laughed kids,None,0,wonkiness
+435,got stained white tablecloths,Some,0,wonkiness
+435,froze bottles of hand soap,Some,0,wonkiness
+435,had the letter Z in them love notes,All,0,wonkiness
+436,stuck sequins,Some,0,wonkiness
+436,beeped new cars,Some,1,wonkiness
+436,got stained white tablecloths,Some,1,wonkiness
+436,decomposed soda cans,Some,0,wonkiness
+436,popped bubbles,None,1,wonkiness
+436,exploded gas tanks,Some,1,wonkiness
+436,sank cups,Some,0,wonkiness
+436,melted pencils,All,1,wonkiness
+436,exploded CDs,All,0,wonkiness
+436,landed flat coins,Some,1,wonkiness
+436,stopped bicycles,Some,1,wonkiness
+436,lit up cd-players,None,0,wonkiness
+436,honked taxi drivers,None,1,wonkiness
+436,laughed comedians,All,0,wonkiness
+436,froze bottles of hand soap,All,0,wonkiness
+436,ate the seeds dogs,All,0,wonkiness
+436,fell down shelves,None,0,wonkiness
+436,ripped shirts,None,1,wonkiness
+436,rhymed poems,Some,1,wonkiness
+436,had the letter Z in them novels,Some,1,wonkiness
+437,froze bottles of hand soap,Some,0,wonkiness
+437,ate the seeds birds,Some,0,wonkiness
+437,burnt matches,Some,0,wonkiness
+437,fell down card towers,Some,0,wonkiness
+437,had the letter Z in them love notes,Some,0,wonkiness
+437,beeped old cars,All,0,wonkiness
+437,rolled wheelchairs,None,1,wonkiness
+437,ripped shoes,All,0,wonkiness
+437,stopped bicycles,None,1,wonkiness
+437,were green strawberries,All,1,wonkiness
+437,stuck sequins,None,1,wonkiness
+437,ran out of batteries bike lights,Some,0,wonkiness
+437,lit up cd-players,All,0,wonkiness
+437,broke logs,All,0,wonkiness
+437,dissolved carrots,None,0,wonkiness
+437,blew away napkins,Some,0,wonkiness
+437,laughed comedians,Some,0,wonkiness
+437,stuck to the wall pieces of gum,Some,0,wonkiness
+437,exploded balls of tin foil,None,1,wonkiness
+437,flashed cameras,Some,0,wonkiness
+438,beeped old cars,Some,0,wonkiness
+438,lit up computers,All,0,wonkiness
+438,rhymed poems,None,0,wonkiness
+438,burnt matches,Some,0,wonkiness
+438,ripped books,None,1,wonkiness
+438,honked bus drivers,All,0,wonkiness
+438,dissolved oreos,Some,0,wonkiness
+438,exploded gas tanks,Some,0,wonkiness
+438,reflected the sunlight phone screens,Some,0,wonkiness
+438,fell down block towers,All,0,wonkiness
+438,exploded CDs,Some,0,wonkiness
+438,broke boxes,All,0,wonkiness
+438,rolled wheelchairs,Some,0,wonkiness
+438,had the letter Z in them birthday cards,Some,0,wonkiness
+438,melted pencils,None,0,wonkiness
+438,froze bottles of hand soap,Some,0,wonkiness
+438,stopped motorcycles,None,1,wonkiness
+438,sank cups,None,0,wonkiness
+438,flashed webcams,All,0,wonkiness
+438,popped eggs,Some,1,wonkiness
+439,ran out of batteries phones,Some,0,wonkiness
+439,ripped shirts,All,0,wonkiness
+439,stuck to the wall baseballs,Some,1,wonkiness
+439,stuck stickers,None,1,wonkiness
+439,ate the seeds dogs,Some,0,wonkiness
+439,dissolved carrots,Some,1,wonkiness
+439,lit up flashlights,All,0,wonkiness
+439,got stained white carpets,None,1,wonkiness
+439,had the letter Z in them novels,Some,0,wonkiness
+439,rhymed poems,None,0,wonkiness
+439,flashed webcams,Some,0,wonkiness
+439,blew away backpacks,Some,0,wonkiness
+439,stopped cars,Some,1,wonkiness
+439,rolled toy cars,All,0,wonkiness
+439,reflected the sunlight phone screens,None,0,wonkiness
+439,honked bus drivers,All,0,wonkiness
+439,broke boxes,Some,0,wonkiness
+439,landed flat notebooks,All,0,wonkiness
+439,froze bottles of hand soap,None,0,wonkiness
+439,laughed comedians,Some,0,wonkiness
+440,got stained white shirts,All,0,wonkiness
+440,stopped motorcycles,None,1,wonkiness
+440,popped bubbles,All,0,wonkiness
+440,flashed phones,Some,1,wonkiness
+440,ran out of batteries phones,None,1,wonkiness
+440,sank balloons,Some,1,wonkiness
+440,rolled wheelchairs,All,0,wonkiness
+440,ripped shoes,Some,0,wonkiness
+440,exploded CDs,All,1,wonkiness
+440,were green clovers,Some,1,wonkiness
+440,blew away napkins,Some,0,wonkiness
+440,dissolved carrots,None,1,wonkiness
+440,melted pencils,Some,1,wonkiness
+440,had the letter Z in them love notes,None,1,wonkiness
+440,exploded gas tanks,Some,0,wonkiness
+440,lit up computers,All,0,wonkiness
+440,stuck to the wall cakes,Some,0,wonkiness
+440,fell down shelves,Some,0,wonkiness
+440,landed flat notebooks,None,1,wonkiness
+440,rhymed limericks,Some,0,wonkiness
+441,broke boxes,None,0,wonkiness
+441,had the letter Z in them birthday cards,None,0,wonkiness
+441,rhymed limericks,Some,0,wonkiness
+441,exploded fireworks,Some,1,wonkiness
+441,honked bus drivers,All,0,wonkiness
+441,beeped houses,All,1,wonkiness
+441,stopped cars,Some,1,wonkiness
+441,blew away napkins,All,0,wonkiness
+441,rolled shopping carts,All,0,wonkiness
+441,reflected the sunlight phone screens,Some,0,wonkiness
+441,popped balloons,All,1,wonkiness
+441,ate the seeds butterflies,Some,1,wonkiness
+441,fell down shelves,Some,1,wonkiness
+441,froze berries,None,1,wonkiness
+441,lit up flashlights,None,0,wonkiness
+441,laughed kids,Some,1,wonkiness
+441,melted pencils,Some,1,wonkiness
+441,ran out of batteries phones,Some,0,wonkiness
+441,burnt books,None,1,wonkiness
+441,stuck stickers,Some,0,wonkiness
+442,popped balloons,Some,0,wonkiness
+442,exploded eggs,All,0,wonkiness
+442,dissolved carrots,None,0,wonkiness
+442,burnt matches,Some,0,wonkiness
+442,melted ice cubes,None,1,wonkiness
+442,blew away backpacks,All,0,wonkiness
+442,reflected the sunlight diamonds,All,0,wonkiness
+442,decomposed soda cans,None,0,wonkiness
+442,rhymed songs,Some,0,wonkiness
+442,stopped cars,Some,0,wonkiness
+442,had the letter Z in them novels,Some,0,wonkiness
+442,rolled shopping carts,All,0,wonkiness
+442,laughed comedians,None,0,wonkiness
+442,ate the seeds butterflies,Some,0,wonkiness
+442,landed flat notebooks,Some,0,wonkiness
+442,beeped houses,Some,1,wonkiness
+442,stuck to the wall cakes,Some,0,wonkiness
+442,lit up cd-players,All,0,wonkiness
+442,sank marbles,None,0,wonkiness
+442,stuck beads,Some,0,wonkiness
+443,reflected the sunlight phone screens,All,0,wonkiness
+443,exploded eggs,Some,0,wonkiness
+443,exploded candles,None,0,wonkiness
+443,blew away napkins,All,0,wonkiness
+443,froze chocolate bars,Some,0,wonkiness
+443,stuck sequins,None,1,wonkiness
+443,rolled wheelchairs,All,0,wonkiness
+443,rhymed limericks,Some,1,wonkiness
+443,decomposed pinecones,None,1,wonkiness
+443,stopped bicycles,None,1,wonkiness
+443,ate the seeds butterflies,Some,1,wonkiness
+443,burnt rocks,Some,0,wonkiness
+443,melted crayons,All,0,wonkiness
+443,landed flat coins,Some,1,wonkiness
+443,sank cups,All,0,wonkiness
+443,honked bicyclists,Some,1,wonkiness
+443,popped eggs,Some,1,wonkiness
+443,got stained white carpets,Some,1,wonkiness
+443,had the letter Z in them love notes,Some,0,wonkiness
+443,broke logs,None,1,wonkiness
+444,honked bicyclists,Some,1,wonkiness
+444,reflected the sunlight mirrors,All,0,wonkiness
+444,melted ice cubes,None,1,wonkiness
+444,decomposed soda cans,Some,1,wonkiness
+444,had the letter Z in them love notes,All,1,wonkiness
+444,exploded CDs,Some,0,wonkiness
+444,stopped cars,None,1,wonkiness
+444,ran out of batteries laptops,None,1,wonkiness
+444,blew away backpacks,All,1,wonkiness
+444,stuck to the wall baseballs,Some,1,wonkiness
+444,landed flat pancakes,Some,0,wonkiness
+444,dissolved sugar cubes,All,0,wonkiness
+444,stuck stickers,Some,0,wonkiness
+444,were green strawberries,Some,1,wonkiness
+444,lit up flashlights,Some,0,wonkiness
+444,beeped houses,All,1,wonkiness
+444,laughed comedians,Some,0,wonkiness
+444,froze berries,None,1,wonkiness
+444,got stained white tablecloths,Some,0,wonkiness
+444,ripped shoes,None,0,wonkiness
+445,stuck to the wall cakes,All,1,wonkiness
+445,had the letter Z in them birthday cards,All,0,wonkiness
+445,got stained white carpets,Some,0,wonkiness
+445,ate the seeds butterflies,Some,0,wonkiness
+445,stopped bicycles,None,1,wonkiness
+445,exploded CDs,Some,0,wonkiness
+445,popped bubbles,Some,0,wonkiness
+445,laughed comedians,All,0,wonkiness
+445,burnt rocks,Some,0,wonkiness
+445,broke logs,All,0,wonkiness
+445,reflected the sunlight diamonds,Some,0,wonkiness
+445,honked taxi drivers,Some,0,wonkiness
+445,ripped shirts,Some,0,wonkiness
+445,blew away hats,All,0,wonkiness
+445,beeped old cars,None,0,wonkiness
+445,flashed webcams,Some,0,wonkiness
+445,decomposed banana peels,None,1,wonkiness
+445,stuck stickers,Some,0,wonkiness
+445,lit up flashlights,None,1,wonkiness
+445,fell down card towers,None,1,wonkiness
+446,honked bus drivers,All,0,wonkiness
+446,dissolved carrots,Some,1,wonkiness
+446,beeped old cars,Some,0,wonkiness
+446,decomposed soda cans,Some,1,wonkiness
+446,lit up flashlights,None,1,wonkiness
+446,ran out of batteries bike lights,None,0,wonkiness
+446,rhymed songs,Some,0,wonkiness
+446,stuck to the wall pieces of gum,All,1,wonkiness
+446,melted ice cubes,Some,0,wonkiness
+446,landed flat notebooks,Some,0,wonkiness
+446,rolled shopping carts,All,0,wonkiness
+446,fell down shelves,Some,0,wonkiness
+446,broke logs,None,0,wonkiness
+446,stuck beads,Some,0,wonkiness
+446,ate the seeds butterflies,All,0,wonkiness
+446,burnt books,None,1,wonkiness
+446,had the letter Z in them novels,None,1,wonkiness
+446,exploded CDs,Some,0,wonkiness
+446,exploded gas tanks,Some,0,wonkiness
+446,blew away backpacks,All,0,wonkiness
+447,beeped old cars,Some,1,wonkiness
+447,laughed comedians,None,1,wonkiness
+447,ripped shoes,All,0,wonkiness
+447,fell down block towers,Some,1,wonkiness
+447,melted pencils,None,0,wonkiness
+447,rhymed limericks,Some,1,wonkiness
+447,burnt books,Some,1,wonkiness
+447,broke sunglasses,Some,1,wonkiness
+447,rolled shopping carts,Some,1,wonkiness
+447,exploded gas tanks,All,0,wonkiness
+447,stuck to the wall baseballs,All,1,wonkiness
+447,stopped motorcycles,None,1,wonkiness
+447,froze chocolate bars,Some,1,wonkiness
+447,reflected the sunlight diamonds,All,0,wonkiness
+447,sank marbles,Some,1,wonkiness
+447,decomposed pinecones,Some,0,wonkiness
+447,flashed cameras,None,0,wonkiness
+447,popped balloons,All,0,wonkiness
+447,ate the seeds birds,None,1,wonkiness
+447,blew away hats,Some,0,wonkiness
+448,froze chocolate bars,None,1,wonkiness
+448,were green strawberries,All,1,wonkiness
+448,beeped new cars,Some,0,wonkiness
+448,blew away backpacks,Some,0,wonkiness
+448,melted ice cubes,Some,0,wonkiness
+448,fell down card towers,None,0,wonkiness
+448,exploded fireworks,All,0,wonkiness
+448,rolled wheelchairs,None,1,wonkiness
+448,exploded eggs,All,0,wonkiness
+448,popped bubbles,Some,0,wonkiness
+448,ripped books,Some,0,wonkiness
+448,ran out of batteries phones,Some,0,wonkiness
+448,burnt books,Some,0,wonkiness
+448,stuck stickers,All,0,wonkiness
+448,laughed comedians,All,0,wonkiness
+448,sank marbles,Some,0,wonkiness
+448,decomposed banana peels,Some,0,wonkiness
+448,landed flat coins,Some,0,wonkiness
+448,reflected the sunlight phone screens,None,0,wonkiness
+448,ate the seeds birds,None,1,wonkiness
+449,popped balloons,Some,0,wonkiness
+449,had the letter Z in them novels,Some,0,wonkiness
+449,stopped bicycles,All,0,wonkiness
+449,decomposed soda cans,None,1,wonkiness
+449,rolled toy cars,Some,1,wonkiness
+449,fell down block towers,All,0,wonkiness
+449,lit up flashlights,None,1,wonkiness
+449,blew away hats,Some,1,wonkiness
+449,flashed phones,All,0,wonkiness
+449,sank cups,None,0,wonkiness
+449,stuck to the wall baseballs,Some,1,wonkiness
+449,rhymed poems,All,0,wonkiness
+449,beeped new cars,Some,1,wonkiness
+449,ripped shirts,Some,0,wonkiness
+449,broke logs,Some,1,wonkiness
+449,were green bananas,All,0,wonkiness
+449,dissolved oreos,Some,1,wonkiness
+449,ate the seeds butterflies,Some,0,wonkiness
+449,burnt books,None,1,wonkiness
+449,honked bicyclists,None,1,wonkiness
+450,had the letter Z in them novels,Some,0,wonkiness
+450,burnt matches,Some,0,wonkiness
+450,exploded fireworks,Some,0,wonkiness
+450,beeped houses,Some,1,wonkiness
+450,stuck beads,Some,0,wonkiness
+450,fell down shelves,None,1,wonkiness
+450,ran out of batteries bike lights,Some,0,wonkiness
+450,ate the seeds dogs,Some,0,wonkiness
+450,broke sunglasses,All,0,wonkiness
+450,ripped shirts,All,1,wonkiness
+450,melted pencils,None,0,wonkiness
+450,flashed webcams,None,1,wonkiness
+450,laughed comedians,Some,0,wonkiness
+450,sank balloons,Some,1,wonkiness
+450,honked bicyclists,All,0,wonkiness
+450,popped balloons,All,0,wonkiness
+450,rhymed limericks,None,1,wonkiness
+450,blew away backpacks,Some,0,wonkiness
+450,rolled wheelchairs,All,0,wonkiness
+450,froze chocolate bars,None,1,wonkiness
+451,laughed comedians,Some,0,wonkiness
+451,reflected the sunlight diamonds,All,0,wonkiness
+451,got stained white shirts,Some,0,wonkiness
+451,honked taxi drivers,All,0,wonkiness
+451,beeped new cars,All,0,wonkiness
+451,ran out of batteries laptops,All,0,wonkiness
+451,exploded gas tanks,None,0,wonkiness
+451,sank marbles,None,0,wonkiness
+451,melted crayons,Some,0,wonkiness
+451,exploded balls of tin foil,All,0,wonkiness
+451,ripped shoes,Some,0,wonkiness
+451,ate the seeds dogs,None,0,wonkiness
+451,stopped cars,Some,0,wonkiness
+451,blew away backpacks,Some,0,wonkiness
+451,broke sunglasses,Some,0,wonkiness
+451,froze berries,Some,0,wonkiness
+451,rolled wheelchairs,Some,0,wonkiness
+451,dissolved carrots,None,0,wonkiness
+451,landed flat notebooks,Some,0,wonkiness
+451,stuck beads,None,0,wonkiness
+452,broke logs,Some,0,wonkiness
+452,reflected the sunlight mirrors,Some,0,wonkiness
+452,exploded fireworks,None,1,wonkiness
+452,exploded eggs,None,1,wonkiness
+452,melted pencils,Some,0,wonkiness
+452,ran out of batteries bike lights,All,0,wonkiness
+452,lit up cd-players,Some,0,wonkiness
+452,sank cups,Some,0,wonkiness
+452,beeped houses,Some,1,wonkiness
+452,burnt matches,All,0,wonkiness
+452,flashed webcams,Some,0,wonkiness
+452,honked bicyclists,All,0,wonkiness
+452,froze berries,All,0,wonkiness
+452,laughed lawyers,None,0,wonkiness
+452,dissolved sugar cubes,None,1,wonkiness
+452,stopped motorcycles,Some,1,wonkiness
+452,ate the seeds dogs,All,0,wonkiness
+452,fell down card towers,None,1,wonkiness
+452,stuck beads,Some,0,wonkiness
+452,blew away hats,Some,0,wonkiness
+453,froze bottles of hand soap,Some,0,wonkiness
+453,ripped books,None,1,wonkiness
+453,popped balloons,All,0,wonkiness
+453,ate the seeds butterflies,All,1,wonkiness
+453,burnt rocks,Some,1,wonkiness
+453,laughed lawyers,Some,0,wonkiness
+453,melted pencils,Some,1,wonkiness
+453,beeped new cars,None,1,wonkiness
+453,got stained white tablecloths,Some,0,wonkiness
+453,ran out of batteries laptops,None,1,wonkiness
+453,landed flat coins,Some,0,wonkiness
+453,dissolved oreos,None,0,wonkiness
+453,exploded eggs,Some,0,wonkiness
+453,stuck to the wall cakes,All,0,wonkiness
+453,had the letter Z in them birthday cards,Some,0,wonkiness
+453,flashed webcams,Some,0,wonkiness
+453,reflected the sunlight phone screens,All,0,wonkiness
+453,fell down shelves,None,0,wonkiness
+453,broke logs,Some,0,wonkiness
+453,blew away hats,All,0,wonkiness
+454,froze bottles of hand soap,Some,0,wonkiness
+454,landed flat pancakes,Some,0,wonkiness
+454,exploded CDs,None,1,wonkiness
+454,ripped shirts,All,0,wonkiness
+454,ate the seeds dogs,None,0,wonkiness
+454,reflected the sunlight diamonds,Some,1,wonkiness
+454,rolled wheelchairs,None,1,wonkiness
+454,fell down block towers,Some,0,wonkiness
+454,lit up computers,Some,1,wonkiness
+454,ran out of batteries phones,All,0,wonkiness
+454,blew away backpacks,All,1,wonkiness
+454,rhymed songs,None,1,wonkiness
+454,broke logs,Some,0,wonkiness
+454,got stained white tablecloths,All,0,wonkiness
+454,were green clovers,Some,1,wonkiness
+454,melted pencils,Some,1,wonkiness
+454,stuck beads,Some,0,wonkiness
+454,sank marbles,Some,0,wonkiness
+454,beeped houses,All,1,wonkiness
+454,had the letter Z in them novels,None,1,wonkiness
+455,flashed phones,Some,0,wonkiness
+455,were green strawberries,None,0,wonkiness
+455,burnt matches,Some,0,wonkiness
+455,stopped bicycles,Some,0,wonkiness
+455,lit up flashlights,None,1,wonkiness
+455,froze chocolate bars,None,1,wonkiness
+455,exploded candles,Some,1,wonkiness
+455,popped balloons,All,0,wonkiness
+455,honked bicyclists,None,0,wonkiness
+455,ran out of batteries bike lights,Some,0,wonkiness
+455,ripped shirts,None,1,wonkiness
+455,beeped houses,Some,1,wonkiness
+455,melted crayons,Some,0,wonkiness
+455,laughed kids,All,0,wonkiness
+455,blew away hats,All,0,wonkiness
+455,rhymed limericks,All,0,wonkiness
+455,rolled shopping carts,Some,0,wonkiness
+455,stuck stickers,Some,0,wonkiness
+455,got stained white carpets,All,0,wonkiness
+455,ate the seeds birds,Some,0,wonkiness
+456,ran out of batteries laptops,None,1,wonkiness
+456,stopped motorcycles,Some,0,wonkiness
+456,burnt books,Some,0,wonkiness
+456,sank cups,None,0,wonkiness
+456,got stained white shirts,None,1,wonkiness
+456,popped balloons,Some,0,wonkiness
+456,landed flat notebooks,Some,0,wonkiness
+456,ate the seeds birds,Some,0,wonkiness
+456,broke logs,Some,1,wonkiness
+456,stuck sequins,All,0,wonkiness
+456,dissolved oreos,All,0,wonkiness
+456,had the letter Z in them birthday cards,Some,0,wonkiness
+456,blew away hats,Some,0,wonkiness
+456,lit up computers,Some,0,wonkiness
+456,reflected the sunlight phone screens,Some,0,wonkiness
+456,flashed phones,None,1,wonkiness
+456,honked taxi drivers,All,0,wonkiness
+456,rolled wheelchairs,All,0,wonkiness
+456,fell down shelves,None,0,wonkiness
+456,exploded gas tanks,All,0,wonkiness
+457,blew away backpacks,None,0,wonkiness
+457,had the letter Z in them novels,Some,0,wonkiness
+457,ran out of batteries bike lights,Some,0,wonkiness
+457,landed flat notebooks,Some,0,wonkiness
+457,got stained white tablecloths,None,1,wonkiness
+457,stuck stickers,None,1,wonkiness
+457,lit up cd-players,All,0,wonkiness
+457,popped eggs,Some,0,wonkiness
+457,stuck to the wall baseballs,All,1,wonkiness
+457,honked taxi drivers,Some,0,wonkiness
+457,dissolved sugar cubes,All,0,wonkiness
+457,burnt books,All,0,wonkiness
+457,exploded balls of tin foil,None,1,wonkiness
+457,ate the seeds butterflies,Some,0,wonkiness
+457,decomposed soda cans,All,1,wonkiness
+457,rolled shopping carts,None,1,wonkiness
+457,beeped houses,Some,1,wonkiness
+457,sank marbles,Some,1,wonkiness
+457,froze chocolate bars,Some,1,wonkiness
+457,rhymed limericks,Some,0,wonkiness
+458,beeped houses,All,1,wonkiness
+458,exploded fireworks,All,0,wonkiness
+458,sank cups,None,0,wonkiness
+458,flashed phones,Some,0,wonkiness
+458,stuck to the wall cakes,All,0,wonkiness
+458,burnt matches,Some,0,wonkiness
+458,laughed kids,Some,0,wonkiness
+458,were green clovers,Some,1,wonkiness
+458,melted pencils,None,0,wonkiness
+458,landed flat notebooks,Some,0,wonkiness
+458,decomposed pinecones,Some,0,wonkiness
+458,broke boxes,None,1,wonkiness
+458,honked bus drivers,Some,0,wonkiness
+458,rolled shopping carts,All,0,wonkiness
+458,ripped shoes,Some,0,wonkiness
+458,fell down card towers,None,1,wonkiness
+458,ran out of batteries laptops,All,0,wonkiness
+458,had the letter Z in them love notes,Some,0,wonkiness
+458,stopped bicycles,Some,1,wonkiness
+458,reflected the sunlight mirrors,None,1,wonkiness
+459,honked bicyclists,Some,1,wonkiness
+459,exploded fireworks,Some,0,wonkiness
+459,exploded balls of tin foil,Some,0,wonkiness
+459,flashed cameras,Some,0,wonkiness
+459,burnt rocks,None,0,wonkiness
+459,sank cups,All,0,wonkiness
+459,lit up computers,All,0,wonkiness
+459,were green clovers,Some,0,wonkiness
+459,beeped new cars,All,0,wonkiness
+459,froze chocolate bars,Some,0,wonkiness
+459,landed flat pancakes,Some,0,wonkiness
+459,laughed comedians,Some,0,wonkiness
+459,ripped books,Some,0,wonkiness
+459,fell down card towers,All,0,wonkiness
+459,got stained white tablecloths,Some,0,wonkiness
+459,rhymed songs,None,1,wonkiness
+459,broke sunglasses,None,1,wonkiness
+459,stopped bicycles,All,0,wonkiness
+459,blew away hats,None,0,wonkiness
+459,reflected the sunlight mirrors,None,1,wonkiness
+460,melted crayons,Some,0,wonkiness
+460,lit up cd-players,All,1,wonkiness
+460,rolled toy cars,All,0,wonkiness
+460,reflected the sunlight phone screens,Some,0,wonkiness
+460,froze bottles of hand soap,None,1,wonkiness
+460,sank marbles,All,0,wonkiness
+460,dissolved sugar cubes,All,0,wonkiness
+460,exploded fireworks,Some,0,wonkiness
+460,landed flat notebooks,Some,0,wonkiness
+460,flashed phones,None,1,wonkiness
+460,burnt rocks,Some,1,wonkiness
+460,stuck beads,Some,0,wonkiness
+460,had the letter Z in them love notes,None,0,wonkiness
+460,popped balloons,Some,1,wonkiness
+460,broke logs,Some,0,wonkiness
+460,ripped books,None,1,wonkiness
+460,honked bus drivers,All,0,wonkiness
+460,fell down block towers,Some,1,wonkiness
+460,decomposed pinecones,None,1,wonkiness
+460,rhymed limericks,Some,1,wonkiness
+461,rhymed poems,None,1,wonkiness
+461,ate the seeds birds,Some,0,wonkiness
+461,landed flat coins,Some,1,wonkiness
+461,burnt books,All,0,wonkiness
+461,decomposed banana peels,All,0,wonkiness
+461,stopped bicycles,None,1,wonkiness
+461,melted ice cubes,Some,1,wonkiness
+461,sank marbles,None,1,wonkiness
+461,reflected the sunlight diamonds,All,0,wonkiness
+461,honked bicyclists,All,1,wonkiness
+461,were green strawberries,All,1,wonkiness
+461,had the letter Z in them birthday cards,None,0,wonkiness
+461,exploded balls of tin foil,Some,1,wonkiness
+461,exploded gas tanks,Some,1,wonkiness
+461,stuck sequins,None,1,wonkiness
+461,got stained white shirts,Some,1,wonkiness
+461,beeped new cars,Some,0,wonkiness
+461,broke boxes,Some,1,wonkiness
+461,froze chocolate bars,Some,1,wonkiness
+461,fell down shelves,Some,0,wonkiness
+462,stopped cars,None,1,wonkiness
+462,melted ice cubes,Some,1,wonkiness
+462,beeped new cars,None,1,wonkiness
+462,got stained white shirts,Some,1,wonkiness
+462,popped balloons,All,0,wonkiness
+462,stuck to the wall pieces of gum,Some,0,wonkiness
+462,landed flat pancakes,Some,1,wonkiness
+462,stuck beads,None,1,wonkiness
+462,rhymed limericks,None,1,wonkiness
+462,sank balloons,Some,1,wonkiness
+462,dissolved oreos,Some,1,wonkiness
+462,lit up computers,All,0,wonkiness
+462,ripped books,All,0,wonkiness
+462,decomposed pinecones,Some,0,wonkiness
+462,exploded CDs,None,0,wonkiness
+462,blew away backpacks,Some,1,wonkiness
+462,had the letter Z in them birthday cards,All,1,wonkiness
+462,laughed lawyers,All,0,wonkiness
+462,rolled wheelchairs,Some,0,wonkiness
+462,broke boxes,Some,1,wonkiness
+463,decomposed pinecones,All,0,wonkiness
+463,rolled toy cars,All,0,wonkiness
+463,got stained white carpets,All,0,wonkiness
+463,ran out of batteries phones,Some,0,wonkiness
+463,melted ice cubes,Some,0,wonkiness
+463,broke sunglasses,Some,1,wonkiness
+463,lit up cd-players,None,1,wonkiness
+463,rhymed poems,None,1,wonkiness
+463,burnt matches,Some,1,wonkiness
+463,sank marbles,Some,1,wonkiness
+463,reflected the sunlight phone screens,None,1,wonkiness
+463,exploded gas tanks,Some,1,wonkiness
+463,dissolved sugar cubes,Some,1,wonkiness
+463,honked bicyclists,Some,0,wonkiness
+463,stopped motorcycles,None,1,wonkiness
+463,laughed lawyers,Some,0,wonkiness
+463,flashed phones,Some,0,wonkiness
+463,stuck stickers,None,1,wonkiness
+463,were green bananas,All,0,wonkiness
+463,blew away napkins,All,0,wonkiness
+464,reflected the sunlight phone screens,Some,0,wonkiness
+464,exploded candles,Some,1,wonkiness
+464,ate the seeds birds,Some,0,wonkiness
+464,froze berries,All,0,wonkiness
+464,blew away backpacks,None,0,wonkiness
+464,broke logs,All,0,wonkiness
+464,ripped books,All,0,wonkiness
+464,fell down card towers,Some,0,wonkiness
+464,beeped old cars,Some,0,wonkiness
+464,had the letter Z in them birthday cards,Some,0,wonkiness
+464,lit up flashlights,None,1,wonkiness
+464,melted ice cubes,Some,0,wonkiness
+464,stopped bicycles,All,0,wonkiness
+464,ran out of batteries phones,None,1,wonkiness
+464,stuck stickers,Some,0,wonkiness
+464,burnt matches,None,1,wonkiness
+464,laughed comedians,Some,1,wonkiness
+464,were green bananas,None,0,wonkiness
+464,stuck to the wall cakes,All,0,wonkiness
+464,rhymed poems,Some,0,wonkiness
+465,stopped motorcycles,Some,0,wonkiness
+465,exploded fireworks,All,0,wonkiness
+465,landed flat pancakes,Some,0,wonkiness
+465,fell down block towers,Some,1,wonkiness
+465,broke boxes,Some,1,wonkiness
+465,were green bananas,None,1,wonkiness
+465,reflected the sunlight phone screens,All,0,wonkiness
+465,exploded CDs,None,0,wonkiness
+465,burnt books,All,1,wonkiness
+465,popped eggs,All,0,wonkiness
+465,lit up cd-players,None,0,wonkiness
+465,froze bottles of hand soap,None,1,wonkiness
+465,rhymed poems,Some,0,wonkiness
+465,had the letter Z in them novels,Some,1,wonkiness
+465,laughed comedians,None,1,wonkiness
+465,sank balloons,Some,0,wonkiness
+465,melted crayons,Some,1,wonkiness
+465,ripped shoes,Some,0,wonkiness
+465,rolled shopping carts,Some,1,wonkiness
+465,ate the seeds birds,All,0,wonkiness
+466,melted crayons,Some,0,wonkiness
+466,exploded fireworks,None,1,wonkiness
+466,had the letter Z in them love notes,Some,0,wonkiness
+466,were green bananas,All,0,wonkiness
+466,ate the seeds butterflies,Some,0,wonkiness
+466,lit up computers,Some,0,wonkiness
+466,honked bicyclists,Some,1,wonkiness
+466,flashed cameras,All,0,wonkiness
+466,rhymed songs,All,0,wonkiness
+466,landed flat notebooks,None,1,wonkiness
+466,blew away hats,None,1,wonkiness
+466,ripped shirts,Some,0,wonkiness
+466,beeped houses,Some,1,wonkiness
+466,exploded eggs,None,1,wonkiness
+466,dissolved sugar cubes,None,1,wonkiness
+466,stuck stickers,All,0,wonkiness
+466,got stained white tablecloths,Some,0,wonkiness
+466,decomposed soda cans,Some,1,wonkiness
+466,ran out of batteries phones,Some,0,wonkiness
+466,broke sunglasses,All,0,wonkiness
+467,fell down block towers,Some,0,wonkiness
+467,laughed comedians,None,0,wonkiness
+467,lit up cd-players,None,1,wonkiness
+467,broke logs,Some,0,wonkiness
+467,froze chocolate bars,Some,0,wonkiness
+467,landed flat notebooks,Some,1,wonkiness
+467,beeped new cars,All,1,wonkiness
+467,blew away napkins,All,0,wonkiness
+467,ran out of batteries laptops,None,1,wonkiness
+467,rhymed songs,All,0,wonkiness
+467,exploded CDs,Some,0,wonkiness
+467,decomposed banana peels,Some,0,wonkiness
+467,ate the seeds birds,Some,0,wonkiness
+467,reflected the sunlight mirrors,Some,1,wonkiness
+467,rolled toy cars,None,1,wonkiness
+467,stuck to the wall cakes,All,0,wonkiness
+467,had the letter Z in them novels,Some,1,wonkiness
+467,exploded candles,None,0,wonkiness
+467,burnt rocks,Some,1,wonkiness
+467,melted crayons,All,0,wonkiness
+468,ate the seeds birds,All,0,wonkiness
+468,stuck to the wall pieces of gum,Some,0,wonkiness
+468,exploded fireworks,Some,1,wonkiness
+468,popped bubbles,Some,1,wonkiness
+468,lit up flashlights,All,0,wonkiness
+468,stuck beads,Some,1,wonkiness
+468,stopped bicycles,Some,1,wonkiness
+468,sank cups,None,1,wonkiness
+468,were green bananas,None,0,wonkiness
+468,rhymed songs,None,1,wonkiness
+468,decomposed pinecones,None,1,wonkiness
+468,landed flat pancakes,All,0,wonkiness
+468,fell down shelves,Some,0,wonkiness
+468,burnt rocks,All,0,wonkiness
+468,broke logs,Some,1,wonkiness
+468,laughed comedians,Some,0,wonkiness
+468,froze chocolate bars,All,0,wonkiness
+468,rolled toy cars,Some,1,wonkiness
+468,blew away hats,None,1,wonkiness
+468,honked bus drivers,Some,1,wonkiness
+469,exploded fireworks,None,1,wonkiness
+469,dissolved oreos,Some,0,wonkiness
+469,decomposed soda cans,Some,1,wonkiness
+469,blew away backpacks,None,0,wonkiness
+469,froze chocolate bars,Some,1,wonkiness
+469,beeped houses,Some,0,wonkiness
+469,stuck stickers,All,0,wonkiness
+469,lit up flashlights,All,0,wonkiness
+469,rhymed songs,None,1,wonkiness
+469,sank cups,All,0,wonkiness
+469,exploded balls of tin foil,Some,1,wonkiness
+469,laughed comedians,Some,0,wonkiness
+469,fell down shelves,All,1,wonkiness
+469,reflected the sunlight mirrors,None,1,wonkiness
+469,ran out of batteries phones,Some,0,wonkiness
+469,broke sunglasses,All,0,wonkiness
+469,honked taxi drivers,Some,0,wonkiness
+469,rolled toy cars,None,1,wonkiness
+469,stuck to the wall cakes,Some,0,wonkiness
+469,landed flat pancakes,Some,0,wonkiness
+470,decomposed pinecones,Some,0,wonkiness
+470,beeped old cars,None,0,wonkiness
+470,flashed webcams,All,1,wonkiness
+470,exploded gas tanks,All,0,wonkiness
+470,froze bottles of hand soap,Some,0,wonkiness
+470,blew away napkins,Some,0,wonkiness
+470,ate the seeds birds,All,0,wonkiness
+470,dissolved oreos,Some,0,wonkiness
+470,lit up cd-players,Some,0,wonkiness
+470,ripped shirts,All,0,wonkiness
+470,fell down card towers,All,0,wonkiness
+470,ran out of batteries laptops,Some,0,wonkiness
+470,stuck beads,None,1,wonkiness
+470,melted crayons,None,1,wonkiness
+470,rolled shopping carts,None,1,wonkiness
+470,reflected the sunlight phone screens,None,1,wonkiness
+470,honked bicyclists,Some,0,wonkiness
+470,were green clovers,Some,0,wonkiness
+470,burnt matches,Some,0,wonkiness
+470,got stained white tablecloths,Some,0,wonkiness
+471,decomposed soda cans,Some,1,wonkiness
+471,sank balloons,None,0,wonkiness
+471,stopped motorcycles,None,1,wonkiness
+471,rolled shopping carts,Some,0,wonkiness
+471,exploded balls of tin foil,Some,0,wonkiness
+471,ate the seeds dogs,Some,1,wonkiness
+471,burnt matches,Some,0,wonkiness
+471,laughed comedians,Some,0,wonkiness
+471,dissolved sugar cubes,All,0,wonkiness
+471,stuck to the wall baseballs,All,1,wonkiness
+471,lit up flashlights,All,0,wonkiness
+471,stuck sequins,Some,0,wonkiness
+471,landed flat coins,Some,0,wonkiness
+471,rhymed songs,None,0,wonkiness
+471,broke boxes,None,1,wonkiness
+471,fell down block towers,None,1,wonkiness
+471,were green bananas,Some,0,wonkiness
+471,froze bottles of hand soap,Some,0,wonkiness
+471,popped bubbles,All,0,wonkiness
+471,honked taxi drivers,All,0,wonkiness
+472,broke logs,None,1,wonkiness
+472,dissolved oreos,Some,0,wonkiness
+472,melted ice cubes,Some,1,wonkiness
+472,had the letter Z in them novels,Some,0,wonkiness
+472,blew away backpacks,All,0,wonkiness
+472,sank cups,Some,0,wonkiness
+472,reflected the sunlight diamonds,Some,1,wonkiness
+472,rhymed songs,Some,0,wonkiness
+472,decomposed pinecones,All,0,wonkiness
+472,rolled shopping carts,All,0,wonkiness
+472,laughed comedians,None,0,wonkiness
+472,stuck sequins,None,1,wonkiness
+472,ran out of batteries phones,None,0,wonkiness
+472,popped bubbles,Some,1,wonkiness
+472,stopped motorcycles,All,0,wonkiness
+472,honked taxi drivers,Some,0,wonkiness
+472,exploded gas tanks,Some,1,wonkiness
+472,flashed phones,None,0,wonkiness
+472,were green clovers,Some,0,wonkiness
+472,got stained white shirts,All,0,wonkiness
+473,rhymed limericks,Some,0,wonkiness
+473,burnt rocks,None,0,wonkiness
+473,decomposed pinecones,Some,0,wonkiness
+473,sank cups,None,0,wonkiness
+473,got stained white shirts,All,0,wonkiness
+473,laughed lawyers,Some,0,wonkiness
+473,ripped books,None,0,wonkiness
+473,dissolved sugar cubes,Some,0,wonkiness
+473,ran out of batteries laptops,Some,0,wonkiness
+473,exploded gas tanks,Some,0,wonkiness
+473,fell down shelves,Some,0,wonkiness
+473,lit up computers,All,0,wonkiness
+473,flashed phones,None,0,wonkiness
+473,landed flat pancakes,All,0,wonkiness
+473,stuck stickers,Some,0,wonkiness
+473,were green strawberries,All,1,wonkiness
+473,beeped houses,Some,1,wonkiness
+473,stopped bicycles,All,0,wonkiness
+473,blew away hats,None,0,wonkiness
+473,froze berries,Some,0,wonkiness
+474,sank cups,Some,0,wonkiness
+474,rhymed limericks,All,0,wonkiness
+474,melted ice cubes,Some,1,wonkiness
+474,froze chocolate bars,None,1,wonkiness
+474,popped eggs,All,0,wonkiness
+474,blew away backpacks,Some,0,wonkiness
+474,fell down shelves,None,0,wonkiness
+474,landed flat pancakes,Some,0,wonkiness
+474,got stained white carpets,None,1,wonkiness
+474,beeped houses,Some,1,wonkiness
+474,exploded eggs,Some,0,wonkiness
+474,ran out of batteries phones,Some,0,wonkiness
+474,laughed lawyers,All,0,wonkiness
+474,exploded candles,Some,1,wonkiness
+474,flashed phones,Some,0,wonkiness
+474,reflected the sunlight mirrors,All,0,wonkiness
+474,ripped books,None,1,wonkiness
+474,stuck to the wall baseballs,Some,1,wonkiness
+474,broke sunglasses,All,0,wonkiness
+474,had the letter Z in them novels,None,0,wonkiness
+475,rolled wheelchairs,None,0,wonkiness
+475,reflected the sunlight diamonds,Some,0,wonkiness
+475,dissolved carrots,Some,1,wonkiness
+475,fell down shelves,Some,0,wonkiness
+475,froze berries,Some,0,wonkiness
+475,exploded gas tanks,Some,1,wonkiness
+475,popped bubbles,All,0,wonkiness
+475,stuck sequins,Some,0,wonkiness
+475,stuck to the wall baseballs,None,0,wonkiness
+475,ate the seeds birds,All,0,wonkiness
+475,ripped books,Some,0,wonkiness
+475,broke sunglasses,None,0,wonkiness
+475,sank cups,Some,0,wonkiness
+475,laughed kids,None,1,wonkiness
+475,beeped new cars,Some,0,wonkiness
+475,stopped cars,All,0,wonkiness
+475,melted crayons,Some,0,wonkiness
+475,decomposed soda cans,All,1,wonkiness
+475,burnt rocks,All,1,wonkiness
+475,landed flat notebooks,None,0,wonkiness
+476,decomposed pinecones,All,0,wonkiness
+476,froze bottles of hand soap,None,1,wonkiness
+476,ripped shoes,All,0,wonkiness
+476,stopped motorcycles,None,1,wonkiness
+476,stuck stickers,None,1,wonkiness
+476,burnt rocks,Some,0,wonkiness
+476,were green strawberries,Some,0,wonkiness
+476,ran out of batteries laptops,Some,0,wonkiness
+476,melted pencils,None,0,wonkiness
+476,reflected the sunlight diamonds,Some,0,wonkiness
+476,had the letter Z in them love notes,All,1,wonkiness
+476,lit up flashlights,All,0,wonkiness
+476,got stained white shirts,Some,0,wonkiness
+476,flashed cameras,Some,0,wonkiness
+476,landed flat pancakes,Some,0,wonkiness
+476,beeped new cars,All,0,wonkiness
+476,ate the seeds butterflies,Some,1,wonkiness
+476,rhymed limericks,Some,0,wonkiness
+476,dissolved carrots,Some,1,wonkiness
+476,popped eggs,None,1,wonkiness
+477,burnt rocks,All,1,wonkiness
+477,ripped books,None,1,wonkiness
+477,reflected the sunlight diamonds,All,0,wonkiness
+477,got stained white carpets,Some,0,wonkiness
+477,lit up cd-players,All,0,wonkiness
+477,dissolved carrots,Some,1,wonkiness
+477,ran out of batteries laptops,All,0,wonkiness
+477,fell down shelves,Some,0,wonkiness
+477,broke logs,All,1,wonkiness
+477,ate the seeds dogs,None,0,wonkiness
+477,rhymed poems,Some,0,wonkiness
+477,stopped bicycles,Some,1,wonkiness
+477,landed flat pancakes,Some,0,wonkiness
+477,decomposed soda cans,Some,1,wonkiness
+477,melted ice cubes,Some,0,wonkiness
+477,stuck to the wall baseballs,None,0,wonkiness
+477,stuck sequins,None,0,wonkiness
+477,froze berries,None,1,wonkiness
+477,beeped new cars,Some,0,wonkiness
+477,exploded fireworks,Some,0,wonkiness
+478,landed flat notebooks,Some,0,wonkiness
+478,ripped shoes,Some,0,wonkiness
+478,stuck to the wall baseballs,All,1,wonkiness
+478,lit up flashlights,None,1,wonkiness
+478,froze berries,Some,0,wonkiness
+478,beeped old cars,Some,0,wonkiness
+478,burnt matches,None,1,wonkiness
+478,flashed phones,Some,0,wonkiness
+478,melted crayons,All,0,wonkiness
+478,fell down block towers,None,1,wonkiness
+478,rhymed songs,Some,0,wonkiness
+478,ate the seeds butterflies,All,0,wonkiness
+478,popped balloons,All,0,wonkiness
+478,had the letter Z in them novels,None,1,wonkiness
+478,rolled toy cars,Some,0,wonkiness
+478,reflected the sunlight mirrors,Some,0,wonkiness
+478,got stained white tablecloths,None,1,wonkiness
+478,exploded candles,Some,1,wonkiness
+478,blew away backpacks,Some,0,wonkiness
+478,stuck stickers,All,0,wonkiness
+479,landed flat notebooks,All,0,wonkiness
+479,decomposed banana peels,Some,0,wonkiness
+479,reflected the sunlight mirrors,None,1,wonkiness
+479,dissolved carrots,None,0,wonkiness
+479,blew away napkins,Some,0,wonkiness
+479,rhymed songs,None,1,wonkiness
+479,ate the seeds butterflies,Some,0,wonkiness
+479,sank balloons,All,1,wonkiness
+479,stopped bicycles,Some,1,wonkiness
+479,were green strawberries,None,0,wonkiness
+479,broke logs,None,0,wonkiness
+479,stuck sequins,Some,0,wonkiness
+479,melted pencils,Some,1,wonkiness
+479,rolled shopping carts,Some,1,wonkiness
+479,fell down block towers,All,0,wonkiness
+479,got stained white shirts,Some,1,wonkiness
+479,burnt books,All,0,wonkiness
+479,ripped shoes,Some,0,wonkiness
+479,beeped old cars,All,0,wonkiness
+479,exploded balls of tin foil,Some,1,wonkiness
