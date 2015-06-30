@@ -30,14 +30,15 @@ row.names(prior_exps) = prior_exps$Item
 
 ## load empirical data and combine into one data.frame
 # wonkiness
-load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
-load("~/Documents/research/sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
 
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
+#load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
+#load("~/Documents/research/sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
 
 wonkiness <- r[r$quantifier %in% c("Some","All","None"),] %>%
-  select(Item,quantifier,response) %>%
+  select(Item,quantifier,numWonky) %>%
   group_by(Item,quantifier) %>%
-  summarise(mean.emp.val=mean(response),ci.low=ci.low(response),ci.high=ci.high(response)) %>%
+  summarise(mean.emp.val=mean(numWonky),ci.low=ci.low(numWonky),ci.high=ci.high(numWonky)) %>%
   rename(Quantifier=quantifier)
 wonkiness$CILow = wonkiness$mean.emp.val - wonkiness$ci.low
 wonkiness$CIHigh = wonkiness$mean.emp.val + wonkiness$ci.high

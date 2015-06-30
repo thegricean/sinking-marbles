@@ -5,10 +5,14 @@ setwd("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiment
 source("rscripts/summarySE.r")
 source("rscripts/helpers.r")
 load("data/r.RData")
-load("../../1_sinking-marbles-prior/results/data/priors.RData")
-r = read.csv("data/sinking_marbles_nullutterance.csv", header=T)
+#load("../../1_sinking-marbles-prior/results/data/priors.RData")
+r1 = read.csv("data/sinking_marbles_nullutterance.csv", header=T)
+r2 = read.csv("data/sinking_marbles.csv", header=T)
+r2$workerid = as.numeric(as.character(r2$workerid)) + 120
+r = rbind(r1,r2)
 nrow(r)
 head(r)
+summary(r)
 r$trial = r$slide_number_in_experiment - 2
 r = r[,c("assignmentid","workerid", "rt", "effect", "cause","language","gender.1","age","gender","other_gender","quantifier", "object_level", "response", "object","slider_id","num_objects","trial","enjoyment","asses","comments","Answer.time_in_minutes","slider_id")]
 r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "object_low"))
@@ -20,39 +24,38 @@ r$Item = as.factor(paste(r$effect,r$object))
 table(r$Item)
 
 ## add priors to data.frame
-priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/expectations.txt",sep="\t", header=T, quote="")
-row.names(priorexpectations) = paste(priorexpectations$effect,priorexpectations$object)
-r$PriorExpectation = priorexpectations[as.character(r$Item),]$expectation
-r$PriorExpectationProportion = r$PriorExpectation/15
+# priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/ordered_expectations.txt",sep="\t", header=T, quote="")
+# row.names(priorexpectations) = priorexpectations$Item
+# r$PriorExpectation = priorexpectations[as.character(r$Item),]$expectation_corr
+# r$PriorExpectationProportion = r$PriorExpectation/15
 
-priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
-head(priorprobs)
-row.names(priorprobs) = paste(priorprobs$effect,priorprobs$object)
-mpriorprobs = melt(priorprobs, id.vars=c("effect", "object"))
-head(mpriorprobs)
-row.names(mpriorprobs) = paste(mpriorprobs$effect,mpriorprobs$object,mpriorprobs$variable)
-mpriorprobs$Proportion = factor(ifelse(mpriorprobs$variable == "X15","100",ifelse(mpriorprobs$variable == "X0","0",ifelse(mpriorprobs$variable %in% c("X1","X2","X3","X4","X5","X6","X7"),"1-50","51-99"))),levels=c("0","1-50","51-99","100"))
-summary(mpriorprobs)
-dppbs = ddply(mpriorprobs, .(effect,object,Proportion), summarise, Probability=sum(value))
-row.names(dppbs) = paste(dppbs$effect,dppbs$object,dppbs$Proportion)
-head(dppbs)
-#test: all sums should be 1
-ddply(dppbs, .(effect,object), summarise, S=sum(Probability))
-
-r$PriorProbability = dppbs[paste(as.character(r$Item),as.character(r$Proportion),sep=" "),]$Probability
-r$AllPriorProbability = priorprobs[paste(as.character(r$Item)),]$X15
-head(r,15)
+# priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+# head(priorprobs)
+# row.names(priorprobs) = priorprobs$Item
+# mpriorprobs = priorprobs, id.vars=c("effect", "object"))
+# head(mpriorprobs)
+# row.names(mpriorprobs) = paste(mpriorprobs$effect,mpriorprobs$object,mpriorprobs$variable)
+# mpriorprobs$Proportion = factor(ifelse(mpriorprobs$variable == "X15","100",ifelse(mpriorprobs$variable == "X0","0",ifelse(mpriorprobs$variable %in% c("X1","X2","X3","X4","X5","X6","X7"),"1-50","51-99"))),levels=c("0","1-50","51-99","100"))
+# summary(mpriorprobs)
+# dppbs = ddply(mpriorprobs, .(effect,object,Proportion), summarise, Probability=sum(value))
+# row.names(dppbs) = paste(dppbs$effect,dppbs$object,dppbs$Proportion)
+# head(dppbs)
+# #test: all sums should be 1
+# ddply(dppbs, .(effect,object), summarise, S=sum(Probability))
+# 
+# r$PriorProbability = dppbs[paste(as.character(r$Item),as.character(r$Proportion),sep=" "),]$Probability
+# r$AllPriorProbability = priorprobs[paste(as.character(r$Item)),]$X15
+# head(r,15)
 
 # compute normalized probabilities
-nr = ddply(r, .(workerid,trial), summarise, normresponse=response/(sum(response)),workerid=workerid,Proportion=Proportion)
-row.names(nr) = paste(nr$workerid,nr$trial,nr$Proportion)
-r$normresponse = nr[paste(r$workerid,r$trial,r$Proportion),]$normresponse
-# test: sums should add to 1
-sums = ddply(r, .(workerid,trial), summarise, sum(normresponse))
-colnames(sums) = c("workerid","trial","sum")
-summary(sums)
-sums[is.na(sums$sum),]
-r[r$workerid == "17" & r$trial == 2,]
+tmp <- r %>%
+  group_by(workerid,trial) %>%
+  summarise(sumresponse = sum(response))
+tmp = as.data.frame(tmp)
+row.names(tmp) = paste(tmp$workerid,tmp$trial)
+
+r$normresponse = r$response/(tmp[paste(r$workerid,r$trial),]$sumresponse)
+summary(r)
 
 save(r, file="data/r.RData")
 
