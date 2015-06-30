@@ -32,28 +32,32 @@ nrow(comp_allprob)
 # 240 subjects
 
 # get empirical wonkiness data (wonkiness)
-load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
+#load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
+load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
 
 wonkiness = r[r$quantifier %in% c("Some","All","None"),] %>% 
   select(workerid, Item, quantifier, response) %>%
   rename(subject=workerid, item=Item, utterance=quantifier)
+wonkiness$response = ifelse(wonkiness$response == "no",1,0)
 wonkiness$measure = "wonkiness"
 wonkiness$subject = wonkiness$subject + 360 # adjust subject ID so there are no duplicates with the other two experiments
-# 60 subjects
+# 120 subjects
 
 d = droplevels(rbind(comp_state,comp_allprob,wonkiness))
 nrow(d)
 str(d)
 summary(d)
-d[d$measure != "comp_state",]$response = round(d[d$measure != "comp_state",]$response, 1)
-d[d$measure != "comp_state" & d$response == 0.0,]$response = 0.001
-d[d$measure != "comp_state" & d$response == 1.0,]$response = 0.999
+d[d$measure == "comp_allprob",]$response = round(d[d$measure == "comp_allprob",]$response, 1)
+d[d$measure == "comp_allprob" & d$response == 0.0,]$response = 0.001
+d[d$measure == "comp_allprob" & d$response == 1.0,]$response = 0.999
 
-write.csv(d,file="empirical.csv",row.names=F,quote=F)
+#write.csv(d,file="empirical.csv",row.names=F,quote=F)
+write.csv(d,file="empirical_binarywonky.csv",row.names=F,quote=F)
 
 d_nozero = droplevels(subset(d, !(measure == "comp_state" & response == 0)))
 nrow(d_nozero)
-write.csv(d_nozero,file="empirical_nozero.csv",row.names=F,quote=F)
+#write.csv(d_nozero,file="empirical_nozero.csv",row.names=F,quote=F)
+write.csv(d_nozero,file="empirical_binarywonky_nozero.csv",row.names=F,quote=F)
 
 # get prior probabilities from 4-step procedure
 priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
