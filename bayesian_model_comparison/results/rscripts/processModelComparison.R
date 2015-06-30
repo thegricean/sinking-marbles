@@ -1,7 +1,7 @@
 library(plyr)
 
 setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/results/")
-#setwd("~/Documents/research/sinking-marbles/bayesian_model_comparison/results")
+setwd("~/Documents/research/sinking-marbles/bayesian_model_comparison/results")
 #source("../rscripts/helpers.r")
 
 ## load priors for generating plots 
@@ -547,4 +547,29 @@ ggplot(d.wsoftmax, aes(x=WonkySoftmax, y=prob)) +
 ggsave("graphs/3sp-ws-2betas_wsoftmax.png",width=8,height=6)
 
 
+### MHT's code
 
+d<-read.csv('wonkyFBTPosterior_so_wp_phi_sigma_offset_scale_mh10000b1000.csv',header=F)
+
+d<- d %>%
+  rename(parameter = V1,
+         item = V2,
+         utterance = V3,
+         value = V4,
+         prob = V5)
+
+
+d.params <- d %>%
+  filter(parameter%in%c("speakerOptimality","wonkinessPrior",
+                        "phi","linkingSigma","linkingOffset",
+                        "linkingScale")) %>%
+  select(-item, -utterance)
+
+ggplot(d.params,aes(x=value,y=prob))+
+  geom_bar(stat='identity',position=position_dodge())+
+  facet_wrap(~parameter)
+
+
+d.params %>%
+  group_by(parameter) %>%
+  summarise(sum(value*prob))

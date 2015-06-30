@@ -10,6 +10,10 @@ function writeCSV(jsonCSV, filename){
   fs.writeFileSync(filename, babyparse.unparse(jsonCSV) + "\n");
 };
 
+function wpParseFloat(x){
+  return parseFloat(x);
+};
+
 
 function fillArray(value, len) {
   var arr = [];
@@ -21,7 +25,9 @@ function fillArray(value, len) {
 
 function readPriors(){
 
-  var dfilepath = "../writing/_2015/_journal_cognition/data/";
+ var dfilepath = "../writing/_2015/_journal_cognition/data/";
+  // var dfilepath = "./";
+
   var priorfile = dfilepath+ 'priors.csv'
   var dPriors = readCSV(priorfile).data
   // create assoc. array out of domain name and probabilities
@@ -35,7 +41,9 @@ function readPriors(){
 function readData(){
 
   var dfilepath = "../writing/_2015/_journal_cognition/data/";
-  var priorfile = dfilepath+ 'empirical_nozero.csv'
+  // var dfilepath = "./";
+
+  var priorfile = dfilepath+ 'empirical_nozero_0.01.csv'
   var empirical = readCSV(priorfile).data
 
   var dependentMeasures = _.uniq(_.map(empirical.slice(1), function(x){return x[4]}))
@@ -100,14 +108,17 @@ var writePosteriorPredictive = function(myERP){
 
 
 
-var writePosteriorPredictiveWithParams = function(myERP,numOfParams){
+var writePosteriorPredictiveWithParams = function(myERP,paramNames){
   return _.flatten(
         _.map(myERP.support(),
         function(val){
-          return _.map(val,
-        function(ppval){
-            return [ppval, Math.exp(myERP.score([],val))]
-      })
+          return _.flatten([_.map(_.zip(paramNames,val.slice(0,val.length-1)),
+                      function(p){return [p[0], 'na', 'na', p[1], Math.exp(myERP.score([],val))]}),
+          _.map(val[val.length-1],
+             function(ppval){
+                   return _.flatten([ppval, Math.exp(myERP.score([],val))])
+                  })
+          ], true)
   }),true)
 }
 
@@ -121,6 +132,19 @@ var softmax = function(prob, softmaxparam){
   return renormalized[0]
 }
 
+var logit = function(x) {
+  return Math.log(x/(1-x))
+}
+
+var logistic=function(x, offset, scale) {
+    return 1/(1+Math.exp(-scale*(x-offset)))
+}
+
+var roundToBin = function(x, bins){
+    return bins[Math.round(x*10)]
+}
+
+
 
 
 module.exports = {
@@ -131,5 +155,10 @@ module.exports = {
   readData: readData,
   writeERP: writeERP,
   writePosteriorPredictive:writePosteriorPredictive,
-  softmax:softmax
+  writePosteriorPredictiveWithParams:writePosteriorPredictiveWithParams,
+  softmax:softmax,
+  logit:logit,
+  logistic:logistic,
+  wpParseFloat: wpParseFloat,
+  roundToBin:roundToBin
 };
