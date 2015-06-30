@@ -1,16 +1,16 @@
 
 to.n <- function(x) {return(as.numeric(as.character(x)))}
 setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/results/")
-<<<<<<< HEAD
 setwd("~/Documents/research/sinking-marbles/bayesian_model_comparison/results")
 #source("../rscripts/helpers.r")
-=======
 #setwd("~/Documents/research/sinking-marbles/bayesian_model_comparison/results")
 source("rscripts/helpers.r")
->>>>>>> cb6363a9e16025a329612c784f5ed95d55d7f662
 
 ## load priors for generating plots 
 priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+priorprobs = read.table(file="~/Documents/research/sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+
+
 row.names(priorprobs) = priorprobs$Item
 nrow(priorprobs)
 
@@ -31,6 +31,9 @@ row.names(prior_exps) = prior_exps$Item
 ## load empirical data and combine into one data.frame
 # wonkiness
 load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
+#load("~/Documents/research/sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
+
+
 wonkiness <- r[r$quantifier %in% c("Some","All","None"),] %>%
   select(Item,quantifier,response) %>%
   group_by(Item,quantifier) %>%
@@ -47,6 +50,9 @@ ggplot(wonkiness, aes(x=mean.emp.val)) +
 
 # comp_state
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
+#load("~/Documents/research/sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
+
+
 comp_state <- r[r$quantifier == c("Some"),] %>%
   select(Item,quantifier,response) %>%
   group_by(Item,quantifier) %>%
@@ -63,6 +69,9 @@ ggplot(comp_state, aes(x=mean.emp.val)) +
 
 # comp_allprob
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
+#load("~/Documents/research/sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
+
+
 comp_allprob <- r[r$quantifier == c("Some") & r$Proportion == 100,] %>%
   select(Item,quantifier,normresponse) %>%
   group_by(Item,quantifier) %>%
@@ -738,7 +747,11 @@ ggsave("graphs/enumerated_wonkysoftmax.png",width=8,height=6)
 
 ### MHT's code
 
-d<-read.csv('wonkyFBTPosterior_so_wp_phi_sigma_offset_scale_mh10000b1000.csv',header=F)
+backoutSamples <- function(totalN, prob, response){
+  return(rep(response,prob*totalN))
+}
+
+d<-read.csv('wonkyFBTPosterior_so_wp_phi_sigma_2offset_2scale_CTS_pf1000.csv',header=F)
 
 d<- d %>%
   rename(Parameter = V1,
@@ -749,14 +762,25 @@ d<- d %>%
 
 
 d.params <- d %>%
-  filter(Parameter%in%c("speakerOptimality","wonkinessPrior",
-                        "phi","linkingSigma","linkingOffset",
-                        "linkingScale")) %>%
+  filter(!(Parameter%in%c("comp_allprob", "comp_state","wonkiness"))) %>%
   select(-Item, -Quantifier)
 
-ggplot(d.params,aes(x=Value,y=Probability))+
+ggplot(d.params,aes(x=Response,y=Probability))+
   geom_bar(stat='identity', position=position_dodge())+
   facet_wrap(~Parameter,scales="free")
+
+## for continuous variables
+samples<- 1000
+d.params <- data.frame(Parameter = rep(d.params$Parameter, samples*d.params$Probability),
+                       Response = rep(d.params$Response, samples*d.params$Probability))
+
+
+ggplot(d.params,aes(x=Response))+
+  geom_histogram()+
+  facet_wrap(~Parameter,scales="free")
+
+
+
 
 
 d.params %>%
@@ -781,6 +805,8 @@ ggplot(d.pp, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
   geom_point() +
   geom_abline(intercept=0,slope=1,color="gray60") +
   facet_wrap(~Measure,scales='free')
+
+
 ggsave("graphs/scatterplots/logisticlink_model-vs-human.pdf",width=14)
 
 # add priors
@@ -794,5 +820,4 @@ ggplot(d.pp, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
   geom_smooth() +
   facet_wrap(~Measure,scales="free")
 ggsave("graphs/model_curves/logisticlink.pdf",width=15)
-
 
