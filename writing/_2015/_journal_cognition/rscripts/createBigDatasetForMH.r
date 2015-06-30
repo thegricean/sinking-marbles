@@ -29,7 +29,7 @@ comp_allprob = r[r$quantifier %in% c("Some") & r$Proportion == "100",] %>%
 comp_allprob$measure = "comp_allprob"
 comp_allprob$subject = comp_allprob$subject + 120 # adjust subject ID so there are no duplicates with the other two experiments
 nrow(comp_allprob)
-# 120 subjects
+# 240 subjects
 
 # get empirical wonkiness data (wonkiness)
 load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
@@ -38,7 +38,7 @@ wonkiness = r[r$quantifier %in% c("Some","All","None"),] %>%
   select(workerid, Item, quantifier, response) %>%
   rename(subject=workerid, item=Item, utterance=quantifier)
 wonkiness$measure = "wonkiness"
-wonkiness$subject = wonkiness$subject + 240 # adjust subject ID so there are no duplicates with the other two experiments
+wonkiness$subject = wonkiness$subject + 360 # adjust subject ID so there are no duplicates with the other two experiments
 # 60 subjects
 
 d = droplevels(rbind(comp_state,comp_allprob,wonkiness))

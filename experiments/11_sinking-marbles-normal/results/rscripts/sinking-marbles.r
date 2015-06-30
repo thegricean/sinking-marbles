@@ -1,10 +1,14 @@
 library(ggplot2)
 theme_set(theme_bw(18))
-setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/11_sinking-marbles-normal/results/")
+setwd("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/")
 source("rscripts/helpers.r")
 
 load("data/r.RData")
-r = read.table("data/sinking_marbles.tsv", sep="\t", header=T, quote="")
+r1 = read.table("data/sinking_marbles.tsv", sep="\t", header=T, quote="")
+r2 = read.csv("data/sinking_marbles.csv", header=T, quote="")
+r2$workerid = as.numeric(as.character(r2$workerid))+60
+
+r = rbind(r1,r2)
 r$trial = r$slide_number_in_experiment - 2
 r = r[,c("workerid", "rt", "effect", "cause","language","gender.1","age","gender","other_gender","quantifier", "object_level", "response", "object","num_objects","trial","enjoyment","asses","comments")]
 
