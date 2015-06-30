@@ -98,7 +98,7 @@ ggplot(empirical, aes(x=Prior,y=mean.emp.val,color=Quantifier)) +
   facet_wrap(~Measure,scales="free")
 ggsave("graphs/empirical_curves_errbars.pdf",width=15)
 
-items = droplevels(subset(empirical, Item %in% c("stuck to the wall baseballs","sank balloons","fell down shelves","popped eggs","landed flat pancakes","sank marbles","melted ice cubes")))
+items = droplevels(subset(empirical, Item %in% c("stuck to the wall baseballs","fell down shelves","landed flat pancakes","melted ice cubes")))
 
 ggplot(items, aes(x=Prior,y=mean.emp.val,color=Quantifier)) +
   geom_point(size=4) +
