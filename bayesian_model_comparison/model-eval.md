@@ -47,8 +47,11 @@ Further desiderata:
 **List of selected items:**
 
 stuck to the wall baseballs
+
 fell down shelves
+
 landed flat pancakes
+
 melted ice cubes
 
 ![Empirical data for three different tasks for selected items](/bayesian_model_comparison/results/graphs/empirical_curves_selected.png "Empirical means for each task (selected items)")
