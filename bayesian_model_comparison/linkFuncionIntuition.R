@@ -6,8 +6,6 @@ logit<-function(p){
 }
 
 
-
-
 bins<-seq(0.00001,0.99999,0.1)
 bins<-seq(0,1,0.1)
 scale_values<-seq(0,3,0.5)
@@ -25,7 +23,6 @@ for (k in 1: length(offset_values)){
   }
 }
 
-
 res$scale<-factor(res$scale)
 res$offset<-factor(res$offset)
 ggplot(data=res, aes(x=x,y=y,color=scale))+
@@ -33,10 +30,13 @@ ggplot(data=res, aes(x=x,y=y,color=scale))+
   geom_line()+
   facet_grid(scale~offset)
 
+
+
 logistic(logit(0.9),0,1)
 prob=0.9
 p = logit(prob)
 sigma = .9
+
 hist(logistic(rnorm(1000,mean=p, sd=sigma),0,1))
 
 

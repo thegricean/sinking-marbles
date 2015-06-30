@@ -40,7 +40,7 @@ var speaker = cache(function(world, prior) {
                               })
                     })
 
-var wRSA = cache(function(utterance,wonkinessPrior,speakerOptimality,item,query) {
+var listener = function(utterance,wonkinessPrior,speakerOptimality,item,query) {
                       Enumerate(function(){
                                 var wonky = flip(wonkinessPrior)
                                 var prior = wonky ? 
@@ -54,5 +54,8 @@ var wRSA = cache(function(utterance,wonkinessPrior,speakerOptimality,item,query)
                                 var queryStatement = {"world":world,
                                                       "wonky":wonky}
                                 return queryStatement[query]
+//                                return map(function(s){return [s,Math.exp(S.score([],s))]},S.support())
+//                                return sample(S)
                                 })
-                    })
+                    }
+
