@@ -48,8 +48,8 @@ nrow(d)
 str(d)
 summary(d)
 d[d$measure == "comp_allprob",]$response = round(d[d$measure == "comp_allprob",]$response, 1)
-d[d$measure == "comp_allprob" & d$response == 0.0,]$response = 0.001
-d[d$measure == "comp_allprob" & d$response == 1.0,]$response = 0.999
+d[d$measure == "comp_allprob" & d$response == 0.0,]$response = 0.01
+d[d$measure == "comp_allprob" & d$response == 1.0,]$response = 0.99
 
 #write.csv(d,file="empirical.csv",row.names=F,quote=F)
 write.csv(d,file="empirical_binarywonky.csv",row.names=F,quote=F)

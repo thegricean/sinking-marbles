@@ -1204,108 +1204,108 @@ subject,item,utterance,response,measure
 120,rolled toy cars,Some,0.3,comp_allprob
 120,stopped cars,Some,0.2,comp_allprob
 120,stuck to the wall pieces of gum,Some,0.3,comp_allprob
-121,rolled shopping carts,Some,0.001,comp_allprob
-121,honked bicyclists,Some,0.001,comp_allprob
-121,fell down block towers,Some,0.001,comp_allprob
-121,landed flat pancakes,Some,0.001,comp_allprob
-121,ran out of batteries bike lights,Some,0.001,comp_allprob
-121,decomposed soda cans,Some,0.001,comp_allprob
+121,rolled shopping carts,Some,0.01,comp_allprob
+121,honked bicyclists,Some,0.01,comp_allprob
+121,fell down block towers,Some,0.01,comp_allprob
+121,landed flat pancakes,Some,0.01,comp_allprob
+121,ran out of batteries bike lights,Some,0.01,comp_allprob
+121,decomposed soda cans,Some,0.01,comp_allprob
 121,exploded gas tanks,Some,0.1,comp_allprob
-121,popped eggs,Some,0.001,comp_allprob
+121,popped eggs,Some,0.01,comp_allprob
 121,reflected the sunlight mirrors,Some,0.1,comp_allprob
-121,dissolved sugar cubes,Some,0.001,comp_allprob
-122,exploded fireworks,Some,0.001,comp_allprob
-122,ran out of batteries bike lights,Some,0.001,comp_allprob
-122,decomposed banana peels,Some,0.001,comp_allprob
-122,honked bus drivers,Some,0.001,comp_allprob
-122,burnt rocks,Some,0.001,comp_allprob
-122,popped eggs,Some,0.001,comp_allprob
+121,dissolved sugar cubes,Some,0.01,comp_allprob
+122,exploded fireworks,Some,0.01,comp_allprob
+122,ran out of batteries bike lights,Some,0.01,comp_allprob
+122,decomposed banana peels,Some,0.01,comp_allprob
+122,honked bus drivers,Some,0.01,comp_allprob
+122,burnt rocks,Some,0.01,comp_allprob
+122,popped eggs,Some,0.01,comp_allprob
 122,beeped houses,Some,0.2,comp_allprob
-122,ate the seeds butterflies,Some,0.001,comp_allprob
+122,ate the seeds butterflies,Some,0.01,comp_allprob
 122,stopped cars,Some,0.3,comp_allprob
 122,flashed cameras,Some,0.4,comp_allprob
-123,froze bottles of hand soap,Some,0.001,comp_allprob
-123,fell down block towers,Some,0.001,comp_allprob
+123,froze bottles of hand soap,Some,0.01,comp_allprob
+123,fell down block towers,Some,0.01,comp_allprob
 123,decomposed banana peels,Some,0.2,comp_allprob
-123,were green strawberries,Some,0.001,comp_allprob
-123,burnt books,Some,0.001,comp_allprob
-123,exploded balls of tin foil,Some,0.001,comp_allprob
-123,had the letter Z in them love notes,Some,0.001,comp_allprob
-123,honked bicyclists,Some,0.001,comp_allprob
-123,beeped new cars,Some,0.001,comp_allprob
-123,broke logs,Some,0.001,comp_allprob
-124,reflected the sunlight mirrors,Some,0.001,comp_allprob
-124,rolled toy cars,Some,0.001,comp_allprob
-124,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-124,decomposed soda cans,Some,0.001,comp_allprob
-124,exploded CDs,Some,0.001,comp_allprob
-124,blew away napkins,Some,0.001,comp_allprob
-124,ran out of batteries laptops,Some,0.001,comp_allprob
-124,dissolved sugar cubes,Some,0.001,comp_allprob
-124,lit up computers,Some,0.001,comp_allprob
-124,flashed cameras,Some,0.001,comp_allprob
-125,lit up flashlights,Some,0.001,comp_allprob
-125,burnt matches,Some,0.001,comp_allprob
-125,ran out of batteries laptops,Some,0.001,comp_allprob
-125,laughed lawyers,Some,0.001,comp_allprob
-125,ripped books,Some,0.001,comp_allprob
-125,ate the seeds dogs,Some,0.001,comp_allprob
-125,rhymed limericks,Some,0.001,comp_allprob
-125,dissolved oreos,Some,0.001,comp_allprob
-125,blew away napkins,Some,0.001,comp_allprob
-125,got stained white carpets,Some,0.001,comp_allprob
+123,were green strawberries,Some,0.01,comp_allprob
+123,burnt books,Some,0.01,comp_allprob
+123,exploded balls of tin foil,Some,0.01,comp_allprob
+123,had the letter Z in them love notes,Some,0.01,comp_allprob
+123,honked bicyclists,Some,0.01,comp_allprob
+123,beeped new cars,Some,0.01,comp_allprob
+123,broke logs,Some,0.01,comp_allprob
+124,reflected the sunlight mirrors,Some,0.01,comp_allprob
+124,rolled toy cars,Some,0.01,comp_allprob
+124,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+124,decomposed soda cans,Some,0.01,comp_allprob
+124,exploded CDs,Some,0.01,comp_allprob
+124,blew away napkins,Some,0.01,comp_allprob
+124,ran out of batteries laptops,Some,0.01,comp_allprob
+124,dissolved sugar cubes,Some,0.01,comp_allprob
+124,lit up computers,Some,0.01,comp_allprob
+124,flashed cameras,Some,0.01,comp_allprob
+125,lit up flashlights,Some,0.01,comp_allprob
+125,burnt matches,Some,0.01,comp_allprob
+125,ran out of batteries laptops,Some,0.01,comp_allprob
+125,laughed lawyers,Some,0.01,comp_allprob
+125,ripped books,Some,0.01,comp_allprob
+125,ate the seeds dogs,Some,0.01,comp_allprob
+125,rhymed limericks,Some,0.01,comp_allprob
+125,dissolved oreos,Some,0.01,comp_allprob
+125,blew away napkins,Some,0.01,comp_allprob
+125,got stained white carpets,Some,0.01,comp_allprob
 126,popped balloons,Some,0.1,comp_allprob
-126,melted ice cubes,Some,0.001,comp_allprob
+126,melted ice cubes,Some,0.01,comp_allprob
 126,rhymed songs,Some,0.1,comp_allprob
 126,exploded balls of tin foil,Some,0.2,comp_allprob
-126,decomposed pinecones,Some,0.001,comp_allprob
-126,landed flat pancakes,Some,0.001,comp_allprob
-126,laughed lawyers,Some,0.001,comp_allprob
-126,broke logs,Some,0.001,comp_allprob
-126,honked bicyclists,Some,0.001,comp_allprob
-126,stuck sequins,Some,0.001,comp_allprob
-127,honked taxi drivers,Some,0.001,comp_allprob
-127,dissolved carrots,Some,0.001,comp_allprob
-127,melted crayons,Some,0.001,comp_allprob
-127,exploded gas tanks,Some,0.001,comp_allprob
-127,rolled shopping carts,Some,0.001,comp_allprob
-127,froze berries,Some,0.001,comp_allprob
-127,were green clovers,Some,0.001,comp_allprob
-127,broke logs,Some,0.001,comp_allprob
-127,ran out of batteries laptops,Some,0.001,comp_allprob
-127,blew away napkins,Some,0.001,comp_allprob
+126,decomposed pinecones,Some,0.01,comp_allprob
+126,landed flat pancakes,Some,0.01,comp_allprob
+126,laughed lawyers,Some,0.01,comp_allprob
+126,broke logs,Some,0.01,comp_allprob
+126,honked bicyclists,Some,0.01,comp_allprob
+126,stuck sequins,Some,0.01,comp_allprob
+127,honked taxi drivers,Some,0.01,comp_allprob
+127,dissolved carrots,Some,0.01,comp_allprob
+127,melted crayons,Some,0.01,comp_allprob
+127,exploded gas tanks,Some,0.01,comp_allprob
+127,rolled shopping carts,Some,0.01,comp_allprob
+127,froze berries,Some,0.01,comp_allprob
+127,were green clovers,Some,0.01,comp_allprob
+127,broke logs,Some,0.01,comp_allprob
+127,ran out of batteries laptops,Some,0.01,comp_allprob
+127,blew away napkins,Some,0.01,comp_allprob
 128,melted crayons,Some,0.1,comp_allprob
-128,rhymed poems,Some,0.001,comp_allprob
-128,exploded gas tanks,Some,0.001,comp_allprob
-128,reflected the sunlight mirrors,Some,0.001,comp_allprob
-128,exploded eggs,Some,0.001,comp_allprob
-128,popped bubbles,Some,0.001,comp_allprob
-128,ripped books,Some,0.001,comp_allprob
-128,lit up computers,Some,0.001,comp_allprob
-128,got stained white carpets,Some,0.001,comp_allprob
-128,landed flat notebooks,Some,0.001,comp_allprob
-129,sank cups,Some,0.001,comp_allprob
-129,blew away backpacks,Some,0.001,comp_allprob
-129,stopped cars,Some,0.001,comp_allprob
-129,fell down shelves,Some,0.001,comp_allprob
-129,dissolved carrots,Some,0.001,comp_allprob
-129,decomposed soda cans,Some,0.001,comp_allprob
-129,had the letter Z in them love notes,Some,0.001,comp_allprob
-129,stuck beads,Some,0.001,comp_allprob
-129,burnt books,Some,0.001,comp_allprob
-129,ate the seeds birds,Some,0.001,comp_allprob
+128,rhymed poems,Some,0.01,comp_allprob
+128,exploded gas tanks,Some,0.01,comp_allprob
+128,reflected the sunlight mirrors,Some,0.01,comp_allprob
+128,exploded eggs,Some,0.01,comp_allprob
+128,popped bubbles,Some,0.01,comp_allprob
+128,ripped books,Some,0.01,comp_allprob
+128,lit up computers,Some,0.01,comp_allprob
+128,got stained white carpets,Some,0.01,comp_allprob
+128,landed flat notebooks,Some,0.01,comp_allprob
+129,sank cups,Some,0.01,comp_allprob
+129,blew away backpacks,Some,0.01,comp_allprob
+129,stopped cars,Some,0.01,comp_allprob
+129,fell down shelves,Some,0.01,comp_allprob
+129,dissolved carrots,Some,0.01,comp_allprob
+129,decomposed soda cans,Some,0.01,comp_allprob
+129,had the letter Z in them love notes,Some,0.01,comp_allprob
+129,stuck beads,Some,0.01,comp_allprob
+129,burnt books,Some,0.01,comp_allprob
+129,ate the seeds birds,Some,0.01,comp_allprob
 130,stuck to the wall cakes,Some,0.2,comp_allprob
-130,stopped bicycles,Some,0.001,comp_allprob
-130,melted ice cubes,Some,0.001,comp_allprob
-130,ate the seeds dogs,Some,0.001,comp_allprob
-130,honked bicyclists,Some,0.001,comp_allprob
-130,blew away napkins,Some,0.001,comp_allprob
-130,exploded balls of tin foil,Some,0.001,comp_allprob
-130,dissolved carrots,Some,0.001,comp_allprob
-130,got stained white shirts,Some,0.001,comp_allprob
-130,popped bubbles,Some,0.001,comp_allprob
-131,laughed lawyers,Some,0.001,comp_allprob
-131,got stained white carpets,Some,0.001,comp_allprob
+130,stopped bicycles,Some,0.01,comp_allprob
+130,melted ice cubes,Some,0.01,comp_allprob
+130,ate the seeds dogs,Some,0.01,comp_allprob
+130,honked bicyclists,Some,0.01,comp_allprob
+130,blew away napkins,Some,0.01,comp_allprob
+130,exploded balls of tin foil,Some,0.01,comp_allprob
+130,dissolved carrots,Some,0.01,comp_allprob
+130,got stained white shirts,Some,0.01,comp_allprob
+130,popped bubbles,Some,0.01,comp_allprob
+131,laughed lawyers,Some,0.01,comp_allprob
+131,got stained white carpets,Some,0.01,comp_allprob
 131,stuck to the wall pieces of gum,Some,0.3,comp_allprob
 131,decomposed soda cans,Some,0.3,comp_allprob
 131,exploded candles,Some,0.2,comp_allprob
@@ -1314,17 +1314,17 @@ subject,item,utterance,response,measure
 131,beeped new cars,Some,0.2,comp_allprob
 131,dissolved oreos,Some,0.2,comp_allprob
 131,fell down card towers,Some,0.2,comp_allprob
-132,decomposed soda cans,Some,0.001,comp_allprob
-132,laughed comedians,Some,0.001,comp_allprob
-132,got stained white shirts,Some,0.001,comp_allprob
-132,rhymed poems,Some,0.001,comp_allprob
-132,exploded balls of tin foil,Some,0.001,comp_allprob
-132,rolled toy cars,Some,0.001,comp_allprob
-132,stuck stickers,Some,0.001,comp_allprob
-132,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-132,fell down shelves,Some,0.001,comp_allprob
-132,honked bus drivers,Some,0.001,comp_allprob
-133,landed flat notebooks,Some,0.001,comp_allprob
+132,decomposed soda cans,Some,0.01,comp_allprob
+132,laughed comedians,Some,0.01,comp_allprob
+132,got stained white shirts,Some,0.01,comp_allprob
+132,rhymed poems,Some,0.01,comp_allprob
+132,exploded balls of tin foil,Some,0.01,comp_allprob
+132,rolled toy cars,Some,0.01,comp_allprob
+132,stuck stickers,Some,0.01,comp_allprob
+132,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+132,fell down shelves,Some,0.01,comp_allprob
+132,honked bus drivers,Some,0.01,comp_allprob
+133,landed flat notebooks,Some,0.01,comp_allprob
 133,stopped bicycles,Some,0.1,comp_allprob
 133,froze chocolate bars,Some,0.4,comp_allprob
 133,laughed lawyers,Some,0.1,comp_allprob
@@ -1334,18 +1334,18 @@ subject,item,utterance,response,measure
 133,fell down shelves,Some,0.2,comp_allprob
 133,burnt books,Some,0.3,comp_allprob
 133,broke sunglasses,Some,0.1,comp_allprob
-134,dissolved sugar cubes,Some,0.001,comp_allprob
-134,ate the seeds birds,Some,0.001,comp_allprob
-134,got stained white carpets,Some,0.001,comp_allprob
-134,exploded fireworks,Some,0.001,comp_allprob
-134,melted ice cubes,Some,0.001,comp_allprob
-134,froze bottles of hand soap,Some,0.001,comp_allprob
-134,exploded CDs,Some,0.001,comp_allprob
-134,broke boxes,Some,0.001,comp_allprob
-134,stuck beads,Some,0.001,comp_allprob
-134,sank balloons,Some,0.001,comp_allprob
+134,dissolved sugar cubes,Some,0.01,comp_allprob
+134,ate the seeds birds,Some,0.01,comp_allprob
+134,got stained white carpets,Some,0.01,comp_allprob
+134,exploded fireworks,Some,0.01,comp_allprob
+134,melted ice cubes,Some,0.01,comp_allprob
+134,froze bottles of hand soap,Some,0.01,comp_allprob
+134,exploded CDs,Some,0.01,comp_allprob
+134,broke boxes,Some,0.01,comp_allprob
+134,stuck beads,Some,0.01,comp_allprob
+134,sank balloons,Some,0.01,comp_allprob
 135,melted crayons,Some,0.1,comp_allprob
-135,were green bananas,Some,0.001,comp_allprob
+135,were green bananas,Some,0.01,comp_allprob
 135,popped bubbles,Some,0.1,comp_allprob
 135,burnt books,Some,0.2,comp_allprob
 135,broke boxes,Some,0.1,comp_allprob
@@ -1354,86 +1354,86 @@ subject,item,utterance,response,measure
 135,flashed cameras,Some,0.1,comp_allprob
 135,froze berries,Some,0.3,comp_allprob
 135,got stained white carpets,Some,0.1,comp_allprob
-136,popped balloons,Some,0.001,comp_allprob
-136,fell down shelves,Some,0.001,comp_allprob
-136,burnt books,Some,0.001,comp_allprob
-136,honked bus drivers,Some,0.001,comp_allprob
-136,exploded candles,Some,0.001,comp_allprob
-136,decomposed banana peels,Some,0.001,comp_allprob
-136,had the letter Z in them novels,Some,0.001,comp_allprob
-136,froze chocolate bars,Some,0.001,comp_allprob
-136,were green strawberries,Some,0.001,comp_allprob
-136,dissolved carrots,Some,0.001,comp_allprob
-137,landed flat pancakes,Some,0.001,comp_allprob
-137,honked taxi drivers,Some,0.001,comp_allprob
-137,exploded balls of tin foil,Some,0.001,comp_allprob
-137,ripped shirts,Some,0.001,comp_allprob
-137,lit up cd-players,Some,0.001,comp_allprob
-137,laughed comedians,Some,0.001,comp_allprob
-137,beeped houses,Some,0.001,comp_allprob
-137,melted crayons,Some,0.001,comp_allprob
-137,reflected the sunlight mirrors,Some,0.001,comp_allprob
-137,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-138,ate the seeds birds,Some,0.001,comp_allprob
-138,dissolved carrots,Some,0.001,comp_allprob
-138,burnt books,Some,0.001,comp_allprob
-138,melted pencils,Some,0.001,comp_allprob
-138,reflected the sunlight mirrors,Some,0.001,comp_allprob
-138,had the letter Z in them love notes,Some,0.001,comp_allprob
-138,sank balloons,Some,0.001,comp_allprob
-138,broke boxes,Some,0.001,comp_allprob
-138,ripped books,Some,0.001,comp_allprob
-138,stopped motorcycles,Some,0.001,comp_allprob
-139,reflected the sunlight phone screens,Some,0.001,comp_allprob
-139,ripped shirts,Some,0.001,comp_allprob
-139,honked bicyclists,Some,0.001,comp_allprob
-139,ran out of batteries laptops,Some,0.001,comp_allprob
-139,rhymed songs,Some,0.001,comp_allprob
-139,sank cups,Some,0.001,comp_allprob
+136,popped balloons,Some,0.01,comp_allprob
+136,fell down shelves,Some,0.01,comp_allprob
+136,burnt books,Some,0.01,comp_allprob
+136,honked bus drivers,Some,0.01,comp_allprob
+136,exploded candles,Some,0.01,comp_allprob
+136,decomposed banana peels,Some,0.01,comp_allprob
+136,had the letter Z in them novels,Some,0.01,comp_allprob
+136,froze chocolate bars,Some,0.01,comp_allprob
+136,were green strawberries,Some,0.01,comp_allprob
+136,dissolved carrots,Some,0.01,comp_allprob
+137,landed flat pancakes,Some,0.01,comp_allprob
+137,honked taxi drivers,Some,0.01,comp_allprob
+137,exploded balls of tin foil,Some,0.01,comp_allprob
+137,ripped shirts,Some,0.01,comp_allprob
+137,lit up cd-players,Some,0.01,comp_allprob
+137,laughed comedians,Some,0.01,comp_allprob
+137,beeped houses,Some,0.01,comp_allprob
+137,melted crayons,Some,0.01,comp_allprob
+137,reflected the sunlight mirrors,Some,0.01,comp_allprob
+137,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+138,ate the seeds birds,Some,0.01,comp_allprob
+138,dissolved carrots,Some,0.01,comp_allprob
+138,burnt books,Some,0.01,comp_allprob
+138,melted pencils,Some,0.01,comp_allprob
+138,reflected the sunlight mirrors,Some,0.01,comp_allprob
+138,had the letter Z in them love notes,Some,0.01,comp_allprob
+138,sank balloons,Some,0.01,comp_allprob
+138,broke boxes,Some,0.01,comp_allprob
+138,ripped books,Some,0.01,comp_allprob
+138,stopped motorcycles,Some,0.01,comp_allprob
+139,reflected the sunlight phone screens,Some,0.01,comp_allprob
+139,ripped shirts,Some,0.01,comp_allprob
+139,honked bicyclists,Some,0.01,comp_allprob
+139,ran out of batteries laptops,Some,0.01,comp_allprob
+139,rhymed songs,Some,0.01,comp_allprob
+139,sank cups,Some,0.01,comp_allprob
 139,decomposed banana peels,Some,0.3,comp_allprob
-139,stuck beads,Some,0.001,comp_allprob
-139,landed flat coins,Some,0.001,comp_allprob
-139,stopped cars,Some,0.001,comp_allprob
-140,decomposed banana peels,Some,0.001,comp_allprob
-140,broke logs,Some,0.001,comp_allprob
-140,landed flat notebooks,Some,0.001,comp_allprob
-140,lit up cd-players,Some,0.001,comp_allprob
-140,popped eggs,Some,0.001,comp_allprob
-140,froze chocolate bars,Some,0.001,comp_allprob
-140,reflected the sunlight phone screens,Some,0.001,comp_allprob
-140,burnt books,Some,0.001,comp_allprob
+139,stuck beads,Some,0.01,comp_allprob
+139,landed flat coins,Some,0.01,comp_allprob
+139,stopped cars,Some,0.01,comp_allprob
+140,decomposed banana peels,Some,0.01,comp_allprob
+140,broke logs,Some,0.01,comp_allprob
+140,landed flat notebooks,Some,0.01,comp_allprob
+140,lit up cd-players,Some,0.01,comp_allprob
+140,popped eggs,Some,0.01,comp_allprob
+140,froze chocolate bars,Some,0.01,comp_allprob
+140,reflected the sunlight phone screens,Some,0.01,comp_allprob
+140,burnt books,Some,0.01,comp_allprob
 140,stuck to the wall pieces of gum,Some,0.5,comp_allprob
-140,had the letter Z in them love notes,Some,0.001,comp_allprob
-141,dissolved carrots,Some,0.001,comp_allprob
-141,popped eggs,Some,0.001,comp_allprob
-141,exploded fireworks,Some,0.001,comp_allprob
+140,had the letter Z in them love notes,Some,0.01,comp_allprob
+141,dissolved carrots,Some,0.01,comp_allprob
+141,popped eggs,Some,0.01,comp_allprob
+141,exploded fireworks,Some,0.01,comp_allprob
 141,reflected the sunlight mirrors,Some,0.3,comp_allprob
-141,stopped cars,Some,0.001,comp_allprob
-141,honked bicyclists,Some,0.001,comp_allprob
+141,stopped cars,Some,0.01,comp_allprob
+141,honked bicyclists,Some,0.01,comp_allprob
 141,sank balloons,Some,0.3,comp_allprob
-141,flashed webcams,Some,0.001,comp_allprob
-141,had the letter Z in them love notes,Some,0.001,comp_allprob
+141,flashed webcams,Some,0.01,comp_allprob
+141,had the letter Z in them love notes,Some,0.01,comp_allprob
 141,fell down shelves,Some,0.1,comp_allprob
 142,stuck beads,Some,0.6,comp_allprob
-142,decomposed soda cans,Some,0.001,comp_allprob
-142,honked bicyclists,Some,0.001,comp_allprob
+142,decomposed soda cans,Some,0.01,comp_allprob
+142,honked bicyclists,Some,0.01,comp_allprob
 142,got stained white carpets,Some,0.4,comp_allprob
 142,ripped shirts,Some,0.5,comp_allprob
 142,rolled shopping carts,Some,0.3,comp_allprob
-142,exploded candles,Some,0.001,comp_allprob
+142,exploded candles,Some,0.01,comp_allprob
 142,blew away napkins,Some,0.4,comp_allprob
 142,exploded eggs,Some,0.8,comp_allprob
 142,burnt rocks,Some,0.1,comp_allprob
-143,honked bus drivers,Some,0.001,comp_allprob
-143,reflected the sunlight diamonds,Some,0.001,comp_allprob
-143,rolled toy cars,Some,0.001,comp_allprob
-143,flashed phones,Some,0.001,comp_allprob
-143,were green bananas,Some,0.001,comp_allprob
-143,blew away napkins,Some,0.001,comp_allprob
+143,honked bus drivers,Some,0.01,comp_allprob
+143,reflected the sunlight diamonds,Some,0.01,comp_allprob
+143,rolled toy cars,Some,0.01,comp_allprob
+143,flashed phones,Some,0.01,comp_allprob
+143,were green bananas,Some,0.01,comp_allprob
+143,blew away napkins,Some,0.01,comp_allprob
 143,melted ice cubes,Some,0.5,comp_allprob
-143,popped eggs,Some,0.001,comp_allprob
+143,popped eggs,Some,0.01,comp_allprob
 143,got stained white tablecloths,Some,0.3,comp_allprob
-143,broke logs,Some,0.001,comp_allprob
+143,broke logs,Some,0.01,comp_allprob
 144,decomposed soda cans,Some,0.1,comp_allprob
 144,burnt rocks,Some,0.3,comp_allprob
 144,exploded eggs,Some,0.1,comp_allprob
@@ -1444,116 +1444,116 @@ subject,item,utterance,response,measure
 144,popped balloons,Some,0.4,comp_allprob
 144,were green bananas,Some,0.2,comp_allprob
 144,flashed cameras,Some,0.2,comp_allprob
-145,exploded candles,Some,0.001,comp_allprob
-145,froze berries,Some,0.001,comp_allprob
-145,ran out of batteries phones,Some,0.001,comp_allprob
-145,exploded balls of tin foil,Some,0.001,comp_allprob
-145,decomposed pinecones,Some,0.001,comp_allprob
-145,stuck beads,Some,0.001,comp_allprob
+145,exploded candles,Some,0.01,comp_allprob
+145,froze berries,Some,0.01,comp_allprob
+145,ran out of batteries phones,Some,0.01,comp_allprob
+145,exploded balls of tin foil,Some,0.01,comp_allprob
+145,decomposed pinecones,Some,0.01,comp_allprob
+145,stuck beads,Some,0.01,comp_allprob
 145,honked bicyclists,Some,0.2,comp_allprob
 145,rolled shopping carts,Some,0.1,comp_allprob
 145,stopped motorcycles,Some,0.2,comp_allprob
-145,reflected the sunlight diamonds,Some,0.001,comp_allprob
-146,honked bicyclists,Some,0.001,comp_allprob
-146,ate the seeds birds,Some,0.001,comp_allprob
+145,reflected the sunlight diamonds,Some,0.01,comp_allprob
+146,honked bicyclists,Some,0.01,comp_allprob
+146,ate the seeds birds,Some,0.01,comp_allprob
 146,stuck to the wall cakes,Some,0.1,comp_allprob
-146,reflected the sunlight phone screens,Some,0.001,comp_allprob
-146,ripped shoes,Some,0.001,comp_allprob
-146,fell down shelves,Some,0.001,comp_allprob
-146,stopped cars,Some,0.001,comp_allprob
-146,broke sunglasses,Some,0.001,comp_allprob
-146,flashed cameras,Some,0.001,comp_allprob
-146,blew away backpacks,Some,0.001,comp_allprob
-147,reflected the sunlight mirrors,Some,0.001,comp_allprob
-147,decomposed soda cans,Some,0.001,comp_allprob
-147,rhymed songs,Some,0.001,comp_allprob
-147,stuck sequins,Some,0.001,comp_allprob
-147,ate the seeds birds,Some,0.001,comp_allprob
-147,were green bananas,Some,0.001,comp_allprob
-147,flashed phones,Some,0.001,comp_allprob
-147,dissolved sugar cubes,Some,0.001,comp_allprob
-147,laughed lawyers,Some,0.001,comp_allprob
-147,melted ice cubes,Some,0.001,comp_allprob
+146,reflected the sunlight phone screens,Some,0.01,comp_allprob
+146,ripped shoes,Some,0.01,comp_allprob
+146,fell down shelves,Some,0.01,comp_allprob
+146,stopped cars,Some,0.01,comp_allprob
+146,broke sunglasses,Some,0.01,comp_allprob
+146,flashed cameras,Some,0.01,comp_allprob
+146,blew away backpacks,Some,0.01,comp_allprob
+147,reflected the sunlight mirrors,Some,0.01,comp_allprob
+147,decomposed soda cans,Some,0.01,comp_allprob
+147,rhymed songs,Some,0.01,comp_allprob
+147,stuck sequins,Some,0.01,comp_allprob
+147,ate the seeds birds,Some,0.01,comp_allprob
+147,were green bananas,Some,0.01,comp_allprob
+147,flashed phones,Some,0.01,comp_allprob
+147,dissolved sugar cubes,Some,0.01,comp_allprob
+147,laughed lawyers,Some,0.01,comp_allprob
+147,melted ice cubes,Some,0.01,comp_allprob
 148,ran out of batteries phones,Some,0.1,comp_allprob
 148,rolled shopping carts,Some,0.1,comp_allprob
 148,burnt matches,Some,0.4,comp_allprob
 148,landed flat coins,Some,0.2,comp_allprob
-148,dissolved oreos,Some,0.001,comp_allprob
-148,fell down block towers,Some,0.001,comp_allprob
+148,dissolved oreos,Some,0.01,comp_allprob
+148,fell down block towers,Some,0.01,comp_allprob
 148,got stained white tablecloths,Some,0.6,comp_allprob
-148,sank balloons,Some,0.001,comp_allprob
-148,were green bananas,Some,0.001,comp_allprob
-148,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-149,decomposed pinecones,Some,0.001,comp_allprob
-149,reflected the sunlight phone screens,Some,0.001,comp_allprob
-149,got stained white tablecloths,Some,0.001,comp_allprob
+148,sank balloons,Some,0.01,comp_allprob
+148,were green bananas,Some,0.01,comp_allprob
+148,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+149,decomposed pinecones,Some,0.01,comp_allprob
+149,reflected the sunlight phone screens,Some,0.01,comp_allprob
+149,got stained white tablecloths,Some,0.01,comp_allprob
 149,exploded gas tanks,Some,0.3,comp_allprob
-149,flashed phones,Some,0.001,comp_allprob
-149,burnt matches,Some,0.001,comp_allprob
-149,ran out of batteries laptops,Some,0.001,comp_allprob
-149,honked bus drivers,Some,0.001,comp_allprob
-149,stopped motorcycles,Some,0.001,comp_allprob
-149,beeped new cars,Some,0.001,comp_allprob
+149,flashed phones,Some,0.01,comp_allprob
+149,burnt matches,Some,0.01,comp_allprob
+149,ran out of batteries laptops,Some,0.01,comp_allprob
+149,honked bus drivers,Some,0.01,comp_allprob
+149,stopped motorcycles,Some,0.01,comp_allprob
+149,beeped new cars,Some,0.01,comp_allprob
 150,beeped old cars,Some,0.3,comp_allprob
 150,decomposed pinecones,Some,0.3,comp_allprob
 150,laughed comedians,Some,0.3,comp_allprob
 150,fell down shelves,Some,0.3,comp_allprob
 150,exploded gas tanks,Some,0.3,comp_allprob
-150,froze bottles of hand soap,Some,0.001,comp_allprob
-150,burnt matches,Some,0.001,comp_allprob
-150,ran out of batteries bike lights,Some,0.001,comp_allprob
-150,flashed webcams,Some,0.001,comp_allprob
-150,stuck beads,Some,0.001,comp_allprob
+150,froze bottles of hand soap,Some,0.01,comp_allprob
+150,burnt matches,Some,0.01,comp_allprob
+150,ran out of batteries bike lights,Some,0.01,comp_allprob
+150,flashed webcams,Some,0.01,comp_allprob
+150,stuck beads,Some,0.01,comp_allprob
 151,fell down block towers,Some,0.1,comp_allprob
-151,sank balloons,Some,0.001,comp_allprob
-151,rolled toy cars,Some,0.001,comp_allprob
-151,ripped shoes,Some,0.001,comp_allprob
-151,stuck to the wall cakes,Some,0.001,comp_allprob
-151,burnt rocks,Some,0.001,comp_allprob
-151,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-151,dissolved oreos,Some,0.001,comp_allprob
-151,rhymed limericks,Some,0.001,comp_allprob
-151,flashed phones,Some,0.001,comp_allprob
+151,sank balloons,Some,0.01,comp_allprob
+151,rolled toy cars,Some,0.01,comp_allprob
+151,ripped shoes,Some,0.01,comp_allprob
+151,stuck to the wall cakes,Some,0.01,comp_allprob
+151,burnt rocks,Some,0.01,comp_allprob
+151,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+151,dissolved oreos,Some,0.01,comp_allprob
+151,rhymed limericks,Some,0.01,comp_allprob
+151,flashed phones,Some,0.01,comp_allprob
 152,had the letter Z in them birthday cards,Some,0.3,comp_allprob
-152,landed flat coins,Some,0.001,comp_allprob
-152,stuck sequins,Some,0.001,comp_allprob
-152,froze berries,Some,0.001,comp_allprob
-152,beeped new cars,Some,0.001,comp_allprob
-152,laughed lawyers,Some,0.001,comp_allprob
-152,rolled toy cars,Some,0.001,comp_allprob
-152,melted crayons,Some,0.001,comp_allprob
-152,honked bus drivers,Some,0.001,comp_allprob
-152,exploded gas tanks,Some,0.001,comp_allprob
-153,rhymed limericks,Some,0.001,comp_allprob
-153,stuck to the wall cakes,Some,0.001,comp_allprob
-153,laughed lawyers,Some,0.001,comp_allprob
-153,exploded candles,Some,0.001,comp_allprob
-153,exploded balls of tin foil,Some,0.001,comp_allprob
-153,blew away napkins,Some,0.001,comp_allprob
-153,broke sunglasses,Some,0.001,comp_allprob
-153,dissolved carrots,Some,0.001,comp_allprob
-153,reflected the sunlight diamonds,Some,0.001,comp_allprob
-153,rolled shopping carts,Some,0.001,comp_allprob
-154,froze berries,Some,0.001,comp_allprob
-154,flashed phones,Some,0.001,comp_allprob
-154,decomposed banana peels,Some,0.001,comp_allprob
-154,ran out of batteries laptops,Some,0.001,comp_allprob
-154,stopped motorcycles,Some,0.001,comp_allprob
-154,melted pencils,Some,0.001,comp_allprob
-154,rhymed limericks,Some,0.001,comp_allprob
-154,had the letter Z in them love notes,Some,0.001,comp_allprob
-154,were green clovers,Some,0.001,comp_allprob
-154,landed flat coins,Some,0.001,comp_allprob
-155,froze chocolate bars,Some,0.001,comp_allprob
-155,popped eggs,Some,0.001,comp_allprob
-155,stuck to the wall baseballs,Some,0.001,comp_allprob
-155,beeped old cars,Some,0.001,comp_allprob
-155,reflected the sunlight phone screens,Some,0.001,comp_allprob
-155,landed flat notebooks,Some,0.001,comp_allprob
-155,ate the seeds butterflies,Some,0.001,comp_allprob
-155,lit up computers,Some,0.001,comp_allprob
-155,exploded fireworks,Some,0.001,comp_allprob
-155,blew away hats,Some,0.001,comp_allprob
+152,landed flat coins,Some,0.01,comp_allprob
+152,stuck sequins,Some,0.01,comp_allprob
+152,froze berries,Some,0.01,comp_allprob
+152,beeped new cars,Some,0.01,comp_allprob
+152,laughed lawyers,Some,0.01,comp_allprob
+152,rolled toy cars,Some,0.01,comp_allprob
+152,melted crayons,Some,0.01,comp_allprob
+152,honked bus drivers,Some,0.01,comp_allprob
+152,exploded gas tanks,Some,0.01,comp_allprob
+153,rhymed limericks,Some,0.01,comp_allprob
+153,stuck to the wall cakes,Some,0.01,comp_allprob
+153,laughed lawyers,Some,0.01,comp_allprob
+153,exploded candles,Some,0.01,comp_allprob
+153,exploded balls of tin foil,Some,0.01,comp_allprob
+153,blew away napkins,Some,0.01,comp_allprob
+153,broke sunglasses,Some,0.01,comp_allprob
+153,dissolved carrots,Some,0.01,comp_allprob
+153,reflected the sunlight diamonds,Some,0.01,comp_allprob
+153,rolled shopping carts,Some,0.01,comp_allprob
+154,froze berries,Some,0.01,comp_allprob
+154,flashed phones,Some,0.01,comp_allprob
+154,decomposed banana peels,Some,0.01,comp_allprob
+154,ran out of batteries laptops,Some,0.01,comp_allprob
+154,stopped motorcycles,Some,0.01,comp_allprob
+154,melted pencils,Some,0.01,comp_allprob
+154,rhymed limericks,Some,0.01,comp_allprob
+154,had the letter Z in them love notes,Some,0.01,comp_allprob
+154,were green clovers,Some,0.01,comp_allprob
+154,landed flat coins,Some,0.01,comp_allprob
+155,froze chocolate bars,Some,0.01,comp_allprob
+155,popped eggs,Some,0.01,comp_allprob
+155,stuck to the wall baseballs,Some,0.01,comp_allprob
+155,beeped old cars,Some,0.01,comp_allprob
+155,reflected the sunlight phone screens,Some,0.01,comp_allprob
+155,landed flat notebooks,Some,0.01,comp_allprob
+155,ate the seeds butterflies,Some,0.01,comp_allprob
+155,lit up computers,Some,0.01,comp_allprob
+155,exploded fireworks,Some,0.01,comp_allprob
+155,blew away hats,Some,0.01,comp_allprob
 156,stopped bicycles,Some,0.3,comp_allprob
 156,exploded fireworks,Some,0.2,comp_allprob
 156,beeped new cars,Some,0.2,comp_allprob
@@ -1561,21 +1561,21 @@ subject,item,utterance,response,measure
 156,decomposed soda cans,Some,0.1,comp_allprob
 156,stuck sequins,Some,0.1,comp_allprob
 156,fell down card towers,Some,0.1,comp_allprob
-156,blew away hats,Some,0.001,comp_allprob
-156,were green bananas,Some,0.001,comp_allprob
-156,had the letter Z in them love notes,Some,0.001,comp_allprob
-157,honked taxi drivers,Some,0.001,comp_allprob
-157,laughed kids,Some,0.001,comp_allprob
-157,ran out of batteries phones,Some,0.001,comp_allprob
-157,got stained white tablecloths,Some,0.001,comp_allprob
-157,ripped books,Some,0.001,comp_allprob
-157,ate the seeds birds,Some,0.001,comp_allprob
-157,fell down card towers,Some,0.001,comp_allprob
-157,were green bananas,Some,0.001,comp_allprob
-157,froze bottles of hand soap,Some,0.001,comp_allprob
-157,had the letter Z in them love notes,Some,0.001,comp_allprob
-158,exploded candles,Some,0.001,comp_allprob
-158,ran out of batteries bike lights,Some,0.001,comp_allprob
+156,blew away hats,Some,0.01,comp_allprob
+156,were green bananas,Some,0.01,comp_allprob
+156,had the letter Z in them love notes,Some,0.01,comp_allprob
+157,honked taxi drivers,Some,0.01,comp_allprob
+157,laughed kids,Some,0.01,comp_allprob
+157,ran out of batteries phones,Some,0.01,comp_allprob
+157,got stained white tablecloths,Some,0.01,comp_allprob
+157,ripped books,Some,0.01,comp_allprob
+157,ate the seeds birds,Some,0.01,comp_allprob
+157,fell down card towers,Some,0.01,comp_allprob
+157,were green bananas,Some,0.01,comp_allprob
+157,froze bottles of hand soap,Some,0.01,comp_allprob
+157,had the letter Z in them love notes,Some,0.01,comp_allprob
+158,exploded candles,Some,0.01,comp_allprob
+158,ran out of batteries bike lights,Some,0.01,comp_allprob
 158,broke sunglasses,Some,0.3,comp_allprob
 158,laughed comedians,Some,0.1,comp_allprob
 158,flashed phones,Some,0.1,comp_allprob
@@ -1584,46 +1584,46 @@ subject,item,utterance,response,measure
 158,stuck sequins,Some,0.1,comp_allprob
 158,lit up computers,Some,0.1,comp_allprob
 158,were green strawberries,Some,0.1,comp_allprob
-159,exploded candles,Some,0.001,comp_allprob
-159,reflected the sunlight phone screens,Some,0.001,comp_allprob
-159,got stained white shirts,Some,0.001,comp_allprob
-159,laughed comedians,Some,0.001,comp_allprob
-159,burnt books,Some,0.001,comp_allprob
-159,ripped books,Some,0.001,comp_allprob
-159,rolled shopping carts,Some,0.001,comp_allprob
-159,sank balloons,Some,0.001,comp_allprob
+159,exploded candles,Some,0.01,comp_allprob
+159,reflected the sunlight phone screens,Some,0.01,comp_allprob
+159,got stained white shirts,Some,0.01,comp_allprob
+159,laughed comedians,Some,0.01,comp_allprob
+159,burnt books,Some,0.01,comp_allprob
+159,ripped books,Some,0.01,comp_allprob
+159,rolled shopping carts,Some,0.01,comp_allprob
+159,sank balloons,Some,0.01,comp_allprob
 159,had the letter Z in them novels,Some,0.1,comp_allprob
 159,melted ice cubes,Some,0.4,comp_allprob
 160,ripped shoes,Some,0.1,comp_allprob
-160,landed flat coins,Some,0.001,comp_allprob
-160,beeped new cars,Some,0.001,comp_allprob
-160,burnt books,Some,0.001,comp_allprob
-160,fell down shelves,Some,0.001,comp_allprob
-160,froze bottles of hand soap,Some,0.001,comp_allprob
-160,ran out of batteries phones,Some,0.001,comp_allprob
+160,landed flat coins,Some,0.01,comp_allprob
+160,beeped new cars,Some,0.01,comp_allprob
+160,burnt books,Some,0.01,comp_allprob
+160,fell down shelves,Some,0.01,comp_allprob
+160,froze bottles of hand soap,Some,0.01,comp_allprob
+160,ran out of batteries phones,Some,0.01,comp_allprob
 160,got stained white shirts,Some,0.3,comp_allprob
-160,ate the seeds dogs,Some,0.001,comp_allprob
-160,honked taxi drivers,Some,0.001,comp_allprob
+160,ate the seeds dogs,Some,0.01,comp_allprob
+160,honked taxi drivers,Some,0.01,comp_allprob
 161,ripped books,Some,0.1,comp_allprob
-161,flashed webcams,Some,0.001,comp_allprob
-161,were green clovers,Some,0.001,comp_allprob
-161,ate the seeds butterflies,Some,0.001,comp_allprob
-161,ran out of batteries bike lights,Some,0.001,comp_allprob
-161,dissolved carrots,Some,0.001,comp_allprob
-161,stuck sequins,Some,0.001,comp_allprob
-161,popped bubbles,Some,0.001,comp_allprob
-161,laughed comedians,Some,0.001,comp_allprob
-161,blew away napkins,Some,0.001,comp_allprob
-162,ripped shoes,Some,0.001,comp_allprob
-162,stopped cars,Some,0.001,comp_allprob
-162,blew away hats,Some,0.001,comp_allprob
-162,got stained white shirts,Some,0.001,comp_allprob
-162,beeped old cars,Some,0.001,comp_allprob
-162,froze berries,Some,0.001,comp_allprob
-162,stuck to the wall baseballs,Some,0.001,comp_allprob
-162,fell down shelves,Some,0.001,comp_allprob
-162,ate the seeds birds,Some,0.001,comp_allprob
-162,exploded balls of tin foil,Some,0.001,comp_allprob
+161,flashed webcams,Some,0.01,comp_allprob
+161,were green clovers,Some,0.01,comp_allprob
+161,ate the seeds butterflies,Some,0.01,comp_allprob
+161,ran out of batteries bike lights,Some,0.01,comp_allprob
+161,dissolved carrots,Some,0.01,comp_allprob
+161,stuck sequins,Some,0.01,comp_allprob
+161,popped bubbles,Some,0.01,comp_allprob
+161,laughed comedians,Some,0.01,comp_allprob
+161,blew away napkins,Some,0.01,comp_allprob
+162,ripped shoes,Some,0.01,comp_allprob
+162,stopped cars,Some,0.01,comp_allprob
+162,blew away hats,Some,0.01,comp_allprob
+162,got stained white shirts,Some,0.01,comp_allprob
+162,beeped old cars,Some,0.01,comp_allprob
+162,froze berries,Some,0.01,comp_allprob
+162,stuck to the wall baseballs,Some,0.01,comp_allprob
+162,fell down shelves,Some,0.01,comp_allprob
+162,ate the seeds birds,Some,0.01,comp_allprob
+162,exploded balls of tin foil,Some,0.01,comp_allprob
 163,stuck stickers,Some,0.3,comp_allprob
 163,popped balloons,Some,0.3,comp_allprob
 163,laughed comedians,Some,0.4,comp_allprob
@@ -1634,35 +1634,35 @@ subject,item,utterance,response,measure
 163,stuck to the wall pieces of gum,Some,0.2,comp_allprob
 163,got stained white carpets,Some,0.3,comp_allprob
 163,reflected the sunlight diamonds,Some,0.3,comp_allprob
-164,laughed lawyers,Some,0.001,comp_allprob
-164,got stained white tablecloths,Some,0.001,comp_allprob
-164,blew away backpacks,Some,0.001,comp_allprob
-164,flashed webcams,Some,0.001,comp_allprob
-164,beeped houses,Some,0.001,comp_allprob
-164,broke sunglasses,Some,0.001,comp_allprob
-164,froze berries,Some,0.001,comp_allprob
-164,melted ice cubes,Some,0.001,comp_allprob
-164,were green bananas,Some,0.001,comp_allprob
-164,rolled wheelchairs,Some,0.001,comp_allprob
-165,melted crayons,Some,0.001,comp_allprob
-165,lit up flashlights,Some,0.001,comp_allprob
-165,reflected the sunlight mirrors,Some,0.001,comp_allprob
-165,ripped shirts,Some,0.001,comp_allprob
-165,flashed webcams,Some,0.001,comp_allprob
-165,dissolved oreos,Some,0.001,comp_allprob
-165,froze chocolate bars,Some,0.001,comp_allprob
-165,rolled shopping carts,Some,0.001,comp_allprob
-165,laughed lawyers,Some,0.001,comp_allprob
-165,blew away napkins,Some,0.001,comp_allprob
-166,rhymed limericks,Some,0.001,comp_allprob
-166,stuck to the wall baseballs,Some,0.001,comp_allprob
-166,decomposed banana peels,Some,0.001,comp_allprob
-166,flashed webcams,Some,0.001,comp_allprob
-166,got stained white shirts,Some,0.001,comp_allprob
+164,laughed lawyers,Some,0.01,comp_allprob
+164,got stained white tablecloths,Some,0.01,comp_allprob
+164,blew away backpacks,Some,0.01,comp_allprob
+164,flashed webcams,Some,0.01,comp_allprob
+164,beeped houses,Some,0.01,comp_allprob
+164,broke sunglasses,Some,0.01,comp_allprob
+164,froze berries,Some,0.01,comp_allprob
+164,melted ice cubes,Some,0.01,comp_allprob
+164,were green bananas,Some,0.01,comp_allprob
+164,rolled wheelchairs,Some,0.01,comp_allprob
+165,melted crayons,Some,0.01,comp_allprob
+165,lit up flashlights,Some,0.01,comp_allprob
+165,reflected the sunlight mirrors,Some,0.01,comp_allprob
+165,ripped shirts,Some,0.01,comp_allprob
+165,flashed webcams,Some,0.01,comp_allprob
+165,dissolved oreos,Some,0.01,comp_allprob
+165,froze chocolate bars,Some,0.01,comp_allprob
+165,rolled shopping carts,Some,0.01,comp_allprob
+165,laughed lawyers,Some,0.01,comp_allprob
+165,blew away napkins,Some,0.01,comp_allprob
+166,rhymed limericks,Some,0.01,comp_allprob
+166,stuck to the wall baseballs,Some,0.01,comp_allprob
+166,decomposed banana peels,Some,0.01,comp_allprob
+166,flashed webcams,Some,0.01,comp_allprob
+166,got stained white shirts,Some,0.01,comp_allprob
 166,had the letter Z in them birthday cards,Some,0.1,comp_allprob
 166,beeped old cars,Some,0.3,comp_allprob
 166,dissolved sugar cubes,Some,0.2,comp_allprob
-166,sank cups,Some,0.001,comp_allprob
+166,sank cups,Some,0.01,comp_allprob
 166,burnt books,Some,0.2,comp_allprob
 167,honked taxi drivers,Some,0.3,comp_allprob
 167,decomposed soda cans,Some,0.2,comp_allprob
@@ -1674,36 +1674,36 @@ subject,item,utterance,response,measure
 167,froze bottles of hand soap,Some,0.3,comp_allprob
 167,fell down block towers,Some,0.2,comp_allprob
 167,reflected the sunlight phone screens,Some,0.2,comp_allprob
-168,lit up computers,Some,0.001,comp_allprob
+168,lit up computers,Some,0.01,comp_allprob
 168,rolled shopping carts,Some,0.3,comp_allprob
 168,sank cups,Some,0.2,comp_allprob
 168,were green strawberries,Some,0.3,comp_allprob
-168,stuck to the wall cakes,Some,0.001,comp_allprob
-168,blew away hats,Some,0.001,comp_allprob
-168,fell down card towers,Some,0.001,comp_allprob
-168,honked taxi drivers,Some,0.001,comp_allprob
-168,broke logs,Some,0.001,comp_allprob
-168,ran out of batteries phones,Some,0.001,comp_allprob
-169,burnt matches,Some,0.001,comp_allprob
-169,stuck to the wall cakes,Some,0.001,comp_allprob
-169,exploded eggs,Some,0.001,comp_allprob
-169,fell down block towers,Some,0.001,comp_allprob
-169,dissolved carrots,Some,0.001,comp_allprob
-169,got stained white tablecloths,Some,0.001,comp_allprob
-169,flashed phones,Some,0.001,comp_allprob
-169,lit up cd-players,Some,0.001,comp_allprob
-169,melted pencils,Some,0.001,comp_allprob
-169,decomposed banana peels,Some,0.001,comp_allprob
-170,fell down block towers,Some,0.001,comp_allprob
-170,laughed lawyers,Some,0.001,comp_allprob
-170,flashed cameras,Some,0.001,comp_allprob
-170,were green bananas,Some,0.001,comp_allprob
-170,sank cups,Some,0.001,comp_allprob
-170,melted ice cubes,Some,0.001,comp_allprob
+168,stuck to the wall cakes,Some,0.01,comp_allprob
+168,blew away hats,Some,0.01,comp_allprob
+168,fell down card towers,Some,0.01,comp_allprob
+168,honked taxi drivers,Some,0.01,comp_allprob
+168,broke logs,Some,0.01,comp_allprob
+168,ran out of batteries phones,Some,0.01,comp_allprob
+169,burnt matches,Some,0.01,comp_allprob
+169,stuck to the wall cakes,Some,0.01,comp_allprob
+169,exploded eggs,Some,0.01,comp_allprob
+169,fell down block towers,Some,0.01,comp_allprob
+169,dissolved carrots,Some,0.01,comp_allprob
+169,got stained white tablecloths,Some,0.01,comp_allprob
+169,flashed phones,Some,0.01,comp_allprob
+169,lit up cd-players,Some,0.01,comp_allprob
+169,melted pencils,Some,0.01,comp_allprob
+169,decomposed banana peels,Some,0.01,comp_allprob
+170,fell down block towers,Some,0.01,comp_allprob
+170,laughed lawyers,Some,0.01,comp_allprob
+170,flashed cameras,Some,0.01,comp_allprob
+170,were green bananas,Some,0.01,comp_allprob
+170,sank cups,Some,0.01,comp_allprob
+170,melted ice cubes,Some,0.01,comp_allprob
 170,had the letter Z in them love notes,Some,0.1,comp_allprob
-170,dissolved sugar cubes,Some,0.001,comp_allprob
-170,stuck to the wall cakes,Some,0.001,comp_allprob
-170,exploded eggs,Some,0.001,comp_allprob
+170,dissolved sugar cubes,Some,0.01,comp_allprob
+170,stuck to the wall cakes,Some,0.01,comp_allprob
+170,exploded eggs,Some,0.01,comp_allprob
 171,stuck beads,Some,0.5,comp_allprob
 171,landed flat pancakes,Some,0.5,comp_allprob
 171,exploded fireworks,Some,0.5,comp_allprob
@@ -1713,29 +1713,29 @@ subject,item,utterance,response,measure
 171,were green strawberries,Some,0.2,comp_allprob
 171,ripped books,Some,0.1,comp_allprob
 171,exploded balls of tin foil,Some,0.5,comp_allprob
-171,decomposed soda cans,Some,0.001,comp_allprob
+171,decomposed soda cans,Some,0.01,comp_allprob
 172,popped bubbles,Some,0.3,comp_allprob
 172,rhymed limericks,Some,0.3,comp_allprob
-172,laughed lawyers,Some,0.001,comp_allprob
-172,sank balloons,Some,0.001,comp_allprob
-172,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-172,rolled wheelchairs,Some,0.001,comp_allprob
-172,ran out of batteries phones,Some,0.001,comp_allprob
-172,exploded CDs,Some,0.001,comp_allprob
-172,melted pencils,Some,0.001,comp_allprob
-172,had the letter Z in them love notes,Some,0.001,comp_allprob
-173,ate the seeds birds,Some,0.001,comp_allprob
-173,melted ice cubes,Some,0.001,comp_allprob
-173,rhymed limericks,Some,0.001,comp_allprob
-173,landed flat notebooks,Some,0.001,comp_allprob
-173,were green bananas,Some,0.001,comp_allprob
-173,burnt matches,Some,0.001,comp_allprob
-173,exploded fireworks,Some,0.001,comp_allprob
-173,decomposed pinecones,Some,0.001,comp_allprob
-173,had the letter Z in them novels,Some,0.001,comp_allprob
-173,fell down block towers,Some,0.001,comp_allprob
+172,laughed lawyers,Some,0.01,comp_allprob
+172,sank balloons,Some,0.01,comp_allprob
+172,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+172,rolled wheelchairs,Some,0.01,comp_allprob
+172,ran out of batteries phones,Some,0.01,comp_allprob
+172,exploded CDs,Some,0.01,comp_allprob
+172,melted pencils,Some,0.01,comp_allprob
+172,had the letter Z in them love notes,Some,0.01,comp_allprob
+173,ate the seeds birds,Some,0.01,comp_allprob
+173,melted ice cubes,Some,0.01,comp_allprob
+173,rhymed limericks,Some,0.01,comp_allprob
+173,landed flat notebooks,Some,0.01,comp_allprob
+173,were green bananas,Some,0.01,comp_allprob
+173,burnt matches,Some,0.01,comp_allprob
+173,exploded fireworks,Some,0.01,comp_allprob
+173,decomposed pinecones,Some,0.01,comp_allprob
+173,had the letter Z in them novels,Some,0.01,comp_allprob
+173,fell down block towers,Some,0.01,comp_allprob
 174,fell down shelves,Some,0.1,comp_allprob
-174,honked taxi drivers,Some,0.001,comp_allprob
+174,honked taxi drivers,Some,0.01,comp_allprob
 174,lit up cd-players,Some,0.2,comp_allprob
 174,stuck to the wall cakes,Some,0.3,comp_allprob
 174,melted pencils,Some,0.3,comp_allprob
@@ -1744,26 +1744,26 @@ subject,item,utterance,response,measure
 174,broke boxes,Some,0.3,comp_allprob
 174,flashed phones,Some,0.3,comp_allprob
 174,rolled shopping carts,Some,0.2,comp_allprob
-175,stuck sequins,Some,0.001,comp_allprob
-175,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-175,exploded CDs,Some,0.001,comp_allprob
-175,ripped books,Some,0.001,comp_allprob
-175,froze berries,Some,0.001,comp_allprob
-175,laughed lawyers,Some,0.001,comp_allprob
-175,landed flat notebooks,Some,0.001,comp_allprob
-175,melted pencils,Some,0.001,comp_allprob
-175,were green strawberries,Some,0.001,comp_allprob
-175,lit up cd-players,Some,0.001,comp_allprob
-176,ate the seeds dogs,Some,0.001,comp_allprob
-176,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-176,fell down card towers,Some,0.001,comp_allprob
-176,exploded candles,Some,0.001,comp_allprob
-176,beeped new cars,Some,0.001,comp_allprob
-176,reflected the sunlight mirrors,Some,0.001,comp_allprob
-176,rolled shopping carts,Some,0.001,comp_allprob
-176,had the letter Z in them novels,Some,0.001,comp_allprob
-176,decomposed pinecones,Some,0.001,comp_allprob
-176,stopped cars,Some,0.001,comp_allprob
+175,stuck sequins,Some,0.01,comp_allprob
+175,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+175,exploded CDs,Some,0.01,comp_allprob
+175,ripped books,Some,0.01,comp_allprob
+175,froze berries,Some,0.01,comp_allprob
+175,laughed lawyers,Some,0.01,comp_allprob
+175,landed flat notebooks,Some,0.01,comp_allprob
+175,melted pencils,Some,0.01,comp_allprob
+175,were green strawberries,Some,0.01,comp_allprob
+175,lit up cd-players,Some,0.01,comp_allprob
+176,ate the seeds dogs,Some,0.01,comp_allprob
+176,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+176,fell down card towers,Some,0.01,comp_allprob
+176,exploded candles,Some,0.01,comp_allprob
+176,beeped new cars,Some,0.01,comp_allprob
+176,reflected the sunlight mirrors,Some,0.01,comp_allprob
+176,rolled shopping carts,Some,0.01,comp_allprob
+176,had the letter Z in them novels,Some,0.01,comp_allprob
+176,decomposed pinecones,Some,0.01,comp_allprob
+176,stopped cars,Some,0.01,comp_allprob
 177,exploded eggs,Some,0.1,comp_allprob
 177,blew away napkins,Some,0.1,comp_allprob
 177,exploded fireworks,Some,0.1,comp_allprob
@@ -1777,53 +1777,53 @@ subject,item,utterance,response,measure
 178,rhymed poems,Some,0.2,comp_allprob
 178,froze berries,Some,0.1,comp_allprob
 178,had the letter Z in them novels,Some,0.1,comp_allprob
-178,reflected the sunlight diamonds,Some,0.001,comp_allprob
-178,decomposed soda cans,Some,0.001,comp_allprob
+178,reflected the sunlight diamonds,Some,0.01,comp_allprob
+178,decomposed soda cans,Some,0.01,comp_allprob
 178,ran out of batteries phones,Some,0.2,comp_allprob
 178,melted crayons,Some,0.1,comp_allprob
 178,blew away hats,Some,0.1,comp_allprob
 178,honked bicyclists,Some,0.1,comp_allprob
 178,were green strawberries,Some,0.1,comp_allprob
-179,exploded eggs,Some,0.001,comp_allprob
+179,exploded eggs,Some,0.01,comp_allprob
 179,honked taxi drivers,Some,0.1,comp_allprob
 179,reflected the sunlight diamonds,Some,0.1,comp_allprob
 179,fell down card towers,Some,0.2,comp_allprob
-179,burnt matches,Some,0.001,comp_allprob
-179,beeped old cars,Some,0.001,comp_allprob
+179,burnt matches,Some,0.01,comp_allprob
+179,beeped old cars,Some,0.01,comp_allprob
 179,rolled shopping carts,Some,0.1,comp_allprob
-179,lit up cd-players,Some,0.001,comp_allprob
-179,dissolved carrots,Some,0.001,comp_allprob
-179,broke logs,Some,0.001,comp_allprob
-180,melted crayons,Some,0.001,comp_allprob
-180,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-180,landed flat coins,Some,0.001,comp_allprob
-180,laughed kids,Some,0.001,comp_allprob
-180,decomposed soda cans,Some,0.001,comp_allprob
-180,stuck sequins,Some,0.001,comp_allprob
-180,sank marbles,Some,0.001,comp_allprob
-180,reflected the sunlight phone screens,Some,0.001,comp_allprob
-180,rolled wheelchairs,Some,0.001,comp_allprob
-180,froze bottles of hand soap,Some,0.001,comp_allprob
-181,melted ice cubes,Some,0.001,comp_allprob
+179,lit up cd-players,Some,0.01,comp_allprob
+179,dissolved carrots,Some,0.01,comp_allprob
+179,broke logs,Some,0.01,comp_allprob
+180,melted crayons,Some,0.01,comp_allprob
+180,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+180,landed flat coins,Some,0.01,comp_allprob
+180,laughed kids,Some,0.01,comp_allprob
+180,decomposed soda cans,Some,0.01,comp_allprob
+180,stuck sequins,Some,0.01,comp_allprob
+180,sank marbles,Some,0.01,comp_allprob
+180,reflected the sunlight phone screens,Some,0.01,comp_allprob
+180,rolled wheelchairs,Some,0.01,comp_allprob
+180,froze bottles of hand soap,Some,0.01,comp_allprob
+181,melted ice cubes,Some,0.01,comp_allprob
 181,got stained white carpets,Some,0.5,comp_allprob
 181,exploded fireworks,Some,0.1,comp_allprob
-181,broke boxes,Some,0.001,comp_allprob
-181,rolled toy cars,Some,0.001,comp_allprob
-181,laughed kids,Some,0.001,comp_allprob
-181,burnt books,Some,0.001,comp_allprob
-181,honked bus drivers,Some,0.001,comp_allprob
-181,blew away napkins,Some,0.001,comp_allprob
-181,flashed webcams,Some,0.001,comp_allprob
-182,lit up flashlights,Some,0.001,comp_allprob
-182,dissolved carrots,Some,0.001,comp_allprob
-182,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-182,got stained white tablecloths,Some,0.001,comp_allprob
-182,blew away hats,Some,0.001,comp_allprob
-182,beeped old cars,Some,0.001,comp_allprob
-182,rolled wheelchairs,Some,0.001,comp_allprob
-182,stuck to the wall baseballs,Some,0.001,comp_allprob
-182,honked bicyclists,Some,0.001,comp_allprob
-182,sank marbles,Some,0.001,comp_allprob
+181,broke boxes,Some,0.01,comp_allprob
+181,rolled toy cars,Some,0.01,comp_allprob
+181,laughed kids,Some,0.01,comp_allprob
+181,burnt books,Some,0.01,comp_allprob
+181,honked bus drivers,Some,0.01,comp_allprob
+181,blew away napkins,Some,0.01,comp_allprob
+181,flashed webcams,Some,0.01,comp_allprob
+182,lit up flashlights,Some,0.01,comp_allprob
+182,dissolved carrots,Some,0.01,comp_allprob
+182,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+182,got stained white tablecloths,Some,0.01,comp_allprob
+182,blew away hats,Some,0.01,comp_allprob
+182,beeped old cars,Some,0.01,comp_allprob
+182,rolled wheelchairs,Some,0.01,comp_allprob
+182,stuck to the wall baseballs,Some,0.01,comp_allprob
+182,honked bicyclists,Some,0.01,comp_allprob
+182,sank marbles,Some,0.01,comp_allprob
 183,exploded fireworks,Some,0.2,comp_allprob
 183,decomposed banana peels,Some,0.3,comp_allprob
 183,rhymed poems,Some,0.3,comp_allprob
@@ -1834,66 +1834,66 @@ subject,item,utterance,response,measure
 183,stuck beads,Some,0.3,comp_allprob
 183,froze chocolate bars,Some,0.3,comp_allprob
 183,reflected the sunlight mirrors,Some,0.3,comp_allprob
-184,melted crayons,Some,0.001,comp_allprob
-184,had the letter Z in them love notes,Some,0.001,comp_allprob
+184,melted crayons,Some,0.01,comp_allprob
+184,had the letter Z in them love notes,Some,0.01,comp_allprob
 184,burnt books,Some,0.5,comp_allprob
 184,got stained white tablecloths,Some,0.4,comp_allprob
 184,beeped new cars,Some,0.4,comp_allprob
 184,fell down shelves,Some,0.4,comp_allprob
 184,froze chocolate bars,Some,0.3,comp_allprob
 184,sank cups,Some,0.3,comp_allprob
-184,rhymed limericks,Some,0.001,comp_allprob
-184,decomposed pinecones,Some,0.001,comp_allprob
-185,stopped cars,Some,0.001,comp_allprob
-185,ate the seeds birds,Some,0.001,comp_allprob
-185,exploded fireworks,Some,0.001,comp_allprob
-185,reflected the sunlight mirrors,Some,0.001,comp_allprob
-185,beeped houses,Some,0.001,comp_allprob
-185,were green strawberries,Some,0.001,comp_allprob
-185,flashed phones,Some,0.001,comp_allprob
-185,stuck beads,Some,0.001,comp_allprob
-185,lit up cd-players,Some,0.001,comp_allprob
-185,broke logs,Some,0.001,comp_allprob
-186,flashed webcams,Some,0.001,comp_allprob
-186,rhymed poems,Some,0.001,comp_allprob
-186,decomposed soda cans,Some,0.001,comp_allprob
-186,melted crayons,Some,0.001,comp_allprob
-186,stuck stickers,Some,0.001,comp_allprob
-186,popped eggs,Some,0.001,comp_allprob
-186,honked bus drivers,Some,0.001,comp_allprob
-186,dissolved oreos,Some,0.001,comp_allprob
-186,blew away backpacks,Some,0.001,comp_allprob
-186,were green clovers,Some,0.001,comp_allprob
+184,rhymed limericks,Some,0.01,comp_allprob
+184,decomposed pinecones,Some,0.01,comp_allprob
+185,stopped cars,Some,0.01,comp_allprob
+185,ate the seeds birds,Some,0.01,comp_allprob
+185,exploded fireworks,Some,0.01,comp_allprob
+185,reflected the sunlight mirrors,Some,0.01,comp_allprob
+185,beeped houses,Some,0.01,comp_allprob
+185,were green strawberries,Some,0.01,comp_allprob
+185,flashed phones,Some,0.01,comp_allprob
+185,stuck beads,Some,0.01,comp_allprob
+185,lit up cd-players,Some,0.01,comp_allprob
+185,broke logs,Some,0.01,comp_allprob
+186,flashed webcams,Some,0.01,comp_allprob
+186,rhymed poems,Some,0.01,comp_allprob
+186,decomposed soda cans,Some,0.01,comp_allprob
+186,melted crayons,Some,0.01,comp_allprob
+186,stuck stickers,Some,0.01,comp_allprob
+186,popped eggs,Some,0.01,comp_allprob
+186,honked bus drivers,Some,0.01,comp_allprob
+186,dissolved oreos,Some,0.01,comp_allprob
+186,blew away backpacks,Some,0.01,comp_allprob
+186,were green clovers,Some,0.01,comp_allprob
 187,stopped cars,Some,0.1,comp_allprob
 187,blew away hats,Some,0.1,comp_allprob
 187,ripped books,Some,0.1,comp_allprob
-187,had the letter Z in them love notes,Some,0.001,comp_allprob
+187,had the letter Z in them love notes,Some,0.01,comp_allprob
 187,got stained white shirts,Some,0.1,comp_allprob
 187,exploded candles,Some,0.1,comp_allprob
 187,decomposed banana peels,Some,0.1,comp_allprob
 187,ran out of batteries bike lights,Some,0.1,comp_allprob
-187,exploded balls of tin foil,Some,0.001,comp_allprob
-187,were green clovers,Some,0.001,comp_allprob
-188,exploded gas tanks,Some,0.001,comp_allprob
-188,landed flat notebooks,Some,0.001,comp_allprob
-188,beeped old cars,Some,0.001,comp_allprob
-188,ran out of batteries phones,Some,0.001,comp_allprob
-188,dissolved sugar cubes,Some,0.001,comp_allprob
+187,exploded balls of tin foil,Some,0.01,comp_allprob
+187,were green clovers,Some,0.01,comp_allprob
+188,exploded gas tanks,Some,0.01,comp_allprob
+188,landed flat notebooks,Some,0.01,comp_allprob
+188,beeped old cars,Some,0.01,comp_allprob
+188,ran out of batteries phones,Some,0.01,comp_allprob
+188,dissolved sugar cubes,Some,0.01,comp_allprob
 188,melted pencils,Some,0.2,comp_allprob
 188,had the letter Z in them novels,Some,0.3,comp_allprob
 188,fell down card towers,Some,0.3,comp_allprob
 188,rolled wheelchairs,Some,0.3,comp_allprob
 188,exploded balls of tin foil,Some,0.3,comp_allprob
-189,ran out of batteries phones,Some,0.001,comp_allprob
-189,popped eggs,Some,0.001,comp_allprob
-189,exploded eggs,Some,0.001,comp_allprob
-189,froze chocolate bars,Some,0.001,comp_allprob
-189,were green clovers,Some,0.001,comp_allprob
-189,broke boxes,Some,0.001,comp_allprob
-189,ripped shirts,Some,0.001,comp_allprob
-189,stuck beads,Some,0.001,comp_allprob
-189,lit up computers,Some,0.001,comp_allprob
-189,stuck to the wall baseballs,Some,0.001,comp_allprob
+189,ran out of batteries phones,Some,0.01,comp_allprob
+189,popped eggs,Some,0.01,comp_allprob
+189,exploded eggs,Some,0.01,comp_allprob
+189,froze chocolate bars,Some,0.01,comp_allprob
+189,were green clovers,Some,0.01,comp_allprob
+189,broke boxes,Some,0.01,comp_allprob
+189,ripped shirts,Some,0.01,comp_allprob
+189,stuck beads,Some,0.01,comp_allprob
+189,lit up computers,Some,0.01,comp_allprob
+189,stuck to the wall baseballs,Some,0.01,comp_allprob
 190,stopped cars,Some,0.3,comp_allprob
 190,stuck to the wall pieces of gum,Some,0.2,comp_allprob
 190,fell down card towers,Some,0.3,comp_allprob
@@ -1905,37 +1905,37 @@ subject,item,utterance,response,measure
 190,burnt books,Some,0.3,comp_allprob
 190,melted ice cubes,Some,0.3,comp_allprob
 191,ran out of batteries phones,Some,0.1,comp_allprob
-191,ripped books,Some,0.001,comp_allprob
-191,rhymed songs,Some,0.001,comp_allprob
-191,flashed webcams,Some,0.001,comp_allprob
-191,fell down block towers,Some,0.001,comp_allprob
+191,ripped books,Some,0.01,comp_allprob
+191,rhymed songs,Some,0.01,comp_allprob
+191,flashed webcams,Some,0.01,comp_allprob
+191,fell down block towers,Some,0.01,comp_allprob
 191,decomposed soda cans,Some,0.3,comp_allprob
-191,stopped motorcycles,Some,0.001,comp_allprob
+191,stopped motorcycles,Some,0.01,comp_allprob
 191,dissolved sugar cubes,Some,0.2,comp_allprob
 191,rolled shopping carts,Some,0.3,comp_allprob
 191,were green bananas,Some,0.3,comp_allprob
-192,were green strawberries,Some,0.001,comp_allprob
-192,froze chocolate bars,Some,0.001,comp_allprob
-192,ran out of batteries laptops,Some,0.001,comp_allprob
-192,stuck to the wall baseballs,Some,0.001,comp_allprob
-192,burnt matches,Some,0.001,comp_allprob
-192,landed flat notebooks,Some,0.001,comp_allprob
-192,stuck sequins,Some,0.001,comp_allprob
-192,honked bicyclists,Some,0.001,comp_allprob
-192,sank cups,Some,0.001,comp_allprob
-192,lit up computers,Some,0.001,comp_allprob
-193,burnt rocks,Some,0.001,comp_allprob
-193,blew away hats,Some,0.001,comp_allprob
-193,rolled shopping carts,Some,0.001,comp_allprob
-193,ripped books,Some,0.001,comp_allprob
-193,got stained white shirts,Some,0.001,comp_allprob
-193,ate the seeds dogs,Some,0.001,comp_allprob
+192,were green strawberries,Some,0.01,comp_allprob
+192,froze chocolate bars,Some,0.01,comp_allprob
+192,ran out of batteries laptops,Some,0.01,comp_allprob
+192,stuck to the wall baseballs,Some,0.01,comp_allprob
+192,burnt matches,Some,0.01,comp_allprob
+192,landed flat notebooks,Some,0.01,comp_allprob
+192,stuck sequins,Some,0.01,comp_allprob
+192,honked bicyclists,Some,0.01,comp_allprob
+192,sank cups,Some,0.01,comp_allprob
+192,lit up computers,Some,0.01,comp_allprob
+193,burnt rocks,Some,0.01,comp_allprob
+193,blew away hats,Some,0.01,comp_allprob
+193,rolled shopping carts,Some,0.01,comp_allprob
+193,ripped books,Some,0.01,comp_allprob
+193,got stained white shirts,Some,0.01,comp_allprob
+193,ate the seeds dogs,Some,0.01,comp_allprob
 193,were green clovers,Some,0.2,comp_allprob
 193,fell down card towers,Some,0.2,comp_allprob
 193,had the letter Z in them birthday cards,Some,0.2,comp_allprob
 193,exploded balls of tin foil,Some,0.2,comp_allprob
-194,ripped shoes,Some,0.001,comp_allprob
-194,laughed comedians,Some,0.001,comp_allprob
+194,ripped shoes,Some,0.01,comp_allprob
+194,laughed comedians,Some,0.01,comp_allprob
 194,honked taxi drivers,Some,0.3,comp_allprob
 194,were green strawberries,Some,0.3,comp_allprob
 194,beeped new cars,Some,0.3,comp_allprob
@@ -1945,25 +1945,25 @@ subject,item,utterance,response,measure
 194,ate the seeds birds,Some,0.3,comp_allprob
 194,stuck sequins,Some,0.3,comp_allprob
 195,laughed comedians,Some,0.3,comp_allprob
-195,dissolved carrots,Some,0.001,comp_allprob
-195,ripped shirts,Some,0.001,comp_allprob
+195,dissolved carrots,Some,0.01,comp_allprob
+195,ripped shirts,Some,0.01,comp_allprob
 195,rolled wheelchairs,Some,0.3,comp_allprob
-195,flashed phones,Some,0.001,comp_allprob
-195,broke boxes,Some,0.001,comp_allprob
-195,burnt books,Some,0.001,comp_allprob
-195,honked taxi drivers,Some,0.001,comp_allprob
-195,lit up flashlights,Some,0.001,comp_allprob
-195,exploded balls of tin foil,Some,0.001,comp_allprob
+195,flashed phones,Some,0.01,comp_allprob
+195,broke boxes,Some,0.01,comp_allprob
+195,burnt books,Some,0.01,comp_allprob
+195,honked taxi drivers,Some,0.01,comp_allprob
+195,lit up flashlights,Some,0.01,comp_allprob
+195,exploded balls of tin foil,Some,0.01,comp_allprob
 196,burnt books,Some,0.2,comp_allprob
-196,dissolved sugar cubes,Some,0.999,comp_allprob
+196,dissolved sugar cubes,Some,0.99,comp_allprob
 196,stuck to the wall cakes,Some,0.1,comp_allprob
 196,reflected the sunlight diamonds,Some,0.4,comp_allprob
 196,honked taxi drivers,Some,0.4,comp_allprob
 196,stopped cars,Some,0.4,comp_allprob
 196,ate the seeds butterflies,Some,0.3,comp_allprob
 196,rhymed poems,Some,0.2,comp_allprob
-196,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-196,froze bottles of hand soap,Some,0.001,comp_allprob
+196,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+196,froze bottles of hand soap,Some,0.01,comp_allprob
 197,decomposed pinecones,Some,0.4,comp_allprob
 197,stuck beads,Some,0.3,comp_allprob
 197,laughed lawyers,Some,0.3,comp_allprob
@@ -1974,96 +1974,96 @@ subject,item,utterance,response,measure
 197,ran out of batteries bike lights,Some,0.2,comp_allprob
 197,flashed webcams,Some,0.2,comp_allprob
 197,ate the seeds dogs,Some,0.2,comp_allprob
-198,ripped shoes,Some,0.001,comp_allprob
-198,rhymed songs,Some,0.001,comp_allprob
-198,rolled toy cars,Some,0.001,comp_allprob
-198,blew away napkins,Some,0.001,comp_allprob
+198,ripped shoes,Some,0.01,comp_allprob
+198,rhymed songs,Some,0.01,comp_allprob
+198,rolled toy cars,Some,0.01,comp_allprob
+198,blew away napkins,Some,0.01,comp_allprob
 198,burnt matches,Some,0.2,comp_allprob
 198,ran out of batteries laptops,Some,0.2,comp_allprob
 198,dissolved sugar cubes,Some,0.2,comp_allprob
 198,broke boxes,Some,0.2,comp_allprob
 198,beeped old cars,Some,0.2,comp_allprob
 198,melted crayons,Some,0.2,comp_allprob
-199,exploded CDs,Some,0.001,comp_allprob
-199,honked bus drivers,Some,0.001,comp_allprob
-199,ran out of batteries phones,Some,0.001,comp_allprob
-199,broke sunglasses,Some,0.001,comp_allprob
-199,rolled wheelchairs,Some,0.001,comp_allprob
-199,decomposed banana peels,Some,0.001,comp_allprob
-199,fell down card towers,Some,0.001,comp_allprob
-199,melted ice cubes,Some,0.001,comp_allprob
-199,ate the seeds birds,Some,0.001,comp_allprob
-199,burnt books,Some,0.001,comp_allprob
-200,fell down block towers,Some,0.001,comp_allprob
-200,decomposed soda cans,Some,0.001,comp_allprob
-200,exploded fireworks,Some,0.001,comp_allprob
-200,blew away backpacks,Some,0.001,comp_allprob
-200,stuck beads,Some,0.001,comp_allprob
-200,reflected the sunlight diamonds,Some,0.001,comp_allprob
-200,lit up flashlights,Some,0.001,comp_allprob
-200,froze bottles of hand soap,Some,0.001,comp_allprob
-200,got stained white shirts,Some,0.001,comp_allprob
-200,dissolved sugar cubes,Some,0.001,comp_allprob
-201,dissolved carrots,Some,0.001,comp_allprob
+199,exploded CDs,Some,0.01,comp_allprob
+199,honked bus drivers,Some,0.01,comp_allprob
+199,ran out of batteries phones,Some,0.01,comp_allprob
+199,broke sunglasses,Some,0.01,comp_allprob
+199,rolled wheelchairs,Some,0.01,comp_allprob
+199,decomposed banana peels,Some,0.01,comp_allprob
+199,fell down card towers,Some,0.01,comp_allprob
+199,melted ice cubes,Some,0.01,comp_allprob
+199,ate the seeds birds,Some,0.01,comp_allprob
+199,burnt books,Some,0.01,comp_allprob
+200,fell down block towers,Some,0.01,comp_allprob
+200,decomposed soda cans,Some,0.01,comp_allprob
+200,exploded fireworks,Some,0.01,comp_allprob
+200,blew away backpacks,Some,0.01,comp_allprob
+200,stuck beads,Some,0.01,comp_allprob
+200,reflected the sunlight diamonds,Some,0.01,comp_allprob
+200,lit up flashlights,Some,0.01,comp_allprob
+200,froze bottles of hand soap,Some,0.01,comp_allprob
+200,got stained white shirts,Some,0.01,comp_allprob
+200,dissolved sugar cubes,Some,0.01,comp_allprob
+201,dissolved carrots,Some,0.01,comp_allprob
 201,were green clovers,Some,0.3,comp_allprob
-201,stuck to the wall cakes,Some,0.001,comp_allprob
-201,melted ice cubes,Some,0.001,comp_allprob
-201,lit up computers,Some,0.001,comp_allprob
-201,honked taxi drivers,Some,0.001,comp_allprob
-201,fell down shelves,Some,0.001,comp_allprob
-201,ate the seeds butterflies,Some,0.001,comp_allprob
-201,ran out of batteries bike lights,Some,0.001,comp_allprob
-201,beeped new cars,Some,0.001,comp_allprob
-202,broke logs,Some,0.001,comp_allprob
-202,rolled toy cars,Some,0.001,comp_allprob
+201,stuck to the wall cakes,Some,0.01,comp_allprob
+201,melted ice cubes,Some,0.01,comp_allprob
+201,lit up computers,Some,0.01,comp_allprob
+201,honked taxi drivers,Some,0.01,comp_allprob
+201,fell down shelves,Some,0.01,comp_allprob
+201,ate the seeds butterflies,Some,0.01,comp_allprob
+201,ran out of batteries bike lights,Some,0.01,comp_allprob
+201,beeped new cars,Some,0.01,comp_allprob
+202,broke logs,Some,0.01,comp_allprob
+202,rolled toy cars,Some,0.01,comp_allprob
 202,got stained white tablecloths,Some,0.5,comp_allprob
 202,blew away napkins,Some,0.2,comp_allprob
 202,froze berries,Some,0.2,comp_allprob
 202,honked bus drivers,Some,0.1,comp_allprob
-202,were green strawberries,Some,0.001,comp_allprob
+202,were green strawberries,Some,0.01,comp_allprob
 202,ripped shirts,Some,0.2,comp_allprob
-202,laughed kids,Some,0.001,comp_allprob
-202,ran out of batteries bike lights,Some,0.001,comp_allprob
+202,laughed kids,Some,0.01,comp_allprob
+202,ran out of batteries bike lights,Some,0.01,comp_allprob
 203,flashed webcams,Some,0.1,comp_allprob
-203,lit up cd-players,Some,0.001,comp_allprob
-203,rolled wheelchairs,Some,0.001,comp_allprob
-203,were green strawberries,Some,0.001,comp_allprob
-203,dissolved carrots,Some,0.001,comp_allprob
-203,exploded balls of tin foil,Some,0.001,comp_allprob
-203,honked taxi drivers,Some,0.001,comp_allprob
-203,beeped old cars,Some,0.001,comp_allprob
-203,reflected the sunlight diamonds,Some,0.001,comp_allprob
-203,broke sunglasses,Some,0.001,comp_allprob
-204,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-204,decomposed banana peels,Some,0.001,comp_allprob
-204,landed flat notebooks,Some,0.001,comp_allprob
-204,blew away backpacks,Some,0.001,comp_allprob
-204,ripped books,Some,0.001,comp_allprob
-204,flashed webcams,Some,0.001,comp_allprob
-204,rolled wheelchairs,Some,0.001,comp_allprob
-204,froze bottles of hand soap,Some,0.001,comp_allprob
-204,stuck beads,Some,0.001,comp_allprob
-204,ran out of batteries phones,Some,0.001,comp_allprob
-205,blew away hats,Some,0.001,comp_allprob
-205,were green strawberries,Some,0.001,comp_allprob
-205,ripped shoes,Some,0.001,comp_allprob
-205,lit up flashlights,Some,0.001,comp_allprob
-205,dissolved oreos,Some,0.001,comp_allprob
-205,flashed phones,Some,0.001,comp_allprob
-205,popped eggs,Some,0.001,comp_allprob
-205,ran out of batteries laptops,Some,0.001,comp_allprob
-205,honked taxi drivers,Some,0.001,comp_allprob
-205,broke logs,Some,0.001,comp_allprob
-206,exploded eggs,Some,0.001,comp_allprob
+203,lit up cd-players,Some,0.01,comp_allprob
+203,rolled wheelchairs,Some,0.01,comp_allprob
+203,were green strawberries,Some,0.01,comp_allprob
+203,dissolved carrots,Some,0.01,comp_allprob
+203,exploded balls of tin foil,Some,0.01,comp_allprob
+203,honked taxi drivers,Some,0.01,comp_allprob
+203,beeped old cars,Some,0.01,comp_allprob
+203,reflected the sunlight diamonds,Some,0.01,comp_allprob
+203,broke sunglasses,Some,0.01,comp_allprob
+204,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+204,decomposed banana peels,Some,0.01,comp_allprob
+204,landed flat notebooks,Some,0.01,comp_allprob
+204,blew away backpacks,Some,0.01,comp_allprob
+204,ripped books,Some,0.01,comp_allprob
+204,flashed webcams,Some,0.01,comp_allprob
+204,rolled wheelchairs,Some,0.01,comp_allprob
+204,froze bottles of hand soap,Some,0.01,comp_allprob
+204,stuck beads,Some,0.01,comp_allprob
+204,ran out of batteries phones,Some,0.01,comp_allprob
+205,blew away hats,Some,0.01,comp_allprob
+205,were green strawberries,Some,0.01,comp_allprob
+205,ripped shoes,Some,0.01,comp_allprob
+205,lit up flashlights,Some,0.01,comp_allprob
+205,dissolved oreos,Some,0.01,comp_allprob
+205,flashed phones,Some,0.01,comp_allprob
+205,popped eggs,Some,0.01,comp_allprob
+205,ran out of batteries laptops,Some,0.01,comp_allprob
+205,honked taxi drivers,Some,0.01,comp_allprob
+205,broke logs,Some,0.01,comp_allprob
+206,exploded eggs,Some,0.01,comp_allprob
 206,ripped books,Some,0.1,comp_allprob
-206,stuck sequins,Some,0.001,comp_allprob
-206,stuck to the wall cakes,Some,0.001,comp_allprob
+206,stuck sequins,Some,0.01,comp_allprob
+206,stuck to the wall cakes,Some,0.01,comp_allprob
 206,stopped bicycles,Some,0.1,comp_allprob
-206,sank marbles,Some,0.001,comp_allprob
-206,exploded candles,Some,0.001,comp_allprob
-206,laughed kids,Some,0.001,comp_allprob
-206,melted pencils,Some,0.001,comp_allprob
-206,honked bus drivers,Some,0.001,comp_allprob
+206,sank marbles,Some,0.01,comp_allprob
+206,exploded candles,Some,0.01,comp_allprob
+206,laughed kids,Some,0.01,comp_allprob
+206,melted pencils,Some,0.01,comp_allprob
+206,honked bus drivers,Some,0.01,comp_allprob
 207,honked bicyclists,Some,0.2,comp_allprob
 207,melted pencils,Some,0.1,comp_allprob
 207,ripped books,Some,0.1,comp_allprob
@@ -2074,105 +2074,105 @@ subject,item,utterance,response,measure
 207,burnt rocks,Some,0.2,comp_allprob
 207,were green bananas,Some,0.1,comp_allprob
 207,rhymed songs,Some,0.1,comp_allprob
-208,popped bubbles,Some,0.001,comp_allprob
-208,reflected the sunlight diamonds,Some,0.001,comp_allprob
-208,ran out of batteries laptops,Some,0.001,comp_allprob
-208,ripped shirts,Some,0.001,comp_allprob
-208,rhymed songs,Some,0.001,comp_allprob
-208,beeped old cars,Some,0.001,comp_allprob
-208,exploded candles,Some,0.001,comp_allprob
-208,lit up computers,Some,0.001,comp_allprob
-208,landed flat pancakes,Some,0.001,comp_allprob
-208,rolled toy cars,Some,0.001,comp_allprob
-209,beeped new cars,Some,0.001,comp_allprob
-209,stuck beads,Some,0.001,comp_allprob
-209,broke boxes,Some,0.001,comp_allprob
-209,burnt books,Some,0.001,comp_allprob
-209,got stained white shirts,Some,0.999,comp_allprob
-209,were green bananas,Some,0.001,comp_allprob
-209,stopped bicycles,Some,0.001,comp_allprob
-209,popped bubbles,Some,0.001,comp_allprob
-209,landed flat coins,Some,0.001,comp_allprob
-209,melted crayons,Some,0.001,comp_allprob
-210,dissolved oreos,Some,0.001,comp_allprob
-210,blew away hats,Some,0.001,comp_allprob
-210,lit up cd-players,Some,0.001,comp_allprob
-210,reflected the sunlight mirrors,Some,0.001,comp_allprob
-210,decomposed pinecones,Some,0.001,comp_allprob
+208,popped bubbles,Some,0.01,comp_allprob
+208,reflected the sunlight diamonds,Some,0.01,comp_allprob
+208,ran out of batteries laptops,Some,0.01,comp_allprob
+208,ripped shirts,Some,0.01,comp_allprob
+208,rhymed songs,Some,0.01,comp_allprob
+208,beeped old cars,Some,0.01,comp_allprob
+208,exploded candles,Some,0.01,comp_allprob
+208,lit up computers,Some,0.01,comp_allprob
+208,landed flat pancakes,Some,0.01,comp_allprob
+208,rolled toy cars,Some,0.01,comp_allprob
+209,beeped new cars,Some,0.01,comp_allprob
+209,stuck beads,Some,0.01,comp_allprob
+209,broke boxes,Some,0.01,comp_allprob
+209,burnt books,Some,0.01,comp_allprob
+209,got stained white shirts,Some,0.99,comp_allprob
+209,were green bananas,Some,0.01,comp_allprob
+209,stopped bicycles,Some,0.01,comp_allprob
+209,popped bubbles,Some,0.01,comp_allprob
+209,landed flat coins,Some,0.01,comp_allprob
+209,melted crayons,Some,0.01,comp_allprob
+210,dissolved oreos,Some,0.01,comp_allprob
+210,blew away hats,Some,0.01,comp_allprob
+210,lit up cd-players,Some,0.01,comp_allprob
+210,reflected the sunlight mirrors,Some,0.01,comp_allprob
+210,decomposed pinecones,Some,0.01,comp_allprob
 210,exploded balls of tin foil,Some,0.3,comp_allprob
 210,stuck sequins,Some,0.3,comp_allprob
-210,ripped shoes,Some,0.001,comp_allprob
-210,ate the seeds birds,Some,0.001,comp_allprob
-210,honked bicyclists,Some,0.001,comp_allprob
-211,beeped new cars,Some,0.001,comp_allprob
-211,froze chocolate bars,Some,0.001,comp_allprob
-211,sank marbles,Some,0.001,comp_allprob
-211,honked bus drivers,Some,0.001,comp_allprob
-211,rolled toy cars,Some,0.001,comp_allprob
+210,ripped shoes,Some,0.01,comp_allprob
+210,ate the seeds birds,Some,0.01,comp_allprob
+210,honked bicyclists,Some,0.01,comp_allprob
+211,beeped new cars,Some,0.01,comp_allprob
+211,froze chocolate bars,Some,0.01,comp_allprob
+211,sank marbles,Some,0.01,comp_allprob
+211,honked bus drivers,Some,0.01,comp_allprob
+211,rolled toy cars,Some,0.01,comp_allprob
 211,had the letter Z in them love notes,Some,0.5,comp_allprob
-211,lit up flashlights,Some,0.001,comp_allprob
+211,lit up flashlights,Some,0.01,comp_allprob
 211,ripped books,Some,0.5,comp_allprob
 211,blew away napkins,Some,0.5,comp_allprob
-211,dissolved sugar cubes,Some,0.001,comp_allprob
-212,ate the seeds dogs,Some,0.001,comp_allprob
-212,sank balloons,Some,0.001,comp_allprob
-212,decomposed pinecones,Some,0.001,comp_allprob
-212,exploded eggs,Some,0.001,comp_allprob
-212,popped balloons,Some,0.001,comp_allprob
-212,ripped shoes,Some,0.001,comp_allprob
-212,dissolved sugar cubes,Some,0.001,comp_allprob
-212,froze chocolate bars,Some,0.001,comp_allprob
-212,honked bus drivers,Some,0.001,comp_allprob
-212,melted pencils,Some,0.001,comp_allprob
-213,stopped motorcycles,Some,0.001,comp_allprob
-213,stuck to the wall cakes,Some,0.001,comp_allprob
-213,sank cups,Some,0.001,comp_allprob
-213,burnt rocks,Some,0.001,comp_allprob
-213,stuck sequins,Some,0.001,comp_allprob
-213,ripped shoes,Some,0.001,comp_allprob
-213,had the letter Z in them novels,Some,0.001,comp_allprob
-213,flashed cameras,Some,0.001,comp_allprob
-213,fell down shelves,Some,0.001,comp_allprob
-213,exploded balls of tin foil,Some,0.001,comp_allprob
-214,got stained white tablecloths,Some,0.001,comp_allprob
-214,dissolved carrots,Some,0.001,comp_allprob
-214,burnt matches,Some,0.001,comp_allprob
-214,flashed cameras,Some,0.001,comp_allprob
-214,froze bottles of hand soap,Some,0.001,comp_allprob
-214,stuck stickers,Some,0.001,comp_allprob
-214,blew away napkins,Some,0.001,comp_allprob
-214,ripped shirts,Some,0.001,comp_allprob
-214,stopped cars,Some,0.001,comp_allprob
-214,had the letter Z in them novels,Some,0.001,comp_allprob
-215,had the letter Z in them love notes,Some,0.001,comp_allprob
-215,rhymed songs,Some,0.001,comp_allprob
-215,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-215,ate the seeds dogs,Some,0.001,comp_allprob
+211,dissolved sugar cubes,Some,0.01,comp_allprob
+212,ate the seeds dogs,Some,0.01,comp_allprob
+212,sank balloons,Some,0.01,comp_allprob
+212,decomposed pinecones,Some,0.01,comp_allprob
+212,exploded eggs,Some,0.01,comp_allprob
+212,popped balloons,Some,0.01,comp_allprob
+212,ripped shoes,Some,0.01,comp_allprob
+212,dissolved sugar cubes,Some,0.01,comp_allprob
+212,froze chocolate bars,Some,0.01,comp_allprob
+212,honked bus drivers,Some,0.01,comp_allprob
+212,melted pencils,Some,0.01,comp_allprob
+213,stopped motorcycles,Some,0.01,comp_allprob
+213,stuck to the wall cakes,Some,0.01,comp_allprob
+213,sank cups,Some,0.01,comp_allprob
+213,burnt rocks,Some,0.01,comp_allprob
+213,stuck sequins,Some,0.01,comp_allprob
+213,ripped shoes,Some,0.01,comp_allprob
+213,had the letter Z in them novels,Some,0.01,comp_allprob
+213,flashed cameras,Some,0.01,comp_allprob
+213,fell down shelves,Some,0.01,comp_allprob
+213,exploded balls of tin foil,Some,0.01,comp_allprob
+214,got stained white tablecloths,Some,0.01,comp_allprob
+214,dissolved carrots,Some,0.01,comp_allprob
+214,burnt matches,Some,0.01,comp_allprob
+214,flashed cameras,Some,0.01,comp_allprob
+214,froze bottles of hand soap,Some,0.01,comp_allprob
+214,stuck stickers,Some,0.01,comp_allprob
+214,blew away napkins,Some,0.01,comp_allprob
+214,ripped shirts,Some,0.01,comp_allprob
+214,stopped cars,Some,0.01,comp_allprob
+214,had the letter Z in them novels,Some,0.01,comp_allprob
+215,had the letter Z in them love notes,Some,0.01,comp_allprob
+215,rhymed songs,Some,0.01,comp_allprob
+215,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+215,ate the seeds dogs,Some,0.01,comp_allprob
 215,landed flat coins,Some,0.3,comp_allprob
 215,ripped shoes,Some,0.1,comp_allprob
 215,sank marbles,Some,0.1,comp_allprob
-215,beeped old cars,Some,0.001,comp_allprob
-215,honked bus drivers,Some,0.001,comp_allprob
-215,popped eggs,Some,0.001,comp_allprob
+215,beeped old cars,Some,0.01,comp_allprob
+215,honked bus drivers,Some,0.01,comp_allprob
+215,popped eggs,Some,0.01,comp_allprob
 216,popped eggs,Some,0.1,comp_allprob
 216,burnt matches,Some,0.1,comp_allprob
-216,rhymed poems,Some,0.001,comp_allprob
+216,rhymed poems,Some,0.01,comp_allprob
 216,blew away napkins,Some,0.2,comp_allprob
 216,stopped motorcycles,Some,0.2,comp_allprob
 216,reflected the sunlight phone screens,Some,0.1,comp_allprob
 216,dissolved carrots,Some,0.2,comp_allprob
-216,froze chocolate bars,Some,0.001,comp_allprob
+216,froze chocolate bars,Some,0.01,comp_allprob
 216,got stained white carpets,Some,0.1,comp_allprob
 216,ripped books,Some,0.1,comp_allprob
 217,landed flat pancakes,Some,0.1,comp_allprob
 217,got stained white shirts,Some,0.4,comp_allprob
 217,fell down shelves,Some,0.2,comp_allprob
 217,blew away hats,Some,0.1,comp_allprob
-217,lit up flashlights,Some,0.001,comp_allprob
-217,broke logs,Some,0.001,comp_allprob
-217,had the letter Z in them novels,Some,0.001,comp_allprob
+217,lit up flashlights,Some,0.01,comp_allprob
+217,broke logs,Some,0.01,comp_allprob
+217,had the letter Z in them novels,Some,0.01,comp_allprob
 217,exploded CDs,Some,0.1,comp_allprob
-217,sank cups,Some,0.001,comp_allprob
+217,sank cups,Some,0.01,comp_allprob
 217,stuck to the wall baseballs,Some,0.1,comp_allprob
 218,broke boxes,Some,0.3,comp_allprob
 218,had the letter Z in them love notes,Some,0.2,comp_allprob
@@ -2184,18 +2184,18 @@ subject,item,utterance,response,measure
 218,stuck to the wall baseballs,Some,0.2,comp_allprob
 218,exploded balls of tin foil,Some,0.2,comp_allprob
 218,flashed phones,Some,0.3,comp_allprob
-219,stopped cars,Some,0.001,comp_allprob
-219,stuck to the wall baseballs,Some,0.001,comp_allprob
-219,sank cups,Some,0.001,comp_allprob
-219,burnt rocks,Some,0.001,comp_allprob
-219,broke logs,Some,0.001,comp_allprob
-219,got stained white carpets,Some,0.001,comp_allprob
-219,exploded candles,Some,0.001,comp_allprob
-219,dissolved carrots,Some,0.001,comp_allprob
-219,beeped old cars,Some,0.001,comp_allprob
-219,had the letter Z in them birthday cards,Some,0.001,comp_allprob
+219,stopped cars,Some,0.01,comp_allprob
+219,stuck to the wall baseballs,Some,0.01,comp_allprob
+219,sank cups,Some,0.01,comp_allprob
+219,burnt rocks,Some,0.01,comp_allprob
+219,broke logs,Some,0.01,comp_allprob
+219,got stained white carpets,Some,0.01,comp_allprob
+219,exploded candles,Some,0.01,comp_allprob
+219,dissolved carrots,Some,0.01,comp_allprob
+219,beeped old cars,Some,0.01,comp_allprob
+219,had the letter Z in them birthday cards,Some,0.01,comp_allprob
 220,lit up flashlights,Some,0.2,comp_allprob
-220,stopped motorcycles,Some,0.001,comp_allprob
+220,stopped motorcycles,Some,0.01,comp_allprob
 220,rolled shopping carts,Some,0.2,comp_allprob
 220,decomposed soda cans,Some,0.2,comp_allprob
 220,were green strawberries,Some,0.2,comp_allprob
@@ -2204,27 +2204,27 @@ subject,item,utterance,response,measure
 220,reflected the sunlight mirrors,Some,0.2,comp_allprob
 220,honked bicyclists,Some,0.1,comp_allprob
 220,beeped old cars,Some,0.1,comp_allprob
-221,broke logs,Some,0.001,comp_allprob
-221,ran out of batteries phones,Some,0.001,comp_allprob
-221,burnt books,Some,0.001,comp_allprob
+221,broke logs,Some,0.01,comp_allprob
+221,ran out of batteries phones,Some,0.01,comp_allprob
+221,burnt books,Some,0.01,comp_allprob
 221,landed flat coins,Some,0.1,comp_allprob
 221,got stained white shirts,Some,0.1,comp_allprob
-221,rolled wheelchairs,Some,0.001,comp_allprob
-221,ate the seeds birds,Some,0.001,comp_allprob
-221,honked bicyclists,Some,0.001,comp_allprob
-221,reflected the sunlight mirrors,Some,0.001,comp_allprob
+221,rolled wheelchairs,Some,0.01,comp_allprob
+221,ate the seeds birds,Some,0.01,comp_allprob
+221,honked bicyclists,Some,0.01,comp_allprob
+221,reflected the sunlight mirrors,Some,0.01,comp_allprob
 221,froze berries,Some,0.2,comp_allprob
-222,froze bottles of hand soap,Some,0.001,comp_allprob
-222,blew away backpacks,Some,0.001,comp_allprob
-222,sank cups,Some,0.001,comp_allprob
-222,stuck to the wall baseballs,Some,0.001,comp_allprob
-222,reflected the sunlight diamonds,Some,0.001,comp_allprob
-222,laughed comedians,Some,0.001,comp_allprob
-222,stopped motorcycles,Some,0.001,comp_allprob
-222,burnt rocks,Some,0.001,comp_allprob
-222,decomposed banana peels,Some,0.001,comp_allprob
-222,exploded gas tanks,Some,0.001,comp_allprob
-223,had the letter Z in them birthday cards,Some,0.001,comp_allprob
+222,froze bottles of hand soap,Some,0.01,comp_allprob
+222,blew away backpacks,Some,0.01,comp_allprob
+222,sank cups,Some,0.01,comp_allprob
+222,stuck to the wall baseballs,Some,0.01,comp_allprob
+222,reflected the sunlight diamonds,Some,0.01,comp_allprob
+222,laughed comedians,Some,0.01,comp_allprob
+222,stopped motorcycles,Some,0.01,comp_allprob
+222,burnt rocks,Some,0.01,comp_allprob
+222,decomposed banana peels,Some,0.01,comp_allprob
+222,exploded gas tanks,Some,0.01,comp_allprob
+223,had the letter Z in them birthday cards,Some,0.01,comp_allprob
 223,stopped bicycles,Some,0.5,comp_allprob
 223,were green clovers,Some,0.5,comp_allprob
 223,fell down shelves,Some,0.5,comp_allprob
@@ -2234,8 +2234,8 @@ subject,item,utterance,response,measure
 223,melted ice cubes,Some,0.9,comp_allprob
 223,stuck stickers,Some,0.6,comp_allprob
 223,flashed webcams,Some,0.4,comp_allprob
-224,rolled toy cars,Some,0.001,comp_allprob
-224,fell down block towers,Some,0.001,comp_allprob
+224,rolled toy cars,Some,0.01,comp_allprob
+224,fell down block towers,Some,0.01,comp_allprob
 224,stuck stickers,Some,0.1,comp_allprob
 224,popped balloons,Some,0.1,comp_allprob
 224,melted crayons,Some,0.1,comp_allprob
@@ -2244,26 +2244,26 @@ subject,item,utterance,response,measure
 224,decomposed pinecones,Some,0.1,comp_allprob
 224,dissolved sugar cubes,Some,0.3,comp_allprob
 224,froze chocolate bars,Some,0.2,comp_allprob
-225,beeped new cars,Some,0.001,comp_allprob
-225,broke boxes,Some,0.001,comp_allprob
+225,beeped new cars,Some,0.01,comp_allprob
+225,broke boxes,Some,0.01,comp_allprob
 225,decomposed soda cans,Some,0.2,comp_allprob
-225,stuck stickers,Some,0.001,comp_allprob
-225,reflected the sunlight diamonds,Some,0.001,comp_allprob
+225,stuck stickers,Some,0.01,comp_allprob
+225,reflected the sunlight diamonds,Some,0.01,comp_allprob
 225,ripped books,Some,0.1,comp_allprob
 225,rolled wheelchairs,Some,0.1,comp_allprob
 225,blew away hats,Some,0.1,comp_allprob
-225,exploded candles,Some,0.001,comp_allprob
+225,exploded candles,Some,0.01,comp_allprob
 225,sank balloons,Some,0.1,comp_allprob
-226,fell down shelves,Some,0.001,comp_allprob
-226,sank balloons,Some,0.001,comp_allprob
-226,flashed webcams,Some,0.001,comp_allprob
-226,reflected the sunlight mirrors,Some,0.001,comp_allprob
-226,laughed lawyers,Some,0.001,comp_allprob
-226,burnt matches,Some,0.001,comp_allprob
-226,landed flat pancakes,Some,0.001,comp_allprob
-226,rhymed limericks,Some,0.001,comp_allprob
-226,beeped old cars,Some,0.001,comp_allprob
-226,stuck to the wall cakes,Some,0.001,comp_allprob
+226,fell down shelves,Some,0.01,comp_allprob
+226,sank balloons,Some,0.01,comp_allprob
+226,flashed webcams,Some,0.01,comp_allprob
+226,reflected the sunlight mirrors,Some,0.01,comp_allprob
+226,laughed lawyers,Some,0.01,comp_allprob
+226,burnt matches,Some,0.01,comp_allprob
+226,landed flat pancakes,Some,0.01,comp_allprob
+226,rhymed limericks,Some,0.01,comp_allprob
+226,beeped old cars,Some,0.01,comp_allprob
+226,stuck to the wall cakes,Some,0.01,comp_allprob
 227,broke logs,Some,0.5,comp_allprob
 227,laughed comedians,Some,0.5,comp_allprob
 227,sank marbles,Some,0.5,comp_allprob
@@ -2274,96 +2274,96 @@ subject,item,utterance,response,measure
 227,reflected the sunlight phone screens,Some,0.3,comp_allprob
 227,popped bubbles,Some,0.2,comp_allprob
 227,melted crayons,Some,0.2,comp_allprob
-228,blew away hats,Some,0.001,comp_allprob
-228,reflected the sunlight mirrors,Some,0.001,comp_allprob
-228,fell down card towers,Some,0.001,comp_allprob
-228,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-228,rhymed songs,Some,0.001,comp_allprob
-228,stuck stickers,Some,0.001,comp_allprob
-228,ripped books,Some,0.001,comp_allprob
-228,melted ice cubes,Some,0.001,comp_allprob
-228,got stained white shirts,Some,0.001,comp_allprob
-228,broke sunglasses,Some,0.001,comp_allprob
-229,sank cups,Some,0.001,comp_allprob
-229,ran out of batteries bike lights,Some,0.001,comp_allprob
-229,rhymed poems,Some,0.001,comp_allprob
-229,ate the seeds dogs,Some,0.001,comp_allprob
-229,stuck to the wall baseballs,Some,0.001,comp_allprob
-229,rolled wheelchairs,Some,0.001,comp_allprob
-229,beeped houses,Some,0.001,comp_allprob
-229,ripped shoes,Some,0.001,comp_allprob
-229,exploded fireworks,Some,0.001,comp_allprob
-229,were green strawberries,Some,0.001,comp_allprob
-230,sank cups,Some,0.001,comp_allprob
-230,ran out of batteries phones,Some,0.001,comp_allprob
-230,popped bubbles,Some,0.001,comp_allprob
-230,stuck to the wall cakes,Some,0.001,comp_allprob
-230,flashed phones,Some,0.001,comp_allprob
-230,froze berries,Some,0.001,comp_allprob
-230,honked taxi drivers,Some,0.001,comp_allprob
-230,melted crayons,Some,0.001,comp_allprob
-230,decomposed banana peels,Some,0.001,comp_allprob
-230,dissolved sugar cubes,Some,0.001,comp_allprob
-231,broke sunglasses,Some,0.001,comp_allprob
-231,blew away hats,Some,0.001,comp_allprob
-231,flashed cameras,Some,0.001,comp_allprob
-231,ripped shoes,Some,0.001,comp_allprob
-231,landed flat notebooks,Some,0.001,comp_allprob
-231,ran out of batteries laptops,Some,0.001,comp_allprob
-231,decomposed banana peels,Some,0.001,comp_allprob
-231,beeped houses,Some,0.001,comp_allprob
-231,lit up cd-players,Some,0.001,comp_allprob
-231,ate the seeds butterflies,Some,0.001,comp_allprob
-232,beeped houses,Some,0.001,comp_allprob
-232,reflected the sunlight diamonds,Some,0.001,comp_allprob
-232,broke boxes,Some,0.001,comp_allprob
-232,laughed kids,Some,0.001,comp_allprob
-232,landed flat notebooks,Some,0.001,comp_allprob
-232,stopped motorcycles,Some,0.001,comp_allprob
-232,decomposed banana peels,Some,0.001,comp_allprob
-232,popped balloons,Some,0.001,comp_allprob
-232,ran out of batteries phones,Some,0.001,comp_allprob
-232,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-233,rhymed poems,Some,0.001,comp_allprob
-233,stuck sequins,Some,0.001,comp_allprob
-233,rolled toy cars,Some,0.001,comp_allprob
-233,landed flat pancakes,Some,0.001,comp_allprob
-233,popped eggs,Some,0.001,comp_allprob
-233,beeped new cars,Some,0.001,comp_allprob
-233,exploded fireworks,Some,0.001,comp_allprob
-233,froze berries,Some,0.001,comp_allprob
-233,were green clovers,Some,0.001,comp_allprob
-233,lit up computers,Some,0.001,comp_allprob
-234,exploded candles,Some,0.001,comp_allprob
-234,blew away napkins,Some,0.001,comp_allprob
-234,rolled shopping carts,Some,0.001,comp_allprob
-234,rhymed songs,Some,0.001,comp_allprob
-234,lit up computers,Some,0.001,comp_allprob
-234,had the letter Z in them novels,Some,0.001,comp_allprob
+228,blew away hats,Some,0.01,comp_allprob
+228,reflected the sunlight mirrors,Some,0.01,comp_allprob
+228,fell down card towers,Some,0.01,comp_allprob
+228,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+228,rhymed songs,Some,0.01,comp_allprob
+228,stuck stickers,Some,0.01,comp_allprob
+228,ripped books,Some,0.01,comp_allprob
+228,melted ice cubes,Some,0.01,comp_allprob
+228,got stained white shirts,Some,0.01,comp_allprob
+228,broke sunglasses,Some,0.01,comp_allprob
+229,sank cups,Some,0.01,comp_allprob
+229,ran out of batteries bike lights,Some,0.01,comp_allprob
+229,rhymed poems,Some,0.01,comp_allprob
+229,ate the seeds dogs,Some,0.01,comp_allprob
+229,stuck to the wall baseballs,Some,0.01,comp_allprob
+229,rolled wheelchairs,Some,0.01,comp_allprob
+229,beeped houses,Some,0.01,comp_allprob
+229,ripped shoes,Some,0.01,comp_allprob
+229,exploded fireworks,Some,0.01,comp_allprob
+229,were green strawberries,Some,0.01,comp_allprob
+230,sank cups,Some,0.01,comp_allprob
+230,ran out of batteries phones,Some,0.01,comp_allprob
+230,popped bubbles,Some,0.01,comp_allprob
+230,stuck to the wall cakes,Some,0.01,comp_allprob
+230,flashed phones,Some,0.01,comp_allprob
+230,froze berries,Some,0.01,comp_allprob
+230,honked taxi drivers,Some,0.01,comp_allprob
+230,melted crayons,Some,0.01,comp_allprob
+230,decomposed banana peels,Some,0.01,comp_allprob
+230,dissolved sugar cubes,Some,0.01,comp_allprob
+231,broke sunglasses,Some,0.01,comp_allprob
+231,blew away hats,Some,0.01,comp_allprob
+231,flashed cameras,Some,0.01,comp_allprob
+231,ripped shoes,Some,0.01,comp_allprob
+231,landed flat notebooks,Some,0.01,comp_allprob
+231,ran out of batteries laptops,Some,0.01,comp_allprob
+231,decomposed banana peels,Some,0.01,comp_allprob
+231,beeped houses,Some,0.01,comp_allprob
+231,lit up cd-players,Some,0.01,comp_allprob
+231,ate the seeds butterflies,Some,0.01,comp_allprob
+232,beeped houses,Some,0.01,comp_allprob
+232,reflected the sunlight diamonds,Some,0.01,comp_allprob
+232,broke boxes,Some,0.01,comp_allprob
+232,laughed kids,Some,0.01,comp_allprob
+232,landed flat notebooks,Some,0.01,comp_allprob
+232,stopped motorcycles,Some,0.01,comp_allprob
+232,decomposed banana peels,Some,0.01,comp_allprob
+232,popped balloons,Some,0.01,comp_allprob
+232,ran out of batteries phones,Some,0.01,comp_allprob
+232,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+233,rhymed poems,Some,0.01,comp_allprob
+233,stuck sequins,Some,0.01,comp_allprob
+233,rolled toy cars,Some,0.01,comp_allprob
+233,landed flat pancakes,Some,0.01,comp_allprob
+233,popped eggs,Some,0.01,comp_allprob
+233,beeped new cars,Some,0.01,comp_allprob
+233,exploded fireworks,Some,0.01,comp_allprob
+233,froze berries,Some,0.01,comp_allprob
+233,were green clovers,Some,0.01,comp_allprob
+233,lit up computers,Some,0.01,comp_allprob
+234,exploded candles,Some,0.01,comp_allprob
+234,blew away napkins,Some,0.01,comp_allprob
+234,rolled shopping carts,Some,0.01,comp_allprob
+234,rhymed songs,Some,0.01,comp_allprob
+234,lit up computers,Some,0.01,comp_allprob
+234,had the letter Z in them novels,Some,0.01,comp_allprob
 234,landed flat coins,Some,0.4,comp_allprob
-234,melted ice cubes,Some,0.001,comp_allprob
-234,dissolved oreos,Some,0.001,comp_allprob
-234,decomposed banana peels,Some,0.001,comp_allprob
+234,melted ice cubes,Some,0.01,comp_allprob
+234,dissolved oreos,Some,0.01,comp_allprob
+234,decomposed banana peels,Some,0.01,comp_allprob
 235,stopped bicycles,Some,0.2,comp_allprob
-235,exploded balls of tin foil,Some,0.001,comp_allprob
-235,broke sunglasses,Some,0.001,comp_allprob
-235,burnt books,Some,0.001,comp_allprob
-235,landed flat pancakes,Some,0.001,comp_allprob
-235,rolled wheelchairs,Some,0.001,comp_allprob
-235,stuck sequins,Some,0.001,comp_allprob
-235,dissolved carrots,Some,0.001,comp_allprob
-235,melted ice cubes,Some,0.001,comp_allprob
-235,stuck to the wall baseballs,Some,0.001,comp_allprob
-236,rhymed songs,Some,0.001,comp_allprob
-236,ate the seeds birds,Some,0.001,comp_allprob
-236,broke logs,Some,0.001,comp_allprob
-236,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-236,blew away napkins,Some,0.001,comp_allprob
-236,popped balloons,Some,0.001,comp_allprob
-236,fell down card towers,Some,0.001,comp_allprob
-236,dissolved sugar cubes,Some,0.001,comp_allprob
-236,burnt books,Some,0.001,comp_allprob
-236,stuck stickers,Some,0.001,comp_allprob
+235,exploded balls of tin foil,Some,0.01,comp_allprob
+235,broke sunglasses,Some,0.01,comp_allprob
+235,burnt books,Some,0.01,comp_allprob
+235,landed flat pancakes,Some,0.01,comp_allprob
+235,rolled wheelchairs,Some,0.01,comp_allprob
+235,stuck sequins,Some,0.01,comp_allprob
+235,dissolved carrots,Some,0.01,comp_allprob
+235,melted ice cubes,Some,0.01,comp_allprob
+235,stuck to the wall baseballs,Some,0.01,comp_allprob
+236,rhymed songs,Some,0.01,comp_allprob
+236,ate the seeds birds,Some,0.01,comp_allprob
+236,broke logs,Some,0.01,comp_allprob
+236,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+236,blew away napkins,Some,0.01,comp_allprob
+236,popped balloons,Some,0.01,comp_allprob
+236,fell down card towers,Some,0.01,comp_allprob
+236,dissolved sugar cubes,Some,0.01,comp_allprob
+236,burnt books,Some,0.01,comp_allprob
+236,stuck stickers,Some,0.01,comp_allprob
 237,rolled toy cars,Some,0.2,comp_allprob
 237,ripped shirts,Some,0.2,comp_allprob
 237,burnt books,Some,0.3,comp_allprob
@@ -2375,7 +2375,7 @@ subject,item,utterance,response,measure
 237,flashed phones,Some,0.2,comp_allprob
 237,decomposed pinecones,Some,0.2,comp_allprob
 238,flashed phones,Some,0.1,comp_allprob
-238,stuck sequins,Some,0.001,comp_allprob
+238,stuck sequins,Some,0.01,comp_allprob
 238,were green clovers,Some,0.1,comp_allprob
 238,fell down shelves,Some,0.1,comp_allprob
 238,ate the seeds butterflies,Some,0.1,comp_allprob
@@ -2384,8 +2384,8 @@ subject,item,utterance,response,measure
 238,stopped motorcycles,Some,0.1,comp_allprob
 238,dissolved sugar cubes,Some,0.3,comp_allprob
 238,popped bubbles,Some,0.2,comp_allprob
-239,sank cups,Some,0.001,comp_allprob
-239,were green bananas,Some,0.001,comp_allprob
+239,sank cups,Some,0.01,comp_allprob
+239,were green bananas,Some,0.01,comp_allprob
 239,ran out of batteries laptops,Some,0.1,comp_allprob
 239,melted crayons,Some,0.1,comp_allprob
 239,lit up computers,Some,0.3,comp_allprob
@@ -2394,41 +2394,41 @@ subject,item,utterance,response,measure
 239,stopped motorcycles,Some,0.2,comp_allprob
 239,landed flat pancakes,Some,0.1,comp_allprob
 239,froze chocolate bars,Some,0.2,comp_allprob
-240,got stained white shirts,Some,0.001,comp_allprob
-240,froze berries,Some,0.001,comp_allprob
-240,decomposed soda cans,Some,0.001,comp_allprob
-240,burnt books,Some,0.001,comp_allprob
-240,ripped shirts,Some,0.001,comp_allprob
-240,rolled toy cars,Some,0.001,comp_allprob
-240,reflected the sunlight mirrors,Some,0.001,comp_allprob
-240,ate the seeds birds,Some,0.001,comp_allprob
-240,beeped houses,Some,0.001,comp_allprob
-240,had the letter Z in them love notes,Some,0.001,comp_allprob
+240,got stained white shirts,Some,0.01,comp_allprob
+240,froze berries,Some,0.01,comp_allprob
+240,decomposed soda cans,Some,0.01,comp_allprob
+240,burnt books,Some,0.01,comp_allprob
+240,ripped shirts,Some,0.01,comp_allprob
+240,rolled toy cars,Some,0.01,comp_allprob
+240,reflected the sunlight mirrors,Some,0.01,comp_allprob
+240,ate the seeds birds,Some,0.01,comp_allprob
+240,beeped houses,Some,0.01,comp_allprob
+240,had the letter Z in them love notes,Some,0.01,comp_allprob
 241,ran out of batteries laptops,Some,0.2,comp_allprob
 241,exploded fireworks,Some,0.3,comp_allprob
 241,ate the seeds dogs,Some,0.2,comp_allprob
 241,sank balloons,Some,0.2,comp_allprob
 241,fell down shelves,Some,0.2,comp_allprob
 241,stopped motorcycles,Some,0.2,comp_allprob
-241,landed flat coins,Some,0.999,comp_allprob
+241,landed flat coins,Some,0.99,comp_allprob
 241,honked taxi drivers,Some,0.2,comp_allprob
 241,beeped houses,Some,0.2,comp_allprob
 241,dissolved carrots,Some,0.3,comp_allprob
-242,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-242,dissolved oreos,Some,0.001,comp_allprob
-242,reflected the sunlight diamonds,Some,0.001,comp_allprob
-242,exploded gas tanks,Some,0.001,comp_allprob
-242,rhymed songs,Some,0.001,comp_allprob
-242,lit up flashlights,Some,0.001,comp_allprob
-242,rolled shopping carts,Some,0.001,comp_allprob
-242,ripped shoes,Some,0.001,comp_allprob
-242,melted crayons,Some,0.001,comp_allprob
+242,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+242,dissolved oreos,Some,0.01,comp_allprob
+242,reflected the sunlight diamonds,Some,0.01,comp_allprob
+242,exploded gas tanks,Some,0.01,comp_allprob
+242,rhymed songs,Some,0.01,comp_allprob
+242,lit up flashlights,Some,0.01,comp_allprob
+242,rolled shopping carts,Some,0.01,comp_allprob
+242,ripped shoes,Some,0.01,comp_allprob
+242,melted crayons,Some,0.01,comp_allprob
 242,froze berries,Some,0.3,comp_allprob
-243,blew away napkins,Some,0.001,comp_allprob
-243,melted crayons,Some,0.001,comp_allprob
-243,got stained white shirts,Some,0.001,comp_allprob
-243,were green bananas,Some,0.001,comp_allprob
-243,landed flat coins,Some,0.999,comp_allprob
+243,blew away napkins,Some,0.01,comp_allprob
+243,melted crayons,Some,0.01,comp_allprob
+243,got stained white shirts,Some,0.01,comp_allprob
+243,were green bananas,Some,0.01,comp_allprob
+243,landed flat coins,Some,0.99,comp_allprob
 243,ripped shirts,Some,0.3,comp_allprob
 243,burnt matches,Some,0.3,comp_allprob
 243,beeped new cars,Some,0.3,comp_allprob
@@ -2444,16 +2444,16 @@ subject,item,utterance,response,measure
 244,rolled wheelchairs,Some,0.3,comp_allprob
 244,decomposed soda cans,Some,0.3,comp_allprob
 244,ate the seeds dogs,Some,0.3,comp_allprob
-245,sank cups,Some,0.001,comp_allprob
-245,blew away backpacks,Some,0.001,comp_allprob
-245,decomposed soda cans,Some,0.001,comp_allprob
-245,popped eggs,Some,0.001,comp_allprob
-245,rhymed poems,Some,0.001,comp_allprob
-245,ripped shoes,Some,0.001,comp_allprob
-245,burnt books,Some,0.001,comp_allprob
-245,landed flat notebooks,Some,0.001,comp_allprob
-245,broke logs,Some,0.001,comp_allprob
-245,laughed lawyers,Some,0.001,comp_allprob
+245,sank cups,Some,0.01,comp_allprob
+245,blew away backpacks,Some,0.01,comp_allprob
+245,decomposed soda cans,Some,0.01,comp_allprob
+245,popped eggs,Some,0.01,comp_allprob
+245,rhymed poems,Some,0.01,comp_allprob
+245,ripped shoes,Some,0.01,comp_allprob
+245,burnt books,Some,0.01,comp_allprob
+245,landed flat notebooks,Some,0.01,comp_allprob
+245,broke logs,Some,0.01,comp_allprob
+245,laughed lawyers,Some,0.01,comp_allprob
 246,blew away backpacks,Some,0.3,comp_allprob
 246,froze berries,Some,0.2,comp_allprob
 246,rhymed songs,Some,0.3,comp_allprob
@@ -2468,22 +2468,22 @@ subject,item,utterance,response,measure
 247,exploded eggs,Some,0.2,comp_allprob
 247,stuck sequins,Some,0.2,comp_allprob
 247,dissolved sugar cubes,Some,0.2,comp_allprob
-247,ate the seeds birds,Some,0.001,comp_allprob
+247,ate the seeds birds,Some,0.01,comp_allprob
 247,stopped bicycles,Some,0.1,comp_allprob
 247,fell down block towers,Some,0.1,comp_allprob
 247,broke sunglasses,Some,0.1,comp_allprob
 247,ripped shoes,Some,0.2,comp_allprob
 247,rolled shopping carts,Some,0.3,comp_allprob
-248,blew away hats,Some,0.001,comp_allprob
-248,landed flat pancakes,Some,0.001,comp_allprob
-248,rhymed poems,Some,0.001,comp_allprob
-248,had the letter Z in them novels,Some,0.001,comp_allprob
-248,sank marbles,Some,0.001,comp_allprob
-248,ate the seeds birds,Some,0.001,comp_allprob
-248,flashed cameras,Some,0.001,comp_allprob
-248,melted ice cubes,Some,0.001,comp_allprob
-248,exploded CDs,Some,0.001,comp_allprob
-248,fell down shelves,Some,0.001,comp_allprob
+248,blew away hats,Some,0.01,comp_allprob
+248,landed flat pancakes,Some,0.01,comp_allprob
+248,rhymed poems,Some,0.01,comp_allprob
+248,had the letter Z in them novels,Some,0.01,comp_allprob
+248,sank marbles,Some,0.01,comp_allprob
+248,ate the seeds birds,Some,0.01,comp_allprob
+248,flashed cameras,Some,0.01,comp_allprob
+248,melted ice cubes,Some,0.01,comp_allprob
+248,exploded CDs,Some,0.01,comp_allprob
+248,fell down shelves,Some,0.01,comp_allprob
 249,exploded fireworks,Some,0.2,comp_allprob
 249,landed flat notebooks,Some,0.2,comp_allprob
 249,popped balloons,Some,0.2,comp_allprob
@@ -2494,36 +2494,36 @@ subject,item,utterance,response,measure
 249,lit up flashlights,Some,0.2,comp_allprob
 249,reflected the sunlight diamonds,Some,0.2,comp_allprob
 249,blew away backpacks,Some,0.2,comp_allprob
-250,burnt rocks,Some,0.001,comp_allprob
-250,lit up cd-players,Some,0.001,comp_allprob
-250,rolled toy cars,Some,0.001,comp_allprob
+250,burnt rocks,Some,0.01,comp_allprob
+250,lit up cd-players,Some,0.01,comp_allprob
+250,rolled toy cars,Some,0.01,comp_allprob
 250,rhymed poems,Some,0.1,comp_allprob
-250,landed flat pancakes,Some,0.001,comp_allprob
-250,were green strawberries,Some,0.001,comp_allprob
-250,ripped shoes,Some,0.001,comp_allprob
+250,landed flat pancakes,Some,0.01,comp_allprob
+250,were green strawberries,Some,0.01,comp_allprob
+250,ripped shoes,Some,0.01,comp_allprob
 250,popped balloons,Some,0.1,comp_allprob
-250,broke logs,Some,0.001,comp_allprob
-250,laughed comedians,Some,0.001,comp_allprob
-251,popped balloons,Some,0.001,comp_allprob
-251,burnt books,Some,0.001,comp_allprob
-251,laughed comedians,Some,0.001,comp_allprob
-251,lit up cd-players,Some,0.001,comp_allprob
-251,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-251,landed flat coins,Some,0.001,comp_allprob
-251,blew away hats,Some,0.001,comp_allprob
-251,beeped old cars,Some,0.001,comp_allprob
-251,got stained white tablecloths,Some,0.001,comp_allprob
-251,melted pencils,Some,0.001,comp_allprob
-252,rhymed songs,Some,0.001,comp_allprob
-252,ripped books,Some,0.001,comp_allprob
-252,decomposed banana peels,Some,0.001,comp_allprob
-252,flashed webcams,Some,0.001,comp_allprob
-252,blew away hats,Some,0.001,comp_allprob
-252,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-252,broke sunglasses,Some,0.001,comp_allprob
-252,fell down block towers,Some,0.001,comp_allprob
-252,sank cups,Some,0.001,comp_allprob
-252,stuck sequins,Some,0.001,comp_allprob
+250,broke logs,Some,0.01,comp_allprob
+250,laughed comedians,Some,0.01,comp_allprob
+251,popped balloons,Some,0.01,comp_allprob
+251,burnt books,Some,0.01,comp_allprob
+251,laughed comedians,Some,0.01,comp_allprob
+251,lit up cd-players,Some,0.01,comp_allprob
+251,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+251,landed flat coins,Some,0.01,comp_allprob
+251,blew away hats,Some,0.01,comp_allprob
+251,beeped old cars,Some,0.01,comp_allprob
+251,got stained white tablecloths,Some,0.01,comp_allprob
+251,melted pencils,Some,0.01,comp_allprob
+252,rhymed songs,Some,0.01,comp_allprob
+252,ripped books,Some,0.01,comp_allprob
+252,decomposed banana peels,Some,0.01,comp_allprob
+252,flashed webcams,Some,0.01,comp_allprob
+252,blew away hats,Some,0.01,comp_allprob
+252,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+252,broke sunglasses,Some,0.01,comp_allprob
+252,fell down block towers,Some,0.01,comp_allprob
+252,sank cups,Some,0.01,comp_allprob
+252,stuck sequins,Some,0.01,comp_allprob
 253,dissolved carrots,Some,0.2,comp_allprob
 253,beeped new cars,Some,0.2,comp_allprob
 253,fell down shelves,Some,0.2,comp_allprob
@@ -2534,76 +2534,76 @@ subject,item,utterance,response,measure
 253,rolled wheelchairs,Some,0.3,comp_allprob
 253,stuck to the wall baseballs,Some,0.2,comp_allprob
 253,melted pencils,Some,0.2,comp_allprob
-254,honked bus drivers,Some,0.001,comp_allprob
-254,beeped old cars,Some,0.001,comp_allprob
-254,stopped cars,Some,0.001,comp_allprob
-254,decomposed soda cans,Some,0.001,comp_allprob
-254,exploded fireworks,Some,0.001,comp_allprob
-254,stuck to the wall baseballs,Some,0.001,comp_allprob
+254,honked bus drivers,Some,0.01,comp_allprob
+254,beeped old cars,Some,0.01,comp_allprob
+254,stopped cars,Some,0.01,comp_allprob
+254,decomposed soda cans,Some,0.01,comp_allprob
+254,exploded fireworks,Some,0.01,comp_allprob
+254,stuck to the wall baseballs,Some,0.01,comp_allprob
 254,landed flat notebooks,Some,0.1,comp_allprob
 254,ran out of batteries phones,Some,0.1,comp_allprob
 254,ripped books,Some,0.1,comp_allprob
-254,ate the seeds birds,Some,0.001,comp_allprob
+254,ate the seeds birds,Some,0.01,comp_allprob
 255,melted pencils,Some,0.1,comp_allprob
 255,blew away hats,Some,0.4,comp_allprob
 255,flashed phones,Some,0.4,comp_allprob
-255,landed flat coins,Some,0.999,comp_allprob
+255,landed flat coins,Some,0.99,comp_allprob
 255,exploded eggs,Some,0.5,comp_allprob
-255,reflected the sunlight mirrors,Some,0.999,comp_allprob
+255,reflected the sunlight mirrors,Some,0.99,comp_allprob
 255,stuck to the wall baseballs,Some,0.5,comp_allprob
 255,were green clovers,Some,0.5,comp_allprob
 255,exploded fireworks,Some,0.4,comp_allprob
 255,got stained white carpets,Some,0.7,comp_allprob
-256,broke sunglasses,Some,0.001,comp_allprob
-256,melted pencils,Some,0.001,comp_allprob
+256,broke sunglasses,Some,0.01,comp_allprob
+256,melted pencils,Some,0.01,comp_allprob
 256,stuck sequins,Some,0.4,comp_allprob
 256,sank marbles,Some,0.4,comp_allprob
 256,exploded fireworks,Some,0.3,comp_allprob
-256,popped eggs,Some,0.001,comp_allprob
+256,popped eggs,Some,0.01,comp_allprob
 256,burnt matches,Some,0.4,comp_allprob
 256,ripped shirts,Some,0.9,comp_allprob
 256,ran out of batteries phones,Some,0.4,comp_allprob
-256,fell down card towers,Some,0.999,comp_allprob
-257,beeped old cars,Some,0.001,comp_allprob
-257,stopped bicycles,Some,0.001,comp_allprob
-257,stuck beads,Some,0.001,comp_allprob
-257,had the letter Z in them novels,Some,0.001,comp_allprob
-257,landed flat pancakes,Some,0.001,comp_allprob
-257,were green strawberries,Some,0.001,comp_allprob
-257,got stained white shirts,Some,0.001,comp_allprob
-257,reflected the sunlight phone screens,Some,0.001,comp_allprob
-257,decomposed soda cans,Some,0.001,comp_allprob
-257,lit up cd-players,Some,0.001,comp_allprob
-258,beeped houses,Some,0.001,comp_allprob
-258,landed flat pancakes,Some,0.001,comp_allprob
-258,were green clovers,Some,0.001,comp_allprob
-258,dissolved sugar cubes,Some,0.001,comp_allprob
-258,stopped cars,Some,0.001,comp_allprob
-258,had the letter Z in them novels,Some,0.001,comp_allprob
-258,decomposed soda cans,Some,0.001,comp_allprob
-258,stuck to the wall cakes,Some,0.001,comp_allprob
-258,reflected the sunlight phone screens,Some,0.001,comp_allprob
-258,popped balloons,Some,0.001,comp_allprob
-259,landed flat pancakes,Some,0.001,comp_allprob
-259,reflected the sunlight mirrors,Some,0.001,comp_allprob
-259,honked taxi drivers,Some,0.001,comp_allprob
-259,exploded balls of tin foil,Some,0.001,comp_allprob
-259,stuck stickers,Some,0.001,comp_allprob
-259,exploded candles,Some,0.001,comp_allprob
-259,ate the seeds butterflies,Some,0.001,comp_allprob
+256,fell down card towers,Some,0.99,comp_allprob
+257,beeped old cars,Some,0.01,comp_allprob
+257,stopped bicycles,Some,0.01,comp_allprob
+257,stuck beads,Some,0.01,comp_allprob
+257,had the letter Z in them novels,Some,0.01,comp_allprob
+257,landed flat pancakes,Some,0.01,comp_allprob
+257,were green strawberries,Some,0.01,comp_allprob
+257,got stained white shirts,Some,0.01,comp_allprob
+257,reflected the sunlight phone screens,Some,0.01,comp_allprob
+257,decomposed soda cans,Some,0.01,comp_allprob
+257,lit up cd-players,Some,0.01,comp_allprob
+258,beeped houses,Some,0.01,comp_allprob
+258,landed flat pancakes,Some,0.01,comp_allprob
+258,were green clovers,Some,0.01,comp_allprob
+258,dissolved sugar cubes,Some,0.01,comp_allprob
+258,stopped cars,Some,0.01,comp_allprob
+258,had the letter Z in them novels,Some,0.01,comp_allprob
+258,decomposed soda cans,Some,0.01,comp_allprob
+258,stuck to the wall cakes,Some,0.01,comp_allprob
+258,reflected the sunlight phone screens,Some,0.01,comp_allprob
+258,popped balloons,Some,0.01,comp_allprob
+259,landed flat pancakes,Some,0.01,comp_allprob
+259,reflected the sunlight mirrors,Some,0.01,comp_allprob
+259,honked taxi drivers,Some,0.01,comp_allprob
+259,exploded balls of tin foil,Some,0.01,comp_allprob
+259,stuck stickers,Some,0.01,comp_allprob
+259,exploded candles,Some,0.01,comp_allprob
+259,ate the seeds butterflies,Some,0.01,comp_allprob
 259,melted ice cubes,Some,0.5,comp_allprob
-259,blew away backpacks,Some,0.001,comp_allprob
-259,lit up flashlights,Some,0.001,comp_allprob
-260,stopped cars,Some,0.001,comp_allprob
-260,broke boxes,Some,0.001,comp_allprob
-260,rolled toy cars,Some,0.001,comp_allprob
-260,honked taxi drivers,Some,0.001,comp_allprob
-260,exploded fireworks,Some,0.001,comp_allprob
-260,flashed webcams,Some,0.001,comp_allprob
-260,burnt books,Some,0.001,comp_allprob
-260,popped balloons,Some,0.001,comp_allprob
-260,reflected the sunlight mirrors,Some,0.001,comp_allprob
-260,stuck sequins,Some,0.001,comp_allprob
+259,blew away backpacks,Some,0.01,comp_allprob
+259,lit up flashlights,Some,0.01,comp_allprob
+260,stopped cars,Some,0.01,comp_allprob
+260,broke boxes,Some,0.01,comp_allprob
+260,rolled toy cars,Some,0.01,comp_allprob
+260,honked taxi drivers,Some,0.01,comp_allprob
+260,exploded fireworks,Some,0.01,comp_allprob
+260,flashed webcams,Some,0.01,comp_allprob
+260,burnt books,Some,0.01,comp_allprob
+260,popped balloons,Some,0.01,comp_allprob
+260,reflected the sunlight mirrors,Some,0.01,comp_allprob
+260,stuck sequins,Some,0.01,comp_allprob
 261,had the letter Z in them novels,Some,0.2,comp_allprob
 261,popped bubbles,Some,0.3,comp_allprob
 261,melted ice cubes,Some,0.5,comp_allprob
@@ -2614,76 +2614,76 @@ subject,item,utterance,response,measure
 261,broke sunglasses,Some,0.2,comp_allprob
 261,stuck beads,Some,0.1,comp_allprob
 261,rolled toy cars,Some,0.2,comp_allprob
-262,dissolved carrots,Some,0.001,comp_allprob
-262,rhymed poems,Some,0.001,comp_allprob
-262,rolled toy cars,Some,0.001,comp_allprob
-262,laughed comedians,Some,0.001,comp_allprob
-262,reflected the sunlight phone screens,Some,0.001,comp_allprob
-262,exploded gas tanks,Some,0.001,comp_allprob
-262,burnt rocks,Some,0.001,comp_allprob
+262,dissolved carrots,Some,0.01,comp_allprob
+262,rhymed poems,Some,0.01,comp_allprob
+262,rolled toy cars,Some,0.01,comp_allprob
+262,laughed comedians,Some,0.01,comp_allprob
+262,reflected the sunlight phone screens,Some,0.01,comp_allprob
+262,exploded gas tanks,Some,0.01,comp_allprob
+262,burnt rocks,Some,0.01,comp_allprob
 262,exploded CDs,Some,0.3,comp_allprob
 262,broke boxes,Some,0.1,comp_allprob
-262,sank balloons,Some,0.001,comp_allprob
-263,decomposed banana peels,Some,0.001,comp_allprob
-263,honked bus drivers,Some,0.001,comp_allprob
-263,stopped bicycles,Some,0.001,comp_allprob
-263,exploded balls of tin foil,Some,0.001,comp_allprob
-263,sank balloons,Some,0.001,comp_allprob
-263,laughed lawyers,Some,0.001,comp_allprob
-263,burnt matches,Some,0.001,comp_allprob
-263,popped balloons,Some,0.001,comp_allprob
-263,ran out of batteries phones,Some,0.001,comp_allprob
-263,lit up flashlights,Some,0.001,comp_allprob
-264,beeped houses,Some,0.001,comp_allprob
-264,popped eggs,Some,0.001,comp_allprob
-264,were green clovers,Some,0.001,comp_allprob
-264,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-264,exploded balls of tin foil,Some,0.001,comp_allprob
-264,ran out of batteries bike lights,Some,0.001,comp_allprob
-264,froze bottles of hand soap,Some,0.001,comp_allprob
-264,stuck sequins,Some,0.001,comp_allprob
-264,lit up computers,Some,0.001,comp_allprob
-264,rolled wheelchairs,Some,0.001,comp_allprob
-265,ripped shoes,Some,0.001,comp_allprob
-265,honked bicyclists,Some,0.001,comp_allprob
-265,blew away backpacks,Some,0.001,comp_allprob
-265,flashed cameras,Some,0.001,comp_allprob
-265,popped bubbles,Some,0.001,comp_allprob
-265,were green strawberries,Some,0.001,comp_allprob
-265,decomposed banana peels,Some,0.001,comp_allprob
-265,reflected the sunlight phone screens,Some,0.001,comp_allprob
-265,laughed kids,Some,0.001,comp_allprob
-265,stuck beads,Some,0.001,comp_allprob
-266,ate the seeds dogs,Some,0.001,comp_allprob
-266,burnt books,Some,0.001,comp_allprob
-266,rolled shopping carts,Some,0.001,comp_allprob
-266,stuck beads,Some,0.001,comp_allprob
-266,fell down block towers,Some,0.001,comp_allprob
-266,ripped shirts,Some,0.001,comp_allprob
-266,broke logs,Some,0.001,comp_allprob
-266,had the letter Z in them novels,Some,0.001,comp_allprob
-266,melted crayons,Some,0.001,comp_allprob
-266,rhymed poems,Some,0.001,comp_allprob
+262,sank balloons,Some,0.01,comp_allprob
+263,decomposed banana peels,Some,0.01,comp_allprob
+263,honked bus drivers,Some,0.01,comp_allprob
+263,stopped bicycles,Some,0.01,comp_allprob
+263,exploded balls of tin foil,Some,0.01,comp_allprob
+263,sank balloons,Some,0.01,comp_allprob
+263,laughed lawyers,Some,0.01,comp_allprob
+263,burnt matches,Some,0.01,comp_allprob
+263,popped balloons,Some,0.01,comp_allprob
+263,ran out of batteries phones,Some,0.01,comp_allprob
+263,lit up flashlights,Some,0.01,comp_allprob
+264,beeped houses,Some,0.01,comp_allprob
+264,popped eggs,Some,0.01,comp_allprob
+264,were green clovers,Some,0.01,comp_allprob
+264,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+264,exploded balls of tin foil,Some,0.01,comp_allprob
+264,ran out of batteries bike lights,Some,0.01,comp_allprob
+264,froze bottles of hand soap,Some,0.01,comp_allprob
+264,stuck sequins,Some,0.01,comp_allprob
+264,lit up computers,Some,0.01,comp_allprob
+264,rolled wheelchairs,Some,0.01,comp_allprob
+265,ripped shoes,Some,0.01,comp_allprob
+265,honked bicyclists,Some,0.01,comp_allprob
+265,blew away backpacks,Some,0.01,comp_allprob
+265,flashed cameras,Some,0.01,comp_allprob
+265,popped bubbles,Some,0.01,comp_allprob
+265,were green strawberries,Some,0.01,comp_allprob
+265,decomposed banana peels,Some,0.01,comp_allprob
+265,reflected the sunlight phone screens,Some,0.01,comp_allprob
+265,laughed kids,Some,0.01,comp_allprob
+265,stuck beads,Some,0.01,comp_allprob
+266,ate the seeds dogs,Some,0.01,comp_allprob
+266,burnt books,Some,0.01,comp_allprob
+266,rolled shopping carts,Some,0.01,comp_allprob
+266,stuck beads,Some,0.01,comp_allprob
+266,fell down block towers,Some,0.01,comp_allprob
+266,ripped shirts,Some,0.01,comp_allprob
+266,broke logs,Some,0.01,comp_allprob
+266,had the letter Z in them novels,Some,0.01,comp_allprob
+266,melted crayons,Some,0.01,comp_allprob
+266,rhymed poems,Some,0.01,comp_allprob
 267,blew away backpacks,Some,0.2,comp_allprob
-267,stopped motorcycles,Some,0.001,comp_allprob
-267,stuck sequins,Some,0.001,comp_allprob
-267,landed flat notebooks,Some,0.001,comp_allprob
-267,rhymed limericks,Some,0.001,comp_allprob
-267,honked bicyclists,Some,0.001,comp_allprob
-267,stuck to the wall baseballs,Some,0.001,comp_allprob
-267,ripped books,Some,0.001,comp_allprob
-267,rolled wheelchairs,Some,0.001,comp_allprob
-267,melted crayons,Some,0.001,comp_allprob
+267,stopped motorcycles,Some,0.01,comp_allprob
+267,stuck sequins,Some,0.01,comp_allprob
+267,landed flat notebooks,Some,0.01,comp_allprob
+267,rhymed limericks,Some,0.01,comp_allprob
+267,honked bicyclists,Some,0.01,comp_allprob
+267,stuck to the wall baseballs,Some,0.01,comp_allprob
+267,ripped books,Some,0.01,comp_allprob
+267,rolled wheelchairs,Some,0.01,comp_allprob
+267,melted crayons,Some,0.01,comp_allprob
 268,popped eggs,Some,0.1,comp_allprob
-268,sank balloons,Some,0.001,comp_allprob
-268,ate the seeds dogs,Some,0.001,comp_allprob
-268,reflected the sunlight phone screens,Some,0.001,comp_allprob
-268,ran out of batteries phones,Some,0.001,comp_allprob
-268,blew away backpacks,Some,0.001,comp_allprob
-268,exploded eggs,Some,0.001,comp_allprob
-268,ripped books,Some,0.001,comp_allprob
-268,broke logs,Some,0.001,comp_allprob
-268,rhymed poems,Some,0.001,comp_allprob
+268,sank balloons,Some,0.01,comp_allprob
+268,ate the seeds dogs,Some,0.01,comp_allprob
+268,reflected the sunlight phone screens,Some,0.01,comp_allprob
+268,ran out of batteries phones,Some,0.01,comp_allprob
+268,blew away backpacks,Some,0.01,comp_allprob
+268,exploded eggs,Some,0.01,comp_allprob
+268,ripped books,Some,0.01,comp_allprob
+268,broke logs,Some,0.01,comp_allprob
+268,rhymed poems,Some,0.01,comp_allprob
 269,lit up computers,Some,0.2,comp_allprob
 269,decomposed pinecones,Some,0.1,comp_allprob
 269,flashed webcams,Some,0.1,comp_allprob
@@ -2705,38 +2705,38 @@ subject,item,utterance,response,measure
 270,flashed webcams,Some,0.1,comp_allprob
 270,rolled toy cars,Some,0.1,comp_allprob
 271,stuck to the wall baseballs,Some,0.1,comp_allprob
-271,sank marbles,Some,0.001,comp_allprob
-271,exploded CDs,Some,0.001,comp_allprob
-271,stuck stickers,Some,0.001,comp_allprob
-271,ripped shirts,Some,0.001,comp_allprob
-271,honked bus drivers,Some,0.001,comp_allprob
-271,ran out of batteries laptops,Some,0.001,comp_allprob
-271,broke logs,Some,0.001,comp_allprob
-271,popped balloons,Some,0.001,comp_allprob
-271,got stained white carpets,Some,0.001,comp_allprob
-272,popped balloons,Some,0.001,comp_allprob
+271,sank marbles,Some,0.01,comp_allprob
+271,exploded CDs,Some,0.01,comp_allprob
+271,stuck stickers,Some,0.01,comp_allprob
+271,ripped shirts,Some,0.01,comp_allprob
+271,honked bus drivers,Some,0.01,comp_allprob
+271,ran out of batteries laptops,Some,0.01,comp_allprob
+271,broke logs,Some,0.01,comp_allprob
+271,popped balloons,Some,0.01,comp_allprob
+271,got stained white carpets,Some,0.01,comp_allprob
+272,popped balloons,Some,0.01,comp_allprob
 272,sank marbles,Some,0.3,comp_allprob
 272,stopped bicycles,Some,0.2,comp_allprob
 272,rhymed limericks,Some,0.1,comp_allprob
-272,reflected the sunlight mirrors,Some,0.999,comp_allprob
+272,reflected the sunlight mirrors,Some,0.99,comp_allprob
 272,beeped houses,Some,0.1,comp_allprob
 272,exploded fireworks,Some,0.5,comp_allprob
 272,were green strawberries,Some,0.1,comp_allprob
 272,rolled toy cars,Some,0.8,comp_allprob
 272,ripped shirts,Some,0.1,comp_allprob
-273,dissolved sugar cubes,Some,0.001,comp_allprob
-273,stuck to the wall cakes,Some,0.001,comp_allprob
-273,exploded fireworks,Some,0.001,comp_allprob
-273,stopped motorcycles,Some,0.001,comp_allprob
-273,rolled toy cars,Some,0.001,comp_allprob
+273,dissolved sugar cubes,Some,0.01,comp_allprob
+273,stuck to the wall cakes,Some,0.01,comp_allprob
+273,exploded fireworks,Some,0.01,comp_allprob
+273,stopped motorcycles,Some,0.01,comp_allprob
+273,rolled toy cars,Some,0.01,comp_allprob
 273,melted ice cubes,Some,0.1,comp_allprob
-273,popped bubbles,Some,0.001,comp_allprob
-273,blew away napkins,Some,0.001,comp_allprob
-273,beeped new cars,Some,0.001,comp_allprob
-273,sank balloons,Some,0.001,comp_allprob
-274,had the letter Z in them love notes,Some,0.001,comp_allprob
+273,popped bubbles,Some,0.01,comp_allprob
+273,blew away napkins,Some,0.01,comp_allprob
+273,beeped new cars,Some,0.01,comp_allprob
+273,sank balloons,Some,0.01,comp_allprob
+274,had the letter Z in them love notes,Some,0.01,comp_allprob
 274,popped bubbles,Some,0.4,comp_allprob
-274,flashed webcams,Some,0.001,comp_allprob
+274,flashed webcams,Some,0.01,comp_allprob
 274,ran out of batteries bike lights,Some,0.2,comp_allprob
 274,ate the seeds birds,Some,0.5,comp_allprob
 274,dissolved sugar cubes,Some,0.5,comp_allprob
@@ -2744,138 +2744,138 @@ subject,item,utterance,response,measure
 274,rhymed limericks,Some,0.1,comp_allprob
 274,sank marbles,Some,0.5,comp_allprob
 274,melted ice cubes,Some,0.5,comp_allprob
-275,melted ice cubes,Some,0.001,comp_allprob
-275,ran out of batteries laptops,Some,0.001,comp_allprob
-275,dissolved oreos,Some,0.001,comp_allprob
-275,stuck beads,Some,0.001,comp_allprob
-275,were green strawberries,Some,0.001,comp_allprob
-275,blew away hats,Some,0.001,comp_allprob
-275,sank balloons,Some,0.001,comp_allprob
-275,beeped old cars,Some,0.001,comp_allprob
-275,laughed comedians,Some,0.001,comp_allprob
-275,flashed webcams,Some,0.001,comp_allprob
-276,blew away hats,Some,0.001,comp_allprob
-276,dissolved carrots,Some,0.001,comp_allprob
-276,stuck to the wall cakes,Some,0.001,comp_allprob
-276,fell down card towers,Some,0.001,comp_allprob
-276,popped bubbles,Some,0.001,comp_allprob
-276,exploded gas tanks,Some,0.001,comp_allprob
-276,stopped bicycles,Some,0.001,comp_allprob
-276,flashed cameras,Some,0.001,comp_allprob
+275,melted ice cubes,Some,0.01,comp_allprob
+275,ran out of batteries laptops,Some,0.01,comp_allprob
+275,dissolved oreos,Some,0.01,comp_allprob
+275,stuck beads,Some,0.01,comp_allprob
+275,were green strawberries,Some,0.01,comp_allprob
+275,blew away hats,Some,0.01,comp_allprob
+275,sank balloons,Some,0.01,comp_allprob
+275,beeped old cars,Some,0.01,comp_allprob
+275,laughed comedians,Some,0.01,comp_allprob
+275,flashed webcams,Some,0.01,comp_allprob
+276,blew away hats,Some,0.01,comp_allprob
+276,dissolved carrots,Some,0.01,comp_allprob
+276,stuck to the wall cakes,Some,0.01,comp_allprob
+276,fell down card towers,Some,0.01,comp_allprob
+276,popped bubbles,Some,0.01,comp_allprob
+276,exploded gas tanks,Some,0.01,comp_allprob
+276,stopped bicycles,Some,0.01,comp_allprob
+276,flashed cameras,Some,0.01,comp_allprob
 276,laughed comedians,Some,0.1,comp_allprob
-276,melted pencils,Some,0.001,comp_allprob
-277,ripped books,Some,0.001,comp_allprob
-277,reflected the sunlight mirrors,Some,0.001,comp_allprob
-277,sank marbles,Some,0.001,comp_allprob
-277,exploded fireworks,Some,0.001,comp_allprob
-277,broke boxes,Some,0.001,comp_allprob
-277,burnt rocks,Some,0.001,comp_allprob
-277,popped bubbles,Some,0.001,comp_allprob
-277,laughed comedians,Some,0.001,comp_allprob
-277,froze chocolate bars,Some,0.001,comp_allprob
-277,beeped old cars,Some,0.001,comp_allprob
-278,popped balloons,Some,0.001,comp_allprob
-278,rolled toy cars,Some,0.001,comp_allprob
-278,fell down block towers,Some,0.001,comp_allprob
-278,beeped houses,Some,0.001,comp_allprob
-278,got stained white tablecloths,Some,0.001,comp_allprob
-278,sank marbles,Some,0.001,comp_allprob
-278,ripped books,Some,0.001,comp_allprob
-278,exploded CDs,Some,0.001,comp_allprob
-278,dissolved sugar cubes,Some,0.001,comp_allprob
-278,decomposed pinecones,Some,0.001,comp_allprob
+276,melted pencils,Some,0.01,comp_allprob
+277,ripped books,Some,0.01,comp_allprob
+277,reflected the sunlight mirrors,Some,0.01,comp_allprob
+277,sank marbles,Some,0.01,comp_allprob
+277,exploded fireworks,Some,0.01,comp_allprob
+277,broke boxes,Some,0.01,comp_allprob
+277,burnt rocks,Some,0.01,comp_allprob
+277,popped bubbles,Some,0.01,comp_allprob
+277,laughed comedians,Some,0.01,comp_allprob
+277,froze chocolate bars,Some,0.01,comp_allprob
+277,beeped old cars,Some,0.01,comp_allprob
+278,popped balloons,Some,0.01,comp_allprob
+278,rolled toy cars,Some,0.01,comp_allprob
+278,fell down block towers,Some,0.01,comp_allprob
+278,beeped houses,Some,0.01,comp_allprob
+278,got stained white tablecloths,Some,0.01,comp_allprob
+278,sank marbles,Some,0.01,comp_allprob
+278,ripped books,Some,0.01,comp_allprob
+278,exploded CDs,Some,0.01,comp_allprob
+278,dissolved sugar cubes,Some,0.01,comp_allprob
+278,decomposed pinecones,Some,0.01,comp_allprob
 279,reflected the sunlight phone screens,Some,0.1,comp_allprob
 279,landed flat notebooks,Some,0.1,comp_allprob
-279,flashed webcams,Some,0.001,comp_allprob
-279,popped eggs,Some,0.001,comp_allprob
+279,flashed webcams,Some,0.01,comp_allprob
+279,popped eggs,Some,0.01,comp_allprob
 279,honked bicyclists,Some,0.1,comp_allprob
 279,stuck to the wall cakes,Some,0.1,comp_allprob
 279,stuck beads,Some,0.1,comp_allprob
-279,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-279,fell down block towers,Some,0.001,comp_allprob
-279,exploded gas tanks,Some,0.001,comp_allprob
-280,laughed comedians,Some,0.001,comp_allprob
+279,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+279,fell down block towers,Some,0.01,comp_allprob
+279,exploded gas tanks,Some,0.01,comp_allprob
+280,laughed comedians,Some,0.01,comp_allprob
 280,stopped cars,Some,0.1,comp_allprob
 280,rhymed songs,Some,0.1,comp_allprob
-280,decomposed banana peels,Some,0.001,comp_allprob
+280,decomposed banana peels,Some,0.01,comp_allprob
 280,fell down block towers,Some,0.1,comp_allprob
-280,landed flat notebooks,Some,0.001,comp_allprob
-280,lit up flashlights,Some,0.001,comp_allprob
-280,popped bubbles,Some,0.001,comp_allprob
-280,sank cups,Some,0.001,comp_allprob
-280,honked taxi drivers,Some,0.001,comp_allprob
-281,ripped shoes,Some,0.001,comp_allprob
+280,landed flat notebooks,Some,0.01,comp_allprob
+280,lit up flashlights,Some,0.01,comp_allprob
+280,popped bubbles,Some,0.01,comp_allprob
+280,sank cups,Some,0.01,comp_allprob
+280,honked taxi drivers,Some,0.01,comp_allprob
+281,ripped shoes,Some,0.01,comp_allprob
 281,blew away napkins,Some,0.2,comp_allprob
 281,stuck to the wall cakes,Some,0.3,comp_allprob
-281,sank cups,Some,0.001,comp_allprob
-281,melted crayons,Some,0.001,comp_allprob
+281,sank cups,Some,0.01,comp_allprob
+281,melted crayons,Some,0.01,comp_allprob
 281,stuck beads,Some,0.3,comp_allprob
 281,ran out of batteries laptops,Some,0.2,comp_allprob
 281,had the letter Z in them birthday cards,Some,0.2,comp_allprob
 281,burnt rocks,Some,0.2,comp_allprob
 281,rhymed limericks,Some,0.2,comp_allprob
-282,flashed webcams,Some,0.001,comp_allprob
-282,honked bicyclists,Some,0.001,comp_allprob
-282,beeped houses,Some,0.001,comp_allprob
-282,stopped motorcycles,Some,0.001,comp_allprob
-282,burnt books,Some,0.001,comp_allprob
-282,exploded eggs,Some,0.001,comp_allprob
-282,melted crayons,Some,0.001,comp_allprob
-282,stuck beads,Some,0.001,comp_allprob
-282,blew away hats,Some,0.001,comp_allprob
-282,were green clovers,Some,0.001,comp_allprob
-283,sank balloons,Some,0.001,comp_allprob
-283,reflected the sunlight phone screens,Some,0.001,comp_allprob
-283,flashed webcams,Some,0.001,comp_allprob
-283,honked bicyclists,Some,0.001,comp_allprob
-283,landed flat notebooks,Some,0.001,comp_allprob
-283,froze berries,Some,0.001,comp_allprob
-283,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-283,melted pencils,Some,0.001,comp_allprob
-283,ran out of batteries laptops,Some,0.001,comp_allprob
-283,blew away napkins,Some,0.001,comp_allprob
-284,ate the seeds dogs,Some,0.001,comp_allprob
-284,reflected the sunlight diamonds,Some,0.001,comp_allprob
-284,stuck beads,Some,0.001,comp_allprob
-284,had the letter Z in them love notes,Some,0.001,comp_allprob
-284,blew away napkins,Some,0.001,comp_allprob
-284,were green strawberries,Some,0.001,comp_allprob
-284,exploded balls of tin foil,Some,0.001,comp_allprob
-284,stuck to the wall baseballs,Some,0.001,comp_allprob
-284,lit up computers,Some,0.001,comp_allprob
-284,ran out of batteries bike lights,Some,0.001,comp_allprob
-285,popped balloons,Some,0.001,comp_allprob
-285,laughed kids,Some,0.001,comp_allprob
-285,dissolved sugar cubes,Some,0.001,comp_allprob
-285,sank marbles,Some,0.001,comp_allprob
-285,blew away hats,Some,0.001,comp_allprob
-285,got stained white tablecloths,Some,0.001,comp_allprob
-285,exploded fireworks,Some,0.001,comp_allprob
-285,flashed phones,Some,0.001,comp_allprob
-285,froze chocolate bars,Some,0.001,comp_allprob
-285,exploded CDs,Some,0.001,comp_allprob
-286,froze chocolate bars,Some,0.001,comp_allprob
-286,dissolved carrots,Some,0.001,comp_allprob
-286,broke boxes,Some,0.001,comp_allprob
-286,rolled shopping carts,Some,0.001,comp_allprob
-286,sank cups,Some,0.001,comp_allprob
-286,landed flat coins,Some,0.001,comp_allprob
-286,honked taxi drivers,Some,0.001,comp_allprob
-286,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-286,rhymed poems,Some,0.001,comp_allprob
-286,ripped shirts,Some,0.001,comp_allprob
-287,broke sunglasses,Some,0.001,comp_allprob
-287,ate the seeds dogs,Some,0.001,comp_allprob
-287,were green bananas,Some,0.001,comp_allprob
-287,froze chocolate bars,Some,0.001,comp_allprob
-287,rolled wheelchairs,Some,0.001,comp_allprob
-287,decomposed banana peels,Some,0.001,comp_allprob
-287,popped eggs,Some,0.001,comp_allprob
-287,melted ice cubes,Some,0.001,comp_allprob
-287,laughed comedians,Some,0.001,comp_allprob
-287,stuck stickers,Some,0.001,comp_allprob
+282,flashed webcams,Some,0.01,comp_allprob
+282,honked bicyclists,Some,0.01,comp_allprob
+282,beeped houses,Some,0.01,comp_allprob
+282,stopped motorcycles,Some,0.01,comp_allprob
+282,burnt books,Some,0.01,comp_allprob
+282,exploded eggs,Some,0.01,comp_allprob
+282,melted crayons,Some,0.01,comp_allprob
+282,stuck beads,Some,0.01,comp_allprob
+282,blew away hats,Some,0.01,comp_allprob
+282,were green clovers,Some,0.01,comp_allprob
+283,sank balloons,Some,0.01,comp_allprob
+283,reflected the sunlight phone screens,Some,0.01,comp_allprob
+283,flashed webcams,Some,0.01,comp_allprob
+283,honked bicyclists,Some,0.01,comp_allprob
+283,landed flat notebooks,Some,0.01,comp_allprob
+283,froze berries,Some,0.01,comp_allprob
+283,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+283,melted pencils,Some,0.01,comp_allprob
+283,ran out of batteries laptops,Some,0.01,comp_allprob
+283,blew away napkins,Some,0.01,comp_allprob
+284,ate the seeds dogs,Some,0.01,comp_allprob
+284,reflected the sunlight diamonds,Some,0.01,comp_allprob
+284,stuck beads,Some,0.01,comp_allprob
+284,had the letter Z in them love notes,Some,0.01,comp_allprob
+284,blew away napkins,Some,0.01,comp_allprob
+284,were green strawberries,Some,0.01,comp_allprob
+284,exploded balls of tin foil,Some,0.01,comp_allprob
+284,stuck to the wall baseballs,Some,0.01,comp_allprob
+284,lit up computers,Some,0.01,comp_allprob
+284,ran out of batteries bike lights,Some,0.01,comp_allprob
+285,popped balloons,Some,0.01,comp_allprob
+285,laughed kids,Some,0.01,comp_allprob
+285,dissolved sugar cubes,Some,0.01,comp_allprob
+285,sank marbles,Some,0.01,comp_allprob
+285,blew away hats,Some,0.01,comp_allprob
+285,got stained white tablecloths,Some,0.01,comp_allprob
+285,exploded fireworks,Some,0.01,comp_allprob
+285,flashed phones,Some,0.01,comp_allprob
+285,froze chocolate bars,Some,0.01,comp_allprob
+285,exploded CDs,Some,0.01,comp_allprob
+286,froze chocolate bars,Some,0.01,comp_allprob
+286,dissolved carrots,Some,0.01,comp_allprob
+286,broke boxes,Some,0.01,comp_allprob
+286,rolled shopping carts,Some,0.01,comp_allprob
+286,sank cups,Some,0.01,comp_allprob
+286,landed flat coins,Some,0.01,comp_allprob
+286,honked taxi drivers,Some,0.01,comp_allprob
+286,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+286,rhymed poems,Some,0.01,comp_allprob
+286,ripped shirts,Some,0.01,comp_allprob
+287,broke sunglasses,Some,0.01,comp_allprob
+287,ate the seeds dogs,Some,0.01,comp_allprob
+287,were green bananas,Some,0.01,comp_allprob
+287,froze chocolate bars,Some,0.01,comp_allprob
+287,rolled wheelchairs,Some,0.01,comp_allprob
+287,decomposed banana peels,Some,0.01,comp_allprob
+287,popped eggs,Some,0.01,comp_allprob
+287,melted ice cubes,Some,0.01,comp_allprob
+287,laughed comedians,Some,0.01,comp_allprob
+287,stuck stickers,Some,0.01,comp_allprob
 288,reflected the sunlight mirrors,Some,0.1,comp_allprob
-288,dissolved carrots,Some,0.001,comp_allprob
+288,dissolved carrots,Some,0.01,comp_allprob
 288,burnt books,Some,0.3,comp_allprob
 288,flashed cameras,Some,0.3,comp_allprob
 288,ripped shoes,Some,0.2,comp_allprob
@@ -2884,126 +2884,126 @@ subject,item,utterance,response,measure
 288,were green clovers,Some,0.3,comp_allprob
 288,melted pencils,Some,0.1,comp_allprob
 288,honked bus drivers,Some,0.3,comp_allprob
-289,blew away napkins,Some,0.001,comp_allprob
+289,blew away napkins,Some,0.01,comp_allprob
 289,froze bottles of hand soap,Some,0.1,comp_allprob
-289,exploded eggs,Some,0.001,comp_allprob
-289,were green bananas,Some,0.001,comp_allprob
-289,lit up flashlights,Some,0.001,comp_allprob
-289,fell down shelves,Some,0.001,comp_allprob
-289,honked taxi drivers,Some,0.001,comp_allprob
-289,decomposed pinecones,Some,0.001,comp_allprob
-289,broke sunglasses,Some,0.001,comp_allprob
+289,exploded eggs,Some,0.01,comp_allprob
+289,were green bananas,Some,0.01,comp_allprob
+289,lit up flashlights,Some,0.01,comp_allprob
+289,fell down shelves,Some,0.01,comp_allprob
+289,honked taxi drivers,Some,0.01,comp_allprob
+289,decomposed pinecones,Some,0.01,comp_allprob
+289,broke sunglasses,Some,0.01,comp_allprob
 289,landed flat pancakes,Some,0.1,comp_allprob
 290,stuck sequins,Some,0.1,comp_allprob
 290,ran out of batteries laptops,Some,0.1,comp_allprob
-290,melted ice cubes,Some,0.001,comp_allprob
-290,exploded balls of tin foil,Some,0.001,comp_allprob
-290,sank balloons,Some,0.001,comp_allprob
-290,got stained white shirts,Some,0.001,comp_allprob
-290,decomposed banana peels,Some,0.001,comp_allprob
-290,blew away hats,Some,0.001,comp_allprob
-290,popped bubbles,Some,0.001,comp_allprob
-290,broke sunglasses,Some,0.001,comp_allprob
-291,dissolved carrots,Some,0.001,comp_allprob
-291,decomposed soda cans,Some,0.001,comp_allprob
-291,ate the seeds dogs,Some,0.001,comp_allprob
-291,laughed comedians,Some,0.001,comp_allprob
-291,froze chocolate bars,Some,0.001,comp_allprob
-291,flashed cameras,Some,0.001,comp_allprob
-291,stopped bicycles,Some,0.001,comp_allprob
-291,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-291,popped balloons,Some,0.001,comp_allprob
-291,exploded CDs,Some,0.001,comp_allprob
-292,melted crayons,Some,0.001,comp_allprob
-292,stopped bicycles,Some,0.001,comp_allprob
-292,landed flat coins,Some,0.001,comp_allprob
-292,burnt rocks,Some,0.001,comp_allprob
-292,exploded candles,Some,0.001,comp_allprob
-292,reflected the sunlight phone screens,Some,0.001,comp_allprob
-292,honked bicyclists,Some,0.001,comp_allprob
-292,froze chocolate bars,Some,0.001,comp_allprob
-292,ate the seeds dogs,Some,0.001,comp_allprob
-292,rhymed songs,Some,0.001,comp_allprob
-293,sank cups,Some,0.001,comp_allprob
-293,ripped shoes,Some,0.001,comp_allprob
+290,melted ice cubes,Some,0.01,comp_allprob
+290,exploded balls of tin foil,Some,0.01,comp_allprob
+290,sank balloons,Some,0.01,comp_allprob
+290,got stained white shirts,Some,0.01,comp_allprob
+290,decomposed banana peels,Some,0.01,comp_allprob
+290,blew away hats,Some,0.01,comp_allprob
+290,popped bubbles,Some,0.01,comp_allprob
+290,broke sunglasses,Some,0.01,comp_allprob
+291,dissolved carrots,Some,0.01,comp_allprob
+291,decomposed soda cans,Some,0.01,comp_allprob
+291,ate the seeds dogs,Some,0.01,comp_allprob
+291,laughed comedians,Some,0.01,comp_allprob
+291,froze chocolate bars,Some,0.01,comp_allprob
+291,flashed cameras,Some,0.01,comp_allprob
+291,stopped bicycles,Some,0.01,comp_allprob
+291,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+291,popped balloons,Some,0.01,comp_allprob
+291,exploded CDs,Some,0.01,comp_allprob
+292,melted crayons,Some,0.01,comp_allprob
+292,stopped bicycles,Some,0.01,comp_allprob
+292,landed flat coins,Some,0.01,comp_allprob
+292,burnt rocks,Some,0.01,comp_allprob
+292,exploded candles,Some,0.01,comp_allprob
+292,reflected the sunlight phone screens,Some,0.01,comp_allprob
+292,honked bicyclists,Some,0.01,comp_allprob
+292,froze chocolate bars,Some,0.01,comp_allprob
+292,ate the seeds dogs,Some,0.01,comp_allprob
+292,rhymed songs,Some,0.01,comp_allprob
+293,sank cups,Some,0.01,comp_allprob
+293,ripped shoes,Some,0.01,comp_allprob
 293,ate the seeds butterflies,Some,0.2,comp_allprob
-293,had the letter Z in them love notes,Some,0.001,comp_allprob
+293,had the letter Z in them love notes,Some,0.01,comp_allprob
 293,lit up cd-players,Some,0.1,comp_allprob
-293,stuck to the wall cakes,Some,0.001,comp_allprob
+293,stuck to the wall cakes,Some,0.01,comp_allprob
 293,ran out of batteries laptops,Some,0.2,comp_allprob
 293,reflected the sunlight phone screens,Some,0.1,comp_allprob
 293,stopped bicycles,Some,0.3,comp_allprob
 293,blew away napkins,Some,0.2,comp_allprob
-294,melted crayons,Some,0.001,comp_allprob
+294,melted crayons,Some,0.01,comp_allprob
 294,burnt rocks,Some,0.4,comp_allprob
-294,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-294,landed flat pancakes,Some,0.001,comp_allprob
+294,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+294,landed flat pancakes,Some,0.01,comp_allprob
 294,were green clovers,Some,0.6,comp_allprob
 294,dissolved sugar cubes,Some,0.3,comp_allprob
 294,ripped shirts,Some,0.4,comp_allprob
 294,blew away napkins,Some,0.5,comp_allprob
 294,sank marbles,Some,0.3,comp_allprob
 294,froze bottles of hand soap,Some,0.4,comp_allprob
-295,reflected the sunlight diamonds,Some,0.001,comp_allprob
-295,ran out of batteries phones,Some,0.001,comp_allprob
-295,melted crayons,Some,0.001,comp_allprob
-295,were green strawberries,Some,0.001,comp_allprob
-295,stopped motorcycles,Some,0.001,comp_allprob
-295,popped balloons,Some,0.001,comp_allprob
-295,ate the seeds dogs,Some,0.001,comp_allprob
-295,dissolved oreos,Some,0.001,comp_allprob
-295,decomposed pinecones,Some,0.001,comp_allprob
-295,rolled wheelchairs,Some,0.001,comp_allprob
-296,burnt matches,Some,0.001,comp_allprob
-296,stuck stickers,Some,0.001,comp_allprob
-296,got stained white tablecloths,Some,0.001,comp_allprob
-296,stopped bicycles,Some,0.001,comp_allprob
-296,exploded CDs,Some,0.001,comp_allprob
-296,ran out of batteries bike lights,Some,0.001,comp_allprob
-296,melted ice cubes,Some,0.001,comp_allprob
-296,beeped houses,Some,0.001,comp_allprob
-296,honked taxi drivers,Some,0.001,comp_allprob
-296,ripped shirts,Some,0.001,comp_allprob
-297,blew away backpacks,Some,0.001,comp_allprob
-297,got stained white tablecloths,Some,0.001,comp_allprob
-297,laughed kids,Some,0.001,comp_allprob
-297,sank marbles,Some,0.001,comp_allprob
-297,popped balloons,Some,0.001,comp_allprob
-297,exploded candles,Some,0.001,comp_allprob
-297,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-297,reflected the sunlight phone screens,Some,0.001,comp_allprob
-297,stuck beads,Some,0.001,comp_allprob
-297,decomposed soda cans,Some,0.001,comp_allprob
-298,ripped shirts,Some,0.001,comp_allprob
-298,dissolved oreos,Some,0.001,comp_allprob
-298,blew away backpacks,Some,0.001,comp_allprob
-298,stuck sequins,Some,0.001,comp_allprob
-298,beeped old cars,Some,0.001,comp_allprob
+295,reflected the sunlight diamonds,Some,0.01,comp_allprob
+295,ran out of batteries phones,Some,0.01,comp_allprob
+295,melted crayons,Some,0.01,comp_allprob
+295,were green strawberries,Some,0.01,comp_allprob
+295,stopped motorcycles,Some,0.01,comp_allprob
+295,popped balloons,Some,0.01,comp_allprob
+295,ate the seeds dogs,Some,0.01,comp_allprob
+295,dissolved oreos,Some,0.01,comp_allprob
+295,decomposed pinecones,Some,0.01,comp_allprob
+295,rolled wheelchairs,Some,0.01,comp_allprob
+296,burnt matches,Some,0.01,comp_allprob
+296,stuck stickers,Some,0.01,comp_allprob
+296,got stained white tablecloths,Some,0.01,comp_allprob
+296,stopped bicycles,Some,0.01,comp_allprob
+296,exploded CDs,Some,0.01,comp_allprob
+296,ran out of batteries bike lights,Some,0.01,comp_allprob
+296,melted ice cubes,Some,0.01,comp_allprob
+296,beeped houses,Some,0.01,comp_allprob
+296,honked taxi drivers,Some,0.01,comp_allprob
+296,ripped shirts,Some,0.01,comp_allprob
+297,blew away backpacks,Some,0.01,comp_allprob
+297,got stained white tablecloths,Some,0.01,comp_allprob
+297,laughed kids,Some,0.01,comp_allprob
+297,sank marbles,Some,0.01,comp_allprob
+297,popped balloons,Some,0.01,comp_allprob
+297,exploded candles,Some,0.01,comp_allprob
+297,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+297,reflected the sunlight phone screens,Some,0.01,comp_allprob
+297,stuck beads,Some,0.01,comp_allprob
+297,decomposed soda cans,Some,0.01,comp_allprob
+298,ripped shirts,Some,0.01,comp_allprob
+298,dissolved oreos,Some,0.01,comp_allprob
+298,blew away backpacks,Some,0.01,comp_allprob
+298,stuck sequins,Some,0.01,comp_allprob
+298,beeped old cars,Some,0.01,comp_allprob
 298,popped bubbles,Some,0.5,comp_allprob
 298,ate the seeds birds,Some,0.6,comp_allprob
-298,had the letter Z in them novels,Some,0.999,comp_allprob
-298,landed flat coins,Some,0.999,comp_allprob
-298,rhymed limericks,Some,0.001,comp_allprob
-299,froze bottles of hand soap,Some,0.001,comp_allprob
-299,exploded balls of tin foil,Some,0.001,comp_allprob
-299,sank marbles,Some,0.001,comp_allprob
-299,got stained white shirts,Some,0.001,comp_allprob
-299,flashed webcams,Some,0.001,comp_allprob
-299,rhymed poems,Some,0.001,comp_allprob
-299,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-299,landed flat notebooks,Some,0.001,comp_allprob
-299,decomposed soda cans,Some,0.001,comp_allprob
-299,rolled toy cars,Some,0.001,comp_allprob
-300,had the letter Z in them love notes,Some,0.001,comp_allprob
-300,stuck stickers,Some,0.001,comp_allprob
-300,broke boxes,Some,0.001,comp_allprob
-300,flashed webcams,Some,0.001,comp_allprob
-300,popped balloons,Some,0.001,comp_allprob
-300,were green strawberries,Some,0.001,comp_allprob
-300,beeped houses,Some,0.001,comp_allprob
-300,sank cups,Some,0.001,comp_allprob
-300,melted pencils,Some,0.001,comp_allprob
-300,rhymed poems,Some,0.001,comp_allprob
+298,had the letter Z in them novels,Some,0.99,comp_allprob
+298,landed flat coins,Some,0.99,comp_allprob
+298,rhymed limericks,Some,0.01,comp_allprob
+299,froze bottles of hand soap,Some,0.01,comp_allprob
+299,exploded balls of tin foil,Some,0.01,comp_allprob
+299,sank marbles,Some,0.01,comp_allprob
+299,got stained white shirts,Some,0.01,comp_allprob
+299,flashed webcams,Some,0.01,comp_allprob
+299,rhymed poems,Some,0.01,comp_allprob
+299,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+299,landed flat notebooks,Some,0.01,comp_allprob
+299,decomposed soda cans,Some,0.01,comp_allprob
+299,rolled toy cars,Some,0.01,comp_allprob
+300,had the letter Z in them love notes,Some,0.01,comp_allprob
+300,stuck stickers,Some,0.01,comp_allprob
+300,broke boxes,Some,0.01,comp_allprob
+300,flashed webcams,Some,0.01,comp_allprob
+300,popped balloons,Some,0.01,comp_allprob
+300,were green strawberries,Some,0.01,comp_allprob
+300,beeped houses,Some,0.01,comp_allprob
+300,sank cups,Some,0.01,comp_allprob
+300,melted pencils,Some,0.01,comp_allprob
+300,rhymed poems,Some,0.01,comp_allprob
 301,landed flat notebooks,Some,0.2,comp_allprob
 301,decomposed pinecones,Some,0.2,comp_allprob
 301,ate the seeds dogs,Some,0.3,comp_allprob
@@ -3014,26 +3014,26 @@ subject,item,utterance,response,measure
 301,rolled wheelchairs,Some,0.3,comp_allprob
 301,melted pencils,Some,0.3,comp_allprob
 301,got stained white tablecloths,Some,0.2,comp_allprob
-302,dissolved oreos,Some,0.001,comp_allprob
-302,fell down shelves,Some,0.001,comp_allprob
-302,popped eggs,Some,0.001,comp_allprob
-302,stuck to the wall baseballs,Some,0.001,comp_allprob
-302,had the letter Z in them love notes,Some,0.001,comp_allprob
-302,broke boxes,Some,0.001,comp_allprob
-302,reflected the sunlight mirrors,Some,0.001,comp_allprob
-302,decomposed pinecones,Some,0.001,comp_allprob
-302,ripped shoes,Some,0.001,comp_allprob
-302,stopped bicycles,Some,0.001,comp_allprob
+302,dissolved oreos,Some,0.01,comp_allprob
+302,fell down shelves,Some,0.01,comp_allprob
+302,popped eggs,Some,0.01,comp_allprob
+302,stuck to the wall baseballs,Some,0.01,comp_allprob
+302,had the letter Z in them love notes,Some,0.01,comp_allprob
+302,broke boxes,Some,0.01,comp_allprob
+302,reflected the sunlight mirrors,Some,0.01,comp_allprob
+302,decomposed pinecones,Some,0.01,comp_allprob
+302,ripped shoes,Some,0.01,comp_allprob
+302,stopped bicycles,Some,0.01,comp_allprob
 303,ripped shoes,Some,0.2,comp_allprob
-303,beeped old cars,Some,0.001,comp_allprob
-303,popped balloons,Some,0.001,comp_allprob
-303,froze bottles of hand soap,Some,0.001,comp_allprob
-303,ate the seeds dogs,Some,0.001,comp_allprob
-303,fell down block towers,Some,0.001,comp_allprob
-303,stuck to the wall cakes,Some,0.001,comp_allprob
-303,landed flat pancakes,Some,0.001,comp_allprob
-303,reflected the sunlight phone screens,Some,0.001,comp_allprob
-303,decomposed soda cans,Some,0.001,comp_allprob
+303,beeped old cars,Some,0.01,comp_allprob
+303,popped balloons,Some,0.01,comp_allprob
+303,froze bottles of hand soap,Some,0.01,comp_allprob
+303,ate the seeds dogs,Some,0.01,comp_allprob
+303,fell down block towers,Some,0.01,comp_allprob
+303,stuck to the wall cakes,Some,0.01,comp_allprob
+303,landed flat pancakes,Some,0.01,comp_allprob
+303,reflected the sunlight phone screens,Some,0.01,comp_allprob
+303,decomposed soda cans,Some,0.01,comp_allprob
 304,stopped cars,Some,0.3,comp_allprob
 304,froze berries,Some,0.2,comp_allprob
 304,fell down shelves,Some,0.3,comp_allprob
@@ -3047,33 +3047,33 @@ subject,item,utterance,response,measure
 305,burnt matches,Some,0.2,comp_allprob
 305,laughed kids,Some,0.3,comp_allprob
 305,blew away hats,Some,0.4,comp_allprob
-305,exploded fireworks,Some,0.001,comp_allprob
+305,exploded fireworks,Some,0.01,comp_allprob
 305,ate the seeds dogs,Some,0.3,comp_allprob
 305,were green bananas,Some,0.3,comp_allprob
-305,exploded balls of tin foil,Some,0.001,comp_allprob
+305,exploded balls of tin foil,Some,0.01,comp_allprob
 305,had the letter Z in them love notes,Some,0.2,comp_allprob
 305,honked taxi drivers,Some,0.3,comp_allprob
-305,got stained white carpets,Some,0.001,comp_allprob
-306,decomposed pinecones,Some,0.001,comp_allprob
-306,blew away hats,Some,0.001,comp_allprob
-306,exploded candles,Some,0.001,comp_allprob
-306,melted pencils,Some,0.001,comp_allprob
-306,ripped books,Some,0.001,comp_allprob
-306,laughed kids,Some,0.001,comp_allprob
-306,sank marbles,Some,0.001,comp_allprob
-306,got stained white tablecloths,Some,0.001,comp_allprob
-306,stuck to the wall cakes,Some,0.001,comp_allprob
+305,got stained white carpets,Some,0.01,comp_allprob
+306,decomposed pinecones,Some,0.01,comp_allprob
+306,blew away hats,Some,0.01,comp_allprob
+306,exploded candles,Some,0.01,comp_allprob
+306,melted pencils,Some,0.01,comp_allprob
+306,ripped books,Some,0.01,comp_allprob
+306,laughed kids,Some,0.01,comp_allprob
+306,sank marbles,Some,0.01,comp_allprob
+306,got stained white tablecloths,Some,0.01,comp_allprob
+306,stuck to the wall cakes,Some,0.01,comp_allprob
 306,flashed cameras,Some,0.3,comp_allprob
-307,fell down shelves,Some,0.001,comp_allprob
-307,lit up computers,Some,0.001,comp_allprob
-307,melted crayons,Some,0.001,comp_allprob
-307,ripped shoes,Some,0.001,comp_allprob
-307,stuck stickers,Some,0.001,comp_allprob
-307,got stained white tablecloths,Some,0.001,comp_allprob
-307,broke logs,Some,0.001,comp_allprob
-307,ran out of batteries laptops,Some,0.001,comp_allprob
-307,beeped old cars,Some,0.001,comp_allprob
-307,had the letter Z in them love notes,Some,0.001,comp_allprob
+307,fell down shelves,Some,0.01,comp_allprob
+307,lit up computers,Some,0.01,comp_allprob
+307,melted crayons,Some,0.01,comp_allprob
+307,ripped shoes,Some,0.01,comp_allprob
+307,stuck stickers,Some,0.01,comp_allprob
+307,got stained white tablecloths,Some,0.01,comp_allprob
+307,broke logs,Some,0.01,comp_allprob
+307,ran out of batteries laptops,Some,0.01,comp_allprob
+307,beeped old cars,Some,0.01,comp_allprob
+307,had the letter Z in them love notes,Some,0.01,comp_allprob
 308,ate the seeds dogs,Some,0.2,comp_allprob
 308,ripped shoes,Some,0.2,comp_allprob
 308,got stained white tablecloths,Some,0.2,comp_allprob
@@ -3084,26 +3084,26 @@ subject,item,utterance,response,measure
 308,blew away hats,Some,0.2,comp_allprob
 308,had the letter Z in them birthday cards,Some,0.1,comp_allprob
 308,were green strawberries,Some,0.2,comp_allprob
-309,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-309,melted crayons,Some,0.001,comp_allprob
-309,burnt books,Some,0.001,comp_allprob
-309,exploded eggs,Some,0.001,comp_allprob
+309,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+309,melted crayons,Some,0.01,comp_allprob
+309,burnt books,Some,0.01,comp_allprob
+309,exploded eggs,Some,0.01,comp_allprob
 309,broke sunglasses,Some,0.1,comp_allprob
 309,honked bicyclists,Some,0.1,comp_allprob
 309,exploded fireworks,Some,0.1,comp_allprob
 309,rhymed limericks,Some,0.1,comp_allprob
-309,stuck beads,Some,0.001,comp_allprob
+309,stuck beads,Some,0.01,comp_allprob
 309,ran out of batteries phones,Some,0.1,comp_allprob
 310,got stained white shirts,Some,0.1,comp_allprob
 310,laughed lawyers,Some,0.1,comp_allprob
-310,ate the seeds butterflies,Some,0.001,comp_allprob
-310,exploded eggs,Some,0.001,comp_allprob
-310,popped bubbles,Some,0.001,comp_allprob
-310,ran out of batteries bike lights,Some,0.001,comp_allprob
-310,exploded gas tanks,Some,0.001,comp_allprob
-310,decomposed soda cans,Some,0.001,comp_allprob
-310,fell down block towers,Some,0.001,comp_allprob
-310,honked bus drivers,Some,0.001,comp_allprob
+310,ate the seeds butterflies,Some,0.01,comp_allprob
+310,exploded eggs,Some,0.01,comp_allprob
+310,popped bubbles,Some,0.01,comp_allprob
+310,ran out of batteries bike lights,Some,0.01,comp_allprob
+310,exploded gas tanks,Some,0.01,comp_allprob
+310,decomposed soda cans,Some,0.01,comp_allprob
+310,fell down block towers,Some,0.01,comp_allprob
+310,honked bus drivers,Some,0.01,comp_allprob
 311,decomposed soda cans,Some,0.3,comp_allprob
 311,stopped motorcycles,Some,0.3,comp_allprob
 311,ate the seeds dogs,Some,0.3,comp_allprob
@@ -3114,56 +3114,56 @@ subject,item,utterance,response,measure
 311,ripped books,Some,0.3,comp_allprob
 311,fell down card towers,Some,0.4,comp_allprob
 311,rolled toy cars,Some,0.3,comp_allprob
-312,blew away napkins,Some,0.001,comp_allprob
+312,blew away napkins,Some,0.01,comp_allprob
 312,fell down block towers,Some,0.1,comp_allprob
-312,stopped cars,Some,0.001,comp_allprob
-312,ripped shirts,Some,0.001,comp_allprob
-312,ate the seeds butterflies,Some,0.001,comp_allprob
-312,rolled shopping carts,Some,0.001,comp_allprob
-312,broke sunglasses,Some,0.001,comp_allprob
-312,stuck sequins,Some,0.001,comp_allprob
-312,burnt rocks,Some,0.001,comp_allprob
-312,decomposed soda cans,Some,0.001,comp_allprob
-313,blew away hats,Some,0.001,comp_allprob
-313,landed flat pancakes,Some,0.001,comp_allprob
-313,were green strawberries,Some,0.001,comp_allprob
-313,reflected the sunlight mirrors,Some,0.001,comp_allprob
-313,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-313,burnt books,Some,0.001,comp_allprob
-313,ate the seeds birds,Some,0.001,comp_allprob
-313,froze bottles of hand soap,Some,0.001,comp_allprob
-313,beeped new cars,Some,0.001,comp_allprob
-313,exploded CDs,Some,0.001,comp_allprob
+312,stopped cars,Some,0.01,comp_allprob
+312,ripped shirts,Some,0.01,comp_allprob
+312,ate the seeds butterflies,Some,0.01,comp_allprob
+312,rolled shopping carts,Some,0.01,comp_allprob
+312,broke sunglasses,Some,0.01,comp_allprob
+312,stuck sequins,Some,0.01,comp_allprob
+312,burnt rocks,Some,0.01,comp_allprob
+312,decomposed soda cans,Some,0.01,comp_allprob
+313,blew away hats,Some,0.01,comp_allprob
+313,landed flat pancakes,Some,0.01,comp_allprob
+313,were green strawberries,Some,0.01,comp_allprob
+313,reflected the sunlight mirrors,Some,0.01,comp_allprob
+313,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+313,burnt books,Some,0.01,comp_allprob
+313,ate the seeds birds,Some,0.01,comp_allprob
+313,froze bottles of hand soap,Some,0.01,comp_allprob
+313,beeped new cars,Some,0.01,comp_allprob
+313,exploded CDs,Some,0.01,comp_allprob
 314,beeped old cars,Some,0.2,comp_allprob
-314,burnt matches,Some,0.001,comp_allprob
+314,burnt matches,Some,0.01,comp_allprob
 314,landed flat notebooks,Some,0.3,comp_allprob
-314,broke logs,Some,0.001,comp_allprob
-314,melted crayons,Some,0.001,comp_allprob
-314,ripped shirts,Some,0.001,comp_allprob
+314,broke logs,Some,0.01,comp_allprob
+314,melted crayons,Some,0.01,comp_allprob
+314,ripped shirts,Some,0.01,comp_allprob
 314,stuck sequins,Some,0.3,comp_allprob
-314,blew away napkins,Some,0.001,comp_allprob
-314,ate the seeds butterflies,Some,0.001,comp_allprob
-314,stuck to the wall baseballs,Some,0.001,comp_allprob
-315,ran out of batteries laptops,Some,0.001,comp_allprob
-315,blew away backpacks,Some,0.001,comp_allprob
-315,melted ice cubes,Some,0.001,comp_allprob
-315,exploded candles,Some,0.001,comp_allprob
-315,rhymed songs,Some,0.001,comp_allprob
-315,burnt rocks,Some,0.001,comp_allprob
-315,exploded eggs,Some,0.001,comp_allprob
-315,froze chocolate bars,Some,0.001,comp_allprob
-315,landed flat pancakes,Some,0.001,comp_allprob
-315,ate the seeds dogs,Some,0.001,comp_allprob
+314,blew away napkins,Some,0.01,comp_allprob
+314,ate the seeds butterflies,Some,0.01,comp_allprob
+314,stuck to the wall baseballs,Some,0.01,comp_allprob
+315,ran out of batteries laptops,Some,0.01,comp_allprob
+315,blew away backpacks,Some,0.01,comp_allprob
+315,melted ice cubes,Some,0.01,comp_allprob
+315,exploded candles,Some,0.01,comp_allprob
+315,rhymed songs,Some,0.01,comp_allprob
+315,burnt rocks,Some,0.01,comp_allprob
+315,exploded eggs,Some,0.01,comp_allprob
+315,froze chocolate bars,Some,0.01,comp_allprob
+315,landed flat pancakes,Some,0.01,comp_allprob
+315,ate the seeds dogs,Some,0.01,comp_allprob
 316,stopped cars,Some,0.3,comp_allprob
 316,fell down block towers,Some,0.3,comp_allprob
 316,beeped houses,Some,0.3,comp_allprob
-316,melted crayons,Some,0.001,comp_allprob
-316,ripped books,Some,0.001,comp_allprob
-316,reflected the sunlight diamonds,Some,0.001,comp_allprob
-316,landed flat pancakes,Some,0.001,comp_allprob
-316,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-316,blew away backpacks,Some,0.001,comp_allprob
-316,rhymed poems,Some,0.001,comp_allprob
+316,melted crayons,Some,0.01,comp_allprob
+316,ripped books,Some,0.01,comp_allprob
+316,reflected the sunlight diamonds,Some,0.01,comp_allprob
+316,landed flat pancakes,Some,0.01,comp_allprob
+316,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+316,blew away backpacks,Some,0.01,comp_allprob
+316,rhymed poems,Some,0.01,comp_allprob
 317,burnt books,Some,0.4,comp_allprob
 317,froze berries,Some,0.3,comp_allprob
 317,rolled toy cars,Some,0.5,comp_allprob
@@ -3174,16 +3174,16 @@ subject,item,utterance,response,measure
 317,beeped new cars,Some,0.9,comp_allprob
 317,landed flat coins,Some,0.8,comp_allprob
 317,fell down shelves,Some,0.4,comp_allprob
-318,ran out of batteries phones,Some,0.001,comp_allprob
-318,froze chocolate bars,Some,0.001,comp_allprob
-318,decomposed banana peels,Some,0.001,comp_allprob
-318,dissolved carrots,Some,0.001,comp_allprob
-318,exploded fireworks,Some,0.001,comp_allprob
-318,stopped cars,Some,0.001,comp_allprob
-318,got stained white shirts,Some,0.001,comp_allprob
-318,flashed webcams,Some,0.001,comp_allprob
-318,ate the seeds butterflies,Some,0.001,comp_allprob
-318,reflected the sunlight mirrors,Some,0.001,comp_allprob
+318,ran out of batteries phones,Some,0.01,comp_allprob
+318,froze chocolate bars,Some,0.01,comp_allprob
+318,decomposed banana peels,Some,0.01,comp_allprob
+318,dissolved carrots,Some,0.01,comp_allprob
+318,exploded fireworks,Some,0.01,comp_allprob
+318,stopped cars,Some,0.01,comp_allprob
+318,got stained white shirts,Some,0.01,comp_allprob
+318,flashed webcams,Some,0.01,comp_allprob
+318,ate the seeds butterflies,Some,0.01,comp_allprob
+318,reflected the sunlight mirrors,Some,0.01,comp_allprob
 319,dissolved oreos,Some,0.3,comp_allprob
 319,ripped shirts,Some,0.4,comp_allprob
 319,landed flat notebooks,Some,0.3,comp_allprob
@@ -3195,25 +3195,25 @@ subject,item,utterance,response,measure
 319,broke sunglasses,Some,0.1,comp_allprob
 319,stuck to the wall baseballs,Some,0.2,comp_allprob
 320,flashed phones,Some,0.2,comp_allprob
-320,sank cups,Some,0.001,comp_allprob
-320,froze bottles of hand soap,Some,0.001,comp_allprob
-320,ripped books,Some,0.001,comp_allprob
+320,sank cups,Some,0.01,comp_allprob
+320,froze bottles of hand soap,Some,0.01,comp_allprob
+320,ripped books,Some,0.01,comp_allprob
 320,got stained white tablecloths,Some,0.1,comp_allprob
-320,ate the seeds dogs,Some,0.001,comp_allprob
-320,fell down shelves,Some,0.001,comp_allprob
-320,blew away napkins,Some,0.001,comp_allprob
-320,broke boxes,Some,0.001,comp_allprob
-320,melted crayons,Some,0.001,comp_allprob
-321,ate the seeds butterflies,Some,0.001,comp_allprob
-321,decomposed soda cans,Some,0.001,comp_allprob
-321,ran out of batteries laptops,Some,0.001,comp_allprob
-321,stopped motorcycles,Some,0.001,comp_allprob
-321,rolled wheelchairs,Some,0.001,comp_allprob
-321,ripped shoes,Some,0.001,comp_allprob
-321,popped eggs,Some,0.001,comp_allprob
-321,stuck to the wall baseballs,Some,0.001,comp_allprob
-321,froze berries,Some,0.001,comp_allprob
-321,reflected the sunlight diamonds,Some,0.001,comp_allprob
+320,ate the seeds dogs,Some,0.01,comp_allprob
+320,fell down shelves,Some,0.01,comp_allprob
+320,blew away napkins,Some,0.01,comp_allprob
+320,broke boxes,Some,0.01,comp_allprob
+320,melted crayons,Some,0.01,comp_allprob
+321,ate the seeds butterflies,Some,0.01,comp_allprob
+321,decomposed soda cans,Some,0.01,comp_allprob
+321,ran out of batteries laptops,Some,0.01,comp_allprob
+321,stopped motorcycles,Some,0.01,comp_allprob
+321,rolled wheelchairs,Some,0.01,comp_allprob
+321,ripped shoes,Some,0.01,comp_allprob
+321,popped eggs,Some,0.01,comp_allprob
+321,stuck to the wall baseballs,Some,0.01,comp_allprob
+321,froze berries,Some,0.01,comp_allprob
+321,reflected the sunlight diamonds,Some,0.01,comp_allprob
 322,decomposed banana peels,Some,0.2,comp_allprob
 322,stopped cars,Some,0.1,comp_allprob
 322,popped eggs,Some,0.2,comp_allprob
@@ -3224,36 +3224,36 @@ subject,item,utterance,response,measure
 322,got stained white carpets,Some,0.3,comp_allprob
 322,lit up cd-players,Some,0.3,comp_allprob
 322,beeped old cars,Some,0.3,comp_allprob
-323,froze chocolate bars,Some,0.001,comp_allprob
-323,honked bicyclists,Some,0.001,comp_allprob
+323,froze chocolate bars,Some,0.01,comp_allprob
+323,honked bicyclists,Some,0.01,comp_allprob
 323,ran out of batteries phones,Some,0.1,comp_allprob
 323,flashed webcams,Some,0.1,comp_allprob
-323,popped bubbles,Some,0.001,comp_allprob
+323,popped bubbles,Some,0.01,comp_allprob
 323,melted crayons,Some,0.2,comp_allprob
 323,ate the seeds butterflies,Some,0.1,comp_allprob
 323,dissolved sugar cubes,Some,0.1,comp_allprob
 323,had the letter Z in them love notes,Some,0.1,comp_allprob
-323,burnt rocks,Some,0.001,comp_allprob
-324,decomposed banana peels,Some,0.001,comp_allprob
-324,exploded candles,Some,0.001,comp_allprob
-324,laughed lawyers,Some,0.001,comp_allprob
-324,broke sunglasses,Some,0.001,comp_allprob
-324,lit up computers,Some,0.001,comp_allprob
-324,got stained white tablecloths,Some,0.001,comp_allprob
-324,had the letter Z in them love notes,Some,0.001,comp_allprob
-324,ripped shoes,Some,0.001,comp_allprob
-324,stopped motorcycles,Some,0.001,comp_allprob
-324,beeped new cars,Some,0.001,comp_allprob
-325,exploded balls of tin foil,Some,0.001,comp_allprob
-325,got stained white tablecloths,Some,0.001,comp_allprob
+323,burnt rocks,Some,0.01,comp_allprob
+324,decomposed banana peels,Some,0.01,comp_allprob
+324,exploded candles,Some,0.01,comp_allprob
+324,laughed lawyers,Some,0.01,comp_allprob
+324,broke sunglasses,Some,0.01,comp_allprob
+324,lit up computers,Some,0.01,comp_allprob
+324,got stained white tablecloths,Some,0.01,comp_allprob
+324,had the letter Z in them love notes,Some,0.01,comp_allprob
+324,ripped shoes,Some,0.01,comp_allprob
+324,stopped motorcycles,Some,0.01,comp_allprob
+324,beeped new cars,Some,0.01,comp_allprob
+325,exploded balls of tin foil,Some,0.01,comp_allprob
+325,got stained white tablecloths,Some,0.01,comp_allprob
 325,melted pencils,Some,0.3,comp_allprob
-325,beeped houses,Some,0.001,comp_allprob
-325,were green bananas,Some,0.001,comp_allprob
+325,beeped houses,Some,0.01,comp_allprob
+325,were green bananas,Some,0.01,comp_allprob
 325,honked bus drivers,Some,0.3,comp_allprob
-325,laughed comedians,Some,0.001,comp_allprob
-325,sank cups,Some,0.001,comp_allprob
-325,popped balloons,Some,0.001,comp_allprob
-325,burnt rocks,Some,0.001,comp_allprob
+325,laughed comedians,Some,0.01,comp_allprob
+325,sank cups,Some,0.01,comp_allprob
+325,popped balloons,Some,0.01,comp_allprob
+325,burnt rocks,Some,0.01,comp_allprob
 326,ran out of batteries bike lights,Some,0.1,comp_allprob
 326,ate the seeds butterflies,Some,0.2,comp_allprob
 326,exploded fireworks,Some,0.2,comp_allprob
@@ -3264,36 +3264,36 @@ subject,item,utterance,response,measure
 326,rolled wheelchairs,Some,0.3,comp_allprob
 326,stuck to the wall baseballs,Some,0.2,comp_allprob
 326,decomposed soda cans,Some,0.2,comp_allprob
-327,flashed cameras,Some,0.001,comp_allprob
-327,rolled shopping carts,Some,0.001,comp_allprob
-327,sank balloons,Some,0.001,comp_allprob
-327,exploded eggs,Some,0.001,comp_allprob
-327,popped bubbles,Some,0.001,comp_allprob
-327,landed flat pancakes,Some,0.001,comp_allprob
-327,ripped shirts,Some,0.001,comp_allprob
-327,froze bottles of hand soap,Some,0.001,comp_allprob
-327,stuck to the wall cakes,Some,0.001,comp_allprob
-327,fell down card towers,Some,0.001,comp_allprob
-328,exploded balls of tin foil,Some,0.001,comp_allprob
-328,beeped new cars,Some,0.001,comp_allprob
-328,laughed kids,Some,0.001,comp_allprob
-328,reflected the sunlight diamonds,Some,0.001,comp_allprob
-328,rolled shopping carts,Some,0.001,comp_allprob
+327,flashed cameras,Some,0.01,comp_allprob
+327,rolled shopping carts,Some,0.01,comp_allprob
+327,sank balloons,Some,0.01,comp_allprob
+327,exploded eggs,Some,0.01,comp_allprob
+327,popped bubbles,Some,0.01,comp_allprob
+327,landed flat pancakes,Some,0.01,comp_allprob
+327,ripped shirts,Some,0.01,comp_allprob
+327,froze bottles of hand soap,Some,0.01,comp_allprob
+327,stuck to the wall cakes,Some,0.01,comp_allprob
+327,fell down card towers,Some,0.01,comp_allprob
+328,exploded balls of tin foil,Some,0.01,comp_allprob
+328,beeped new cars,Some,0.01,comp_allprob
+328,laughed kids,Some,0.01,comp_allprob
+328,reflected the sunlight diamonds,Some,0.01,comp_allprob
+328,rolled shopping carts,Some,0.01,comp_allprob
 328,burnt books,Some,0.1,comp_allprob
 328,sank marbles,Some,0.1,comp_allprob
-328,stuck to the wall pieces of gum,Some,0.001,comp_allprob
+328,stuck to the wall pieces of gum,Some,0.01,comp_allprob
 328,got stained white shirts,Some,0.1,comp_allprob
-328,had the letter Z in them love notes,Some,0.001,comp_allprob
-329,popped bubbles,Some,0.001,comp_allprob
-329,got stained white carpets,Some,0.001,comp_allprob
-329,rolled wheelchairs,Some,0.001,comp_allprob
-329,lit up cd-players,Some,0.001,comp_allprob
-329,were green clovers,Some,0.001,comp_allprob
-329,exploded gas tanks,Some,0.001,comp_allprob
-329,laughed lawyers,Some,0.001,comp_allprob
-329,broke sunglasses,Some,0.001,comp_allprob
-329,dissolved carrots,Some,0.001,comp_allprob
-329,sank cups,Some,0.001,comp_allprob
+328,had the letter Z in them love notes,Some,0.01,comp_allprob
+329,popped bubbles,Some,0.01,comp_allprob
+329,got stained white carpets,Some,0.01,comp_allprob
+329,rolled wheelchairs,Some,0.01,comp_allprob
+329,lit up cd-players,Some,0.01,comp_allprob
+329,were green clovers,Some,0.01,comp_allprob
+329,exploded gas tanks,Some,0.01,comp_allprob
+329,laughed lawyers,Some,0.01,comp_allprob
+329,broke sunglasses,Some,0.01,comp_allprob
+329,dissolved carrots,Some,0.01,comp_allprob
+329,sank cups,Some,0.01,comp_allprob
 330,reflected the sunlight diamonds,Some,0.3,comp_allprob
 330,exploded eggs,Some,0.1,comp_allprob
 330,laughed kids,Some,0.3,comp_allprob
@@ -3304,76 +3304,76 @@ subject,item,utterance,response,measure
 330,stuck stickers,Some,0.4,comp_allprob
 330,broke boxes,Some,0.3,comp_allprob
 330,decomposed soda cans,Some,0.3,comp_allprob
-331,honked taxi drivers,Some,0.001,comp_allprob
+331,honked taxi drivers,Some,0.01,comp_allprob
 331,froze chocolate bars,Some,0.5,comp_allprob
-331,ate the seeds butterflies,Some,0.001,comp_allprob
-331,decomposed soda cans,Some,0.001,comp_allprob
-331,burnt rocks,Some,0.001,comp_allprob
-331,laughed lawyers,Some,0.001,comp_allprob
-331,ran out of batteries bike lights,Some,0.001,comp_allprob
-331,reflected the sunlight mirrors,Some,0.001,comp_allprob
-331,stuck to the wall pieces of gum,Some,0.001,comp_allprob
+331,ate the seeds butterflies,Some,0.01,comp_allprob
+331,decomposed soda cans,Some,0.01,comp_allprob
+331,burnt rocks,Some,0.01,comp_allprob
+331,laughed lawyers,Some,0.01,comp_allprob
+331,ran out of batteries bike lights,Some,0.01,comp_allprob
+331,reflected the sunlight mirrors,Some,0.01,comp_allprob
+331,stuck to the wall pieces of gum,Some,0.01,comp_allprob
 331,got stained white carpets,Some,0.4,comp_allprob
-332,laughed kids,Some,0.001,comp_allprob
+332,laughed kids,Some,0.01,comp_allprob
 332,beeped houses,Some,0.1,comp_allprob
-332,exploded CDs,Some,0.001,comp_allprob
-332,ran out of batteries bike lights,Some,0.001,comp_allprob
+332,exploded CDs,Some,0.01,comp_allprob
+332,ran out of batteries bike lights,Some,0.01,comp_allprob
 332,melted ice cubes,Some,0.6,comp_allprob
 332,stuck to the wall pieces of gum,Some,0.2,comp_allprob
 332,rhymed songs,Some,0.5,comp_allprob
 332,landed flat coins,Some,0.4,comp_allprob
 332,were green bananas,Some,0.2,comp_allprob
 332,reflected the sunlight phone screens,Some,0.2,comp_allprob
-333,flashed webcams,Some,0.001,comp_allprob
-333,ate the seeds birds,Some,0.001,comp_allprob
+333,flashed webcams,Some,0.01,comp_allprob
+333,ate the seeds birds,Some,0.01,comp_allprob
 333,exploded balls of tin foil,Some,0.3,comp_allprob
 333,sank balloons,Some,0.3,comp_allprob
 333,laughed comedians,Some,0.3,comp_allprob
-333,decomposed pinecones,Some,0.001,comp_allprob
-333,were green strawberries,Some,0.001,comp_allprob
-333,reflected the sunlight phone screens,Some,0.001,comp_allprob
-333,fell down card towers,Some,0.001,comp_allprob
-333,blew away hats,Some,0.001,comp_allprob
+333,decomposed pinecones,Some,0.01,comp_allprob
+333,were green strawberries,Some,0.01,comp_allprob
+333,reflected the sunlight phone screens,Some,0.01,comp_allprob
+333,fell down card towers,Some,0.01,comp_allprob
+333,blew away hats,Some,0.01,comp_allprob
 334,flashed webcams,Some,0.1,comp_allprob
-334,beeped old cars,Some,0.001,comp_allprob
-334,stopped bicycles,Some,0.001,comp_allprob
-334,burnt matches,Some,0.001,comp_allprob
-334,laughed lawyers,Some,0.001,comp_allprob
-334,stuck stickers,Some,0.001,comp_allprob
-334,decomposed pinecones,Some,0.001,comp_allprob
-334,landed flat coins,Some,0.001,comp_allprob
-334,ripped shirts,Some,0.001,comp_allprob
-334,got stained white carpets,Some,0.001,comp_allprob
+334,beeped old cars,Some,0.01,comp_allprob
+334,stopped bicycles,Some,0.01,comp_allprob
+334,burnt matches,Some,0.01,comp_allprob
+334,laughed lawyers,Some,0.01,comp_allprob
+334,stuck stickers,Some,0.01,comp_allprob
+334,decomposed pinecones,Some,0.01,comp_allprob
+334,landed flat coins,Some,0.01,comp_allprob
+334,ripped shirts,Some,0.01,comp_allprob
+334,got stained white carpets,Some,0.01,comp_allprob
 335,were green clovers,Some,0.4,comp_allprob
-335,blew away backpacks,Some,0.001,comp_allprob
-335,beeped new cars,Some,0.001,comp_allprob
-335,ripped shoes,Some,0.001,comp_allprob
-335,burnt matches,Some,0.001,comp_allprob
-335,exploded fireworks,Some,0.001,comp_allprob
-335,reflected the sunlight phone screens,Some,0.001,comp_allprob
-335,laughed comedians,Some,0.001,comp_allprob
-335,rolled wheelchairs,Some,0.001,comp_allprob
-335,decomposed pinecones,Some,0.001,comp_allprob
+335,blew away backpacks,Some,0.01,comp_allprob
+335,beeped new cars,Some,0.01,comp_allprob
+335,ripped shoes,Some,0.01,comp_allprob
+335,burnt matches,Some,0.01,comp_allprob
+335,exploded fireworks,Some,0.01,comp_allprob
+335,reflected the sunlight phone screens,Some,0.01,comp_allprob
+335,laughed comedians,Some,0.01,comp_allprob
+335,rolled wheelchairs,Some,0.01,comp_allprob
+335,decomposed pinecones,Some,0.01,comp_allprob
 336,landed flat pancakes,Some,0.3,comp_allprob
 336,got stained white shirts,Some,0.3,comp_allprob
 336,broke boxes,Some,0.3,comp_allprob
-336,rolled wheelchairs,Some,0.001,comp_allprob
-336,lit up computers,Some,0.001,comp_allprob
-336,decomposed pinecones,Some,0.001,comp_allprob
+336,rolled wheelchairs,Some,0.01,comp_allprob
+336,lit up computers,Some,0.01,comp_allprob
+336,decomposed pinecones,Some,0.01,comp_allprob
 336,dissolved oreos,Some,0.3,comp_allprob
-336,fell down shelves,Some,0.001,comp_allprob
+336,fell down shelves,Some,0.01,comp_allprob
 336,honked bicyclists,Some,0.3,comp_allprob
 336,reflected the sunlight mirrors,Some,0.1,comp_allprob
-337,ripped shoes,Some,0.001,comp_allprob
-337,lit up computers,Some,0.001,comp_allprob
-337,decomposed pinecones,Some,0.001,comp_allprob
-337,laughed comedians,Some,0.001,comp_allprob
-337,landed flat pancakes,Some,0.001,comp_allprob
-337,ran out of batteries bike lights,Some,0.001,comp_allprob
-337,exploded CDs,Some,0.001,comp_allprob
-337,exploded gas tanks,Some,0.001,comp_allprob
-337,rhymed limericks,Some,0.001,comp_allprob
-337,froze berries,Some,0.001,comp_allprob
+337,ripped shoes,Some,0.01,comp_allprob
+337,lit up computers,Some,0.01,comp_allprob
+337,decomposed pinecones,Some,0.01,comp_allprob
+337,laughed comedians,Some,0.01,comp_allprob
+337,landed flat pancakes,Some,0.01,comp_allprob
+337,ran out of batteries bike lights,Some,0.01,comp_allprob
+337,exploded CDs,Some,0.01,comp_allprob
+337,exploded gas tanks,Some,0.01,comp_allprob
+337,rhymed limericks,Some,0.01,comp_allprob
+337,froze berries,Some,0.01,comp_allprob
 338,honked bicyclists,Some,0.2,comp_allprob
 338,decomposed banana peels,Some,0.3,comp_allprob
 338,broke sunglasses,Some,0.2,comp_allprob
@@ -3385,7 +3385,7 @@ subject,item,utterance,response,measure
 338,were green clovers,Some,0.2,comp_allprob
 338,froze chocolate bars,Some,0.3,comp_allprob
 339,burnt matches,Some,0.1,comp_allprob
-339,sank balloons,Some,0.001,comp_allprob
+339,sank balloons,Some,0.01,comp_allprob
 339,stopped bicycles,Some,0.2,comp_allprob
 339,froze chocolate bars,Some,0.1,comp_allprob
 339,stuck to the wall cakes,Some,0.1,comp_allprob
@@ -3394,36 +3394,36 @@ subject,item,utterance,response,measure
 339,stuck beads,Some,0.1,comp_allprob
 339,rolled wheelchairs,Some,0.1,comp_allprob
 339,decomposed banana peels,Some,0.1,comp_allprob
-340,dissolved sugar cubes,Some,0.001,comp_allprob
-340,decomposed soda cans,Some,0.001,comp_allprob
-340,landed flat coins,Some,0.001,comp_allprob
-340,fell down shelves,Some,0.001,comp_allprob
+340,dissolved sugar cubes,Some,0.01,comp_allprob
+340,decomposed soda cans,Some,0.01,comp_allprob
+340,landed flat coins,Some,0.01,comp_allprob
+340,fell down shelves,Some,0.01,comp_allprob
 340,melted ice cubes,Some,0.9,comp_allprob
 340,rolled toy cars,Some,0.1,comp_allprob
-340,laughed kids,Some,0.001,comp_allprob
-340,lit up flashlights,Some,0.001,comp_allprob
-340,exploded gas tanks,Some,0.001,comp_allprob
-340,flashed webcams,Some,0.001,comp_allprob
-341,were green strawberries,Some,0.001,comp_allprob
-341,decomposed pinecones,Some,0.001,comp_allprob
-341,rolled toy cars,Some,0.001,comp_allprob
-341,ripped shoes,Some,0.001,comp_allprob
-341,got stained white carpets,Some,0.001,comp_allprob
-341,froze bottles of hand soap,Some,0.001,comp_allprob
-341,flashed webcams,Some,0.001,comp_allprob
-341,laughed comedians,Some,0.001,comp_allprob
-341,melted ice cubes,Some,0.001,comp_allprob
-341,lit up flashlights,Some,0.001,comp_allprob
+340,laughed kids,Some,0.01,comp_allprob
+340,lit up flashlights,Some,0.01,comp_allprob
+340,exploded gas tanks,Some,0.01,comp_allprob
+340,flashed webcams,Some,0.01,comp_allprob
+341,were green strawberries,Some,0.01,comp_allprob
+341,decomposed pinecones,Some,0.01,comp_allprob
+341,rolled toy cars,Some,0.01,comp_allprob
+341,ripped shoes,Some,0.01,comp_allprob
+341,got stained white carpets,Some,0.01,comp_allprob
+341,froze bottles of hand soap,Some,0.01,comp_allprob
+341,flashed webcams,Some,0.01,comp_allprob
+341,laughed comedians,Some,0.01,comp_allprob
+341,melted ice cubes,Some,0.01,comp_allprob
+341,lit up flashlights,Some,0.01,comp_allprob
 342,melted pencils,Some,0.2,comp_allprob
-342,were green strawberries,Some,0.001,comp_allprob
-342,ripped shoes,Some,0.001,comp_allprob
-342,stuck to the wall baseballs,Some,0.001,comp_allprob
-342,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-342,reflected the sunlight mirrors,Some,0.001,comp_allprob
-342,ate the seeds dogs,Some,0.001,comp_allprob
-342,blew away hats,Some,0.001,comp_allprob
-342,exploded gas tanks,Some,0.001,comp_allprob
-342,lit up cd-players,Some,0.001,comp_allprob
+342,were green strawberries,Some,0.01,comp_allprob
+342,ripped shoes,Some,0.01,comp_allprob
+342,stuck to the wall baseballs,Some,0.01,comp_allprob
+342,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+342,reflected the sunlight mirrors,Some,0.01,comp_allprob
+342,ate the seeds dogs,Some,0.01,comp_allprob
+342,blew away hats,Some,0.01,comp_allprob
+342,exploded gas tanks,Some,0.01,comp_allprob
+342,lit up cd-players,Some,0.01,comp_allprob
 343,ripped shirts,Some,0.3,comp_allprob
 343,froze bottles of hand soap,Some,0.3,comp_allprob
 343,had the letter Z in them birthday cards,Some,0.2,comp_allprob
@@ -3431,29 +3431,29 @@ subject,item,utterance,response,measure
 343,ran out of batteries phones,Some,0.3,comp_allprob
 343,were green bananas,Some,0.2,comp_allprob
 343,rolled toy cars,Some,0.2,comp_allprob
-343,stopped motorcycles,Some,0.001,comp_allprob
+343,stopped motorcycles,Some,0.01,comp_allprob
 343,honked taxi drivers,Some,0.3,comp_allprob
 343,ate the seeds butterflies,Some,0.3,comp_allprob
 344,sank balloons,Some,0.3,comp_allprob
 344,landed flat notebooks,Some,0.2,comp_allprob
-344,melted pencils,Some,0.001,comp_allprob
-344,rolled toy cars,Some,0.001,comp_allprob
-344,beeped new cars,Some,0.001,comp_allprob
+344,melted pencils,Some,0.01,comp_allprob
+344,rolled toy cars,Some,0.01,comp_allprob
+344,beeped new cars,Some,0.01,comp_allprob
 344,lit up flashlights,Some,0.3,comp_allprob
-344,got stained white tablecloths,Some,0.001,comp_allprob
-344,broke boxes,Some,0.001,comp_allprob
-344,stopped bicycles,Some,0.001,comp_allprob
-344,burnt books,Some,0.001,comp_allprob
+344,got stained white tablecloths,Some,0.01,comp_allprob
+344,broke boxes,Some,0.01,comp_allprob
+344,stopped bicycles,Some,0.01,comp_allprob
+344,burnt books,Some,0.01,comp_allprob
 345,flashed cameras,Some,0.3,comp_allprob
-345,exploded fireworks,Some,0.001,comp_allprob
-345,dissolved oreos,Some,0.001,comp_allprob
-345,rhymed poems,Some,0.001,comp_allprob
-345,beeped houses,Some,0.001,comp_allprob
-345,melted pencils,Some,0.001,comp_allprob
-345,honked bus drivers,Some,0.001,comp_allprob
-345,ran out of batteries laptops,Some,0.001,comp_allprob
-345,blew away backpacks,Some,0.001,comp_allprob
-345,stopped motorcycles,Some,0.001,comp_allprob
+345,exploded fireworks,Some,0.01,comp_allprob
+345,dissolved oreos,Some,0.01,comp_allprob
+345,rhymed poems,Some,0.01,comp_allprob
+345,beeped houses,Some,0.01,comp_allprob
+345,melted pencils,Some,0.01,comp_allprob
+345,honked bus drivers,Some,0.01,comp_allprob
+345,ran out of batteries laptops,Some,0.01,comp_allprob
+345,blew away backpacks,Some,0.01,comp_allprob
+345,stopped motorcycles,Some,0.01,comp_allprob
 346,sank marbles,Some,0.1,comp_allprob
 346,had the letter Z in them birthday cards,Some,0.1,comp_allprob
 346,were green clovers,Some,0.1,comp_allprob
@@ -3464,16 +3464,16 @@ subject,item,utterance,response,measure
 346,got stained white shirts,Some,0.1,comp_allprob
 346,landed flat pancakes,Some,0.1,comp_allprob
 346,reflected the sunlight diamonds,Some,0.1,comp_allprob
-347,blew away napkins,Some,0.001,comp_allprob
-347,lit up flashlights,Some,0.001,comp_allprob
-347,sank marbles,Some,0.001,comp_allprob
-347,landed flat notebooks,Some,0.001,comp_allprob
-347,ripped shirts,Some,0.001,comp_allprob
-347,stuck beads,Some,0.001,comp_allprob
-347,stopped bicycles,Some,0.001,comp_allprob
-347,ran out of batteries phones,Some,0.001,comp_allprob
-347,exploded balls of tin foil,Some,0.001,comp_allprob
-347,were green clovers,Some,0.001,comp_allprob
+347,blew away napkins,Some,0.01,comp_allprob
+347,lit up flashlights,Some,0.01,comp_allprob
+347,sank marbles,Some,0.01,comp_allprob
+347,landed flat notebooks,Some,0.01,comp_allprob
+347,ripped shirts,Some,0.01,comp_allprob
+347,stuck beads,Some,0.01,comp_allprob
+347,stopped bicycles,Some,0.01,comp_allprob
+347,ran out of batteries phones,Some,0.01,comp_allprob
+347,exploded balls of tin foil,Some,0.01,comp_allprob
+347,were green clovers,Some,0.01,comp_allprob
 348,decomposed banana peels,Some,0.3,comp_allprob
 348,beeped houses,Some,0.2,comp_allprob
 348,rolled toy cars,Some,0.1,comp_allprob
@@ -3484,116 +3484,116 @@ subject,item,utterance,response,measure
 348,laughed kids,Some,0.2,comp_allprob
 348,reflected the sunlight diamonds,Some,0.1,comp_allprob
 348,fell down card towers,Some,0.1,comp_allprob
-349,lit up cd-players,Some,0.001,comp_allprob
-349,beeped old cars,Some,0.001,comp_allprob
-349,ripped books,Some,0.001,comp_allprob
-349,blew away hats,Some,0.001,comp_allprob
-349,laughed kids,Some,0.001,comp_allprob
-349,ran out of batteries phones,Some,0.001,comp_allprob
-349,decomposed soda cans,Some,0.001,comp_allprob
-349,were green clovers,Some,0.001,comp_allprob
-349,exploded fireworks,Some,0.001,comp_allprob
-349,popped balloons,Some,0.001,comp_allprob
-350,landed flat coins,Some,0.001,comp_allprob
-350,stuck sequins,Some,0.001,comp_allprob
-350,stopped motorcycles,Some,0.001,comp_allprob
-350,laughed lawyers,Some,0.001,comp_allprob
+349,lit up cd-players,Some,0.01,comp_allprob
+349,beeped old cars,Some,0.01,comp_allprob
+349,ripped books,Some,0.01,comp_allprob
+349,blew away hats,Some,0.01,comp_allprob
+349,laughed kids,Some,0.01,comp_allprob
+349,ran out of batteries phones,Some,0.01,comp_allprob
+349,decomposed soda cans,Some,0.01,comp_allprob
+349,were green clovers,Some,0.01,comp_allprob
+349,exploded fireworks,Some,0.01,comp_allprob
+349,popped balloons,Some,0.01,comp_allprob
+350,landed flat coins,Some,0.01,comp_allprob
+350,stuck sequins,Some,0.01,comp_allprob
+350,stopped motorcycles,Some,0.01,comp_allprob
+350,laughed lawyers,Some,0.01,comp_allprob
 350,ripped books,Some,0.2,comp_allprob
-350,dissolved sugar cubes,Some,0.001,comp_allprob
-350,ate the seeds birds,Some,0.001,comp_allprob
-350,fell down card towers,Some,0.001,comp_allprob
-350,beeped houses,Some,0.001,comp_allprob
-350,reflected the sunlight phone screens,Some,0.001,comp_allprob
-351,rhymed limericks,Some,0.001,comp_allprob
-351,decomposed soda cans,Some,0.001,comp_allprob
-351,got stained white tablecloths,Some,0.001,comp_allprob
-351,ran out of batteries phones,Some,0.001,comp_allprob
-351,froze berries,Some,0.001,comp_allprob
-351,honked taxi drivers,Some,0.001,comp_allprob
-351,blew away hats,Some,0.001,comp_allprob
-351,landed flat pancakes,Some,0.001,comp_allprob
-351,fell down shelves,Some,0.001,comp_allprob
-351,sank cups,Some,0.001,comp_allprob
-352,popped balloons,Some,0.999,comp_allprob
+350,dissolved sugar cubes,Some,0.01,comp_allprob
+350,ate the seeds birds,Some,0.01,comp_allprob
+350,fell down card towers,Some,0.01,comp_allprob
+350,beeped houses,Some,0.01,comp_allprob
+350,reflected the sunlight phone screens,Some,0.01,comp_allprob
+351,rhymed limericks,Some,0.01,comp_allprob
+351,decomposed soda cans,Some,0.01,comp_allprob
+351,got stained white tablecloths,Some,0.01,comp_allprob
+351,ran out of batteries phones,Some,0.01,comp_allprob
+351,froze berries,Some,0.01,comp_allprob
+351,honked taxi drivers,Some,0.01,comp_allprob
+351,blew away hats,Some,0.01,comp_allprob
+351,landed flat pancakes,Some,0.01,comp_allprob
+351,fell down shelves,Some,0.01,comp_allprob
+351,sank cups,Some,0.01,comp_allprob
+352,popped balloons,Some,0.99,comp_allprob
 352,laughed kids,Some,0.4,comp_allprob
-352,ripped shoes,Some,0.001,comp_allprob
+352,ripped shoes,Some,0.01,comp_allprob
 352,ran out of batteries laptops,Some,0.1,comp_allprob
-352,sank marbles,Some,0.999,comp_allprob
+352,sank marbles,Some,0.99,comp_allprob
 352,stopped bicycles,Some,0.4,comp_allprob
 352,exploded candles,Some,0.2,comp_allprob
 352,stuck to the wall cakes,Some,0.1,comp_allprob
-352,fell down shelves,Some,0.001,comp_allprob
+352,fell down shelves,Some,0.01,comp_allprob
 352,melted ice cubes,Some,0.1,comp_allprob
 353,honked bicyclists,Some,0.1,comp_allprob
-353,sank balloons,Some,0.001,comp_allprob
+353,sank balloons,Some,0.01,comp_allprob
 353,had the letter Z in them birthday cards,Some,0.3,comp_allprob
 353,decomposed banana peels,Some,0.1,comp_allprob
 353,stuck stickers,Some,0.3,comp_allprob
-353,blew away hats,Some,0.001,comp_allprob
-353,rhymed poems,Some,0.001,comp_allprob
-353,burnt rocks,Some,0.001,comp_allprob
-353,ran out of batteries bike lights,Some,0.001,comp_allprob
-353,were green strawberries,Some,0.001,comp_allprob
-354,fell down block towers,Some,0.001,comp_allprob
-354,blew away hats,Some,0.001,comp_allprob
-354,lit up computers,Some,0.001,comp_allprob
-354,rhymed poems,Some,0.001,comp_allprob
-354,melted pencils,Some,0.001,comp_allprob
-354,ate the seeds dogs,Some,0.001,comp_allprob
-354,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-354,got stained white carpets,Some,0.001,comp_allprob
-354,landed flat coins,Some,0.001,comp_allprob
-354,were green clovers,Some,0.001,comp_allprob
-355,beeped houses,Some,0.001,comp_allprob
-355,fell down shelves,Some,0.001,comp_allprob
-355,exploded eggs,Some,0.001,comp_allprob
-355,decomposed soda cans,Some,0.001,comp_allprob
-355,were green clovers,Some,0.001,comp_allprob
+353,blew away hats,Some,0.01,comp_allprob
+353,rhymed poems,Some,0.01,comp_allprob
+353,burnt rocks,Some,0.01,comp_allprob
+353,ran out of batteries bike lights,Some,0.01,comp_allprob
+353,were green strawberries,Some,0.01,comp_allprob
+354,fell down block towers,Some,0.01,comp_allprob
+354,blew away hats,Some,0.01,comp_allprob
+354,lit up computers,Some,0.01,comp_allprob
+354,rhymed poems,Some,0.01,comp_allprob
+354,melted pencils,Some,0.01,comp_allprob
+354,ate the seeds dogs,Some,0.01,comp_allprob
+354,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+354,got stained white carpets,Some,0.01,comp_allprob
+354,landed flat coins,Some,0.01,comp_allprob
+354,were green clovers,Some,0.01,comp_allprob
+355,beeped houses,Some,0.01,comp_allprob
+355,fell down shelves,Some,0.01,comp_allprob
+355,exploded eggs,Some,0.01,comp_allprob
+355,decomposed soda cans,Some,0.01,comp_allprob
+355,were green clovers,Some,0.01,comp_allprob
 355,stopped cars,Some,0.3,comp_allprob
-355,burnt matches,Some,0.001,comp_allprob
-355,popped eggs,Some,0.001,comp_allprob
-355,ripped shoes,Some,0.001,comp_allprob
-355,froze chocolate bars,Some,0.001,comp_allprob
-356,exploded balls of tin foil,Some,0.001,comp_allprob
-356,lit up computers,Some,0.001,comp_allprob
-356,froze bottles of hand soap,Some,0.001,comp_allprob
-356,exploded candles,Some,0.001,comp_allprob
-356,fell down card towers,Some,0.001,comp_allprob
-356,broke sunglasses,Some,0.001,comp_allprob
-356,burnt rocks,Some,0.001,comp_allprob
-356,rolled toy cars,Some,0.001,comp_allprob
-356,were green bananas,Some,0.001,comp_allprob
-356,landed flat pancakes,Some,0.001,comp_allprob
-357,rolled toy cars,Some,0.001,comp_allprob
-357,ran out of batteries bike lights,Some,0.001,comp_allprob
+355,burnt matches,Some,0.01,comp_allprob
+355,popped eggs,Some,0.01,comp_allprob
+355,ripped shoes,Some,0.01,comp_allprob
+355,froze chocolate bars,Some,0.01,comp_allprob
+356,exploded balls of tin foil,Some,0.01,comp_allprob
+356,lit up computers,Some,0.01,comp_allprob
+356,froze bottles of hand soap,Some,0.01,comp_allprob
+356,exploded candles,Some,0.01,comp_allprob
+356,fell down card towers,Some,0.01,comp_allprob
+356,broke sunglasses,Some,0.01,comp_allprob
+356,burnt rocks,Some,0.01,comp_allprob
+356,rolled toy cars,Some,0.01,comp_allprob
+356,were green bananas,Some,0.01,comp_allprob
+356,landed flat pancakes,Some,0.01,comp_allprob
+357,rolled toy cars,Some,0.01,comp_allprob
+357,ran out of batteries bike lights,Some,0.01,comp_allprob
 357,got stained white tablecloths,Some,0.3,comp_allprob
 357,stuck to the wall cakes,Some,0.3,comp_allprob
 357,sank marbles,Some,0.3,comp_allprob
 357,stopped motorcycles,Some,0.7,comp_allprob
-357,froze chocolate bars,Some,0.999,comp_allprob
+357,froze chocolate bars,Some,0.99,comp_allprob
 357,were green clovers,Some,0.8,comp_allprob
 357,exploded eggs,Some,0.3,comp_allprob
 357,fell down block towers,Some,0.4,comp_allprob
-358,had the letter Z in them birthday cards,Some,0.001,comp_allprob
-358,fell down shelves,Some,0.001,comp_allprob
-358,exploded gas tanks,Some,0.001,comp_allprob
-358,stuck to the wall cakes,Some,0.001,comp_allprob
-358,landed flat notebooks,Some,0.001,comp_allprob
-358,rolled wheelchairs,Some,0.001,comp_allprob
-358,were green strawberries,Some,0.001,comp_allprob
+358,had the letter Z in them birthday cards,Some,0.01,comp_allprob
+358,fell down shelves,Some,0.01,comp_allprob
+358,exploded gas tanks,Some,0.01,comp_allprob
+358,stuck to the wall cakes,Some,0.01,comp_allprob
+358,landed flat notebooks,Some,0.01,comp_allprob
+358,rolled wheelchairs,Some,0.01,comp_allprob
+358,were green strawberries,Some,0.01,comp_allprob
 358,stuck stickers,Some,0.4,comp_allprob
-358,beeped new cars,Some,0.001,comp_allprob
-358,blew away backpacks,Some,0.001,comp_allprob
-359,sank marbles,Some,0.001,comp_allprob
-359,stuck to the wall pieces of gum,Some,0.001,comp_allprob
-359,popped eggs,Some,0.001,comp_allprob
-359,stopped bicycles,Some,0.001,comp_allprob
-359,decomposed pinecones,Some,0.001,comp_allprob
-359,melted pencils,Some,0.001,comp_allprob
-359,exploded balls of tin foil,Some,0.001,comp_allprob
-359,lit up flashlights,Some,0.001,comp_allprob
-359,landed flat coins,Some,0.001,comp_allprob
-359,dissolved sugar cubes,Some,0.001,comp_allprob
+358,beeped new cars,Some,0.01,comp_allprob
+358,blew away backpacks,Some,0.01,comp_allprob
+359,sank marbles,Some,0.01,comp_allprob
+359,stuck to the wall pieces of gum,Some,0.01,comp_allprob
+359,popped eggs,Some,0.01,comp_allprob
+359,stopped bicycles,Some,0.01,comp_allprob
+359,decomposed pinecones,Some,0.01,comp_allprob
+359,melted pencils,Some,0.01,comp_allprob
+359,exploded balls of tin foil,Some,0.01,comp_allprob
+359,lit up flashlights,Some,0.01,comp_allprob
+359,landed flat coins,Some,0.01,comp_allprob
+359,dissolved sugar cubes,Some,0.01,comp_allprob
 360,reflected the sunlight phone screens,None,1,wonkiness
 360,rolled wheelchairs,All,0,wonkiness
 360,flashed webcams,None,1,wonkiness
