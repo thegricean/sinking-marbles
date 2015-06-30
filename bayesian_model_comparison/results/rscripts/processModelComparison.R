@@ -31,7 +31,7 @@ row.names(prior_exps) = prior_exps$Item
 ## load empirical data and combine into one data.frame
 # wonkiness
 load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
-#load("~/Documents/research/sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
+load("~/Documents/research/sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
 
 
 wonkiness <- r[r$quantifier %in% c("Some","All","None"),] %>%
@@ -50,7 +50,7 @@ ggplot(wonkiness, aes(x=mean.emp.val)) +
 
 # comp_state
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
-#load("~/Documents/research/sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
+load("~/Documents/research/sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
 
 
 comp_state <- r[r$quantifier == c("Some"),] %>%
@@ -69,7 +69,7 @@ ggplot(comp_state, aes(x=mean.emp.val)) +
 
 # comp_allprob
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
-#load("~/Documents/research/sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
+load("~/Documents/research/sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
 
 
 comp_allprob <- r[r$quantifier == c("Some") & r$Proportion == 100,] %>%
@@ -751,7 +751,7 @@ backoutSamples <- function(totalN, prob, response){
   return(rep(response,prob*totalN))
 }
 
-d<-read.csv('wonkyFBTPosterior_so_wp_phi_sigma_2offset_2scale_CTS_pf1000.csv',header=F)
+d<-read.csv('wonkyFBTPosterior_so_wp_phi_sigma_2offset_2scale_CTS_mh100000b10000.csv',header=F)
 
 d<- d %>%
   rename(Parameter = V1,
@@ -770,7 +770,7 @@ ggplot(d.params,aes(x=Response,y=Probability))+
   facet_wrap(~Parameter,scales="free")
 
 ## for continuous variables
-samples<- 1000
+samples<- 90000
 d.params <- data.frame(Parameter = rep(d.params$Parameter, samples*d.params$Probability),
                        Response = rep(d.params$Response, samples*d.params$Probability))
 
@@ -785,7 +785,7 @@ ggplot(d.params,aes(x=Response))+
 
 d.params %>%
   group_by(Parameter) %>%
-  summarise(sum(Response*Probability))
+  summarise(mean(Response))
 
 
 ## plot posterior predictive -- scatterplot of model vs human
