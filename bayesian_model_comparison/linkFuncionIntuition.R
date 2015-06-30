@@ -33,11 +33,11 @@ ggplot(data=res, aes(x=x,y=y,color=scale))+
   geom_line()+
   facet_grid(scale~offset)
 
-logistic(logit(0.5),0,1)
-prob=0.5
+logistic(logit(0.9),0,1)
+prob=0.9
 p = logit(prob)
-sigma = 0.1
-hist(logisitic(rnorm(1000,mean=p, sd=sigma),0,1))
+sigma = .9
+hist(logistic(rnorm(1000,mean=p, sd=sigma),0,1))
 
 
 
@@ -55,5 +55,6 @@ makeSlider <- function(scale, offset){
 
 qplot(data = makeSlider(1.4,0.2), x=x, y=y, geom='line')+
   geom_abline(yintercept=0,slope=1, linetype = 2)
+
 
 

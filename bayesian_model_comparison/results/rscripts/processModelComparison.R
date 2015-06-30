@@ -741,24 +741,58 @@ ggsave("graphs/enumerated_wonkysoftmax.png",width=8,height=6)
 d<-read.csv('wonkyFBTPosterior_so_wp_phi_sigma_offset_scale_mh10000b1000.csv',header=F)
 
 d<- d %>%
-  rename(parameter = V1,
-         item = V2,
-         utterance = V3,
-         value = V4,
-         prob = V5)
+  rename(Parameter = V1,
+         Item = V2,
+         Quantifier = V3,
+         Response = V4,
+         Probability = V5)
 
 
 d.params <- d %>%
-  filter(parameter%in%c("speakerOptimality","wonkinessPrior",
+  filter(Parameter%in%c("speakerOptimality","wonkinessPrior",
                         "phi","linkingSigma","linkingOffset",
                         "linkingScale")) %>%
-  select(-item, -utterance)
+  select(-Item, -Quantifier)
 
-ggplot(d.params,aes(x=value,y=prob))+
-  geom_bar(stat='identity',position=position_dodge())+
-  facet_wrap(~parameter)
+ggplot(d.params,aes(x=Value,y=Probability))+
+  geom_bar(stat='identity', position=position_dodge())+
+  facet_wrap(~Parameter,scales="free")
 
 
 d.params %>%
-  group_by(parameter) %>%
-  summarise(sum(value*prob))
+  group_by(Parameter) %>%
+  summarise(sum(Response*Probability))
+
+
+## plot posterior predictive -- scatterplot of model vs human
+d.pp <- d %>%
+  filter(Parameter %in% c("comp_allprob","comp_state","wonkiness")) %>%
+  mutate(Probability = to.n(Probability)) %>%
+  rename(Measure=Parameter) %>%
+  group_by(Measure,Item,Quantifier) %>%
+  summarise(mean.exp.val = sum(Response*Probability))
+
+
+#add empirical values
+d.pp$mean.emp.val = empirical[paste(d.pp$Item,d.pp$Measure,d.pp$Quantifier),]$mean.emp.val
+
+#make scatterplot of model against human 
+ggplot(d.pp, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
+  geom_point() +
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  facet_wrap(~Measure,scales='free')
+ggsave("graphs/scatterplots/logisticlink_model-vs-human.pdf",width=14)
+
+# add priors
+d.pp$Prior = -555
+d.pp[d.pp$Measure %in% c("comp_state","wonkiness"),]$Prior = prior_exps[as.character(d.pp[d.pp$Measure  %in% c("comp_state","wonkiness"),]$Item),]$exp.val
+d.pp[d.pp$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.pp[d.pp$Measure == "comp_allprob",]$Item),]$X15
+
+# plot all model predictions
+ggplot(d.pp, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~Measure,scales="free")
+ggsave("graphs/model_curves/logisticlink.pdf",width=15)
+
+
