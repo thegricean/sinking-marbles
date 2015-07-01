@@ -19,6 +19,19 @@
 | 3       | 3                  | 1               | 2 beta      | 0              |                         |                       |
 | 4       | 3                  | 1               | 2 beta      | softmax        | wprior: .7, beta_allprob: 3.5, beta_allprob: 1.6, softmax: 0, spopt_allprob: 0, spopt_state: around 1, spopt_wonky: around 1                        | allprob: good, comp_state: good, wonkiness: probabilities too compressed and U basically flat                      |
 
+### Shared parameters (across models): Rationality, P(wonky), phi
+
+| All prob link | Wonkiness link | model run  |  Posterior on parameters | Posterior  predictive |
+|---------|--------------------|-----------------|---------------------|
+|    no link |       no link       | running  |             |  |
+|    scale, offset   |     no link    |     running     |               |  |
+|    scale, offset, sigma   |     no link     |   running     |               |      |
+|    scale, offset, (sigma)   |         scale  |         |               |  |
+|    scale, offset, (sigma)  |   scale, offset  |        |       |      |
+|    scale, offset, (sigma)  |   scale, offset (sigma) |        |       |      |
+
+
+
 
 Aspects of the empirical data (shown below) that we want to capture:
 
