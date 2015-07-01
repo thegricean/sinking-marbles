@@ -23,9 +23,9 @@
 
 | All prob link | Wonkiness link | model run  |  Posterior on parameters | Posterior  predictive |
 |---------|--------------------|-----------------|---------------------|
-|    no link |       no link       | running  |             |  |
-|    scale, offset   |     no link    |     running     |               |  |
-|    scale, offset, sigma   |     no link     |   running     |               |      |
+|    no link |       no link       | running 75000 (burn 25k) |             |  |
+|    scale, offset   |     no link    |     running 75000  (burn 25k)  |               |  |
+|    scale, offset, sigma   |     no link     |   running 75000 (burn 25k)   |               |      |
 |    scale, offset, (sigma)   |         scale  |         |               |  |
 |    scale, offset, (sigma)  |   scale, offset  |        |       |      |
 |    scale, offset, (sigma)  |   scale, offset (sigma) |        |       |      |
