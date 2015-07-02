@@ -2,6 +2,27 @@ var fs = require('fs');
 // var csvtojson = require('csvtojson');
 var babyparse = require('babyparse');
 
+
+var erpWriter = function(erp, filename) {
+ var supp = erp.support([]);
+ var csvFile = fs.openSync(filename, 'w');
+ fs.writeSync(csvFile,'Parameter,Item,Quantifier,Value,Probability\n')
+ supp.forEach(function(s) {supportWriter(s, Math.exp(erp.score([], s)), csvFile);})
+ fs.closeSync(csvFile);
+}
+
+var supportWriter = function(s, p, handle) {
+ var l = s.length;
+ for (var i = 0; i < l-1; i++) {
+   fs.writeSync(handle, s[i].join(',')+','+p+'\n');
+ }
+ var e = s[l-1];
+ var k = e.length;
+ for (i = 0; i < k; i++) {
+   fs.writeSync(handle, e[i].join(',')+','+p+'\n');
+ }
+}
+
 function readCSV(filename){
   return babyparse.parse(fs.readFileSync(filename, 'utf8'));
 };
@@ -40,10 +61,10 @@ function readPriors(){
 
 function readData(){
 
-  var dfilepath = "../writing/_2015/_journal_cognition/data/";
+  // var dfilepath = "../writing/_2015/_journal_cognition/data/";
   // var dfilepath = "./";
-
-  var priorfile = dfilepath+ 'empirical_nozero_0.01.csv'
+  var dfilepath = 'data/';
+  var priorfile = dfilepath+ 'empirical_binarywonky_nozero.csv'
   var empirical = readCSV(priorfile).data
 
   var dependentMeasures = _.uniq(_.map(empirical.slice(1), function(x){return x[4]}))
@@ -107,20 +128,40 @@ var writePosteriorPredictive = function(myERP){
 }
 
 
+// var erpWriter = function(myERP, names, filename){
+//   var supp = myERP.support();
 
-var writePosteriorPredictiveWithParams = function(myERP,paramNames){
-  return _.flatten(
-        _.map(myERP.support(),
-        function(val){
-          return _.flatten([_.map(_.zip(paramNames,val.slice(0,val.length-1)),
-                      function(p){return [p[0], 'na', 'na', p[1], Math.exp(myERP.score([],val))]}),
-          _.map(val[val.length-1],
-             function(ppval){
-                   return _.flatten([ppval, Math.exp(myERP.score([],val))])
-                  })
-          ], true)
-  }),true)
-}
+// }
+
+// var supportWriter = function()
+
+// var writePosteriorPredictiveWithParams = function(myERP,paramNames,filename){
+//   var s = myERP.support()
+//   s.forEach(function(si){
+
+//           return _.flatten([_.map(_.zip(paramNames,si.slice(0,si.length-1)),
+//                       function(p){return [p[0], 'na', 'na', p[1], Math.exp(myERP.score([],si))]}),
+//                       _.map(si[si.length-1],
+//                          function(ppval){
+//                                return _.flatten([ppval, Math.exp(myERP.score([],si))])
+//                               })
+//           ], true)
+//   }
+//     })
+
+
+//   return _.flatten(
+//         _.map(myERP.support(),
+//         function(val){
+//           return _.flatten([_.map(_.zip(paramNames,val.slice(0,val.length-1)),
+//                       function(p){return [p[0], 'na', 'na', p[1], Math.exp(myERP.score([],val))]}),
+//                       _.map(val[val.length-1],
+//                          function(ppval){
+//                                return _.flatten([ppval, Math.exp(myERP.score([],val))])
+//                               })
+//           ], true)
+//   }),true)
+// }
 
 
 var softmax = function(prob, softmaxparam){
@@ -140,6 +181,11 @@ var logistic=function(x, offset, scale) {
     return 1/(1+Math.exp(-scale*(x-offset)))
 }
 
+var logitLogistic = function(p, offset,scale){
+    var x = logit(p)
+    return 1/(1+Math.exp(-scale*(x-offset)))  
+}
+
 var roundToBin = function(x, bins){
     return bins[Math.round(x*10)]
 }
@@ -155,10 +201,12 @@ module.exports = {
   readData: readData,
   writeERP: writeERP,
   writePosteriorPredictive:writePosteriorPredictive,
-  writePosteriorPredictiveWithParams:writePosteriorPredictiveWithParams,
+  // writePosteriorPredictiveWithParams:writePosteriorPredictiveWithParams,
+  erpWriter:erpWriter,
   softmax:softmax,
   logit:logit,
   logistic:logistic,
+  logitLogistic:logitLogistic,
   wpParseFloat: wpParseFloat,
   roundToBin:roundToBin
 };
