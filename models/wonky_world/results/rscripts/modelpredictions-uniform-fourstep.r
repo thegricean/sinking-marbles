@@ -18,19 +18,16 @@ head(d)
 summary(d)
 d[d$Item == "ate the seeds birds" & d$QUD=="how-many" & d$Alternatives=="0_basic" & d$SpeakerOptimality == 1,]
 d[d$Item == "stuck to the wall baseballs" & d$QUD=="how-many" & d$Alternatives=="0_basic" & d$SpeakerOptimality == 2 & d$Wonky == "true",]
-mp = ddply(d, .(Item, State, Quantifier, SpeakerOptimality, WonkyWorldPrior), summarise, PosteriorProbability=sum(PosteriorProbability))
-head(mp)
-#mp[mp$Item == "ate the seeds birds" & mp$QUD=="how-many" & mp$Alternatives=="0_basic" & mp$SpeakerOptimality == 1,]
-wr = ddply(d, .(Item, Wonky, Quantifier, SpeakerOptimality, WonkyWorldPrior), summarise, PosteriorProbability=sum(PosteriorProbability))
 
-
-# get prior expectations
-priorexpectations = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/expectations.txt",sep="\t", header=T, quote="")
-row.names(priorexpectations) = priorexpectations$Item
-mp$PriorExpectation = priorexpectations[as.character(mp$Item),]$expectation
-wr$PriorExpectation = priorexpectations[as.character(wr$Item),]$expectation
+mp = d %>%
+  group_by(Item,State,Quantifier, SpeakerOptimality, WonkyWorldPrior) %>%
+  summarise(PosteriorProbability=sum(PosteriorProbability))
+mp  = as.data.frame(mp)
 head(mp)
-head(wr)
+wr = d %>%
+  group_by(Item, Wonky, Quantifier, SpeakerOptimality, WonkyWorldPrior) %>%
+  summarise(PosteriorProbability=sum(PosteriorProbability))
+wr = as.data.frame(wr)
 
 # get smoothed prior probabilities
 priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
@@ -42,6 +39,16 @@ row.names(mpriorprobs) = paste(mpriorprobs$Item,mpriorprobs$variable)
 mp$PriorProbability = mpriorprobs[paste(as.character(mp$Item)," X",mp$State,sep=""),]$value
 mp$AllPriorProbability = priorprobs[paste(as.character(mp$Item)),]$X15
 head(mp)
+
+mpriorprobs$State = as.numeric(as.character(gsub("X","",mpriorprobs$variable)))
+priorexps = mpriorprobs %>%
+  group_by(Item) %>%
+  summarise(expectation=sum(State*value))
+summary(priorexps)
+priorexps = as.data.frame(priorexps)
+row.names(priorexps) = priorexps$Item
+mp$PriorExpectation = priorexps[as.character(mp$Item),]$expectation
+wr$PriorExpectation = priorexps[as.character(wr$Item),]$expectation
 
 # get empirical state posteriors:
 load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
@@ -333,6 +340,14 @@ ggplot(wonky[wonky$WonkyWorldPrior==.3 & wonky$SpeakerOptimality == 0,], aes(x=P
   geom_abline(intercept=0,slope=1,color="gray60") +
   ggtitle("Best parameters (MSE=.03/.05/.08,r=.58/.62/.63): wprior=.3, spopt=0")
 ggsave("graphs/3_number_fourstep/model-empirical-fourstep-wonkiness.pdf",width=10,height=6)
+
+
+
+ggplot(wonky, aes(x=PriorExpectation,y=PosteriorProbability,color=Quantifier)) +
+  geom_point() +
+  geom_smooth() +
+  facet_grid(SpeakerOptimality~WonkyWorldPrior)
+ggsave("graphs/3_number_fourstep/model-wonkiness.pdf",width=14,height=8)
 
 # plot by-item diff in predicted and empirical expectation by confidence rating
 confidence = read.table("../../../experiments/24_sinking-marbles-prior-fourstep/results/data/confidence.txt",sep="\t",quote="",header=T)

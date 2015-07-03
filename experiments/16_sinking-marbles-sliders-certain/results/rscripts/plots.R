@@ -13,10 +13,21 @@ ggplot(r,aes(x=Item,fill=quantifier)) +
 ggsave(file="graphs/trial_histogram.pdf",height=9,width=13)
 
 # subject variability
-ggplot(r,aes(x=quantifier, fill=Proportion)) +
-  geom_histogram() +
-  facet_grid(Item~workerid)
-ggsave(file="graphs/subject_variability",width=30,height=30)
+an = droplevels(subset(r, quantifier %in% c("None","All") & Proportion %in% c("0","100")))
+agr = aggregate(normresponse~quantifier+Proportion+workerid,FUN=mean,data=an)
+agr$YMin = agr$normresponse - aggregate(normresponse~quantifier+Proportion+workerid,FUN=ci.low,data=an)$normresponse
+agr$YMax = agr$normresponse + aggregate(normresponse~quantifier+Proportion+workerid,FUN=ci.high,data=an)$normresponse
+p=ggplot(agr,aes(x=Proportion, y=normresponse,color=quantifier)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  facet_wrap(~workerid)
+ggsave(p,file="graphs/subject_variability.pdf",width=30,height=30)
+
+# subject variability
+# p=ggplot(r,aes(x=quantifier, fill=Proportion)) +
+#   geom_histogram() +
+#   facet_grid(Item~workerid)
+# ggsave(p,file="graphs/subject_variability.pdf",width=30,height=30)
 
 ggplot(r, aes(x=PriorExpectationProportion, y=response, color=quantifier)) +
   geom_point() +

@@ -202,3 +202,20 @@ ggplot(agr, aes(x=best_guess,y=IntervalSize)) +
   geom_errorbarh(aes(xmin=YMin,xmax=YMax)) +
   geom_text(aes(label=Item,y=IntervalSize-.2),color="red",size=2)
 ggsave("graphs/intervalsize_by_expectation.pdf")
+
+# plot expected value as a function of confidence
+numconf = r %>%
+  filter(responsetype %in% c("confidence","best_guess")) %>%
+  select(responsetype,response,Item,workerid) %>%
+  spread(responsetype,response) %>%
+  group_by(Item) %>%
+  summarise(mean.best_guess = mean(best_guess), mean.confidence=mean(confidence),min.c = ci.low(confidence), max.c = ci.high(confidence), min.r = ci.low(best_guess), max.r = ci.high(best_guess))
+
+ggplot(numconf, aes(x=mean.best_guess,y=mean.confidence)) +
+  geom_point() +
+  geom_smooth() #+
+#  geom_errorbar(aes(ymin=mean.confidence-min.c,ymax=mean.confidence+max.c)) +
+#  geom_errorbarh(aes(xmin=mean.best_guess-min.r,xmax=mean.best_guess+max.r))  
+#  geom_text(aes(label=Item))
+ggsave("graphs/confidence_by_expvalue.pdf")
+

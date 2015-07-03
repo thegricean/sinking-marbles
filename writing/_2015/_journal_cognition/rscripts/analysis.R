@@ -13,6 +13,7 @@ head(empirical_exps)
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
 # exclude people who are doing some sort of bullshit and not responding reasonably to all/none (see subject-variability.pdf for behavior on zero-slider)
 tmp = subset(r,!workerid %in% c(0,22,43,98,100,103,117,118))
+tmp=r
 agrr = aggregate(normresponse ~ AllPriorProbability + Proportion + quantifier + Item,data=tmp,FUN=mean)
 empirical_allprobs = droplevels(subset(agrr, Proportion == "100" & quantifier == "Some"))
 nrow(empirical_allprobs)
