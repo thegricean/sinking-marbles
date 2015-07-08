@@ -23,12 +23,13 @@
 
 | All prob link | Wonkiness link | model run  |  Posterior on parameters | Posterior  predictive |
 |---------|--------------------|-----------------|---------------------|
-|    no link |       no link       | running 75000 (burn 25k) |             |  |
-|    scale, offset   |     no link    |     running 75000  (burn 25k)  |               |  |
-|    scale, offset, sigma   |     no link     |   running 75000 (burn 25k)   |               |      |
-|    scale, offset, (sigma)   |         scale  |         |               |  |
-|    scale, offset, (sigma)  |   scale, offset  |        |       |      |
-|    scale, offset, (sigma)  |   scale, offset (sigma) |        |       |      |
+|    no link |       no link       |  |             |  |
+|    scale, offset   |     no link    |       |               |  |
+|    scale, offset, sigma   |     no link     |   hashmh 50000  |      wprior:0.3, spopt: 4.5, phi= 0.1m, allprob_links: offset = 0.6, scale = 1.1, sigma = 1.8  | allprob: good; max val=0.25; comp_state = good; wonkiness: range=(0.1,0.9), some: asymmetric (other way) U  |
+|    scale, offset, (sigma)   |         scale  |   hashmh 50000 (didn't mix?)  |    wprior:0.99, spopt = 0.8, phi = 0.05, allprob_links: offse = 0.6, scale = 0.7-1.1, sigma = 1.6; wonkiness_links: scale = ~0           |  allprob: nope (max val = 0.05); comp_state: nope (totally flat); wonkiness: nope (super compressed)|
+|    scale, offset, sigma  |   scale, offset  |    hashmh 50000      |     wprior=0.8, spopt=2.25, phi = 0.1, allprob_links: offset = 0.55, scale = 1.2, sigma = 1.8; wonkiness_links: offset = 3, scale = 0.7  |    allprob: good (max val = 0.2); comp_state: shape (range is compressed between 7 - 8); wonkiness: range=(0.1,0.9) some U more or less symmetric, decent  |
+|    scale, offset  |   scale, offset  |    hashmh 50000      |    wprior = 0.8, spopt=1, phi = 0.35, allprob_links: offset = 0.5 (wide distribution), scale = 1 (wide distribution); wonkiness_links: offset = 2.25, scale = 2   |   allprob: nope (flat); comp_state: compressed between 7-8; wonkiness: range(0.2,0.8); slight asymmetric U but doesn't go above 0.5   |
+|    scale, offset, sigma  |   scale, offset (sigma?) |       |       |      |
 
 
 
