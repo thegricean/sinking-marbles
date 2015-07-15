@@ -31,9 +31,9 @@ row.names(prior_exps) = prior_exps$Item
 ## load empirical data and combine into one data.frame
 # wonkiness
 
-load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
+#load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
 #load("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
-#load("~/Documents/research/sinking-marbles/experiments/17_sinking-marbles-normal-sliders/results/data/r.RData")
+load("~/Documents/research/sinking-marbles/experiments/11_sinking-marbles-normal/results/data/r.RData")
 
 wonkiness <- r[r$quantifier %in% c("Some","All","None"),] %>%
   select(Item,quantifier,numWonky) %>%
@@ -752,33 +752,50 @@ backoutSamples <- function(totalN, prob, response){
   return(rep(response,prob*totalN))
 }
 
-d<-read.csv('wonkyFBTPosterior_so_wp_phi_sigma_2offset_2scale_CTS_mh100000b10000.csv',header=F)
+# d0<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_sigma_offset_scale_ws_CTS_mh5000b2500.csv',header=F)
+# d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_sigma_offset_scale_ws_CTS_mh2000b1000.csv',header=F)
+#d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_sigma_offset_scale_ws_CTS_mh15000b5000.csv', header=F)
+#d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_CTS_hashMH50000compiled.csv')
+#d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_wonkiness-scale-offset_CTS_hashMH50000compiled.csv')
+#d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_CTS_hashMH50000compiled.csv')
+#d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_wonkiness-scale_CTS_hashMH50000compiled.csv')
+#d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset_wonkiness-scale-offset_CTS_hashMH50000compiled.csv')
+#d<-read.csv('wonkyFBTPosterior_wonkySlider_so_wp_phi_allProb-scale-offset-sigma_wonkiness-scale-offset-sigma_CTS_incrMH50000.csv')
 
-d<- d %>%
-  rename(Parameter = V1,
-         Item = V2,
-         Quantifier = V3,
-         Response = V4,
-         Probability = V5)
+prefix<-"wonkyTF_predictWonky_so_wp_phi_allProb-scale-offset-sigma_CTS_hashMH"
+samples<-50000
+d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'a.csv',sep=''))
+
+
+
+# d<-bind_rows(d,d0)
+# d<- d %>%
+#   rename(Parameter = V1,
+#          Item = V2,
+#          Quantifier = V3,
+#          Response = V4,
+#          Probability = V5)
+
+
+# ggplot(d.params,aes(x=Response,y=Probability))+
+#   geom_bar(stat='identity', position=position_dodge())+
+#   facet_wrap(~Parameter,scales="free")
 
 
 d.params <- d %>%
   filter(!(Parameter%in%c("comp_allprob", "comp_state","wonkiness"))) %>%
   select(-Item, -Quantifier)
 
-ggplot(d.params,aes(x=Response,y=Probability))+
-  geom_bar(stat='identity', position=position_dodge())+
-  facet_wrap(~Parameter,scales="free")
-
 ## for continuous variables
-samples<- 90000
-d.params <- data.frame(Parameter = rep(d.params$Parameter, samples*d.params$Probability),
-                       Response = rep(d.params$Response, samples*d.params$Probability))
+d.params <- data.frame(Parameter = rep(d.params$Parameter, 1+samples*d.params$Probability),
+                       Response = rep(d.params$Value, 1+samples*d.params$Probability))
 
 
 ggplot(d.params,aes(x=Response))+
   geom_histogram()+
   facet_wrap(~Parameter,scales="free")
+
+ggsave(paste("graphs/model_curves/postparams-",prefix,samples,".pdf",sep=''),width=15)
 
 
 
@@ -795,20 +812,9 @@ d.pp <- d %>%
   mutate(Probability = to.n(Probability)) %>%
   rename(Measure=Parameter) %>%
   group_by(Measure,Item,Quantifier) %>%
-  summarise(mean.exp.val = sum(Response*Probability))
+  summarise(mean.exp.val = sum(Value*Probability))
 
 
-#add empirical values
-d.pp$mean.emp.val = empirical[paste(d.pp$Item,d.pp$Measure,d.pp$Quantifier),]$mean.emp.val
-
-#make scatterplot of model against human 
-ggplot(d.pp, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
-  geom_point() +
-  geom_abline(intercept=0,slope=1,color="gray60") +
-  facet_wrap(~Measure,scales='free')
-
-
-ggsave("graphs/scatterplots/logisticlink_model-vs-human.pdf",width=14)
 
 # add priors
 d.pp$Prior = -555
@@ -820,5 +826,32 @@ ggplot(d.pp, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
   geom_point() +
   geom_smooth() +
   facet_wrap(~Measure,scales="free")
-ggsave("graphs/model_curves/logisticlink.pdf",width=15)
+ 
+ggsave(paste("graphs/model_curves/postpred-",prefix,samples,".pdf",sep=""),width=15)
+
+
+
+#add empirical values
+d.pp$mean.emp.val = empirical[paste(d.pp$Item,d.pp$Measure,d.pp$Quantifier),]$mean.emp.val
+
+
+
+#make scatterplot of model against human 
+ggplot(d.pp, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
+  geom_point() +
+  geom_abline(intercept=0,slope=1,color="gray60") +
+  facet_wrap(~Measure,scales='free')
+
+# 
+# ggsave("graphs/scatterplots/logisticlink_model-vs-human.pdf",width=14)
+
+
+with((d.pp %>% filter(Measure=='wonkiness')),cor(mean.exp.val,mean.emp.val,use='pairwise.complete.obs'))
+with((d.pp %>% filter(Measure=='comp_wonkiness')),cor(mean.exp.val,mean.emp.val,use='pairwise.complete.obs'))
+with((d.pp %>% filter(Measure=='comp_allprob')),cor(mean.exp.val,mean.emp.val,use='pairwise.complete.obs'))
+
+
+
+some.wonkiness<-d.pp %>% filter(Measure=='wonkiness' & Quantifier == 'Some')
+
 
