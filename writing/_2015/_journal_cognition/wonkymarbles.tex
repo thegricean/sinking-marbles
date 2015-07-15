@@ -582,7 +582,31 @@ Items in Exps.~1 - 3 began with a \emph{context sentence} of the form \emph{CHAR
 \section{Bayesian model selection and comparison}
 \label{app:bayesianselection}
 
-\red{XXX MH FILL IN ONCE READY}
+We model the data for Experiments 2a, b, and 3 jointly.  
+
+\subsection{Linking functions}
+
+To compute $P(D\mid M)$, linking assumptions between the model's posterior distribution and participants' response data must be made explicit.
+
+The (w)RSA models posterior support consists of exact numbers of objects displaying the effect (i.e. the number of Xs that Yed). 
+Experiment 2a uses a dependent measure of a number between 0 - 15. Thus, for Expt.~2a, the probability of a data point given the model --- $P(d \mid m)$ --- is simply the posterior probability from the (w)RSA model of the particular state that the data point is indicating. 
+
+Experiment 2b uses a dependent measure of a slider bar rating between 0 - 1, corresponding to the probability of the ``all'' state. Thus, $P(d \mid m)$ cannot be computed  directly from the (w)RSA models because these models define a distribution over states, whereas this dependent measure is of a \emph{confidence}, or \emph{probability} of a particular state (i.e. the ``all'' state). To connect the posterior probability of the (w)RSA models to the slider bar response formal, we transform the posterior probability into real space ($-\infty, \infty$) using the logit transform $logit(p) = log(\frac{p}{1-p})$. We assume participants' responses are sampled from a Gaussian distribution centered at the logit-transformed posterior probability $d \sim N(p, \sigma)$, with unknown variance. To convert back into a response format in $[0, 1]$ (i.e. the slider bar space), we use the logistic function parametrized by scale and offset parameters: $k$ and $x_0$. 
+
+$$ f(x) = \frac{1}{1+e^{-k(x-x_0)}}$$ 
+
+The scale parameter $k$ intuitively corresponds to participants' \emph{sensitivity} in using the slider bar. In other words, it is the scale factor by which a change in subjective-probability space translated to the slider bar. If $0<k<1$, responses will be compressed in such a way as to avoid the endpoints of the scale (e.g. the difference between a posterior probability of 0.8 and 0.9 will translate to a difference in slider bar ratings less than 0.1).  If $k>1$, responses will be endpoint-seeking (as opposed to endpoint avoiding); this would be appropriate when small changes in probability correspond to categorical shifts in responses. When $k<0$, the slider bar reverses such that an increase in subjective probability corresponds with a \emph{decrease} in slider bar rating. Given the nature of the task and pilot experiments, we expect $0<k<1$. 
+
+The offset parameter $x_0$ corresponds to participants' \emph{bias} when using the slider bar. In other words, if the participant wanted to give a particular response (e.g. 0.4), this is how far and in what direction the participants' response would miss their target. Another interpretation of the offset parameter is how much participants avoid one of the endpoints. For Expt.~2b, participants' data for each item is normalized to form a distribution; this may result in an overall bias away from the extreme high endpoint. The offset parameter accounts for this.
+
+\subsection{Posteriors over parameters}
+
+
+\subsection{Model comparison}
+
+To assess whether the added complexity of the wonky RSA (wRSA) model is warranted by its predictive accuracy, we compare it to the regular RSA (rRSA) using a hierarchical modeling approach \cite<e.g.>{Lee2011}. That is, rRSA is considered a special case of wRSA for when the wonkiness prior equals exactly 0. A Bayesian approach to model comparison adequately balances predictive accuracy with model complexity \cite{Jeffreys1961, Vandekerckhove2015}.
+
+
 
 \bibliographystyle{apacite}
 
