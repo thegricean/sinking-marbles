@@ -13,7 +13,7 @@ source("../rscripts/helpers.r")
 # get empirical comprehension data expectations (comp_state)
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
 
-comp_state = r[r$quantifier %in% c("Some"),] %>% 
+comp_state = r[r$quantifier %in% c("Some","All","None"),] %>% 
   select(workerid, Item, quantifier, response) %>%
   rename(subject=workerid, item=Item, utterance=quantifier)
 comp_state$measure = "comp_state"
@@ -23,7 +23,7 @@ nrow(comp_state)
 # get empirical comprehension data (comp_allprob)
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
 
-comp_allprob = r[r$quantifier %in% c("Some") & r$Proportion == "100",] %>% 
+comp_allprob = r[r$quantifier %in% c("Some","All","None") & r$Proportion == "100",] %>% 
   select(workerid, Item, quantifier, normresponse) %>%
   rename(subject=workerid, item=Item, utterance=quantifier, response=normresponse)
 comp_allprob$measure = "comp_allprob"
@@ -43,10 +43,11 @@ wonkiness$measure = "wonkiness"
 wonkiness$subject = wonkiness$subject + 360 # adjust subject ID so there are no duplicates with the other two experiments
 # 120 subjects
 
-d = droplevels(rbind(comp_state,comp_allprob,wonkiness))
+d = droplevels(rbind(comp_state,comp_allprob,wonkiness),na.omit=T)
 nrow(d)
 str(d)
 summary(d)
+d = droplevels(d[!is.na(d$response),])
 d[d$measure == "comp_allprob",]$response = round(d[d$measure == "comp_allprob",]$response, 1)
 d[d$measure == "comp_allprob" & d$response == 0.0,]$response = 0.01
 d[d$measure == "comp_allprob" & d$response == 1.0,]$response = 0.99
@@ -54,7 +55,7 @@ d[d$measure == "comp_allprob" & d$response == 1.0,]$response = 0.99
 #write.csv(d,file="empirical.csv",row.names=F,quote=F)
 write.csv(d,file="empirical_binarywonky.csv",row.names=F,quote=F)
 
-d_nozero = droplevels(subset(d, !(measure == "comp_state" & response == 0)))
+d_nozero = droplevels(subset(d, !(measure == "comp_state" & utterance == "Some" & response == 0)))
 nrow(d_nozero)
 #write.csv(d_nozero,file="empirical_nozero.csv",row.names=F,quote=F)
 write.csv(d_nozero,file="empirical_binarywonky_nozero.csv",row.names=F,quote=F)
