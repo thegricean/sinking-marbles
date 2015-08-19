@@ -16,10 +16,22 @@ MH thinks the asymmetry is not real. Reason: doing Bayesian data analysis consis
 
 ### Judith's perspecitve
 
-The asymmetric U comes out in the most basic model that contains no linking functions or additional parameters. It also makes intuitive sense (and formal sense, which you can see by computing the speaker utterance distribution for each world state,  then re-weight by prior, then marginalize over states and re-normalize to get the global probability for a particular utterance FOR THAT ITEM):  "some" is a more surprising utterance overall for the left-peaked items (in that the only utterance you should ever expect to hear is "none" -- so Quality makes "some" unexpected) than for the right-peaked items (where both "some" and "all" are semantically compatible options with the all-state -- so 'only' Quantity (and extra pragmatics), but not Quality, makes "some" unexpected). A different way of thinking about it: for the right-peaked items, whether you say "some" or "all" in the all-state doesn't matter because the prior will overwhelm interpretation anyway, so "some" is overall not too unexpected. But for the left-peaked items, whether you say "some" or "all" in the all-state really matters, because now you need pragmatic reasoning to figure out what state you're in (ie the prior won't help you distinguish the all-state from a given some-but-not-all state), so "some" is much less expected in this state, which pushes down the overall probability with which it's expected.
+The asymmetric U comes out in the most basic model that contains no linking functions or additional parameters. It makes intuitive (and formal) sense, which you can see by computing the speaker utterance distribution for each world state,  then re-weight by prior, then marginalize over states and re-normalize to get the global probability for a particular utterance FOR THAT ITEM):  
 
---> spell this bit out in more detail and with plots, to walk through with noah and mh when mh is back
 ![](/writing/_2015/_journal_cognition/pics/latex-formula1.png "")
+
+...assuming that T is the set of world states t0, t1, t2, t3, t4 (ie 4 instead of 15 total marbles, for simplification, but it holds for the larger state space as well) and U is the set of utterances "none", "some", "all". Consider a super left-peaked and a super right-peaked prior:
+
+![](/writing/_2015/_journal_cognition/pics/hypothetical-priors.png "")
+
+Plugging into the equation above the priors and speaker probabilities  (obtained using basic RSA, implicitly assuming a lambda of 1), we get the following overall utterance probabilities P(u):
+
+![](/writing/_2015/_journal_cognition/pics/utterance-probabilities.png "")
+
+
+"some" is a more surprising utterance overall for the left-peaked items (because you only  ever expect to hear "none") than for the right-peaked items (where both "some" and "all" are semantically compatible options with the all-state). A different way of thinking about it: for the right-peaked items, whether you say "some" or "all" in the all-state doesn't matter because the prior will overwhelm interpretation anyway, so "some" is overall not too unexpected. But for the left-peaked items, whether you say "some" or "all" in the all-state really matters, because now you need pragmatic reasoning to figure out what state you're in (ie the prior won't help you distinguish the all-state from a given some-but-not-all state), so "some" is much less expected in this state, which pushes down the overall probability with which it's expected. I think this is what gives rise to the asymmetry in the extreme ends of the range of prior expected values.
+
+
 
 
 ### ToDo
