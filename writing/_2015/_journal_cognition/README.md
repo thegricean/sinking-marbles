@@ -18,6 +18,9 @@ MH thinks the asymmetry is not real. Reason: doing Bayesian data analysis consis
 
 The asymmetric U comes out in the most basic model that contains no linking functions or additional parameters. It also makes intuitive sense (and formal sense, which you can see by computing the speaker utterance distribution for each world state,  then re-weight by prior, then marginalize over states and re-normalize to get the global probability for a particular utterance FOR THAT ITEM):  "some" is a more surprising utterance overall for the left-peaked items (in that the only utterance you should ever expect to hear is "none" -- so Quality makes "some" unexpected) than for the right-peaked items (where both "some" and "all" are semantically compatible options with the all-state -- so 'only' Quantity (and extra pragmatics), but not Quality, makes "some" unexpected). A different way of thinking about it: for the right-peaked items, whether you say "some" or "all" in the all-state doesn't matter because the prior will overwhelm interpretation anyway, so "some" is overall not too unexpected. But for the left-peaked items, whether you say "some" or "all" in the all-state really matters, because now you need pragmatic reasoning to figure out what state you're in (ie the prior won't help you distinguish the all-state from a given some-but-not-all state), so "some" is much less expected in this state, which pushes down the overall probability with which it's expected.
 
+--> spell this bit out in more detail and with plots, to walk through with noah and mh when mh is back
+![Plot of speaker probabilities for matched variance priors and object values](/pics/latex_formula1.png "Matched variances and object values")
+
 
 ### ToDo
 
