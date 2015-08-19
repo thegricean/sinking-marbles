@@ -31,6 +31,8 @@ Plugging into the equation above the priors and speaker probabilities  (obtained
 
 "some" is a more surprising utterance overall for the left-peaked items (because you only  ever expect to hear "none") than for the right-peaked items (where both "some" and "all" are semantically compatible options with the all-state). A different way of thinking about it: for the right-peaked items, whether you say "some" or "all" in the all-state doesn't matter because the prior will overwhelm interpretation anyway, so "some" is overall not too unexpected. But for the left-peaked items, whether you say "some" or "all" in the all-state really matters, because now you need pragmatic reasoning to figure out what state you're in (ie the prior won't help you distinguish the all-state from a given some-but-not-all state), so "some" is much less expected in this state, which pushes down the overall probability with which it's expected. I think this is what gives rise to the asymmetry in the extreme ends of the range of prior expected values.
 
+...that said, I wouldn't be the least bit surprised if I did something wrong here.
+
 
 
 
