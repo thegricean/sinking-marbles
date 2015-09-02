@@ -33,7 +33,7 @@ Plugging into the equation above the priors and speaker probabilities  (obtained
 
 ...that said, I wouldn't be the least bit surprised if I did something wrong here.
 
-
+- **MH**: I get a little lost with this "different way of thinking about it" explanation, mostly because of this comparison *within the all-state* since the two priors differ with respect to how likely the all-state is. The explanation would seem to also apply to a right-peaked prior vs. a uniform prior (since for the uniform prior you "need pragmatic reasoning to figure out what state you're in"). Is that correct?
 
 
 ### ToDo
