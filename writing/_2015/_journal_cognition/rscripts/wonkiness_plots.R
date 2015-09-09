@@ -8,7 +8,7 @@ ggplot(priors, aes(x=State,y=Probability,color=Prior,group=Prior)) +
 ggsave("pics/hypothetical-priors.png",width=7,height=4)
 
 
-utts = data.frame(Utterance=factor(x=rep(c("none","some","all"),2),levels=c("none","some","all")),Prior=rep(c("left-peaked","right-peaked"),each=3),Probability=c(.8,.2,.007,.01,.48,.51))
+utts = data.frame(Utterance=factor(x=rep(c("none","some","all"),2),levels=c("none","some","all")),Prior=rep(c("left-peaked","right-peaked"),each=3),Probability=c(.96,.03,.008,.01,.48,.51))
 
 ggplot(utts, aes(x=Utterance,y=Probability,color=Prior,group=Prior)) +
   geom_point(size=3,alpha=.6) +
