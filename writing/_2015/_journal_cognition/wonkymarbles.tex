@@ -586,12 +586,15 @@ We model the data for Experiments 2a, b, and 3 jointly.
 
 \subsection{Linking functions}
 
-To compute $P(D\mid M)$, linking assumptions between the model's posterior distribution and participants' response data must be made explicit.
+To compute $P(D\mid M)$, linking assumptions between the model's posterior distribution and participants' response data must be made explicit. 
 
-The (w)RSA models posterior support consists of exact numbers of objects displaying the effect (i.e. the number of Xs that Yed). 
-Experiment 2a uses a dependent measure of a number between 0 - 15. Thus, for Expt.~2a, the probability of a data point given the model --- $P(d \mid m)$ --- is simply the posterior probability from the (w)RSA model of the particular state that the data point is indicating. 
+\subsubsection{Experiment 2}
 
-Experiment 2b uses a dependent measure of a slider bar rating between 0 - 1, corresponding to the probability of the ``all'' state. Thus, $P(d \mid m)$ cannot be computed  directly from the (w)RSA models because these models define a distribution over states, whereas this dependent measure is of a \emph{confidence}, or \emph{probability} of a particular state (i.e. the ``all'' state). To connect the posterior probability of the (w)RSA models to the slider bar response formal, we transform the posterior probability into real space ($-\infty, \infty$) using the logit transform $logit(p) = log(\frac{p}{1-p})$. We assume participants' responses are sampled from a Gaussian distribution centered at the logit-transformed posterior probability $d \sim N(p, \sigma)$, with unknown variance. To convert back into a response format in $[0, 1]$ (i.e. the slider bar space), we use the logistic function parametrized by scale and offset parameters: $k$ and $x_0$. 
+For Expt.~2, the (w)RSA model's posterior support consists of exact numbers of objects displaying the effect (i.e. the number of Xs that Yed). 
+
+Experiment 2a uses a dependent measure of a number between 0 - 15. Thus, for Expt.~2a, the probability of a data point given the model --- $P(d \mid m)$ --- is simply the posterior probability from the (w)RSA model of the particular state that the participant's response is indicating. 
+
+Experiment 2b uses a dependent measure of a slider bar rating between 0 - 1, corresponding to the probability of the ``all'' state. Thus, $P(d \mid m)$ cannot be computed  directly from the (w)RSA models because these models define a distribution over states, whereas this dependent measure is of a \emph{confidence}, or \emph{probability} of a particular state (i.e. the ``all'' state). To connect the posterior probability of the (w)RSA models to the slider bar response format, we transform the posterior probability into real space ($-\infty, \infty$) using the logit transform $g(p) = log(\frac{p}{1-p})$. We assume participants' responses are sampled from a Gaussian distribution centered at the logit-transformed posterior probability $d \sim N(g(p), \sigma)$, with unknown variance. To convert back into a response format in $[0, 1]$ (i.e. the slider bar space), we use the logistic function parametrized by scale and offset parameters: $k$ and $x_0$. 
 
 $$ f(x) = \frac{1}{1+e^{-k(x-x_0)}}$$ 
 
@@ -599,7 +602,13 @@ The scale parameter $k$ intuitively corresponds to participants' \emph{sensitivi
 
 The offset parameter $x_0$ corresponds to participants' \emph{bias} when using the slider bar. In other words, if the participant wanted to give a particular response (e.g. 0.4), this is how far and in what direction the participants' response would miss their target. Another interpretation of the offset parameter is how much participants avoid one of the endpoints. For Expt.~2b, participants' data for each item is normalized to form a distribution; this may result in an overall bias away from the extreme high endpoint. The offset parameter accounts for this.
 
+\subsubsection{Experiment 3}
+
+For Expt.~3, the wRSA model's posterior support is a Bernoulli support. Expt.~3 uses a two-alternative, forced choice (2AFC) dependent measure corresponding to if the objects under discussion are normal or not. Hence, like Expt.~2a, we can compute the posterior probability directly from the wRSA model. 
+
 \subsection{Posteriors over parameters}
+
+The full data analysis model predicting data from 3 experiments (Expt.~2a, 2b, 3) has 6 parameters.
 
 
 \subsection{Model comparison}
