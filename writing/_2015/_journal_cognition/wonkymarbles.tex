@@ -298,25 +298,27 @@ Exps.~2a and 2b thus demonstrate that there is an effect of listeners' prior bel
 \red{EXPAND MAKE SURE YOU HARP ON THE SPEAKER RELIABILITY ISSUE; BRING IN THE EXAMPLES FROM THE INTRO? In the next section, we account for this attenuated effect of the prior by extending the RSA model in a way that captures the intuition raised in the Introduction: when a speaker's utterance is too odd, a listener may decide that in order to uphold the assumption of speaker cooperativity, she should revise her initial beliefs about the domain that she presumed were in common ground. }
 
 
-\section{Effect of the world prior in `wonky RSA'}
+\section{Revising the common prior: `wonky RSA'}
 \label{sec:wrsa}
 
-To capture the idea that the pragmatic listener is unsure what background knowledge the speaker is bringing to the conversation, we extend the basic RSA model by using a ``lifted variable''  \cite{goodmanlassiter,lassiter2013,bergengoodman2012,kao2014} corresponding to the choice of state prior. A lifted variable is a variable that the model (in particular, the pragmatic listener) reasons about explicitly instead of being given a value for it. In this case, we posit that the prior, now $P(s|w)$, depends on a ``wonkiness'' variable $w$, which determines whether to use the ``usual'' prior for this domain (empirically elicited in Exp.~1)  or a more generic back-off prior. We choose a uniform back-off prior, capturing that if the listener decides not to use the usual prior, she discards all beliefs about the domain and ascribes equal prior probability to each state:\footnote{\red{a footnote either briefly discussing other priors or delaying such a discussion to the general discussion}}
+To capture the idea that the pragmatic listener is unsure what background knowledge the speaker is bringing to the conversation, we extend the basic RSA model to capture uncertainty about an aspect of the language understanding setup itself---a technique that has been used recently for other aspects of pragmatic understanding \cite{goodmanlassiter,lassiter2013,bergengoodman2012,kao2014}. 
+%corresponding to the choice of state prior. A lifted variable is a variable that the model (in particular, the pragmatic listener) reasons about explicitly instead of being given a value for it. 
+In this case, we posit that the prior, now $P(s|w)$, depends on a ``wonkiness'' variable $w$, which determines whether to use the ``usual'' prior for this domain (empirically elicited in Exp.~1)  or a more generic back-off prior. We choose a uniform back-off prior, capturing that if the listener decides not to use the usual prior, she discards all beliefs about the domain and ascribes equal prior probability to each state:\footnote{\red{a footnote either briefly discussing other priors or delaying such a discussion to the general discussion}}
 $$
 P(s|w) \propto \begin{cases}
 1  & \text{if } w\\
    P_{\text{usual}}(s) & \text{if not } w
   \end{cases}
   $$
-  
-This inferred prior is used in both the literal and pragmatic listeners, indicating that it is taken to be common ground. However, the $w$ variable is reasoned about only by the pragmatic listener, which captures the idea that it is an inference the pragmatic listener makes about which assumptions are appropriate to the conversation. Using the notation of \sectionref{sec:rsa}:
+ %
+This prior is used in both the literal and pragmatic listeners, indicating that it is taken to be common ground. However, the $w$ variable is reasoned about only by the pragmatic listener---it is an inference the pragmatic listener makes about which assumptions are appropriate to the conversation (i.e.~which prior the speaker assumes). Using the notation of \sectionref{sec:rsa}:
 \begin{eqnarray}
 &&P_{L_0}(s|u,w)\propto \delta_{\denote{u}(s)} \cdot P(s|w)\\
 &&P_{S_1}(u|s,w) \propto \mathrm{exp}({\lambda \ln P_{L_0}(s|u,w))}\\
 &&P_{L_1}(s,w|u)\propto P_{S_1}(u|s,w)\cdot P(s|w) \cdot P(w)
 \end{eqnarray}
-We refer to this model as wRSA. Notice that the choice of $w$ that the listener makes will depend on $P_{S_1}(u|s,w)$: if a given utterance can't be explained by the usual prior, because it is unlikely under any plausible world state $s$, then the pragmatic listener will infer that the world is wonky, and back off to the uniform prior.
-That is, if the utterance is odd, the listener will revise her opinion about what world knowledge is appropriate to use in computing speaker meaning. %\red{we need to explain where oddness comes from -- maybe there's an easy graphical way of showing how for items with different priors, a `some' utterance is more or less wonky, by showing the marginal probabilities of observing each utterance for these different items?}
+We refer to this model as wRSA. Notice that the value of $w$ inferred by the listener will depend on $P_{S_1}(u|s,w)$: if a given utterance can't be explained by the usual prior, because it is unlikely to be uttered under any plausible world state $s$, then the pragmatic listener will infer that the world is wonky, and back off to the uniform prior.
+That is, if the utterance is odd, the listener will revise her opinion about what world knowledge is appropriate to use to recohstruct the speaker's meaning. %\red{we need to explain where oddness comes from -- maybe there's an easy graphical way of showing how for items with different priors, a `some' utterance is more or less wonky, by showing the marginal probabilities of observing each utterance for these different items?}
 
 \red{THIS WHOLE BIT NEEDS TO BE UPDATED IN RESPONSE TO MH'S NUMBERS To make predictions for Exps.~2 from wRSA we use the inferred priors from Exps.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality parameter $\lambda$ are fit to optimize mean squared error (MSE) with Exp.~2 data. The optimal parameters ($\lambda = 2$, $P(w) = 0.5$) resulted in an MSE of 2.15 (compared to 14.53 for RSA) for the expected number of objects, and 0.01 (compared to 0.07 for RSA) for the all-state probability. The better fit of wRSA compared to RSA can be seen in the comparison of \figref{fig:rrsaexppredictions} and \figref{fig:empiricalresults}: in both cases, wRSA (light blue lines) predicts a much attenuated effect of the prior compared to regular RSA (dark blue lines), in line with the empirical data. Furthermore, wRSA does not make either of the problematic predictions identified earlier for regular RSA.}
 
