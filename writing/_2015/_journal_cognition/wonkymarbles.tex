@@ -18,7 +18,7 @@
 \definecolor{Red}{RGB}{255,0,0}
 \newcommand{\red}[1]{\textcolor{Red}{#1}}
 
-\definecolor{Green}{RGB}{50,250,50}
+\definecolor{Green}{RGB}{50,200,50}
 \newcommand{\ndg}[1]{\textcolor{Green}{[ndg: #1]}}  
 
  \newcommand{\denote}[1]{\mbox{ $[\![ #1 ]\!]$}}
@@ -138,6 +138,8 @@ Finally, in \sectionref{sec:speakerreliability} we test the prediction that list
 \section{Experiment 1: prior elicitation} 
 \label{sec:priors}
 
+\ndg{it's kind of odd to me to put this section before the RSA description -- we don't know yet why we care about this prior... how about reversing the order, but breaking up the RSA section so that the basic model section shows schematic predictions with some standard priors (eg beta), and then the predictions with empirical priors are in the results to the priors section? this also makes the intro to priors less jarring: in contrast to the idealized priors just used we will use empirical priors so that no one ca accuse us of making them up...}
+
 Obtaining good estimates of prior beliefs is crucial for testing any Bayesian model. Indeed, Bayesian approaches have recently been criticized for being lax in their treatment of priors \cite{jones2011, marcus2013}. To avoid this criticism, we empirically elicit estimates of prior beliefs. We measured listeners' prior beliefs about how many objects exhibit a certain effect (e.g., how many marbles sink) by following the four-step procedure described by \citeA{Speirs-Bridge2010}.
 
 \subsection{Method}
@@ -185,7 +187,7 @@ RSA is defined by:
 &&P_{S_1}(u|s) \propto \mathrm{exp}({\lambda \ln P_{L_0}(s|u))}\\ 
 &&P_{L_1}(s|u)\propto P_{S_1}(u|s)\cdot P(s)
 \end{eqnarray}
-Here $\denote{u}: S \rightarrow \text{Boolean}$ is a truth-function specifying the literal meaning of each utterance and $\delta_{\denote{u}(s)}$ is the Kronecker delta function returning a uniform distribution over all states $s$ compatible with utterance $u$.
+Here $\denote{u}: S \rightarrow \text{Boolean}$ is a truth-function specifying the literal meaning of each utterance and $\delta_{\denote{u}(s)}$ is the Kronecker delta function returning $1$ for states $s$ compatible with utterance $u$, and $0$ otherwise.
 
 For concreteness, assume that the set of states of the world is $S = \{s_0, s_1, s_2, \dots, s_{15}\}$, where the subscript indicates the number of objects (e.g., marbles) that exhibit an effect (e.g., sinking). 
 Further assume that the set of three utterances \emph{All/None/Some of the marbles sank} is denoted $U = \{u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}\}$ and each has its usual literal meaning: 
@@ -195,13 +197,15 @@ Further assume that the set of three utterances \emph{All/None/Some of the marbl
 $\denote{u_{\textrm{none}}}= \{s_i | i = 0\}$,  
 $\denote{u_{\textrm{some}}}= \{s_i | i > 0\}$,
 $\denote{u_{\textrm{all}}}= \{s_i | i = 15\}$.
+\ndg{do we want $\denote{..}$ to be a function or a set?}
 
 %Let us imagine that the prior is binomial with single event probability $\theta$: $P(s)=\text{Binomial}(s|\theta)$.
 
 \begin{figure*}
 	\includegraphics[width=\textwidth]{pics/rsa-predictions}
 %	\includegraphics[width=\textwidth]{pics/rsa-predictions-uniform}	
-	\caption{For each item, RSA and wRSA model predicted $\mathbb{E}[P(s|u_{\textrm{some}})]$ as a function of $\mathbb{E}[P(s)]$ (left) and $P(s_{15}|u_{\textrm{some}})$ as a function of $P(s_{15})$ (right).\red{PLOT TO BE UPDATED WITH NEW BEST MODEL PREDICTIONS}}
+	\caption{For each item, RSA and wRSA model predicted $\mathbb{E}[P(s|u_{\textrm{some}})]$ as a function of $\mathbb{E}[P(s)]$ (left) and $P(s_{15}|u_{\textrm{some}})$ as a function of $P(s_{15})$ (right).\red{PLOT TO BE UPDATED WITH NEW BEST MODEL PREDICTIONS}
+	\ndg{what is the line?}}
 	\label{fig:rrsaexppredictions}	
 \end{figure*}
 
