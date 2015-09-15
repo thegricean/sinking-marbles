@@ -509,35 +509,53 @@ In addition, as evidence for unreliability of speakers accumulates within the ex
 
 
 
-\section{Discussion and conclusion}
+\section{General discussion}
 \label{sec:gd}
 % todo overhaul
 
+\ndg{the discussion needs some work. i've sketched it as three main subsections below... maybe that is a good framework?}
 
 %Interlocutors bring a wealth of world knowledge to bear on any language interpretation task. While effects of world knowledge in different areas of language processing are well-established (\red{psycholinguistics refs}), there has to date been a surprising lack of quantitative investigation into the role of world knowledge--and its defeasibility--in pragmatic inference. 
 We have shown that listeners' world knowledge, in the form of prior beliefs, enters into the computation of speaker meaning in a systematic but subtle way. The effect of the prior on interpretation was much smaller, and qualitatively different, than predicted by a standard Bayesian model of quantifier interpretation (RSA). 
 This suggests that in certain situations, listeners revise their assumptions about relevant priors as part of the computation of speaker meaning. 
 Indeed, in the cases where the largest deviations from RSA obtained, participants also judged the world to be unusual.
 %We have provided empirical evidence that the types of situations that lead to such revision , that is, situations in which the speaker's utterance is too unlikely given the listener's default prior beliefs and the available utterance alternatives. are cases of `wonky' worlds
-Extending RSA with a lifted wonkiness variable that captures precisely whether listeners think the world is unusual, and allows them to back off to a uniform prior (i.e., ignore entirely their previously held beliefs about the world), provided a good fit to the empirical wonkiness judgments and dramatically improved the fit to participants' comprehension data. This model constitutes the first attempt to explicitly model the quantitative effect of world knowledge and its defeasibility on pragmatic utterance interpretation. This work raises many interesting questions:
+Extending RSA with a lifted ``wonkiness'' variable that captures precisely whether listeners think the world is unusual, and allows them to back off to a uniform prior (i.e., ignore entirely their previously held beliefs about the world), provided a good fit to the empirical wonkiness judgments and dramatically improved the fit to participants' comprehension data. This model constitutes the first attempt to explicitly model the quantitative effect of world knowledge and its defeasibility on pragmatic utterance interpretation. This work raises many interesting questions:
+
+\subsection{What is wonky?}
 
 In one sense the revision of beliefs in the wRSA listener is standard Bayesian belief updating with respect to a complex prior \red{insert refs that also do this}; however it is not the simple belief update of a flat or hierarchical prior, because the different aspects of prior belief (i.e.~$P(w)$ and $P(s|w)$) interact in complex ways with the listener's assumptions about the speaker.
 As a result, an odd utterance can lead the listener to update their own view of $w$; this in turn impacts both their own prior over states and what prior they believe the speaker believes they are using---an odd utterance leads the listener to re-evaluate common ground. 
-This is reminiscent of linguistic theories of presupposition accommodation \cite{lewis1979,stalnaker1973,stalnaker1998}: in the same way that the possessive NP \emph{my cat} can trigger an accommodation process to the effect that the proposition  \emph{the speaker has a cat} is added to common ground in order to render the observed utterance felicitous, listeners sometimes update the prior belief distribution over event types presumed to be in common ground in order to render the observed utterance felicitous. Under the approach taken here, felicitous utterances are such that they do not violate the Gricean Cooperative Principle.
 
 Throughout this paper we discussed wonkiness as an attribute of the \emph{world}, yet empirically we elicited wonkiness judgments about the \emph{objects} involved in the events. 
 This raises the question of what exactly listeners are revising their prior beliefs about: objects, events, the speaker's beliefs, or the way the speaker uses language?  \red{SPELL OUT?}
+\ndg{discuss: why does it matter? (how) does it relate to accommodation? how could you systematically build a revisable prior from a generative model?}
+
+\ndg{In exp 3 we asked whether the objects are "normal", and treat this as a simple boolean wonky predicate. but normal  is scalar, suggesting that a more refined treatment might include a scale of wonkiness... future work.}
 
 Relatedly, we have used a uniform prior distribution as the alternative to consider when the listener believes the world is wonky.  One could imagine various more flexible alternatives. For instance, listeners may make minimal adjustments to their prior knowledge, or alternatively, may prefer extreme priors that rationalize the utterance once they have discounted the usual priors.\red{SPELL OUT?}
 %Do metaphorical interpretations draw listeners out of the wonky world? 
 Future research should investigate the options listeners have available when their world knowledge must be revised to accommodate an utterance.
 
-This work also has methodological implications: researchers working in the field of experimental semantics and pragmatics would be well served to take into account the effect of `odd' items, prior beliefs, and interactions between the two.\footnote{For an in depth discussion of this issue in syntactic processing, see, e.g., \citeA{jaeger2010, fine2013a}.} \red{instead of a footnote, discuss this in more detail, and as a theoretical point about how people should update their beliefs. give it a kleinschmidt spin, i.e.~what does this mean for \emph{learning}? short term (local) vs long term (global) belief update. do i infer sth about marbles in general or just the ones in this situation?} In particular, if the attempt to design uniform stimuli across conditions yields odd utterances in some conditions, we predict that participants will respond by revising their prior beliefs in ways that can be unpredictable. That is, we expect unpredictable interaction effects between stimuli and conditions. This is likely to inflate or compress potential effects of an experimental manipulation. 
+\subsection{Accommodation}
 
+The revision to common beliefs we have implicated here is reminiscent of linguistic theories of presupposition accommodation \cite{lewis1979,stalnaker1973,stalnaker1998}: in the same way that the possessive NP \emph{my cat} can trigger an accommodation process to the effect that the proposition  \emph{the speaker has a cat} is added to common ground in order to render the observed utterance felicitous, listeners sometimes update the prior belief distribution over event types presumed to be in common ground in order to render the observed utterance felicitous. Under the approach taken here, felicitous utterances are such that they do not violate the Gricean Cooperative Principle.
+
+\ndg{should expand discussion of accommodation, probably make into its own subsection. discuss a bit more previous proposals, and how ours differs (eg no triggers). maybe do a simple simulation of a standard accommodation example? describe briefly future work to explore presupposition and accommodation more generally.}
+
+\subsection{Methodological implications}
+
+This work also has methodological implications: researchers working in the field of experimental semantics and pragmatics would be well served to take into account the effect of `odd' items, prior beliefs, and interactions between the two.\footnote{For an in depth discussion of this issue in syntactic processing, see, e.g., \citeA{jaeger2010, fine2013a}.} \red{instead of a footnote, discuss this in more detail, and as a theoretical point about how people should update their beliefs. give it a kleinschmidt spin, i.e.~what does this mean for \emph{learning}? short term (local) vs long term (global) belief update. do i infer sth about marbles in general or just the ones in this situation?} In particular, if the attempt to design uniform stimuli across conditions yields odd utterances in some conditions, we predict that participants will respond by revising their prior beliefs in ways that can be unpredictable. That is, we expect unpredictable interaction effects between stimuli and conditions. This is likely to inflate or compress potential effects of an experimental manipulation. 
+\ndg{expand this point into its own subsection too: be a bit more explicit about both previous work pointing out this effect, paradigms that are particularly subject to it (ie any fully crossed pragmatics expt), and what to do about it (measure and model oddness?).}
+
+\section{Conclusion}
+
+\ndg{revise conclusion after revising discussion above...}
 Concluding, this work exemplifies the importance and utility of exploring the detailed quantitative predictions of formal models of language understanding.
 Exploring the effect of prior knowledge predicted by various models within the RSA framework has allowed us to  better understand the way in which world knowledge enters into the pragmatic interpretation of language.
 Listeners have many resources open to them when confronted with an odd utterance, and, rather than giving up the assumption of speaker cooperativity, re-construing the situation in common ground appears to be a favorite.
 
+\ndg{acknowledgements. grants: mcdonnell, ONR.}
 
 %\begin{itemize}
 %
