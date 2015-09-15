@@ -66,3 +66,12 @@ row.names(priorprobs) = priorprobs$Item
 nrow(priorprobs)
 
 write.csv(priorprobs,file="priors.csv",row.names=F,quote=F)
+
+# get prior probabilities from original 1-step procedure
+priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+row.names(priorprobs) = priorprobs$Item
+nrow(priorprobs)
+
+write.csv(priorprobs,file="priors_original.csv",row.names=F,quote=F)
+
+write.csv(priorprobs[c("laughed lawyers","melted ice cubes","stuck to the wall baseballs"),],file="priors_original_samplecases.csv",row.names=F,quote=F)
