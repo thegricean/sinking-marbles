@@ -1,0 +1,226 @@
+// time webppl wonky-tfbt.wppl --require wonkyutils
+
+
+// helper functions
+
+var foreach = function(lst, fn) {
+    var foreach_ = function(i) {
+        if (i < lst.length) {
+            fn(lst[i]);
+            foreach_(i + 1);
+        }
+    };
+    foreach_(0);
+};
+
+
+// use first row as (header) variable names
+var dataFrame = function(rawCSV){
+    return map(function(row){
+        return _.object(_.zip(rawCSV[0],row))
+    }, rawCSV.slice(1))
+}
+
+var marginalize = function(myERP, index){
+  Enumerate(function(){
+    var x = sample(myERP)
+    return x[index]
+  })
+}
+
+
+var modelScore = function(modelERP, data){
+    return reduce(function(dataPoint, memo) {
+                return memo + modelERP.score([], dataPoint);
+            }, 0, data)
+  }
+
+var queryDictionary = {'comp_state':"world",
+                        'comp_allprob':"world",
+                        'wonkiness':"wonky"}
+
+var linkingFunction2 =  function(marginalERP, measure, sigma, offset, scale, phi, softmax){
+  Enumerate(function(){
+
+    var bins = [0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.99]
+    var states = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    
+    var logitNoiseLogistic = function(prob,sigma, offset, scale){
+      var discreteGaussian=  map(function(d){
+        return Math.exp(gaussianERP.score([wonkyutils.logit(prob),sigma], wonkyutils.logit(d)))
+      }, bins)
+      var noisyLogit_p =  wonkyutils.logit(bins[discrete(discreteGaussian)])
+      var logisitic_noisy_p = wonkyutils.logistic(noisyLogit_p, offset, scale)
+//      return discreteGaussian
+     return wonkyutils.roundToBin(logisitic_noisy_p, bins)
+      // return makeERPfromObject(linkedDist)
+    }
+
+
+    var posteriorProb = measure == "comp_allprob" ? 
+                                Math.exp(marginalERP.score([], 15)):
+                               wonkyutils.softmax(Math.exp(marginalERP.score([], true)),softmax)
+                               // Math.exp(marginalERP.score([], true))
+
+
+
+    var posteriorProbAvoidEnds = (posteriorProb>0.99) ? 0.99 :
+                                        (posteriorProb < 0.01) ? 0.01 :
+                                              posteriorProb
+
+    var queryStatement =  flip(phi) ?  (measure == "comp_allprob") ? 
+                                                  uniformDraw(bins) : 
+                                                  (measure == "comp_state") ? 
+                                                      uniformDraw(states) :
+                                                      flip(0.5) ? 
+                                                            1:
+                                                            0 :
+                                                    // uniformDraw(bins) :
+                                       (measure == "comp_allprob") ? 
+                                                    // wonkyutils.roundToBin(posteriorProbAvoidEnds, bins) :
+                                                  // wonkyutils.roundToBin(wonkyutils.logitLogistic(posteriorProbAvoidEnds, offset, scale), bins) :
+                                                   logitNoiseLogistic(posteriorProbAvoidEnds,sigma, offset, scale) : 
+                                        (measure == "comp_state") ? 
+                                                      sample(marginalERP) : 
+                                                      // logitNoiseLogistic(posteriorProbAvoidEnds,wonkySigma, wonkyOffset, wonkyScale)
+                                                      // flip(posteriorProb) ? 1 : 0
+                                                        flip(wonkyutils.logitLogistic(posteriorProb, 
+                                                                                        offset, 
+                                                                                        scale))?1:0                     
+
+    return queryStatement
+})
+}
+
+
+
+
+var dfilepath = 'data/';
+// var datafile = wonkyutils.readCSV(dfilepath+ 'empirical_binarywonky_allQ.csv').data
+// var df_language = dataFrame(datafile.slice(0, datafile.length-1))
+var languageData = wonkyutils.readData()
+
+
+var priorfile = wonkyutils.readCSV(dfilepath+ 'priors_original.csv').data
+var dPriors = priorfile.slice(0,priorfile.length)
+var df_prior = _.object(map(function(lst){return [lst[0], map(function(x){return wonkyutils.wpParseFloat(x)}, lst.slice(1))]}, dPriors))
+
+// var measures = _.uniq(_.pluck(df_language, "measure"))
+// var items = _.uniq(_.pluck(df_language, "item"))
+// var utterances = _.uniq(_.pluck(df_language, "utterance"))
+
+var items = _.keys(languageData)
+
+// var measures = _.uniq(_.pluck(df_language, "measure"))
+var utterances = _.keys(languageData[items[0]])
+
+var measures = _.keys(languageData[items[0]][utterances[0]])
+var measures = ["comp_state", "comp_allprob"]
+
+var dataModel = function(){
+
+  // var wonkinessPrior = uniform(0,1)
+  var wonkinessPrior = uniformDraw([0.01, 0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9, 0.99])
+  var phi = uniformDraw([0.01, 0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9, 0.99])
+  var speakerOptimality = uniformDraw([0.1,0.5, 1,1.5,2,2.5,3,3.5,4,4.5,5])
+  // var phi = uniform(0,1)
+  // var speakerOptimality = uniform(0,10)
+
+  // foreach(measures, function(m){
+
+  var finalScore = sum(map(function(i){
+        var prior = df_prior[i]
+
+
+        return sum(map(function(u){
+
+
+          var predictionERP = listener(u, 
+                                        wonkinessPrior,
+                                        // wonkinessPrior[queryDictionary[measure]], 
+                                        // speakerOptimality[queryDictionary[measure]], 
+                                        speakerOptimality, 
+                                        prior)
+
+          return sum(map(function(m){
+
+
+            var responseData = languageData[i][u][m]
+
+             // var sigma = m=='comp_allprob' ? exponential(1)+0.1 : 0
+             var sigma = 0.01
+             // var softmax = m=="wonkiness" ? uniform(0,10) : 1
+             var softmax = 1;
+              // var linkingSigma = 0
+              // var scale = m=='comp_allprob' ? uniform(0,4) : 1
+              var scale = 1
+              // var offset = m=='comp_allprob' ? sample(gaussianDriftERP,[0,1]) : 0
+              var offset = 0
+              // foreach(items, function(i){
+
+          var linkedERP = linkingFunction2(marginalize(predictionERP, queryDictionary[m]), 
+                                              m, 
+                                              sigma, 
+                                              offset, 
+                                              scale, 
+                                             // phi[queryDictionary[measure]],
+                                              phi,
+                                              softmax)
+
+           var scr = modelScore(linkedERP, responseData)
+            // console.log(m+" "+ u+" " +i +" "+ scr)
+
+            return scr
+
+
+          }, measures))
+
+
+
+
+            // don't condition on wonkiness data
+          // var scr = (measure=='wonkiness') ? 0 : modelScore(linkedERP, dataPoints)
+            // var scr = modelScore(linkedERP, dataPoints)
+            // factor(scr)
+
+            // query.add([m,i,u] ,expectation(linkedERP))
+            // query.add([m,i,u] ,expectation(linkedERP))
+
+            // query.add([wonkinessPrior, phi, speakerOptimality], scr)
+            // return  [[wonkinessPrior, phi, speakerOptimality], scr]
+            // return {"wonkinessPrior":wonkinessPrior, 
+            // "phi": phi, 
+            // "speakerOptimality": speakerOptimality,
+            // "logProb": scr}
+
+        }, utterances))
+
+      }, items))
+
+
+            // return {"wonkinessPrior":wonkinessPrior, 
+            // "phi": phi, 
+            // "speakerOptimality": speakerOptimality,
+            // "logProb": finalScore}
+    
+    return  [[wonkinessPrior, phi, speakerOptimality], finalScore]
+
+  // return query
+}
+// measures
+// var prior = df_prior[items[2]]
+// discrete(prior)
+// listener("Some", 0.3, 2, prior, "world")
+// var mhiter = 1000
+// var results = Enumerate(dataModel, mhiter, {"verbose":true})
+var results = Enumerate(dataModel)
+// results
+// results.support()[0].join(',')
+
+var outfile = 'results/wonkyFBTPosterior_justComp_logProbs_enumerate.csv'
+
+wonkyutils.erpWriter(results, outfile)
+console.log('wrote ' +outfile)
+
+
+
