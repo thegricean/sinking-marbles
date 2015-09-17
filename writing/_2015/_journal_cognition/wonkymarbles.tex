@@ -555,7 +555,7 @@ Concluding, this work exemplifies the importance and utility of exploring the de
 Exploring the effect of prior knowledge predicted by various models within the RSA framework has allowed us to  better understand the way in which world knowledge enters into the pragmatic interpretation of language.
 Listeners have many resources open to them when confronted with an odd utterance, and, rather than giving up the assumption of speaker cooperativity, re-construing the situation in common ground appears to be a favorite.
 
-\ndg{acknowledgements. grants: mcdonnell, ONR.}
+\ndg{acknowledgements. grants: mcdonnell, ONR. snf}
 
 %\begin{itemize}
 %
@@ -664,6 +664,28 @@ The offset parameter $x_0$ corresponds to participants' \emph{bias} when using t
 \subsection{Model comparison}
 
 To assess whether the added complexity of the wonky RSA (wRSA) model is warranted by its predictive accuracy, we compare it to the regular RSA using a hierarchical modeling approach \cite<e.g.>{Lee2011}. That is, RSA is considered a special case of wRSA for when the wonkiness prior equals exactly 0. A Bayesian approach to model comparison adequately balances predictive accuracy with model complexity \cite{Jeffreys1961, Vandekerckhove2015}.
+
+\section{Sketch of proof for asymmetry in wonkiness probability}
+
+We want to know whether the asymmetric U we observe in the wonkiness probability for \emph{some} is due to the particular priors we use, or whether this asymmetry is generally predicted. Here we provide a sketch of a proof that the asymmetry is expected. \red{IN THE END WE MAY JUST GET RID OF THIS AGAIN?}
+
+The asymmetric U comes out in the most basic model that contains no linking functions or additional parameters. It makes intuitive (and formal) sense, which you can see by computing the speaker utterance distribution for each world state,  then re-weight by prior, then marginalize over states and re-normalize to get the global probability for a particular utterance FOR THAT ITEM):  
+
+\begin{equation}
+P(u) = \frac{\sum\limits_{t \in T}^{} P(t)\cdot P(u|t)}{\sum\limits_{u' \in U}^{} \sum\limits_{t \in T}^{} P(t)\cdot P(u'|t)}
+\end{equation}
+
+...assuming that T is the set of world states t0, t1, t2, t3, t4 (ie 4 instead of 15 total marbles, for simplification, but it holds for the larger state space as well) and U is the set of utterances "none", "some", "all". Consider a super left-peaked and a super right-peaked prior:
+
+\includegraphics[width=.8\textwidth]{pics/hypothetical-priors.png}
+
+Plugging into the equation above the priors and speaker probabilities  (obtained using basic RSA, implicitly assuming a lambda of 1), we get the following overall utterance probabilities P(u):
+
+\includegraphics[width=.8\textwidth]{pics/utterance-probabilities.png}
+
+
+"some" is a more surprising utterance overall for the left-peaked items (because you only  ever expect to hear "none") than for the right-peaked items (where both "some" and "all" are semantically compatible options with the all-state). A different way of thinking about it: for the right-peaked items, whether you say "some" or "all" in the all-state doesn't matter because the prior will overwhelm interpretation anyway, so "some" is overall not too unexpected. But for the left-peaked items, whether you say "some" or "all" in the all-state really matters, because now you need pragmatic reasoning to figure out what state you're in (ie the prior won't help you distinguish the all-state from a given some-but-not-all state), so "some" is much less expected in this state, which pushes down the overall probability with which it's expected. I think this is what gives rise to the asymmetry in the extreme ends of the range of prior expected values.
+
 
 
 
