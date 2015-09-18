@@ -752,6 +752,23 @@ backoutSamples <- function(totalN, prob, response){
   return(rep(response,prob*totalN))
 }
 
+library(coda)
+estimate_mode <- function(s) {
+  d <- density(s)
+  return(d$x[which.max(d$y)])
+}
+HPDhi<- function(s){
+  m <- HPDinterval(mcmc(s))
+  return(m["var1","upper"])
+}
+HPDlo<- function(s){
+  m <- HPDinterval(mcmc(s))
+  return(m["var1","lower"])
+}
+
+
+
+
 # d0<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_sigma_offset_scale_ws_CTS_mh5000b2500.csv',header=F)
 # d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_sigma_offset_scale_ws_CTS_mh2000b1000.csv',header=F)
 #d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_sigma_offset_scale_ws_CTS_mh15000b5000.csv', header=F)
@@ -761,11 +778,17 @@ backoutSamples <- function(totalN, prob, response){
 #d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_wonkiness-scale_CTS_hashMH50000compiled.csv')
 #d<-read.csv('wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset_wonkiness-scale-offset_CTS_hashMH50000compiled.csv')
 #d<-read.csv('wonkyFBTPosterior_wonkySlider_so_wp_phi_allProb-scale-offset-sigma_wonkiness-scale-offset-sigma_CTS_incrMH50000.csv')
+prefix<-"allQ_wonkyTF_so_wp_phi_allProb-sigma-scale-offset_wonky-softmax_CTS_hashMH"
 
-prefix<-"wonkyTF_predictWonky_so_wp_phi_allProb-scale-offset-sigma_CTS_hashMH"
-samples<-50000
+prefix<-"allQ_wonkyTF_2so_wp_phi_allProb-sigma-scale-offset_wonky-softmax_CTS_hashMH"
+prefix<-"justCompState_originalPriors_so_wp_phi_CTS_incrMH"
+#prefix<-"allQ_originalPriors_wonkyTF_2so_wp_phi_allProb-sigma-scale-offset_CTS_incrMH"
+
+
+
+
+samples<-3000
 d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'a.csv',sep=''))
-
 
 
 # d<-bind_rows(d,d0)
@@ -788,7 +811,7 @@ d.params <- d %>%
 
 ## for continuous variables
 d.params <- data.frame(Parameter = rep(d.params$Parameter, 1+samples*d.params$Probability),
-                       Response = rep(d.params$Value, 1+samples*d.params$Probability))
+                       Response = rep(to.n(d.params$Value), 1+samples*d.params$Probability))
 
 
 ggplot(d.params,aes(x=Response))+
@@ -803,16 +826,35 @@ ggsave(paste("graphs/model_curves/postparams-",prefix,samples,".pdf",sep=''),wid
 
 d.params %>%
   group_by(Parameter) %>%
-  summarise(mean(Response))
+  summarise(MAP = estimate_mode(Response),
+            credHi = HPDhi(Response),
+            credLo = HPDlo(Response))
+
+
+d.postpred <-  d %>% filter(Parameter%in%c("comp_allprob", "comp_state","wonkiness")) %>%
+  mutate(Probability = to.n(Probability),
+         Value = to.n(Value))
+  
+  
+  
+d.postpred <- data.frame(Parameter = rep(d.postpred$Parameter, 
+                                         1+samples*d.postpred$Probability),
+                         Item = rep(d.postpred$Item, 
+                                    1+samples*d.postpred$Probability),
+                         Quantifier = rep(d.postpred$Quantifier,
+                                          1+samples*d.postpred$Probability),
+                       Response = rep(d.postpred$Value, 
+                                      1+samples*d.postpred$Probability))
+
 
 
 ## plot posterior predictive -- scatterplot of model vs human
-d.pp <- d %>%
-  filter(Parameter %in% c("comp_allprob","comp_state","wonkiness")) %>%
-  mutate(Probability = to.n(Probability)) %>%
+d.pp <- d.postpred %>%
   rename(Measure=Parameter) %>%
   group_by(Measure,Item,Quantifier) %>%
-  summarise(mean.exp.val = sum(Value*Probability))
+  summarise(MAPexpval = estimate_mode(Response),
+            credHi = HPDhi(Response),
+            credLo = HPDlo(Response))
 
 
 
@@ -822,12 +864,13 @@ d.pp[d.pp$Measure %in% c("comp_state","wonkiness"),]$Prior = prior_exps[as.chara
 d.pp[d.pp$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.pp[d.pp$Measure == "comp_allprob",]$Item),]$X15
 
 # plot all model predictions
-ggplot(d.pp, aes(x=Prior,y=mean.exp.val,color=Quantifier)) +
+ggplot(d.pp, aes(x=Prior,y=MAPexpval,color=Quantifier)) +
   geom_point() +
+ # geom_errorbar(aes(ymin = credLo, ymax = credHi))+
   geom_smooth() +
   facet_wrap(~Measure,scales="free")
  
-ggsave(paste("graphs/model_curves/postpred-",prefix,samples,".pdf",sep=""),width=15)
+#ggsave(paste("graphs/model_curves/postpred-",prefix,samples,".pdf",sep=""),width=15)
 
 
 
@@ -837,8 +880,9 @@ d.pp$mean.emp.val = empirical[paste(d.pp$Item,d.pp$Measure,d.pp$Quantifier),]$me
 
 
 #make scatterplot of model against human 
-ggplot(d.pp, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
+ggplot(d.pp, aes(x=MAPexpval,y=mean.emp.val,color=Quantifier)) +
   geom_point() +
+  geom_errorbarh(aes(xmin = credLo, xmax = credHi))+
   geom_abline(intercept=0,slope=1,color="gray60") +
   facet_wrap(~Measure,scales='free')
 
@@ -846,12 +890,34 @@ ggplot(d.pp, aes(x=mean.exp.val,y=mean.emp.val,color=Quantifier)) +
 # ggsave("graphs/scatterplots/logisticlink_model-vs-human.pdf",width=14)
 
 
-with((d.pp %>% filter(Measure=='wonkiness')),cor(mean.exp.val,mean.emp.val,use='pairwise.complete.obs'))
-with((d.pp %>% filter(Measure=='comp_wonkiness')),cor(mean.exp.val,mean.emp.val,use='pairwise.complete.obs'))
-with((d.pp %>% filter(Measure=='comp_allprob')),cor(mean.exp.val,mean.emp.val,use='pairwise.complete.obs'))
+with((d.pp %>% filter(Measure=='wonkiness')),cor(MAPexpval,mean.emp.val,use='pairwise.complete.obs'))
+with((d.pp %>% filter(Measure=='comp_state')),cor(MAPexpval,mean.emp.val,use='pairwise.complete.obs'))
+with((d.pp %>% filter(Measure=='comp_allprob')),cor(MAPexpval,mean.emp.val,use='pairwise.complete.obs'))
 
 
 
 some.wonkiness<-d.pp %>% filter(Measure=='wonkiness' & Quantifier == 'Some')
+
+# parameter exploration
+prefix<-"justComp_logProbs_enumerate"
+#prefix<-"allQ_originalPriors_wonkyTF_2so_wp_phi_allProb-sigma-scale-offset_CTS_incrMH"
+
+
+
+
+samples<-3000
+d<-read.csv(paste("wonkyFBTPosterior_",prefix,'.csv',sep=''))
+
+d.p<-d %>% rename(wonkyPrior = Parameter,
+             phi = Item,
+             optimality = Quantifier,
+             logProb = Value) %>%
+  group_by(wonkyPrior, optimality) %>%
+  summarise(val = sum(logProb*Probability))
+
+ggplot(d.p, aes(x=wonkyPrior, y = optimality, fill=val))+
+  geom_tile()
+
+
 
 

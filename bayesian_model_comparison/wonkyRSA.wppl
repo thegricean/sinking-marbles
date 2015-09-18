@@ -9,14 +9,18 @@ var worldPrior = function() {
 var utterancePrior = function() {
   var utterances = ["Some",
                     "All",
-                    "None"]
-  return uniformDraw(utterances)
+                    "None"
+                    // "mu"
+                    ]
+ return uniformDraw(utterances)
+  // return utterances[discrete([1,1,1,10])]
 }
 
 var meaning = function(utt,world) {
   return utt=="Some"? world>0 :
   utt=="All"? world==numObjs :
   utt=="None"? world==0 :
+  utt=="mu"? true :
   true
 }
 
@@ -44,10 +48,27 @@ var listener = function(utterance,wonkinessPrior,speakerOptimality,item,query) {
                       Enumerate(function(){
                                 var wonky = flip(wonkinessPrior)
                                 var prior = wonky ? 
+                                  // [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]:
                                       wonkyutils.fillArray(1,16) :
-                                      empiricalPriors[item]
-                                    // [.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,1,5]
-                                    //empiricalPriors[item]
+                                      // empiricalPriors[item]
+                                      // [ 0.8,
+                                      //     0.1,
+                                      //     0.1013102,
+                                      //     0.0160822,
+                                      //     0.0076818,
+                                      //     0.0359784,
+                                      //     0.0054297,
+                                      //     0.0008195,
+                                      //     0.0001238,
+                                      //     0.0000188,
+                                      //     0.0000029,
+                                      //     5e-7,
+                                      //     2e-7,
+                                      //     1e-7,
+                                      //     1e-7,
+                                      //     1e-7 ]
+                                    // [.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,.1,10]
+                                    empiricalPriors[item]
                                 var world = discrete(prior)
                                 var S = speaker(world, prior)
                                 factor(speakerOptimality*S.score([],utterance))
@@ -59,3 +80,5 @@ var listener = function(utterance,wonkinessPrior,speakerOptimality,item,query) {
                                 })
                     }
 
+
+// listener("Some", 0, 3, 'blah', 'world')

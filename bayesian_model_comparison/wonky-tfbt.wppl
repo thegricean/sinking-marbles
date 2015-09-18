@@ -1,7 +1,5 @@
-// time webppl wonky-tfbt.wppl --require-js ./wonkyutils --require-wppl wonkyRSA.wppl 
-//--compile --out tfbt_6paramsHash_070615.js
+// time webppl wonky-tfbt.wppl --require wonkyutils
 
-// time node --max-old-space-size=3072 tfbt_6paramsHash_070615.js
 
 // helper functions
 
@@ -15,19 +13,20 @@ var foreach = function(lst, fn) {
     foreach_(0);
 };
 
+
+// use first row as (header) variable names
+var dataFrame = function(rawCSV){
+    return map(function(row){
+        return _.object(_.zip(rawCSV[0],row))
+    }, rawCSV.slice(1))
+}
+
 var marginalize = function(myERP, index){
   Enumerate(function(){
     var x = sample(myERP)
     return x[index]
   })
 }
-
-var subset = function(df, field, value){
-  return filter(function(d){
-    return (d[field]==value)
-  },df)
-}
-
 
 
 var modelScore = function(modelERP, data){
@@ -38,15 +37,7 @@ var modelScore = function(modelERP, data){
 
 
 // data
-var empiricalPriors = wonkyutils.readPriors()
-var languageData = wonkyutils.readData()
 
-var listOf90Items = _.keys(empiricalPriors)
-
-var dependentMeasures = ['comp_state','comp_allprob','wonkiness']
-// var quantifiers = ["Some","All","None"]
-var quantifiers = ["Some"]
-var dependentMeasures = ["comp_state"]
 // var linkingFunction = function(marginalERP, measure, linkingBetaConcentration, wonkySoftmax){
 // // var linkingFunction = cache(function(marginalERP, measure, sigma, wonkySoftmax){
 //   Enumerate(function(){
@@ -71,74 +62,53 @@ var dependentMeasures = ["comp_state"]
 //        return sliderVal
 //     }
 
+var logitNoiseLogistic = function(prob, sigma, offset, scale, bins){
+  var discreteGaussian=  map(function(d){
+    return Math.exp(gaussianERP.score([wonkyutils.logit(prob), sigma], wonkyutils.logit(d)))
+  }, bins)
+  var noisyLogit_p =  wonkyutils.logit(bins[discrete(discreteGaussian)])
+  var logisitic_noisy_p = wonkyutils.logistic(noisyLogit_p, offset, scale)
 
+ return wonkyutils.roundToBin(logisitic_noisy_p, bins)
+}
 
-//     var posteriorProb = measure == "comp_allprob" ? 
-//                                 Math.exp(marginalERP.score([], 15)):
-//                                wonkyutils.softmax(Math.exp(marginalERP.score([], true)),wonkySoftmax)
-//                                 // Math.exp(marginalERP.score([], true))
+var queryDictionary = {'comp_state':"world",
+                        'comp_allprob':"world",
+                        'wonkiness':"wonky"}
 
-//     var queryStatement = discreteModelPredSliderVal(posteriorProb,linkingBetaConcentration)
+var guessingBehavior = function(measure, bins, states){
+  return  (measure == "comp_allprob") ?  uniformDraw(bins) : 
+          (measure == "comp_state") ?  uniformDraw(states) :
+                                      flip(0.5) ? 1: 0 
+}
 
-//     return queryStatement
-//  //   return [posteriorProb, linkingBetaConcentration]
-// }
-// )}
+var linkingFunction2 =  function(marginalERP, options){
 
-
-var linkingFunction2 =  function(marginalERP, measure, sigma, offset, scale, phi){
   Enumerate(function(){
-   // var makeERPfromObject = function(obj){
-   //  return Enumerate(
-   //    function(){
-   //      return wonkyutils.wpParseFloat(_.keys(obj)[discrete(_.values(obj))])
-   //    })
-   // }
-
 
     var bins = [0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.99]
     var states = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-    
-    var logitNoiseLogistic = function(prob,sigma, offset, scale){
-      var discreteGaussian=  map(function(d){
-        return Math.exp(gaussianERP.score([wonkyutils.logit(prob),sigma], wonkyutils.logit(d)))
-      }, bins)
-      var noisyLogit_p =  wonkyutils.logit(bins[discrete(discreteGaussian)])
-      var logisitic_noisy_p = wonkyutils.logistic(noisyLogit_p, offset, scale)
-//      return discreteGaussian
-     return wonkyutils.roundToBin(logisitic_noisy_p, bins)
-      // return makeERPfromObject(linkedDist)
-    }
-
-
-    var posteriorProb = measure == "comp_allprob" ? 
+    var posteriorProb = options.measure == "comp_allprob" ? 
                                 Math.exp(marginalERP.score([], 15)):
-                               // wonkyutils.softmax(Math.exp(marginalERP.score([], true)),wonkySoftmax)
-                               Math.exp(marginalERP.score([], true))
-
-
-
+                               wonkyutils.softmax(Math.exp(marginalERP.score([], true)),options.softmax)
+                               // Math.exp(marginalERP.score([], true))
 
     var posteriorProbAvoidEnds = (posteriorProb>0.99) ? 0.99 :
                                         (posteriorProb < 0.01) ? 0.01 :
                                               posteriorProb
 
-    var queryStatement =  flip(phi) ?  (measure == "comp_allprob") ? 
-                                                  uniformDraw(bins) : 
-                                        (measure == "comp_state") ? 
-                                                    uniformDraw(states) :
-                                                    //flip(0.5) ? 1:0 :
-                                                    uniformDraw(bins) :
-                                       (measure == "comp_allprob") ? 
+    var queryStatement =  flip(options.phi) ?  guessingBehavior(options.measure, bins, states) :
+                                    (options.measure == "comp_allprob") ? 
                                                     // wonkyutils.roundToBin(posteriorProbAvoidEnds, bins) :
                                                   // wonkyutils.roundToBin(wonkyutils.logitLogistic(posteriorProbAvoidEnds, offset, scale), bins) :
-                                                   logitNoiseLogistic(posteriorProbAvoidEnds,sigma, offset, scale) : 
-                                        (measure == "comp_state") ? 
-                                                      sample(marginalERP) : 
-                                                      // logitNoiseLogistic(posteriorProbAvoidEnds,wonkySigma, wonkyOffset, wonkyScale)
-                                                        flip(wonkyutils.logitLogistic(posteriorProb, 
-                                                                                        offset, 
-                                                                                        scale))?1:0
+                                                   logitNoiseLogistic(posteriorProbAvoidEnds, options.sigma, options.offset, options.scale, bins) :
+                                                   // posteriorProbAvoidEnds : 
+                                     (options.measure == "comp_state") ? 
+                                                    sample(marginalERP) : 
+                                                    // logitNoiseLogistic(posteriorProbAvoidEnds,wonkySigma, wonkyOffset, wonkyScale)
+                                                    // flip(posteriorProb) ? 1 : 0
+                                                    flip(wonkyutils.logitLogistic(posteriorProb, options.offset, options.scale))?1:0
+
 
     return queryStatement
 })
@@ -147,267 +117,389 @@ var linkingFunction2 =  function(marginalERP, measure, sigma, offset, scale, phi
 
 
 
-var queryDictionary = {'comp_state':"world",
-                        'comp_allprob':"world",
-                        'wonkiness':"wonky"}
+var dfilepath = 'data/';
+// var datafile = wonkyutils.readCSV(dfilepath+ 'empirical_binarywonky_allQ.csv').data
+// var df_language = dataFrame(datafile.slice(0, datafile.length-1))
+var languageData = wonkyutils.readData()
+
+
+var priorfile = wonkyutils.readCSV(dfilepath+ 'priors_original.csv').data
+var dPriors = priorfile.slice(0,priorfile.length)
+var df_prior = _.object(map(function(lst){return [lst[0], map(function(x){return wonkyutils.wpParseFloat(x)}, lst.slice(1))]}, dPriors))
+
+// var measures = _.uniq(_.pluck(df_language, "measure"))
+// var items = _.uniq(_.pluck(df_language, "item"))
+// var utterances = _.uniq(_.pluck(df_language, "utterance"))
+
+var items = _.keys(languageData)
+
+// var measures = _.uniq(_.pluck(df_language, "measure"))
+var utterances = _.keys(languageData[items[0]])
+
+var measures = _.keys(languageData[items[0]][utterances[0]])
+// var measures = ["comp_state", "comp_allprob"]
+
+var measures = ["comp_state"]
+// var utterances = ["Some"]
+
+// var items = ['fell down card towers']
+// var guessingLink =  function(marginalERP, phi){
+//   Enumerate(function(){
+//     var states = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+//     var queryStatement = flip(phi) ? uniformDraw(states) : sample(marginalERP)
+//     return queryStatement
+// })
+// }
+
 
 
 var dataAnalysis = function(){
 
-  // Priors (continuous)
-  var speakerOptimality = uniform(0,8)
-  var wonkinessPrior = uniform(0,1)
-  var phi = uniform(0,1)
 
-  foreach( _.shuffle(dependentMeasures),
-    function(measure){
+      var wonkinessPrior = uniform(0,1)
 
-      var sigma = measure=='comp_allprob' ? exponential(1)+0.1 : 0
-      // var linkingSigma = 0
-      var scale =  measure=='comp_allprob' ? exponential(1) : 1
-      var offset = measure=='comp_allprob' ? sample(gaussianDriftERP,[0,1]) : 0
+      // Priors (continuous)
+      var speakerOptimality = uniform(0,10)
+      // var speakerOptimality = {
+      //   "world":uniform(0,10),
+      //   "wonky":uniform(0,10)
+      // }
 
-      foreach(_.shuffle(listOf90Items),
-        function(item){
+      // var wonkinessPrior = {
+      //   "world": uniform(0,1),
+      //   "wonky": uniform(0,1)
+      // }
+      var phi = uniform(0,1)
+      // var phi = 0 
 
-        foreach(_.shuffle(quantifiers),
-          function(utterance){
+      // var phi = {
+      //   "world":uniform(0,1),
+      //   "wonky":uniform(0,1)
+      // }
 
+
+
+  foreach(items,
+    function(item){
+
+
+      var prior = df_prior[item]
+
+      // console.log(item)
+    foreach(utterances,
+      function(utterance){
+
+
+          var predictionERP = listener(utterance, 
+                                        wonkinessPrior,
+                                        // wonkinessPrior[queryDictionary[measure]], 
+                                        // speakerOptimality[queryDictionary[measure]], 
+                                        speakerOptimality, 
+                                        prior)
+
+          foreach(measures,
+          function(measure){
+              // console.log(measure)
+              // var speakerOptimality = 
+
+             var sigma = measure=='comp_allprob' ? uniform(0,5) + 0.1 : 0
+             // var sigma = 0
+             // var softmax = measure=="wonkiness" ? uniform(0,10) : 1
+             var softmax = 1;
+              // var linkingSigma = 0
+              var scale = measure=='comp_allprob' ? uniform(0,4) : 1
+              // var scale = 1
+              var offset = measure=='comp_allprob' ? sample(gaussianDriftERP,[0,10]) : 0
+              // var offset = 0
+              // var scale = 1
+              // var offset = 0
+
+
+
+          // var dataPoints = languageData[item][utterance][measure]
           var dataPoints = languageData[item][utterance][measure]
-          var predictionERP = listener(utterance, wonkinessPrior, speakerOptimality, item, queryDictionary[measure])
-          // if comprehension task "give a number", use the marginal posterior directly
-          // otherwise, need to connect to the slider value somehow
-          // here, we assume the slider value is the mean of a beta (possibly discretized, for implementation)
-          // and there is some concentration (delta) variable; this is a mere nuisance, data-analysis parameter
-          var linkedERP = linkingFunction2(predictionERP, 
-                                              measure, 
-                                              sigma, 
-                                              offset, 
-                                              scale, 
-                                              phi)
+
+          var linkedERP = linkingFunction2(marginalize(predictionERP, queryDictionary[measure]), 
+                                              {"measure":measure, 
+                                               "sigma": sigma, 
+                                               "offset": offset, 
+                                                "scale": scale, 
+                                               // phi[queryDictionary[measure]],
+                                                "phi": phi,
+                                                "softmax": softmax})
+
+          // var linkedERP = marginalize(predictionERP, queryDictionary[measure])
 
 
             // modelScore(linkedERP, dataPoints)==-Infinity ? console.log('error'):null
-            var scr = modelScore(linkedERP, dataPoints)
+
+            // don't condition on wonkiness data
+           var scr = modelScore(linkedERP, dataPoints)
+          // var scr = (measure=='wonkiness') ? 0 : modelScore(linkedERP, dataPoints)
+            // var scr = modelScore(linkedERP, dataPoints)
+            // console.log(measure+" "+ utterance+" " +item +" "+ scr)
+            // console.log(scr)
             factor(scr)
 
-            query.add(["measure","item","utterance"] ,expectation(linkedERP))
-            // get posterior prob for each of the values in the support
-           // return map(
-           //  function(val){
-           //    return [measure, item, utterance, val, Math.exp(linkedERP.score([], val))]
-           //  },linkedERP.support())
-           // get expectation of model predictions
-           // return [measure, item, utterance, expectation(linkedERP)]
+            // query.add([measure,item,utterance] ,expectation(linkedERP))
+            query.add([measure,item,utterance] ,expectation(linkedERP))
+
+
+        if (measure=='comp_allprob') {
+          query.add(["allprob_scale","na","na"], scale)
+          query.add(["allprob_offset","na","na"], offset)
+          query.add(["allprob_sigma","na","na"], sigma)
+          // query.add(["worldly_speakerOptimality","na","na"], speakerOptimality["world"])
+          // query.add(["worldly_phi","na","na"], phi["world"])
+          // query.add(["worldly_wonkinessPrior","na","na"], wonkinessPrior["world"])
+        }
 
           })
 
         })
 
+
+
+        // if (measure=='wonkiness') {
+        //   // query.add(["wonky_scale","na","na"], scale)
+        //   // query.add(["wonky_offset","na","na"], offset)
+        //   // query.add(["wonky_softmax","na","na"], softmax)
+        //   // query.add(["wonky_speakerOptimality","na","na"], speakerOptimality["wonky"])
+        //   // query.add(["wonky_phi","na","na"], phi["wonky"])
+        //   // query.add(["wonky_wonkinessPrior","na","na"], wonkinessPrior["wonky"])
+      //   // }
+      // query.add(["speakerOptimality",item,"na"],speakerOptimality)
+      // query.add(["wonkinessPrior",item,"na"], wonkinessPrior)
+
       })
 
+  query.add(["wonkinessPrior","na","na"], wonkinessPrior)
 
- // return [speakerOptimality,wonkinessPrior,linkingBetaConcentration, ]
- // return [_.values(speakerOptimality),wonkinessPrior,_.values(linkingBetaConcentration),wonkySoftmax,
- //        _.flatten(_.flatten(_.flatten(posteriorPredictive, true),true),true)]
-
-//return posteriorPredictive
- // return [_.values(speakerOptimality),wonkinessPrior,_.values(linkingSigma),
- //        _.flatten(_.flatten(_.flatten(posteriorPredictive, true),true),true)]
-// return [_.values(speakerOptimality),wonkinessPrior,_.values(linkingSigma), wonkySoftmax]
-
-//return speakerOptimality["wonkiness"]
+  query.add(["speakerOptimality","na","na"],speakerOptimality)
+  query.add(["phi","na","na"], phi)
 
 
+   return query
 
- // return [speakerOptimality,wonkinessPrior,phi,linkingSigma,  linkingOffset["comp_allprob"],linkingOffset["wonkiness"], 
- // linkingScale["comp_allprob"],linkingScale["wonkiness"],wonkySoftmax,
- // _.flatten(_.flatten(posteriorPredictive, true),true)]
-// ['speakerOptimality','wonkinessPrior','phi']
- return query
-
-    // [ ['speakerOptimality','na','na',speakerOptimality],
-    //       ['wonkinessPrior','na','na',wonkinessPrior],
-    //       ['phi','na','na',phi],
-    //       ["allprob_scale","na","na",linkingScale],
-    //       ["allprob_offset","na","na",linkingOffset],
-    //       ["allprob_sigma","na","na",linkingSigma],
-    //       ["wonkiness_scale","na","na",wonkyScale],
-    //       ["wonkiness_offset","na","na",wonkyOffset],
-    //       ["wonkiness_sigma","na","na",wonkySigma],
-    //       _.flatten(_.flatten(posteriorPredictive, true),true) ]
-
- // return [speakerOptimality,wonkinessPrior,phi["comp_state"],phi["comp_allprob"],phi["wonkiness"],linkingSigma,linkingOffset,linkingScale,wonkySoftmax,
- // _.flatten(_.flatten(posteriorPredictive, true),true)]
-
-        // return speakerOptimality
-
- // return _.flatten(_.flatten(_.flatten(posteriorPredictive, true),true),true)
 }
 
-var mhiter = 50
-//var burn = 25000
-// var particles = 1000
-//var results = MH(dataAnalysis,mhsamples, burn, true)
+// var item = items[2]
+// var prior = df_prior["stuck to the wall baseballs"]//df_prior[items[2]]
+// var measure = "comp_allprob"
+// var utterance= "Some"
+// var wonkinessPrior = 0.5
+// var speakerOptimality = 2
+// var phi = 0.1
+// var softmax = 1
+// var sigma = 5
+// var scale  = 1
+// var offset = 3
 
-var results = IncrementalMH(dataAnalysis, mhiter)
-//var results = HashMH(dataAnalysis, mhiter)
+// var predictionERP = listener(utterance, 
+//                                         wonkinessPrior,
+//                                         // wonkinessPrior[queryDictionary[measure]], 
+//                                         // speakerOptimality[queryDictionary[measure]], 
+//                                         speakerOptimality, 
+//                                         prior)
 
-results
+// var linkedERP = linkingFunction2(marginalize(predictionERP, queryDictionary[measure]), 
+//                                     {"measure":measure, 
+//                                    "sigma": sigma, 
+//                                    "offset": offset, 
+//                                     "scale": scale, 
+//                                    // phi[queryDictionary[measure]],
+//                                     "phi": phi,
+//                                     "softmax": softmax})
 
-//var results = IncrementalMH(dataAnalysis,mhsamples,opts)
-// var results = ParticleFilter(dataAnalysis,particles)
-//var results = Enumerate(dataAnalysis)
-// console.log('model complete. munging data...')
-// //var outfile = 'results/wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_CTS_hashMH'+ mhsamples+ 'b'+burn+'.csv'
-// //var outfile = 'results/wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_CTS_incrMH'+ mhiter+'.csv'
-// //var outfile = 'results/wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_CTS_hashMH'+ mhiter+'compiled.csv'
-// //var outfile = 'results/wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_wonkiness-scale-offset_CTS_hashMH'+ mhiter+'compiled.csv'
-// //var outfile = 'results/wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset_wonkiness-scale-offset_CTS_hashMH'+ mhiter+'compiled.csv'
-// //var outfile = 'results/wonkyFBTPosterior_wonkyTF_so_wp_phi_allProb-scale-offset-sigma_wonkiness-scale_CTS_hashMH'+ mhiter+'compiled.csv'
-// var outfile = 'results/wonkyFBTPosterior_wonkySlider_so_wp_phi_allProb-scale-offset-sigma_wonkiness-scale-offset-sigma_CTS_incrMH'+ mhiter+'c.csv'
-
-// wonkyutils.erpWriter(results, outfile)
-// console.log('wrote ' +outfile)
-
-// //OUTPUT
-
-//var parameterNames = ['speakerOptimality','wonkinessPrior','phi','linkingSigma','linkingOffset', 'linkingScale']
-// var parameterNames = ['speakerOptimality','wonkinessPrior','phi','linkingSigma','linkingOffset_allprob','linkingOffset_wonkiness', 'linkingScale_allprob','linkingScale_wonkiness',
-// 'wonky_softmax']
-// var parameterNames = 
-// var parameterNames = ['speakerOptimality','wonkinessPrior','phi_state','phi_allprob', 'phi_wonkiness','linkingSigma','linkingOffset_allprob', 'linkingScale_allprob','wonky_softmax']
-
-
-// var output = wonkyutils.writePosteriorPredictiveWithParams(results,parameterNames)
-
-// // output.unshift([_.keys(queryDictionary).join('so,')+',wonkinessPrior,linkingBetaConcentration_allProb,linkingBetaConcentrationWonky,softmaxWonky,posteriorPredictive','posteriorProb']);
-// output.unshift([_.keys(queryDictionary).join('so,')+',wonkinessPrior,linkingSigma_allProb,linkingSigmaWonky,posteriorPredictive','posteriorProb']);
-// // //output.unshift(['speakerOptimality,wonkinessPrior,linkingBetaConcentration,posteriorPredictive','posteriorProb']);
-// output.unshift(['speakerOptimality,wonkinessPrior,phi,linkingSigma,linkingOffset, linkingScale,posteriorPredictive','posteriorProb']);
-// // output.unshift(['speakerOptimality,wonkinessPrior,linkingBetaConcentration,softmaxWonky','posteriorProb']);
-//var outfile = 'results/wonkyFBTPosterior_1speakerOptimalities_2betas_mh'+ mhsamples+ 'b'+opts.burn+'.csv'
-//var outfile = 'results/wonkyFBTPosterior_so_wp_phi_sigma_2offset_2scale_mh'+ mhsamples+ 'b'+opts.burn+'.csv'
-//var outfile = 'results/wonkyFBTPosterior_so_wp_phi_sigma_2offset_2scale_ws_CTS_mh'+ mhsamples+ 'b'+burn+'.csv'
-//var outfile = 'results/wonkyFBTPosterior_wonkyTF_so_wp_phi_sigma_offset_scale_ws_CTS_mh'+ mhsamples+ 'b'+burn+'.csv'
-// var outfile = 'results/wonkyFBTPosterior_wonkyTF_so_wp_3xPhi_sigma_offset_scale_ws_CTS_mh'+ mhsamples+ 'b'+burn+'.csv'
-
-// var outfile = 'results/wonkyFBTPosterior_so_wp_phi_sigma_2offset_2scale_CTS_pf'+particles+'.csv'
-// var outfile = 'results/wonkyFBTPosterior_so_wp_phi_sigma_offset_scale_enum.csv'
-//  'results/wonky_tfbtPosterior_predictiveAnddiscreteParams_softmaxWonky_mh'+ mhsamples+ 'b'+burn+'.csv'
-// 'results/wonky_tfbtPosterior_predictiveAnddiscreteParams_3speakerOptimalities_2betas_softmaxWonky_mh'+ mhsamples+ 'b'+burn+'.csv'
-// 'results/wonkyFBTPosterior_3speakerOptimalities_2sigmas_mh'+ mhsamples+ 'b'+opts.burn+'.csv'
-//   'results/wonkyFBTPosterior_paramsOnly_1sOpt_lbc_wSmax_enumerate.csv'
-//  'results/wonkyFBTPosterior_3sOpt_2lbc_wSmax_enumerate.csv'
-
-// wonkyutils.writeCSV(output, outfile)
+// predictionERP
+// marginalize(predictionERP, queryDictionary[measure])
+// 
+// linkedERP
 
 
+var mhiter = 1000
+var results = IncrementalMH(dataAnalysis, mhiter, {"verbose":true, "burnin": 0})
+// var results = HashMH(dataAnalysis, mhiter, {"verbose":true})
+
+console.log('model complete. writing data...')
+// var outfile = 'results/wonkyFBTPosterior_justCompState_originalPriors_NowonkyTF_so_wp_nophi_allProb-sigma-scale-offset_CTS_incrMH'+ mhiter+'a.csv'
+
+// var outfile = 'results/wonkyFBTPosterior_justCompState2xdata_paramsByItem_originalPriors_so_wp_NOphi_CTS_incrMH'+ mhiter+'burn'+mhiter/2+'a.csv'
+var outfile = 'results/wonkyFBTPosterior_justCompState_originalPriors_so_wp_phi_CTS_allProb-sigma-scale-offset_incrMH'+ mhiter+'burn'+'0'+'a.csv'
+
+wonkyutils.erpWriter(results, outfile)
+console.log('wrote ' +outfile)
+
+// var i = 'fell down card towers'
+// var u = "Some"
+// var m = "comp_state"
+
+// var wonkinessPrior = 0.5
+// var speakerOptimality = 2
+
+//   var predictionERP = marginalize(listener(u, 
+//                                           wonkinessPrior,
+//                                           speakerOptimality, 
+//                                           df_prior[i]), "world")
 
 
-
-
-// wonkyutils.writePosteriorPredictiveWithParams(results)
-// results.support()[0].slice(0,[results.support()[0].length-1])
-// //dataAnalysis()
-// // // console.log('here')
-// // // var results = Enumerate(dataAnalysis)
-// // // map(function(l){return Math.exp(results.score([],l))}, results.support())
+// Math.exp(modelScore(predictionERP, languageData[i][u][m]))
 
 
 
 
 
+// expectation(predictionERP)
 
-// 1.0105928825214505,1.3088386347517371,0.00007970025762915611,0.21598401363007724
+    // predictionERP
+      // var dataPoints = languageData[item][utterance]["comp_state"]
+
+//     return MAP(predictionERP)
 
 
-          // console.log(linkingScale +','+linkingOffset+','+linkingSigma+','+phi)
+// _.object(map(function(i){
 
-          // console.log(_.values(linkingScale) +','+_.values(linkingOffset)+','+linkingSigma+','+phi)
+//   return [i, sum(languageData[i]["Some"]["comp_state"]) / languageData[i]["Some"]["comp_state"].length]
+
+// }, items)
+
+
+// )
+// languageData
+// var m = (languageData[1][3]!="15" & languageData[1][2]=='Some')
+// m
+
+// _.filter(languageData['stuck to the wall baseballs']["Some"]["comp_state"],
+//   function(x){return x > 0})
+// _.keys(empiricalPriors).length
+
+
+// empiricalPriors
+
+
+
+// var empiricalPriors = { 'laughed lawyers': 
+//    [ 0.0059509,
+//      0.0114966,
+//      0.0222103,
+//      0.0429082,
+//      0.0828949,
+//      0.0988491,
+//      0.0979429,
+//      0.1104172,
+//      0.1418795,
+//      0.1145286,
+//      0.108014,
+//      0.0581106,
+//      0.0343299,
+//      0.0259816,
+//      0.0293129,
+//      0.015173 ],
+//   'melted ice cubes': 
+//    [ 1e-7,
+//      1e-7,
+//      1e-7,
+//      1e-7,
+//      1e-7,
+//      1e-7,
+//      1e-7,
+//      1e-7,
+//      1e-7,
+//      1e-7,
+//      1e-7,
+//      7e-7,
+//      0.0000276,
+//      0.0012921,
+//      0.0606927,
+//      0.9379858 ],
+//   'stuck to the wall baseballs': 
+
+//      [ 0.6234761,
+//      0.2090756,
+//      0.1013102,
+//      0.0160822,
+//      0.0076818,
+//      0.0359784,
+//      0.0054297,
+//      0.0008195,
+//      0.0001238,
+//      0.0000188,
+//      0.0000029,
+//      5e-7,
+//      2e-7,
+//      1e-7,
+//      1e-7,
+//      1e-7 ]}
+ // [ 1e-7,
+ //     1e-7,
+ //     1e-7,
+ //     1e-7,
+ //     1e-7,
+ //     1e-7,
+ //     1e-7,
+ //     1e-7,
+ //     1e-7,
+ //     1e-7,
+ //     1e-7,
+ //     7e-7,
+ //     0.0000276,
+ //     0.0012921,
+ //     0.0606927,
+ //     0.9379858 ].reverse()}
+
+
+// map(function(speakerOptimality){
+//   return map(function(item){
+//     var utterance = "Some"
+//     var wonkinessPrior = 0.5
+//     var predictionERP = listener(utterance, 
+//                                             wonkinessPrior,
+//                                             speakerOptimality, 
+//                                             item, 
+//                                             "world")
+//       var dataPoints = languageData[item][utterance]["comp_state"]
+
+//     return MAP(predictionERP)
+
+
+
+//     }, _.keys(empiricalPriors))
+
+
+// },[1,2,3,4,5])
+
+
+
+// map(function(item){
+//     var utterance = "Some"
+//     var wonkinessPrior = 0.5
+//     var speakerOptimality = 2
+//     var predictionERP = listener(utterance, 
+//                                             wonkinessPrior,
+//                                             speakerOptimality, 
+//                                             item, 
+//                                             "world")
+
+//     // return map(function(x){return Math.exp(predictionERP.score([],x))}, predictionERP.support())
+
+
+
+//       return     sum(map(function(x){return predictionERP.score([],x)}, languageData[item][utterance]["comp_state"]))
+
+
+
+
+//     }, _.keys(empiricalPriors))
+
+
+
 
 // var utterance = "Some"
-// var wonkinessPrior = 0.29
-// var speakerOptimality = 4.5
-// // var item = "sank marbles"
-// var item = "stuck to the wall baseballs"
-// var item = "sank balloons"
-// var query = 'wonky'
-// var measure = "wonkiness"
-// var predictionERP = listener(utterance, wonkinessPrior, speakerOptimality, item, query)
-
-// //   // if comprehension task "give a number", use the marginal posterior directly
-// //   // otherwise, need to connect to the slider value somehow
-// //   // here, we assume the slider value is the mean of a beta (possibly discretized, for implementation)
-// //   // and there is some concentration (delta) variable; this is a mere nuisance, data-analysis parameter
-
-
-// var sigma = 1.8
-// var offset = 0.6
-// var scale = 1.1
-// var phi = 0.11
-// var wonkyoffset = -.5
-// var wonkyScale = 1.5
-// var linkedERP = linkingFunction2(predictionERP, measure, sigma, offset, scale, phi, wonkyoffset, wonkyScale)
-
-
-// console.log(languageData[item][utterance][measure])
-// console.log(empiricalPriors[item])
-
-// console.log(Math.exp(linkedERP.score([],1)))
-
-
-
-// var item2 = "melted ice cubes"
-// var predictionERP2 = listener(utterance, wonkinessPrior, speakerOptimality, item2, query)
-// var linkedERP2 = linkingFunction2(predictionERP2, measure, sigma, offset, scale, phi, wonkyoffset, wonkyScale)
-
-
-// console.log(languageData[item2][utterance][measure])
-// console.log(empiricalPriors[item2])
-// console.log(Math.exp(linkedERP2.score([],1)))
-
-
-// predictionERP
-
-//     var bins = [0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.99]
-    
-//     var logitNoiseLogistic = function(prob,sigma, offset, scale){
-//       var discreteGaussian=  map(function(d){
-//         return Math.exp(gaussianERP.score([wonkyutils.logit(prob),sigma], wonkyutils.logit(d)))
-//       }, bins)
-//       var noisyLogit_p =  wonkyutils.logit(bins[discrete(discreteGaussian)])
-//       var logisitic_noisy_p = wonkyutils.logistic(noisyLogit_p, offset, scale)
-// //      return discreteGaussian
-//      return wonkyutils.roundToBin(logisitic_noisy_p, bins)
-//       // return makeERPfromObject(linkedDist)
-//     }
-
-
-// logitNoiseLogistic(0.14,sigma,offset,score)
-
-
-
-
-
-
-
-
-
-  //   var bins = [0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.99]
-  //   var prob = 0.13
-  // var discreteGaussian=  map(function(d){
-  //   return Math.exp(gaussianERP.score([wonkyutils.logit(prob),sigma], wonkyutils.logit(d)))
-  // }, bins)
-
-  // discreteGaussian
-
-// Math.exp(gaussianERP.score([wonkyutils.logit(prob),sigma], wonkyutils.logit(0.99)))
-// console.log(Math.exp(predictionERP.score([],15)))
-// linkedERP
-// map(
-//   function(x){
-//     return wonkyutils.logistic(wonkyutils.logit(x), 0, 1)
-//   },
-//   [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9])
-// predictionERP
+// var wonkinessPrior = 0.5
+// var speakerOptimality = 2
+// var predictionERP = listener(utterance, 
+//                                         wonkinessPrior,
+//                                         speakerOptimality, 
+//                                         "stuck to the wall baseballs", 
+//                                         "wonky")
+// Math.exp(predictionERP.score([], true))

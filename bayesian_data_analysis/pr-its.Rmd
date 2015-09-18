@@ -250,10 +250,11 @@ data <- list(ntdata=d,
              alpha1=rep(1,states)) # to be passed on to Stan
 
 #fit0 <- stan(model_code=model,data = data, chains = 0)
-fit0 <- stan(file='test.stan',data = data, chains = 0)
+#fit0 <- stan(file='test.stan',data = data, chains = 0)
 
 fit0 <- stan(file='prits_test.stan',data = data, 
-             chains = 1, iter=1000,pars=parameters)
+             chains = 1, iter=100,pars=parameters,
+             algorithm = "ADVI")
 
 df<-data.frame(fit0@sim$samples)
 

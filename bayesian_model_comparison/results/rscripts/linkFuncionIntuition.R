@@ -63,3 +63,7 @@ ggplot(data.frame(x=1/rgamma(1000,shape=5, scale=1)),aes(x=x))+
   geom_histogram()+
   xlim(0,5)
  
+## prior of lognormal
+
+ggplot(data.frame(x = exp(rnorm(1000,mean=0,sd=0.25))),aes(x=x))+
+  geom_histogram()
