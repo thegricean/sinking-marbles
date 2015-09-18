@@ -11,7 +11,7 @@ setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marble
 source("rscripts/helpers.r")
 
 ## load priors for generating plots 
-priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
 row.names(priorprobs) = priorprobs$Item
 nrow(priorprobs)
 
@@ -35,7 +35,7 @@ exps = ggplot(prior_exps, aes(x=exp.val)) +
   geom_histogram() +
   scale_x_continuous(name="Expected value of prior distribution",breaks=seq(1,15, by=2)) +
   scale_y_continuous(name="Number of cases",breaks=seq(0,8, by=2))
-ggsave("priorexpectations-histogram.pdf",width=5,height=3.7)
+ggsave("pics/priorexpectations-histogram.pdf",width=5,height=3.7)
 
 # histogram of allstate-probs
 allprobs = ggplot(prior_allprobs, aes(x=X15)) +
@@ -53,6 +53,17 @@ dev.off()
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
 
 r$PriorExpectationProportion = prior_exps[as.character(r$Item),]$exp.val
+# exclude people who weren't literal above some threshold
+# lit = droplevels(r[r$quantifier %in% c("All","None"),]) %>% 
+#   group_by(workerid,quantifier) %>%
+#   summarise(Mean=mean(response))
+# lit = as.data.frame(lit)
+# lit = lit %>% spread(quantifier,Mean)
+# lit$Literal = as.factor(as.character(ifelse(lit$All > .80*15 & lit$None < .20*15,"literal","non-literal")))
+# table(lit$Literal)
+# row.names(lit) = as.character(lit$workerid)
+# r$Literal = lit[as.character(r$workerid),]$Literal
+
 agr = aggregate(ProportionResponse ~ PriorExpectationProportion + quantifier + Item,data=r,FUN=mean)
 
 min(agr[agr$quantifier == "Some",]$ProportionResponse)

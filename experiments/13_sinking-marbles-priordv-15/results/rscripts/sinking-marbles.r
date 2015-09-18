@@ -1,15 +1,17 @@
 library(ggplot2)
 theme_set(theme_bw(18))
-setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/")
-#setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/5_sinking-marbles-nullutterance-priordv/results/")
-source("rscripts/summarySE.r")
+setwd("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/")
 source("rscripts/helpers.r")
-#load("data/priors.RData")
-load("data/r.RData")
+# load second round of data
+load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/25_sinking-marbles-priordv-15_replication/results/data/r.RData")
+rnew = r
+# load this first round of data
+load("data/r_original.RData")
+
+## NO NEED TO RUN AGAIN
 r = read.table("data/sinking_marbles.tsv", sep="\t", header=T, quote="")
 r$trial = r$slide_number_in_experiment - 2
 r = r[,c("workerid", "rt", "effect", "cause","language","gender.1","age","gender","other_gender","quantifier", "object_level", "response", "object","num_objects","trial","enjoyment","asses","comments")]
-#row.names(priors) = paste(priors$effect, priors$object)
 expectations = read.table("data/expectations.txt", quote="",sep="\t",header=T)
 row.names(expectations) = paste(expectations$effect, expectations$object)
 head(expectations)
@@ -25,8 +27,13 @@ table(r$quantifier,r$numresponse)
 r$ProportionResponse = r$numresponse/r$num_objects
 r$PriorExpectation = expectations[paste(r$effect, r$object),]$expectation
 
+####################
+# combine old and new datasets
+d = merge(r,rnew,all=T)
+r = d
+
 save(r, file="data/r.RData")
-#save(r, file="../../../models/complex_prior/smoothed_unbinned15_bw5/results/data/r.RData")
+
 
 ##################
 

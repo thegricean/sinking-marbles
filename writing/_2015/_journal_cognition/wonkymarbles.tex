@@ -14,9 +14,12 @@
 
 %\newcommand{\url}[1]{$#1$}
 
+\definecolor{Blue}{RGB}{50,50,200}
+\newcommand{\blue}[1]{\textcolor{Blue}{#1}}
 
 \definecolor{Red}{RGB}{255,0,0}
 \newcommand{\red}[1]{\textcolor{Red}{#1}}
+\newcommand{\jd}[1]{\textcolor{Red}{[jd: #1]}} 
 
 \definecolor{Green}{RGB}{50,200,50}
 \newcommand{\ndg}[1]{\textcolor{Green}{[ndg: #1]}}  
@@ -64,8 +67,8 @@
 
 \begin{abstract}
 
-Knowledge about the world enters into sentence interpretation in complex ways, and may be defeasible in light of speakers' utterances.  Yet there is to date a surprising lack of systematic investigation into the role of world knowledge in pragmatic inference. In this paper, we show that a state-of-the-art model of pragmatic interpretation greatly overestimates the influence of world knowledge on the interpretation of utterances with quantifier words, like \emph{Some of the marbles sank}. We extend the model to capture the idea that  listeners are uncertain about the background knowledge that speakers are bringing to the conversation, i.e., about what knowledge is in common ground. This extension greatly improves model predictions of listeners' interpretation and also makes good qualitative predictions about listeners' judgments of how likely the world is to be (ab)normal in light of a speaker's statement. In addition, we show---both empirically and by lesioning the model in systematic ways---that the diminished effect of world knowledge on pragmatic inference is not attributable to a speaker's perceived lack of cooperativity. 
-\ndg{say something more clear about predicting and getting stronger prior influence for uncooperative speakers?}
+Knowledge about the world enters into sentence interpretation in complex ways, and may be defeasible in light of speakers' utterances.  Yet there is to date a surprising lack of systematic investigation into the role of world knowledge in pragmatic inference. In this paper, we show that a state-of-the-art model of pragmatic interpretation greatly overestimates the influence of world knowledge on the interpretation of utterances with quantifier words, like \emph{Some of the marbles sank}. We extend the model to capture the idea that  listeners are uncertain about the background knowledge that speakers are bringing to the conversation, i.e., about what knowledge is in common ground. This extension greatly improves model predictions about listeners' interpretation and also makes good qualitative predictions about listeners' judgments of how likely the world is to be (ab)normal in light of a speaker's statement. \blue{In addition, we show that the diminished effect of world knowledge on pragmatic inference is not attributable to a speaker's perceived lack of cooperativity; systematic lesions to the model simulating reduced speaker cooperativity predict a \emph{greater} effect of world knowledge---a prediction that is borne out empirically.} 
+\ndg{say something more clear about predicting and getting stronger prior influence for uncooperative speakers?}\jd{better?}
 The results suggest that when observing an odd utterance, listeners systematically revise common ground in order to render the utterance felicitous---if that utterance comes from a trusted source. 
 
 
@@ -96,9 +99,10 @@ However, if Mary has reason to believe that John is not a trustworthy source (fo
 
 In this paper, we explore how world knowledge presumed to be in common ground enters into utterance interpretation. In particular, we ask how and to what extent listeners update world knowledge in response to odd utterances. We pursue the intuition that listeners deem an utterance odd to the extent that it is surprising---given what is presumed to be common ground---either because it is uninformative or because it communicates something that is highly unlikely to be true. Both uninformative and untrue utterances violate the Gricean Cooperative Principle \cite{grice1975}. We propose that in such situations, rather than give up the assumption that the speaker is cooperative, listeners will try to save the interaction by concluding that the world under discussion is abnormal, in the sense that events in that world have appropriately different prior probabilities. We refer to such abnormal worlds  as \emph{wonky} worlds. However, if listeners have independent evidence that the speaker is likely to say uninformative or untrue things, they should instead explain away the oddness of those same utterances  by the knowledge of speaker unreliability and not update their prior beliefs about the world.
 
-\ndg{need to transition more smoothly from the previous part to the next part... ie link more clearly between the great discussion of revising common ground that just happened and the RSA stuff that is about to...}
+\blue{In order to test these ideas, one would ideally formalize them in a way that generates empirically testable and falsifiable predictions for listeners' interpretation of utterances about different domains (varying world knowledge presumed to be in common ground) and produced by different speakers (varying speaker reliability). This would be a difficult enterprise were one to start from scratch, but fortunately we have at our disposal a modeling framework that allows for capturing precisely how  mutually assumed to be held beliefs about the world should interact with listeners' assumptions about speaker reliability in interpretation: the }
 
-The Rational Speech Act framework  \cite<RSA, >{frank2012,goodmanstuhlmueller2013}, and related models \cite{franke2011,russell2012}, treat communication as a signaling game \cite{lewis1969} between a speaker and a listener.
+\ndg{need to transition more smoothly from the previous part to the next part... ie link more clearly between the great discussion of revising common ground that just happened and the RSA stuff that is about to...}\jd{better?}
+Rational Speech Acts framework  \cite<RSA, >{frank2012,goodmanstuhlmueller2013}, and related models \cite{franke2011,russell2012}, treat communication as a signaling game \cite{lewis1969} between a speaker and a listener.
 The listener reasons by Bayesian inference about what the world is like given that a speaker who produced the utterance is trying to be informative (with respect to a na\"ive listener who interprets utterances literally). 
 Variants of these models have successfully captured listeners' quantitative  behavior on a number of pragmatic inference tasks, including ad hoc Quantity implicature \cite{degenfrankejaeger2013,frank2012}, markedness implicature \cite{bergengoodman2012}, scalar implicature \cite{goodmanstuhlmueller2013}, syllogistic reasoning \cite{tessler2014}, and non-literal language \cite{kao2014}. 
 A defining feature of Bayesian reasoning is that prior beliefs affect inferences that will be drawn. Bayesian models of language interpretation, accordingly, predict that prior beliefs about the world should affect the listener's interpretation of an utterance. 
@@ -125,62 +129,21 @@ However, intuition is at odds with these predictions: as \citeA{geurts2010} has 
 %The reason for this is presumably that listeners realize that the speaker went to the trouble of producing an utterance that is weaker than what the prior would lead one to believe.
 %
 
-The rest of the paper is structured as follows. In Exp.~1 we collect prior probabilities for a variety of events (e.g., sinking) and categories that participate in those events (e.g., marbles). In Exps.~2a and 2b we collect corresponding posterior interpretations after observing descriptions of those events containing quantifiers (\emph{some}, \emph{all}, \emph{none}). These experimental results confirm the intuition of relatively strong implicatures---hence prediction (1) of RSA is incorrect---and show that the prior has a muted effect on posterior expectation---hence prediction (2) of RSA is incorrect.
+The rest of the paper is structured as follows. \blue{In the next section we describe RSA and its predictions for the effect of prior beliefs on the interpretation of utterances with quantifiers in more detail.} In Exp.~1 we collect prior probabilities for a variety of events (e.g., sinking) and categories that participate in those events (e.g., marbles). In Exps.~2a and 2b we collect corresponding posterior interpretations after observing descriptions of those events containing quantifiers (\emph{some}, \emph{all}, \emph{none}). These experimental results confirm the intuition of relatively strong implicatures---hence prediction (1) of RSA is incorrect---and show that the prior has a muted effect on posterior interpretation---hence prediction (2) of RSA is incorrect.
 
 Given the previous success of RSA models, this constitutes a striking puzzle. 
 To address this puzzle we pursue the intuition raised at the very beginning of this paper: that sometimes, the speaker's utterance will lead the listener to infer that the world under discussion is wonky and she should therefore use less extreme prior beliefs in the computation of speaker meaning. In \sectionref{sec:wrsa} we introduce a variant of RSA, \emph{wonky RSA (wRSA)}, in which the listener can revise the beliefs about the domain under discussion that are presumed to be in common ground. We show that this extension resolves the puzzle of the prior's muted effects.
 
-The extended wRSA model makes predictions not just about the actual state of the world that the listener infers the speaker as trying to communicate, but also about listeners' judgments of world wonkiness (i.e.~whether the world is normal). This allows for a further test of wRSA: in Exp.~3 we collect participants' judgments about whether the world is odd in the scenarios of Exps.~2a and 2b.
+The extended wRSA model makes predictions not just about the actual state of the world that the listener infers the speaker as trying to communicate, but also about listeners' judgments of world wonkiness (i.e.~whether the world is normal). This allows for a further test of wRSA: in Exp.~3 we collect participants' judgments about whether the world is wonky in the scenarios of Exps.~2a and 2b.
 
-Finally, in \sectionref{sec:speakerreliability} we test the prediction that listeners should hold on to their prior beliefs when interpreting odd utterances if they expect  speakers to be  unreliabile. That is, if utterance oddness can be explained away by speaker unreliability, prior beliefs about how many X Y should have a greater effect on the interpretation of \emph{Some of the X Yed} than when speakers are expected to be reliable. We test the effect of speaker reliability on the interpretation of a subset of the items used in Exps.~2a-3 in Exp.~4. In \sectionref{sec:gd} we discuss the results with respect both to ideal adaptor models in other areas of psycholinguistics and to presupposition accommodation / common ground update.
-
-
-\section{Experiment 1: prior elicitation} 
-\label{sec:priors}
-
-\ndg{it's kind of odd to me to put this section before the RSA description -- we don't know yet why we care about this prior... how about reversing the order, but breaking up the RSA section so that the basic model section shows schematic predictions with some standard priors (eg beta), and then the predictions with empirical priors are in the results to the priors section? this also makes the intro to priors less jarring: in contrast to the idealized priors just used we will use empirical priors so that no one ca accuse us of making them up...}
-
-Obtaining good estimates of prior beliefs is crucial for testing any Bayesian model. Indeed, Bayesian approaches have recently been criticized for being lax in their treatment of priors \cite{jones2011, marcus2013}. To avoid this criticism, we empirically elicit estimates of prior beliefs. We measured listeners' prior beliefs about how many objects exhibit a certain effect (e.g., how many marbles sink) by following the four-step procedure described by \citeA{Speirs-Bridge2010}.
-
-\subsection{Method}
-
-\subsubsection{Participants}
-We recruited 120 participants over Amazon's crowd-sourcing platform Mechanical Turk.\footnote{This experiment can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/prior_fourstep/sinking-marbles.html}.} Participants were paid \$0.80 for their participation. Here and in all other experiments reported in this paper, participants' IP address was limited to US addresses only and only participants with a past work approval rate of at least 95\% were accepted.
-
-\subsubsection{Procedure and materials}
-
-On each trial, participants read a one-sentence description of an event like \emph{John threw 15 marbles into a pool.} We were interested in obtaining estimates of a subsequent effect, in this case how many marbles participants believed sank. Following the procedure in \citeA{Speirs-Bridge2010}, we elicited participants' beliefs in four steps:  first, they were asked to provide a lower bound on how many marbles sank. Then they were asked to provide an upper bound. Next, they were prompted for their best guess as to how many marbles sank. All three of these estimates were given by typing a number into a text field. Finally, they were asked to rate how confident they were that the interval they created captured the actual number of marbles that sank, by adjusting a slider with endpoints labeled ``not confident at all'' and ``very confident''. A full example of questions asked is provided in \eref{fourstep}.
-
-\eenumsentence{\label{fourstep}
-				\item \emph{Realistically, what do you think the lowest number of marbles that sank could be?}
-				\item \emph{Realistically, what do you think the highest number of marbles that sank could be?}
-				\item\label{bestguess} \emph{Realistically, what is your best guess at how many marbles sank?}
-				\item \emph{How confident are you that the interval you created, from lowest to highest, will capture the actual number of marbles that sank?}}
-
-
-We are most interested in participants' response to \eref{bestguess}, since, over the population, that will allow us to directly compute the prior probability of each number of marbles sinking. Each item had a similar form: an initial sentence introduced 15 objects of a particular type (e.g., marbles). The questions always had the same forms as shown in \eref{fourstep}. For example, questions of the (c) type always had the form \emph{Realistically, what is your best guess at how many X Yed?}, where \emph{X} was the head of the direct object noun phrase introduced in the first sentence (e.g., \emph{marbles}, \emph{cups}, \emph{balloons}) and \emph{Yed} was a verb phrase denoting an effect that the objects underwent (e.g., \emph{sank}, \emph{broke}, \emph{stuck to the wall}). Each verb phrase occurred with three different objects, e.g., \emph{sank} occurred with \emph{marbles}, \emph{cups}, and \emph{balloons}. Items were constructed to intuitively cover the range of probabilities as much as possible%, while also somewhat oversampling the upper range of probabilities to have more fine-grained coverage of this region that is of most interest for testing the RSA model
-. Judgments were obtained for 90 items, of which each participant saw a random selection of 30 items. 
-
-\subsection{Results}
-
-Data from one participant, who provided a lower bound with a value greater than the upper bound on ten trials, were excluded. A further seven trials on which such reversals occurred were also excluded. This yielded an exclusion of 1\% of the data. Each item received between 10 and 30 ratings on each measure. We focus here on the best guess measure. Distributions of best guesses for each item were smoothed using nonparametric density estimation for ordinal categorical variables \cite{liracine2003} with the \verb|np| package in R \cite{hayfield2008}. For each item, we then computed its belief distribution's expected value and all-state probability. As intended, items covered a wide range of probabilities and expected values (see also \figref{fig:probhist}). 
-
-\begin{figure}
-\centering
-%	\includegraphics[width=.5\textwidth]{pics/priorexpectations-histogram}	
-	\includegraphics[width=\textwidth]{pics/priordistributions}	
-	\caption{Histogram of expected values $\mathbb{E}[P(s)]$ of each empirically elicited and smoothed prior distribution (left) and histogram of prior probabilities $P(s_{15})$  of the all-state for each item (right).}
-	\label{fig:probhist}	
-\end{figure}
-
-In the next section, we use the estimated prior beliefs to derive RSA predictions for the interpretation of utterances like \emph{Some of the marbles sank} before empirically measuring participants' interpretations.
+Finally, in \sectionref{sec:speakerreliability} we test the prediction that listeners should hold on to their prior beliefs when interpreting odd utterances if they expect  speakers to be  unreliabile. That is, if utterance oddness can be explained away by speaker unreliability, prior beliefs about how many X Y should have a greater effect on the interpretation of \emph{Some of the X Yed} than when speakers are expected to be reliable. We test the effect of speaker reliability on the interpretation of a subset of the items used in Exps.~2a-3 in Exp.~4. In \sectionref{sec:gd} we discuss the results with respect both to ideal adaptor models in other areas of psycholinguistics and to presupposition accommodation / common ground update.  \jd{make sure we actually do this...}
 
 
 
 \section{Effect of the world prior in RSA}
 \label{sec:rsa}
 
-The basic Rational Speech Acts model defines a pragmatic listener $P_{L_1}(s|u)$ who reasons about a speaker $P_{S_1}(u|s)$, who in turn reasons about a literal listener $P_{L_0}(s|u)$. Each listener performs Bayesian inference about the world state the speaker intends to communicate, given either the literal truth of utterance $u$ or the speaker's choice of $u$; the speaker is a softmax-optimal decision maker, with the goal of being informative about the state $s$.
+In the basic Rational Speech Acts model, interpretation is defined via a pragmatic listener $P_{L_1}(s|u)$ who reasons about a speaker $P_{S_1}(u|s)$, who in turn reasons about a literal listener $P_{L_0}(s|u)$. Each listener performs Bayesian inference about the world state $s$ the speaker intends to communicate, given either the literal truth of utterance $u$ or the speaker's choice of $u$; the speaker is a softmax-optimal decision maker, with the goal of being informative about the state $s$.
 RSA is defined by: 
 \begin{eqnarray}
 &&P_{L_0}(s|u)\propto \delta_{\denote{u}(s)} \cdot P(s)\\
@@ -189,15 +152,16 @@ RSA is defined by:
 \end{eqnarray}
 Here $\denote{u}: S \rightarrow \text{Boolean}$ is a truth-function specifying the literal meaning of each utterance and $\delta_{\denote{u}(s)}$ is the Kronecker delta function returning $1$ for states $s$ compatible with utterance $u$, and $0$ otherwise.
 
-For concreteness, assume that the set of states of the world is $S = \{s_0, s_1, s_2, \dots, s_{15}\}$, where the subscript indicates the number of objects (e.g., marbles) that exhibit an effect (e.g., sinking). 
+For concreteness, assume that the set of states of the world is $S = \{s_0, s_1, s_2, \dots, s_{15}\}$, where the subscript indicates the number of objects X (e.g., marbles) that exhibit an effect Y (e.g., sinking). 
 Further assume that the set of three utterances \emph{All/None/Some of the marbles sank} is denoted $U = \{u_{\textrm{all}}, u_{\textrm{none}}, u_{\textrm{some}}\}$ and each has its usual literal meaning: 
-%$\denote{u_{\textrm{none}}}: s=0$,  
-%$\denote{u_{\textrm{some}}}: s>0$,
-%$\denote{u_{\textrm{all}}}: s=15$.
-$\denote{u_{\textrm{none}}}= \{s_i | i = 0\}$,  
-$\denote{u_{\textrm{some}}}= \{s_i | i > 0\}$,
-$\denote{u_{\textrm{all}}}= \{s_i | i = 15\}$.
-\ndg{do we want $\denote{..}$ to be a function or a set?}
+$\denote{u_{\textrm{none}}} = \lambda s_i [i=0]$,  
+$\denote{u_{\textrm{some}}} = \lambda s_i [i>0]$,
+$\denote{u_{\textrm{all}}} = \lambda s_i [i=15]$.
+%$\denote{u_{\textrm{none}}}= \{s_i | i = 0\}$,  
+%$\denote{u_{\textrm{some}}}= \{s_i | i > 0\}$,
+%$\denote{u_{\textrm{all}}}= \{s_i | i = 15\}$
+.
+\ndg{do we want $\denote{..}$ to be a function or a set?}\jd{now it's a function. kosher?}
 
 %Let us imagine that the prior is binomial with single event probability $\theta$: $P(s)=\text{Binomial}(s|\theta)$.
 
@@ -209,15 +173,14 @@ $\denote{u_{\textrm{all}}}= \{s_i | i = 15\}$.
 	\label{fig:rrsaexppredictions}	
 \end{figure*}
 
-In Figure \ref{fig:rrsaexppredictions} we show the predictions of RSA (dark blue dots) for the items from Exp.~1 in two different ways: the left panel shows the posterior expected number of affected objects as a function of the expected value of the prior belief distribution; the right panel shows the posterior probability of the state in which all objects are affected, as a function of the prior probability of that state, with free parameters \red{XXX} set to \red{XXX}.\footnote{Here and below, model predictions are reported for parameter settings that were derived through \red{MH BRIEFLY DESCRIBE PROCEDURE}. Details of the procedure are provided in \appref{app:bayesianselection}.%That the individual model predictions look somewhat noisy is due to the different shapes of the prior distributions, such that for the same expected value of the distribution, the distribution itself can take different shapes, which are treated slightly differently by the model.
-}   %as $\theta$ varies. \red{put in figure showing the basic RSA predictions for allstate $P(s_{15}|u_{some})$ and expectation. this figure could also have wRSA predictions for later reference.} 
+In Figure \ref{fig:rrsaexppredictions} we show the predictions of RSA for hypothetical Beta priors \jd{spell out more how they were generated? in any case generate actual plot} in two different ways: the left panel shows the posterior expected number of affected objects as a function of the expected value of the prior belief distribution; the right panel shows the posterior probability of the state in which all objects are affected, as a function of the prior probability of that state, with speaker optimality parameters ranging from \red{XXX} to \red{XXX} for illustration. %\footnote{Here and below, model predictions are reported for parameter settings that were derived through \red{MH BRIEFLY DESCRIBE PROCEDURE}. Details of the procedure are provided in \appref{app:bayesianselection}.%That the individual model predictions look somewhat noisy is due to the different shapes of the prior distributions, such that for the same expected value of the distribution, the distribution itself can take different shapes, which are treated slightly differently by the model.}   %as $\theta$ varies. \red{put in figure showing the basic RSA predictions for allstate $P(s_{15}|u_{some})$ and expectation. this figure could also have wRSA predictions for later reference.} 
 We see that the prior has a strong effect, which can be summarized by the two predictions described in the Introduction: 
 \begin{enumerate}
 	\item $P(s_{15}|u_{\textrm{some}}) \rightarrow 1$ as $P(s_{15})\rightarrow 1$\\That is, the posterior probability of the all-state after observing \emph{Some of the X Y} approaches 1 as the prior probability of the all-state approaches 1.
 	\item $\mathbb{E}[P(s|u_{\textrm{some}})] \simeq \mathbb{E}[P(s)]$ over the upper half of its range\\That is, the expected value of the posterior distribution after observing \emph{Some of the X Y} tracks the expected value of the prior distribution.
 \end{enumerate}
 
-We next turn to an empirical test of these predictions.%, or rather, of the intuition that they may be incorrect.
+\blue{We next turn to an empirical test of these predictions by conducting two interpretation experiments, one each for each of the two predictions. Comparing model predictions to empirical interpretation data requires knowing listeners' prior beliefs. Rather than make these up, we measure them empirically. Thus, testing the two predictions proceeds in three steps: first, we collect empirical estimates of listeners' prior beliefs about a large number of domains. Second, we conduct two interpretation studies. Finally, we compare the model's predictions about interpretation probabilities to listeners' empirical interpretation data.} %, or rather, of the intuition that they may be incorrect.
 
 %\section{Models of utterance interpretation}
 %
@@ -254,28 +217,72 @@ We next turn to an empirical test of these predictions.%, or rather, of the intu
 
 
 
-\section{Experiment 2a and 2b: comprehension}  
-\label{sec:comprehension}
+\section{Experiment 1: prior elicitation} 
+\label{sec:priors}
 
-Exps.~2a and 2b  measured participants' posterior beliefs $P(s|u)$ about how many objects exhibited a certain effect (e.g., marbles sinking), after observing an utterance. The only difference between the experiments was the dependent measure. The dependent measures differed in order to directly and independently estimate the two values that the  predictions above are concerned with: $\mathbb{E}[P(s|u_{\textrm{some}})]$ and $P(s_{15}|u_{\textrm{some}})$, i.e., the expected number of X that are deemed to have Yed and the probability of all of the X having Yed (a measure of implicature strength), respectively, after observing the utterance \emph{Some of the X Yed}.
+\ndg{it's kind of odd to me to put this section before the RSA description -- we don't know yet why we care about this prior... how about reversing the order, but breaking up the RSA section so that the basic model section shows schematic predictions with some standard priors (eg beta), and then the predictions with empirical priors are in the results to the priors section? this also makes the intro to priors less jarring: in contrast to the idealized priors just used we will use empirical priors so that no one ca accuse us of making them up...}\jd{order reversed and additional changes marked in blue. better?}
+
+Obtaining good estimates of prior beliefs is crucial for testing any Bayesian model. Indeed, Bayesian approaches have recently been criticized for being lax in their treatment of priors \cite{jones2011, marcus2013}. To avoid this criticism, we empirically elicit estimates of prior beliefs. We measured listeners' prior beliefs about how many objects exhibit a certain effect (e.g., how many marbles sink) by following the four-step procedure described by \citeA{Speirs-Bridge2010}.
 
 \subsection{Method}
 
 \subsubsection{Participants}
-We recruited 120 participants in Exp.~2a and 240 participants in Exp.~2b over Amazon's Mechanical Turk.\footnote{These experiments can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/expectation/sinking-marbles.html} and \url{http://cocolab.stanford.edu/cogsci2015/wonky/stateprobs/sinking-marbles-nullutterance.html}}  Participants were paid \$0.70.
-\ndg{should probably say something about how Ns were chosen, and particularly why 2b has twice as many Ss...}
+We recruited 120 participants over Amazon's crowd-sourcing platform Mechanical Turk.\footnote{This experiment can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/prior_fourstep/sinking-marbles.html}.} Participants were paid \$0.80 for their participation. Here and in all other experiments reported in this paper, participants' IP address was limited to US addresses only and only participants with a past work approval rate of at least 95\% were accepted.
 
 \subsubsection{Procedure and materials}
 
-Participants read the same descriptions as in Exps.~1a and 1b. They additionally saw an utterance produced by a knowledgeable speaker about the event, e.g.~\textit{John, who observed what happened, said: ``Some of the marbles sank''}. In Exp.~2a (just as in Exp.~1a \ndg{expt 1 uses a different DM now? and no 1a/1b..?}), they then provided a judgment of an effect, e.g.~\textit{How many of the marbles do you think sank?}, on a sliding scale from 0 to 15. In Exp.~2b they instead rated on sliding scales with endpoints labeled ``definitely not'' and ``definitely'', how likely they thought 0\%, 1-50\%, 51-99\%, or 100\% of the objects exhibited the effect.
+\jd{decide which priors to report in main text and which to refer to in a footnote; revise.}
+
+On each trial, participants read a one-sentence description of an event like \emph{John threw 15 marbles into a pool.} We were interested in obtaining estimates of a subsequent effect, in this case how many marbles participants believed sank. Following the procedure in \citeA{Speirs-Bridge2010}, we elicited participants' beliefs in four steps:  first, they were asked to provide a lower bound on how many marbles sank. Then they were asked to provide an upper bound. Next, they were prompted for their best guess as to how many marbles sank. All three of these estimates were given by typing a number into a text field. Finally, they were asked to rate how confident they were that the interval they created captured the actual number of marbles that sank, by adjusting a slider with endpoints labeled ``not confident at all'' and ``very confident''. A full example of questions asked is provided in \eref{fourstep}.
+
+\eenumsentence{\label{fourstep}
+				\item \emph{Realistically, what do you think the lowest number of marbles that sank could be?}
+				\item \emph{Realistically, what do you think the highest number of marbles that sank could be?}
+				\item\label{bestguess} \emph{Realistically, what is your best guess at how many marbles sank?}
+				\item \emph{How confident are you that the interval you created, from lowest to highest, will capture the actual number of marbles that sank?}}
+
+
+We are most interested in participants' response to \eref{bestguess}, since, over the population, that will allow us to directly compute the prior probability of each number of marbles sinking. Each item had a similar form: an initial sentence introduced 15 objects of a particular type (e.g., marbles). The questions always had the same forms as shown in \eref{fourstep}. For example, questions of the (c) type always had the form \emph{Realistically, what is your best guess at how many X Yed?}, where \emph{X} was the head of the direct object noun phrase introduced in the first sentence (e.g., \emph{marbles}, \emph{cups}, \emph{balloons}) and \emph{Yed} was a verb phrase denoting an effect that the objects underwent (e.g., \emph{sank}, \emph{broke}, \emph{stuck to the wall}). Each verb phrase occurred with three different objects, e.g., \emph{sank} occurred with \emph{marbles}, \emph{cups}, and \emph{balloons}. Items were constructed to intuitively cover the range of probabilities as much as possible%, while also somewhat oversampling the upper range of probabilities to have more fine-grained coverage of this region that is of most interest for testing the RSA model
+. Judgments were obtained for 90 items, of which each participant saw a random selection of 30 items. 
+
+\subsection{Results}
+
+Data from one participant, who provided a lower bound with a value greater than the upper bound on ten trials, were excluded. A further seven trials on which such reversals occurred were also excluded. This yielded an exclusion of 1\% of the data. Each item received between 10 and 30 ratings on each measure. We focus here on the best guess measure. Distributions of best guesses for each item were smoothed using nonparametric density estimation for ordinal categorical variables \cite{liracine2003} with the \verb|np| package in R \cite{hayfield2008}. For each item, we then computed its belief distribution's expected value and all-state probability. As intended, items covered a wide range of probabilities and expected values (see also \figref{fig:probhist}). 
+
+\begin{figure}
+\centering
+%	\includegraphics[width=.5\textwidth]{pics/priorexpectations-histogram}	
+	\includegraphics[width=\textwidth]{pics/priordistributions}	
+	\caption{Histogram of expected values $\mathbb{E}[P(s)]$ of each empirically elicited and smoothed prior distribution (left) and histogram of prior probabilities $P(s_{15})$  of the all-state for each item (right).}
+	\label{fig:probhist}	
+\end{figure}
+
+\blue{Next, we empirically measure participants' interpretation of utterances like \emph{Some of the marbles sank}. We use the priors elicited here to generate model predictions for interpretation, which we then compare to the results of the interpretation studies.}
+
+
+
+
+\section{Experiment 2a and 2b: comprehension}  
+\label{sec:comprehension}
+
+Exps.~2a and 2b  measured participants' posterior beliefs $P(s|u)$ about how many objects exhibited a certain effect (e.g., how many marbles sank), after observing an utterance. The only difference between the experiments was the dependent measure. The dependent measures differed in order to directly and independently estimate the two values that the  predictions above are concerned with: $\mathbb{E}[P(s|u_{\textrm{some}})]$ and $P(s_{15}|u_{\textrm{some}})$, i.e., the expected number of X that are deemed to have Yed and the probability of all of the X having Yed (a measure of implicature strength), respectively, after observing the utterance \emph{Some of the X Yed}.
+
+\subsection{Method}
+
+\subsubsection{Participants}
+We recruited 240 participants in each experiment (i.e., 480 total) over Amazon's Mechanical Turk. \blue{All participants had US American IP addresses and were self-reported native speakers of English.}\footnote{These experiments can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/expectation/sinking-marbles.html} and \url{http://cocolab.stanford.edu/cogsci2015/wonky/stateprobs/sinking-marbles-nullutterance.html}}  Participants were paid \$0.70.
+\ndg{should probably say something about how Ns were chosen, and particularly why 2b has twice as many Ss...}\jd{ran another 120 people in 2a, so N is now the same in both exps}
+
+\subsubsection{Procedure and materials}
+
+Participants read the same descriptions as in Exp.~1. They additionally saw an utterance produced by a knowledgeable speaker about the event, e.g.~\textit{John, who observed what happened, said: ``Some of the marbles sank''}. In Exp.~2a (just as in Exp.~1), they then provided a judgment of an effect, e.g.~\textit{How many of the marbles do you think sank?}, on a sliding scale from 0 to 15. In Exp.~2b they instead rated on sliding scales with endpoints labeled ``definitely not'' and ``definitely'', how likely they thought 0\%, 1-50\%, 51-99\%, or 100\% of the objects exhibited the effect.
 
 Each participant saw 10 \emph{some} trials and 20 filler trials, of which 10 contained the quantifiers \emph{all} or \emph{none}, and the rest were utterances that did not address the number of objects that displayed the effect. These 10 additional fillers were intended to establish a baseline for participants' use of information about the prior. Of these, half were generic short fillers that were intended to communicate the prior, e.g., \emph{Typical}. The rest were longer sentences that addressed a different aspect of the described scenario, e.g.~\emph{What a stupid thing to do}.\footnote{See \appref{sec:items} for a complete list of items.} The utterances were randomly paired with 30 random items for each participant.
 
  
 \begin{figure*}
 	\includegraphics[width=\textwidth]{pics/empirical-results}	
-	\caption{For each item and quantifier, empirical $\mathbb{E}[P(s|u_{\textrm{some}})]$ from Exp.~2a against $\mathbb{E}[P(s)]$ from Exp.~1 (left)  and empirical $P(s_{15}|u_{\textrm{some}})$ from Exp.~2b against  $P(s_{15})$ from Exp.~1 (right).
-	\ndg{what are lines?}}
+	\caption{For each item and quantifier, empirical $\mathbb{E}[P(s|u_{\textrm{some}})]$ from Exp.~2a against $\mathbb{E}[P(s)]$ from Exp.~1 (left)  and empirical $P(s_{15}|u_{\textrm{some}})$ from Exp.~2b against  $P(s_{15})$ from Exp.~1 (right). Lines and gray ribbons indicate best linear fit and 95\% confidence intervals.}
 	\label{fig:empiricalresults}	
 \end{figure*}
 
@@ -344,11 +351,11 @@ Note the U-shaped curve, in which the world is judged wonky if $u_{\textrm{some}
 \subsection{Methods}
 
 \subsubsection{Participants}
-We recruited 120 participants over Amazon's crowd-sourcing platform Mechanical Turk.\footnote{This experiment can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/wonkiness/sinking-marbles-normal.html}} Participants were paid \$0.50.
+We recruited 120 participants over Amazon's crowd-sourcing platform Mechanical Turk.\footnote{This experiment can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/wonkiness/sinking-marbles-normal.html} \jd{change the experiment that the link points to (currently pointing at slider experiment)}} Participants were paid \$0.50.
 
 \subsubsection{Procedure and materials}
 
-The procedure and materials were identical to those of Exps.~2a and 2b, with the exception of the dependent measure. Rather than providing estimates of how many X they believed Yed, participants were asked whether they thought that the objects (e.g., the marbles) involved in the scenario were normal objects. \ndg{i'd prefer to quote the question asked directly, rather than paraphrase it...} They responded by checking a ``Yes'' or ``No'' radio button.\footnote{The results replicate qualitatively using at least two different dependent measures: in one study, instead of being asked about the objects involved in the event, participants were asked about the normalcy of the event directly. In a different study, instead of performing a binary forced choice task, they were asked to indicate how likely it was that the objects  involved in the scenario were normal objects, by adjusting a slider with endpoints labeled ``definitely not normal'' to ``definitely normal.'' \red{Results in Appendix? Supplementary materials?}}
+The procedure and materials were identical to those of Exps.~2a and 2b, with the exception of the dependent measure. Rather than providing estimates of how many X they believed Yed, participants were asked  whether they thought that the objects involved in the scenario were normal objects, for example \emph{Do you think these are normal marbles?}  They responded by checking a ``Yes'' or ``No'' radio button.\footnote{The results replicate qualitatively using at least two different dependent measures: in one study, instead of being asked about the objects involved in the event, participants were asked about the normalcy of the event directly. In a different study, instead of performing a binary forced choice task, they were asked to indicate how likely it was that the objects  involved in the scenario were normal objects, by adjusting a slider with endpoints labeled ``definitely not normal'' to ``definitely normal.'' \jd{Results in Appendix? Supplementary materials?}}
 
 \subsection{Results and discussion}
 
@@ -379,12 +386,12 @@ Further, the wonkiness judgments obtained in Exp.~3 qualitatively match the wRSA
 However, there is an even clearer reason to doubt speaker reliability explanations for the observed attenuated effect of the prior: if the speaker was  unreliable, intuition and the (RSA and wRSA) model predict that listeners should use their prior world knowledge  \emph{more} strongly, not less than if the speaker was reliable. This is simply because an unreliable speaker provides less new information to a listener, and thus changes the listener's beliefs less from her prior.
 %%ndg: this example is probably interpreted more strongly, as understatement not unreliability.
 %For example, if my very successful but understated friend says that he did ``OK'' on a job interview, I'll be more likely to disregard his pronouncement of mediocre performance and expect him to have done very well. 
-For instance, recall our opening example: if Mary knows that John often says wild things to make fun of her credence, she may explain away his utterance of \emph{All of the baseballs stuck to the wall} as a lie, and stick to her prior belief that baseballs do not stick to walls.  
+For instance, recall our opening example: if Mary knows that John often says wild things to make fun of her gullibility, she may explain away his utterance of \emph{All of the baseballs stuck to the wall} as a lie, and stick to her prior belief that baseballs do not stick to walls.  
 %That is, speaker unreliability (well intentioned or not), if so perceived by listeners, intuitively leads listeners to much more strongly rely on their prior beliefs and discount the speaker's utterance.
 
 %From the model's perspective, we can think about speaker unreliability in terms of different ways of lesioning the model. 
-There are different ways modify the model to capture an unreliable speaker.
-Recall that the speaker chooses utterances in proportion to the informativeness of that utterance to a literal listener. One way to `lesion' the model is thus to let the speaker produce a random true utterance (as opposed to an informative true utterance). Another way is to let the speaker produce an utterance at random from the set of alternatives, regardless of whether it is true. These changes affect the pragmatic listener's likelihood function, hence results in differences interpretation probabilities. In particular, the truthful but uninformative speaker somewhat increases the effect of the prior on the posterior all-state probability in wRSA, and the neither truthful nor informative speaker further increases that effect (as intuition suggests). These model predictions are shown for the items used in Exps.~1-3  in \figref{fig:speakerreliability-model}, \red{using the best parameters ($\lambda$ = 2, $P(w)$ = .5) from the model fitting reported in \sectionref{sec:wrsa}. UPDATE THIS AND THE PREDICTION PLOT ONCE MH IS DONE}
+There are different ways to modify the model to capture an unreliable speaker.
+Recall that the speaker chooses utterances in proportion to the informativeness of that utterance to a literal listener. One way to `lesion' the model is thus to let the speaker produce a random true utterance (as opposed to an informative true utterance). Another way is to let the speaker produce an utterance at random from the set of alternatives, regardless of whether it is true. These changes affect the pragmatic listener's likelihood function, hence resulting in different interpretation probabilities. In particular, the truthful but uninformative speaker somewhat increases the effect of the prior on the posterior all-state probability in wRSA, and the neither truthful nor informative speaker further increases that effect (as intuition suggests). These model predictions are shown for the items used in Exps.~1-3  in \figref{fig:speakerreliability-model}, \red{using the best parameters ($\lambda$ = 2, $P(w)$ = .5) from the model fitting reported in \sectionref{sec:wrsa}. UPDATE THIS AND THE PREDICTION PLOT ONCE MH IS DONE}
 
 \begin{figure}
 	\centering
@@ -393,7 +400,7 @@ Recall that the speaker chooses utterances in proportion to the informativeness 
 	\label{fig:speakerreliability-model}	
 \end{figure}
 
-These considerations make the following prediction: if speaker reliability is explicitly manipulated, listeners' interpretations of \emph{Some of the X Yed} should be much more strongly governed by their prior beliefs when the speaker is unreliable (either untruthful or uninformative) than when the speaker is reliable/cooperative. That is, we expect a replication of Exp.~2b for reliable, but not unreliable speakers.\footnote{Indeed, the unreliable speaker conditions can be seen as a \emph{positive control} in the sense that they are predicted to show a strong effect of prior in the situations where we have found an attenuated effect in our key experimental conditions.}
+These considerations make the following prediction: if speaker reliability is explicitly manipulated, listeners' interpretations of \emph{Some of the X Yed} should be much more strongly governed by their prior beliefs when the speaker is unreliable (either untruthful or uninformative) than when the speaker is reliable/cooperative. That is, we expect a replication of Exp.~2b for reliable, but not unreliable speakers.\footnote{Indeed, the unreliable speaker conditions can be seen as a \emph{positive control} in the sense that they are predicted to show a strong effect of the prior in the situations where we have found an attenuated effect in our key experimental conditions.}
 If, instead, there is something more fundamentally wrong with RSA models and the attenuated effect of the prior on comprehension is driven by listeners' perception of the speaker as unreliable, further decreasing speaker reliability should have no effect on how strongly the prior influences listeners' interpretations. If anything, explicitly unreliable speakers should further diminish the effect of the prior. %We test the prediction about speaker reliability in Exp.~4.
 
 Exp.~4 explores how speaker reliability interacts with prior beliefs in the interpretation of the same utterances used in Exps.~1-3. %As discussed in the previous section, the wRSA model predicts that listeners' interpretation of \emph{Some of the X Yed} should be more strongly affected by their prior beliefs (as elicited empirically in Exp.~1) when the speaker is perceived as unreliable than when the speaker is perceived as reliable. 

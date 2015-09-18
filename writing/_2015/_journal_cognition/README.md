@@ -36,12 +36,15 @@ Plugging into the equation above the priors and speaker probabilities  (obtained
 - **MH**: I get a little lost with this "different way of thinking about it" explanation, mostly because of this comparison *within the all-state* since the two priors differ with respect to how likely the all-state is. The explanation would seem to also apply to a right-peaked prior vs. a uniform prior (since for the uniform prior you "need pragmatic reasoning to figure out what state you're in"). Is that correct?
 
 
-### ToDo
-
-- Run BDA with peaky priors -- *Judith*, put together datasets for MH -- *MH*, run it
-
-
 ## Adding a null utterance
 
 At the MXPrag workshop, Michael asked what the effect is of adding a null utterance -- ie, why not get wonkiness via the intuition that you could have just said nothing (or something like our fillers) to retrieve the prior? I remember I had done this at some point, but we discarded it as a possibility because it didn't do what we wanted. I recently checked again what the effect of a (cheap) null utterance is: it weakens implicatures, ie it does exactly the opposite of what wonkiness does. Why Because a null utterance also makes "all" and "none" less likely for the items that are peaked on 0 and 15/all -- in the all-state, this has the effect of decreasing the ratio of the probability of "all" vs "some", so overall, "some" becomes more likely and thus implicatures are weaker.
+
+## To Be Done (manuscript)
+
+- create beta prior plot with varying speaker optimalities and describe beta priors
+- re-write section on priors (once you know which ones you're reporting) and add footnote describing the other priors results
+- run another 120 participants in 2a, for symmetry
+- get correlation of filler trial data and priors to report in footnote on p. 9
+
 

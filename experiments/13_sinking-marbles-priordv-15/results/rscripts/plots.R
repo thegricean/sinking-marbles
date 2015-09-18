@@ -1,7 +1,6 @@
 theme_set(theme_bw(18))
-setwd("~/cogsci/projects/stanford/projects/sinking_marbles/sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/")
-#setwd("~/Dropbox/sinking_marbles/sinking-marbles/experiments/5_sinking-marbles-nullutterance-priordv/results/")
-source("rscripts/summarySE.r")
+setwd("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/")
+
 source("rscripts/helpers.r")
 r$PriorExpectationProportion = r$PriorExpectation/15
 save(r, file="data/r.RData")
@@ -31,14 +30,13 @@ max(agr[agr$quantifier == "Some",]$ProportionResponse)
 
 ggplot(agr, aes(x=PriorExpectationProportion, y=ProportionResponse, color=quantifier)) +
   geom_point() +
-  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+#  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
   geom_smooth(method="lm") +
   scale_color_manual(values=c("#F8766D", "#A3A500", "#00BF7D", "#E76BF3", "#00B0F6")) +
   scale_y_continuous(breaks=seq(0,1,0.1),name="Posterior mean proportion of objects") +
 #  geom_abline(intercept=0,slope=1,color="gray70") +
   scale_x_continuous(breaks=seq(0,1,0.1),name="Prior mean proportion of  objects")  
 ggsave(file="graphs/mean_responses.pdf",width=6.5,height=5)
-ggsave(file="~/cogsci/conferences_talks/_2015/2_cogsci_pasadena/wonky_marbles/paper/pics/meanresponses.pdf",width=6.5,height=5)
 
 
 # code participants for whether they are literal "all" and "none" responders -> maybe the ones who aren't responding literally are also not using the scale properly?

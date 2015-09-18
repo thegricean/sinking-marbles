@@ -1,8 +1,10 @@
-library(ggplot2)
 library(np)
 setwd("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/")
-#setwd("~/Dropbox/thegricean_sinking-marbles/experiments/1_sinking-marbles-prior/results/")
-source("rscripts/summarySE.r")
+
+# load new priors
+load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/26_sinking-marbles-prior15_replication/results/data/r.RData")
+rnew = r
+
 r = read.table("data/sinking_marbles.tsv", sep="\t", header=T)
 r = r[,c("workerid", "rt", "effect", "cause", "object_level", "response", "object")]
 
@@ -10,8 +12,13 @@ r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "o
 #s = summarySE(r, measurevar="response", groupvars=c("effect", "object_level", "object"))
 #priors = s
 #save(priors, file="data/priors.RData")
-load("data/priors.RData")
+#load("data/priors.RData")
 load("data/r.RData")
+
+# combine datasets
+d = merge(r,rnew,all=T)
+summary(d)
+r = d
 
 # write data from mh's attempt to find the prior in the sky
 # subjID, response_item1, response_item2, …, response_itemN
@@ -130,6 +137,7 @@ write.table(ordered[,c("effect","object","expectation_corr")],row.names=F,sep="\
 t = table(r$Item)
 t
 
+library(plyr)
 # get smoothed priors for model
 smoothed_dist15 = ddply(r, .(Item), summarise, State = c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15),SmoothedProportion = (npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001)/sum(npudens(tdat=ordered(response),edat=ordered(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)))$dens+0.0000001))
 
@@ -149,7 +157,7 @@ priors = as.data.frame(prop.table(table(r$Item,r$response),mar=c(1)))
 head(priors)
 priors[priors$Var1 == "ate the seeds butterflies",]$Freq
 colnames(priors) = c("Item","State","EmpiricalProportion")
-row.names(smoothed_dist15) = paste(smoothed_dist15$State,smoothed_dist15$effect,smoothed_dist15$object)
+row.names(smoothed_dist15) = paste(smoothed_dist15$State,smoothed_dist15$Item)
 priors$SmoothedProportion = smoothed_dist15[paste(priors$State, priors$Item),]$SmoothedProportion
 head(priors)
 plot(priors$SmoothedProportion,priors$EmpiricalProportion)
@@ -167,12 +175,13 @@ ggsave(file="graphs/empirical-vs-smoothed-priors.pdf",width=20,height=15)
 
 library(reshape2)
 smoothed_dist15$SmoothedProportion = format(round(smoothed_dist15$SmoothedProportion,7), scientific=F)
-casted = dcast(smoothed_dist15, Item ~ State, value.var="SmoothedProportion")
+casted = smoothed_dist15 %>%
+  spread(State,SmoothedProportion)
 write.table(casted,file="data/smoothed_15marbles_priors_withnames.txt",row.names=F,quote=F,sep="\t")
 write.table(casted,file="../../../models/wonky_world/smoothed_15marbles_priors_withnames.txt",row.names=F,quote=F,sep="\t")
-write.table(casted[,3:length(colnames(casted))],file="data/smoothed_15marbles_priors.txt",row.names=F,quote=F,sep="\t")
-write.table(casted[,1:2],file="data/items.txt",row.names=F,quote=F,sep="\t")
-write.table(casted[,3:length(colnames(casted))],file="../../../models/wonky_world/smoothed_15marbles_priors_withnames.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,2:length(colnames(casted))],file="data/smoothed_15marbles_priors.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,1],file="data/items.txt",row.names=F,quote=F,sep="\t")
+write.table(casted[,2:length(colnames(casted))],file="../../../models/wonky_world/smoothed_15marbles_priors_withnames.txt",row.names=F,quote=F,sep="\t")
 
 ordered = casted[order(casted[,c("15")]),c("effect","object","15")]
 write.table(ordered,file="data/ordered_allstateprobs.txt",row.names=F,quote=F,sep="\t")
