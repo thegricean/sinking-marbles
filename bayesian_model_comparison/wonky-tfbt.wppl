@@ -44,8 +44,9 @@ var languageData = wonkyutils.readData()
 var listOf90Items = _.keys(empiricalPriors)
 
 var dependentMeasures = ['comp_state','comp_allprob','wonkiness']
-var quantifiers = ["Some","All","None"]
-
+// var quantifiers = ["Some","All","None"]
+var quantifiers = ["Some"]
+var dependentMeasures = ["comp_state"]
 // var linkingFunction = function(marginalERP, measure, linkingBetaConcentration, wonkySoftmax){
 // // var linkingFunction = cache(function(marginalERP, measure, sigma, wonkySoftmax){
 //   Enumerate(function(){
