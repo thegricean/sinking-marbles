@@ -781,14 +781,32 @@ HPDlo<- function(s){
 prefix<-"allQ_wonkyTF_so_wp_phi_allProb-sigma-scale-offset_wonky-softmax_CTS_hashMH"
 
 prefix<-"allQ_wonkyTF_2so_wp_phi_allProb-sigma-scale-offset_wonky-softmax_CTS_hashMH"
-prefix<-"justCompState_originalPriors_so_wp_phi_CTS_incrMH"
+prefix<-"justCompState2xdata_fellDownCardTowers_soAtLeast1_originalPriors_so_wp_NOphi_CTS_hashMH"
+prefix<-"justCompState2xdata_paramsByItem_soAtLeast1_originalPriors_so_wp_NOphi_CTS_incrMH"
+prefix<-"justCompState2xdata_paramsByItem_originalPriors_so_wp_NOphi_CTS_incrMH"
+prefix<-"justCompState2xdata_soByItem_originalPriors_so_wp_NOphi_CTS_incrMH"
+
+
+
+
+prefix<-"justCompState_wRepData_originalPriors_so_wp_phi_CTS_allProb-sigma-scale-offset_incrMH"
+prefix<-"justCompState_wRepData_originalPriors_so_wp_phi_CTS_incrMH"
+prefix<-"justCompState_wRepData_originalPriors_so_wp_phiByItem_CTS_incrMH"
+
+
+
+
 #prefix<-"allQ_originalPriors_wonkyTF_2so_wp_phi_allProb-sigma-scale-offset_CTS_incrMH"
 
 
+prefix<-"fullPost_justCompState_wRepData_originalPriors_so_wp_phi_CTS_incrMH"
 
 
-samples<-3000
-d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'a.csv',sep=''))
+
+samples<-5000
+d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'0burn',samples/2,'0a.csv',sep=''))
+d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'burn0a.csv',sep=''))
+
 
 
 # d<-bind_rows(d,d0)
@@ -805,8 +823,63 @@ d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'a.csv',sep=''))
 #   facet_wrap(~Parameter,scales="free")
 
 
+
+## params by item
+
+d.paramsByItem <- d %>%
+  filter(!((Parameter%in%c("comp_allprob", "comp_state","wonkiness")) | (Item=='na')))
+
+## for continuous variables
+d.paramsByItem <- data.frame(Parameter = rep(d.paramsByItem$Parameter, 1+samples*d.paramsByItem$Probability),
+                             Item = rep(d.paramsByItem$Item, 1+samples*d.paramsByItem$Probability),
+                       Response = rep(to.n(d.paramsByItem$Value), 1+samples*d.paramsByItem$Probability))
+
+d.paramSummary<- d.paramsByItem %>%
+  group_by(Parameter, Item) %>%
+  summarise( MAP = estimate_mode(Response),
+             credHi = HPDhi(Response),
+             credLo = HPDlo(Response))
+
+
+d.paramsWpriors<-left_join(d.paramSummary, prior_exps)
+
+
+d.paramsWpriors$priorQuantile <- d.paramsWpriors$priorQuantile
+d.paramsWpriors$binnedExpVal = cut(d.paramsWpriors$exp.val,breaks=5)
+
+
+d.paramsWpriors$Item<-with(d.paramsWpriors %>% filter(Parameter=='phi'), 
+                             reorder(Item, MAP, function(x) -x))
+
+
+
+
+
+ggplot(data=d.paramsWpriors, aes(x=Item, y=MAP, fill=binnedExpVal))+
+  geom_bar(stat='identity',position=position_dodge(), alpha=0.5)+
+  geom_errorbar(aes(ymin=credLo, ymax=credHi),position=position_dodge())+
+  facet_wrap(~Parameter, scales='free')+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  scale_fill_brewer(palette='Set1')
+
+d.paramsWpriors %>% group_by(Parameter) %>% summarise(mean(MAP))
+
+table(d.paramsWpriors$binnedExpVal)
+
+
+ggplot(data=d.paramsWpriors, aes(x=MAP))+
+  geom_histogram(binwidth=0.002)
+# ggplot(d.params,aes(x=Response))+
+#   geom_histogram()+
+#   facet_wrap(~Parameter,scales="free")
+# 
+# ###
+
+
+
+
 d.params <- d %>%
-  filter(!(Parameter%in%c("comp_allprob", "comp_state","wonkiness"))) %>%
+  filter(!(Parameter%in%c("comp_allprob", "comp_state","wonkiness"))& (Item=='na')) %>%
   select(-Item, -Quantifier)
 
 ## for continuous variables
@@ -866,13 +939,13 @@ d.pp[d.pp$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.pp[d
 # plot all model predictions
 ggplot(d.pp, aes(x=Prior,y=MAPexpval,color=Quantifier)) +
   geom_point() +
- # geom_errorbar(aes(ymin = credLo, ymax = credHi))+
+  geom_errorbar(aes(ymin = credLo, ymax = credHi))+
   geom_smooth() +
   facet_wrap(~Measure,scales="free")
  
 #ggsave(paste("graphs/model_curves/postpred-",prefix,samples,".pdf",sep=""),width=15)
 
-
+range((d.pp %>% filter(Quantifier == 'Some'))$MAPexpval)
 
 #add empirical values
 d.pp$mean.emp.val = empirical[paste(d.pp$Item,d.pp$Measure,d.pp$Quantifier),]$mean.emp.val
@@ -898,26 +971,90 @@ with((d.pp %>% filter(Measure=='comp_allprob')),cor(MAPexpval,mean.emp.val,use='
 
 some.wonkiness<-d.pp %>% filter(Measure=='wonkiness' & Quantifier == 'Some')
 
+
+
+#full posterior
+
+d.postpred <-  d %>% 
+  filter(Parameter%in%c("comp_allprob", "comp_state","wonkiness")) %>%
+  mutate(Probability = to.n(Probability),
+         Value = to.n(Value))
+
+d.postpred <- data.frame(Parameter = rep(d.postpred$Parameter, 
+                                         1+samples*d.postpred$Probability),
+                         Item = rep(d.postpred$Item, 
+                                    1+samples*d.postpred$Probability),
+                         Quantifier = rep(d.postpred$Quantifier,
+                                          1+samples*d.postpred$Probability),
+                         Bin = rep(d.postpred$Bin,
+                                          1+samples*d.postpred$Probability),
+                         Response = rep(d.postpred$Value, 
+                                        1+samples*d.postpred$Probability))
+
+
+
+
+
+
+d.fullpost <- d.postpred %>%
+  group_by(Parameter, Item, Quantifier, Bin) %>%
+  summarise(MAP = estimate_mode(Response),
+            credHigh = HPDhi(Response),
+            credLow = HPDlo(Response)) %>%
+  mutate(Bin = to.n(Bin))
+
+
+ggplot(d.fullpost %>% filter(Item =='ate the seeds birds' &
+                               Quantifier == 'Some'),
+       aes(x=Bin, y = MAP))+
+  geom_bar(position=position_dodge(), stat='identity', alpha=0.5)+
+  geom_errorbar(aes(ymin=credLow, ymax=credHigh), position=position_dodge())+
+  facet_wrap(~Item)
+
+
+
+
+
+
+
+
+
+
 # parameter exploration
-prefix<-"justComp_logProbs_enumerate"
+prefix<-"justComp_logProbs_enumerate_wEnds"
+prefix<-"justCompState_logProbs_enumerate_wEnds"
+
+prefix<-"justCompAllProb_logProbs_enumerate_wEnds"
+
+
 #prefix<-"allQ_originalPriors_wonkyTF_2so_wp_phi_allProb-sigma-scale-offset_CTS_incrMH"
 
 
 
 
-samples<-3000
+#samples<-3000
+
 d<-read.csv(paste("wonkyFBTPosterior_",prefix,'.csv',sep=''))
 
 d.p<-d %>% rename(wonkyPrior = Parameter,
              phi = Item,
              optimality = Quantifier,
              logProb = Value) %>%
-  group_by(wonkyPrior, optimality) %>%
+  group_by(wonkyPrior, optimality, phi) %>%
   summarise(val = sum(logProb*Probability))
 
 ggplot(d.p, aes(x=wonkyPrior, y = optimality, fill=val))+
-  geom_tile()
+  geom_tile()+
+  facet_wrap(~phi)+
+  geom_point(data = d.p[which.max(d.p$val),], 
+            aes(x=wonkyPrior, y = optimality), color='black', size=3)
 
+d.p[which.max(d.p$val),]
+
+prefix<-"justComp_preds_enumerate_noEnds"
+
+
+d<-read.csv(paste("wonkyFBTPosterior_",prefix,'.csv',sep=''))
 
 
 
