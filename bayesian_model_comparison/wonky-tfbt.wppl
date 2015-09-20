@@ -156,15 +156,16 @@ var measures = ["comp_state"]
 var dataAnalysis = function(){
 
 
-      var wonkinessPrior = uniform(0,1)
 
       // Priors (continuous)
-      var speakerOptimality = uniform(0,10)
+      var speakerOptimality = uniform(0,5)
       // var speakerOptimality = {
       //   "world":uniform(0,10),
       //   "wonky":uniform(0,10)
       // }
 
+
+      var wonkinessPrior = uniform(0,1)
       // var wonkinessPrior = {
       //   "world": uniform(0,1),
       //   "wonky": uniform(0,1)
@@ -182,6 +183,7 @@ var dataAnalysis = function(){
   foreach(items,
     function(item){
 
+      // var phi = uniform(0,1)
 
       var prior = df_prior[item]
 
@@ -242,23 +244,28 @@ var dataAnalysis = function(){
             factor(scr)
 
             // query.add([measure,item,utterance] ,expectation(linkedERP))
-            query.add([measure,item,utterance] ,expectation(linkedERP))
+
+            foreach(linkedERP.support(), function(s){
+              query.add([measure, item, utterance, s], Math.exp(linkedERP.score([], s)))
+            })
+            // query.add([measure,item,utterance] ,expectation(linkedERP))
 
 
-        if (measure=='comp_allprob') {
-          query.add(["allprob_scale","na","na"], scale)
-          query.add(["allprob_offset","na","na"], offset)
-          query.add(["allprob_sigma","na","na"], sigma)
-          // query.add(["worldly_speakerOptimality","na","na"], speakerOptimality["world"])
-          // query.add(["worldly_phi","na","na"], phi["world"])
-          // query.add(["worldly_wonkinessPrior","na","na"], wonkinessPrior["world"])
-        }
+        // if (measure=='comp_allprob') {
+        //   query.add(["allprob_scale","na","na"], scale)
+        //   query.add(["allprob_offset","na","na"], offset)
+        //   query.add(["allprob_sigma","na","na"], sigma)
+        //   // query.add(["worldly_speakerOptimality","na","na"], speakerOptimality["world"])
+        //   // query.add(["worldly_phi","na","na"], phi["world"])
+        //   // query.add(["worldly_wonkinessPrior","na","na"], wonkinessPrior["world"])
+        // }
 
           })
 
         })
 
 
+      // query.add(["phi",item,"na"], phi)
 
         // if (measure=='wonkiness') {
         //   // query.add(["wonky_scale","na","na"], scale)
@@ -273,10 +280,10 @@ var dataAnalysis = function(){
 
       })
 
-  query.add(["wonkinessPrior","na","na"], wonkinessPrior)
+  query.add(["wonkinessPrior","na","na","na"], wonkinessPrior)
 
-  query.add(["speakerOptimality","na","na"],speakerOptimality)
-  query.add(["phi","na","na"], phi)
+  query.add(["speakerOptimality","na","na", "na"],speakerOptimality)
+  query.add(["phi","na","na", "na"], phi)
 
 
    return query
@@ -317,15 +324,20 @@ var dataAnalysis = function(){
 // linkedERP
 
 
-var mhiter = 1000
-var results = IncrementalMH(dataAnalysis, mhiter, {"verbose":true, "burnin": 0})
+var mhiter = 100
+// var burn = mhiter / 2
+var burn = 0
+var results = IncrementalMH(dataAnalysis, mhiter, {"verbose":true, "burnin": burn})
 // var results = HashMH(dataAnalysis, mhiter, {"verbose":true})
 
 console.log('model complete. writing data...')
 // var outfile = 'results/wonkyFBTPosterior_justCompState_originalPriors_NowonkyTF_so_wp_nophi_allProb-sigma-scale-offset_CTS_incrMH'+ mhiter+'a.csv'
 
-// var outfile = 'results/wonkyFBTPosterior_justCompState2xdata_paramsByItem_originalPriors_so_wp_NOphi_CTS_incrMH'+ mhiter+'burn'+mhiter/2+'a.csv'
-var outfile = 'results/wonkyFBTPosterior_justCompState_originalPriors_so_wp_phi_CTS_allProb-sigma-scale-offset_incrMH'+ mhiter+'burn'+'0'+'a.csv'
+// var outfile = 'results/wonkyFBTPosterior_justCompState_wRepData_originalPriors_so_wp_NOphi_CTS_incrMH'+ mhiter+'burn'+mhiter/2+'a.csv'
+// var outfile = 'results/wonkyFBTPosterior_justCompState_wRepData_originalPriors_so_wp_phiByItem_CTS_incrMH'+ mhiter+'burn'+burn+'a.csv'
+var outfile = 'results/wonkyFBTPosterior_fullPost_justCompState_wRepData_originalPriors_so_wp_phi_CTS_incrMH'+ mhiter+'burn'+burn+'a.csv'
+
+// var outfile = 'results/wonkyFBTPosterior_justCompState_withRepData_originalPriors_so_wp_Nophi_CTS_allProb-sigma-scale-offset_incrMH'+ mhiter+'burn'+'0'+'a.csv'
 
 wonkyutils.erpWriter(results, outfile)
 console.log('wrote ' +outfile)
