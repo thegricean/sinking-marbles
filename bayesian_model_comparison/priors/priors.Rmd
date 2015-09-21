@@ -1,0 +1,58 @@
+---
+title: "wonky-priors-bda"
+author: "mht"
+date: "September 21, 2015"
+output: html_document
+---
+
+```{r helpers}
+
+library(coda)
+estimate_mode <- function(s) {
+  d <- density(s)
+  return(d$x[which.max(d$y)])
+}
+HPDhi<- function(s){
+  m <- HPDinterval(mcmc(s))
+  return(m["var1","upper"])
+}
+HPDlo<- function(s){
+  m <- HPDinterval(mcmc(s))
+  return(m["var1","lower"])
+}
+
+```
+
+Load prior data, convert histogram from wppl into samples, calculate credible intervals, plot
+
+
+```{r}
+
+mhiter <- 100000
+burn <- mhiter/2
+samples <- mhiter - burn
+d0<-read.csv("~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/results/priorBDA-binomials_incrMH100000burn50000.csv")
+
+d.params <- data.frame(Parameter = rep(d0$Parameter, 
+                                         1+samples*d0$Probability),
+                         Item = rep(d0$Item, 
+                                    1+samples*d0$Probability),
+                         Response = rep(d0$Value, 
+                                        1+samples*d0$Probability))
+
+
+d.tidy <- d.params %>% group_by(Parameter,Item) %>%
+  summarise(MAP = estimate_mode(Response),
+            credLow = HPDlo(Response),
+            credHigh = HPDhi(Response))
+
+ggplot(d.tidy, aes(x=Item, y = MAP))+
+  geom_bar(stat='identity', position=position_dodge(), alpha=0.4)+
+  geom_errorbar(aes(ymin = credLow, ymax = credHigh))+
+  theme(axis.text.x = element_text(angle=45))+
+  coord_flip()+
+  ylab("inferred base rate (binomial p)")
+
+ggsave(file='~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/results/inferredThetas-noNoise_incrMH100kBurn50k.pdf', width = 20, height = 20)
+
+```
