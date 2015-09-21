@@ -4,7 +4,8 @@ setwd("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marble
 source("rscripts/helpers.r")
 
 ## load priors for generating plots 
-priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+#priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
 row.names(priorprobs) = priorprobs$Item
 nrow(priorprobs)
 
@@ -46,6 +47,14 @@ summary(m)
 m.0 = lmer(response~ + (1+Prior|workerid) + (1|Item), data=centered)
 summary(m.0)
 anova(m.0,m)
+
+# get correlation of fillers with prior
+agr = centered %>% 
+  group_by(Item) %>%
+  summarise(Prior=unique(Prior),EmpiricalMean=mean(response))
+nrow(agr)
+agr = as.data.frame(agr)
+cor(agr$Prior,agr$EmpiricalMean) # Pearson r = .93
 
 # get empirical comprehension data (comp_allprob)
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/16_sinking-marbles-sliders-certain/results/data/r.RData")
