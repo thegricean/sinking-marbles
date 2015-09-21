@@ -64,7 +64,8 @@ var modelScore = function(modelERP, data){
 
 var logitNoiseLogistic = function(prob, sigma, offset, scale, bins){
   var discreteGaussian=  map(function(d){
-    return Math.exp(gaussianERP.score([wonkyutils.logit(prob), sigma], wonkyutils.logit(d)))
+    return Math.exp(gaussianERP.score([wonkyutils.logit(prob), sigma], 
+                                       wonkyutils.logit(d)))
   }, bins)
   var noisyLogit_p =  wonkyutils.logit(bins[discrete(discreteGaussian)])
   var logisitic_noisy_p = wonkyutils.logistic(noisyLogit_p, offset, scale)
@@ -76,11 +77,56 @@ var queryDictionary = {'comp_state':"world",
                         'comp_allprob':"world",
                         'wonkiness':"wonky"}
 
+
+
+var discreteGaussian = function(mu, sigma, bins){
+  return map(function(d){
+      return Math.exp(gaussianERP.score([wonkyutils.logit(mu), sigma], 
+                                       wonkyutils.logit(d)))
+  }, bins)
+}
+
+
+var expectationPlusNoiseLink = function(marginalERP, sigma){
+  var states = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+  var bins = [ 0.01,
+  0.066,
+  0.133,
+  0.2,
+  0.266,
+  0.333,
+  0.4,
+  0.466,
+  0.533,
+  0.6,
+  0.666,
+  0.733,
+  0.8,
+  0.866,
+  0.933,
+  0.99 ]
+  var expvalNormalized = expectation(marginalERP) / states[states.length-1]
+
+  var expvalAvoidEnds = (expvalNormalized>0.99) ? 0.99 :
+                                        (expvalNormalized < 0.01) ? 0.01 :
+                                              expvalNormalized
+
+
+  var noisyExpectationProbs = discreteGaussian(expvalAvoidEnds, sigma, bins)
+  return states[discrete(noisyExpectationProbs)]
+  // return noisyExpectationProbs
+}
+
+
+
+
 var guessingBehavior = function(measure, bins, states){
   return  (measure == "comp_allprob") ?  uniformDraw(bins) : 
           (measure == "comp_state") ?  uniformDraw(states) :
                                       flip(0.5) ? 1: 0 
 }
+
+
 
 var linkingFunction2 =  function(marginalERP, options){
 
@@ -101,13 +147,13 @@ var linkingFunction2 =  function(marginalERP, options){
                                     (options.measure == "comp_allprob") ? 
                                                     // wonkyutils.roundToBin(posteriorProbAvoidEnds, bins) :
                                                   // wonkyutils.roundToBin(wonkyutils.logitLogistic(posteriorProbAvoidEnds, offset, scale), bins) :
-                                                   logitNoiseLogistic(posteriorProbAvoidEnds, options.sigma, options.offset, options.scale, bins) :
-                                                   // posteriorProbAvoidEnds : 
+                                                   // logitNoiseLogistic(posteriorProbAvoidEnds, options.sigma, options.offset, options.scale, bins) :
+                                                   posteriorProbAvoidEnds : 
                                      (options.measure == "comp_state") ? 
-                                                    sample(marginalERP) : 
+                                                    expectationPlusNoiseLink(marginalERP, options.sigma) : 
                                                     // logitNoiseLogistic(posteriorProbAvoidEnds,wonkySigma, wonkyOffset, wonkyScale)
-                                                    // flip(posteriorProb) ? 1 : 0
-                                                    flip(wonkyutils.logitLogistic(posteriorProb, options.offset, options.scale))?1:0
+                                                    flip(posteriorProb) ? 1 : 0
+                                                    // flip(wonkyutils.logitLogistic(posteriorProb, options.offset, options.scale))?1:0
 
 
     return queryStatement
@@ -139,7 +185,7 @@ var utterances = _.keys(languageData[items[0]])
 var measures = _.keys(languageData[items[0]][utterances[0]])
 // var measures = ["comp_state", "comp_allprob"]
 
-var measures = ["comp_state"]
+// var measures = ["comp_state"]
 // var utterances = ["Some"]
 
 // var items = ['fell down card towers']
@@ -170,13 +216,38 @@ var dataAnalysis = function(){
       //   "world": uniform(0,1),
       //   "wonky": uniform(0,1)
       // }
-      var phi = uniform(0,1)
-      // var phi = 0 
+      var phi = 0
+      // var phi = uniform(0,1)
+      // var phi = 0.0001
 
       // var phi = {
       //   "world":uniform(0,1),
       //   "wonky":uniform(0,1)
       // }
+
+      var sigma = uniform(0.1,2)
+      // var sigma_some = uniform(0.1,2)
+      // var sigma_allnone = uniform(0.1,2)
+
+      // console.log(measure)
+      // var speakerOptimality = 
+
+     // var sigma = measure=='comp_allprob' ? uniform(0.1,5) : 
+     //             measure=='comp_state' ? uniform(0.1,2) :
+     //                                     0
+
+
+     // var sigma = 0
+     // var softmax = measure=="wonkiness" ? uniform(0,10) : 1
+     var softmax = 1;
+      // var linkingSigma = 0
+      // var scale = measure=='comp_allprob' ? uniform(0,4) : 1
+      var scale = 1
+      // var offset = measure=='comp_allprob' ? sample(gaussianDriftERP,[0,10]) : 0
+      var offset = 0
+      // var scale = 1
+      // var offset = 0
+
 
 
 
@@ -191,6 +262,8 @@ var dataAnalysis = function(){
     foreach(utterances,
       function(utterance){
 
+          // var sigma = utterance=="Some" ? sigma_some : sigma_allnone
+
 
           var predictionERP = listener(utterance, 
                                         wonkinessPrior,
@@ -201,20 +274,6 @@ var dataAnalysis = function(){
 
           foreach(measures,
           function(measure){
-              // console.log(measure)
-              // var speakerOptimality = 
-
-             var sigma = measure=='comp_allprob' ? uniform(0,5) + 0.1 : 0
-             // var sigma = 0
-             // var softmax = measure=="wonkiness" ? uniform(0,10) : 1
-             var softmax = 1;
-              // var linkingSigma = 0
-              var scale = measure=='comp_allprob' ? uniform(0,4) : 1
-              // var scale = 1
-              var offset = measure=='comp_allprob' ? sample(gaussianDriftERP,[0,10]) : 0
-              // var offset = 0
-              // var scale = 1
-              // var offset = 0
 
 
 
@@ -236,8 +295,10 @@ var dataAnalysis = function(){
             // modelScore(linkedERP, dataPoints)==-Infinity ? console.log('error'):null
 
             // don't condition on wonkiness data
-           var scr = modelScore(linkedERP, dataPoints)
-          // var scr = (measure=='wonkiness') ? 0 : modelScore(linkedERP, dataPoints)
+           // var scr = modelScore(linkedERP, dataPoints)
+          // var scr = ((measure=='wonkiness') | (measure=='comp_allprob') | (!(utterance=='Some'))) ? 
+          var scr = ((measure=='wonkiness') | (measure=='comp_allprob')) ? 
+                        0 : modelScore(linkedERP, dataPoints)
             // var scr = modelScore(linkedERP, dataPoints)
             // console.log(measure+" "+ utterance+" " +item +" "+ scr)
             // console.log(scr)
@@ -245,10 +306,10 @@ var dataAnalysis = function(){
 
             // query.add([measure,item,utterance] ,expectation(linkedERP))
 
-            foreach(linkedERP.support(), function(s){
-              query.add([measure, item, utterance, s], Math.exp(linkedERP.score([], s)))
-            })
-            // query.add([measure,item,utterance] ,expectation(linkedERP))
+            // foreach(linkedERP.support(), function(s){
+            //   query.add([measure, item, utterance, s], Math.exp(linkedERP.score([], s)))
+            // })
+            query.add([measure,item,utterance, "expectation"] ,expectation(linkedERP))
 
 
         // if (measure=='comp_allprob') {
@@ -259,6 +320,11 @@ var dataAnalysis = function(){
         //   // query.add(["worldly_phi","na","na"], phi["world"])
         //   // query.add(["worldly_wonkinessPrior","na","na"], wonkinessPrior["world"])
         // }
+
+        // if (measure=='comp_state') {
+        //   query.add(["state_sigma","na","na", "na"], sigma)
+        // }
+
 
           })
 
@@ -283,22 +349,51 @@ var dataAnalysis = function(){
   query.add(["wonkinessPrior","na","na","na"], wonkinessPrior)
 
   query.add(["speakerOptimality","na","na", "na"],speakerOptimality)
-  query.add(["phi","na","na", "na"], phi)
+  // query.add(["phi","na","na", "na"], phi)
+  query.add(["state_sigma","na","na", "na"], sigma)
+  // query.add(["state_sigmaSome","na","na", "na"], sigma_some)
+  // query.add(["state_sigmaAllNone","na","na", "na"], sigma_allnone)
 
 
    return query
 
 }
 
+
+var mhiter = 2000
+// var burn = mhiter / 2
+var burn = 0
+var results = HashMH(dataAnalysis, mhiter, {"verbose":true, "burnin": burn})
+// var results = HashMH(dataAnalysis, mhiter, {"verbose":true})
+
+console.log('model complete. writing data...')
+// var outfile = 'results/wonkyFBTPosterior_justCompState_originalPriors_NowonkyTF_so_wp_nophi_allProb-sigma-scale-offset_CTS_incrMH'+ mhiter+'a.csv'
+
+// var outfile = 'results/wonkyFBTPosterior_justCompState_wRepData_originalPriors_so_wp_NOphi_CTS_incrMH'+ mhiter+'burn'+mhiter/2+'a.csv'
+// var outfile = 'results/wonkyFBTPosterior_justCompState_wRepData_originalPriors_so_wp_phiByItem_CTS_incrMH'+ mhiter+'burn'+burn+'a.csv'
+// var outfile = 'results/wonkyFBTPosterior_fullPost_expecatationLink_justCompState_wRepData_originalPriors_so_wp_phi_CTS_incrMH'+ mhiter+'burn'+burn+'a.csv'
+var outfile = 'results/wonkyFBTPosterior_expecatationLink_sharedSigma_justCompState_wRepData_inclZero_originalPriors_so_wp_noPhi_CTS_hashMH'+ mhiter+'burn'+burn+'a.csv'
+
+// var outfile = 'results/wonkyFBTPosterior_justCompState_withRepData_originalPriors_so_wp_Nophi_CTS_allProb-sigma-scale-offset_incrMH'+ mhiter+'burn'+'0'+'a.csv'
+
+wonkyutils.erpWriter(results, outfile)
+console.log('wrote ' +outfile)
+
+
+
+
+
+
 // var item = items[2]
-// var prior = df_prior["stuck to the wall baseballs"]//df_prior[items[2]]
-// var measure = "comp_allprob"
-// var utterance= "Some"
+// // var prior = df_prior["stuck to the wall baseballs"]//df_prior[items[2]]
+// var prior = df_prior["melted ice cubes"]//df_prior[items[2]]
+// var measure = "comp_state"
+// var utterance= "All"
 // var wonkinessPrior = 0.5
-// var speakerOptimality = 2
-// var phi = 0.1
+// var speakerOptimality = 1.75
+// var phi = 0.001
 // var softmax = 1
-// var sigma = 5
+// var sigma = 1.2
 // var scale  = 1
 // var offset = 3
 
@@ -309,6 +404,8 @@ var dataAnalysis = function(){
 //                                         speakerOptimality, 
 //                                         prior)
 
+// // predictionERP
+
 // var linkedERP = linkingFunction2(marginalize(predictionERP, queryDictionary[measure]), 
 //                                     {"measure":measure, 
 //                                    "sigma": sigma, 
@@ -318,29 +415,86 @@ var dataAnalysis = function(){
 //                                     "phi": phi,
 //                                     "softmax": softmax})
 
+
+// // marginalize(predictionERP, queryDictionary[measure])
+// linkedERP
+
+// var discreteGaussian2 = function(mu, sigma, bins){
+//   // return map(function(d){
+//   //     return Math.exp(gaussianERP.score([wonkyutils.logit(mu), sigma], 
+//   //                                      wonkyutils.logit(d)))
+//   // }, bins)
+//   return wonkyutils.logit(mu)
+// }
+
+
+// var expectationPlusNoiseLink2 = function(marginalERP, sigma){
+//   var states = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+//   // var bins = [0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.99]
+//   var bins = [ 0.01,
+//   0.066,
+//   0.133,
+//   0.2,
+//   0.266,
+//   0.333,
+//   0.4,
+//   0.466,
+//   0.533,
+//   0.6,
+//   0.666,
+//   0.733,
+//   0.8,
+//   0.866,
+//   0.933,
+//   0.99 ]
+//   var expvalNormalized = expectation(marginalERP) / states[states.length-1]
+//   var noisyExpectationProbs = discreteGaussian2(expvalNormalized, sigma, bins)
+//   // return states[discrete(noisyExpectationProbs)]
+//   return noisyExpectationProbs
+// }
+
+
+
+// // linkedERP
+// // // predictionERP
+
+// // expectationPlusNoiseLink2(marginalize(predictionERP, queryDictionary[measure]), 1)
+// var bins = [0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.99]
+//   var states = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+
+// var stateProbs = map(function(x){return x / states[states.length - 1]},states )
+
+// stateProbs
+// // map(function(x){return wonkyutils.logit(x)}, bins)
+// expectation(marginalize(predictionERP, queryDictionary[measure]))
+// // prior
+//   var states = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+
+// sum(map(function(x){return x[0]*x[1]},
+//   _.zip(prior, states)
+//   ))
+
+// prior
 // predictionERP
-// marginalize(predictionERP, queryDictionary[measure])
+
+
+// var logitNoiseLogistic2 = function(prob, sigma, offset, scale, bins){
+//   var discreteGaussian=  
+//   return 
+//   return discreteGaussian
+// }
+
+
+
+
+
+// expectationPlusNoiseLink(marginalize(predictionERP, queryDictionary[measure]), {sigma: 2})
+
+// expval / states[states.length-1]
 // 
 // linkedERP
 
 
-var mhiter = 100
-// var burn = mhiter / 2
-var burn = 0
-var results = IncrementalMH(dataAnalysis, mhiter, {"verbose":true, "burnin": burn})
-// var results = HashMH(dataAnalysis, mhiter, {"verbose":true})
-
-console.log('model complete. writing data...')
-// var outfile = 'results/wonkyFBTPosterior_justCompState_originalPriors_NowonkyTF_so_wp_nophi_allProb-sigma-scale-offset_CTS_incrMH'+ mhiter+'a.csv'
-
-// var outfile = 'results/wonkyFBTPosterior_justCompState_wRepData_originalPriors_so_wp_NOphi_CTS_incrMH'+ mhiter+'burn'+mhiter/2+'a.csv'
-// var outfile = 'results/wonkyFBTPosterior_justCompState_wRepData_originalPriors_so_wp_phiByItem_CTS_incrMH'+ mhiter+'burn'+burn+'a.csv'
-var outfile = 'results/wonkyFBTPosterior_fullPost_justCompState_wRepData_originalPriors_so_wp_phi_CTS_incrMH'+ mhiter+'burn'+burn+'a.csv'
-
-// var outfile = 'results/wonkyFBTPosterior_justCompState_withRepData_originalPriors_so_wp_Nophi_CTS_allProb-sigma-scale-offset_incrMH'+ mhiter+'burn'+'0'+'a.csv'
-
-wonkyutils.erpWriter(results, outfile)
-console.log('wrote ' +outfile)
 
 // var i = 'fell down card towers'
 // var u = "Some"
