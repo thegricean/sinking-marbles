@@ -490,3 +490,43 @@ p_wempirical_nolegend = p_wempirical + theme(legend.position="none")
 pdf("wonkiness-fullplot.pdf",width=12,height=5)
 grid.arrange(p_wmodel_nolegend, p_wempirical_nolegend, legend,nrow=1,widths=unit.c(unit(.45, "npc"), unit(.45, "npc"), unit(.1, "npc")))
 dev.off()
+
+
+## load four-step priors for generating appendix plots 
+priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+row.names(priorprobs) = priorprobs$Item
+nrow(priorprobs)
+
+# prior all-state probability for each item
+prior_allprobs = priorprobs[,c("Item","X15")]
+row.names(prior_allprobs) = prior_allprobs$Item
+
+# prior expectation for each item
+gathered_probs <- priorprobs %>%
+  gather(State,Probability,X0:X15)
+gathered_probs$State = as.numeric(as.character(gsub("X","",gathered_probs$State)))
+prior_exps <- gathered_probs %>%
+  group_by(Item) %>%
+  summarise(exp.val=sum(State*Probability))
+prior_exps = as.data.frame(prior_exps)
+row.names(prior_exps) = prior_exps$Item
+summary(prior_exps)
+
+# histogram of expectations
+exps = ggplot(prior_exps, aes(x=exp.val)) +
+  geom_histogram() +
+  scale_x_continuous(name="Expected value of prior distribution",breaks=seq(1,15, by=2)) +
+  scale_y_continuous(name="Number of cases",breaks=seq(0,8, by=2))
+ggsave("pics/priorexpectations-histogram-fourstep.pdf",width=5,height=3.7)
+
+# histogram of allstate-probs
+allprobs = ggplot(prior_allprobs, aes(x=X15)) +
+  geom_histogram() +
+  scale_x_continuous(name="Prior all-state probability") +
+  scale_y_continuous(name="Number of cases")
+ggsave("priorallprobs-histogram-fourstep.pdf")
+
+pdf("pics/priordistributions-fourstep.pdf",width=10,height=3.5)
+grid.arrange(exps, allprobs, nrow=1,widths=unit.c(unit(.5, "npc"), unit(.5, "npc")))
+dev.off()
+
