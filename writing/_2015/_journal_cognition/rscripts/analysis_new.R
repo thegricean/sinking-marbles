@@ -12,6 +12,7 @@ nrow(priorprobs)
 # prior all-state probability for each item
 prior_allprobs = priorprobs[,c("Item","X15")]
 row.names(prior_allprobs) = prior_allprobs$Item
+summary(prior_allprobs)
 
 # prior expectation for each item
 gathered_probs <- priorprobs %>%
@@ -37,6 +38,7 @@ summary(m)
 m.0 = lmer(response~ + (1+Prior|workerid) + (1|Item), data=centered)
 summary(m.0)
 anova(m.0,m)
+
 
 # test fillers
 centered = cbind(r[r$quantifier %in% c("long_filler","short_filler"),],myCenter(r[r$quantifier %in% c("long_filler","short_filler"),c("Prior","trial")]))

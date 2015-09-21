@@ -11,7 +11,7 @@
         (('some) (> marbles 0))
         (('most) (> marbles (/ total-marbles 2)))
         (('many) (> marbles (/ total-marbles 2)))
-	    (('morethanhalf) (> marbles (/ total-marbles 2)))
+    	(('morethanhalf) (> marbles (/ total-marbles 2)))
         (('one) (= marbles 1))
         (('two) (= marbles 2))
         (('three) (= marbles 3))
@@ -53,66 +53,46 @@
 
 (define (quantifier quantifier-alternatives) (uniform-draw quantifier-alternatives))
 
-(define (marble-state s)
-	(multinomial '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15) s))
+(define (marble-state theprior)
+	(multinomial '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15) theprior))
 
 (define literal-listener
-  (mem (lambda (utterance QUD total-marbles quantifier-alternatives supposed-prior)
+  (mem (lambda (utterance QUD total-marbles quantifier-alternatives allprior)
          (enumeration-query
-          (define marbles (marble-state supposed-prior))
+;          (define marbles (marble-state allprior))
+          (define marbles (uniform-draw  '(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15)))
 
           (QUD-cell QUD marbles total-marbles)
 
-          ;true
-          (meaning utterance marbles total-marbles)
-          ))))
+          (meaning utterance marbles total-marbles)))))
 
 (define pragmatic-speaker
-  (mem (lambda (marbles QUD total-marbles quantifier-alternatives supposed-prior)
+  (mem (lambda (marbles QUD total-marbles quantifier-alternatives allprior)
          (enumeration-query
           (define utterance (quantifier quantifier-alternatives))
           utterance
-          ;true
-          ;(and
-;           (equal? (QUD-cell QUD marbles total-marbles)
-;                   (apply multinomial
-;                          (literal-listener utterance QUD total-marbles quantifier-alternatives supposed-prior)))
-           (meaning utterance marbles total-marbles);)
-           ))))
+          (and
+           (equal? (QUD-cell QUD marbles total-marbles)
+                   (apply multinomial
+                          (literal-listener utterance QUD total-marbles quantifier-alternatives allprior)))
+           (meaning utterance marbles total-marbles))))))
 
-
-(define (pragmatic-listener utterance QUD total-marbles quantifier-alternatives speaker-opt)
+(define (pragmatic-listener utterance QUD total-marbles quantifier-alternatives allprior speaker-opt)
 	(enumeration-query
-		(define wonky-world? (flip wonkyworld-prior))
-        (define actualprior (theprior wonky-world?))
-		(define marbles (marble-state actualprior))
-
-		;wonky-world?
+		(define marbles (marble-state allprior))
 		marbles
-		;(list wonky-world? marbles)
-
 		(equal? utterance (apply multinomial
-                                 (power (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives actualprior)
+                                 (power (pragmatic-speaker marbles QUD total-marbles quantifier-alternatives allprior)
                                         speaker-opt)))))
 
-; set of alternatives used in the computation
+; modify available alternatives at will
 (define alternatives '(some all none))
 
-; prior wonkiness probability
-(define wonkyworld-prior 0.9)
+; modify the prior on states at will
+(define theprior (list 2.96455132725021e-14 2.57131562348768e-10 1.70437848916888e-08 2.74550143972162e-07 2.23227914044718e-06 1.21412086386673e-05 5.07759916187051e-05 0.000176867797564236 0.000540010720540726 0.00149787469104472 0.00388129552403355 0.00963256910496703 0.0235320577675172 0.0588966063276065 0.164558714447637 0.737218562288601))
 
-; 'empirical' prior distributions
-(define empiricalprior (list 0.1983746 0.1151039 0.0549496 0.0752798 0.0603960 0.0612359 0.0790296 0.1398398 0.1145206 0.0387253 0.0196508 0.0293585 0.0093293 0.0029647 0.0009422 0.0002995))
+(define item '("9_0.1"))
 
-(define theprior (lambda (wonky-world?)
-	(if wonky-world?
-		(list .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1 .1)
-		empiricalprior)))
-
-(define item '(were green strawberries))
-
-; run pragmatic listener with an utterance, a QUD, a total number of marbles (this version requires it to be 15), the set of alternatives defined above, and a speaker optimality parameter
-; (pragmatic-listener 'some 'how-many 15 alternatives 2) ; .04 regular; .23 if neither speaker nor listener condition on meaning (but speaker is trying to be informative); also .23 if speaker isn't trying to be informative; .14 if speaker is trying to be truthful but not informative
 (write-csv
 	(list
 	'(alternatives)
@@ -120,21 +100,26 @@
 	'(item)
 	(list item)
 	'(prior)
-	(list empiricalprior)
-	'(wonkyworldprior)
-	(list wonkyworld-prior)
+	(list theprior)
 	'(quantifier some)
 	'(qud how-many)
 	'(speaker-opt 0)
-	(pragmatic-listener 'some 'how-many 15 alternatives 0)
+	(pragmatic-listener 'some 'how-many 15 alternatives theprior 0)
 	'(speaker-opt 1)
-	(pragmatic-listener 'some 'how-many 15 alternatives 1)
+	(pragmatic-listener 'some 'how-many 15 alternatives theprior 1)
 	'(speaker-opt 2)
-	(pragmatic-listener 'some 'how-many 15 alternatives 2)
+	(pragmatic-listener 'some 'how-many 15 alternatives theprior 2)
 	'(speaker-opt 3)
-	(pragmatic-listener 'some 'how-many 15 alternatives 3)
-
+	(pragmatic-listener 'some 'how-many 15 alternatives theprior 3)
+;	'(speaker-opt 5)
+;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 5)
+;	'(speaker-opt 10)
+;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 10)
+;	'(speaker-opt 15)
+;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 15)
+;	'(speaker-opt 20)
+;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 20)
 	)
-	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/writing/_2015/_journal_cognition/models/modelresults/raw_uniform_uninformative_results.txt.tmp.results"
+	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/writing/_2015/_journal_cognition/models/modelresults/raw_rsa_betapriors_results.txt.tmp.results"
 	","
 )

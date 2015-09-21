@@ -70,7 +70,7 @@
 Knowledge about the world enters into sentence interpretation in complex ways, and may be defeasible in light of speakers' utterances.  Yet there is to date a surprising lack of systematic investigation into the role of world knowledge in pragmatic inference. In this paper, we show that a state-of-the-art model of pragmatic interpretation greatly overestimates the influence of world knowledge on the interpretation of utterances with quantifier words, like \emph{Some of the marbles sank}. We extend the model to capture the idea that  listeners are uncertain about the background knowledge that speakers are bringing to the conversation, i.e., about what knowledge is in common ground. This extension greatly improves model predictions about listeners' interpretation and also makes good qualitative predictions about listeners' judgments of how likely the world is to be (ab)normal in light of a speaker's statement. \blue{In addition, we show that the diminished effect of world knowledge on pragmatic inference is not attributable to a speaker's perceived lack of cooperativity; systematic lesions to the model simulating reduced speaker cooperativity predict a \emph{greater} effect of world knowledge---a prediction that is borne out empirically.} 
 \ndg{say something more clear about predicting and getting stronger prior influence for uncooperative speakers?}\jd{better?}
 The results suggest that when observing an odd utterance, listeners systematically revise common ground in order to render the utterance felicitous---if that utterance comes from a trusted source. 
-
+ 
 
 \textbf{Keywords:} 
 scalar implicature; common ground; world knowledge; prior beliefs; experimental pragmatics; probabilistic pragmatics
@@ -166,21 +166,23 @@ $\denote{u_{\textrm{all}}} = \lambda s_i [i=15]$.
 %Let us imagine that the prior is binomial with single event probability $\theta$: $P(s)=\text{Binomial}(s|\theta)$.
 
 \begin{figure*}
-	\includegraphics[width=\textwidth]{pics/rsa-predictions}
+	\includegraphics[width=\textwidth]{pics/beta-priordistributions}
+%	\includegraphics[width=\textwidth]{pics/rsa-predictions}
 %	\includegraphics[width=\textwidth]{pics/rsa-predictions-uniform}	
-	\caption{For each item, RSA and wRSA model predicted $\mathbb{E}[P(s|u_{\textrm{some}})]$ as a function of $\mathbb{E}[P(s)]$ (left) and $P(s_{15}|u_{\textrm{some}})$ as a function of $P(s_{15})$ (right).\red{PLOT TO BE UPDATED WITH NEW BEST MODEL PREDICTIONS}
+%	\caption{For each item, RSA and wRSA model predicted $\mathbb{E}[P(s|u_{\textrm{some}})]$ as a function of $\mathbb{E}[P(s)]$ (left) and $P(s_{15}|u_{\textrm{some}})$ as a function of $P(s_{15})$ (right).\red{PLOT TO BE UPDATED WITH NEW BEST MODEL PREDICTIONS}
+	\caption{\blue{RSA predictions for $\mathbb{E}[P(s|u_{\textrm{some}})]$ as a function of $\mathbb{E}[P(s)]$ (left) and $P(s_{15}|u_{\textrm{some}})$ as a function of $P(s_{15})$ (right) for different speaker optimalities $\lambda$.}
 	\ndg{what is the line?}}
 	\label{fig:rrsaexppredictions}	
 \end{figure*}
 
-In Figure \ref{fig:rrsaexppredictions} we show the predictions of RSA for hypothetical Beta priors \jd{spell out more how they were generated? in any case generate actual plot} in two different ways: the left panel shows the posterior expected number of affected objects as a function of the expected value of the prior belief distribution; the right panel shows the posterior probability of the state in which all objects are affected, as a function of the prior probability of that state, with speaker optimality parameters ranging from \red{XXX} to \red{XXX} for illustration. %\footnote{Here and below, model predictions are reported for parameter settings that were derived through \red{MH BRIEFLY DESCRIBE PROCEDURE}. Details of the procedure are provided in \appref{app:bayesianselection}.%That the individual model predictions look somewhat noisy is due to the different shapes of the prior distributions, such that for the same expected value of the distribution, the distribution itself can take different shapes, which are treated slightly differently by the model.}   %as $\theta$ varies. \red{put in figure showing the basic RSA predictions for allstate $P(s_{15}|u_{some})$ and expectation. this figure could also have wRSA predictions for later reference.} 
+In Figure \figref{fig:rrsaexppredictions} we show the predictions of RSA for \blue{hypothetical beta priors} \jd{i don't know how to talk about this; please modify as needed} in two different ways: the left panel shows the posterior expected number of affected objects as a function of the expected value of the prior belief distribution; the right panel shows the posterior probability of the state in which all objects are affected, as a function of the prior probability of that state, with speaker optimality parameters ranging from 0 (random speaker) to 3 for illustration. %\footnote{Here and below, model predictions are reported for parameter settings that were derived through \red{MH BRIEFLY DESCRIBE PROCEDURE}. Details of the procedure are provided in \appref{app:bayesianselection}.%That the individual model predictions look somewhat noisy is due to the different shapes of the prior distributions, such that for the same expected value of the distribution, the distribution itself can take different shapes, which are treated slightly differently by the model.}   %as $\theta$ varies. \red{put in figure showing the basic RSA predictions for allstate $P(s_{15}|u_{some})$ and expectation. this figure could also have wRSA predictions for later reference.} 
 We see that the prior has a strong effect, which can be summarized by the two predictions described in the Introduction: 
 \begin{enumerate}
-	\item $P(s_{15}|u_{\textrm{some}}) \rightarrow 1$ as $P(s_{15})\rightarrow 1$\\That is, the posterior probability of the all-state after observing \emph{Some of the X Y} approaches 1 as the prior probability of the all-state approaches 1.
-	\item $\mathbb{E}[P(s|u_{\textrm{some}})] \simeq \mathbb{E}[P(s)]$ over the upper half of its range\\That is, the expected value of the posterior distribution after observing \emph{Some of the X Y} tracks the expected value of the prior distribution.
+	\item $P(s_{15}|u_{\textrm{some}}) \rightarrow 1$ as $P(s_{15})\rightarrow 1$\\That is, the posterior probability of the all-state after observing \emph{Some of the X Yed} approaches 1 as the prior probability of the all-state approaches 1.
+	\item $\mathbb{E}[P(s|u_{\textrm{some}})] \simeq \mathbb{E}[P(s)]$ over the upper half of its range\\That is, the expected value of the posterior distribution after observing \emph{Some of the X Yed} tracks the expected value of the prior distribution.
 \end{enumerate}
 
-\blue{We next turn to an empirical test of these predictions by conducting two interpretation experiments, one each for each of the two predictions. Comparing model predictions to empirical interpretation data requires knowing listeners' prior beliefs. Rather than make these up, we measure them empirically. Thus, testing the two predictions proceeds in three steps: first, we collect empirical estimates of listeners' prior beliefs about a large number of domains. Second, we conduct two interpretation studies. Finally, we compare the model's predictions about interpretation probabilities to listeners' empirical interpretation data.} %, or rather, of the intuition that they may be incorrect.
+\blue{We next turn to an empirical test of these predictions by conducting two interpretation experiments, one each for each of the two predictions. Comparing model predictions to empirical interpretation data requires knowing listeners' prior beliefs. Rather than make these up (as we did for generating the predictions visualized in \figref{fig:rrsaexppredictions}) we measure them empirically. Thus, testing the two predictions proceeds in three steps: first, we collect empirical estimates of listeners' prior beliefs about a large number of domains. Second, we conduct two interpretation studies. Finally, we compare the model's predictions about interpretation probabilities (using the empirically elicited priors) to listeners' empirical interpretation data.} %, or rather, of the intuition that they may be incorrect.
 
 %\section{Models of utterance interpretation}
 %
@@ -227,27 +229,32 @@ Obtaining good estimates of prior beliefs is crucial for testing any Bayesian mo
 \subsection{Method}
 
 \subsubsection{Participants}
-We recruited 120 participants over Amazon's crowd-sourcing platform Mechanical Turk.\footnote{This experiment can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/prior_fourstep/sinking-marbles.html}.} Participants were paid \$0.80 for their participation. Here and in all other experiments reported in this paper, participants' IP address was limited to US addresses only and only participants with a past work approval rate of at least 95\% were accepted.
+We recruited 240 participants over Amazon's crowd-sourcing platform Mechanical Turk.\footnote{This experiment can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/priors/sinking-marbles.html}.} Participants were paid \$0.50 for their participation. Here and in all other experiments reported in this paper, participants' IP address was limited to US addresses only and only participants with a past work approval rate of at least 95\% were accepted.
 
 \subsubsection{Procedure and materials}
 
-\jd{decide which priors to report in main text and which to refer to in a footnote; revise.}
+\jd{now one-step priors are reported, with four-step priors in footnote. replace broken link}
 
-On each trial, participants read a one-sentence description of an event like \emph{John threw 15 marbles into a pool.} We were interested in obtaining estimates of a subsequent effect, in this case how many marbles participants believed sank. Following the procedure in \citeA{Speirs-Bridge2010}, we elicited participants' beliefs in four steps:  first, they were asked to provide a lower bound on how many marbles sank. Then they were asked to provide an upper bound. Next, they were prompted for their best guess as to how many marbles sank. All three of these estimates were given by typing a number into a text field. Finally, they were asked to rate how confident they were that the interval they created captured the actual number of marbles that sank, by adjusting a slider with endpoints labeled ``not confident at all'' and ``very confident''. A full example of questions asked is provided in \eref{fourstep}.
+\blue{On each trial, participants read a one-sentence description of an event like \emph{John threw 15 marbles into a pool.} We were interested in obtaining estimates of a subsequent effect, in this case how many marbles participants believed sank. To this end, participants answered questions like \emph{How many of the marbles do you think sank?} by adjusting a slider that ranged from 0 to 15.} 
 
-\eenumsentence{\label{fourstep}
-				\item \emph{Realistically, what do you think the lowest number of marbles that sank could be?}
-				\item \emph{Realistically, what do you think the highest number of marbles that sank could be?}
-				\item\label{bestguess} \emph{Realistically, what is your best guess at how many marbles sank?}
-				\item \emph{How confident are you that the interval you created, from lowest to highest, will capture the actual number of marbles that sank?}}
+%Following the procedure in \citeA{Speirs-Bridge2010}, we elicited participants' beliefs in four steps:  first, they were asked to provide a lower bound on how many marbles sank. Then they were asked to provide an upper bound. Next, they were prompted for their best guess as to how many marbles sank. All three of these estimates were given by typing a number into a text field. Finally, they were asked to rate how confident they were that the interval they created captured the actual number of marbles that sank, by adjusting a slider with endpoints labeled ``not confident at all'' and ``very confident''. A full example of questions asked is provided in \eref{fourstep}.
 
+%\eenumsentence{\label{fourstep}
+%				\item \emph{Realistically, what do you think the lowest number of marbles that sank could be?}
+%				\item \emph{Realistically, what do you think the highest number of marbles that sank could be?}
+%				\item\label{bestguess} \emph{Realistically, what is your best guess at how many marbles sank?}
+%				\item \emph{How confident are you that the interval you created, from lowest to highest, will capture the actual number of marbles that sank?}}
+%
 
-We are most interested in participants' response to \eref{bestguess}, since, over the population, that will allow us to directly compute the prior probability of each number of marbles sinking. Each item had a similar form: an initial sentence introduced 15 objects of a particular type (e.g., marbles). The questions always had the same forms as shown in \eref{fourstep}. For example, questions of the (c) type always had the form \emph{Realistically, what is your best guess at how many X Yed?}, where \emph{X} was the head of the direct object noun phrase introduced in the first sentence (e.g., \emph{marbles}, \emph{cups}, \emph{balloons}) and \emph{Yed} was a verb phrase denoting an effect that the objects underwent (e.g., \emph{sank}, \emph{broke}, \emph{stuck to the wall}). Each verb phrase occurred with three different objects, e.g., \emph{sank} occurred with \emph{marbles}, \emph{cups}, and \emph{balloons}. Items were constructed to intuitively cover the range of probabilities as much as possible%, while also somewhat oversampling the upper range of probabilities to have more fine-grained coverage of this region that is of most interest for testing the RSA model
-. Judgments were obtained for 90 items, of which each participant saw a random selection of 30 items. 
+%We are most interested in participants' response to \eref{bestguess}, since, over the population, that will allow us to directly compute the prior probability of each number of marbles sinking. The questions always had the same forms as shown in \eref{fourstep}. 
+
+\blue{Each item had a similar form: an initial sentence introduced 15 objects of a particular type (e.g., marbles) and was followed by a question. Each question had the form \emph{How many X do you think Yed?}, where \emph{X} was the head of the direct object noun phrase introduced in the first sentence (e.g., \emph{marbles}, \emph{cups}, \emph{balloons}) and \emph{Yed} was a verb phrase denoting an effect that the objects underwent (e.g., \emph{sank}, \emph{broke}, \emph{stuck to the wall}). Each verb phrase occurred with three different objects, e.g., \emph{sank} occurred with \emph{marbles}, \emph{cups}, and \emph{balloons}. Items were constructed to intuitively cover the range of probabilities as much as possible. Judgments were obtained for 90 items, of which each participant saw a random selection of 30 items.}\footnote{In a separate experiment with 120 participants, we replicated these priors in a four-step procedure described by \citeA[see also \appref{four-step-priors}]{Speirs-Bridge2010}. \red{Which priors were used as the basis for the analyses reported in the remainder of this paper did not affect the results; we therefore report only the results from the simple elicitation measure.}} 
 
 \subsection{Results}
 
-Data from one participant, who provided a lower bound with a value greater than the upper bound on ten trials, were excluded. A further seven trials on which such reversals occurred were also excluded. This yielded an exclusion of 1\% of the data. Each item received between 10 and 30 ratings on each measure. We focus here on the best guess measure. Distributions of best guesses for each item were smoothed using nonparametric density estimation for ordinal categorical variables \cite{liracine2003} with the \verb|np| package in R \cite{hayfield2008}. For each item, we then computed its belief distribution's expected value and all-state probability. As intended, items covered a wide range of probabilities and expected values (see also \figref{fig:probhist}). 
+Each item received between 44 and 75 responses. Distributions of responses for each item were smoothed using nonparametric density estimation for ordinal categorical variables \cite{liracine2003} with the \verb|np| package in R \cite{hayfield2008}. For each item, we then computed its belief distribution's expected value and all-state probability. As intended, items covered a wide range of probabilities and expected values (see \figref{fig:probhist}). 
+
+%Data from one participant, who provided a lower bound with a value greater than the upper bound on ten trials, were excluded. A further seven trials on which such reversals occurred were also excluded. This yielded an exclusion of 1\% of the data. Each item received between 10 and 30 ratings on each measure. We focus here on the best guess measure. Distributions of best guesses for each item were smoothed using nonparametric density estimation for ordinal categorical variables \cite{liracine2003} with the \verb|np| package in R \cite{hayfield2008}. For each item, we then computed its belief distribution's expected value and all-state probability. As intended, items covered a wide range of probabilities and expected values (see also \figref{fig:probhist}). 
 
 \begin{figure}
 \centering
@@ -282,7 +289,7 @@ Each participant saw 10 \emph{some} trials and 20 filler trials, of which 10 con
  
 \begin{figure*}
 	\includegraphics[width=\textwidth]{pics/empirical-results}	
-	\caption{For each item and quantifier, empirical $\mathbb{E}[P(s|u_{\textrm{some}})]$ from Exp.~2a against $\mathbb{E}[P(s)]$ from Exp.~1 (left)  and empirical $P(s_{15}|u_{\textrm{some}})$ from Exp.~2b against  $P(s_{15})$ from Exp.~1 (right). Lines and gray ribbons indicate best linear fit and 95\% confidence intervals.}
+	\caption{For each item and quantifier, empirical $\mathbb{E}[P(s|u_{\textrm{some}})]$ from Exp.~2a against $\mathbb{E}[P(s)]$ from Exp.~1 (left)  and empirical $P(s_{15}|u_{\textrm{some}})$ from Exp.~2b against  $P(s_{15})$ from Exp.~1 (right). \blue{Lines and gray ribbons indicate best loess fit through means and 95\% confidence intervals using a t-based approximation.}}
 	\label{fig:empiricalresults}	
 \end{figure*}
 
@@ -296,7 +303,7 @@ The main question of interest was whether the predictions of the basic RSA model
 
 To test whether the visual effect of the prior on the interpretation of \emph{some} is real, we conducted linear mixed effects regressions on the \emph{some} data from each experiment. For Exp.~2a, the number of X that Yed  was regressed onto a fixed effect of each item's prior expectation. For Exp.~2b, the  all-state probability was regressed onto a fixed effect of each item's prior all-state probability. The models also contained by-item and by-participant intercepts as well as by-participant slopes for the prior predictor.
 %
-For utterances of \emph{Some of the X Yed}, the mean number of objects judged to exhibit the effect increased with increasing expectation of the prior distribution ($\beta$=.19, $SE$=.02, $t$=10.10, $p$$<$.0001). Similarly, the probability of all 15 objects exhibiting the effect increased with increasing prior probability of doing so ($\beta$=.08, $SE$=.01, $t$=5.43, $p$$<$.0001). However, the size of these effects is, to say the least, much smaller than predicted by RSA.\footnote{Visually, the disparity between model predictions and empirical results can be seen by comparing the dark lines in \figref{fig:rrsaexppredictions} with the red lines in \figref{fig:empiricalresults}.}
+For utterances of \emph{Some of the X Yed}, the mean number of objects judged to exhibit the effect increased with increasing expectation of the prior distribution ($\beta$=.19, $SE$=.02, $t$=10.10, $p$$<$.0001). Similarly, the probability of all 15 objects exhibiting the effect increased with increasing prior probability of doing so ($\beta$=.06, $SE$=.01, $t$=5.43, $p$$<$.0001). However, the size of these effects is, to say the least, much smaller than predicted by RSA.\footnote{Visually, the disparity between model predictions and empirical results can be seen by comparing the dark lines in \figref{fig:rrsaexppredictions} with the red lines in \figref{fig:empiricalresults}.}
 
 One possible explanation for this highly attenuated effect of the prior is that participants simply did not bring world knowledge to bear on the interpretation of utterances. However, this possibility is ruled out by examining participants' performance in the filler conditions: in both Exps.~2a and 2b, the filler conditions closely tracked the prior (see \figref{fig:empiricalresults}). Additionally, that there is any effect of the prior at all suggests that participants are not entirely disregarding their prior beliefs.
 
@@ -406,7 +413,7 @@ If, instead, there is something more fundamentally wrong with RSA models and the
 Exp.~4 explores how speaker reliability interacts with prior beliefs in the interpretation of the same utterances used in Exps.~1-3. %As discussed in the previous section, the wRSA model predicts that listeners' interpretation of \emph{Some of the X Yed} should be more strongly affected by their prior beliefs (as elicited empirically in Exp.~1) when the speaker is perceived as unreliable than when the speaker is perceived as reliable. 
 There are different ways in which speaker reliability can be construed. 
 Parallel to the two model `lesions' just described, we would like to manipulate speaker reliability in such a way as to lead listeners to expect underinformative or untruthful reports of  events. 
-To this end, we introduce two unreliable speakers: a speaker who has an incentive to be misleading in a courtroom scenario and a drunken speaker. \ndg{at some point cite bonnefon's work on drunken SI?} These speakers are contrasted within participants with a reliable speaker.
+To this end, we introduce two unreliable speakers: a speaker who has an incentive to be misleading in a courtroom scenario and a drunken speaker. \ndg{at some point cite bonnefon's work on drunken SI?}\jd{i can't find the reference, maybe it's not published? i wrote to him.} These speakers are contrasted within participants with a reliable speaker.
 
 \subsection{Method}
 
@@ -477,7 +484,7 @@ In Exp.~4, only half of the items from Exps.~1-3 were used; those 45 that descri
 \end{figure}
 
 Mean all-state probability ratings after observing  the \emph{some} utterance in the different speaker reliability conditions are shown in \figref{fig:speakerreliability}. While the reliable (\emph{sober}) speaker condition tracks the results from Exp.~2b very closely, the unreliable speaker conditions (\emph{court, drunk}) display a much greater effect of prior beliefs on the posterior probability of the all-state. This is borne out in a linear mixed effects regression model predicting the posterior all-state probability from fixed effects of prior all-state probability, speaker reliability, trial number (to account for adaptation over the course of the experiment), and their interactions. Speaker reliability was coded as a binary variable (reliable vs.~unreliable) and centered. \red{I coded it this way because so far I hadn't really been thinking about trying to tease apart the uninformative vs.~untruthful speaker. Don't know if it's worth pursuing the difference between the two. We could also just leave out Figure 5 and describe the pattern.} 
-\ndg{i think it's worth also reporting a version of the regression that separates the two unreliable conditions. maybe as a binary predictor for unreliable and another for untruthful? if the untruthful coefficient is reliable it's cool, and if not we say this effect is either absent or too small to observe in current setup.}
+\ndg{i think it's worth also reporting a version of the regression that separates the two unreliable conditions. maybe as a binary predictor for unreliable and another for untruthful? if the untruthful coefficient is reliable it's cool, and if not we say this effect is either absent or too small to observe in current setup.}\jd{should we also include literal ocnditions? in that case we need more data.}
 The all-state probability and trial number predictors were likewise centered before entering the analysis. The model included by-participant and by-item random intercepts and slopes for all fixed effects. 
 
 %                                          Estimate Std. Error t value
@@ -490,20 +497,20 @@ The all-state probability and trial number predictors were likewise centered bef
 %cReliability:cTrial                       0.000423   0.000900   0.470
 %cAllPriorProbability:cReliability:cTrial -0.001125   0.002662  -0.423
 
-There was a main effect of prior all-state probability such that the posterior all-state probability increased with increasing prior all-state probability ($\beta$=.30, $SE$=.05, $t$=6.1, $p$$<$.0001). There was also a main effect of speaker reliability, such that posterior all-state probability was judged higher when the speaker was unreliable ($\beta$=.13, $SE$=.01, $t$=8.4, $p$$<$.0001). In addition, there was an interaction between prior all-state probability and speaker reliability such that the slope of the prior all-state probability effect was shallower for the reliable speaker than for the unreliable speakers ($\beta$=.15, $SE$=.05, $t$=3.1, $p$$<$.01). Finally, we also observed adaptation effects: there was a main effect of trial such that all-state probability was rated as greater as the experiment progressed ($\beta$=.003, $SE$=.0003, $t$=9.0, $p$$<$.0001). We also observed an interaction of prior all-state probability and trial number, such that the prior had a greater effect on interpretation later in the experiment ($\beta$=.004, $SE$=.001, $t$=3.22, $p$$<$.01). This is visualized in \figref{fig:speakerreliability-byblock}: while there is no change in how utterances of unreliable speakers are treated, reliable speakers are treated as more and more unreliable as the experiment progresses. \ndg{i don't thin we need this fig.}
+There was a main effect of prior all-state probability such that the posterior all-state probability increased with increasing prior all-state probability ($\beta$=.30, $SE$=.05, $t$=6.1, $p$$<$.0001). There was also a main effect of speaker reliability, such that posterior all-state probability was judged higher when the speaker was unreliable ($\beta$=.13, $SE$=.01, $t$=8.4, $p$$<$.0001). In addition, there was an interaction between prior all-state probability and speaker reliability such that the slope of the prior all-state probability effect was shallower for the reliable speaker than for the unreliable speakers ($\beta$=.15, $SE$=.05, $t$=3.1, $p$$<$.01). Finally, we also observed adaptation effects: there was a main effect of trial such that all-state probability was rated as greater as the experiment progressed ($\beta$=.003, $SE$=.0003, $t$=9.0, $p$$<$.0001). We also observed an interaction of prior all-state probability and trial number, such that the prior had a greater effect on interpretation later in the experiment ($\beta$=.004, $SE$=.001, $t$=3.22, $p$$<$.01). \jd{shall i get rid of this last bit of analysis alltogether? i already deleted the figure and the description of the interaction in response to your comment.} %This is visualized in \figref{fig:speakerreliability-byblock}: while there is no change in how utterances of unreliable speakers are treated, reliable speakers are treated as more and more unreliable as the experiment progresses. This is interesting because it suggests that listeners are drawing a higher-level inference about speakers being unreliable in this context (where the context may be this particular party, or  this particular experiment), such that participants who had evidence that there were unreliable speakers in this scenario also took the sober speaker less seriously.\footnote{Note that in principle the reverse could have happened, that is, evidence for the presence of reliable speakers could have resulted in treatment of the unreliable speakers as more reliable over time. We see no evidence for this.} \ndg{i don't thin we need this fig.}
 %
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{pics/speakerreliabilityresults-byblock}
-	\caption{For each item, empirical mean posterior all-state probability against  prior all-state probability for reliable (\emph{sober}) and unreliable (\emph{drunk, court}) speakers, by experimental block. Reliable speakers are increasingly treated like unreliable speakers as the experiment progresses.}
-	\label{fig:speakerreliability-byblock}	
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{pics/speakerreliabilityresults-byblock}
+%	\caption{For each item, empirical mean posterior all-state probability against  prior all-state probability for reliable (\emph{sober}) and unreliable (\emph{drunk, court}) speakers, by experimental block. Reliable speakers are increasingly treated like unreliable speakers as the experiment progresses.}
+%	\label{fig:speakerreliability-byblock}	
+%\end{figure}
 %
-This is interesting because it suggests that listeners are drawing a higher-level inference about speakers being unreliable in this context (where the context may be this particular party, or  this particular experiment), such that participants who had evidence that there were unreliable speakers in this scenario also took the sober speaker less seriously.\footnote{Note that in principle the reverse could have happened, that is, evidence for the presence of reliable speakers could have resulted in treatment of the unreliable speakers as more reliable over time. We see no evidence for this.}  
+  
 
-As predicted, listener's prior beliefs affect their interpretations more strongly when the speaker is unreliable than reliable.
+As predicted, listeners' prior beliefs affect their interpretations more strongly when speakers are unreliable than when they are reliable.
 This finding is interesting in it's own right, but also confirms that the attenuated effect of prior in Exp.~2 was unlikely to be caused by perceived unreliability of the speaker.
-In addition, as evidence for unreliability of speakers accumulates within the experiment, listeners generalize their expectation for unreliability even to \emph{a priori} reliable speakers, resulting in a greater effect of priors.
+%In addition, as evidence for unreliability of speakers accumulates within the experiment, listeners generalize their expectation for unreliability even to \emph{a priori} reliable speakers, resulting in a greater effect of priors.
 
 % (Intercept)                               0.2351389  0.0129339  18.180
 %cAllPriorProbability                      0.2618914  0.0310649   8.430
@@ -645,6 +652,29 @@ Items in Exps.~1 - 3 began with a \emph{context sentence} of the form \emph{CHAR
 					 
 \end{enumerate}
 
+
+\section{Alternate four-step prior elicitation procedure}
+\label{four-step-priors}
+
+In order to increase our confidence in the prior belief distributions elicited in Exp.~1, we implemented an alternative prior elicitation procedure described \citeA{Speirs-Bridge2010}. We elicited participants' beliefs in four steps:\footnote{This experiment can be viewed at \url{http://cocolab.stanford.edu/cogsci2015/wonky/prior_fourstep/sinking-marbles.html}}  first, they were asked to provide a lower bound on how many marbles sank. Then they were asked to provide an upper bound. Next, they were prompted for their best guess as to how many marbles sank. All three of these estimates were given by typing a number into a text field. Finally, they were asked to rate how confident they were that the interval they created captured the actual number of marbles that sank, by adjusting a slider with endpoints labeled ``not confident at all'' and ``very confident''. A full example of questions asked is provided in \eref{fourstep}.
+
+\eenumsentence{\label{fourstep}
+				\item \emph{Realistically, what do you think the lowest number of marbles that sank could be?}
+				\item \emph{Realistically, what do you think the highest number of marbles that sank could be?}
+				\item\label{bestguess} \emph{Realistically, what is your best guess at how many marbles sank?}
+				\item \emph{How confident are you that the interval you created, from lowest to highest, will capture the actual number of marbles that sank?}}
+
+
+We were most interested in participants' response to \eref{bestguess}, which most closely matches the measure used in Exp.~1. We subjected the distributions of best guesses to the same smoothing procedure described in \sectionref{sec:priors} and computed the expected value and all-state probability for each item, visualized in \figref{fig:probhist-fourstep}. These distributions were very similar to those obtained in Exp.~1. 
+
+\begin{figure}
+\centering
+	\includegraphics[width=\textwidth]{pics/priordistributions-fourstep}	
+	\caption{Histogram of expected values $\mathbb{E}[P(s)]$ of each empirically elicited and smoothed prior distribution (left) and histogram of prior probabilities $P(s_{15})$  of the all-state for each item (right), using the four-step procedure.}
+	\label{fig:probhist-fourstep}	
+\end{figure}
+
+
 \section{Bayesian model selection and comparison}
 \label{app:bayesianselection}
 
@@ -681,28 +711,29 @@ The full data analysis model predicting data from 3 experiments (Expt.~2a, 2b, 3
 
 To assess whether the added complexity of the wonky RSA (wRSA) model is warranted by its predictive accuracy, we compare it to the regular RSA using a hierarchical modeling approach \cite<e.g.>{Lee2011}. That is, RSA is considered a special case of wRSA for when the wonkiness prior equals exactly 0. A Bayesian approach to model comparison adequately balances predictive accuracy with model complexity \cite{Jeffreys1961, Vandekerckhove2015}.
 
-\section{Sketch of proof for asymmetry in wonkiness probability}
 
-We want to know whether the asymmetric U we observe in the wonkiness probability for \emph{some} is due to the particular priors we use, or whether this asymmetry is generally predicted. Here we provide a sketch of a proof that the asymmetry is expected. \red{IN THE END WE MAY JUST GET RID OF THIS AGAIN?}
-
-The asymmetric U comes out in the most basic model that contains no linking functions or additional parameters. It makes intuitive (and formal) sense, which you can see by computing the speaker utterance distribution for each world state,  then re-weight by prior, then marginalize over states and re-normalize to get the global probability for a particular utterance FOR THAT ITEM):  
-
-\begin{equation}
-P(u) = \frac{\sum\limits_{t \in T}^{} P(t)\cdot P(u|t)}{\sum\limits_{u' \in U}^{} \sum\limits_{t \in T}^{} P(t)\cdot P(u'|t)}
-\end{equation}
-
-...assuming that T is the set of world states t0, t1, t2, t3, t4 (ie 4 instead of 15 total marbles, for simplification, but it holds for the larger state space as well) and U is the set of utterances "none", "some", "all". Consider a super left-peaked and a super right-peaked prior:
-
-\includegraphics[width=.8\textwidth]{pics/hypothetical-priors.png}
-
-Plugging into the equation above the priors and speaker probabilities  (obtained using basic RSA, implicitly assuming a lambda of 1), we get the following overall utterance probabilities P(u):
-
-\includegraphics[width=.8\textwidth]{pics/utterance-probabilities.png}
-
-
-"some" is a more surprising utterance overall for the left-peaked items (because you only  ever expect to hear "none") than for the right-peaked items (where both "some" and "all" are semantically compatible options with the all-state). A different way of thinking about it: for the right-peaked items, whether you say "some" or "all" in the all-state doesn't matter because the prior will overwhelm interpretation anyway, so "some" is overall not too unexpected. But for the left-peaked items, whether you say "some" or "all" in the all-state really matters, because now you need pragmatic reasoning to figure out what state you're in (ie the prior won't help you distinguish the all-state from a given some-but-not-all state), so "some" is much less expected in this state, which pushes down the overall probability with which it's expected. I think this is what gives rise to the asymmetry in the extreme ends of the range of prior expected values.
-
-
+%\section{Sketch of proof for asymmetry in wonkiness probability}
+%
+%We want to know whether the asymmetric U we observe in the wonkiness probability for \emph{some} is due to the particular priors we use, or whether this asymmetry is generally predicted. Here we provide a sketch of a proof that the asymmetry is expected. \red{IN THE END WE MAY JUST GET RID OF THIS AGAIN?}
+%
+%The asymmetric U comes out in the most basic model that contains no linking functions or additional parameters. It makes intuitive (and formal) sense, which you can see by computing the speaker utterance distribution for each world state,  then re-weight by prior, then marginalize over states and re-normalize to get the global probability for a particular utterance FOR THAT ITEM):  
+%
+%\begin{equation}
+%P(u) = \frac{\sum\limits_{t \in T}^{} P(t)\cdot P(u|t)}{\sum\limits_{u' \in U}^{} \sum\limits_{t \in T}^{} P(t)\cdot P(u'|t)}
+%\end{equation}
+%
+%...assuming that T is the set of world states t0, t1, t2, t3, t4 (ie 4 instead of 15 total marbles, for simplification, but it holds for the larger state space as well) and U is the set of utterances "none", "some", "all". Consider a super left-peaked and a super right-peaked prior:
+%
+%\includegraphics[width=.8\textwidth]{pics/hypothetical-priors.png}
+%
+%Plugging into the equation above the priors and speaker probabilities  (obtained using basic RSA, implicitly assuming a lambda of 1), we get the following overall utterance probabilities P(u):
+%
+%\includegraphics[width=.8\textwidth]{pics/utterance-probabilities.png}
+%
+%
+%"some" is a more surprising utterance overall for the left-peaked items (because you only  ever expect to hear "none") than for the right-peaked items (where both "some" and "all" are semantically compatible options with the all-state). A different way of thinking about it: for the right-peaked items, whether you say "some" or "all" in the all-state doesn't matter because the prior will overwhelm interpretation anyway, so "some" is overall not too unexpected. But for the left-peaked items, whether you say "some" or "all" in the all-state really matters, because now you need pragmatic reasoning to figure out what state you're in (ie the prior won't help you distinguish the all-state from a given some-but-not-all state), so "some" is much less expected in this state, which pushes down the overall probability with which it's expected. I think this is what gives rise to the asymmetry in the extreme ends of the range of prior expected values.
+%
+%
 
 
 \bibliographystyle{apacite}

@@ -66,14 +66,14 @@ r$PriorExpectationProportion = prior_exps[as.character(r$Item),]$exp.val
 
 agr = aggregate(ProportionResponse ~ PriorExpectationProportion + quantifier + Item,data=r,FUN=mean)
 
-min(agr[agr$quantifier == "Some",]$ProportionResponse)
-max(agr[agr$quantifier == "Some",]$ProportionResponse)
+min(agr[agr$quantifier == "Some",]$ProportionResponse)*15
+max(agr[agr$quantifier == "Some",]$ProportionResponse)*15
 agr$Quantifier = factor(x=agr$quantifier, levels=c("Some","All","None","long_filler","short_filler"))
 
 p_eexps = ggplot(agr, aes(x=PriorExpectationProportion, y=ProportionResponse*15, color=Quantifier, shape=Quantifier)) +
   geom_point() +
   #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
-  geom_smooth(method="lm") +
+  geom_smooth() +
   scale_color_manual(values=c(wes_palette("Darjeeling")[1:3],"black","gray40")) +#values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
   scale_y_continuous(breaks=seq(1,15,by=2),name="Posterior mean number of objects") +
   #  geom_abline(intercept=0,slope=1,color="gray70") +
@@ -89,7 +89,8 @@ load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments
 #tmp = subset(r,!workerid %in% c(0,22,43,98,100,103,117,118))
 r$AllPriorProbability = prior_allprobs[as.character(r$Item),]$X15
 tmp=r
-agrr = aggregate(normresponse ~ AllPriorProbability + Proportion + quantifier + Item,data=tmp,FUN=mean)
+#tmpub = droplevels(subset(tmp, Proportion == "100"))
+#tmpub$Quantifier = factor(x=tmpub$quantifier, levels=c("Some","All","None","long_filler","short_filler"))
 agrr = aggregate(normresponse ~ AllPriorProbability + Proportion + quantifier + Item,data=r,FUN=mean)
 ub = subset(agrr, Proportion == "100")
 ub = droplevels(ub)
@@ -97,11 +98,11 @@ ub$Quantifier = factor(x=ub$quantifier, levels=c("Some","All","None","long_fille
 
 p_eprobs = ggplot(ub, aes(x=AllPriorProbability, y = normresponse, color=Quantifier, shape=Quantifier)) +
   geom_point() +
-  geom_smooth(method="lm") +
+  geom_smooth() +
   scale_color_manual(values=c(wes_palette("Darjeeling")[1:3],"black","gray40")) +#values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
-  scale_y_continuous(limits=c(0,1),name="Posterior probability of all-state ") +
+  scale_y_continuous(limits=c(0,1),breaks=seq(0,1,by=.2),name="Posterior probability of all-state ") +
   #  geom_abline(intercept=0,slope=1,color="gray70") +
-  scale_x_continuous(limits=c(0,1),name="Prior probability of all-state")  
+  scale_x_continuous(name="Prior probability of all-state")  
 p_eprobs
 ggsave(file="empirical-allprobs.pdf")#,width=5,height=3.7)
 
@@ -112,7 +113,7 @@ legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
 p_eexps_nolegend = p_eexps + theme(legend.position="none")
 p_eprobs_nolegend = p_eprobs + theme(legend.position="none")
 
-pdf("pics/empirical-results.pdf",width=10,height=4)
+pdf("pics/empirical-results.pdf",width=13,height=5)
 grid.arrange(p_eexps_nolegend, p_eprobs_nolegend, legend,nrow=1,widths=unit.c(unit(.45, "npc"), unit(.45, "npc"), unit(.1, "npc")))
 dev.off()
 
@@ -176,19 +177,24 @@ agr$YMax = agr$normresponse + agr$CIHigh
 
 p=ggplot(agr, aes(x=AllPriorProbability,y=normresponse, color=trial_type)) +
   geom_point() +
-  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
-  geom_smooth(method="lm") +
+  geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+#  geom_smooth(method="lm") +
   scale_y_continuous(name="Posterior probability of all-state") +
   scale_x_continuous(name="Prior probability of all-state") +
   scale_color_manual(values=c(wes_palette("Darjeeling")[1:3]),name="Trial type",breaks=levels(agr$trial_type),labels=c("uninformative (court)", "unreliable (drunk)", "cooperative (sober)"))
 p
 ggsave("pics/speakerreliabilityresults.pdf",width=7,height=4)
 
+
+
 some100$Reliability = as.factor(ifelse(some100$trial_type == "sober","reliable","unreliable"))
 centered = cbind(some100, myCenter(some100[,c("AllPriorProbability","Reliability","Trial")]))
 m = lmer(normresponse ~ cAllPriorProbability * cReliability + (cAllPriorProbability * cReliability | Item) + (cAllPriorProbability * cReliability | workerid), data=centered)
 summary(m)
 save(m, file="data/model.RData")
+
+m = lmer(normresponse ~ cAllPriorProbability * trial_type + (1 | Item) + (1 | workerid), data=centered)
+summary(m)
 
 m.trial = lmer(normresponse ~ cAllPriorProbability * cReliability * cTrial + (cAllPriorProbability * cReliability| Item) + (cAllPriorProbability * cReliability| workerid), data=centered)
 summary(m.trial)

@@ -20,11 +20,6 @@ d = merge(r,rnew,all=T)
 summary(d)
 r = d
 
-# write data from mh's attempt to find the prior in the sky
-# subjID, response_item1, response_item2, …, response_itemN
-d = r[,c("workerid","Item","response")]
-spreaded = d %>% spread(Item,response,fill=-1)
-write.table(spreaded,file="data/inferpriorinsky_number.txt",row.names=F,quote=F,sep="\t")
 
 # write data for bayesian data analysis (fitting binomials to data in church)
 tmp = ddply(r, .(Item), summarise, Responses=paste("(list ",paste(response,collapse=" "),")",sep=""))
@@ -35,7 +30,7 @@ write.table(tmp[,c("Responses")],file="data/data_as_listoflists.txt",row.names=F
 ggplot(r, aes(x=response)) +
   geom_histogram() +
   facet_wrap(~workerid)
-ggsave(file="graphs/subject_variability.pdf",width=20,height=15)
+ggsave(file="graphs/subject_variability.pdf",width=20,height=25)
 
 # person 53 gave only one response -- exclude
 r = droplevels(subset(r, workerid != "53"))
