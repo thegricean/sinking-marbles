@@ -24,35 +24,52 @@ var df_prior = dataFrame(priorData.slice(0, priorData.length-1))
 var items = _.uniq(_.pluck(df_prior, "Item"))
 var states = _.range(0,16)
 
+
+var linkingModel = function(theta, phi){
+	Enumerate(function(){
+		var guessing = flip(phi)
+		var marbles =  guessing ? uniformDraw(states) : binomial(theta, 15)
+		return marbles
+	})
+}
+
+
 var priorModel = function(){
+
+	var phi = uniform(0,1)
 
 	foreach(items,
 		function(item){
 			var itemData = _.pluck(subset(df_prior, "Item", item), "response")
 
 			var theta = uniform(0,1)
+
+			var predictionERP = linkingModel(theta, phi)
+
 			var scr = reduce(function(d, memo){
-				return binomialERP.score([theta, 15], 
-									      wonkyutils.wpParseFloat(d))
+				return predictionERP.score([], wonkyutils.wpParseFloat(d))
 			}, 0, itemData)
 
-			// console.log(item + scr)
+			console.log(item + scr)
 			factor(scr)
 
 			query.add(["theta", item], theta)
 
 		})
-
+	
+	query.add(["phi", "global"], phi)
 	return query
 }
 
-var mhiter = 100000
+var mhiter = 10
 var burn = mhiter / 2
 var priorERP = IncrementalMH(priorModel, mhiter, {verbose:true, burnin: burn})
 console.log('model complete. writing data...')
-var outfile = "priors/results/priorBDA-binomials_incrMH" + mhiter + "burn" + burn + ".csv"
-wonkyutils.priorERPwriter(priorERP, outfile)
-console.log('wrote to file ... ' + outfile)
+priorERP
+// var outfile = "priors/results/priorBDA-binomials_incrMH" + mhiter + "burn" + burn + ".csv"
+// wonkyutils.priorERPwriter(priorERP, outfile)
+// console.log('wrote to file ... ' + outfile)
+
 
 
 
