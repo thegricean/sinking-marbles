@@ -20,7 +20,7 @@ HPDlo<- function(s){
   m <- HPDinterval(mcmc(s))
   return(m["var1","lower"])
 }
-
+options("scipen"=10)   
 ```
 
 Load prior data, convert histogram from wppl into samples, calculate credible intervals, plot
@@ -31,7 +31,14 @@ Load prior data, convert histogram from wppl into samples, calculate credible in
 mhiter <- 100000
 burn <- mhiter/2
 samples <- mhiter - burn
-d0<-read.csv("~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/results/priorBDA-binomials_incrMH100000burn50000.csv")
+fpath<- "~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/results/"
+prefix <- "priorBDA-binomials_incrMH"
+prefix <- "priorBDA-binomials-phi_incrMH"
+prefix <- "priorBDA-binomials-byItemPhi_incrMH"
+
+d0<-read.csv(paste(fpath, prefix, mhiter, "burn",  burn, ".csv", sep=""))
+
+
 
 d.params <- data.frame(Parameter = rep(d0$Parameter, 
                                          1+samples*d0$Probability),
@@ -41,7 +48,28 @@ d.params <- data.frame(Parameter = rep(d0$Parameter,
                                         1+samples*d0$Probability))
 
 
-d.tidy <- d.params %>% group_by(Parameter,Item) %>%
+
+```
+
+Global parameters (e.g. noise parameter)
+```{r}
+d.global<-d.params %>% filter(Item=='global')
+
+ggplot(d.global, aes(x=Response))+
+  geom_histogram(aes(y=..count../sum(..count..)))+
+  facet_wrap(~Parameter)
+
+plotname <- paste("phiPosterior-"prefix, mhiter/100, "kBurn", burn/100, "k.pdf", sep='')
+ggsave(file=paste(fpath, plotname, sep=''), 
+       width = 8, height = 5)
+```
+
+
+By item CIs
+
+```{r}
+d.tidy <- d.params %>% filter(Item!='global') %>% 
+  group_by(Parameter,Item) %>%
   summarise(MAP = estimate_mode(Response),
             credLow = HPDlo(Response),
             credHigh = HPDhi(Response))
@@ -49,10 +77,36 @@ d.tidy <- d.params %>% group_by(Parameter,Item) %>%
 ggplot(d.tidy, aes(x=Item, y = MAP))+
   geom_bar(stat='identity', position=position_dodge(), alpha=0.4)+
   geom_errorbar(aes(ymin = credLow, ymax = credHigh))+
+  facet_wrap(~Parameter)+
   theme(axis.text.x = element_text(angle=45))+
   coord_flip()+
   ylab("inferred base rate (binomial p)")
 
-ggsave(file='~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/results/inferredThetas-noNoise_incrMH100kBurn50k.pdf', width = 20, height = 20)
+plotname <- paste("thetaCI-",prefix, mhiter/100, "kBurn", burn/100, "k.pdf", sep='')
+ggsave(file=paste(fpath, plotname, sep=''), 
+       width = 20, height = 20)
 
 ```
+
+By item Posteriors
+
+```{r}
+ggplot(d.params %>% filter(Parameter=='theta'), aes(x=Response))+
+  geom_histogram()+ 
+  facet_wrap(~Item)
+
+plotname <- paste("thetaPosteriors-",prefix, mhiter/100, "kBurn", burn/100, "k.pdf", sep='')
+ggsave(file=paste(fpath, plotname, sep=''), 
+       width = 30, height = 20)
+
+
+
+ggplot(d.params %>% filter(Parameter=='phi'), aes(x=Response))+
+  geom_histogram()+ 
+  facet_wrap(~Item)
+
+plotname <- paste("phiPosteriors-",prefix, mhiter/100, "kBurn", burn/100, "k.pdf", sep='')
+ggsave(file=paste(fpath, plotname, sep=''), 
+       width = 20, height = 20)
+```
+
