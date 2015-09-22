@@ -16,6 +16,13 @@ var foreach = function(lst, fn) {
     foreach_(0);
 };
 
+var marginalizeERP = function(myERP, label){
+	Enumerate(function(){
+		var x = sample(myERP)
+		return x[label]
+	})
+}
+
 
 var fpath = "/Users/mht/Documents/research/sinking-marbles/bayesian_model_comparison/priors/data/"
 var priorData = wonkyutils.readCSV(fpath + "priors.txt").data
@@ -35,8 +42,9 @@ var linkingModel = function(theta, phi){
 
 
 var priorModel = function(){
-
-	var phi = uniform(0,1)
+	
+	// var phi = uniform(0,1)
+	var phi = 0
 
 	foreach(items,
 		function(item){
@@ -50,26 +58,37 @@ var priorModel = function(){
 				return predictionERP.score([], wonkyutils.wpParseFloat(d))
 			}, 0, itemData)
 
-			console.log(item + scr)
+			// console.log(item + scr)
 			factor(scr)
 
-			query.add(["theta", item], theta)
 
+			query.add(item, theta)
+
+			// query.add(["theta", item], theta)
+			// query.add(["phi", item], phi)
 		})
 	
-	query.add(["phi", "global"], phi)
+	// query.add(["phi", "global"], phi)
 	return query
 }
 
-var mhiter = 10
-var burn = mhiter / 2
-var priorERP = IncrementalMH(priorModel, mhiter, {verbose:true, burnin: burn})
-console.log('model complete. writing data...')
-priorERP
-// var outfile = "priors/results/priorBDA-binomials_incrMH" + mhiter + "burn" + burn + ".csv"
+// var mhiter = 100000
+// var burn = mhiter / 2
+// var priorERP = IncrementalMH(priorModel, mhiter, {verbose:true, burnin: burn})
+// console.log('model complete. writing data...')
+// var outfile = "priors/results/priorBDA-binomials-byItemPhi_incrMH" + mhiter + "burn" + burn + ".csv"
 // wonkyutils.priorERPwriter(priorERP, outfile)
 // console.log('wrote to file ... ' + outfile)
 
+
+
+// debugging /////////////////////////////////
+// var resultsERP = linkingModel(0.99, 0.8)
+// var itemData = _.pluck(subset(df_prior, "Item", "melted ice cubes"), "response")
+// var scr = reduce(function(d, memo){
+// 	return resultsERP.score([], wonkyutils.wpParseFloat(d))
+// }, 0, itemData)
+// scr
 
 
 
