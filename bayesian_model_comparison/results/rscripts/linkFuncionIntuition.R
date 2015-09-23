@@ -67,3 +67,62 @@ ggplot(data.frame(x=1/rgamma(1000,shape=5, scale=1)),aes(x=x))+
 
 ggplot(data.frame(x = exp(rnorm(1000,mean=0,sd=0.25))),aes(x=x))+
   geom_histogram()
+
+
+
+
+## logit-space gaussian noise link (to finish)
+
+
+avoidEnds <- function(x){
+ return (if (x > 0.99) {
+    0.99
+  } else if (x < 0.01) {
+    0.01
+  } else {
+    x
+  })
+}
+
+makeMarbles <- function(coinWeight){
+  return(dbinom(seq(0,15, 1), 15, coinWeight))
+}
+
+expectation <- function(normed_probs){
+  states <- seq(0, 15, 1)
+  return (sum (states * normed_probs))
+}
+
+addNoise <- function(probs, sigma){
+  logit_slider_probs <- logit(sapply((states/states[16]), avoidEnds))
+  expval <- expectation(probs)/15
+  logit_ev <- logit(expval)
+  linked_probs <- dnorm(logit_slider_probs, 
+                        mean = logit_ev, 
+                        sd = sigma)
+  linked_ev <- expectation(linked_probs/sum(linked_probs))
+  return (linked_ev)
+  
+}
+
+
+noise_levels<-seq(0.01, 3, 0.25)
+
+simulate.logitNoise <- data.frame()
+for (n in noise_levels){
+  tmp<- data.frame(base_rates = seq(0.01,0.99,0.01),
+                   sigma = n) %>%
+              rowwise() %>% 
+              mutate(noLink = expectation(makeMarbles(base_rates)),
+                     noiseLink = addNoise(makeMarbles(base_rates),n))
+
+
+expectation(makeMarbles(0.99))
+addNoise(makeMarbles(0.99),0)
+
+
+
+
+
+
+
