@@ -13,7 +13,8 @@ source("../rscripts/helpers.r")
 # get empirical comprehension data expectations (comp_state)
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
 
-comp_state = r[r$quantifier %in% c("Some","All","None"),] %>% 
+#comp_state = r[r$quantifier %in% c("Some","All","None"),] %>% 
+comp_state = r %>%   
   select(workerid, Item, quantifier, response) %>%
   rename(subject=workerid, item=Item, utterance=quantifier)
 comp_state$measure = "comp_state"

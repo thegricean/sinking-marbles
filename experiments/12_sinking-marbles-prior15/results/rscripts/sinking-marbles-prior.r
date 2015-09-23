@@ -5,13 +5,13 @@ setwd("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiment
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/26_sinking-marbles-prior15_replication/results/data/r.RData")
 rnew = r
 
-r = read.table("data/sinking_marbles.tsv", sep="\t", header=T)
-r = r[,c("workerid", "rt", "effect", "cause", "object_level", "response", "object")]
-
-r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "object_low"))
-#s = summarySE(r, measurevar="response", groupvars=c("effect", "object_level", "object"))
-#priors = s
-#save(priors, file="data/priors.RData")
+# r = read.table("data/sinking_marbles.tsv", sep="\t", header=T)
+# r = r[,c("workerid", "rt", "effect", "cause", "object_level", "response", "object")]
+# 
+# r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "object_low"))
+# #s = summarySE(r, measurevar="response", groupvars=c("effect", "object_level", "object"))
+# #priors = s
+# #save(priors, file="data/priors.RData")
 #load("data/priors.RData")
 load("data/r.RData")
 
@@ -19,7 +19,10 @@ load("data/r.RData")
 d = merge(r,rnew,all=T)
 summary(d)
 r = d
+summary(r)
 
+# write data for mh's prior data analysis (fitting mixtures of binomials?)
+write.table(r[,c("workerid","Item","response")],file="/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/priors/data/priors.txt",row.names=F,col.names=T,quote=F,sep=",")
 
 # write data for bayesian data analysis (fitting binomials to data in church)
 tmp = ddply(r, .(Item), summarise, Responses=paste("(list ",paste(response,collapse=" "),")",sep=""))
