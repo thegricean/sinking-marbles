@@ -799,13 +799,24 @@ prefix<-"justCompState_wRepData_originalPriors_so_wp_phiByItem_CTS_incrMH"
 #prefix<-"allQ_originalPriors_wonkyTF_2so_wp_phi_allProb-sigma-scale-offset_CTS_incrMH"
 
 
-prefix<-"fullPost_justCompState_wRepData_originalPriors_so_wp_phi_CTS_incrMH"
+prefix<-"fullPost_expecatationLink_sharedSigma_justCompState_wRepData_originalPriors_so_wp_noPhi_CTS_incrMH"
+prefix<-"expecatationLink_sharedSigma_justCompState_wRepData_originalPriors_so_wp_noPhi_CTS_incrMH"
+
+prefix<-"basicRSA_FBTPosterior_expecatationLink_sharedSigma_justCompState_wRepData_inclZero_4stepPriors_so_wp_noPhi_CTS_hashMH"
+prefix<-"wonkyRSA_FBTPosterior_expecatationLink_sharedSigma_justCompState_wRepData_inclZero_originalPriors_so_wp_noPhi_CTS_hashMH"
+prefix<-"basicRSA_FBTPosterior_expecatationLink_sharedSigma_justCompState_wRepData_inclZero_bdaPriors50k_so_wp_noPhi_CTS_incrMH"
+prefix<-"regularRSA_FBTPosterior_expecatationLink_sharedSigma_justCompState_wRepData_inclZero_bdaPriors50k_so_wp_noPhi_CTS_incrMH"
+prefix<-"wonkyRSA_FBTPosterior_expecatationLink_sharedSigma_justCompState_wRepData_inclZero_bdaPriors50k_so_wp_noPhi_CTS_incrMH"
 
 
 
-samples<-5000
-d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'0burn',samples/2,'0a.csv',sep=''))
-d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'burn0a.csv',sep=''))
+
+samples<-10000
+#d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'0burn',samples/2,'0a.csv',sep=''))
+#d<-read.csv(paste("wonkyFBTPosterior_",prefix,samples,'burn0a.csv',sep=''))
+#d<-read.csv(paste("wonkyRSA_FBTPosterior_",prefix,samples,'burn0a.csv',sep=''))
+d<-read.csv(paste(prefix,samples,'burn',samples/2,'a.csv',sep=''))
+
 
 
 
@@ -833,6 +844,11 @@ d.paramsByItem <- d %>%
 d.paramsByItem <- data.frame(Parameter = rep(d.paramsByItem$Parameter, 1+samples*d.paramsByItem$Probability),
                              Item = rep(d.paramsByItem$Item, 1+samples*d.paramsByItem$Probability),
                        Response = rep(to.n(d.paramsByItem$Value), 1+samples*d.paramsByItem$Probability))
+
+ggplot(d.paramsByItem, aes(x=Response))+
+  geom_histogram()+
+  facet_wrap(~Item)
+
 
 d.paramSummary<- d.paramsByItem %>%
   group_by(Parameter, Item) %>%
@@ -879,7 +895,8 @@ ggplot(data=d.paramsWpriors, aes(x=MAP))+
 
 
 d.params <- d %>%
-  filter(!(Parameter%in%c("comp_allprob", "comp_state","wonkiness"))& (Item=='na')) %>%
+  #filter(!(Parameter%in%c("comp_allprob", "comp_state","wonkiness"))& (Item=='na')) %>%
+  filter((Item=='na')) %>%#
   select(-Item, -Quantifier)
 
 ## for continuous variables
@@ -904,48 +921,66 @@ d.params %>%
             credLo = HPDlo(Response))
 
 
-d.postpred <-  d %>% filter(Parameter%in%c("comp_allprob", "comp_state","wonkiness")) %>%
+d.postpred <-  d %>% 
+  filter(Bin %in% c("rawExpectation", "linkedExpectation")) %>%
+  rename(Type = Bin) %>%
+  #filter(Bin %in% c("rawExpectation")) %>%
+  filter(Parameter%in%c("comp_allprob", "comp_state","wonkiness")) %>%
   mutate(Probability = to.n(Probability),
          Value = to.n(Value))
-  
-  
-  
+
+
+d.postpred <-  d %>% 
+  filter(Parameter%in%c("comp_allprob", "comp_state","wonkiness")) %>%
+  mutate(Probability = to.n(Probability),
+         Value = to.n(Value))
+
+
+
 d.postpred <- data.frame(Parameter = rep(d.postpred$Parameter, 
                                          1+samples*d.postpred$Probability),
+                         Type = rep(d.postpred$Type,
+                                    1+samples*d.postpred$Probability),
                          Item = rep(d.postpred$Item, 
                                     1+samples*d.postpred$Probability),
                          Quantifier = rep(d.postpred$Quantifier,
                                           1+samples*d.postpred$Probability),
-                       Response = rep(d.postpred$Value, 
-                                      1+samples*d.postpred$Probability))
+                         Response = rep(d.postpred$Value, 
+                                        1+samples*d.postpred$Probability))
 
 
 
 ## plot posterior predictive -- scatterplot of model vs human
 d.pp <- d.postpred %>%
   rename(Measure=Parameter) %>%
-  group_by(Measure,Item,Quantifier) %>%
+  group_by(Measure,Item,Quantifier, Type) %>%
   summarise(MAPexpval = estimate_mode(Response),
             credHi = HPDhi(Response),
             credLo = HPDlo(Response))
 
-
-
-# add priors
 d.pp$Prior = -555
 d.pp[d.pp$Measure %in% c("comp_state","wonkiness"),]$Prior = prior_exps[as.character(d.pp[d.pp$Measure  %in% c("comp_state","wonkiness"),]$Item),]$exp.val
 d.pp[d.pp$Measure == "comp_allprob",]$Prior = prior_allprobs[as.character(d.pp[d.pp$Measure == "comp_allprob",]$Item),]$X15
 
 # plot all model predictions
-ggplot(d.pp, aes(x=Prior,y=MAPexpval,color=Quantifier)) +
+ggplot(d.pp %>% filter(Type=='linkedExpectation'), 
+       aes(x=Prior,y=MAPexpval,color=Quantifier)) +
   geom_point() +
-  geom_errorbar(aes(ymin = credLo, ymax = credHi))+
-  geom_smooth() +
-  facet_wrap(~Measure,scales="free")
- 
-#ggsave(paste("graphs/model_curves/postpred-",prefix,samples,".pdf",sep=""),width=15)
+  # geom_errorbar(aes(ymin = credLo, ymax = credHi))+
+  #geom_smooth() +
+  #facet_wrap(~Measure,scales="free")
+facet_wrap(~Measure,scales="free")
 
-range((d.pp %>% filter(Quantifier == 'Some'))$MAPexpval)
+
+ggsave(paste("graphs/model_curves/postpred-",prefix,samples,".pdf",sep=''),width=15)
+
+
+for (meas in levels(factor(d.pp$Measure))){
+  print(range((d.pp %>% filter((Measure==meas) & (Quantifier=='Some')))$MAPexpval))
+#  print(range((d.pp %>% filter((Measure==meas) & (Quantifier=='Some')))$Prior))
+}
+
+
 
 #add empirical values
 d.pp$mean.emp.val = empirical[paste(d.pp$Item,d.pp$Measure,d.pp$Quantifier),]$mean.emp.val
@@ -976,7 +1011,8 @@ some.wonkiness<-d.pp %>% filter(Measure=='wonkiness' & Quantifier == 'Some')
 #full posterior
 
 d.postpred <-  d %>% 
-  filter(Parameter%in%c("comp_allprob", "comp_state","wonkiness")) %>%
+  filter(Parameter%in%c("comp_allprob", "comp_state","wonkiness") & 
+           (Bin!="expectation")) %>%
   mutate(Probability = to.n(Probability),
          Value = to.n(Value))
 
@@ -1012,10 +1048,37 @@ ggplot(d.fullpost %>% filter(Item =='ate the seeds birds' &
   facet_wrap(~Item)
 
 
+cs.data<- read.csv("~/Documents/research/sinking-marbles/bayesian_model_comparison/data/empirical_binarywonky_nozero.csv")
+
+
+cs.tidy<-cs.data %>% filter(measure=='comp_state') %>%
+  rename(Item = item,
+         Quantifier= utterance)
+
+ggplot(cs.tidy %>% filter(utterance=='Some'), 
+       aes(x=response))+
+  geom_histogram(binwidth=1)+
+  facet_wrap(~item)
 
 
 
+i = 'melted pencils'
+ggplot(d.fullpost %>% filter( Quantifier == 'Some'),
+       aes(x=Bin, y = MAP))+
+  geom_bar(position=position_dodge(), stat='identity', alpha=0.5)+
+  geom_errorbar(aes(ymin=credLow, ymax=credHigh), position=position_dodge())+
+  geom_histogram(data=cs.tidy %>% filter(Quantifier=='Some'),
+                 aes(x=response, 
+                     y=(..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]
+                     ),
+                 binwidth=1,
+                 fill='blue',
+                 alpha=0.3,
+                 position=position_dodge())+
+  facet_wrap(~Item)
 
+
+ggsave(paste("graphs/model_curves/fullPosteriors-",prefix,samples,".pdf",sep=''),width=25, height=15)
 
 
 
@@ -1024,7 +1087,7 @@ ggplot(d.fullpost %>% filter(Item =='ate the seeds birds' &
 prefix<-"justComp_logProbs_enumerate_wEnds"
 prefix<-"justCompState_logProbs_enumerate_wEnds"
 
-prefix<-"justCompAllProb_logProbs_enumerate_wEnds"
+prefix<-"regularRSA_logProbs_factorState_justComp_justSome_so-sigma_enumerate"
 
 
 #prefix<-"allQ_originalPriors_wonkyTF_2so_wp_phi_allProb-sigma-scale-offset_CTS_incrMH"
@@ -1034,7 +1097,7 @@ prefix<-"justCompAllProb_logProbs_enumerate_wEnds"
 
 #samples<-3000
 
-d<-read.csv(paste("wonkyFBTPosterior_",prefix,'.csv',sep=''))
+d<-read.csv(paste(prefix,'.csv',sep=''))
 
 d.p<-d %>% rename(wonkyPrior = Parameter,
              phi = Item,
