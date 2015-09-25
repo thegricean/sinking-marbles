@@ -18,7 +18,7 @@ head(d)
 summary(d)
 
 
-# get smoothed prior probabilities
+# get beta priors
 priorprobs = read.table(file="../betapriors.txt",sep="\t", header=T, quote="")
 head(priorprobs)
 row.names(priorprobs) = priorprobs$X.Item.
@@ -60,7 +60,7 @@ all=ggplot(d_all_prob[d_all_prob$SpeakerOptimality < 5,],aes(x=PriorProbability,
   #geom_text(aes(label=Item))
 ggsave("betapriors-allprob.pdf",width=6.5,height=5)
   
-d_comp_state = d %>%
+d_comp_state = d[d$SpeakerOptimality < 5,] %>%
   group_by(Item,SpeakerOptimality) %>%
   summarise(exp.val=sum(State*PosteriorProbability))
 
