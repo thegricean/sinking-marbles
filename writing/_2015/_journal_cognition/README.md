@@ -1,9 +1,5 @@
 # Getting wonkiness out the door -- open issues.
 
-The current version of the manuscript is ready for feedback in terms of framing. Still missing: the exact numbers. MH's task is to add a detailed description of the BDA / model comparison procedure to an appendix and insert short references to it within the manuscript in appropriate places.
-
-But there are still some open issues:
-
 ## To Be Done
 
 ### Choices for data analysis
@@ -21,7 +17,7 @@ Options:
 	- original
 	- 4step
 	
-Current preference:	*binomial (inferred on original)*
+Current preference:	**binomial (inferred on original)**
 
 #### What backoff prior should we use? 
 
@@ -30,7 +26,7 @@ Options:
 - uniform
 - binomial (.5)
 
-Current preference: *binomial (.5)*
+Current preference: **binomial (.5)**
 
 #### What linking function should we use?
 
@@ -42,7 +38,7 @@ Options:
 - none
 - mean of a few samples
 
-Current preference: *first three*, exxplore noise further
+Current preference: **first three**, explore noise further
 
 #### Model comparison	
 
