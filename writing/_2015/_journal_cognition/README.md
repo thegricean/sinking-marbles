@@ -4,7 +4,7 @@
 
 ### Choices for data analysis
 
-The open issues are (MH, where we have preferences, can you add the rationale for those preferences?):
+The open issues are (MH, where I've marked that we have preferences, can you add the rationale for those preferences?):
 
 #### Which prior should we use?
 
