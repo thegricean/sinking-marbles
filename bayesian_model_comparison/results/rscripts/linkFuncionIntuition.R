@@ -87,9 +87,10 @@ avoidEnds <- function(x){
 makeMarbles <- function(coinWeight){
   return(dbinom(seq(0,15, 1), 15, coinWeight))
 }
+states <- seq(0, 15, 1)
+
 
 expectation <- function(normed_probs){
-  states <- seq(0, 15, 1)
   return (sum (states * normed_probs))
 }
 
@@ -106,7 +107,7 @@ addNoise <- function(probs, sigma){
 }
 
 
-noise_levels<-seq(0.01, 3, 0.25)
+noise_levels<-seq(0.01, 4, 0.25)
 
 simulate.logitNoise <- data.frame()
 for (n in noise_levels){
@@ -115,10 +116,14 @@ for (n in noise_levels){
               rowwise() %>% 
               mutate(noLink = expectation(makeMarbles(base_rates)),
                      noiseLink = addNoise(makeMarbles(base_rates),n))
+  
+  simulate.logitNoise<- bind_rows(simulate.logitNoise, tmp)
+}
 
-
-expectation(makeMarbles(0.99))
-addNoise(makeMarbles(0.99),0)
+ggplot(simulate.logitNoise, 
+       aes(x=noLink, y = noiseLink, color=sigma))+
+  geom_line()+
+  facet_wrap(~sigma)
 
 
 
