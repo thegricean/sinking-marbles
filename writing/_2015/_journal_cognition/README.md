@@ -35,6 +35,7 @@ Options:
 - none + noise	
 - expectation + logit noise (comp_state)
 - expectation + other type of noise (comp_state)
+	- expectation + truncated gaussian
 - none
 - mean of a few samples
 
