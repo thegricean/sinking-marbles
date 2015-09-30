@@ -48,11 +48,46 @@ pdf("pics/priordistributions.pdf",width=10,height=3.5)
 grid.arrange(exps, allprobs, nrow=1,widths=unit.c(unit(.5, "npc"), unit(.5, "npc")))
 dev.off()
 
+# load inferred priors (with guessing parameter)
+exps_inferred_phi = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/priors/results/summary_priorBDA-binomials-phi_incrMH100000burn50000.csv",sep=",", header=T, quote="")
+exps_inferred_phi$X.Item. = gsub("\"","",exps_inferred_phi$X.Item.)
+row.names(exps_inferred_phi) = exps_inferred_phi$X.Item.
+nrow(exps_inferred_phi)
+head(exps_inferred_phi)
+
+# histogram of expectations
+exps = ggplot(exps_inferred_phi, aes(x=X.expectation.*15)) +
+  geom_histogram() +
+  scale_x_continuous(name="Expected value of prior distribution",breaks=seq(1,15, by=2)) +
+  scale_y_continuous(name="Number of cases")
+ggsave("pics/priorexpectations-inferred-phi-histogram.pdf",width=5,height=3.7)
+
+# load inferred priors (without guessing parameter)
+exps_inferred = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/priors/results/summary_priorBDA-binomials_incrMH100000burn50000.csv",sep=",", header=T, quote="")
+exps_inferred$X.Item. = gsub("\"","",exps_inferred$X.Item.)
+row.names(exps_inferred) = exps_inferred$X.Item.
+nrow(exps_inferred)
+head(exps_inferred)
+row.names(exps_inferred) = exps_inferred$X.Item.
+
+# histogram of expectations
+exps = ggplot(exps_inferred, aes(x=X.expectation.*15)) +
+  geom_histogram() +
+  scale_x_continuous(name="Expected value of prior distribution",breaks=seq(1,15, by=2)) +
+  scale_y_continuous(name="Number of cases")
+ggsave("pics/priorexpectations-inferred-histogram.pdf",width=5,height=3.7)
+
+
 ### PLOT COMPREHENSION RESULTS
 # expectations
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/13_sinking-marbles-priordv-15/results/data/r.RData")
 
 r$PriorExpectationProportion = prior_exps[as.character(r$Item),]$exp.val
+r$PriorExpectationProportionInferred = exps_inferred[as.character(r$Item),]$X.expectation.
+r$PriorExpectationProportionInferredPhi = exps_inferred_phi[as.character(r$Item),]$X.expectation.
+
+cor(r$PriorExpectationProportionInferred*15,r$PriorExpectationProportion)
+cor(r$PriorExpectationProportionInferredPhi*15,r$PriorExpectationProportion)
 # exclude people who weren't literal above some threshold
 # lit = droplevels(r[r$quantifier %in% c("All","None"),]) %>% 
 #   group_by(workerid,quantifier) %>%
@@ -80,6 +115,43 @@ p_eexps = ggplot(agr, aes(x=PriorExpectationProportion, y=ProportionResponse*15,
   scale_x_continuous(breaks=seq(1,15,by=2),name="Prior mean number of objects")  
 p_eexps
 ggsave(file="empirical_exps.pdf")#,width=5,height=3.7)
+
+# plot with inferred prior expectation on x axis
+agr = aggregate(ProportionResponse ~ PriorExpectationProportionInferred + quantifier + Item,data=r,FUN=mean)
+
+min(agr[agr$quantifier == "Some",]$ProportionResponse)*15
+max(agr[agr$quantifier == "Some",]$ProportionResponse)*15
+agr$Quantifier = factor(x=agr$quantifier, levels=c("Some","All","None","long_filler","short_filler"))
+
+p_eexps = ggplot(agr, aes(x=PriorExpectationProportionInferred*15, y=ProportionResponse*15, color=Quantifier, shape=Quantifier)) +
+  geom_point() +
+  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth() +
+  scale_color_manual(values=c(wes_palette("Darjeeling")[1:3],"black","gray40")) +#values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
+  scale_y_continuous(breaks=seq(1,15,by=2),name="Posterior mean number of objects") +
+  #  geom_abline(intercept=0,slope=1,color="gray70") +
+  scale_x_continuous(breaks=seq(1,15,by=2),name="Prior mean number of objects")  
+p_eexps
+ggsave(file="pics/empirical_exps_inferredprior.pdf",width=7)#,width=5,height=3.7)
+
+# plot with inferred prior (phi) expectation on x axis
+agr = aggregate(ProportionResponse ~ PriorExpectationProportionInferredPhi + quantifier + Item,data=r,FUN=mean)
+
+min(agr[agr$quantifier == "Some",]$ProportionResponse)*15
+max(agr[agr$quantifier == "Some",]$ProportionResponse)*15
+agr$Quantifier = factor(x=agr$quantifier, levels=c("Some","All","None","long_filler","short_filler"))
+
+p_eexps = ggplot(agr, aes(x=PriorExpectationProportionInferredPhi*15, y=ProportionResponse*15, color=Quantifier, shape=Quantifier)) +
+  geom_point() +
+  #geom_errorbar(aes(ymin=YMin,ymax=YMax)) +
+  geom_smooth() +
+  scale_color_manual(values=c(wes_palette("Darjeeling")[1:3],"black","gray40")) +#values=c("#F8766D", "black", "#00BF7D", "gray30", "#00B0F6"),breaks=levels(agr$quantifier),labels=c("all","long filler","none","short filler","some")) +
+  scale_y_continuous(breaks=seq(1,15,by=2),name="Posterior mean number of objects") +
+  #  geom_abline(intercept=0,slope=1,color="gray70") +
+  scale_x_continuous(breaks=seq(1,15,by=2),name="Prior mean number of objects")  
+p_eexps
+ggsave(file="pics/empirical_exps_inferredprior_phi.pdf",width=7)#,width=5,height=3.7)
+
 
 
 # allstate-probs

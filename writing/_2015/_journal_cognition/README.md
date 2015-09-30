@@ -1,8 +1,69 @@
 # Getting wonkiness out the door -- open issues.
 
-The current version of the manuscript is ready for feedback in terms of framing. Still missing: the exact numbers. MH's task is to add a detailed description of the BDA / model comparison procedure to an appendix and insert short references to it within the manuscript in appropriate places.
+## To Be Done
 
-But there are still some open issues:
+### Choices for data analysis
+
+The open issues are (MH, where I've marked that we have preferences, can you add the rationale for those preferences?):
+
+#### Which prior should we use?
+
+Options:
+
+- binomial 
+	- inferred on original
+	- inferred on 4step
+- smoothed histograms
+	- original
+	- 4step
+	
+Current preference:	**binomial (inferred on original)**
+
+#### What backoff prior should we use? 
+
+Options:
+
+- uniform
+- binomial (.5)
+
+Current preference: **binomial (.5)**
+
+#### What linking function should we use?
+
+Options:
+
+- none + noise	
+- expectation + logit noise (comp_state)
+- expectation + other type of noise (comp_state)
+	- expectation + truncated gaussian
+- none
+- mean of a few samples
+
+Current preference: **first three**, explore noise further
+
+#### Model comparison	
+
+
+### Qualitative data patterns we would expect to see in posterior predictives (given empirical data)
+
+- attenuated effect of prior on both comp_state and all_prob
+
+- "all"/"none" at floor and ceiling in comp_state, but in all_prob data "all" only makes it to .8
+
+- asymmetric U in wonkiness probs
+
+- linear increase/decrease in wonkiness for "none"/"all" (and maybe "all" doesn't get quite as close to floor as "none")
+
+Reminder: we got all of this (except "all" all_prob result) using an expectation + logit noise linking function for comp_state data, conditioning only on that data and then using inferred parameters to predict all_prob data. The problem: the comp_state prediction was no longer borne out for regular RSA. This is presumably due to a) weird noise process and b) weird priors. Because of this, we switched to doing BDA on priors as well (using binomial priors instead of smoothed histograms), and importantly, there needs to be more exploration of different noise processes.
+
+### Other
+
+- expand first and third section of general discussion, update second one (accommodation)
+
+- update the rest of the manuscript in response to data analysis results
+
+
+# Deprecated
 
 ## The big thing: the asymmetric wonkiness U
 
@@ -40,11 +101,6 @@ Plugging into the equation above the priors and speaker probabilities  (obtained
 
 At the MXPrag workshop, Michael asked what the effect is of adding a null utterance -- ie, why not get wonkiness via the intuition that you could have just said nothing (or something like our fillers) to retrieve the prior? I remember I had done this at some point, but we discarded it as a possibility because it didn't do what we wanted. I recently checked again what the effect of a (cheap) null utterance is: it weakens implicatures, ie it does exactly the opposite of what wonkiness does. Why Because a null utterance also makes "all" and "none" less likely for the items that are peaked on 0 and 15/all -- in the all-state, this has the effect of decreasing the ratio of the probability of "all" vs "some", so overall, "some" becomes more likely and thus implicatures are weaker.
 
-## To Be Done (manuscript)
 
-- create beta prior plot with varying speaker optimalities and describe beta priors
-- re-write section on priors (once you know which ones you're reporting) and add footnote describing the other priors results
-- run another 120 participants in 2a, for symmetry
-- get correlation of filler trial data and priors to report in footnote on p. 9
 
 
