@@ -1,0 +1,44 @@
+var trueTheta = 0.99
+var n_responses = 60
+
+var data = repeat(n_responses,
+	function(x){return binomial(trueTheta,15)}
+	)
+
+var states = _.range(0,16)
+
+var HDI = function(myERP, credMass){
+	var sortedPts = _.pluck(_.sortBy(myERP.samples, "value"),"value")
+	var ciIdxInc = Math.ceil(credMass* sortedPts.length)
+	var nCIs = sortedPts.length - ciIdxInc
+
+	var ciWidth = map(function(i){
+		sortedPts[i + ciIdxInc] - sortedPts[i]
+	},_.range(nCIs))
+
+	var i = _.indexOf(ciWidth, _.min(ciWidth))
+
+	return [sortedPts[i], sortedPts[i+ciIdxInc]]
+}
+
+
+var linkingFunction = function(theta, phi){
+	Enumerate(function(){
+		var guessing = flip(phi)
+		var marbles =  guessing ? uniformDraw(states) : binomial(theta, 15)
+		return marbles
+	})
+}
+
+var priorModel = function(){
+	var theta = uniform(0,1)
+	var phi = uniform(0,1)
+	var predictionERP = linkingFunction(theta, phi)
+	var scr = sum(map(function(d){return predictionERP.score([], d)}, data))
+	factor(scr)
+	return theta
+}
+
+var posteriorTheta = HashMH(priorModel, 10000, {"justSample":true})
+
+HDI(posteriorTheta, 0.95)
