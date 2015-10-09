@@ -8,6 +8,7 @@ output: html_document
 ```{r helpers}
 
 library(coda)
+library(hydroGOF)
 estimate_mode <- function(s) {
   d <- density(s)
   return(d$x[which.max(d$y)])
@@ -34,7 +35,7 @@ samples <- mhiter - burn
 fpath<- "~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/results/"
 prefix <- "priorBDA-binomials_incrMH"
 prefix <- "priorBDA-binomials-phi_incrMH"
-prefix <- "priorBDA-binomials-byItemPhi_incrMH"
+#prefix <- "priorBDA-binomials-byItemPhi_incrMH"
 
 d0<-read.csv(paste(fpath, prefix, mhiter, "burn",  burn, ".csv", sep=""))
 
@@ -51,16 +52,39 @@ d.params <- data.frame(Parameter = rep(d0$Parameter,
 
 ```
 
+
+Write out expectations and MAPs of thetas (for Judith and future reference)
+
+```{r}
+
+d.stats <- d.params %>%
+  filter(Parameter=="theta") %>%
+  group_by(Item) %>%
+  summarise(expectation = mean(Response),
+            MAP = estimate_mode(Response),
+            credHigh = HPDhi(Response),
+            credLow = HPDlo(Response))
+
+
+
+write.csv(d.stats, 
+          file=paste('~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/results/summary_', 
+                     prefix, mhiter, "burn",  burn, ".csv", sep=''))
+
+```
+
+
 Global parameters (e.g. noise parameter)
 ```{r}
 d.global<-d.params %>% filter(Item=='global')
 
 ggplot(d.global, aes(x=Response))+
-  geom_histogram(aes(y=..count../sum(..count..)))+
-  facet_wrap(~Parameter)
+  geom_histogram(aes(y=..count../sum(..count..)), binwidth=0.01)+
+  facet_wrap(~Parameter)+
+  xlim(0,1)
 
-plotname <- paste("phiPosterior-"prefix, mhiter/100, "kBurn", burn/100, "k.pdf", sep='')
-ggsave(file=paste(fpath, plotname, sep=''), 
+plotname <- paste("phiPosterior-",prefix, mhiter/1000, "kBurn", burn/1000, "k.pdf", sep='')
+ggsave(file=paste(fpath,"figures/", plotname, sep=''), 
        width = 8, height = 5)
 ```
 
@@ -82,31 +106,275 @@ ggplot(d.tidy, aes(x=Item, y = MAP))+
   coord_flip()+
   ylab("inferred base rate (binomial p)")
 
-plotname <- paste("thetaCI-",prefix, mhiter/100, "kBurn", burn/100, "k.pdf", sep='')
-ggsave(file=paste(fpath, plotname, sep=''), 
+plotname <- paste("thetaCI-",prefix, mhiter/1000, "kBurn", burn/1000, "k.pdf", sep='')
+ggsave(file=paste(fpath,"figures/", plotname, sep=''), 
        width = 20, height = 20)
 
+
+qplot(data=d.tidy, x=MAP, geom='histogram')+
+  facet_wrap(~Parameter)
+d.tidy %>% filter(Parameter=='theta')
 ```
 
 By item Posteriors
 
 ```{r}
 ggplot(d.params %>% filter(Parameter=='theta'), aes(x=Response))+
-  geom_histogram()+ 
-  facet_wrap(~Item)
+ggplot(d.params %>% filter(Parameter=='theta'), aes(x=Response))+
+  geom_histogram(aes(y=(..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+ 
+  facet_wrap(~Item)+
+  xlim(0,1)+
+  ylab("theta")
 
-plotname <- paste("thetaPosteriors-",prefix, mhiter/100, "kBurn", burn/100, "k.pdf", sep='')
+
+
+
+
+
+
+plotname <- paste("thetaPosteriors-",prefix, mhiter/1000, "kBurn", burn/1000, "k.pdf", sep='')
 ggsave(file=paste(fpath, plotname, sep=''), 
        width = 30, height = 20)
 
 
 
 ggplot(d.params %>% filter(Parameter=='phi'), aes(x=Response))+
-  geom_histogram()+ 
-  facet_wrap(~Item)
+  geom_histogram(aes(y=(..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+ 
+  facet_wrap(~Item)+
+  xlim(0,1)+
+  ylab("phi")
 
-plotname <- paste("phiPosteriors-",prefix, mhiter/100, "kBurn", burn/100, "k.pdf", sep='')
+plotname <- paste("phiPosteriors-",prefix, mhiter/1000, "kBurn", burn/1000, "k.pdf", sep='')
 ggsave(file=paste(fpath, plotname, sep=''), 
        width = 20, height = 20)
 ```
 
+
+Compare to expected values of 4 steps
+```{r}
+
+to.n <- function(x) {return(as.numeric(as.character(x)))}
+source("rscripts/helpers.r")
+
+
+priorprobs = read.table(file="~/Documents/research/sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+
+#priorprobs = read.table(file="~/Documents/research/sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+
+
+row.names(priorprobs) = priorprobs$Item
+nrow(priorprobs)
+
+# prior all-state probability for each item
+prior_allprobs = priorprobs[,c("Item","X15")]
+row.names(prior_allprobs) = prior_allprobs$Item
+
+# prior expectation for each item
+gathered_probs <- priorprobs %>%
+  gather(State,Probability,X0:X15)
+gathered_probs$State = as.numeric(as.character(gsub("X","",gathered_probs$State)))
+prior_exps <- gathered_probs %>%
+  group_by(Item) %>%
+  summarise(exp.val=sum(State*Probability))
+prior_exps = as.data.frame(prior_exps)
+row.names(prior_exps) = prior_exps$Item
+
+bda.df<-left_join(d.tidy, prior_exps)
+
+qplot(data=bda.df, y = MAP, x= exp.val, geom='point')+
+  geom_errorbar(aes(ymin = credLow, ymax = credHigh))
+
+```
+
+
+From wonky-tfbt (should be the same)
+
+```{r}
+
+mhiter <- 50000
+burn <- mhiter/2
+samples <- mhiter - burn
+fpath<- "~/Documents/research/sinking-marbles/bayesian_model_comparison/results/"
+prefix <- "priorBDA-binomials_incrMH"
+prefix <- "priorBDA-binomials-phi_incrMH"
+#prefix <- "priorBDA-binomials-byItemPhi_incrMH"
+
+d0<-read.csv(paste(fpath, prefix, mhiter, "burn",  burn, ".csv", sep=""))
+
+d0 <- d0 %>% filter(Item!='global') %>% 
+  select(-Parameter) %>%
+  rename(Parameter = Item,
+         Item = Value,
+         Value = Probability)
+
+
+
+d.params <- data.frame(Item = rep(d0$Parameter, 
+                                         1+samples*d0$Value),
+                         Estimate = rep(d0$Item, 
+                                    1+samples*d0$Value))
+
+d.params<- d.params %>% select(-Parameter) %>% rename(Estimate=Response)
+
+d.tidy <- d.params %>% 
+  group_by(Item) %>%
+  summarise(MAP = estimate_mode(Estimate),
+            credLow = HPDlo(Estimate),
+            credHigh = HPDhi(Estimate))
+
+d.binomials<- data.frame()
+for (i in 1:length(d.tidy$Item)){
+  theta <- d.tidy[i, "MAP"]$MAP
+  print(i)
+  d.binomials<- bind_rows(d.binomials,
+                          data.frame(Item = d.tidy$Item[i],
+                                    probs=dbinom(seq(0,15), 15, theta),
+                                    bins = seq(0,15)
+                                    )
+                          )
+  
+}
+
+
+
+```
+
+Compare with emprical distributions of prior data
+
+```{r}
+emp.d0 <-  read.csv("~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/data/priors.txt")
+
+empirical.Ns <- emp.d0 %>% 
+  group_by(Item) %>%
+  summarize(count = length(response))
+
+qplot(data=empirical.Ns, x = count, geom='histogram')
+
+
+empirical.tidy <- emp.d0 %>%
+  group_by(Item, response) %>%
+  summarise(count = length(workerid)) %>%
+  ungroup() %>%
+  group_by(Item) %>%
+  mutate(freq = count / sum(count)) %>%
+  rename(bins = response)
+
+map.predictive= data.frame()
+for (j in 1:length(d.tidy$Item)){
+    for (i in 0:15){
+           map.predictive<-bind_rows(map.predictive,
+                     data.frame(Item = d.tidy[[j, "Item"]],
+                      bins = i,
+                      MAPpredictive = dbinom(i, 15, d.tidy[[j, "MAP"]]),
+                      credLow = dbinom(i, 15, d.tidy[[j, "credLow"]]),
+                      credHigh = dbinom(i, 15, d.tidy[[j, "credHigh"]])
+                     ))
+    }
+}
+
+
+
+d.mixed<-left_join(map.predictive, empirical.tidy)
+
+
+
+d.mixed[is.na(d.mixed$count),]$freq <- 0
+
+
+ggplot(d.mixed, aes(x=MAPpredictive, y = freq, color=factor(bins)))+
+  geom_point()+
+ # geom_errorbarh(aes(xmin =credLow, xmax=credHigh))+
+  geom_abline(intercept=0, slope=1, linetype = 2)+
+  xlim(-0.05,1.05)+
+  ylim(-0.05,1.05)+
+  coord_fixed()+
+  ggtitle(paste("r2 = ",round(with(d.mixed, cor(freq, MAPpredictive))^2, digits=4),
+                "\n MSE = ", round(with(d.mixed, mse(freq, MAPpredictive)),digits=4), sep=''))
+
+
+
+plotname <- paste("scatter-modelData",prefix, mhiter/1000, "kBurn", burn/1000, "k.pdf", sep='')
+ggsave(file=paste(fpath,"figures/", plotname, sep=''), 
+       width = 20, height = 20)
+
+
+```
+
+
+
+
+```{r}
+
+ggplot(d.mixed %>% filter(freq > 0.25), aes(x=probs, y = freq))+
+  geom_point()
+
+
+
+d.mixed %>%
+  group_by(bins) %>%
+  summarise(cor(probs,freq))
+
+
+with(d.mixed, cor(probs, freq))
+
+ggplot(d.binomials,
+       aes(x=bins, y = probs))+
+  geom_bar(position=position_dodge(), stat='identity', alpha=0.5)+
+  #geom_errorbar(aes(ymin=credLow, ymax=credHigh), position=position_dodge())+
+  geom_histogram(data=emp.d0,
+                 aes(x=response, 
+                     y=(..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]
+                     ),
+                 binwidth=1,
+                 fill='blue',
+                 alpha=0.3,
+                 position=position_dodge())+
+  facet_wrap(~Item)
+
+
+ggplot(d.binomials,
+       aes(x=bins, y = probs))+
+  geom_bar(position=position_dodge(), stat='identity', alpha=0.5)+
+  geom_histogram(data=cs.tidy %>% filter(Quantifier=='Some'),
+                 aes(x=response, 
+                     y=(..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]
+                     ),
+                 binwidth=1,
+                 fill='blue',
+                 alpha=0.3,
+                 position=position_dodge())+
+  facet_wrap(~Item)
+
+
+
+plotname <- paste("priorMAPpredsWData-",prefix, mhiter/1000, "kBurn", burn/1000, "k.pdf", sep='')
+ggsave(file=paste(fpath, plotname, sep=''), 
+       width = 35, height = 20)
+
+
+ggplot(d.params, aes(x=Estimate))+
+  geom_histogram(aes(y=(..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+ 
+  facet_wrap(~Item)+
+  xlim(0,1)+
+  ylab("theta")
+```
+
+
+Log likelihoods
+
+```{r}
+
+mhiter <- 50000
+burn <- mhiter/2
+samples <- mhiter - burn
+fpath<- "~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/results/"
+prefix <- "priorBDA-logLikelihood-binomials_incrMH"
+prefix <- "priorBDA-logLikelihood-binomials_phi-incrMH"
+prefix <- "priorBDA-binomials-byItemPhi_incrMH"
+
+d0<-read.csv(paste(fpath, prefix, mhiter, "burn",  burn, ".csv", sep=""))
+
+d0 %>% summarise(sum(Value*Probability))
+
+
+```
