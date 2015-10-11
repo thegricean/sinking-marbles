@@ -1,0 +1,1933 @@
+workerid,Item,best_guess,confidence,ci_low,ci_high
+60,lit up computers,15,0.59,1,15
+60,froze berries,15,0.64,0,15
+60,melted ice cubes,15,0.99,15,15
+60,laughed lawyers,8,0.53,0,15
+60,exploded gas tanks,15,0.71,15,15
+60,ripped books,4,0.46,0,15
+60,popped balloons,15,0.68,15,15
+60,burnt books,15,0.95,15,15
+60,blew away backpacks,6,0.55,1,15
+60,flashed phones,10,0.48,1,15
+60,honked bicyclists,15,0.89,0,15
+60,rhymed songs,6,0.66,1,15
+60,landed flat notebooks,5,0.48,1,15
+60,dissolved carrots,7,0.46,0,15
+60,fell down shelves,11,0.69,1,15
+61,rolled wheelchairs,NA,0.79,NA,NA
+61,rolled wheelchairs,10,NA,8,15
+61,fell down block towers,15,0.92,11,15
+61,reflected the sunlight mirrors,10,0.58,5,15
+61,rhymed poems,7,0.23,5,10
+61,beeped old cars,15,0.66,10,15
+61,laughed lawyers,5,0.83,1,10
+61,popped balloons,15,1,15,15
+61,exploded gas tanks,12,0.76,10,15
+61,landed flat pancakes,8,0.82,5,12
+61,stopped motorcycles,15,0.95,10,15
+61,stuck stickers,15,1,15,15
+61,lit up flashlights,5,0.53,3,10
+61,melted ice cubes,15,1,15,15
+61,dissolved carrots,2,0.73,0,10
+61,broke boxes,15,1,15,15
+62,fell down shelves,2,0.25,1,5
+62,sank marbles,15,0.93,14,15
+62,ran out of batteries phones,9,0.59,2,15
+62,honked taxi drivers,12,0.75,5,15
+62,were green clovers,15,0.81,14,15
+62,exploded balls of tin foil,1,0.24,1,2
+62,blew away hats,10,0.62,5,15
+62,landed flat notebooks,15,0.9,10,15
+62,popped bubbles,15,0.97,14,15
+62,flashed cameras,10,0.76,1,15
+62,beeped old cars,8,0.48,5,10
+62,rhymed poems,10,0.4,1,15
+62,lit up computers,15,0.64,1,15
+62,got stained white tablecloths,15,0.77,10,15
+62,rolled shopping carts,15,0.86,10,15
+63,ran out of batteries bike lights,15,1,1,15
+63,rolled wheelchairs,12,0.94,3,15
+63,rhymed limericks,5,0.45,2,15
+63,melted crayons,15,1,10,15
+63,stuck beads,12,0.73,10,15
+63,laughed kids,12,0.92,8,14
+63,broke sunglasses,15,1,13,15
+63,stuck to the wall baseballs,0,1,0,0
+63,lit up cd-players,15,1,13,15
+63,were green strawberries,0,1,0,0
+63,had the letter Z in them love notes,7,1,5,7
+63,honked bicyclists,11,0.73,10,15
+63,exploded candles,0,0.9,0,10
+63,beeped new cars,5,0.91,1,10
+63,flashed cameras,10,0.69,5,15
+64,beeped old cars,15,0.67,15,15
+64,exploded balls of tin foil,NA,0.75,5,15
+64,exploded balls of tin foil,12,NA,NA,NA
+64,ran out of batteries bike lights,13,0.89,0,15
+64,had the letter Z in them love notes,5,0.78,0,7
+64,rhymed poems,9,0.9,3,15
+64,lit up computers,14,0.95,10,15
+64,ripped shoes,10,0.87,7,15
+64,stuck beads,12,0.9,3,15
+64,broke sunglasses,10,0.74,3,15
+64,blew away hats,13,0.92,10,15
+64,sank balloons,2,0.84,0,5
+64,stopped bicycles,15,0.95,11,15
+64,ate the seeds butterflies,10,0.83,3,15
+64,popped eggs,15,0.87,13,15
+64,got stained white carpets,15,0.99,13,15
+65,sank cups,NA,0.75,5,15
+65,sank cups,12,NA,NA,NA
+65,blew away hats,8,0.3,0,10
+65,decomposed banana peels,15,0.64,10,15
+65,laughed comedians,12,0.76,3,15
+65,popped balloons,14,0.78,10,15
+65,burnt matches,NA,0.48,NA,NA
+65,burnt matches,15,NA,13,15
+65,rolled wheelchairs,15,0.64,13,15
+65,got stained white shirts,15,0.79,14,15
+65,stuck to the wall pieces of gum,6,0.57,2,12
+65,melted crayons,15,0.74,10,15
+65,beeped new cars,10,0.3,3,15
+65,rhymed poems,15,1,0,15
+65,had the letter Z in them birthday cards,3,0.49,0,8
+65,flashed cameras,10,0.56,8,15
+65,exploded balls of tin foil,NA,0.28,0,NA
+65,exploded balls of tin foil,4,NA,NA,8
+66,laughed kids,10,0.44,2,12
+66,fell down shelves,12,0.41,8,15
+66,ran out of batteries laptops,10,0.53,3,14
+66,reflected the sunlight mirrors,15,0.6,10,15
+66,honked bus drivers,9,0.47,1,15
+66,ripped books,8,0.39,2,12
+66,beeped new cars,14,0.53,8,15
+66,flashed webcams,5,0.47,0,15
+66,stuck to the wall baseballs,0,0.94,0,0
+66,were green bananas,8,0.43,1,15
+66,exploded eggs,10,0.42,0,15
+66,dissolved oreos,15,0.5,10,15
+66,froze bottles of hand soap,15,0.53,10,15
+66,lit up computers,14,0.64,0,15
+66,blew away napkins,15,0.75,0,15
+67,had the letter Z in them novels,1,0.63,1,3
+67,exploded eggs,13,0.78,10,15
+67,popped bubbles,15,0.95,15,15
+67,dissolved sugar cubes,15,0.91,15,15
+67,stuck to the wall pieces of gum,3,0.64,1,6
+67,were green clovers,15,1,15,15
+67,blew away backpacks,1,0.75,1,1
+67,ripped shoes,6,0.55,3,15
+67,landed flat notebooks,15,0.92,15,15
+67,laughed kids,12,0.86,1,15
+67,exploded candles,0,0.99,0,0
+67,flashed webcams,0,0.96,0,0
+67,got stained white tablecloths,15,0.99,0,15
+67,broke boxes,9,0.53,5,15
+67,fell down card towers,15,0.96,15,15
+68,lit up flashlights,13,1,0,15
+68,reflected the sunlight phone screens,15,0.94,15,15
+68,flashed phones,5,1,0,15
+68,decomposed pinecones,3,0.89,3,15
+68,landed flat coins,15,1,14,15
+68,froze chocolate bars,15,1,15,15
+68,stuck to the wall pieces of gum,1,0.84,0,3
+68,exploded balls of tin foil,15,0.89,13,15
+68,dissolved oreos,0,1,0,0
+68,laughed lawyers,9,1,0,15
+68,sank cups,15,0.9,13,15
+68,ran out of batteries laptops,13,0.9,10,15
+68,ripped shirts,8,0.79,5,15
+68,beeped old cars,4,1,0,15
+68,stopped motorcycles,15,0.94,13,15
+69,honked taxi drivers,11,0.8,10,15
+69,flashed webcams,5,0.33,0,10
+69,burnt rocks,2,0.78,0,5
+69,froze chocolate bars,15,1,15,15
+69,dissolved oreos,0,0.83,0,0
+69,reflected the sunlight diamonds,15,1,15,15
+69,ran out of batteries bike lights,15,1,15,15
+69,stuck beads,12,0.75,7,15
+69,had the letter Z in them birthday cards,1,0.65,0,2
+69,ate the seeds birds,10,0.69,0,15
+69,rhymed limericks,13,0.65,0,15
+69,beeped old cars,8,0.53,5,12
+69,melted ice cubes,15,1,0,15
+69,popped eggs,2,0.24,0,5
+69,lit up cd-players,15,1,14,15
+70,exploded gas tanks,NA,0.88,NA,NA
+70,exploded gas tanks,14,NA,10,15
+70,fell down block towers,15,0.88,14,15
+70,reflected the sunlight diamonds,15,0.9,14,15
+70,broke sunglasses,15,0.96,14,15
+70,stuck sequins,12,0.74,5,15
+70,melted ice cubes,15,0.99,15,15
+70,ate the seeds butterflies,9,0.61,2,15
+70,blew away hats,12,0.76,3,15
+70,honked taxi drivers,12,0.75,0,15
+70,flashed cameras,9,0.61,3,15
+70,burnt matches,15,0.99,15,15
+70,landed flat coins,15,0.97,15,15
+70,beeped old cars,5,0.28,2,13
+70,ran out of batteries laptops,10,0.69,3,15
+70,laughed lawyers,10,0.78,1,15
+71,stuck sequins,10,0.29,1,15
+71,ate the seeds butterflies,NA,0.52,NA,NA
+71,ate the seeds butterflies,11,NA,1,15
+71,were green clovers,15,1,15,15
+71,landed flat pancakes,5,0.3,1,15
+71,melted crayons,15,0.76,2,15
+71,lit up flashlights,15,0.55,10,15
+71,rhymed songs,6,0.25,1,15
+71,flashed webcams,13,0.28,1,15
+71,dissolved oreos,15,0.66,1,15
+71,stuck to the wall baseballs,0,0.86,0,15
+71,got stained white shirts,2,0.25,1,15
+71,fell down shelves,2,0.44,1,15
+71,reflected the sunlight mirrors,15,0.76,1,15
+71,beeped houses,0,0.74,0,15
+71,burnt books,15,0.92,15,15
+72,stopped bicycles,14,0.88,10,15
+72,rolled wheelchairs,15,0.93,13,15
+72,dissolved sugar cubes,15,0.94,10,15
+72,beeped houses,2,0.16,0,15
+72,got stained white tablecloths,15,0.91,12,15
+72,ate the seeds birds,8,0.52,0,15
+72,were green clovers,15,0.9,0,15
+72,exploded gas tanks,3,0.21,0,15
+72,rhymed limericks,10,0.53,0,15
+72,stuck to the wall pieces of gum,4,0.16,0,15
+72,burnt books,15,0.86,13,15
+72,sank balloons,2,0.14,0,15
+72,decomposed banana peels,8,0.11,0,15
+72,ran out of batteries phones,8,0.06,0,15
+73,ran out of batteries laptops,5,0.46,5,15
+73,decomposed soda cans,0,0.86,0,15
+73,had the letter Z in them novels,15,0.96,15,15
+73,exploded CDs,15,0.8,2,15
+73,ripped shoes,10,0.68,5,15
+73,exploded candles,0,0.6,0,15
+73,sank cups,0,0.92,0,15
+73,beeped new cars,5,0.5,5,15
+73,landed flat coins,10,0.54,9,15
+73,rolled wheelchairs,15,0.99,15,15
+73,got stained white shirts,15,0.99,15,15
+73,were green bananas,7,0.44,6,15
+73,blew away napkins,10,0.75,3,15
+73,stuck sequins,15,0.78,12,15
+73,melted crayons,15,0.82,5,15
+74,dissolved sugar cubes,15,1,15,15
+74,beeped new cars,NA,0.67,1,15
+74,beeped new cars,8,NA,NA,NA
+74,blew away hats,10,0.55,1,15
+74,stopped bicycles,15,0.47,1,15
+74,melted pencils,NA,0.54,NA,NA
+74,melted pencils,3,NA,1,15
+74,lit up cd-players,15,0.81,1,15
+74,exploded eggs,15,0.77,1,15
+74,laughed comedians,10,0.69,1,15
+74,rhymed songs,NA,0.65,1,NA
+74,rhymed songs,13,NA,NA,15
+74,popped eggs,12,0.45,1,15
+74,ran out of batteries phones,5,0.58,1,15
+74,ate the seeds dogs,NA,0.48,1,15
+74,ate the seeds dogs,13,NA,NA,NA
+74,fell down block towers,15,0.44,1,15
+74,landed flat pancakes,10,0.58,1,15
+74,stuck stickers,10,0.7,1,15
+75,dissolved sugar cubes,15,0.92,12,15
+75,decomposed banana peels,15,0.7,5,15
+75,stuck stickers,14,0.86,11,15
+75,reflected the sunlight diamonds,15,0.87,11,15
+75,stopped motorcycles,15,0.94,12,15
+75,exploded fireworks,12,0.85,10,15
+75,beeped new cars,12,0.68,10,15
+75,rolled toy cars,NA,0.88,12,15
+75,rolled toy cars,15,NA,NA,NA
+75,froze chocolate bars,15,0.84,14,15
+75,broke logs,10,0.62,5,15
+75,landed flat pancakes,NA,0.78,NA,NA
+75,landed flat pancakes,14,NA,5,15
+75,exploded balls of tin foil,13,0.55,5,14
+75,sank cups,12,0.72,7,15
+75,melted crayons,15,0.84,10,15
+75,stuck to the wall baseballs,0,0.75,0,0
+76,exploded eggs,5,0.21,0,15
+76,landed flat notebooks,4,0.38,2,15
+76,reflected the sunlight diamonds,15,0.7,15,15
+76,sank cups,6,0.19,0,13
+76,beeped old cars,2,0.15,0,15
+76,ripped shirts,15,0.57,10,15
+76,rhymed songs,NA,0.13,0,NA
+76,rhymed songs,5,NA,NA,15
+76,got stained white carpets,15,0.79,15,15
+76,dissolved carrots,0,0.94,0,0
+76,stuck beads,11,0.31,0,15
+76,ate the seeds dogs,NA,0.44,NA,NA
+76,ate the seeds dogs,9,NA,4,15
+76,stopped cars,14,0.65,0,15
+76,popped bubbles,15,0.75,13,15
+76,lit up flashlights,6,0.34,0,15
+76,were green bananas,4,0.21,0,15
+77,stuck beads,NA,1,0,15
+77,stuck beads,13,NA,NA,NA
+77,exploded fireworks,NA,1,5,NA
+77,exploded fireworks,12,NA,NA,15
+77,had the letter Z in them love notes,3,1,0,15
+77,lit up cd-players,15,1,0,15
+77,ate the seeds dogs,5,1,0,15
+77,reflected the sunlight mirrors,15,0.91,15,15
+77,melted pencils,0,0.95,0,0
+77,landed flat notebooks,14,0.88,5,15
+77,rhymed limericks,15,1,15,15
+77,fell down card towers,15,1,15,15
+77,ran out of batteries laptops,15,1,0,15
+77,froze chocolate bars,15,1,15,15
+77,decomposed pinecones,5,1,0,15
+77,rolled toy cars,14,1,7,15
+77,burnt matches,15,1,15,15
+78,reflected the sunlight mirrors,NA,0.68,NA,NA
+78,reflected the sunlight mirrors,5,NA,5,15
+78,beeped new cars,NA,0.55,5,NA
+78,beeped new cars,7,NA,NA,15
+78,broke logs,7,0.6,5,15
+78,got stained white tablecloths,6,0.62,2,15
+78,ate the seeds birds,7,0.61,3,15
+78,blew away backpacks,5,0.59,2,10
+78,flashed phones,6,0.63,2,15
+78,honked bicyclists,7,0.66,4,15
+78,dissolved carrots,4,0.64,2,12
+78,rolled shopping carts,10,0.67,5,15
+78,sank cups,6,0.62,2,15
+78,had the letter Z in them love notes,4,0.62,3,11
+78,fell down block towers,10,0.59,4,13
+78,stopped bicycles,7,0.63,3,15
+78,were green strawberries,4,0.6,1,10
+79,reflected the sunlight phone screens,15,0.89,2,15
+79,lit up flashlights,NA,1,NA,NA
+79,lit up flashlights,13,NA,0,15
+79,froze bottles of hand soap,13,0.97,0,15
+79,burnt rocks,NA,1,NA,NA
+79,burnt rocks,8,NA,0,15
+79,honked bus drivers,6,0.98,0,15
+79,beeped new cars,10,0.75,6,15
+79,rhymed poems,8,0.99,0,15
+79,rolled shopping carts,15,0.96,0,15
+79,laughed lawyers,4,0.99,0,15
+79,exploded balls of tin foil,6,1,0,15
+79,broke boxes,NA,0.99,0,NA
+79,broke boxes,15,NA,NA,15
+79,melted crayons,15,0.99,0,15
+79,dissolved carrots,0,0.98,0,15
+79,ate the seeds dogs,2,0.98,0,15
+79,decomposed soda cans,0,0.96,0,0
+80,ran out of batteries phones,NA,0.72,2,15
+80,ran out of batteries phones,12,NA,NA,NA
+80,decomposed pinecones,NA,0.39,0,3
+80,decomposed pinecones,1,NA,NA,NA
+80,dissolved oreos,15,0.81,15,15
+80,ripped books,12,0.78,5,15
+80,honked taxi drivers,14,0.87,10,15
+80,melted ice cubes,15,0.97,15,15
+80,ate the seeds birds,5,0.9,1,15
+80,landed flat notebooks,13,0.81,10,15
+80,had the letter Z in them birthday cards,4,0.69,0,15
+80,beeped old cars,13,0.67,10,15
+80,laughed kids,9,0.74,0,15
+80,exploded CDs,3,0.34,0,15
+80,fell down card towers,15,0.97,15,15
+80,burnt matches,15,1,14,15
+80,rolled toy cars,15,0.72,15,15
+81,broke boxes,NA,0.8,NA,NA
+81,broke boxes,7,NA,4,10
+81,had the letter Z in them love notes,1,0.85,0,2
+81,landed flat coins,13,0.45,13,15
+81,laughed comedians,NA,0.55,2,NA
+81,laughed comedians,5,NA,NA,9
+81,honked bicyclists,10,0.4,7,15
+81,dissolved oreos,11,0.52,10,14
+81,ripped books,8,0.64,6,9
+81,beeped houses,5,0.65,1,9
+81,rhymed songs,12,0.68,9,15
+81,fell down block towers,6,0.48,1,9
+81,blew away hats,NA,0.66,10,NA
+81,blew away hats,11,NA,NA,15
+81,reflected the sunlight phone screens,10,0.81,7,13
+81,lit up cd-players,14,0.82,11,15
+81,exploded CDs,10,0.75,9,13
+81,ran out of batteries laptops,9,0.81,6,12
+82,were green clovers,15,0.93,15,15
+82,froze berries,NA,0.98,NA,NA
+82,froze berries,15,NA,15,15
+82,dissolved carrots,0,0.99,0,0
+82,beeped old cars,5,0.71,4,6
+82,ate the seeds birds,13,0.8,13,15
+82,ran out of batteries phones,6,0.68,6,8
+82,broke logs,6,0.54,4,10
+82,had the letter Z in them love notes,2,0.45,2,3
+82,honked bus drivers,7,0.56,6,8
+82,rhymed songs,12,0.77,12,13
+82,laughed comedians,10,0.62,10,13
+82,sank marbles,15,0.8,15,15
+82,burnt matches,12,0.71,12,13
+82,exploded fireworks,14,0.8,14,15
+82,reflected the sunlight mirrors,7,0.59,6,9
+83,stopped bicycles,4,0.27,1,12
+83,got stained white tablecloths,14,0.45,10,15
+83,decomposed banana peels,14,0.59,10,15
+83,popped bubbles,15,0.74,15,15
+83,lit up computers,12,0.31,5,15
+83,sank marbles,15,0.65,15,15
+83,burnt rocks,0,0.06,0,5
+83,honked taxi drivers,8,0.05,5,12
+83,had the letter Z in them novels,15,0.51,5,15
+83,ate the seeds butterflies,4,0.03,0,15
+83,stuck beads,15,0.46,7,15
+83,landed flat pancakes,12,0.06,1,15
+83,stuck to the wall baseballs,0,0.48,0,1
+83,flashed phones,5,0.05,1,15
+83,froze bottles of hand soap,10,0.13,5,15
+84,got stained white tablecloths,15,1,15,15
+84,landed flat coins,15,0.98,15,15
+84,ate the seeds dogs,15,1,0,15
+84,lit up flashlights,15,0.98,0,15
+84,popped bubbles,15,1,0,15
+84,exploded CDs,15,1,0,15
+84,flashed cameras,15,1,0,15
+84,burnt rocks,15,1,0,15
+84,ripped shoes,15,1,0,15
+84,beeped old cars,15,1,0,15
+84,dissolved sugar cubes,15,1,0,15
+84,melted ice cubes,15,1,0,15
+84,froze chocolate bars,15,1,0,15
+84,decomposed soda cans,0,1,0,0
+84,sank marbles,15,1,15,15
+85,burnt books,15,0.25,5,15
+85,got stained white shirts,2,0.65,1,3
+85,beeped houses,2,0.71,1,15
+85,lit up cd-players,14,0.94,3,15
+85,sank cups,4,1,0,15
+85,ran out of batteries laptops,15,0.83,13,15
+85,were green bananas,3,1,0,15
+85,stuck to the wall baseballs,0,0.88,0,0
+85,fell down shelves,3,0.69,0,12
+85,broke boxes,15,0.88,5,15
+85,reflected the sunlight phone screens,15,0.88,12,15
+85,dissolved sugar cubes,15,0.92,10,15
+85,rolled toy cars,13,0.85,10,15
+85,stopped cars,15,0.49,14,15
+85,exploded balls of tin foil,3,1,0,15
+86,flashed phones,5,0.36,0,15
+86,were green strawberries,NA,0.2,NA,NA
+86,were green strawberries,5,NA,0,15
+86,got stained white shirts,2,0.39,1,15
+86,melted ice cubes,15,0.68,0,15
+86,had the letter Z in them birthday cards,0,0.35,0,15
+86,exploded eggs,15,0.34,0,15
+86,lit up flashlights,12,0.47,0,10
+86,stuck sequins,12,0.69,0,15
+86,burnt rocks,15,0.65,0,15
+86,broke logs,8,0.54,0,15
+86,landed flat coins,15,0.78,10,15
+86,sank marbles,15,0.67,0,15
+86,decomposed soda cans,0,0.87,0,0
+86,exploded fireworks,14,0.78,5,15
+86,fell down card towers,15,0.91,5,15
+87,froze berries,15,1,15,15
+87,landed flat coins,15,0.72,10,15
+87,stuck to the wall pieces of gum,8,0.29,1,15
+87,rolled toy cars,15,0.94,15,15
+87,broke sunglasses,15,1,14,15
+87,had the letter Z in them love notes,6,0.07,2,8
+87,exploded fireworks,14,0.17,13,15
+87,ate the seeds dogs,14,0.21,1,15
+87,stopped bicycles,15,0.97,15,15
+87,lit up cd-players,15,0.97,15,15
+87,honked bus drivers,10,0.48,1,15
+87,ran out of batteries laptops,10,0.15,1,15
+87,sank cups,12,0.14,10,15
+87,beeped new cars,10,0.49,1,15
+87,got stained white tablecloths,15,0.96,15,15
+88,blew away hats,15,1,0,15
+88,stopped bicycles,NA,1,NA,NA
+88,stopped bicycles,15,NA,0,15
+88,fell down block towers,3,0.86,1,3
+88,had the letter Z in them love notes,0,1,0,0
+88,were green clovers,3,0.77,2,4
+88,rolled shopping carts,4,0.86,2,5
+88,exploded gas tanks,15,1,9,12
+88,burnt books,10,0.76,8,12
+88,ate the seeds dogs,6,0.46,5,7
+88,melted ice cubes,15,1,15,15
+88,decomposed banana peels,8,0.6,7,10
+88,dissolved oreos,7,0.49,2,8
+88,sank cups,4,0.14,2,5
+88,lit up cd-players,12,0.38,11,13
+88,flashed cameras,7,0.41,5,9
+89,exploded balls of tin foil,15,0.81,1,15
+89,lit up computers,15,0.8,0,15
+89,rhymed songs,10,0.59,1,15
+89,laughed comedians,15,0.68,0,15
+89,exploded fireworks,15,0.68,0,15
+89,popped balloons,15,0.62,0,15
+89,honked bus drivers,15,0.6,0,15
+89,broke logs,10,0.56,0,15
+89,sank marbles,15,0.81,15,15
+89,decomposed pinecones,2,0.59,0,15
+89,ate the seeds birds,15,0.81,0,15
+89,beeped new cars,5,0.59,0,15
+89,got stained white shirts,15,0.7,15,15
+89,had the letter Z in them birthday cards,1,0.65,0,15
+89,were green strawberries,NA,0.67,NA,NA
+89,were green strawberries,1,NA,0,15
+90,blew away hats,NA,0.98,1,15
+90,blew away hats,8,NA,NA,NA
+90,rhymed songs,NA,0.68,NA,NA
+90,rhymed songs,15,NA,12,15
+90,reflected the sunlight mirrors,15,0.91,15,15
+90,dissolved sugar cubes,8,0.52,5,8
+90,froze bottles of hand soap,0,0.73,0,0
+90,exploded balls of tin foil,12,0.31,3,15
+90,got stained white carpets,15,0.99,13,15
+90,stuck to the wall pieces of gum,7,0.52,3,12
+90,had the letter Z in them novels,15,0.98,15,15
+90,popped balloons,15,0.9,14,15
+90,exploded fireworks,15,0.98,14,15
+90,landed flat coins,15,0.99,15,15
+90,ate the seeds dogs,1,0.66,0,3
+90,ripped shoes,15,0.96,10,15
+90,lit up computers,15,0.98,15,15
+91,honked bus drivers,NA,0.88,NA,NA
+91,honked bus drivers,9,NA,2,14
+91,rhymed limericks,NA,0.54,NA,NA
+91,rhymed limericks,NA,NA,10,15
+91,rhymed limericks,15,NA,NA,NA
+91,ripped shirts,NA,0.94,NA,NA
+91,ripped shirts,15,NA,14,15
+91,laughed lawyers,NA,0.43,2,13
+91,laughed lawyers,6,NA,NA,NA
+91,froze chocolate bars,NA,1,15,15
+91,froze chocolate bars,15,NA,NA,NA
+91,ate the seeds dogs,NA,0.33,NA,NA
+91,ate the seeds dogs,0,NA,0,5
+91,rolled toy cars,NA,0.57,NA,NA
+91,rolled toy cars,NA,NA,10,15
+91,rolled toy cars,14,NA,NA,NA
+91,burnt matches,NA,0.75,12,NA
+91,burnt matches,14,NA,NA,15
+91,broke logs,NA,0.68,NA,NA
+91,broke logs,4,NA,4,8
+91,got stained white tablecloths,NA,0.61,0,NA
+91,got stained white tablecloths,7,NA,NA,13
+91,reflected the sunlight phone screens,NA,1,NA,NA
+91,reflected the sunlight phone screens,15,NA,15,15
+91,exploded fireworks,NA,0.85,NA,NA
+91,exploded fireworks,NA,NA,7,NA
+91,exploded fireworks,NA,NA,NA,15
+91,exploded fireworks,14,NA,NA,NA
+91,beeped old cars,NA,0.38,NA,NA
+91,beeped old cars,5,NA,3,10
+91,flashed webcams,12,0.43,5,13
+91,sank balloons,NA,0.72,NA,NA
+91,sank balloons,0,NA,0,0
+92,beeped old cars,2,0.08,0,15
+92,rhymed songs,15,0.79,0,15
+92,decomposed pinecones,12,0.22,5,15
+92,melted crayons,15,0.83,10,15
+92,stuck stickers,14,0.78,10,15
+92,broke logs,15,0.61,11,15
+92,reflected the sunlight mirrors,15,0.87,14,15
+92,got stained white carpets,14,0.6,10,15
+92,ran out of batteries bike lights,10,0.66,5,15
+92,landed flat pancakes,12,0.48,5,15
+92,lit up flashlights,14,0.67,11,15
+92,burnt books,NA,0.99,NA,NA
+92,burnt books,15,NA,15,15
+92,dissolved sugar cubes,14,0.76,12,15
+92,popped eggs,12,0.57,7,15
+92,honked taxi drivers,14,0.76,10,15
+93,rolled toy cars,10,0.28,5,15
+93,beeped old cars,3,0.5,0,8
+93,were green bananas,7,0.83,0,15
+93,stuck sequins,13,0.75,5,15
+93,exploded eggs,5,0.37,0,10
+93,fell down card towers,15,1,15,15
+93,melted pencils,2,0.73,0,5
+93,got stained white shirts,15,0.91,10,15
+93,had the letter Z in them love notes,5,0.58,0,10
+93,stuck to the wall baseballs,1,0.56,0,5
+93,dissolved carrots,0,0.94,0,0
+93,rhymed limericks,15,0.89,10,15
+93,sank cups,10,1,0,15
+93,ripped shirts,10,0.82,5,15
+93,broke logs,8,0.64,5,15
+94,froze bottles of hand soap,15,0.98,15,15
+94,rolled wheelchairs,15,0.97,15,15
+94,broke sunglasses,15,0.78,15,15
+94,beeped new cars,15,0.84,15,15
+94,laughed kids,12,0.49,0,15
+94,ate the seeds birds,NA,0.81,NA,NA
+94,ate the seeds birds,15,NA,0,15
+94,were green strawberries,8,0.26,0,15
+94,melted ice cubes,15,0.87,15,15
+94,got stained white tablecloths,15,0.99,15,15
+94,popped bubbles,15,0.9,15,15
+94,lit up computers,15,0.87,15,15
+94,fell down shelves,0,0.24,0,15
+94,exploded balls of tin foil,0,0.22,0,0
+94,stuck to the wall baseballs,0,0.76,0,0
+94,stopped bicycles,7,0.45,0,15
+95,froze berries,15,1,1,15
+95,landed flat coins,15,1,15,15
+95,blew away hats,15,1,1,15
+95,dissolved carrots,0,1,0,15
+95,rhymed poems,10,1,0,15
+95,fell down card towers,15,1,0,15
+95,broke boxes,15,1,0,15
+95,were green strawberries,8,0.55,0,15
+95,honked bicyclists,10,0.79,0,15
+95,melted ice cubes,15,1,15,15
+95,sank balloons,0,1,0,0
+95,ate the seeds dogs,15,1,0,15
+95,ripped books,10,0.69,0,15
+95,stuck to the wall baseballs,0,0.99,0,0
+95,burnt matches,15,1,0,15
+96,landed flat notebooks,15,1,15,15
+96,froze chocolate bars,NA,0.98,15,15
+96,froze chocolate bars,15,NA,NA,NA
+96,dissolved oreos,15,1,15,15
+96,burnt books,15,1,15,15
+96,got stained white shirts,15,0.9,10,15
+96,stopped bicycles,10,0.77,1,15
+96,rhymed poems,7,0.5,1,15
+96,popped balloons,15,1,10,15
+96,exploded eggs,11,0.77,5,15
+96,stuck beads,15,0.22,3,15
+96,lit up computers,15,1,1,15
+96,beeped houses,7,0,1,15
+96,laughed comedians,7,0.77,1,15
+96,reflected the sunlight mirrors,15,1,15,15
+96,ripped books,15,0.51,1,15
+97,stuck to the wall pieces of gum,10,0.81,1,12
+97,blew away backpacks,8,0.35,3,15
+97,rolled wheelchairs,12,0.94,0,15
+97,ate the seeds birds,14,0.99,2,15
+97,landed flat pancakes,8,0.61,3,12
+97,rhymed poems,8,0.72,3,15
+97,burnt rocks,15,1,0,15
+97,froze berries,15,1,0,15
+97,popped eggs,12,0.83,0,15
+97,lit up flashlights,14,0.94,1,15
+97,melted pencils,2,0.49,0,15
+97,got stained white tablecloths,15,1,0,15
+97,beeped new cars,10,0.8,0,15
+97,stuck sequins,12,0.76,3,15
+97,flashed phones,8,0.99,0,15
+98,blew away napkins,5,0.9,1,14
+98,ran out of batteries bike lights,6,0.92,3,9
+98,froze berries,15,0.95,9,15
+98,rolled shopping carts,13,0.88,7,15
+98,ripped shoes,5,0.84,4,7
+98,stuck to the wall cakes,8,0.62,3,12
+98,fell down block towers,11,0.76,5,11
+98,were green bananas,8,0.81,1,15
+98,ate the seeds birds,9,0.94,3,15
+98,popped balloons,14,0.92,8,15
+98,burnt rocks,5,0.09,3,7
+98,lit up computers,NA,0.65,NA,NA
+98,lit up computers,12,NA,8,15
+98,rhymed limericks,5,0.02,4,9
+98,broke logs,2,0.27,1,4
+98,landed flat notebooks,8,0.61,6,10
+99,laughed comedians,13,0.74,10,15
+99,stopped bicycles,NA,1,15,NA
+99,stopped bicycles,15,NA,NA,15
+99,melted pencils,12,0.69,10,15
+99,reflected the sunlight diamonds,15,0.94,15,15
+99,broke logs,15,1,15,15
+99,exploded eggs,13,0.82,12,15
+99,blew away napkins,13,0.89,13,15
+99,landed flat coins,15,1,15,15
+99,got stained white tablecloths,15,1,15,15
+99,froze chocolate bars,15,1,15,15
+99,burnt books,15,1,15,15
+99,sank marbles,15,1,15,15
+99,had the letter Z in them birthday cards,9,0.66,4,9
+99,ran out of batteries bike lights,12,0.72,8,15
+99,popped bubbles,NA,1,NA,NA
+99,popped bubbles,15,NA,15,15
+100,had the letter Z in them birthday cards,2,0.23,0,8
+100,popped bubbles,15,0.91,12,15
+100,sank balloons,0,0.11,0,15
+100,ran out of batteries phones,4,0.51,0,15
+100,exploded eggs,15,1,15,15
+100,honked bus drivers,12,0.85,5,15
+100,stopped bicycles,14,0.84,0,15
+100,froze chocolate bars,15,1,0,15
+100,reflected the sunlight diamonds,15,1,0,15
+100,ripped shoes,10,0.5,0,15
+100,blew away hats,5,0.49,0,15
+100,flashed phones,3,0.32,0,15
+100,rhymed poems,7,0.49,0,15
+100,ate the seeds birds,10,0.81,1,15
+100,landed flat notebooks,14,0.95,12,15
+101,dissolved oreos,15,0.61,15,15
+101,stuck to the wall baseballs,0,0.84,0,0
+101,laughed comedians,5,0.33,0,15
+101,were green bananas,3,1,0,15
+101,melted pencils,0,1,0,0
+101,honked bus drivers,4,1,0,15
+101,rhymed songs,4,1,0,15
+101,landed flat coins,15,0.71,10,15
+101,rolled toy cars,15,1,0,15
+101,beeped houses,0,1,0,15
+101,sank marbles,15,1,15,15
+101,exploded fireworks,15,0.79,10,15
+101,ripped shoes,5,1,0,15
+101,decomposed banana peels,12,1,0,15
+101,reflected the sunlight mirrors,15,1,15,15
+102,exploded fireworks,13,1,5,15
+102,fell down block towers,NA,1,NA,NA
+102,fell down block towers,8,NA,3,15
+102,broke sunglasses,14,1,4,15
+102,laughed kids,12,1,4,15
+102,flashed cameras,7,1,1,12
+102,sank balloons,1,1,1,5
+102,beeped old cars,2,1,1,8
+102,froze chocolate bars,15,1,12,15
+102,got stained white shirts,14,1,8,15
+102,stuck sequins,10,1,3,15
+102,had the letter Z in them love notes,4,0.71,1,8
+102,rolled wheelchairs,14,1,10,15
+102,reflected the sunlight mirrors,14,0.91,10,15
+102,popped eggs,10,0.85,8,15
+102,exploded balls of tin foil,7,0.83,3,12
+103,beeped old cars,10,0.93,5,15
+103,froze berries,15,0.89,10,15
+103,ran out of batteries laptops,13,0.97,10,15
+103,rolled shopping carts,15,0.93,15,15
+103,popped eggs,9,0.82,4,15
+103,landed flat coins,15,1,15,15
+103,sank marbles,15,1,10,15
+103,blew away hats,12,0.89,5,15
+103,lit up flashlights,13,0.97,10,15
+103,ate the seeds butterflies,9,0.59,3,12
+103,exploded fireworks,NA,0.95,10,NA
+103,exploded fireworks,13,NA,NA,15
+103,decomposed banana peels,15,0.96,10,15
+103,ripped shoes,14,0.87,13,15
+103,melted crayons,13,0.94,10,15
+103,broke sunglasses,12,0.94,10,15
+104,froze bottles of hand soap,15,1,15,15
+104,blew away napkins,15,1,15,15
+104,rhymed poems,7,0,0,15
+104,sank balloons,NA,1,0,0
+104,sank balloons,0,NA,NA,NA
+104,beeped new cars,9,0,0,15
+104,dissolved sugar cubes,15,1,15,15
+104,exploded CDs,15,1,15,15
+104,ripped books,15,1,15,15
+104,flashed webcams,2,0,0,15
+104,stopped bicycles,8,0.49,0,15
+104,reflected the sunlight diamonds,15,1,15,15
+104,popped bubbles,15,1,15,15
+104,laughed comedians,7,0.48,0,15
+104,honked taxi drivers,7,0.45,0,15
+104,stuck beads,15,1,15,15
+105,broke sunglasses,15,0.83,6,15
+105,burnt rocks,15,0.88,5,15
+105,ate the seeds dogs,3,0.72,1,15
+105,melted crayons,15,0.8,1,15
+105,stuck sequins,4,0.73,1,15
+105,decomposed pinecones,6,0.48,1,15
+105,rolled shopping carts,8,0.5,1,15
+105,fell down shelves,6,0.47,1,15
+105,beeped old cars,5,0.46,0,5
+105,lit up computers,15,0.88,5,15
+105,landed flat pancakes,6,0.43,1,15
+105,stuck to the wall cakes,5,0.47,0,15
+105,were green clovers,7,0.48,0,15
+105,froze berries,8,0.49,0,15
+105,sank balloons,7,0.47,0,15
+106,sank marbles,15,0.77,9,15
+106,were green strawberries,6,0.63,0,7
+106,lit up computers,6,0.66,8,15
+106,honked taxi drivers,15,0.66,9,10
+106,blew away backpacks,13,0.68,5,14
+106,popped balloons,11,0.69,8,13
+106,flashed webcams,4,0.7,0,15
+106,dissolved oreos,7,0.72,0,15
+106,ate the seeds butterflies,9,0.61,0,15
+106,broke logs,10,0.74,0,15
+106,rolled wheelchairs,8,0.76,0,15
+106,ran out of batteries bike lights,11,0.8,0,15
+106,burnt books,9,0.87,0,15
+106,beeped houses,8,0.8,0,15
+106,melted ice cubes,14,0.72,0,15
+107,dissolved sugar cubes,15,0.92,15,15
+107,popped bubbles,NA,0.91,1,NA
+107,popped bubbles,15,NA,NA,15
+107,ripped shirts,15,0.81,15,15
+107,rolled shopping carts,NA,0.77,NA,NA
+107,rolled shopping carts,15,NA,15,15
+107,stuck beads,14,0.88,1,15
+107,reflected the sunlight mirrors,15,0.95,15,15
+107,sank balloons,0,0.92,0,0
+107,honked taxi drivers,6,0.88,1,15
+107,fell down block towers,15,0.91,15,15
+107,ran out of batteries phones,9,0.82,1,15
+107,lit up computers,15,0.84,15,15
+107,exploded eggs,1,0.6,1,15
+107,stopped cars,15,0.92,15,15
+107,got stained white tablecloths,15,0.88,15,15
+107,blew away napkins,15,0.92,15,15
+108,broke boxes,NA,0.7,10,NA
+108,broke boxes,15,NA,NA,15
+108,stuck stickers,14,0.47,5,15
+108,rhymed poems,15,0.73,13,15
+108,ate the seeds dogs,NA,0.41,0,NA
+108,ate the seeds dogs,2,NA,NA,10
+108,fell down shelves,2,0.25,0,15
+108,lit up flashlights,12,0.41,0,15
+108,ran out of batteries laptops,12,0.62,0,15
+108,exploded balls of tin foil,14,0.6,0,15
+108,melted pencils,0,0.86,0,0
+108,stopped cars,15,0.81,0,15
+108,reflected the sunlight phone screens,13,0.75,0,15
+108,honked taxi drivers,12,0.72,10,15
+108,landed flat pancakes,14,0.72,10,15
+108,ripped shirts,12,0.74,0,15
+108,froze berries,14,0.72,10,15
+109,broke boxes,NA,0.99,12,NA
+109,broke boxes,12,NA,NA,15
+109,burnt matches,NA,0.99,NA,NA
+109,burnt matches,13,NA,13,15
+109,honked bicyclists,NA,0.98,3,7
+109,honked bicyclists,6,NA,NA,NA
+109,dissolved oreos,NA,0.99,NA,NA
+109,dissolved oreos,5,NA,3,15
+109,rhymed poems,7,0.97,3,15
+109,reflected the sunlight mirrors,NA,0.99,5,15
+109,reflected the sunlight mirrors,8,NA,NA,NA
+109,exploded candles,5,0.99,3,15
+109,stopped motorcycles,NA,0.98,7,NA
+109,stopped motorcycles,14,NA,NA,15
+109,laughed comedians,NA,0.98,2,15
+109,laughed comedians,9,NA,NA,NA
+109,were green clovers,13,0.98,4,15
+109,landed flat coins,13,0.98,8,15
+109,rolled toy cars,11,0.99,5,15
+109,exploded eggs,7,0.98,6,15
+109,got stained white shirts,14,0.98,12,15
+109,sank cups,NA,0.99,NA,NA
+109,sank cups,11,NA,6,15
+110,melted ice cubes,15,0.88,13,15
+110,reflected the sunlight diamonds,15,0.96,0,15
+110,exploded fireworks,13,0.6,10,14
+110,popped balloons,15,0.9,14,15
+110,flashed phones,14,0.79,10,15
+110,landed flat notebooks,15,0.83,14,15
+110,ran out of batteries phones,13,0.67,10,15
+110,laughed kids,10,0.34,0,13
+110,lit up flashlights,10,0.51,0,13
+110,blew away backpacks,8,0.55,0,10
+110,stopped cars,13,0.57,10,15
+110,ate the seeds dogs,8,0.42,2,10
+110,exploded balls of tin foil,15,0.47,14,15
+110,sank marbles,NA,0.88,NA,NA
+110,sank marbles,15,NA,15,15
+111,decomposed banana peels,15,0.48,5,15
+111,had the letter Z in them novels,NA,0.99,0,NA
+111,had the letter Z in them novels,15,NA,NA,15
+111,fell down block towers,10,0.88,1,15
+111,ran out of batteries phones,8,0.86,3,10
+111,sank cups,0,0.99,0,15
+111,honked bus drivers,5,0.84,0,12
+111,lit up flashlights,13,0.7,10,15
+111,rhymed songs,15,0.65,10,15
+111,laughed comedians,12,0.76,5,15
+111,froze chocolate bars,15,0.98,15,15
+111,melted ice cubes,15,0.99,15,15
+111,got stained white tablecloths,15,1,15,15
+111,stopped cars,15,0.99,15,15
+111,dissolved carrots,0,0.99,0,0
+111,flashed phones,10,0.99,0,15
+112,laughed kids,8,0.6,5,15
+112,rolled wheelchairs,15,0.84,15,15
+112,popped balloons,12,0.48,0,15
+112,dissolved sugar cubes,15,0.53,12,15
+112,lit up cd-players,12,0.6,0,15
+112,froze chocolate bars,15,0.96,0,15
+112,had the letter Z in them birthday cards,3,0.92,0,15
+112,stuck beads,11,0.75,2,15
+112,were green clovers,15,0.77,15,15
+112,stopped cars,15,0.94,0,15
+112,fell down block towers,12,0.92,0,15
+112,ran out of batteries bike lights,14,0.95,0,15
+112,ripped shirts,8,0.82,1,15
+112,landed flat pancakes,13,0.88,0,15
+112,rhymed songs,14,0.87,0,15
+113,flashed phones,9,0.5,0,15
+113,exploded CDs,NA,1,NA,NA
+113,exploded CDs,0,NA,0,0
+113,burnt matches,15,0.99,15,15
+113,had the letter Z in them birthday cards,8,0.47,0,15
+113,exploded candles,0,1,0,0
+113,stopped cars,15,0.94,13,15
+113,melted ice cubes,15,1,15,15
+113,popped bubbles,15,1,15,15
+113,fell down shelves,8,0.66,0,15
+113,sank marbles,0,1,0,0
+113,ripped shirts,12,0.85,0,15
+113,ate the seeds birds,14,0.6,0,15
+113,lit up flashlights,12,0.84,0,15
+113,honked bus drivers,10,0.76,0,15
+113,froze chocolate bars,15,1,15,15
+114,flashed phones,15,0.35,15,15
+114,laughed lawyers,5,0.65,1,15
+114,fell down card towers,15,1,15,15
+114,exploded balls of tin foil,10,0.72,5,15
+114,honked bus drivers,10,0.77,10,15
+114,exploded candles,0,0.91,0,0
+114,froze bottles of hand soap,8,0.68,2,10
+114,stuck sequins,12,0.57,5,15
+114,ran out of batteries laptops,12,0.87,5,15
+114,stuck to the wall baseballs,2,0.69,0,15
+114,burnt rocks,2,0.48,0,10
+114,beeped houses,NA,0.37,NA,NA
+114,beeped houses,5,NA,0,15
+114,ripped shirts,4,0.8,2,15
+114,reflected the sunlight mirrors,15,0.7,10,15
+114,ate the seeds birds,8,0.76,1,15
+115,ate the seeds butterflies,15,0.47,1,15
+115,rhymed songs,10,0.47,1,15
+115,blew away hats,10,0.47,1,15
+115,honked taxi drivers,10,0.47,1,15
+115,burnt matches,15,1,15,15
+115,fell down card towers,15,0.99,15,15
+115,broke logs,0,0.48,0,15
+115,melted crayons,15,1,0,15
+115,landed flat coins,15,0.98,0,15
+115,rolled toy cars,10,0.49,0,15
+115,laughed comedians,10,0.49,0,15
+115,ran out of batteries phones,10,0.48,0,15
+115,popped balloons,15,1,0,15
+115,sank balloons,10,0.5,0,15
+115,decomposed banana peels,15,1,0,15
+116,exploded candles,0,0.77,0,0
+116,burnt books,15,0.8,13,15
+116,landed flat coins,15,0.84,14,15
+116,ripped books,8,0.81,1,15
+116,rhymed poems,10,0.74,0,15
+116,decomposed banana peels,15,0.87,12,15
+116,had the letter Z in them birthday cards,1,0.85,0,4
+116,were green bananas,3,0.52,0,15
+116,blew away backpacks,2,0.71,0,15
+116,froze chocolate bars,15,0.8,0,15
+116,stuck to the wall pieces of gum,7,0.84,0,15
+116,stuck beads,14,0.71,0,15
+116,fell down card towers,15,0.85,14,15
+116,dissolved sugar cubes,15,0.76,3,15
+116,beeped houses,8,0.11,0,15
+117,reflected the sunlight mirrors,15,0.5,1,15
+117,decomposed pinecones,NA,0.56,1,NA
+117,decomposed pinecones,15,NA,NA,15
+117,lit up computers,15,0.61,1,15
+117,exploded fireworks,14,0.71,10,15
+117,ripped books,10,0.58,1,15
+117,were green bananas,5,0.71,1,15
+117,burnt matches,15,0.68,12,15
+117,stuck to the wall cakes,13,0.55,8,15
+117,froze chocolate bars,15,0.81,14,15
+117,broke boxes,12,0.68,12,15
+117,stuck beads,13,0.58,10,15
+117,honked bus drivers,12,0.59,7,15
+117,beeped old cars,11,0.51,9,15
+117,sank cups,13,0.56,1,15
+117,rhymed limericks,12,0.5,1,15
+118,fell down block towers,15,0.96,15,15
+118,broke boxes,NA,0.96,15,NA
+118,broke boxes,15,NA,NA,15
+118,ripped shirts,10,0.75,1,15
+118,ate the seeds butterflies,6,0.63,0,15
+118,lit up flashlights,10,0.59,0,15
+118,stuck beads,13,0.82,0,15
+118,blew away backpacks,1,0.62,0,15
+118,were green clovers,15,0.83,15,15
+118,stopped cars,15,0.91,14,15
+118,rolled shopping carts,15,0.8,14,15
+118,exploded gas tanks,14,0.77,13,15
+118,reflected the sunlight phone screens,15,0.59,0,15
+118,dissolved carrots,0,0.73,0,0
+118,popped eggs,13,0.65,0,15
+118,flashed cameras,10,0.64,0,15
+119,stopped bicycles,13,0.61,0,15
+119,blew away napkins,NA,0.69,0,15
+119,blew away napkins,15,NA,NA,NA
+119,were green strawberries,3,0.23,0,15
+119,decomposed soda cans,0,0.94,0,0
+119,honked taxi drivers,4,0.55,0,15
+119,laughed lawyers,4,0.49,0,15
+119,stuck sequins,15,0.78,0,15
+119,rolled shopping carts,15,0.98,0,15
+119,lit up computers,15,0.93,0,15
+119,broke logs,2,0.62,0,15
+119,had the letter Z in them novels,14,0.83,10,15
+119,melted ice cubes,15,0.99,15,15
+119,landed flat notebooks,15,0.89,15,15
+119,ran out of batteries laptops,15,0.99,15,15
+119,froze bottles of hand soap,14,0.83,12,15
+0,flashed cameras,15,0.7,1,15
+0,had the letter Z in them birthday cards,3,0.5,1,4
+0,fell down card towers,5,0.49,1,15
+0,were green bananas,7,0.71,1,15
+0,ate the seeds birds,10,0.84,1,15
+0,landed flat coins,12,0.82,1,15
+0,ripped books,15,1,1,15
+0,stopped bicycles,12,0.84,1,15
+0,reflected the sunlight mirrors,15,0.97,15,15
+0,ran out of batteries laptops,15,0.94,15,15
+0,stuck stickers,12,0.96,10,15
+0,stuck to the wall baseballs,1,0.84,1,2
+0,burnt matches,15,0.99,15,15
+0,got stained white shirts,15,0.99,15,15
+0,popped bubbles,14,0.94,12,15
+1,rhymed poems,8,0.71,0,15
+1,stuck sequins,14,0.71,0,15
+1,dissolved sugar cubes,12,0.7,0,15
+1,melted crayons,13,0.69,0,15
+1,stuck to the wall pieces of gum,10,0.4,0,15
+1,were green strawberries,10,0.61,0,15
+1,popped bubbles,15,0.64,15,15
+1,beeped new cars,10,0.65,0,15
+1,blew away hats,10,0.71,0,15
+1,reflected the sunlight mirrors,15,0.68,0,15
+1,ate the seeds dogs,3,0.66,0,15
+1,fell down card towers,15,0.7,13,15
+1,ripped books,7,0.67,0,15
+1,burnt matches,15,0.74,15,15
+1,decomposed pinecones,2,0.7,0,15
+2,rolled toy cars,15,0.82,15,15
+2,fell down shelves,3,0.71,0,15
+2,beeped old cars,7,0.64,0,15
+2,flashed cameras,10,1,0,15
+2,popped eggs,8,0.66,5,15
+2,froze bottles of hand soap,15,1,0,15
+2,melted ice cubes,15,1,15,15
+2,rhymed songs,12,0.83,0,15
+2,stuck sequins,10,0.62,7,15
+2,ran out of batteries laptops,15,1,0,15
+2,landed flat pancakes,10,0.77,0,15
+2,dissolved sugar cubes,15,0.67,10,15
+2,blew away backpacks,2,0.75,0,5
+2,exploded candles,0,1,0,0
+2,honked bicyclists,5,0.68,0,15
+3,landed flat notebooks,11,1,6,15
+3,ran out of batteries bike lights,15,1,10,15
+3,got stained white tablecloths,15,1,14,15
+3,burnt rocks,0,0.77,0,10
+3,blew away napkins,15,1,10,15
+3,rhymed poems,12,0.83,5,15
+3,sank cups,9,0.62,1,15
+3,popped eggs,15,0.67,10,15
+3,were green strawberries,0,0.92,0,15
+3,had the letter Z in them birthday cards,2,0.52,1,15
+3,fell down card towers,15,1,10,15
+3,reflected the sunlight mirrors,NA,0.88,9,15
+3,reflected the sunlight mirrors,10,NA,NA,NA
+3,decomposed pinecones,15,1,0,15
+3,dissolved carrots,2,0.52,1,15
+3,ate the seeds birds,15,1,12,15
+4,stopped motorcycles,8,0.22,5,10
+4,ran out of batteries laptops,NA,0.6,8,NA
+4,ran out of batteries laptops,10,NA,NA,12
+4,flashed webcams,6,0.41,5,8
+4,had the letter Z in them birthday cards,3,0.55,2,5
+4,ate the seeds butterflies,3,0.4,0,5
+4,ripped books,11,0.68,10,12
+4,laughed lawyers,8,0.37,5,10
+4,decomposed soda cans,8,0.59,6,12
+4,reflected the sunlight diamonds,4,0.47,0,9
+4,dissolved oreos,12,0.58,9,12
+4,blew away napkins,12,0.63,9,14
+4,sank balloons,8,0.63,6,10
+4,rhymed songs,13,0.38,12,15
+4,stuck to the wall pieces of gum,13,0.63,10,14
+4,melted pencils,12,0.53,10,14
+5,rolled wheelchairs,10,0.14,5,12
+5,landed flat coins,NA,0.35,12,NA
+5,landed flat coins,15,NA,NA,15
+5,rhymed poems,12,0.37,10,15
+5,honked taxi drivers,8,0.34,5,12
+5,decomposed banana peels,10,0.36,7,15
+5,exploded CDs,NA,0.5,NA,NA
+5,exploded CDs,15,NA,8,15
+5,got stained white shirts,NA,0.15,1,NA
+5,got stained white shirts,5,NA,NA,10
+5,burnt rocks,13,0.5,10,15
+5,were green clovers,13,0.58,12,15
+5,laughed kids,12,0.59,10,14
+5,stopped bicycles,NA,0.58,NA,NA
+5,stopped bicycles,14,NA,12,15
+5,melted pencils,8,0.54,0,15
+5,beeped old cars,12,0.22,7,13
+5,flashed cameras,10,0.21,5,15
+5,had the letter Z in them novels,14,0.59,10,15
+6,beeped old cars,6,0.32,5,8
+6,exploded CDs,1,0.19,0,2
+6,got stained white tablecloths,NA,0.9,15,15
+6,got stained white tablecloths,15,NA,NA,NA
+6,reflected the sunlight phone screens,12,0.58,10,15
+6,ripped shoes,6,0.5,3,15
+6,exploded fireworks,14,0.6,12,15
+6,stopped cars,15,0.87,14,15
+6,sank cups,14,0.61,12,15
+6,stuck to the wall pieces of gum,6,0.43,3,12
+6,landed flat pancakes,14,0.64,12,15
+6,had the letter Z in them birthday cards,4,0.52,1,6
+6,ate the seeds butterflies,8,0.62,5,15
+6,decomposed banana peels,15,0.66,15,15
+6,froze chocolate bars,15,0.89,15,15
+6,burnt books,15,0.94,15,15
+7,decomposed pinecones,10,0.47,1,15
+7,beeped houses,NA,0.56,1,NA
+7,beeped houses,3,NA,NA,5
+7,flashed phones,8,0.65,0,15
+7,rolled wheelchairs,12,0.58,0,15
+7,exploded CDs,8,0.73,0,15
+7,popped bubbles,15,0.42,10,15
+7,melted ice cubes,15,0.92,15,15
+7,sank cups,NA,0.33,0,15
+7,sank cups,0,NA,NA,NA
+7,rhymed limericks,15,0.43,0,15
+7,burnt books,15,0.75,15,15
+7,landed flat pancakes,15,0.66,15,15
+7,broke logs,3,0.37,0,15
+7,blew away backpacks,7,0.26,0,15
+7,reflected the sunlight phone screens,15,0.8,0,15
+7,honked taxi drivers,12,0.75,0,15
+8,sank cups,7,0.59,3,15
+8,broke logs,NA,0.68,NA,NA
+8,broke logs,4,NA,3,15
+8,had the letter Z in them birthday cards,NA,0.54,2,6
+8,had the letter Z in them birthday cards,4,NA,NA,NA
+8,burnt books,7,0.76,1,10
+8,stuck to the wall baseballs,0,0.89,0,0
+8,landed flat coins,15,1,15,15
+8,fell down block towers,15,0.87,15,15
+8,were green bananas,7,0.89,3,8
+8,exploded CDs,12,0.79,10,15
+8,stuck beads,8,0.87,2,13
+8,melted ice cubes,15,0.85,15,15
+8,laughed lawyers,8,0.79,3,10
+8,ripped shoes,9,0.85,5,13
+8,exploded candles,1,0.63,0,1
+8,blew away backpacks,1,0.76,1,3
+9,froze berries,15,1,15,15
+9,laughed kids,15,0.96,15,15
+9,had the letter Z in them birthday cards,5,0.42,0,15
+9,reflected the sunlight mirrors,15,0.89,15,15
+9,got stained white carpets,15,0.97,15,15
+9,beeped houses,0,0.46,0,15
+9,were green strawberries,0,1,0,0
+9,fell down card towers,15,1,15,15
+9,decomposed soda cans,NA,0.99,15,NA
+9,decomposed soda cans,15,NA,NA,15
+9,stopped cars,15,0.98,0,15
+9,rolled shopping carts,NA,1,15,NA
+9,rolled shopping carts,15,NA,NA,15
+9,flashed phones,NA,0.51,NA,NA
+9,flashed phones,7,NA,0,15
+9,ate the seeds dogs,15,0.87,0,15
+9,rhymed songs,15,0.89,0,15
+9,stuck to the wall pieces of gum,15,0.9,0,15
+10,exploded balls of tin foil,3,0.33,1,5
+10,broke logs,8,0.41,5,10
+10,ripped shoes,12,0.8,10,15
+10,landed flat coins,15,0.93,14,15
+10,reflected the sunlight diamonds,15,0.89,13,15
+10,popped balloons,15,0.95,12,15
+10,rhymed limericks,15,1,15,15
+10,ran out of batteries laptops,14,0.94,13,15
+10,exploded gas tanks,13,0.87,10,14
+10,burnt rocks,1,0.61,0,2
+10,beeped new cars,15,0.99,15,15
+10,melted crayons,15,1,14,15
+10,sank cups,15,0.95,14,15
+10,flashed phones,10,0.6,5,15
+10,stopped cars,15,0.91,14,15
+11,ran out of batteries phones,7,0.49,0,15
+11,exploded CDs,15,0.75,15,15
+11,honked taxi drivers,10,0.51,2,15
+11,broke boxes,10,0.51,1,15
+11,beeped old cars,15,0.71,15,15
+11,dissolved sugar cubes,15,0.94,15,15
+11,were green bananas,7,0.5,0,15
+11,flashed cameras,7,0.44,0,15
+11,popped bubbles,15,0.39,15,15
+11,froze chocolate bars,15,0.49,15,15
+11,rhymed songs,7,0.3,0,15
+11,lit up flashlights,10,0.34,0,15
+11,stuck to the wall pieces of gum,4,0.31,0,15
+11,got stained white tablecloths,15,0.67,15,15
+11,blew away hats,15,0.66,15,15
+12,ate the seeds birds,10,0.47,7,15
+12,ran out of batteries phones,2,0.49,2,5
+12,ripped books,8,0.5,7,10
+12,beeped old cars,12,0.77,10,15
+12,exploded candles,0,1,0,0
+12,reflected the sunlight mirrors,15,0.95,15,15
+12,stuck stickers,13,0.79,12,15
+12,dissolved sugar cubes,15,1,15,15
+12,broke logs,7,0.68,7,10
+12,landed flat pancakes,15,0.9,15,15
+12,sank marbles,15,0.9,15,15
+12,decomposed banana peels,15,0.96,15,15
+12,rolled toy cars,13,0.95,10,15
+12,had the letter Z in them birthday cards,7,0.93,5,10
+12,laughed lawyers,7,0.83,6,10
+13,ripped shirts,15,1,0,15
+13,rhymed limericks,15,0.91,15,15
+13,were green bananas,0,0.08,0,15
+13,melted crayons,15,0.98,0,15
+13,got stained white tablecloths,15,0.99,15,15
+13,burnt rocks,0,0.95,0,0
+13,flashed webcams,10,0.08,0,15
+13,stuck to the wall pieces of gum,1,0.13,0,15
+13,froze chocolate bars,15,0.97,15,15
+13,rolled shopping carts,15,0.94,14,15
+13,broke sunglasses,15,0.97,15,15
+13,reflected the sunlight diamonds,15,0.98,15,15
+13,fell down card towers,15,0.98,15,15
+13,dissolved sugar cubes,15,0.99,15,15
+13,stopped bicycles,15,0.93,15,15
+14,burnt books,15,0.77,10,15
+14,were green bananas,5,0.49,5,15
+14,ripped shirts,4,0.63,3,10
+14,got stained white tablecloths,6,0.82,4,10
+14,fell down card towers,8,0.86,5,12
+14,rhymed limericks,15,0.99,3,15
+14,landed flat pancakes,12,0.67,5,15
+14,exploded gas tanks,13,0.79,8,15
+14,reflected the sunlight phone screens,10,0.51,3,13
+14,stuck to the wall cakes,6,0.75,4,12
+14,beeped houses,8,0.46,5,12
+14,rolled shopping carts,13,0.82,6,15
+14,lit up computers,13,0.82,4,15
+14,ran out of batteries bike lights,6,0.51,0,11
+14,broke logs,7,0.71,0,10
+15,ate the seeds birds,6,0.28,2,10
+15,melted ice cubes,NA,0.91,NA,NA
+15,melted ice cubes,NA,NA,15,NA
+15,melted ice cubes,15,NA,NA,15
+15,broke boxes,10,0.63,5,15
+15,rhymed poems,6,0.52,8,15
+15,reflected the sunlight phone screens,NA,0.97,15,NA
+15,reflected the sunlight phone screens,15,NA,NA,15
+15,stopped bicycles,15,0.73,15,15
+15,dissolved sugar cubes,14,0.72,14,15
+15,were green bananas,5,0.54,5,7
+15,sank balloons,0,0.92,0,0
+15,exploded balls of tin foil,0,0.92,0,0
+15,fell down card towers,8,0.7,7,10
+15,decomposed banana peels,6,0.72,5,8
+15,burnt books,10,0.7,5,15
+15,laughed kids,7,0.57,4,15
+15,stuck to the wall pieces of gum,5,0.87,1,6
+16,exploded CDs,15,0.88,13,15
+16,melted ice cubes,NA,0.99,NA,NA
+16,melted ice cubes,NA,NA,15,NA
+16,melted ice cubes,15,NA,NA,15
+16,laughed comedians,NA,0.68,1,NA
+16,laughed comedians,7,NA,NA,15
+16,got stained white tablecloths,15,0.89,15,15
+16,ripped books,13,0.69,0,15
+16,were green clovers,15,0.85,15,15
+16,sank balloons,0,0.88,0,0
+16,beeped old cars,3,0.31,0,15
+16,stuck stickers,13,0.49,0,15
+16,flashed cameras,12,0.64,0,15
+16,reflected the sunlight diamonds,15,0.75,15,15
+16,decomposed banana peels,15,0.99,15,15
+16,stopped bicycles,NA,0.46,0,15
+16,stopped bicycles,15,NA,NA,NA
+16,ate the seeds butterflies,1,0.46,0,15
+16,stuck to the wall pieces of gum,3,0.52,0,15
+17,stuck stickers,15,1,0,15
+17,fell down card towers,15,1,0,15
+17,landed flat coins,15,0.98,0,15
+17,flashed phones,5,0.97,0,15
+17,rhymed songs,10,1,0,15
+17,dissolved sugar cubes,15,0.97,0,15
+17,rolled wheelchairs,15,0.99,0,15
+17,stopped cars,15,1,0,15
+17,had the letter Z in them love notes,2,0.98,0,15
+17,decomposed pinecones,0,0.97,0,15
+17,popped balloons,15,0.98,0,15
+17,reflected the sunlight mirrors,13,0.99,0,15
+17,melted crayons,0,0.98,0,15
+17,burnt matches,15,0.98,15,15
+17,beeped old cars,15,0.98,0,15
+18,stuck to the wall cakes,15,0.94,0,15
+18,laughed comedians,15,1,0,15
+18,rolled wheelchairs,15,1,0,15
+18,broke boxes,15,1,0,15
+18,burnt rocks,15,1,0,15
+18,sank cups,15,1,0,15
+18,rhymed limericks,15,1,0,15
+18,had the letter Z in them love notes,15,1,0,15
+18,blew away hats,15,1,0,15
+18,were green bananas,15,1,0,15
+18,flashed cameras,15,0.98,0,15
+18,stuck beads,15,1,0,15
+18,decomposed soda cans,15,1,0,15
+18,exploded balls of tin foil,15,1,0,15
+18,landed flat coins,15,1,0,15
+19,reflected the sunlight phone screens,15,1,15,15
+19,ran out of batteries phones,14,0.78,12,15
+19,blew away napkins,15,1,15,15
+19,stuck to the wall pieces of gum,10,0.73,10,15
+19,honked taxi drivers,15,1,15,15
+19,rhymed poems,15,1,15,15
+19,exploded fireworks,15,1,15,15
+19,ate the seeds birds,11,0.92,10,15
+19,stuck sequins,15,0.98,15,15
+19,sank marbles,15,1,15,15
+19,exploded CDs,13,0.84,12,15
+19,lit up computers,15,1,15,15
+19,landed flat coins,15,1,15,15
+19,dissolved sugar cubes,15,1,15,15
+19,decomposed pinecones,NA,0.78,3,NA
+19,decomposed pinecones,12,NA,NA,15
+20,decomposed soda cans,0,0.44,0,15
+20,rhymed poems,15,0.69,0,15
+20,blew away napkins,15,1,15,15
+20,burnt rocks,15,1,15,15
+20,flashed webcams,15,1,15,15
+20,lit up flashlights,NA,0.94,NA,NA
+20,lit up flashlights,15,NA,14,15
+20,sank marbles,15,1,15,15
+20,laughed comedians,6,0.76,0,15
+20,froze chocolate bars,15,1,15,15
+20,exploded CDs,4,0.43,0,15
+20,had the letter Z in them novels,15,1,15,15
+20,fell down shelves,4,0.45,0,15
+20,landed flat notebooks,7,0.5,0,15
+20,ripped shoes,5,0.5,0,15
+20,got stained white tablecloths,15,1,15,15
+21,stuck sequins,7,0.68,1,15
+21,sank marbles,15,0.72,15,15
+21,melted crayons,NA,0.26,1,NA
+21,melted crayons,4,NA,NA,15
+21,laughed comedians,9,0.65,1,15
+21,beeped houses,7,0.19,0,15
+21,had the letter Z in them birthday cards,3,0.48,1,15
+21,froze berries,9,0.58,1,15
+21,landed flat coins,15,0.61,15,15
+21,exploded fireworks,NA,0.73,15,NA
+21,exploded fireworks,15,NA,NA,15
+21,stuck to the wall baseballs,1,0.66,0,15
+21,flashed phones,6,0.65,1,15
+21,stopped cars,14,0.59,1,15
+21,ran out of batteries laptops,15,0.65,1,15
+21,reflected the sunlight phone screens,NA,0.75,NA,NA
+21,reflected the sunlight phone screens,15,NA,15,15
+21,blew away napkins,8,0.61,1,15
+22,got stained white shirts,NA,0.98,15,NA
+22,got stained white shirts,15,NA,NA,15
+22,decomposed soda cans,15,0.99,15,15
+22,burnt rocks,10,0.75,4,15
+22,blew away napkins,15,0.93,0,15
+22,dissolved oreos,10,0.8,5,15
+22,flashed cameras,15,0.92,0,15
+22,rolled wheelchairs,15,0.96,15,15
+22,froze bottles of hand soap,15,0.97,15,15
+22,reflected the sunlight phone screens,15,0.94,10,15
+22,exploded balls of tin foil,10,0.9,5,15
+22,melted crayons,15,0.8,10,15
+22,stuck to the wall cakes,3,0.56,2,10
+22,popped bubbles,15,0.93,0,15
+22,were green bananas,NA,0.77,0,NA
+22,were green bananas,5,NA,NA,15
+22,stopped cars,15,0.92,13,15
+23,beeped new cars,6,0.99,0,15
+23,broke sunglasses,12,1,1,15
+23,popped eggs,5,0.97,1,15
+23,reflected the sunlight mirrors,15,1,15,15
+23,rhymed songs,10,0.41,4,15
+23,lit up flashlights,15,0.34,15,15
+23,honked bicyclists,3,1,1,15
+23,exploded balls of tin foil,14,0.82,10,15
+23,sank balloons,1,0.29,1,10
+23,were green strawberries,8,0.41,1,15
+23,exploded candles,0,0.81,0,5
+23,burnt books,15,0.59,15,15
+23,flashed cameras,NA,0.99,0,15
+23,flashed cameras,5,NA,NA,NA
+23,stopped cars,12,0.93,0,15
+23,landed flat coins,15,0.69,15,15
+24,landed flat coins,15,0.89,14,15
+24,decomposed banana peels,NA,0.71,NA,NA
+24,decomposed banana peels,13,NA,10,15
+24,exploded CDs,15,0.87,13,15
+24,blew away backpacks,5,0.65,0,12
+24,ripped books,9,0.69,3,15
+24,popped balloons,12,0.65,7,15
+24,froze bottles of hand soap,14,0.83,10,15
+24,stopped cars,15,0.83,13,15
+24,flashed cameras,14,0.82,12,15
+24,fell down shelves,10,0.82,5,15
+24,reflected the sunlight phone screens,14,0.78,12,15
+24,lit up computers,8,0.31,5,15
+24,laughed kids,10,0.74,0,15
+24,sank marbles,15,0.65,8,15
+24,got stained white tablecloths,15,0.74,13,15
+25,rhymed songs,15,1,1,15
+25,exploded CDs,0,0.83,0,15
+25,ate the seeds birds,10,0.13,0,15
+25,exploded fireworks,15,1,1,15
+25,blew away hats,8,0.49,1,15
+25,landed flat pancakes,15,0.96,1,15
+25,sank marbles,15,1,0,15
+25,decomposed banana peels,15,1,0,15
+25,got stained white shirts,1,0.68,1,15
+25,laughed comedians,10,0.52,0,15
+25,ran out of batteries bike lights,15,1,0,15
+25,fell down shelves,5,0.37,0,15
+25,stuck stickers,15,1,1,15
+25,broke boxes,4,0.46,0,15
+25,stopped cars,15,1,0,15
+26,ran out of batteries bike lights,5,0.98,0,15
+26,flashed webcams,NA,0.98,NA,NA
+26,flashed webcams,NA,NA,0,NA
+26,flashed webcams,4,NA,NA,15
+26,stuck to the wall pieces of gum,7,1,0,15
+26,rhymed songs,7,0.99,0,15
+26,exploded fireworks,NA,0.97,0,15
+26,exploded fireworks,10,NA,NA,NA
+26,reflected the sunlight diamonds,14,0.17,5,15
+26,stopped cars,15,0.99,0,15
+26,landed flat notebooks,5,0.19,2,11
+26,decomposed banana peels,12,0.97,0,15
+26,stuck sequins,NA,0.97,0,15
+26,stuck sequins,13,NA,NA,NA
+26,exploded balls of tin foil,2,0.98,0,15
+26,got stained white carpets,15,0.99,0,15
+26,honked bus drivers,12,0.49,3,15
+26,froze berries,15,0.98,0,15
+26,blew away hats,8,0.98,0,15
+27,ripped shirts,12,0.76,10,15
+27,rolled toy cars,NA,0.81,5,NA
+27,rolled toy cars,10,NA,NA,15
+27,burnt books,14,0.92,12,15
+27,exploded fireworks,10,0.71,1,15
+27,reflected the sunlight diamonds,15,0.93,6,15
+27,stuck to the wall cakes,6,0.63,1,15
+27,decomposed banana peels,15,0.85,10,15
+27,fell down card towers,15,0.94,13,15
+27,stopped cars,15,0.64,10,15
+27,froze berries,15,0.85,12,15
+27,beeped houses,1,0.51,1,15
+27,ran out of batteries laptops,13,0.85,12,15
+27,laughed lawyers,8,0.77,0,15
+27,broke logs,5,0.75,1,15
+27,had the letter Z in them novels,15,0.98,1,15
+28,melted ice cubes,15,0.62,15,15
+28,ripped shoes,5,0.97,0,15
+28,got stained white shirts,11,0.72,4,15
+28,reflected the sunlight mirrors,15,0.95,15,15
+28,exploded candles,0,0.44,0,2
+28,fell down block towers,15,0.83,15,15
+28,beeped new cars,10,1,0,15
+28,were green bananas,8,0.21,5,13
+28,stopped cars,15,0.91,15,15
+28,stuck to the wall baseballs,0,0.99,0,0
+28,froze berries,15,0.96,15,15
+28,landed flat coins,15,0.97,15,15
+28,exploded CDs,15,0.98,15,15
+28,decomposed banana peels,13,0.65,8,15
+28,honked bus drivers,10,0.87,2,12
+29,rolled toy cars,NA,1,NA,NA
+29,rolled toy cars,15,NA,15,15
+29,popped balloons,NA,1,NA,NA
+29,popped balloons,15,NA,15,15
+29,stopped cars,15,0.71,15,15
+29,rhymed songs,11,0.31,0,15
+29,burnt books,15,0.77,15,15
+29,broke sunglasses,15,0.77,15,15
+29,dissolved sugar cubes,15,0.82,15,15
+29,lit up cd-players,15,0.77,0,15
+29,honked taxi drivers,12,0.63,0,15
+29,ate the seeds butterflies,0,0.64,0,0
+29,were green strawberries,5,0.49,1,15
+29,got stained white tablecloths,15,1,15,15
+29,melted crayons,15,0.82,15,15
+29,beeped old cars,12,0.47,0,15
+29,landed flat notebooks,10,0.55,1,15
+30,laughed lawyers,14,0.86,0,15
+30,got stained white shirts,15,0.99,15,15
+30,ran out of batteries laptops,15,0.98,0,15
+30,reflected the sunlight phone screens,15,0.99,0,15
+30,blew away hats,15,1,0,15
+30,broke sunglasses,15,0.99,15,15
+30,dissolved carrots,0,1,0,0
+30,exploded balls of tin foil,15,0.99,0,15
+30,popped balloons,NA,1,15,NA
+30,popped balloons,15,NA,NA,15
+30,sank cups,10,0.01,0,15
+30,stuck stickers,15,0.99,15,15
+30,had the letter Z in them love notes,3,0.01,0,15
+30,landed flat pancakes,15,0.92,0,15
+30,froze berries,15,1,15,15
+30,lit up cd-players,15,0.99,15,15
+31,lit up cd-players,15,1,0,15
+31,ripped shirts,10,1,0,15
+31,stopped cars,15,1,10,15
+31,rolled wheelchairs,10,1,0,15
+31,exploded CDs,8,1,0,10
+31,stuck to the wall baseballs,0,1,0,1
+31,were green strawberries,2,1,0,15
+31,got stained white carpets,15,1,15,15
+31,froze chocolate bars,15,1,0,15
+31,fell down shelves,10,1,0,15
+31,burnt rocks,0,1,0,0
+31,blew away napkins,NA,1,0,NA
+31,blew away napkins,15,NA,NA,15
+31,beeped new cars,NA,1,NA,NA
+31,beeped new cars,15,NA,0,15
+31,ran out of batteries phones,10,1,0,15
+31,rhymed songs,8,1,0,15
+32,got stained white tablecloths,15,0.46,15,15
+32,rhymed limericks,15,0.48,15,15
+32,dissolved oreos,6,0.47,4,15
+32,exploded candles,0,0.74,0,15
+32,lit up cd-players,15,0.53,0,15
+32,honked bicyclists,10,0.58,0,15
+32,decomposed banana peels,15,0.96,15,15
+32,reflected the sunlight mirrors,15,1,15,15
+32,had the letter Z in them birthday cards,2,0.61,0,15
+32,beeped houses,3,0.48,0,15
+32,popped bubbles,15,0.93,15,15
+32,laughed kids,6,0.62,0,15
+32,broke sunglasses,15,0.96,15,15
+32,burnt matches,15,1,15,15
+32,stuck to the wall baseballs,0,0.81,0,15
+33,laughed comedians,5,0.94,1,15
+33,fell down shelves,NA,0.99,0,NA
+33,fell down shelves,2,NA,NA,15
+33,blew away backpacks,1,1,0,15
+33,rhymed songs,13,0.98,0,1
+33,dissolved sugar cubes,12,0.99,0,15
+33,broke logs,4,0.99,0,15
+33,flashed cameras,0,0.98,0,15
+33,stuck to the wall baseballs,0,0.99,0,15
+33,reflected the sunlight diamonds,15,0.97,0,15
+33,rolled wheelchairs,15,0.97,0,15
+33,ripped shoes,7,0.96,0,15
+33,were green strawberries,3,0.99,0,15
+33,stopped bicycles,15,0.98,0,15
+33,sank balloons,0,0.98,0,15
+33,froze chocolate bars,15,0.99,0,15
+34,ran out of batteries laptops,NA,0.78,1,NA
+34,ran out of batteries laptops,8,NA,NA,10
+34,ripped shirts,12,0.73,3,15
+34,reflected the sunlight diamonds,12,0.74,8,15
+34,broke sunglasses,13,0.75,10,15
+34,got stained white tablecloths,13,0.83,10,15
+34,landed flat coins,7,0.68,1,10
+34,dissolved oreos,12,0.74,4,15
+34,froze bottles of hand soap,13,0.73,7,15
+34,stuck sequins,NA,0.68,7,15
+34,stuck sequins,13,NA,NA,NA
+34,fell down card towers,13,0.66,6,15
+34,flashed phones,13,0.71,6,15
+34,blew away napkins,12,0.77,6,15
+34,stopped motorcycles,13,0.77,8,15
+34,had the letter Z in them novels,10,0.75,6,15
+34,burnt rocks,6,0.76,1,15
+35,were green clovers,15,1,15,15
+35,ran out of batteries bike lights,5,1,0,15
+35,exploded CDs,NA,0.48,0,3
+35,exploded CDs,0,NA,NA,NA
+35,burnt matches,15,0.94,15,15
+35,blew away hats,10,0.94,1,15
+35,ate the seeds dogs,12,0.92,5,15
+35,had the letter Z in them novels,15,0.94,2,15
+35,rolled toy cars,15,0.89,13,15
+35,stuck stickers,15,0.87,13,15
+35,broke boxes,NA,0.96,NA,NA
+35,broke boxes,15,NA,15,15
+35,dissolved oreos,15,1,0,15
+35,ripped books,15,0.74,7,15
+35,stopped cars,15,0.91,12,15
+35,reflected the sunlight diamonds,15,0.95,15,15
+35,landed flat pancakes,12,1,0,15
+36,lit up computers,NA,0.63,5,13
+36,lit up computers,9,NA,NA,NA
+36,melted pencils,NA,0.99,0,1
+36,melted pencils,0,NA,NA,NA
+36,got stained white carpets,15,0.99,13,15
+36,rhymed songs,8,0.71,6,9
+36,broke boxes,14,0.9,9,15
+36,blew away hats,14,0.94,10,15
+36,stuck to the wall baseballs,0,0.97,0,2
+36,flashed cameras,12,0.82,8,13
+36,laughed kids,12,0.92,10,14
+36,sank cups,12,0.92,5,13
+36,burnt books,15,0.97,6,15
+36,stopped bicycles,9,0.78,5,13
+36,exploded candles,12,0.82,7,15
+36,reflected the sunlight phone screens,13,0.95,9,15
+36,ran out of batteries phones,12,0.87,4,13
+37,exploded balls of tin foil,14,0.5,10,15
+37,reflected the sunlight phone screens,10,0.45,5,15
+37,ate the seeds butterflies,10,0.46,3,15
+37,honked taxi drivers,8,0.46,3,10
+37,beeped houses,11,0.46,3,14
+37,froze berries,15,0.47,12,15
+37,rhymed limericks,14,0.54,10,15
+37,popped eggs,8,0.43,0,15
+37,dissolved sugar cubes,15,0.41,12,15
+37,lit up flashlights,14,0.54,9,15
+37,exploded fireworks,14,0.48,7,15
+37,broke sunglasses,15,0.65,14,15
+37,had the letter Z in them love notes,13,0.43,0,15
+37,ran out of batteries phones,15,0.48,13,15
+37,laughed kids,12,0.43,0,15
+38,rolled wheelchairs,15,1,1,15
+38,ran out of batteries phones,NA,1,0,NA
+38,ran out of batteries phones,7,NA,NA,15
+38,lit up cd-players,15,1,0,15
+38,sank balloons,0,0.24,0,0
+38,ripped books,10,1,0,15
+38,got stained white tablecloths,15,0.66,10,15
+38,exploded CDs,NA,1,0,NA
+38,exploded CDs,15,NA,NA,15
+38,popped balloons,15,1,15,15
+38,honked taxi drivers,8,1,2,15
+38,beeped houses,3,1,0,15
+38,stuck to the wall baseballs,0,1,0,3
+38,reflected the sunlight mirrors,13,1,0,15
+38,were green clovers,14,1,0,15
+38,landed flat notebooks,15,1,10,15
+38,blew away napkins,10,0.69,5,15
+39,stuck to the wall cakes,NA,0.51,NA,NA
+39,stuck to the wall cakes,2,NA,1,15
+39,honked taxi drivers,10,0.85,7,15
+39,broke sunglasses,12,0.91,1,15
+39,popped balloons,4,0.82,2,15
+39,ripped shoes,4,0.66,2,12
+39,ate the seeds dogs,3,0.83,1,8
+39,exploded fireworks,15,0.91,1,15
+39,dissolved carrots,5,0.68,3,9
+39,were green strawberries,8,0.76,2,12
+39,rolled wheelchairs,3,0.39,1,6
+39,melted pencils,2,0.34,1,2
+39,had the letter Z in them birthday cards,1,0.72,1,3
+39,flashed phones,15,0.77,2,15
+39,exploded CDs,15,0.88,1,15
+39,fell down block towers,14,0.76,13,15
+40,stuck sequins,13,1,0,15
+40,beeped old cars,3,0.73,0,15
+40,landed flat coins,15,0.84,15,15
+40,ripped books,15,0.93,5,15
+40,ran out of batteries bike lights,10,1,0,15
+40,reflected the sunlight diamonds,15,1,1,15
+40,exploded eggs,12,0.92,5,15
+40,flashed cameras,12,0.97,1,15
+40,got stained white tablecloths,9,1,1,15
+40,popped eggs,10,0.89,4,15
+40,decomposed soda cans,0,1,0,0
+40,blew away napkins,15,0.9,5,15
+40,froze bottles of hand soap,0,1,0,15
+40,fell down block towers,13,1,1,15
+40,stuck to the wall cakes,8,0.75,5,10
+41,froze chocolate bars,15,1,15,15
+41,burnt rocks,12,0.87,10,15
+41,melted crayons,15,1,15,15
+41,had the letter Z in them birthday cards,5,0.86,5,8
+41,flashed webcams,1,0.74,0,3
+41,blew away napkins,15,0.97,15,15
+41,fell down shelves,3,0.68,0,5
+41,exploded gas tanks,6,0.73,5,15
+41,landed flat notebooks,9,0.88,6,10
+41,rhymed limericks,12,0.91,10,15
+41,stuck beads,12,0.92,10,14
+41,ran out of batteries phones,6,0.87,4,8
+41,beeped houses,2,0.57,0,4
+41,broke logs,3,0.8,3,6
+41,stuck to the wall baseballs,2,0.88,0,5
+42,rhymed poems,10,0.86,7,11
+42,got stained white carpets,15,1,15,15
+42,blew away napkins,15,0.92,14,15
+42,melted crayons,3,0.82,0,5
+42,froze berries,15,1,15,15
+42,honked bus drivers,13,0.86,9,15
+42,broke boxes,15,1,15,15
+42,ran out of batteries laptops,11,0.87,10,15
+42,stopped bicycles,NA,1,15,NA
+42,stopped bicycles,15,NA,NA,15
+42,popped balloons,15,1,15,15
+42,ate the seeds dogs,10,0.72,9,14
+42,rolled toy cars,13,0.92,10,15
+42,reflected the sunlight phone screens,15,1,15,15
+42,had the letter Z in them birthday cards,5,0.47,2,7
+42,flashed webcams,NA,0.62,NA,NA
+42,flashed webcams,5,NA,4,7
+43,ripped books,12,0.19,10,14
+43,decomposed soda cans,0,1,0,0
+43,dissolved oreos,3,0.61,3,5
+43,stuck beads,15,0.92,15,15
+43,had the letter Z in them love notes,4,0.12,4,6
+43,rhymed poems,14,0.71,13,15
+43,honked taxi drivers,15,0.75,14,15
+43,ran out of batteries phones,12,0.66,10,14
+43,stopped motorcycles,15,0.87,15,15
+43,reflected the sunlight diamonds,NA,1,15,NA
+43,reflected the sunlight diamonds,15,NA,NA,15
+43,landed flat notebooks,15,0.99,15,15
+43,blew away backpacks,5,0.46,4,6
+43,were green strawberries,6,0.61,3,9
+43,broke logs,2,0.25,2,3
+44,honked bus drivers,13,0.74,12,15
+44,rolled wheelchairs,NA,0.92,NA,NA
+44,rolled wheelchairs,15,NA,14,15
+44,ripped shirts,10,0.62,5,15
+44,landed flat notebooks,10,0.46,5,15
+44,decomposed soda cans,0,0.92,0,0
+44,ran out of batteries laptops,10,1,0,15
+44,blew away backpacks,3,1,0,15
+44,got stained white carpets,15,0.99,15,15
+44,beeped new cars,8,0.47,5,10
+44,popped bubbles,14,0.72,12,15
+44,exploded balls of tin foil,15,1,0,15
+44,melted ice cubes,15,0.99,15,15
+44,stopped cars,15,0.96,14,15
+44,were green strawberries,12,1,0,15
+44,stuck to the wall baseballs,0,0.79,0,1
+45,froze bottles of hand soap,15,1,15,15
+45,decomposed soda cans,NA,1,NA,NA
+45,decomposed soda cans,15,NA,1,15
+45,lit up cd-players,10,0.8,1,15
+45,exploded candles,NA,0.73,NA,NA
+45,exploded candles,2,NA,1,15
+45,landed flat notebooks,15,0.97,1,15
+45,ran out of batteries bike lights,NA,0.65,1,15
+45,ran out of batteries bike lights,13,NA,NA,NA
+45,had the letter Z in them love notes,NA,0.5,NA,NA
+45,had the letter Z in them love notes,5,NA,1,15
+45,rolled shopping carts,NA,1,15,15
+45,rolled shopping carts,15,NA,NA,NA
+45,ripped books,15,0.49,0,15
+45,flashed phones,NA,0.7,NA,NA
+45,flashed phones,10,NA,0,15
+45,reflected the sunlight diamonds,NA,0.98,15,15
+45,reflected the sunlight diamonds,15,NA,NA,NA
+45,fell down block towers,14,0.63,0,15
+45,got stained white shirts,15,0.99,15,15
+45,broke logs,2,0.65,0,15
+45,blew away backpacks,2,0.66,0,15
+46,broke logs,5,0.67,0,15
+46,rolled toy cars,NA,0.93,15,15
+46,rolled toy cars,15,NA,NA,NA
+46,rhymed songs,9,0.72,0,15
+46,honked taxi drivers,14,0.91,10,15
+46,stuck to the wall cakes,8,0.97,0,13
+46,landed flat coins,15,1,15,15
+46,blew away backpacks,5,1,0,15
+46,flashed webcams,3,1,0,15
+46,stuck sequins,14,0.99,0,15
+46,sank marbles,14,0.95,5,15
+46,froze chocolate bars,15,1,15,15
+46,melted ice cubes,15,1,15,15
+46,fell down card towers,14,0.93,5,15
+46,laughed lawyers,10,1,0,15
+46,exploded balls of tin foil,15,1,15,15
+47,ate the seeds dogs,9,0.78,7,14
+47,were green bananas,3,0.78,2,15
+47,froze chocolate bars,15,0.77,3,13
+47,exploded gas tanks,7,0.8,5,11
+47,exploded CDs,12,0.88,4,14
+47,broke boxes,8,0.83,6,14
+47,reflected the sunlight diamonds,13,0.82,5,15
+47,rhymed limericks,9,0.82,7,15
+47,laughed comedians,9,0.88,1,11
+47,popped balloons,11,0.89,3,13
+47,burnt matches,6,0.87,4,14
+47,decomposed banana peels,8,0.85,6,14
+47,landed flat notebooks,9,0.86,7,15
+47,sank cups,9,0.83,1,11
+47,blew away hats,11,0.87,3,13
+48,laughed lawyers,10,0.47,2,5
+48,burnt books,15,0.48,1,10
+48,lit up computers,15,0.49,5,10
+48,were green clovers,15,0.46,5,10
+48,ran out of batteries bike lights,NA,0.46,4,NA
+48,ran out of batteries bike lights,10,NA,NA,9
+48,broke logs,15,0.37,5,10
+48,sank balloons,14,0.41,5,12
+48,beeped houses,14,0.46,5,10
+48,ripped shirts,14,0.44,4,11
+48,stuck sequins,15,0.48,3,10
+48,decomposed pinecones,15,0.45,4,10
+48,blew away napkins,15,0.42,5,12
+48,melted pencils,15,0.46,5,10
+48,rolled wheelchairs,15,0.49,5,10
+48,flashed phones,NA,0.48,NA,NA
+48,flashed phones,15,NA,5,10
+50,lit up computers,10,0.73,5,10
+50,ripped books,8,0.64,3,6
+50,popped bubbles,12,0.6,5,10
+50,honked bus drivers,10,0.55,5,5
+50,broke logs,NA,0.67,3,5
+50,broke logs,8,NA,NA,NA
+50,had the letter Z in them novels,5,0.66,2,3
+50,flashed webcams,5,0.75,4,6
+50,exploded CDs,5,0.75,3,4
+50,laughed kids,10,0.73,6,7
+50,stuck to the wall cakes,10,0.67,7,8
+50,ate the seeds birds,10,0.68,4,6
+50,burnt matches,10,0.73,7,8
+50,blew away napkins,12,0.73,8,10
+50,got stained white shirts,7,0.63,4,6
+50,were green strawberries,8,0.63,4,6
+51,stopped cars,14,0.23,10,15
+51,stuck to the wall cakes,NA,0.18,NA,NA
+51,stuck to the wall cakes,9,NA,1,15
+51,dissolved sugar cubes,10,0.12,3,15
+51,got stained white carpets,15,0.49,15,15
+51,ran out of batteries phones,10,0.21,5,15
+51,sank balloons,0,0.88,0,0
+51,exploded CDs,15,0.45,8,15
+51,ate the seeds dogs,6,0.23,0,15
+51,lit up cd-players,15,0.65,14,15
+51,fell down card towers,15,0.71,15,15
+51,rolled wheelchairs,15,0.45,14,15
+51,popped bubbles,15,0.85,15,15
+51,landed flat pancakes,13,0.33,7,15
+51,broke logs,9,0.14,0,15
+51,rhymed songs,5,0.16,0,15
+52,popped eggs,NA,1,NA,NA
+52,popped eggs,15,NA,0,15
+52,burnt matches,NA,0.79,NA,NA
+52,burnt matches,10,NA,5,15
+52,stuck to the wall cakes,3,0.62,0,5
+52,stopped bicycles,15,0.89,12,15
+52,had the letter Z in them novels,15,0.93,14,15
+52,flashed webcams,5,0.99,0,15
+52,ran out of batteries laptops,4,0.84,0,10
+52,rolled wheelchairs,15,0.79,10,15
+52,dissolved sugar cubes,15,0.87,15,15
+52,rhymed songs,5,0.82,0,15
+52,ate the seeds birds,12,0.81,2,15
+52,honked bus drivers,5,0.83,1,13
+52,were green clovers,15,0.91,13,15
+52,melted pencils,3,0.63,0,15
+52,decomposed pinecones,15,0.76,5,15
+53,stopped cars,1,0.67,5,12
+53,rhymed limericks,NA,0.74,0,NA
+53,rhymed limericks,12,NA,NA,15
+53,landed flat coins,15,0.94,0,15
+53,sank balloons,0,0.86,0,1
+53,broke logs,2,0.37,0,5
+53,fell down card towers,15,0.88,14,15
+53,stuck stickers,15,0.93,14,15
+53,froze berries,15,0.94,14,15
+53,blew away backpacks,2,0.51,2,4
+53,dissolved carrots,0,0.91,0,0
+53,laughed comedians,7,0.47,0,15
+53,beeped old cars,3,0.04,1,15
+53,ate the seeds butterflies,10,0.37,1,12
+53,exploded candles,0,0.64,0,1
+53,burnt books,14,0.64,10,15
+54,got stained white shirts,15,0.95,2,13
+54,honked bicyclists,10,0.98,1,14
+54,rolled shopping carts,10,0.96,3,15
+54,blew away hats,15,0.98,1,15
+54,stopped cars,8,0.9,1,13
+54,stuck sequins,7,0.94,1,15
+54,melted crayons,15,0.94,2,15
+54,sank cups,9,0.98,1,15
+54,decomposed pinecones,10,0.97,1,15
+54,stuck to the wall baseballs,5,0.95,1,15
+54,beeped old cars,5,0.99,1,15
+54,reflected the sunlight mirrors,9,0.99,1,15
+54,exploded eggs,6,0.97,1,15
+54,were green bananas,10,0.97,1,14
+54,ran out of batteries bike lights,4,0.97,1,15
+55,reflected the sunlight phone screens,9,0.98,7,14
+55,froze chocolate bars,14,0.8,3,15
+55,stuck to the wall pieces of gum,10,0.94,3,14
+55,laughed comedians,8,0.47,3,12
+55,beeped new cars,10,0.93,5,12
+55,had the letter Z in them novels,3,0.97,1,4
+55,flashed phones,2,0.98,1,3
+55,ripped shirts,12,0.97,10,14
+55,ate the seeds butterflies,5,0.98,1,10
+55,honked bus drivers,13,0.98,2,15
+55,sank balloons,3,0.48,1,4
+55,landed flat notebooks,14,0.98,13,15
+55,fell down block towers,12,0.99,5,13
+55,burnt matches,14,0.99,14,15
+55,exploded CDs,3,0.08,1,15
+56,beeped new cars,10,0.56,5,15
+56,exploded fireworks,14,0.88,10,15
+56,ran out of batteries bike lights,15,0.8,10,15
+56,were green strawberries,6,0.84,1,13
+56,got stained white tablecloths,5,0.8,1,12
+56,rolled wheelchairs,15,0.8,5,15
+56,popped eggs,0,0.95,0,10
+56,flashed cameras,5,0.66,4,8
+56,stuck beads,8,0.69,1,14
+56,laughed comedians,5,0.7,1,11
+56,dissolved oreos,5,0.72,5,10
+56,ripped shirts,5,0.87,2,10
+56,burnt rocks,2,0.68,1,5
+56,landed flat coins,15,0.86,14,15
+56,fell down block towers,3,0.63,1,6
+57,ate the seeds birds,12,0.79,5,15
+57,got stained white carpets,1,0.59,1,10
+57,had the letter Z in them love notes,0,0.63,0,2
+57,melted ice cubes,15,0.89,15,15
+57,reflected the sunlight diamonds,15,0.86,15,15
+57,fell down shelves,6,0.6,1,15
+57,burnt rocks,0,0.68,0,0
+57,rhymed poems,15,0.81,15,15
+57,dissolved oreos,15,0.74,15,15
+57,blew away hats,7,0.54,4,15
+57,laughed comedians,4,0.53,0,15
+57,ran out of batteries phones,15,0.68,0,15
+57,ripped shoes,8,0.74,2,15
+57,froze bottles of hand soap,15,0.96,0,15
+57,flashed cameras,4,0.45,0,15
+58,flashed webcams,4,0.77,1,15
+58,got stained white carpets,NA,0.98,15,NA
+58,got stained white carpets,15,NA,NA,15
+58,reflected the sunlight phone screens,8,0.91,5,15
+58,had the letter Z in them love notes,4,0.51,1,15
+58,rolled wheelchairs,14,0.95,1,15
+58,stopped bicycles,13,0.86,8,14
+58,froze bottles of hand soap,6,0.45,1,14
+58,popped bubbles,15,0.99,14,15
+58,honked taxi drivers,12,0.95,7,14
+58,burnt books,10,0.92,4,12
+58,lit up flashlights,12,0.87,3,15
+58,ate the seeds birds,14,0.92,10,15
+58,ran out of batteries bike lights,14,0.98,14,15
+58,landed flat notebooks,14,0.99,14,15
+58,ripped books,14,0.98,12,15
+59,rhymed poems,12,0.85,5,15
+59,blew away backpacks,13,0.76,1,15
+59,were green bananas,3,0.5,4,7
+59,burnt matches,15,0.96,1,15
+59,exploded eggs,2,0.73,1,7
+59,got stained white tablecloths,15,0.99,15,15
+59,broke logs,15,0.98,10,15
+59,froze chocolate bars,15,0.97,1,15
+59,beeped old cars,NA,0.5,0,0
+59,beeped old cars,0,NA,NA,NA
+59,decomposed banana peels,10,0.65,5,14
+59,honked bus drivers,15,0.98,15,15
+59,fell down shelves,7,0.81,3,7
+59,dissolved oreos,2,0.54,1,15
+59,stuck stickers,15,0.98,15,15
+59,ate the seeds birds,3,0.94,3,5
