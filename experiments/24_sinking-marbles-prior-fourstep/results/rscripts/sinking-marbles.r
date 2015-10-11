@@ -7,7 +7,7 @@ source("rscripts/helpers.r")
 load("data/r.RData")
 
 # write data for mh to do inference on
-spreaded = r %>% spread(responsetype, response)
+spreaded = r[,c("workerid","Item","response","responsetype")] %>% spread(responsetype, response)
 head(spreaded)
 write.table(spreaded[,c("workerid","Item","best_guess","confidence","ci_low","ci_high")],file="/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/priors/data/priors_fourstep.txt",row.names=F,col.names=T,quote=F,sep=",")
 
