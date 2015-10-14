@@ -314,12 +314,14 @@ var dataAnalysis = function(){
 
       // var theta = sample(priorERPobject[item])
       // // for MAP estimate
-      // // var theta = priorERPobject[item]["val"]
+      // var theta = priorERPobject[item]["val"]
+      // var prior = priorERPobject[item]["val"]
 
       // var prior = map(function(x){
       //   return Math.exp(binomialERP.score([theta,15], x))
       // }, _.range(0,16))
-      var prior = sample(priorERPobject[item])
+      // var prior = sample(priorERPobject[item])
+      var priorParameters = sample(priorERPobject[item])
 
 
       // console.log(item)
@@ -330,13 +332,24 @@ var dataAnalysis = function(){
           // console.log('pre predictionERP')
 
           var utt = ((utterance == "short_filler") | (utterance == "long_filler")) ? "mu" : utterance
-          var predictionERP = listener(utt, 
+          // var predictionERP = listener(utt, 
+          //                               wonkinessPrior,
+          //                               // wonkinessPrior[queryDictionary[measure]], 
+          //                               // speakerOptimality[queryDictionary[measure]], 
+          //                               speakerOptimality, 
+          //                               speakerCooperativity,
+          //                               prior)
+
+          var predictionERP = makeUrOwnBackoffListener(utt, 
+                                        // 1-priorParameters["mix"],
                                         wonkinessPrior,
                                         // wonkinessPrior[queryDictionary[measure]], 
                                         // speakerOptimality[queryDictionary[measure]], 
                                         speakerOptimality, 
-                                        speakerCooperativity,
-                                        prior)
+                                        priorParameters["theta1"],
+                                        priorParameters["theta2"]
+                                        )
+
           // console.log('post predictionERP')
           var linkedERP = addGuessingNoise(marginalize(predictionERP, "world"), phi)
 
@@ -359,7 +372,7 @@ var dataAnalysis = function(){
 
 
 
-          var dataPoints = languageData[item][utterance]["comp_state"]  
+          var dataPoints = languageData[item][utterance]["comp_state"]
           var scr = modelScore(linkedERP, dataPoints)
 
           // console.log(item + utterance + scr)
@@ -384,7 +397,15 @@ var dataAnalysis = function(){
           }
 
           })
+
+      // foreach(_.zip(_.range(0,16), prior),
+      //   function(lst){
+      //     query.add(["prior",item, lst[0],"prior"], lst[1])
+      //   })
+
+
     })
+
         //   foreach(measures,
         //   function(measure){
 
@@ -507,8 +528,9 @@ console.log('model complete. writing data...')
 // var outfile = 'results/wonkyRSA_fullPosterior_binomialBackoff_justCompState_wRepData_bdaPriors3thetas50k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
 // var outfile = 'results/wonkyRSA_fullPosterior_unifBackoff_justCompState_wRepData_bdaPriors3thetas50k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
 // var outfile = 'results/wonkyRSA_fullPosterior_unifBackoff_justCompState_wRepData_bdaPriors2thetas50k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
-var outfile = 'results/wonkyRSA_fullPosterior_unifBackoff_justCompState_wRepData_bdaPriors2thetas-removePhi50k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
+var outfile = 'results/wonkyRSA_fullPosterior_makeUrOwnBackoff_justCompState_wRepData_bdaPriors2thetas'+prioriter/1000+'k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
 
+// var outfile = 'results/wonkyRSA_fullPosterior_unifBackoff_justCompState_wRepData_bdaPriors2thetas50kMAP_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
 
 // var outfile = 'results/wonkyFBTPosterior_justCompState_withRepData_originalPriors_so_wp_Nophi_CTS_allProb-sigma-scale-offset_incrMH'+ mhiter+'burn'+'0'+'a.csv'
 
