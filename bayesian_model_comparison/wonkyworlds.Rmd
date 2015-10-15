@@ -1,0 +1,128 @@
+---
+title: "wonkyworlds"
+author: "mht"
+date: "October 15, 2015"
+output: html_document
+---
+
+
+```{r helpers, echo=FALSE}
+library(coda)
+estimate_mode <- function(s) {
+  d <- density(s)
+  return(d$x[which.max(d$y)])
+}
+HPDhi<- function(s){
+  m <- HPDinterval(mcmc(s))
+  return(m["var1","upper"])
+}
+HPDlo<- function(s){
+  m <- HPDinterval(mcmc(s))
+  return(m["var1","lower"])
+}
+options("scipen"=10)   
+
+
+reconstructHist <- function(df, samples){
+  Map(function(x){
+    
+  },names(df)
+}
+
+```
+
+# Prior data
+
+First, load the prior data, primarily to create the x-axis for our plots.
+
+
+## Load human subjects data, already histogrammed and smoothed
+
+
+```{r}
+priorprobs = read.table(file="~/Documents/research/sinking-marbles/experiments/24_sinking-marbles-prior-fourstep/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
+
+# prior expectation for each item
+prior_exps <- priorprobs %>%
+  gather(State,Probability,X0:X15) %>%
+  mutate(State = as.numeric(as.character(gsub("X","",State)))) %>%
+  group_by(Item) %>%
+  summarise(exp.val=sum(State*Probability))
+  
+
+# prior all-state probability for each item
+prior_exps = left_join(prior_exps,
+                           priorprobs[,c("Item","X15")])
+
+qplot(data=prior_exps, x = exp.val, geom='histogram')+
+  ggtitle("Distribution of items' prior expected values")+
+  xlab("Expected Value of P(x), smoothed empirical")
+```
+
+## Load results of prior (BDA) model of prior elicitation data
+
+```{r}
+
+path.prior <- "~/Documents/research/sinking-marbles/bayesian_model_comparison/priors/results/"
+
+mhiter <- 75000
+burn <- mhiter/2
+samples <- mhiter - burn
+
+#prefix <- "prior4stepBDA-binomials-fullPosterior_incrMH"
+#prefix <- "priorBDA-binomials_incrMH"
+#prefix <- "priorBDA-mix3binomials-fullPosterior_incrMH"
+prefix <- "priorBDA-mix2binomials-fullPosterior_incrMH"
+#prefix <- "priorBDA-mix2binomials-phi-removePhi-fullPosterior_incrMH"
+
+d0<-read.csv(paste(path.prior, prefix, mhiter, "burn",  burn, ".csv", sep=""))
+
+
+# backout samples from webppl's "histogram" structure
+d.thetas <- data.frame(Parameter = rep(d0$Parameter, 1+samples*d0$Probability),
+                       Item = rep(d0$Item, 1+samples*d0$Probability),
+                       Response = rep(to.n(d0$Value), 1+samples*d0$Probability))
+
+
+## when you have data by bin
+## compute posterior predictive of prior data
+# grab parameters of interest (Items, Bins), compute MAP for each Item x Bin
+inferred.priors <- d.thetas %>% 
+  filter(!(Parameter%in% 
+             c('theta',"theta1","theta2","theta3",
+               "w1","w2","w3",
+               'mix','phi'))) %>% 
+  group_by(Item, Parameter) %>%
+  summarise(MAP = estimate_mode(Response)) %>%
+  ungroup() %>%
+  rename(bins=Parameter) %>%
+  mutate(bins = to.n(bins)) %>%
+  group_by(Item) %>%
+  summarise(exp.val = sum(bins*MAP),
+            allprob =sum ((bins==15)*MAP))
+
+
+qplot(data=inferred.priors, x= exp.val, geom = 'histogram')+
+  ggtitle("Distribution of items' prior expected values")+
+  xlab("Expected Value of P(x), posterior predictive of prior model")
+
+range(inferred.priors$exp.val)
+```
+
+## Compare data and model
+
+Compare prior elicitation data (smoothed, binned) to posterior predictive of the BDA model.
+
+Right now, only compare expected values
+
+```{r}
+priors.md<- left_join(inferred.priors, prior_exps %>% rename(emp.exp.val = exp.val))
+
+with(priors.md, cor(exp.val, emp.exp.val))^2
+with(priors.md, cor(allprob, X15))^2
+```
+
+
+# Posterior (Interpretation) data
+
+## Load human subjects data
