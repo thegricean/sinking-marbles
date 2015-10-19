@@ -16,7 +16,7 @@ var foreach = function(lst, fn) {
     foreach_(0);
 };
 
-var marginalizeERP = function(myERP, label){
+var marginalize = function(myERP, label){
 	Enumerate(function(){
 		var x = sample(myERP)
 		return x[label]
@@ -25,6 +25,7 @@ var marginalizeERP = function(myERP, label){
 
 
 var fpath = "/Users/mht/Documents/research/sinking-marbles/bayesian_model_comparison/priors/data/"
+// var priorData = wonkyutils.readCSV(fpath + "priors_fourstep.txt").data
 var priorData = wonkyutils.readCSV(fpath + "priors.txt").data
 var df_prior = dataFrame(priorData.slice(0, priorData.length-1))
 
@@ -32,53 +33,127 @@ var items = _.uniq(_.pluck(df_prior, "Item"))
 var states = _.range(0,16)
 
 
-var linkingModel = function(theta, phi){
+// var linkingModel = function(theta1, theta2, mix, phi){
+// 	Enumerate(function(){
+// 		var guessing = flip(phi)
+// 		var marbles =  guessing ? uniformDraw(states) : 
+// 								flip(mix) ? binomial(theta1, 15) :
+// 											binomial(theta2, 15)
+// 		// var marbles =  primaryInterpretation ? binomial(theta1, 15) : binomial(theta2, 15)
+// 		return marbles
+// 	})
+// }
+
+// var linkingModel = function(weights, thetas, phi){
+// 	Enumerate(function(){
+// 		var thetaOfInterest = thetas[discrete(weights)]
+// 		var marbles = flip(phi) ? uniformDraw(states) : binomial(thetaOfInterest, 15)
+// 		// var marbles =  primaryInterpretation ? binomial(theta1, 15) : binomial(theta2, 15)
+// 		return marbles
+// 	})
+// }
+var linkingModel = function(theta1, theta2, mix, phi){
 	Enumerate(function(){
 		var guessing = flip(phi)
-		var marbles =  guessing ? uniformDraw(states) : binomial(theta, 15)
+		var marbles =  guessing ? uniformDraw(states) : 
+								flip(mix) ? binomial(theta1, 15) :
+											binomial(theta2, 15)
+		// var marbles =  primaryInterpretation ? binomial(theta1, 15) : binomial(theta2, 15)
 		return marbles
 	})
 }
+// var item =  "stuck to the wall cakes"
 
+
+// var items = [item]
 
 var priorModel = function(){
 	
-	// var phi = uniform(0,1)
 	var phi = 0
+	// var phi = uniform(0,1)
 
 	foreach(items,
 		function(item){
+
+			// var itemData = _.pluck(subset(df_prior, "Item", item), "best_guess")
 			var itemData = _.pluck(subset(df_prior, "Item", item), "response")
+			var responseData = map(function(x){return wonkyutils.wpParseFloat(x)}, itemData)
 
-			var theta = uniform(0,1)
+			// var weights = dirichlet([1,1,1])
+			// var weights = dirichlet([1,1])
+			// var mix = 0.5
+			
 
-			var predictionERP = linkingModel(theta, phi)
+			var mix = uniform(0.5,1)
+			var theta1 = uniform(0,1)
+			var theta2 = uniform(0,1)
+			var theta3 = 0
+			// var theta3 = uniform(0,1)
+
+			// var predictionERP = linkingModel(theta1, theta2, mix, phi)
+			// var predictionERP = linkingModel(weights, [theta1, theta2, theta3], phi)
+			// var predictionERP = linkingModel(weights, [theta1, theta2], phi)
+			var predictionERP = linkingModel(theta1, theta2, mix, phi)
+
 
 			var scr = reduce(function(d, memo){
-				return predictionERP.score([], wonkyutils.wpParseFloat(d))
-			}, 0, itemData)
+				return memo + predictionERP.score([], d)
+			}, 0, responseData)
 
 			// console.log(item + scr)
 			factor(scr)
+			
+			// var cleanPredERP = linkingModel(weights, [theta1, theta2], 0)
+
+			// query.add(item, theta)
+			foreach(predictionERP.support(),
+				function(x){query.add([x, item], Math.exp(predictionERP.score([], x)))})
+			// foreach(cleanPredERP.support(),
+			// 	function(x){query.add([x, item], Math.exp(cleanPredERP.score([], x)))})
 
 
-			query.add(item, theta)
-
-			// query.add(["theta", item], theta)
-			// query.add(["phi", item], phi)
+			query.add(["mix", item], mix)
+			query.add(["theta1", item], theta1)
+			query.add(["theta2", item], theta2)
+			// query.add(["theta3", item], theta3)
+			// query.add(["w1", item], weights[0])
+			// query.add(["w2", item], weights[1])
+			// query.add(["w3", item], weights[2])
 		})
 	
-	// query.add(["phi", "global"], phi)
+	query.add(["phi", "global"], phi)
 	return query
 }
 
-// var mhiter = 100000
-// var burn = mhiter / 2
-// var priorERP = IncrementalMH(priorModel, mhiter, {verbose:true, burnin: burn})
-// console.log('model complete. writing data...')
-// var outfile = "priors/results/priorBDA-binomials-byItemPhi_incrMH" + mhiter + "burn" + burn + ".csv"
-// wonkyutils.priorERPwriter(priorERP, outfile)
-// console.log('wrote to file ... ' + outfile)
+
+var mhiter = 75000
+var burn = mhiter / 2
+var priorERP = IncrementalMH(priorModel, mhiter, {verbose:true, burnin: burn})
+
+// console.log("expectation  "  + expectation(marginalize(priorERP, item)))
+// console.log("MAP  "  + marginalize(priorERP, item).MAP()["val"])
+
+// var itemData = _.pluck(subset(df_prior, "Item", item), "response")
+// var responseData = map(function(x){return wonkyutils.wpParseFloat(x)}, itemData)
+
+// var theta = 0.1
+// var phi = 0
+// var predictionERP = linkingModel(theta, phi)
+// console.log(sum(map(function(d){return predictionERP.score([], d)}, responseData)))
+
+// // predictionERP
+
+// var mapERP = linkingModel(marginalize(priorERP, item).MAP()["val"], phi)
+// console.log(sum(map(function(d){return mapERP.score([], d)}, responseData)))
+
+// map(function(d){return [d, Math.exp(predictionERP.score([], d))]}, responseData)
+
+
+console.log('model complete. writing data...')
+var outfile = "priors/results/priorBDA-mix2binomials-fullPosterior_incrMH" + mhiter + "burn" + burn + ".csv"
+// var outfile = "priors/results/prior4stepBDA-binomials-fullPosterior_incrMH" + mhiter + "burn" + burn + ".csv"
+wonkyutils.priorERPwriter(priorERP, outfile)
+console.log('wrote to file ... ' + outfile)
 
 
 

@@ -201,6 +201,8 @@ var measures = _.keys(languageData[items[0]][utterances[0]])
 
 // var measures = ["comp_state"]
 // var utterances = ["Some", "short_filler", "long_filler"]
+// var utterances = ["Some"]
+// var utterances = ["short_filler", "long_filler"]
 
 // var items = ['fell down card towers']
 // var guessingLink =  function(marginalERP, phi){
@@ -216,34 +218,34 @@ var priorburn = prioriter / 2
 
 var priorERP = IncrementalMH(priorModel, prioriter, {verbose:true, burnin: priorburn})
 
-// var priorERPobject = _.object(map(function(i){
-//   return [i, marginalizeERP(priorERP, i)]
-// }, items))
-
 var priorERPobject = _.object(map(function(i){
-  return [i, marginalizeERP(priorERP, i).MAP()]
+  return [i, marginalizeERP(priorERP, i)]
 }, items))
+
+// var priorERPobject = _.object(map(function(i){
+//   return [i, marginalizeERP(priorERP, i).MAP()]
+// }, items))
 
 // // var outpriorfile = "results/priorBDA-binomials-phi_incrMH" + prioriter + "burn" + priorburn + ".csv"
 // // wonkyutils.priorERPwriter(priorERP, outpriorfile)
 // // console.log('wrote prior to file ... ' + outpriorfile)
 
-// var addGuessingNoise = function(predictionERP, phi){
-//   Enumerate(function(){
-//     var states = _.range(0,16)
-//     var guessing = flip(phi)
-//     var marbles =  guessing ? uniformDraw(states) : sample(predictionERP)
-//     return marbles
-//   })
-// }
+var addGuessingNoise = function(predictionERP, phi){
+  Enumerate(function(){
+    var states = _.range(0,16)
+    var guessing = flip(phi)
+    var marbles =  guessing ? uniformDraw(states) : sample(predictionERP)
+    return marbles
+  })
+}
 
-// var cooperateAndNot = function(predictionERP, uncooperativeERP, speakerCooperativity){
-//   Enumerate(function(){
-//     var cooperate = flip(speakerCooperativity)
-//     var marbles =  cooperate ? sample(predictionERP) : sample(uncooperativeERP)
-//     return marbles
-//   })
-// }
+var cooperateAndNot = function(predictionERP, uncooperativeERP, speakerCooperativity){
+  Enumerate(function(){
+    var cooperate = flip(speakerCooperativity)
+    var marbles =  cooperate ? sample(predictionERP) : sample(uncooperativeERP)
+    return marbles
+  })
+}
 
 
 
@@ -258,7 +260,7 @@ var dataAnalysis = function(){
       //   "wonky":uniform(0,10)
       // }
       // var speakerCooperativity = uniform(0,1)
-
+      var speakerCooperativity = 1
 
       var wonkinessPrior = uniform(0,1)
       // var wonkinessPrior = 0
@@ -267,15 +269,17 @@ var dataAnalysis = function(){
       //   "wonky": uniform(0,1)
       // }
       // var phi = 0
-      // var phi = uniform(0,1)
+      var phi = uniform(0,1)
       // var phi = 0.0001
+      // var cooperativeMix = uniform(0,1)
+
 
       // var phi = {
       //   "world":uniform(0,1),
       //   "wonky":uniform(0,1)
       // }
 
-      var sigma = uniform(0.5,10)
+      // var sigma = uniform(0.5,10)
 
       // var sigma = 0.3
       // var sigma_some = uniform(0.1,2)
@@ -305,15 +309,19 @@ var dataAnalysis = function(){
     function(item){
 
       // var phi = uniform(0,1)
-
       // var prior = df_prior[item]
-      // var theta = sample(priorERPobject[item])
 
-      // for MAP estimate
-      var theta = priorERPobject[item]["val"]
-      var prior = map(function(x){
-        return Math.exp(binomialERP.score([theta,15], x))
-      }, _.range(0,16))
+
+      // var theta = sample(priorERPobject[item])
+      // // for MAP estimate
+      // var theta = priorERPobject[item]["val"]
+      // var prior = priorERPobject[item]["val"]
+
+      // var prior = map(function(x){
+      //   return Math.exp(binomialERP.score([theta,15], x))
+      // }, _.range(0,16))
+      // var prior = sample(priorERPobject[item])
+      var priorParameters = sample(priorERPobject[item])
 
 
       // console.log(item)
@@ -324,15 +332,26 @@ var dataAnalysis = function(){
           // console.log('pre predictionERP')
 
           var utt = ((utterance == "short_filler") | (utterance == "long_filler")) ? "mu" : utterance
-          var predictionERP = listener(utt, 
+          // var predictionERP = listener(utt, 
+          //                               wonkinessPrior,
+          //                               // wonkinessPrior[queryDictionary[measure]], 
+          //                               // speakerOptimality[queryDictionary[measure]], 
+          //                               speakerOptimality, 
+          //                               speakerCooperativity,
+          //                               prior)
+
+          var predictionERP = makeUrOwnBackoffListener(utt, 
+                                        // 1-priorParameters["mix"],
                                         wonkinessPrior,
                                         // wonkinessPrior[queryDictionary[measure]], 
                                         // speakerOptimality[queryDictionary[measure]], 
                                         speakerOptimality, 
-                                        1,
-                                        prior)
+                                        priorParameters["theta1"],
+                                        priorParameters["theta2"]
+                                        )
+
           // console.log('post predictionERP')
-          // var ERPwithNoise = addGuessingNoise(marginalize(predictionERP, "world"), phi)
+          var linkedERP = addGuessingNoise(marginalize(predictionERP, "world"), phi)
 
           // var uncooperativeERP = listener(utt, 
           //                               wonkinessPrior,
@@ -342,40 +361,51 @@ var dataAnalysis = function(){
           //                               0,
           //                               prior)
 
-          // var mixedERP = cooperateAndNot(predictionERP, uncooperativeERP, speakerCooperativity)
+          // var mixedERP = cooperateAndNot(predictionERP, uncooperativeERP, cooperativeMix)
 
 
-          var stateERP = marginalize(predictionERP, "world")
+          // var stateERP = marginalize(predictionERP, "world")
 
-          var linkedERP = expectationPlusNoiseLink2(stateERP, sigma)
+          // var linkedERP = expectationPlusNoiseLink2(stateERP, sigma)
+          // var linkedERP = ERPwithNoise
 
 
 
 
-          var dataPoints = languageData[item][utterance]["comp_state"]  
+          var dataPoints = languageData[item][utterance]["comp_state"]
           var scr = modelScore(linkedERP, dataPoints)
 
           // console.log(item + utterance + scr)
 
           factor(scr)
-          foreach(linkedERP.support(), function(s){
-              (utterance == "Some") ?
-              query.add(["comp_state", item, utterance, s], Math.exp(linkedERP.score([], s))) : 
-              null
+          // foreach(linkedERP.support(), function(s){
+          //     (utterance == "Some") ?
+          //     query.add(["comp_state", item, utterance, s], Math.exp(linkedERP.score([], s))) : 
+          //     null
+          // })
+
+          if (utterance != "short_filler") {
+            query.add(["comp_state",item,utterance, "linkedExpectation"], expectation(linkedERP))
+            // query.add(["comp_state",item,utterance, "stateExpectation"], expectation(stateERP))
+
+            query.add(["comp_allprob",item,utterance, "linkedAllprob"] ,Math.exp(linkedERP.score([], 15)))
+            // query.add(["comp_allprob",item,utterance, "stateAllprob"] ,Math.exp(stateERP.score([], 15)))
+
+            var wonkyERP = marginalize(predictionERP, "wonky")
+
+            query.add(["wonkiness",item,utterance, "wonkiness"] ,Math.exp(wonkyERP.score([], true)))
+          }
+
           })
 
-          query.add(["comp_state",item,utterance, "linkedExpectation"], expectation(linkedERP))
-          query.add(["comp_state",item,utterance, "stateExpectation"], expectation(stateERP))
+      // foreach(_.zip(_.range(0,16), prior),
+      //   function(lst){
+      //     query.add(["prior",item, lst[0],"prior"], lst[1])
+      //   })
 
-          query.add(["comp_allprob",item,utterance, "linkedAllprob"] ,Math.exp(linkedERP.score([], 15)))
-          query.add(["comp_allprob",item,utterance, "stateAllprob"] ,Math.exp(stateERP.score([], 15)))
 
-          var wonkyERP = marginalize(predictionERP, "wonky")
-
-          query.add(["wonkiness",item,utterance, "wonkiness"] ,Math.exp(wonkyERP.score([], true)))
-
-          })
     })
+
         //   foreach(measures,
         //   function(measure){
 
@@ -448,9 +478,9 @@ var dataAnalysis = function(){
   query.add(["wonkinessPrior","na","na","na"], wonkinessPrior)
   query.add(["speakerOptimality","na","na", "na"],speakerOptimality)
   // query.add(["speakerCooperativity","na","na", "na"],speakerCooperativity)
+  query.add(["phi","na","na", "na"], phi)
 
-  // query.add(["phi","na","na", "na"], phi)
-  query.add(["sigma","na","na", "na "], sigma)
+  // query.add(["sigma","na","na", "na "], sigma)
   // query.add(["state_sigmaSome","na","na", "na"], sigma_some)
   // query.add(["state_sigmaAllNone","na","na", "na"], sigma_allnone)
 
@@ -475,12 +505,12 @@ var dataAnalysis = function(){
 
 // expectation(marginalize(predictionERP, "world"))
 
-var mhiter = 1000
+var mhiter = 20000
 var burn = mhiter / 2
 
 // var burn = 0
-// var results = IncrementalMH(dataAnalysis, mhiter, {"verbose":true, "burnin": burn})
-var results = HashMH(dataAnalysis, mhiter, {"verbose":true, "burnin": burn})
+var results = IncrementalMH(dataAnalysis, mhiter, {"verbose":true, "burnin": burn})
+// var results = HashMH(dataAnalysis, mhiter, {"verbose":true, "burnin": burn})
 
 // var results = HashMH(dataAnalysis, mhiter, {"verbose":true})
 
@@ -494,7 +524,14 @@ console.log('model complete. writing data...')
 // var outfile = 'results/wonkyRSA_FBTPosterior_expecatationLink_sharedSigma_justCompState_wRepData_inclZero_4stepPriors_so_wp_noPhi_CTS_hashMH'+ mhiter+'burn'+burn+'a.csv'
 // var outfile = 'results/wonkyRSA_fullPosterior_binomialBackoff_sansLink_justCompState_justSomeFillers_wRepData_inclZero_bdaPriors50kMAPphi_so_wp_noPhi_CTS_hashMH'+ mhiter+'burn'+burn+'a.csv'
 
-var outfile = 'results/wonkyRSA_fullPosterior_uniformBackoff_truncGaussLink_justCompState_wRepData_inclZero_bdaPriors50kMAP_so_wp_sigmaCTS_hashMH'+ mhiter+'burn'+burn+'a.csv'
+// var outfile = 'results/wonkyRSA_fullPosterior_binomialBackoff_justCompState_wRepData_bdaPriors2thetas-removePhi50k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
+// var outfile = 'results/wonkyRSA_fullPosterior_binomialBackoff_justCompState_wRepData_bdaPriors3thetas50k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
+// var outfile = 'results/wonkyRSA_fullPosterior_unifBackoff_justCompState_wRepData_bdaPriors3thetas50k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
+// var outfile = 'results/wonkyRSA_fullPosterior_unifBackoff_justCompState_wRepData_bdaPriors2thetas50k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
+var outfile = 'results/wonkyRSA_fullPosterior_makeUrOwnBackoff_justCompState_wRepData_bdaPriors2thetas'+prioriter/1000+'k_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
+
+// var outfile = 'results/wonkyRSA_fullPosterior_unifBackoff_justCompState_wRepData_bdaPriors2thetas50kMAP_so_wp_phi_incrMH'+ mhiter+'burn'+burn+'a.csv'
+
 // var outfile = 'results/wonkyFBTPosterior_justCompState_withRepData_originalPriors_so_wp_Nophi_CTS_allProb-sigma-scale-offset_incrMH'+ mhiter+'burn'+'0'+'a.csv'
 
 wonkyutils.erpWriter(results, outfile)
@@ -503,6 +540,8 @@ console.log('wrote ' +outfile)
 
 // languageData
 // utterances
+
+// languageData["sank marbles"]["long_filler"]["comp_state"]
 // var theta = priorERPobject["were green bananas"]["val"]
 // var prior = map(function(x){
 //   return Math.exp(binomialERP.score([theta,15], x))
