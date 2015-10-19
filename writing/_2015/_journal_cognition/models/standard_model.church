@@ -120,6 +120,6 @@
 ;	'(speaker-opt 20)
 ;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 20)				
 	)
-	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/writing/_2015/_journal_cognition/models/modelresults/raw_rsa_betapriors_results.txt.tmp.results"	
+	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/writing/_2015/_journal_cognition/models/modelresults/raw_rsa_epsilonsmooth_results.txt.tmp.results"	
 	","
 )

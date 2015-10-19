@@ -89,9 +89,9 @@
 (define alternatives '(some all none))
 
 ; modify the prior on states at will
-(define theprior (list 2.96455132725021e-14 2.57131562348768e-10 1.70437848916888e-08 2.74550143972162e-07 2.23227914044718e-06 1.21412086386673e-05 5.07759916187051e-05 0.000176867797564236 0.000540010720540726 0.00149787469104472 0.00388129552403355 0.00963256910496703 0.0235320577675172 0.0588966063276065 0.164558714447637 0.737218562288601))
+(define theprior (list 0.343751 0.062501 0.078126 0.078126 0.062501 0.062501 0.062501 0.109376 0.078126 0.015626 1e-06 0.015626 1e-06 0.015626 1e-06 0.015626))
 
-(define item '("9_0.1"))
+(define item '(were green strawberries))
 
 (write-csv
 	(list
@@ -120,6 +120,6 @@
 ;	'(speaker-opt 20)
 ;	(pragmatic-listener 'some 'how-many 15 alternatives theprior 20)
 	)
-	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/writing/_2015/_journal_cognition/models/modelresults/raw_rsa_betapriors_results.txt.tmp.results"
+	"/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/writing/_2015/_journal_cognition/models/modelresults/raw_rsa_epsilonsmooth_results.txt.tmp.results"
 	","
 )

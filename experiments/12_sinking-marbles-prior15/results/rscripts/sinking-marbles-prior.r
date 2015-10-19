@@ -4,6 +4,7 @@ setwd("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiment
 # load new priors
 load("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/26_sinking-marbles-prior15_replication/results/data/r.RData")
 rnew = r
+length(levels(as.factor(r$workerid)))
 
 r = read.table("data/sinking_marbles.tsv", sep="\t", header=T)
 r = r[,c("workerid", "rt", "effect", "cause", "object_level", "response", "object")]
@@ -16,6 +17,7 @@ summary(d)
 r = d
 summary(r)
 r$workerid = as.factor(as.character(r$workerid))
+length(levels(r$workerid))
 
 # write data for mh's prior data analysis (fitting mixtures of binomials?)
 write.table(r[,c("workerid","Item","response")],file="/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/priors/data/priors.txt",row.names=F,col.names=T,quote=F,sep=",")
@@ -264,5 +266,9 @@ ggplot(r, aes(x=response)) +
 ggsave(file="graphs/item_variability_laplace.pdf",width=20,height=15)
 
 
-
-
+# do minimal add-epsilon smoothing
+t = as.data.frame(prop.table(table(r$response,r$Item),mar=c(2)))
+t$Freq = t$Freq + .000001
+colnames(t) = c("State","Item","Freq")
+agr = t %>% spread(State, Freq)
+write.table(agr,file="data/smoothed_15marbles_priors_epsilon.txt",row.names=F,quote=F,sep="\t")
