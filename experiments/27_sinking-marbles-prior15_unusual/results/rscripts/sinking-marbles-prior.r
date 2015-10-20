@@ -47,6 +47,16 @@ row.names(modes_original) = modes_original$Item
 r$OriginalExpectation = exps_original[as.character(r$Item),]$Expectation
 r$OriginalMode = modes_original[as.character(r$Item),]$Mode
 r$OriginalAllprob = allprobs_original[as.character(r$Item),]$Probability
+
+# load info on inferred priors based on original priors (measures of "bi-modality")
+bimodality= read.csv("/Users/titlis/cogsci/projects/stanford/projects/thegricean_sinking-marbles/bayesian_model_comparison/priors/results/bimodalityMAPs_priorBDA-mix2binomials-fullPosterior_incrMH75000burn37500.csv")
+head(bimodality)
+row.names(bimodality) = bimodality$Item
+
+r$absMix = bimodality[as.character(r$Item),]$absMix
+r$diffTheta = bimodality[as.character(r$Item),]$diffTheta
+r$bimodality = bimodality[as.character(r$Item),]$bimodality
+
 save(r, file="data/r.RData")
 
 load("data/r.RData")
@@ -114,7 +124,7 @@ ggsave(file="graphs/item_variability_binned.pdf",width=20,height=15)
 # scatterplot of original vs normal vs unusual expectations
 head(r)
 exps = r %>%
-  group_by(Item, responsetype, OriginalExpectation) %>%
+  group_by(Item, responsetype, OriginalExpectation,absMix,diffTheta,bimodality) %>%
   summarise(Expectation=mean(response))
 exps = as.data.frame(exps)
 
@@ -128,6 +138,28 @@ ggsave("graphs/correlation_with_original_priors.pdf")
 
 cor(exps[exps$responsetype=="response",]$Expectation,exps[exps$responsetype=="response",]$OriginalExpectation) #.97
 cor(exps[exps$responsetype=="response_unusual",]$Expectation,exps[exps$responsetype=="response_unusual",]$OriginalExpectation) #.87
+
+# scatterplot of expectations vs three different measures of bimodality
+ggplot(exps, aes(x=Expectation,y=absMix,color=responsetype)) +
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(limits=c(0,15)) +
+  scale_y_continuous(limits=c(0,1))
+ggsave("graphs/exp_by_absmix.pdf")
+
+ggplot(exps, aes(x=Expectation,y=diffTheta,color=responsetype)) +
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(limits=c(0,15)) +
+  scale_y_continuous(limits=c(0,1))
+ggsave("graphs/exp_by_difftheta.pdf")
+
+ggplot(exps, aes(x=Expectation,y=bimodality,color=responsetype)) +
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(limits=c(0,15)) +
+  scale_y_continuous(limits=c(0,1))
+ggsave("graphs/exp_by_bimodality.pdf")
 
 # scatterplot of original vs normal vs unusual allprobs
 head(r)
