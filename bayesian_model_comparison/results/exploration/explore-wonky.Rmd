@@ -1,0 +1,16 @@
+---
+title: "explore wonky"
+author: "mht"
+date: "November 22, 2015"
+output: html_document
+---
+
+
+```{r} 
+
+library(data.table)
+fpath<- "~/Documents/research/sinking-marbles/bayesian_model_comparison/results/exploration/"
+fileName = paste(fpath, "wonkyRSA-exploration-1a.csv", sep="")
+d<-fread(fileName, header = T, sep = ',')
+```
+

@@ -1,0 +1,103 @@
+// webppl exploreWonky.wppl --require wonkyutils
+
+var marginalize = function(myERP, index){
+  Enumerate(function(){
+    var x = sample(myERP)
+    return x[index]
+  })
+}
+
+
+// var theta1 = [0.001,0.01,0.05,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.95,0.99,0.999]
+var theta1 = [0.001,0.01,0.05,0.1,0.2,0.3,0.4]
+// var theta1 = [0.01]
+var theta2 = [0.01,0.3,0.5,0.7,0.9]
+
+var mixture = [0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.99]
+
+var speakerOptimalities = [1, 2, 3, 5, 10, 20]
+
+var exploreWonky = Enumerate(function(){
+	var t1 = uniformDraw(theta1)
+	var t2 = uniformDraw(theta2)
+	var m = uniformDraw(mixture)
+	var so = uniformDraw(speakerOptimalities)
+
+
+	// foreach(mixture, function(m){
+	// 	foreach(theta1, function(t1){
+	// 		foreach(theta2, function(t2){
+	// 			foreach(speakerOptimalities, function(so){
+
+					// var t0 = wonkyutils.getTime()
+
+
+					var wRSA = wonkyListener("Some", so, 
+													{mix: m,
+													theta1:t1,
+													theta2:t2})
+
+					var wState = expectation(marginalize(wRSA, "world"))
+					var wWonky = expectation(marginalize(wRSA, "wonky"))
+
+					var rRSA = listener("Some", so, 
+													{mix: m,
+													theta1:t1,
+													theta2:t2})
+
+					var rState = expectation(marginalize(rRSA, "world"))
+					var rWonky = expectation(marginalize(rRSA, "wonky"))
+
+
+					query.add(["wRSA","world",m, t1, t2, so], wState)
+					query.add(["wRSA","wonky",m, t1, t2, so], wWonky)
+					query.add(["rRSA","world",m, t1, t2, so], rState)
+					query.add(["rRSA","wonky",m, t1, t2, so], rWonky)
+
+					// console.log((wonkyutils.getTime() - t0) / 1000)
+	// 			})
+	// 		})
+	// 	})
+	// })
+
+	return query
+})
+
+// sample(explo/reWonky).table
+var header = "model,measure,mixture,primaryTheta,backoffTheta,speakerOpt,Value"
+
+var filename = "results/exploration/wonkyRSA-exploration-1a.csv"
+wonkyutils.explorationWriter(exploreWonky, 
+		filename,
+		header
+		)
+
+console.log("output written to "+ filename)
+// var speakOpt = 3
+// var m = 0.5
+// var t1 = 0.999
+// var t2= 0.1
+
+// var doubleBinomialMarbles = function(theta1, theta2, mix){
+//   return map(
+//     function(x){
+//       return mix*Math.exp(binomialERP.score([theta1, 15], x)) + (1-mix)*Math.exp(binomialERP.score([theta2, 15], x))
+//     },
+//     _.range(0,16))
+// }
+
+// literalListener("Some",{mix: m,
+// 								theta1:t1,
+// 								theta2:t2})
+
+
+// speaker(15, {mix: m,
+// 								theta1:t1,
+// 								theta2:t2})
+
+
+// listener("Some", speakOpt, doubleBinomialMarbles(t1,t2,m))
+
+// marginalize(wonkyListener("Some", speakOpt, {mix: m,
+// 								theta1:t1,
+// 								theta2:t2}), "wonky")
