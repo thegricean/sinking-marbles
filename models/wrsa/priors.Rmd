@@ -1,0 +1,194 @@
+---
+title: "priors"
+author: "mht"
+date: "August 27, 2016"
+output: html_document
+---
+
+
+```{r}
+library(rwebppl)
+```
+
+### Priors
+
+Priors data for give a number task.
+
+```{r}
+d <- read.csv("models/priors/data/priors.txt")
+str(d)
+
+d %>% group_by(Item) %>% summarize(n())
+
+items <- unique(d$Item)
+```
+
+Priors model
+
+```{r}
+priors_model <- '
+var model = function(){
+  var probs = map(function(i){
+    return sample(UniformDrift({a: 0, b:1, r: 0.1}))
+  }, _.range(0, 16))
+
+  observeData({link: Discrete({ps: probs}), data: data})
+
+  return normalize(probs)
+}
+'
+```
+
+Run model
+
+```{r}
+items <- c("sank marbles", 
+           "stuck to the wall baseballs", 
+           "were green strawberries", 
+           "melted pencils",
+           "melted ice cubes",
+           "ripped shirts")
+numSamples <- 20000
+
+m.post <- data.frame()
+
+for (i in items){
+
+  d.item <- filter(d, Item == i)$response
+
+  wp.post <- webppl(priors_model,
+         packages = c("mht"),
+         model_var = "model",
+         inference_opts = list(method = "MCMC",
+                               samples = numSamples,
+                               burn = numSamples / 2,
+                               verbose = TRUE),
+         output_format = "samples",
+         data_var = "data",
+         data = d.item)
+  
+  m.stat <- wp.post %>%
+    gather(key, val) %>%
+    separate(key, into=c("param", "bin")) %>%
+    select(-param) %>%
+    mutate(bin = to.n(bin)) %>%
+    group_by(bin) %>%
+    summarize(
+      MAP = estimate_mode(val),
+      cred_high = hdi_upper(val),
+      cred_low = hdi_lower(val)
+    )
+  
+  m.post <- bind_rows(m.post, m.stat %>% mutate(item = i))
+}
+
+# wp.post %>%
+#   gather(key, val) %>%
+#   separate(key, into=c("param", "bin")) %>%
+#   select(-param) %>%
+#   mutate(bin = to.n(bin)) %>%
+#   ggplot(., aes(x = val))+
+#   geom_histogram()+
+#   facet_wrap(~bin, scales = "free")
+```
+
+Plot prior model results
+
+```{r}
+ggplot(m.post, aes(x = bin, y = MAP,
+           ymin = cred_low, ymax = cred_high))+
+  geom_bar(stat = 'identity', position = position_dodge())+
+  geom_errorbar() + 
+  facet_wrap(~item)
+
+save(m.post, file = "models/priors/results/6items_mcmc20k.Rdata")
+```
+
+### wRSA
+
+```{r}
+wRSA <- '
+var backoffPrior = function(){
+  return randomInteger(16)
+}
+
+var domainPrior = function(){
+  return discrete(probs)
+}
+
+// possible utterances
+var utterancePrior = function() {
+  return uniformDraw(["all", "some", "none"]);
+};
+
+// meaning funtion to interpret the utterances
+var literalMeanings = {
+  all: function(state) { return state === 15; },
+  some: function(state) { return state > 0; },
+  none: function(state) { return state === 0; }
+};
+
+// literal listener
+var literalListener = cache(function(utt, prior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var state = prior()
+    var meaning = literalMeanings[utt]
+    condition(meaning(state))
+    return state
+  })
+});
+
+// set speaker optimality
+var alpha = 5
+
+// pragmatic speaker
+var speaker = cache(function(state, prior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var utt = utterancePrior()
+    factor(alpha * literalListener(utt, prior).score(state))
+    return utt
+  })
+});
+
+// pragmatic listener
+var pragmaticListener = cache(function(utt) {
+  return Infer({method:"enumerate"},
+  function(){
+    var wonky = flip(0) 
+    var prior = wonky ? backoffPrior : domainPrior
+    var state = prior()
+    factor(speaker(state, prior).score(utt))
+    return {state: state, wonky: wonky}
+  })
+});
+
+pragmaticListener("some")
+'
+```
+
+
+Run wRSA model
+```{r}
+prior.item <- filter(m.post, item == items[1])$MAP
+
+l1.post <- webppl(wRSA,
+       data_var = "probs",
+       data = prior.item)
+
+l1.state <- l1.post %>%
+  group_by(state) %>%
+  summarize(prob = sum(prob))
+
+l1.state
+
+sum(l1.state$state * l1.state$prob)
+
+l1.wonky <- l1.post %>%
+  group_by(wonky) %>%
+  summarize(prob = sum(prob))
+
+l1.wonky
+```
+
