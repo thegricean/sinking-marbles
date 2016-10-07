@@ -354,8 +354,6 @@ ggplot(mdAllProb.wPrior, aes( x = priorMAP, y = response, ymin = ci_lower, ymax 
 ```
 
 
-
-
 ## Wonky RSA 1: `wonky = flip()`, `backoff = uniform(...)`
 
 We now try a wonky RSA model with a fixed wonkyPrior probability of 0.5, and a uniform back off prior.
@@ -440,6 +438,7 @@ var dataAnalysis = function(){
     })
 
     query.add(["state", i], expectation(l1State))
+    query.add(["allprob", i], probability(15, l1State))
     query.add(["wonky", i], expectation(l1Wonky))
 
   })
@@ -461,7 +460,7 @@ Using only comp_state data, for "Some", censoring out the responses that are 0.
 # dataToPass = list(priors = m.post,
 #                   data = d0.state %>% filter(response != 0 ))
 
-numSamples = 1000
+numSamples = 200
 
 bda.results <- webppl(wRSA, 
        data_var = "myData",
@@ -484,7 +483,7 @@ bda.results <- webppl(wRSA,
 ### Posterior on alpha
 
 ```{r}
-load("~/Documents/research/sinking-marbles/models/wrsa/results/wrsa_mcmc1kb0.5k_x2.Rdata")
+#load("~/Documents/research/sinking-marbles/models/wrsa/results/wrsa_mcmc1kb0.5k_x2.Rdata")
 qplot(bda.results$`alpha,NA`)
 
 post.pred <- bda.results %>%
@@ -526,6 +525,91 @@ post.pred %>% filter(param == "wonky") %>%
   geom_histogram()
 ```
 
+## Paper figures (Interpretation vs. Prior expectation)
+
+Give a number
+
+```{r}
+# prior data
+head(m.post)
+
+md.wPrior <- left_join(
+  bind_rows(post.pred %>% filter(param == "state") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+          d.summ %>% rename(response = mean) %>% ungroup() %>%
+            select(-utterance, -measure) %>% mutate(src = "data")),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
+)
+
+ggplot(md.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)
+```
+
+All prob
+
+**Note: Need to get appropriate source for all prob data **
+
+```{r}
+# prior data
+head(m.post)
+
+mdAllProb.wPrior <- left_join(
+  #bind_rows(
+    post.pred %>% filter(param == "allprob") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+          # d.summ %>% rename(response = mean) %>% ungroup() %>%
+          #   select(-utterance, -measure) %>% mutate(src = "data")
+          # ),
+  m.post %>%
+    filter(bin == 16) %>%
+    select(MAP, item) %>%
+    rename(priorMAP = MAP)
+)
+
+ggplot(mdAllProb.wPrior, aes( x = priorMAP, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)
+```
+
+Wonkiness
+
+**Note: Need to get appropriate source for wonkiness data **
+
+```{r}
+
+mdWonky.wPrior <- left_join(
+  #bind_rows(
+    post.pred %>% filter(param == "wonky") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+          # d.summ %>% rename(response = mean) %>% ungroup() %>%
+          #   select(-utterance, -measure) %>% mutate(src = "data")
+          # ),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
+)
+
+ggplot(mdWonky.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)+
+  geom_smooth()
+```
 
 
 ## Wonky RSA 3: `wonky = flip()`, `backoff = binomial(0.5, ..)`
@@ -612,6 +696,7 @@ var dataAnalysis = function(){
     })
 
     query.add(["state", i], expectation(l1State))
+    query.add(["allprob", i], probability(15, l1State))
     query.add(["wonky", i], expectation(l1Wonky))
 
   })
@@ -632,7 +717,7 @@ var dataAnalysis = function(){
 # dataToPass = list(priors = m.post,
 #                   data = d0.state %>% filter(response != 0 ))
 
-numSamples = 500
+numSamples = 200
 
 bda.results <- webppl(wRSA2, 
        data_var = "myData",
@@ -648,12 +733,12 @@ bda.results <- webppl(wRSA2,
        model_var = "dataAnalysis",
        output_format = "samples")
 
-save(bda.results,
-     file = "models/wrsa/results/wrsa_binomBackoff_mcmc5kb0.25k_x2.Rdata")
+# save(bda.results,
+#      file = "models/wrsa/results/wrsa_binomBackoff_mcmc5kb0.25k_x2.Rdata")
 ```
 
 ```{r}
-load("~/Documents/research/sinking-marbles/models/wrsa/results/wrsa_binomBackoff_mcmc5kb0.25k_x2.Rdata")
+#load("~/Documents/research/sinking-marbles/models/wrsa/results/wrsa_binomBackoff_mcmc5kb0.25k_x2.Rdata")
 qplot(bda.results$`alpha,NA`)
 
 post.pred <- bda.results %>%
@@ -682,6 +767,8 @@ ggplot(md, aes(x = MAP, xmin = credLo, xmax = credHi,
   geom_abline(intercept = 0, slope = 1, linetype = 3)
 ```
 
+$$r^2(`r nrow(md)`) = `r with(md, cor(mean, MAP))^2`$$
+
 Distribution of wonkiness ratings
 
 ```{r}
@@ -690,22 +777,89 @@ post.pred %>% filter(param == "wonky") %>%
   geom_histogram()
 ```
 
+## Paper figures (Interpretation vs. Prior expectation)
+
+Give a number
+
 ```{r}
-post.wonky.wPrior <- left_join(m.post %>%
-            group_by(item) %>%
-            summarize(priorExpectation = sum((bin-1)*MAP )),
-  post.pred %>% filter(param == "wonky")
+# prior data
+head(m.post)
+
+md.wPrior <- left_join(
+  bind_rows(post.pred %>% filter(param == "state") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+          d.summ %>% rename(response = mean) %>% ungroup() %>%
+            select(-utterance, -measure) %>% mutate(src = "data")),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
 )
 
-ggplot(post.wonky.wPrior, aes(x = priorExpectation,
-                              y = MAP,
-                              ymin = credLo, ymax = credHi))+
+ggplot(md.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower, ymax = ci_upper ))+
   geom_point()+
+  facet_wrap(~src)+
   geom_errorbar(alpha = 0.1)
-
 ```
 
+All prob
 
+**Note: Need to get appropriate source for all prob data **
 
+```{r}
+# prior data
+head(m.post)
 
+mdAllProb.wPrior <- left_join(
+  #bind_rows(
+    post.pred %>% filter(param == "allprob") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+          # d.summ %>% rename(response = mean) %>% ungroup() %>%
+          #   select(-utterance, -measure) %>% mutate(src = "data")
+          # ),
+  m.post %>%
+    filter(bin == 16) %>%
+    select(MAP, item) %>%
+    rename(priorMAP = MAP)
+)
+
+ggplot(mdAllProb.wPrior, aes( x = priorMAP, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)
+```
+
+Wonkiness
+
+**Note: Need to get appropriate source for wonkiness data **
+
+```{r}
+
+mdWonky.wPrior <- left_join(
+  #bind_rows(
+    post.pred %>% filter(param == "wonky") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+          # d.summ %>% rename(response = mean) %>% ungroup() %>%
+          #   select(-utterance, -measure) %>% mutate(src = "data")
+          # ),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
+)
+
+ggplot(mdWonky.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)+
+  geom_smooth()
+```
 
