@@ -1122,3 +1122,799 @@ ggplot(mdWonky.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower,
   geom_errorbar(alpha = 0.1)+
   geom_smooth()
 ```
+
+
+
+## Wonky RSA 4: `wonky = flip(q)`, `backoff = uniform(...)`
+
+We now try a wonky RSA model with a wonkyPrior probability that we will infer from the data, and a uniform back off prior.
+
+```{r wRSA_q, echo=T}
+wRSA <- '
+var allPriors = myData["priors"]
+var allData = myData["data"]
+
+var backoffPrior = mht.fillArray(1, 16);
+
+var domainPrior = function(probs){
+  return discrete(probs)
+}
+
+// possible utterances
+var utterancePrior = function() {
+  return uniformDraw(["all", "some", "none"]);
+};
+
+// meaning funtion to interpret the utterances
+var literalMeanings = {
+  all: function(state) { return state === 15; },
+  some: function(state) { return state > 0; },
+  none: function(state) { return state === 0; }
+};
+
+// literal listener
+var literalListener = cache(function(utt, prior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var state = domainPrior(prior)
+    var meaning = literalMeanings[utt]
+    condition(meaning(state))
+    return state
+  })
+}, 10000);
+
+// pragmatic speaker
+var speaker = cache(function(state, alpha, prior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var utt = utterancePrior()
+    factor(alpha * literalListener(utt, prior).score(state))
+    return utt
+  })
+}, 10000);
+
+// pragmatic listener
+var pragmaticListener = function(utt, alpha, wonkyPrior, itemPrior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var wonky = flip(wonkyPrior);
+    var prior = wonky ? backoffPrior : itemPrior
+    var state = domainPrior(prior)
+    observe(speaker(state, alpha, prior), utt)
+    return {state: state, wonky: wonky}
+  })
+}
+
+var items = _.uniq(_.pluck(allPriors, "item"));
+
+var dataAnalysis = function(){
+  var alpha = uniformDrift({a: 0, b:20, width: 2});
+  var wonkyPrior = uniformDrift({a:0, b:1, width: 0.1});
+  // var wonkyPrior = 0.5;
+  
+  foreach(items, function(i){
+    // webppl objects sorted alphanumerically (so can just pluck)
+    // otherwise, would need to ensure that bins correspond to 0-15
+    var itemPrior = _.pluck(_.where(allPriors, {item: i}), "MAP");
+    var itemData =  _.pluck(_.where(allData, {item: i}), "response");
+
+    var l1Predictions = pragmaticListener("some", alpha, wonkyPrior, itemPrior);
+
+    var l1State = marginalize(l1Predictions, "state");
+    var l1Wonky = marginalize(l1Predictions, "wonky");
+
+    observeData({
+      data: itemData,
+      link: l1State
+    })
+
+    query.add(["state", i], expectation(l1State))
+    query.add(["allprob", i], probability(15, l1State))
+    query.add(["wonky", i], expectation(l1Wonky))
+
+  })
+
+  query.add(["alpha", "NA"] , alpha)
+  query.add(["wonkyPrior", "NA"] , wonkyPrior)
+
+  return query
+
+}
+'
+```
+Using only comp_state data, for "Some", censoring out the responses that are 0.
+
+```{r eval=F}
+# load("models/wrsa/results/items_mcmc20k.Rdata")
+# d0<-read.csv("bayesian_model_comparison/data/empirical.csv")
+# d0.state <- d0 %>% filter(measure == "comp_state")
+# dataToPass = list(priors = m.post,
+#                   data = d0.state %>% filter(response != 0 ))
+
+numSamples = 200
+
+bda.results <- webppl(wRSA, 
+       data_var = "myData",
+       data = dataToPass,
+       packages = c("mht"),
+       inference_opts = list(method = "MCMC",
+                             samples = numSamples,
+                             burn = numSamples/2, verbose = T#,
+                             #verboseLag = 200
+                             ),
+       chains = 2,
+       cores = 2,
+       model_var = "dataAnalysis",
+       output_format = "samples")
+
+save(bda.results,
+     file = "models/wrsa/results/wrsa1_inferQ_mcmc200b100k_x2.Rdata")
+```
+
+### Posterior on alpha
+
+```{r}
+load("~/Documents/research/sinking-marbles/models/wrsa/results/wrsa1_inferQ_mcmc200b100k_x2.Rdata")
+qplot(bda.results$`alpha,NA`)
+
+post.pred <- bda.results %>%
+  gather(key, val) %>%
+  separate(key, into = c("param", "item"), sep =',') %>%
+  group_by(param, item) %>%
+  summarize(MAP = estimate_mode(val),
+            credHi = hdi_upper(val),
+            credLo = hdi_lower(val))
+
+
+d.summ <- d0.state %>%
+  group_by(item, utterance, measure) %>%
+  multi_boot_standard(column = "response")
+```
+
+### Posterior on wonky probability
+
+```{r}
+qplot(bda.results$`wonkyPrior,NA`)
+```
+
+
+
+Infers a very high wonkiness prior probability.
+
+### Model-data scatter
+
+```{r}
+md <- left_join(d.summ, post.pred %>% filter(param == 'state'))
+
+ggplot(md, aes(x = MAP, xmin = credLo, xmax = credHi,
+               y = mean, ymin = ci_lower, ymax = ci_upper))+
+  geom_point()+
+  xlim(0, 15) + 
+  ylim(0, 15) + 
+  coord_fixed() + 
+  geom_errorbar(alpha =0.1) + 
+  geom_errorbarh(alpha = 0.1)+
+  geom_abline(intercept = 0, slope = 1, linetype = 3)
+```
+
+$$r^2(`r nrow(md)`) = `r with(md, cor(mean, MAP))^2`$$
+
+
+```{r eval=F}
+post.pred %>% filter(param == "wonky") %>%
+  ggplot(., aes(x = MAP))+
+  geom_histogram()+
+  ggtitle("Distribution on wonky ratings")
+```
+
+## Paper figures (Interpretation vs. Prior expectation)
+
+Give a number
+
+```{r}
+# prior data
+head(m.post)
+
+md.wPrior <- left_join(
+  bind_rows(post.pred %>% filter(param == "state") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+          d.summ %>% rename(response = mean) %>% ungroup() %>%
+            select(-utterance, -measure) %>% mutate(src = "data")),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
+)
+
+ggplot(md.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)
+```
+
+All prob
+
+```{r}
+# prior data
+head(m.post)
+
+mdAllProb.wPrior <- left_join(
+  bind_rows(
+    post.pred %>% filter(param == "allprob") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+           d.allprob.summ %>% rename(response = mean) %>% ungroup() %>%
+             select(-utterance, -measure) %>% mutate(src = "data")
+           ),
+  m.post %>%
+    filter(bin == 16) %>%
+    select(MAP, item) %>%
+    rename(priorMAP = MAP)
+)
+
+ggplot(mdAllProb.wPrior, aes( x = priorMAP, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)+
+  geom_smooth()
+```
+
+Behavior here still looks pretty good.
+
+Wonkiness
+
+```{r}
+
+d0.wonky <- d0 %>% filter(measure == "wonkiness")
+d.wonky.summ <- d0.wonky %>%
+  group_by(item, utterance, measure) %>%
+  multi_boot_standard(column = "response")
+
+mdWonky.wPrior <- left_join(
+  bind_rows(
+    post.pred %>% filter(param == "wonky") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+           d.wonky.summ %>% rename(response = mean) %>% ungroup() %>%
+             select(-utterance, -measure) %>% mutate(src = "data")
+           ),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
+)
+
+ggplot(mdWonky.wPrior, aes( x = priorExpectation, y = response, 
+                            ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)+
+  geom_smooth()
+```
+
+Same asymmetric-U, but super compressed.
+
+## Wonky RSA 5: `wonky = flip(q)`, `backoff = binomial(0.5, ..)`
+
+Same as before, but a binomial(0.5) backoff prior as opposed to a uniform.
+
+```{r wRSA2, echo=T}
+wRSA2 <- '
+var allPriors = myData["priors"]
+var allData = myData["data"]
+
+var backoffPrior = map(function(b){
+  return probability(b, Binomial({p:0.5, n:15}))
+}, Binomial({p:0.5, n:15}).support())
+
+var domainPrior = function(probs){
+  return discrete(probs)
+}
+
+// possible utterances
+var utterancePrior = function() {
+  return uniformDraw(["all", "some", "none"]);
+};
+
+// meaning funtion to interpret the utterances
+var literalMeanings = {
+  all: function(state) { return state === 15; },
+  some: function(state) { return state > 0; },
+  none: function(state) { return state === 0; }
+};
+
+// literal listener
+var literalListener = cache(function(utt, prior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var state = domainPrior(prior)
+    var meaning = literalMeanings[utt]
+    condition(meaning(state))
+    return state
+  })
+}, 10000);
+
+// pragmatic speaker
+var speaker = cache(function(state, alpha, prior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var utt = utterancePrior()
+    factor(alpha * literalListener(utt, prior).score(state))
+    return utt
+  })
+}, 10000);
+
+// pragmatic listener
+var pragmaticListener = function(utt, alpha, wonkyPrior, itemPrior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var wonky = flip(wonkyPrior);
+    var prior = wonky ? backoffPrior : itemPrior
+    var state = domainPrior(prior)
+    observe(speaker(state, alpha, prior), utt)
+    return {state: state, wonky: wonky}
+  })
+}
+
+var items = _.uniq(_.pluck(allPriors, "item"));
+
+var dataAnalysis = function(){
+  var alpha = uniformDrift({a: 0, b:20, width: 2});
+  var wonkyPrior = uniformDrift({a:0, b:1, width: 0.1});
+  //var wonkyPrior = 0.5;
+  
+  foreach(items, function(i){
+    // webppl objects sorted alphanumerically (so can just pluck)
+    // otherwise, would need to ensure that bins correspond to 0-15
+    var itemPrior = _.pluck(_.where(allPriors, {item: i}), "MAP");
+    var itemData =  _.pluck(_.where(allData, {item: i}), "response");
+
+    var l1Predictions = pragmaticListener("some", alpha, wonkyPrior, itemPrior);
+
+    var l1State = marginalize(l1Predictions, "state");
+    var l1Wonky = marginalize(l1Predictions, "wonky");
+
+    observeData({
+      data: itemData,
+      link: l1State
+    })
+
+    query.add(["state", i], expectation(l1State))
+    query.add(["allprob", i], probability(15, l1State))
+    query.add(["wonky", i], expectation(l1Wonky))
+
+  })
+
+  query.add(["alpha", "NA"] , alpha)
+  query.add(["wonkyPrior", "NA"] , wonkyPrior)
+
+  return query
+
+}
+'
+```
+
+```{r eval=F}
+# load("models/wrsa/results/items_mcmc20k.Rdata")
+# d0<-read.csv("bayesian_model_comparison/data/empirical.csv")
+# d0.state <- d0 %>% filter(measure == "comp_state")
+# dataToPass = list(priors = m.post,
+#                   data = d0.state %>% filter(response != 0 ))
+
+numSamples = 200
+
+bda.results <- webppl(wRSA2, 
+       data_var = "myData",
+       data = dataToPass,
+       packages = c("mht"),
+       inference_opts = list(method = "MCMC",
+                             samples = numSamples,
+                             burn = numSamples/2, verbose = T#,
+                             #verboseLag = 200
+                             ),
+       chains = 2,
+       cores = 2,
+       model_var = "dataAnalysis",
+       output_format = "samples")
+
+save(bda.results,
+      file = "models/wrsa/results/wrsa2_inferQ_binomBackoff_mcmc200b100k_x2.Rdata")
+```
+
+```{r}
+load("~/Documents/research/sinking-marbles/models/wrsa/results/wrsa2_inferQ_binomBackoff_mcmc200b100k_x2.Rdata")
+qplot(bda.results$`alpha,NA`)
+
+post.pred <- bda.results %>%
+  gather(key, val) %>%
+  separate(key, into = c("param", "item"), sep =',') %>%
+  group_by(param, item) %>%
+  summarize(MAP = estimate_mode(val),
+            credHi = hdi_upper(val),
+            credLo = hdi_lower(val))
+
+```
+
+### Posterior on wonky probability
+
+```{r}
+qplot(bda.results$`wonkyPrior,NA`)
+```
+
+
+### Model-data scatter
+
+```{r}
+md <- left_join(d.summ, post.pred %>% filter(param == 'state'))
+
+ggplot(md, aes(x = MAP, xmin = credLo, xmax = credHi,
+               y = mean, ymin = ci_lower, ymax = ci_upper))+
+  geom_point()+
+  xlim(0, 15) + 
+  ylim(0, 15) + 
+  coord_fixed() + 
+  geom_errorbar(alpha =0.1) + 
+  geom_errorbarh(alpha = 0.1)+
+  geom_abline(intercept = 0, slope = 1, linetype = 3)
+```
+
+$$r^2(`r nrow(md)`) = `r with(md, cor(mean, MAP))^2`$$
+
+```{r eval=F}
+post.pred %>% filter(param == "wonky") %>%
+  ggplot(., aes(x = MAP))+
+  geom_histogram()+
+  ggtitle("Distribution on wonky ratings")
+```
+
+## Paper figures (Interpretation vs. Prior expectation)
+
+Give a number
+
+```{r}
+# prior data
+head(m.post)
+
+md.wPrior <- left_join(
+  bind_rows(post.pred %>% filter(param == "state") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+          d.summ %>% rename(response = mean) %>% ungroup() %>%
+            select(-utterance, -measure) %>% mutate(src = "data")),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
+)
+
+ggplot(md.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)
+```
+
+All prob
+
+```{r}
+# prior data
+head(m.post)
+
+mdAllProb.wPrior <- left_join(
+  bind_rows(
+    post.pred %>% filter(param == "allprob") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+           d.allprob.summ %>% rename(response = mean) %>% ungroup() %>%
+             select(-utterance, -measure) %>% mutate(src = "data")
+           ),
+  m.post %>%
+    filter(bin == 16) %>%
+    select(MAP, item) %>%
+    rename(priorMAP = MAP)
+)
+
+ggplot(mdAllProb.wPrior, aes( x = priorMAP, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)
+```
+
+Wonkiness
+
+```{r}
+
+mdWonky.wPrior <- left_join(
+  bind_rows(
+    post.pred %>% filter(param == "wonky") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+           d.wonky.summ %>% rename(response = mean) %>% ungroup() %>%
+             select(-utterance, -measure) %>% mutate(src = "data")
+           ),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
+)
+
+ggplot(mdWonky.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)+
+  geom_smooth()
+```
+
+
+## Wonky RSA 6: `wonky = flip(q)`, `backoff = binomial(p, ..)`
+
+
+Same as v5, but infer the binomial weight (as opposed to binomial(0.5))
+
+```{r wRSA3, echo=T}
+wRSA3 <- '
+var allPriors = myData["priors"]
+var allData = myData["data"]
+
+var backoffPrior = function(p){
+  return map(function(b){
+    return probability(b, Binomial({p:p, n:15}))
+  }, Binomial({p:p, n:15}).support())
+}
+
+var domainPrior = function(probs){
+  return discrete(probs)
+}
+
+// possible utterances
+var utterancePrior = function() {
+  return uniformDraw(["all", "some", "none"]);
+};
+
+// meaning funtion to interpret the utterances
+var literalMeanings = {
+  all: function(state) { return state === 15; },
+  some: function(state) { return state > 0; },
+  none: function(state) { return state === 0; }
+};
+
+// literal listener
+var literalListener = cache(function(utt, prior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var state = domainPrior(prior)
+    var meaning = literalMeanings[utt]
+    condition(meaning(state))
+    return state
+  })
+}, 10000);
+
+// pragmatic speaker
+var speaker = cache(function(state, alpha, prior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var utt = utterancePrior()
+    factor(alpha * literalListener(utt, prior).score(state))
+    return utt
+  })
+}, 10000);
+
+// pragmatic listener
+var pragmaticListener = function(utt, alpha, backoffWeight, wonkyPrior, itemPrior) {
+  return Infer({method:"enumerate"},
+  function(){
+    var wonky = flip(wonkyPrior);
+    var prior = wonky ? backoffPrior(backoffWeight) : itemPrior
+    var state = domainPrior(prior)
+    observe(speaker(state, alpha, prior), utt)
+    return {state: state, wonky: wonky}
+  })
+}
+
+var items = _.uniq(_.pluck(allPriors, "item"));
+
+var dataAnalysis = function(){
+  var alpha = uniformDrift({a: 0, b:20, width: 2});
+  var wonkyPrior = uniformDrift({a:0, b:1, width: 0.1});
+  // var wonkyPrior = 0.5;
+  var backoffWeight = uniformDrift({a:0, b:1, width: 0.1});
+
+  foreach(items, function(i){
+    // webppl objects sorted alphanumerically (so can just pluck)
+    // otherwise, would need to ensure that bins correspond to 0-15
+    var itemPrior = _.pluck(_.where(allPriors, {item: i}), "MAP");
+    var itemData =  _.pluck(_.where(allData, {item: i}), "response");
+
+    var l1Predictions = pragmaticListener("some", alpha, backoffWeight, wonkyPrior, itemPrior);
+
+    var l1State = marginalize(l1Predictions, "state");
+    var l1Wonky = marginalize(l1Predictions, "wonky");
+
+    observeData({
+      data: itemData,
+      link: l1State
+    })
+
+    query.add(["state", i], expectation(l1State))
+    query.add(["allprob", i], probability(15, l1State))
+    query.add(["wonky", i], expectation(l1Wonky))
+
+  })
+
+  query.add(["alpha", "NA"] , alpha)
+  query.add(["wonkyPrior", "NA"] , wonkyPrior)
+  query.add(["backoffWeight", "NA"] , backoffWeight)
+
+  return query
+
+}
+'
+```
+
+```{r eval=F}
+# load("models/wrsa/results/items_mcmc20k.Rdata")
+# d0<-read.csv("bayesian_model_comparison/data/empirical.csv")
+# d0.state <- d0 %>% filter(measure == "comp_state")
+dataToPass = list(priors = m.post,
+                   data = d0.state %>% filter(response != 0 ))
+
+numSamples = 200
+
+bda.results <- webppl(wRSA3, 
+       data_var = "myData",
+       data = dataToPass,
+       packages = c("mht"),
+       inference_opts = list(method = "MCMC",
+                             samples = numSamples,
+                             burn = numSamples/2, verbose = T#,
+                             #verboseLag = 200
+                             ),
+       chains = 2,
+       cores = 2,
+       model_var = "dataAnalysis",
+       output_format = "samples")
+
+save(bda.results,
+      file = "models/wrsa/results/wrsa3_inferQ_binomBackoff_inferP_mcmc200b100_x2.Rdata")
+```
+
+```{r}
+load("~/Documents/research/sinking-marbles/models/wrsa/results/wrsa3_inferQ_binomBackoff_inferP_mcmc200b100_x2.Rdata")
+qplot(bda.results$`alpha,NA`)
+
+post.pred <- bda.results %>%
+  gather(key, val) %>%
+  separate(key, into = c("param", "item"), sep =',') %>%
+  group_by(param, item) %>%
+  summarize(MAP = estimate_mode(val),
+            credHi = hdi_upper(val),
+            credLo = hdi_lower(val))
+
+```
+
+
+
+### Posterior on wonky probability
+```{r}
+qplot(bda.results$`wonkyPrior,NA`)
+```
+
+### Model-data scatter
+
+```{r}
+md <- left_join(d.summ, post.pred %>% filter(param == 'state'))
+
+ggplot(md, aes(x = MAP, xmin = credLo, xmax = credHi,
+               y = mean, ymin = ci_lower, ymax = ci_upper))+
+  geom_point()+
+  xlim(0, 15) + 
+  ylim(0, 15) + 
+  coord_fixed() + 
+  geom_errorbar(alpha =0.1) + 
+  geom_errorbarh(alpha = 0.1)+
+  geom_abline(intercept = 0, slope = 1, linetype = 3)
+```
+
+$$r^2(`r nrow(md)`) = `r with(md, cor(mean, MAP))^2`$$
+
+```{r eval=F}
+post.pred %>% filter(param == "wonky") %>%
+  ggplot(., aes(x = MAP))+
+  geom_histogram()+
+  ggtitle("Distribution on wonky ratings")
+```
+
+## Paper figures (Interpretation vs. Prior expectation)
+
+Give a number
+
+```{r}
+# prior data
+head(m.post)
+
+md.wPrior <- left_join(
+  bind_rows(post.pred %>% filter(param == "state") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+          d.summ %>% rename(response = mean) %>% ungroup() %>%
+            select(-utterance, -measure) %>% mutate(src = "data")),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
+)
+
+ggplot(md.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)
+```
+
+All prob
+
+```{r}
+# prior data
+head(m.post)
+
+mdAllProb.wPrior <- left_join(
+  bind_rows(
+    post.pred %>% filter(param == "allprob") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+           d.allprob.summ %>% rename(response = mean) %>% ungroup() %>%
+             select(-utterance, -measure) %>% mutate(src = "data")
+           ),
+  m.post %>%
+    filter(bin == 16) %>%
+    select(MAP, item) %>%
+    rename(priorMAP = MAP)
+)
+
+ggplot(mdAllProb.wPrior, aes( x = priorMAP, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)
+```
+
+Wonkiness
+
+```{r}
+
+mdWonky.wPrior <- left_join(
+  bind_rows(
+    post.pred %>% filter(param == "wonky") %>%
+            rename(response = MAP, ci_lower = credLo, ci_upper = credHi) %>% 
+              ungroup() %>%
+              select(-param) %>% mutate(src = "model"),
+           d.wonky.summ %>% rename(response = mean) %>% ungroup() %>%
+             select(-utterance, -measure) %>% mutate(src = "data")
+           ),
+  m.post %>%
+    select(MAP, item, bin) %>%
+    rename(priorMAP = MAP) %>%
+    group_by(item) %>%
+    summarize(priorExpectation = sum((bin - 1)*priorMAP))
+)
+
+ggplot(mdWonky.wPrior, aes( x = priorExpectation, y = response, ymin = ci_lower, ymax = ci_upper ))+
+  geom_point()+
+  facet_wrap(~src)+
+  geom_errorbar(alpha = 0.1)+
+  geom_smooth()
+```
+
+
+
