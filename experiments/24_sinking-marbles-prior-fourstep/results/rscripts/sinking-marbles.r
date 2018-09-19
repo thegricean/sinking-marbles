@@ -88,7 +88,7 @@ write.csv(smoothed_spread,file="../../../../bayesian_model_comparison/data/prior
 # get empirical unsmoothed priors
 bg = r %>% filter(responsetype == "best_guess")
 priors = as.data.frame(prop.table(table(bg$Item,bg$response),mar=c(1)))
-colnames(priors) = c("Item","State","EmpiricalProportion")
+colnames(priors) = c("Item","State","EmpiricalProportion4Step")
 priors = priors %>% 
   mutate(State = as.numeric(as.character(State))) %>%
   left_join(smoothed,by=c("Item","State"))
@@ -104,19 +104,24 @@ ggplot(gpriors,aes(State,y=Proportion,color=Type)) +
 ggsave(file="../graphs/empirical-smoothed.pdf",width=17,height=13)
 
 
-# load the smoothed one-step number task priors and plot alongside 4step
+# load the smoothed one-step number task priors and binned histogram priors and plot alongside 4step
 onestep = read.csv("../../../../bayesian_model_comparison/data/priors_numbertask_smoothed.csv") %>%
   gather(State,Proportion,-Item) %>%
   mutate(State=as.numeric(as.character(gsub("X","",State))),Type = "OneStepNumberTaskProportion")
 
+binned = read.csv("../../../../bayesian_model_comparison/data/priors_binnedhistogram_smoothed.csv") %>%
+  gather(State,Proportion,-Item) %>%
+  mutate(State=as.numeric(as.character(gsub("X","",State))),Type = "BinnedHistogramProportion")
+
 allpriors = gpriors %>%
-  bind_rows(onestep)
+  bind_rows(onestep) %>%
+  bind_rows(binned)
 
 ggplot(allpriors,aes(State,y=Proportion,color=Type)) +
   geom_point() +
   geom_line() +
   facet_wrap(~Item)
-ggsave(file="../graphs/allpriors.pdf",width=17,height=13)
+ggsave(file="../graphs/allpriors.pdf",width=17,height=14)
 
 
 # best_guesses = droplevels(subset(r, responsetype == "best_guess"))
