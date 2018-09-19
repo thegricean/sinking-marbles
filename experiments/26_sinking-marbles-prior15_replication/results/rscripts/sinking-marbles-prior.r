@@ -60,8 +60,8 @@ ggplot(smoothed, aes(x=State,y=SmoothedProportion)) +
 smoothed_spread = smoothed %>%
   # mutate(State=paste("X",State,sep="")) %>%
   spread(State,SmoothedProportion)
-write.csv(smoothed_spread,file="../data/priors_numbertask_smoothed.csv")
-write.csv(smoothed_spread,file="../../../../bayesian_model_comparison/data/priors_numbertask_smoothed.csv")
+write.csv(smoothed_spread,file="../data/priors_numbertask_smoothed.csv",row.names=F,quote=F)
+write.csv(smoothed_spread,file="../../../../bayesian_model_comparison/data/priors_numbertask_smoothed.csv",row.names=F,quote=F)
 
 # get empirical unsmoothed priors
 priors = as.data.frame(prop.table(table(r$Item,r$response),mar=c(1)))
