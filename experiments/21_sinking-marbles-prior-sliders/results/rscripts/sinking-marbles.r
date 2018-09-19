@@ -1,45 +1,58 @@
-library(ggplot2)
-library(plyr)
+library(tidyverse)
 theme_set(theme_bw(18))
-setwd("~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/21_sinking-marbles-prior-sliders/results/")
-source("rscripts/helpers.r")
+source("helpers.r")
 
-load("data/r.RData")
-load("../../1_sinking-marbles-prior/results/data/priors.RData")
-r = read.csv("data/sinking_marbles.csv", header=T)
+getNormalizedProbability = function(d) {
+  dd = as.data.frame(d)
+  total = sum(dd$MeanResponse)
+  smooth = dd %>%
+    group_by(slider_id) %>%
+    mutate(NormalizedProb = MeanResponse / total)
+  return(smooth$NormalizedProb)
+}
+
+# load("data/r.RData")
+# load("../../1_sinking-marbles-prior/results/data/priors.RData")
+r1 = read.csv("../data/sinking_marbles.csv", header=T)
+r1$workerid = r1$workerid + 60
+
+r2 = read.csv("../../../20_sinking-marbles-prior-sliders/results/data/sinking_marbles.csv", header=T)
+
+r = rbind(r1,r2)
 nrow(r)
 head(r)
+
 r$trial = r$slide_number_in_experiment - 2
 r = r[,c("assignmentid","workerid", "rt", "effect", "cause","language","gender.1","age","gender","other_gender", "object_level", "response", "object","slider_id","num_objects","trial","enjoyment","asses","comments","Answer.time_in_minutes","slider_id")]
 r$object_level = factor(r$object_level, levels=c("object_high", "object_mid", "object_low"))
 r$Item = as.factor(paste(r$effect,r$object))
 table(r$Item)
 
-## add old priors to data.frame
-priorprobs = read.table(file="~/cogsci/projects/stanford/projects/thegricean_sinking-marbles/experiments/12_sinking-marbles-prior15/results/data/smoothed_15marbles_priors_withnames.txt",sep="\t", header=T, quote="")
-head(priorprobs)
-row.names(priorprobs) = paste(priorprobs$effect,priorprobs$object)
-mpriorprobs = melt(priorprobs, id.vars=c("effect", "object"))
-head(mpriorprobs)
-row.names(mpriorprobs)= paste(mpriorprobs$variable, mpriorprobs$effect,mpriorprobs$object)
-head(mpriorprobs)
-
-r$PriorProbability = mpriorprobs[paste(paste("X",r$slider_id,sep=""),as.character(r$Item), sep=" "),]$value
-
 # compute normalized probabilities
-nr = ddply(r, c("workerid","trial"), summarise, 
-           sumresponse=sum(response))
-row.names(nr) = paste(nr$workerid, nr$trial)
+nr = r %>%
+  select(Item,slider_id,response) %>%
+  group_by(Item,slider_id) %>%
+  summarize(MeanResponse = mean(response)) %>%
+  ungroup() %>%
+  group_by(Item) %>%
+  nest() %>%
+  mutate(SmoothedProportion = map(data,getNormalizedProbability)) %>%
+  unnest()
 
-r$normresponse = r$response/nr[paste(r$workerid, r$trial),]$sumresponse
+ggplot(nr, aes(x=slider_id,y=SmoothedProportion)) +
+  geom_point() +
+  geom_line() +
+  facet_wrap(~Item)
 
-# test: sums should add to 1
-sums = ddply(r, .(workerid,trial), summarise, sum(normresponse))
-colnames(sums) = c("workerid","trial","sum")
-summary(sums)
-sums[is.na(sums$sum),]
 
-save(r, file="data/r.RData")
+# write probabilities (no smoothing required, but we call it smoothed anyway for comparison with the other priors datasets) for model comparison
+smoothed_spread = nr %>%
+  select(-MeanResponse) %>%
+  spread(slider_id,SmoothedProportion)
+
+write.csv(smoothed_spread,file="../data/priors_binnedhistogram_smoothed.csv",row.names=F,quote=F)
+write.csv(smoothed_spread,file="../../../../bayesian_model_comparison/data/priors_binnedhistogram_smoothed.csv",row.names=F,quote=F)
+
 
 ##################
 
