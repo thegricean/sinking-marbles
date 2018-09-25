@@ -1,0 +1,262 @@
+//  time ~/webppl-github/webppl wonky-modelselec.wppl --require wonkyutils --require webppl-json modelName priors noise
+//  time ~/webppl-github/webppl wonky-modelselec.wppl --require wonkyutils --require webppl-json wrsa number none
+
+// modelName: wrsa, rsa, literal, priorOnly
+// priors: number, 4step, binned_hist
+// noise: none, uniform, prior
+  // noise sets data: no noise --> filter 0s; noise --> no filter
+
+var arguments = process.argv
+var modelName = arguments[arguments.length - 3]
+var priors = arguments[arguments.length - 2]
+var noise = arguments[arguments.length - 1]
+
+// console.log(modelName)
+// console.log(priors)
+// console.log(noise)
+
+var priorFiles = {
+  number: "priors_numbertask_smoothed.csv",
+  "4step": "priors_numbertask4step_smoothed.csv",
+  binned_hist: "priors_binnedhistogram_smoothed.csv"
+}
+
+var quantifiers = (noise == "none") ? ["Some"] : ["Some","All","None"]
+console.log(quantifiers)
+
+var dependentMeasures = ['comp_state']
+
+// helper functions
+
+var modelScore = function(modelERP, data){
+    return reduce(function(dataPoint, memo) {
+                return memo + modelERP.score(dataPoint);
+            }, 0, data)
+  }
+
+var utterancePrior = function() {
+  var utterances = [
+                    "Some",
+                    "All",
+                    "None"
+                    // "mu"
+                    ]
+ return uniformDraw(utterances)
+  // return utterances[discrete([1,1,1,10])]
+}
+
+var meaning = function(utt,world) {
+  return utt=="Some"? world>0 :
+  utt=="All"? world==numObjs :
+  utt=="None"? world==0 :
+  utt=="mu"? true :
+  true
+}
+
+
+
+var numObjs = 15
+
+var backoffPrior = function() {
+  var marbles = randomInteger(numObjs+1) //15 marbles... 0-15 can sink
+  return marbles
+}
+
+
+// data
+var empiricalPriors = wonkyutils.readPriors(priorFiles[priors])
+var languageData = wonkyutils.readData('empirical_binarywonky.csv')
+
+var listOf90Items = _.keys(empiricalPriors)
+
+
+
+// quantifiers
+// var linkingFunction2 =  function(marginalERP, measure, sigma){
+
+//    var makeERPfromObject = function(obj){
+//     return Enumerate(
+//       function(){
+//         return wonkyutils.wpParseFloat(_.keys(obj)[discrete(_.values(obj))])
+//       })
+//    }
+
+//     var logitNoiseLogistic = function(prob,sigma){
+//       var bins = [0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.99]
+
+//       var linkedDist=  _.object(map(
+//         function(d){return [d, Math.exp(gaussianERP.score([wonkyutils.logit(prob),sigma], wonkyutils.logit(d)))]},
+//         bins))
+
+//       return makeERPfromObject(linkedDist)
+//     }
+
+
+//     var posteriorProb = measure == "comp_allprob" ? 
+//                                 Math.exp(marginalERP.score([], 15)):
+// //                                wonkyutils.softmax(Math.exp(marginalERP.score([], true)),wonkySoftmax)
+//                                 Math.exp(marginalERP.score([], true))
+
+
+//     var posteriorProbAvoidEnds = ((posteriorProb==1) | (posteriorProb==0))? {0:0.01, 1:0.99}[posteriorProb]:posteriorProb
+
+//     var queryStatement = logitNoiseLogistic(posteriorProbAvoidEnds,sigma)
+
+//     return queryStatement
+// }
+
+
+
+// console.log(modelName == "wrsa")
+
+var marginalLikelihood = function(){
+
+  // Priors
+  // var speakerOptimality = uniform(0,10)
+
+
+  // parameters for wonky RSA
+  var speakerOptimality = uniformDrift({a:0, b:20, width: 2})
+  var wonkinessPrior = modelName == 'wrsa' ? uniformDrift({a:0, b:1, width: 0.2}) : 0
+  var noiseParam = noise == "none" ? 0 : uniformDrift({a:0, b:1, width: 0.2})
+
+  // var wonkyHyperprior = 0.01+(randomInteger(10)/10)
+  // var wonkyLinkingSigma = (randomInteger(10)+2) 
+
+  // parameteres for regular RSA
+  // var regularSpeakerOptimality = 0.1+randomInteger(5)
+  // var regularLinkingSigma = (randomInteger(10)+2) 
+
+   // var linkingSigmaOne = (randomInteger(40)+4)/3
+   // var linkingSigmaOne = (randomInteger(10)+2)
+
+
+   // var linkingSigma = {
+   //                      'comp_allprob':   linkingSigmaOne,
+   //                      'wonkiness':   linkingSigmaOne
+   //                    }
+
+    map(function(item){
+      // console.log(item)
+      // console.log(empiricalPriors[item])
+      var priorOnly = Enumerate(function(){                                                                         
+          var world = discrete(empiricalPriors[item])
+          return world
+      })
+
+      var literalListener = cache(function(utterance) {
+        Enumerate(function(){                                                                         
+          var world = discrete(empiricalPriors[item])
+          var m = meaning(utterance, world)
+          condition(m)
+          return world
+        })
+      })
+
+      var wonkyLiteralListener = cache(function(utterance, prior) {
+        Enumerate(function(){                                                                         
+          var world = discrete(prior)
+          var m = meaning(utterance, world)
+          // console.log(utterance+ " "+world+ " " + m)
+          condition(m)
+
+          return world
+        })
+      })
+
+
+
+    var wonkySpeaker = cache(function(world, prior) {
+        Enumerate(function(){
+          var utterance = utterancePrior()
+          var L = wonkyLiteralListener(utterance, prior)
+          factor(speakerOptimality * L.score(world))
+          return utterance
+          })
+      })
+
+
+    var wonkyListener = function(utterance) {
+      Enumerate(function(){
+        var wonky = flip(wonkinessPrior)
+        var prior =  wonky ? repeat(numObjs + 1, function(){1}) : empiricalPriors[item]
+        var world = discrete(prior)
+        // console.log(world)
+        // console.log(utterance)
+        var S = wonkySpeaker(world, prior)
+
+        observe(S, utterance)
+
+        return world
+      })
+    }
+
+    var noiseModel = function(dist, phi, noise){
+      noise == "none" ? dist :
+        Infer({model: function(){
+          flip(phi) ? 
+            noise == "prior" ? sample(priorOnly) : randomInteger(empiricalPriors[item].length) : 
+            sample(dist)
+        }})
+    }
+
+
+       map(function(utterance){
+         map(function(measure){
+          var dataPoints = filter(function(x){ x > 0 }, languageData[item][utterance][measure])
+
+          // for model with just 1 speakerOptimality for all 3 tasks
+           var L1 = modelName == "literal" ? literalListener(utterance) : 
+           modelName == "priorOnly" ? priorOnly : 
+           wonkyListener(utterance)
+
+          // for speakerOptimalities that differ across tasks
+          // var predictionERP = listener(utterance, wonkinessPrior, speakerOptimality[measure], item, query)
+
+          // if comprehension task "give a number", use the marginal posterior directly
+          // otherwise, need to connect to the slider value somehow
+          // here, we assume the slider value is the mean of a beta (possibly discretized, for implementation)
+          // and there is some concentration (delta) variable; this is a mere nuisance, data-analysis parameter
+          var linkedERP = measure == "comp_state" ?
+                           noiseModel(L1, noiseParam, noise) :
+                           // linkingFunction(predictionERP, measure, linkingBetaConcentration, wonkySoftmax)
+                          // linkingFunction(predictionERP, measure, linkingBetaConcentration[measure], wonkySoftmax)
+                            linkingFunction2(L1, measure, linkingSigmaOne)
+
+         // modelScore(linkedERP, dataPoints)==-Infinity ? console.log('error'):null
+         console.log(item + " " + utterance + " " + modelScore(linkedERP, dataPoints))
+         // factor(modelScore(linkedERP, dataPoints))
+         // return modelScore(linkedERP, dataPoints)
+
+
+          }, dependentMeasures)
+
+        }, 
+        // ["Some"])
+        quantifiers)
+
+      }, 
+      // ["sank marbles"])
+    listOf90Items)
+}
+
+// marginalLikelihood()
+
+
+// var steps = 100
+// var samples = 1
+// var mll = AIS(marginalLikelihood, {steps:steps, samples: samples})
+
+// var resultsOutFile = 'results/marginal_likelihood/ais-'+
+//   modelName+'-numbertaskSmoothedPriors-someNonzero-steps'+steps +"-samples"+samples +'.json'
+
+// // postOut
+// json.write(resultsOutFile, mll)
+// arguments
+
+// empiricalPriors
+languageData["beeped houses"]["None"]["comp_state"]
+// empiricalPriors["stuck beads"]
+// filter(function(x){x>0}, languageData["beeped houses"]["Some"]["comp_state"])
+// marginalLikelihood()
+// languageData["sank marbles"]
