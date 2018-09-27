@@ -1,5 +1,8 @@
-//  time ~/webppl-github/webppl wonky-modelselec.wppl --require wonkyutils --require webppl-json modelName priors noise
+//  time ~/webppl-github/webppl wonky-modelselec.wppl --require wonkyutils --require webppl-json modelName priors noise iter
 //  time ~/webppl-github/webppl wonky-modelselec.wppl --require wonkyutils --require webppl-json wrsa number none
+
+
+// 2hr for 10000 steps
 
 // modelName: wrsa, rsa, literal, priorOnly
 // priors: number, 4step, binned_hist
@@ -7,9 +10,10 @@
   // noise sets data: no noise --> filter 0s; noise --> no filter
 
 var arguments = process.argv
-var modelName = arguments[arguments.length - 3]
-var priors = arguments[arguments.length - 2]
-var noise = arguments[arguments.length - 1]
+var modelName = arguments[arguments.length - 4]
+var priors = arguments[arguments.length - 3]
+var noise = arguments[arguments.length - 2]
+var iter = arguments[arguments.length - 1]
 
 // console.log(modelName)
 // console.log(priors)
@@ -22,7 +26,7 @@ var priorFiles = {
 }
 
 var quantifiers = (noise == "none") ? ["Some"] : ["Some","All","None"]
-console.log(quantifiers)
+// console.log(quantifiers)
 
 var dependentMeasures = ['comp_state']
 
@@ -224,8 +228,8 @@ var marginalLikelihood = function(){
                             linkingFunction2(L1, measure, linkingSigmaOne)
 
          // modelScore(linkedERP, dataPoints)==-Infinity ? console.log('error'):null
-         console.log(item + " " + utterance + " " + modelScore(linkedERP, dataPoints))
-         // factor(modelScore(linkedERP, dataPoints))
+         // console.log(item + " " + utterance + " " + modelScore(linkedERP, dataPoints))
+         factor(modelScore(linkedERP, dataPoints))
          // return modelScore(linkedERP, dataPoints)
 
 
@@ -243,19 +247,20 @@ var marginalLikelihood = function(){
 // marginalLikelihood()
 
 
-// var steps = 100
-// var samples = 1
-// var mll = AIS(marginalLikelihood, {steps:steps, samples: samples})
+var steps = 10000
+var samples = 1
+var mll = AIS(marginalLikelihood, {steps:steps, samples: samples})
 
-// var resultsOutFile = 'results/marginal_likelihood/ais-'+
-//   modelName+'-numbertaskSmoothedPriors-someNonzero-steps'+steps +"-samples"+samples +'.json'
+
+var resultsOutFile = 'results/marginal_likelihood/ais-'+
+  modelName+'-priors_'+priors+'-noise_'+noise+'-steps'+steps +"-iter"+iter +'.json'
 
 // // postOut
-// json.write(resultsOutFile, mll)
+json.write(resultsOutFile, mll)
 // arguments
 
 // empiricalPriors
-languageData["beeped houses"]["None"]["comp_state"]
+// languageData["beeped houses"]["None"]["comp_state"]
 // empiricalPriors["stuck beads"]
 // filter(function(x){x>0}, languageData["beeped houses"]["Some"]["comp_state"])
 // marginalLikelihood()
