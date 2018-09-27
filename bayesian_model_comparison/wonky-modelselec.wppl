@@ -247,7 +247,7 @@ var marginalLikelihood = function(){
 // marginalLikelihood()
 
 
-var steps = 10000
+var steps = 100
 var samples = 1
 var mll = AIS(marginalLikelihood, {steps:steps, samples: samples})
 
