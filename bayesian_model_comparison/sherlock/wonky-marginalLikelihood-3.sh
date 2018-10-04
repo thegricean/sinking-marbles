@@ -31,4 +31,4 @@
 #################
 
 #now run normal batch commands
-~/webppl-github/webppl wonky-modelselec.wppl  --require wonkyutils --require webppl-json literal number none $SLURM_ARRAY_TASK_ID
+~/webppl-github/webppl wonky-modelselec.wppl  --require wonkyutils --require webppl-json literal number prior $SLURM_ARRAY_TASK_ID

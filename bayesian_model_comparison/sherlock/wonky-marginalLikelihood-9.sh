@@ -31,4 +31,4 @@
 #################
 
 #now run normal batch commands
-~/webppl-github/webppl wonky-modelselec.wppl  --require wonkyutils --require webppl-json wrsa 4step uniform $SLURM_ARRAY_TASK_ID
+~/webppl-github/webppl wonky-modelselec.wppl  --require wonkyutils --require webppl-json wrsa binned_hist none $SLURM_ARRAY_TASK_ID
