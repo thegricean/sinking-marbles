@@ -24,6 +24,11 @@
 \definecolor{Green}{RGB}{50,200,50}
 \newcommand{\ndg}[1]{\textcolor{Green}{[ndg: #1]}}  
 
+\definecolor{blueish}{RGB}{20,150,250}
+\newcommand{\blueish}[1]{\textcolor{blueish}{#1}}
+\newcommand{\mht}[1]{\textcolor{blueish}{[mht: #1]}}  
+
+
  \newcommand{\denote}[1]{\mbox{ $[\![ #1 ]\!]$}}
 
 
@@ -69,8 +74,7 @@
 
 Knowledge about the world enters into sentence interpretation in complex ways, and may be defeasible in light of speakers' utterances.  Yet there is to date a surprising lack of systematic investigation into the role of world knowledge in pragmatic inference. In this paper, we show that a state-of-the-art model of pragmatic interpretation greatly overestimates the influence of world knowledge on the interpretation of utterances with quantifier words, like \emph{Some of the marbles sank}. We extend the model to capture the idea that  listeners are uncertain about the background knowledge that speakers are bringing to the conversation, i.e., about what knowledge is in common ground. This extension greatly improves model predictions about listeners' interpretation and also makes good qualitative predictions about listeners' judgments of how likely the world is to be (ab)normal in light of a speaker's statement. \blue{In addition, we show that the diminished effect of world knowledge on pragmatic inference is not attributable to a speaker's perceived lack of cooperativity; systematic lesions to the model simulating reduced speaker cooperativity predict a \emph{greater} effect of world knowledge---a prediction that is borne out empirically.} 
 \ndg{say something more clear about predicting and getting stronger prior influence for uncooperative speakers?}\jd{better?}
-The results suggest that when observing an odd utterance, listeners systematically revise common ground in order to render the utterance felicitous---if that utterance comes from a trusted source. 
- 
+The results suggest that when observing an odd utterance, listeners systematically revise common ground in order to render the utterance felicitous---if that utterance comes from a trusted source.  
 
 \textbf{Keywords:} 
 scalar implicature; common ground; world knowledge; prior beliefs; experimental pragmatics; probabilistic pragmatics
@@ -317,7 +321,7 @@ Exps.~2a and 2b thus demonstrate that there is an effect of listeners' prior bel
 
 To capture the idea that the pragmatic listener is unsure what background knowledge the speaker is bringing to the conversation, we extend the basic RSA model to capture uncertainty about an aspect of the language understanding setup itself---a technique that has been used recently for other aspects of pragmatic understanding \cite{goodmanlassiter,lassiter2013,bergengoodman2012,kao2014}. 
 %corresponding to the choice of state prior. A lifted variable is a variable that the model (in particular, the pragmatic listener) reasons about explicitly instead of being given a value for it. 
-In this case, we posit that the prior, now $P(s|w)$, depends on a ``wonkiness'' variable $w$, which determines whether to use the ``usual'' prior for this domain (empirically elicited in Exp.~1)  or a more generic back-off prior. We choose a uniform back-off prior, capturing that if the listener decides not to use the usual prior, she discards all beliefs about the domain and ascribes equal prior probability to each state:\footnote{\red{a footnote either briefly discussing other priors or delaying such a discussion to the general discussion}}
+In this case, we posit that the prior, now $P(s|w)$, depends on a ``wonkiness'' variable $w$, which determines whether to use the ``usual'' prior for this domain (empirically elicited in Exp.~1)  or a more generic back-off prior. For simplicity, we choose a uniform back-off prior, capturing that if the listener decides not to use the usual prior, she discards all beliefs about the domain and ascribes equal prior probability to each state:\footnote{\red{a footnote either briefly discussing other priors or delaying such a discussion to the general discussion}}
 $$
 P(s|w) \propto \begin{cases}
 1  & \text{if } w\\
@@ -328,13 +332,24 @@ P(s|w) \propto \begin{cases}
 This prior is used in both the literal and pragmatic listeners, indicating that it is taken to be common ground. However, the $w$ variable is reasoned about only by the pragmatic listener---it is an inference the pragmatic listener makes about which assumptions are appropriate to the conversation (i.e.~which prior the speaker assumes). Using the notation of \sectionref{sec:rsa}:
 \begin{eqnarray}
 &&P_{L_0}(s|u,w)\propto \delta_{\denote{u}(s)} \cdot P(s|w)\\
-&&P_{S_1}(u|s,w) \propto \mathrm{exp}({\lambda \ln P_{L_0}(s|u,w))}\\
+&&P_{S_1}(u|s,w) \propto \mathrm{exp}({\lambda \ln P_{L_0}(s|u,w))}\\ 
 &&P_{L_1}(s,w|u)\propto P_{S_1}(u|s,w)\cdot P(s|w) \cdot P(w)
 \end{eqnarray}
 We refer to this model as wRSA. Notice that the value of $w$ inferred by the listener will depend on $P_{S_1}(u|s,w)$: if a given utterance can't be explained by the usual prior, because it is unlikely to be uttered under any plausible world state $s$, then the pragmatic listener will infer that the world is wonky, and back off to the uniform prior.
-That is, if the utterance is odd, the listener will revise her opinion about what world knowledge is appropriate to use to recohstruct the speaker's meaning. %\red{we need to explain where oddness comes from -- maybe there's an easy graphical way of showing how for items with different priors, a `some' utterance is more or less wonky, by showing the marginal probabilities of observing each utterance for these different items?}
+That is, if the utterance is odd, the listener will revise her opinion about what world knowledge is appropriate to use to reconstruct the speaker's meaning. %\red{we need to explain where oddness comes from -- maybe there's an easy graphical way of showing how for items with different priors, a `some' utterance is more or less wonky, by showing the marginal probabilities of observing each utterance for these different items?}
 
+\blue{Figure X shows the wRSA predicted number of objects as a result of a ``Some'' utterance. wRSA does not exhibit the same asymptotic behavior as RSA. As the prior probability of the event increases, wRSA predicts a dampened inference with respect to the number of objects with the property and the implication is not expected to cancel as the base rate approaches 1. These predictions qualitatively match the data observed in Expt. 2}
+
+The quantitative predictions of wRSA depend upon the model's two free parameters: the speaker optimality parameter $\lambda$ in Eq. \ref{eq:S1w} and the prior probability of wonkiness $P(w)$ in Eq. \ref{eq:L1w}.
+\mht{perform a single model BDA to infer the parameters of wRSA to report MSE and r-squared}
+\mht{describe how we analyze the model using the ``Some'' data filtering out the 0s... but that the results are comparable if you add a noise process to account for the 0-responses}
 \red{THIS WHOLE BIT NEEDS TO BE UPDATED IN RESPONSE TO MH'S NUMBERS To make predictions for Exps.~2 from wRSA we use the inferred priors from Exps.~1 as $P_{\text{usual}}(s)$ for each item. The wonkiness prior $P(w)$ and the speaker optimality parameter $\lambda$ are fit to optimize mean squared error (MSE) with Exp.~2 data. The optimal parameters ($\lambda = 2$, $P(w) = 0.5$) resulted in an MSE of 2.15 (compared to 14.53 for RSA) for the expected number of objects, and 0.01 (compared to 0.07 for RSA) for the all-state probability. The better fit of wRSA compared to RSA can be seen in the comparison of \figref{fig:rrsaexppredictions} and \figref{fig:empiricalresults}: in both cases, wRSA (light blue lines) predicts a much attenuated effect of the prior compared to regular RSA (dark blue lines), in line with the empirical data. Furthermore, wRSA does not make either of the problematic predictions identified earlier for regular RSA.}
+
+Wonky RSA is a more complex model than regular RSA because of the additional degree of freedom in the wonkiness prior. 
+To account for the additional flexibility of wRSA and our uncertainty about the values of the free parameters, we perform a Bayesian model comparison between these models by estimating the marginal likelihood of the data under each model using Annealed Importance Sampling \cite{neal2001annealed}. 
+The Bayes Factor comparing wonky RSA to regular RSA is on the order of $e^{1500}$ in favor of wonky RSA.
+The data strongly argue for the existence a wonkiness parameter that allows listeners the opportunity to revise common ground when utterances are odd.
+
 
 
 These results are encouraging: wRSA is able to account for the qualitative and quantitative departures of participants' behavior from RSA, with respect to the effect of the prior. However, the skeptical reader may wonder whether the attenuated effect of the prior is really caused by listeners inferring that \emph{the world is wonky} when observing an odd utterance. Maybe listeners' disregard for the prior is instead triggered by an inference that \emph{the speaker is unreliable}. There are at least two ways to test whether a world wonkiness story or a speaker reliability story is more plausible. One is to generate model predictions for wonkiness probability and compare them to empirical wonkiness estimates. Another is to lesion the model to simulate different ways in which speakers could be unreliable, and compare the resulting model predictions to empirical data from an experiment that manipulates speaker reliability. The next two sections report the results of conducting each of these tests.
