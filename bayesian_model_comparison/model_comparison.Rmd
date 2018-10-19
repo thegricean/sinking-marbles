@@ -1,0 +1,55 @@
+---
+title: "model_comparison"
+author: "M. H. Tessler"
+date: "10/4/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(jsonlite)
+library(tidyverse)
+library(purrr)
+```
+
+## Model comparison results
+
+
+load results
+
+```{r}
+rs.path <- "results/marginal_likelihood/"
+rs.files <- list.files(
+  path = rs.path,
+  pattern = "*steps10000-*"
+  )
+
+loadLikelihoods <- function(filename){
+  strparts <- strsplit(filename, split = "-")[[1]]
+  modelName <- strparts[2]
+  priorsType <- gsub("priors_", "", strparts[3])
+  noiseType <- gsub("noise_", "", strparts[4])
+  steps <- as.numeric(gsub("steps", "", strparts[5]))
+  iterNum <- as.numeric(gsub(".json", "", gsub("iter", "", strparts[6])))
+  marginal_loglik <- fromJSON(paste(rs.path, filename, sep = ""))[1]
+  return(list(
+    modelName = modelName,
+    priorsType = priorsType,
+    noiseType = noiseType,
+    steps = steps,
+    iterNum = iterNum,
+    marginal_loglik = marginal_loglik
+  ))
+}
+
+df.mc <- do.call(rbind.data.frame,map(rs.files, loadLikelihoods))
+```
+
+
+```{r}
+df.mc %>%
+  group_by(modelName, priorsType, noiseType) %>%
+  summarize( n = n(), 
+             marg_ll = mean(marginal_loglik)) %>% 
+  View()
+```
+
